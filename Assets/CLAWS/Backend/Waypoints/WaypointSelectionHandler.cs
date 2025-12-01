@@ -1,0 +1,1 @@
+// MEI NOTE: optional, implement if time. can be reused on either world objects or UI icons to select a waypoint when clicked.

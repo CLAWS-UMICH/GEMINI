@@ -1,0 +1,1 @@
+// MEI NOTE: lives on the actual waypoint prefab(s) in the 3D world; bridges between a WaypointData and its GameObject.

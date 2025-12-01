@@ -1,0 +1,1 @@
+// MEI NOTE: GEMINI version of WaypointChar.cs—handles the TextMeshPro label that only the minimap camera sees.

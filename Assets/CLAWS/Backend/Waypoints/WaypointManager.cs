@@ -1,0 +1,1 @@
+// MEI NOTE: single source of truth for all waypoints; replaces AURA’s EventBus + scattered lists.
