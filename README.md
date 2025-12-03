@@ -1,1 +1,1 @@
-# GEMINI AI Subteam
+# experimenting with different AI architechures
