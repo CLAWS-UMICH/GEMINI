@@ -1,0 +1,7 @@
+#!/Users/gloriachang/Desktop/umich/CLAWS/AI_Data/AI-Data-25-26/augment_commands/env/bin/python3.11
+import sys
+from rsa.cli import verify
+if __name__ == '__main__':
+    if sys.argv[0].endswith('.exe'):
+        sys.argv[0] = sys.argv[0][:-4]
+    sys.exit(verify())
