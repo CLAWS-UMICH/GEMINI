@@ -3,24 +3,21 @@ using UnityEngine;
 public class OffPathNotification : MonoBehaviour
 {
     public GameObject notificationBar;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         notificationBar.SetActive(false);
     }
 
+    // to make the notification bar visible
     public void OnTriggerShow()
     {
         notificationBar.SetActive(true);
     }
 
+    // to hide the notification bar after back on path
     public void OnTriggerHide()
     {
         notificationBar.SetActive(false);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // add fading effect?
     }
 }
