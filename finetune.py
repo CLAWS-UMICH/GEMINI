@@ -226,8 +226,8 @@ def main():
         id2label=id2label,
         label2id=label2id,
         cache_dir=cache_dir,
-        hidden_dropout_prob=0.2,
-        attention_probs_dropout_prob=0.2,
+        dropout=0.2,
+        attention_dropout=0.2,
     )
     model.to(device)
 
