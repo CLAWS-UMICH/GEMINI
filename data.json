@@ -14525,5 +14525,411 @@
       { "type": "TASK_NAME_START", "text": "course" },
       { "type": "TASK_NAME_CONT", "text": " planning session" }
     ]
+  },
+  {
+    "prompt": "hello",
+    "tool_calls": [],
+    "parts": [{ "type": "TEXT", "text": "hello" }]
+  },
+  {
+    "prompt": "yo",
+    "tool_calls": [],
+    "parts": [{ "type": "TEXT", "text": "yo" }]
+  },
+  {
+    "prompt": "whats up",
+    "tool_calls": [],
+    "parts": [{ "type": "TEXT", "text": "whats up" }]
+  },
+
+  {
+    "prompt": "show me my vitals",
+    "tool_calls": ["GET_VITALS"],
+    "parts": [{ "type": "TEXT", "text": "show me my vitals" }]
+  },
+  {
+    "prompt": "give me my vitals",
+    "tool_calls": ["GET_VITALS"],
+    "parts": [{ "type": "TEXT", "text": "give me my vitals" }]
+  },
+  {
+    "prompt": "whats my health",
+    "tool_calls": ["GET_VITALS"],
+    "parts": [{ "type": "TEXT", "text": "whats my health" }]
+  },
+  {
+    "prompt": "yo hows my heart doing",
+    "tool_calls": ["GET_VITALS"],
+    "parts": [{ "type": "TEXT", "text": "yo hows my heart doing" }]
+  },
+  {
+    "prompt": "check my vitals",
+    "tool_calls": ["GET_VITALS"],
+    "parts": [{ "type": "TEXT", "text": "check my vitals" }]
+  },
+  {
+    "prompt": "how am i doing",
+    "tool_calls": ["GET_VITALS"],
+    "parts": [{ "type": "TEXT", "text": "how am i doing" }]
+  },
+  {
+    "prompt": "hows my health",
+    "tool_calls": ["GET_VITALS"],
+    "parts": [{ "type": "TEXT", "text": "hows my health" }]
+  },
+
+  {
+    "prompt": "whats the next step",
+    "tool_calls": ["NAVIGATION_QUERY"],
+    "parts": [{ "type": "TEXT", "text": "whats the next step" }]
+  },
+  {
+    "prompt": "next nav step",
+    "tool_calls": ["NAVIGATION_QUERY"],
+    "parts": [{ "type": "TEXT", "text": "next nav step" }]
+  },
+  {
+    "prompt": "where do i go next",
+    "tool_calls": ["NAVIGATION_QUERY"],
+    "parts": [{ "type": "TEXT", "text": "where do i go next" }]
+  },
+  {
+    "prompt": "whats the next nav step",
+    "tool_calls": ["NAVIGATION_QUERY"],
+    "parts": [{ "type": "TEXT", "text": "whats the next nav step" }]
+  },
+  {
+    "prompt": "navigate to next",
+    "tool_calls": ["NAVIGATION_QUERY"],
+    "parts": [{ "type": "TEXT", "text": "navigate to next" }]
+  },
+
+  {
+    "prompt": "yo hows my health doing and whats the next nav step",
+    "tool_calls": ["GET_VITALS", "NAVIGATION_QUERY"],
+    "parts": [
+      {
+        "type": "TEXT",
+        "text": "yo hows my health doing and whats the next nav step"
+      }
+    ]
+  },
+  {
+    "prompt": "check vitals and next step",
+    "tool_calls": ["GET_VITALS", "NAVIGATION_QUERY"],
+    "parts": [{ "type": "TEXT", "text": "check vitals and next step" }]
+  },
+
+  {
+    "prompt": "make a task to fix the door",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task to " },
+      { "type": "TASK_NAME_START", "text": "fix" },
+      { "type": "TASK_NAME_CONT", "text": " the door" }
+    ]
+  },
+  {
+    "prompt": "create a task to wash the window",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create a task to " },
+      { "type": "TASK_NAME_START", "text": "wash" },
+      { "type": "TASK_NAME_CONT", "text": " the window" }
+    ]
+  },
+  {
+    "prompt": "add a task to check the engine",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add a task to " },
+      { "type": "TASK_NAME_START", "text": "check" },
+      { "type": "TASK_NAME_CONT", "text": " the engine" }
+    ]
+  },
+  {
+    "prompt": "yo make a task to clean the room",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "yo make a task to " },
+      { "type": "TASK_NAME_START", "text": "clean" },
+      { "type": "TASK_NAME_CONT", "text": " the room" }
+    ]
+  },
+
+  {
+    "prompt": "make a task to make the voice thing for claws",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task to " },
+      { "type": "TASK_NAME_START", "text": "make" },
+      { "type": "TASK_NAME_CONT", "text": " the voice thing for claws" }
+    ]
+  },
+  {
+    "prompt": "yo make a task to make the voice thing for claws",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "yo make a task to " },
+      { "type": "TASK_NAME_START", "text": "make" },
+      { "type": "TASK_NAME_CONT", "text": " the voice thing for claws" }
+    ]
+  },
+  {
+    "prompt": "create a task to build the authentication system",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create a task to " },
+      { "type": "TASK_NAME_START", "text": "build" },
+      { "type": "TASK_NAME_CONT", "text": " the authentication system" }
+    ]
+  },
+  {
+    "prompt": "add a task to debug the memory leak in the worker",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add a task to " },
+      { "type": "TASK_NAME_START", "text": "debug" },
+      { "type": "TASK_NAME_CONT", "text": " the memory leak in the worker" }
+    ]
+  },
+  {
+    "prompt": "make a task to implement the new dashboard design",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task to " },
+      { "type": "TASK_NAME_START", "text": "implement" },
+      { "type": "TASK_NAME_CONT", "text": " the new dashboard design" }
+    ]
+  },
+  {
+    "prompt": "create a task to test the login flow for mobile",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create a task to " },
+      { "type": "TASK_NAME_START", "text": "test" },
+      { "type": "TASK_NAME_CONT", "text": " the login flow for mobile" }
+    ]
+  },
+  {
+    "prompt": "add a task to review the code changes in the backend",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add a task to " },
+      { "type": "TASK_NAME_START", "text": "review" },
+      { "type": "TASK_NAME_CONT", "text": " the code changes in the backend" }
+    ]
+  },
+  {
+    "prompt": "make a task to optimize the database query performance",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task to " },
+      { "type": "TASK_NAME_START", "text": "optimize" },
+      { "type": "TASK_NAME_CONT", "text": " the database query performance" }
+    ]
+  },
+
+  {
+    "prompt": "add a task to go to the doctor",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add a task to " },
+      { "type": "TASK_NAME_START", "text": "go" },
+      { "type": "TASK_NAME_CONT", "text": " to the doctor" }
+    ]
+  },
+  {
+    "prompt": "yo add a task to go to the store",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "yo add a task to " },
+      { "type": "TASK_NAME_START", "text": "go" },
+      { "type": "TASK_NAME_CONT", "text": " to the store" }
+    ]
+  },
+
+  {
+    "prompt": "make a task for checking inventory",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task for " },
+      { "type": "TASK_NAME_START", "text": "checking" },
+      { "type": "TASK_NAME_CONT", "text": " inventory" }
+    ]
+  },
+  {
+    "prompt": "create a task for updating the logs",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create a task for " },
+      { "type": "TASK_NAME_START", "text": "updating" },
+      { "type": "TASK_NAME_CONT", "text": " the logs" }
+    ]
+  },
+  {
+    "prompt": "add a task for documenting the api endpoints",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add a task for " },
+      { "type": "TASK_NAME_START", "text": "documenting" },
+      { "type": "TASK_NAME_CONT", "text": " the api endpoints" }
+    ]
+  },
+
+  {
+    "prompt": "make a task called fix the bug",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task called " },
+      { "type": "TASK_NAME_START", "text": "fix" },
+      { "type": "TASK_NAME_CONT", "text": " the bug" }
+    ]
+  },
+  {
+    "prompt": "create a task called update documentation",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create a task called " },
+      { "type": "TASK_NAME_START", "text": "update" },
+      { "type": "TASK_NAME_CONT", "text": " documentation" }
+    ]
+  },
+  {
+    "prompt": "add a task called refactor the codebase",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add a task called " },
+      { "type": "TASK_NAME_START", "text": "refactor" },
+      { "type": "TASK_NAME_CONT", "text": " the codebase" }
+    ]
+  },
+
+  {
+    "prompt": "make a task to peep the rock and also wash the window",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task to " },
+      { "type": "TASK_NAME_START", "text": "peep" },
+      { "type": "TASK_NAME_CONT", "text": " the rock" },
+      { "type": "TEXT", "text": " and also " },
+      { "type": "TASK_NAME_START", "text": "wash" },
+      { "type": "TASK_NAME_CONT", "text": " the window" }
+    ]
+  },
+  {
+    "prompt": "create tasks to fix the door and check the engine",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create tasks to " },
+      { "type": "TASK_NAME_START", "text": "fix" },
+      { "type": "TASK_NAME_CONT", "text": " the door" },
+      { "type": "TEXT", "text": " and " },
+      { "type": "TASK_NAME_START", "text": "check" },
+      { "type": "TASK_NAME_CONT", "text": " the engine" }
+    ]
+  },
+  {
+    "prompt": "add tasks to clean the room then organize the desk",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add tasks to " },
+      { "type": "TASK_NAME_START", "text": "clean" },
+      { "type": "TASK_NAME_CONT", "text": " the room" },
+      { "type": "TEXT", "text": " then " },
+      { "type": "TASK_NAME_START", "text": "organize" },
+      { "type": "TASK_NAME_CONT", "text": " the desk" }
+    ]
+  },
+
+  {
+    "prompt": "new task to write tests",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "new task to " },
+      { "type": "TASK_NAME_START", "text": "write" },
+      { "type": "TASK_NAME_CONT", "text": " tests" }
+    ]
+  },
+  {
+    "prompt": "task to deploy the app",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "task to " },
+      { "type": "TASK_NAME_START", "text": "deploy" },
+      { "type": "TASK_NAME_CONT", "text": " the app" }
+    ]
+  },
+
+  {
+    "prompt": "make a task named inventory audit",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make a task named " },
+      { "type": "TASK_NAME_START", "text": "inventory" },
+      { "type": "TASK_NAME_CONT", "text": " audit" }
+    ]
+  },
+  {
+    "prompt": "create a task named system check",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create a task named " },
+      { "type": "TASK_NAME_START", "text": "system" },
+      { "type": "TASK_NAME_CONT", "text": " check" }
+    ]
+  },
+
+  {
+    "prompt": "yo make a new task to build the voice recognition system",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "yo make a new task to " },
+      { "type": "TASK_NAME_START", "text": "build" },
+      { "type": "TASK_NAME_CONT", "text": " the voice recognition system" }
+    ]
+  },
+  {
+    "prompt": "add a new task to implement oauth authentication flow",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add a new task to " },
+      { "type": "TASK_NAME_START", "text": "implement" },
+      { "type": "TASK_NAME_CONT", "text": " oauth authentication flow" }
+    ]
+  },
+  {
+    "prompt": "create a new task to set up ci cd pipeline",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "create a new task to " },
+      { "type": "TASK_NAME_START", "text": "set" },
+      { "type": "TASK_NAME_CONT", "text": " up ci cd pipeline" }
+    ]
+  },
+
+  {
+    "prompt": "make task to refactor",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "make task to " },
+      { "type": "TASK_NAME_START", "text": "refactor" }
+    ]
+  },
+  {
+    "prompt": "add task for testing",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "add task for " },
+      { "type": "TASK_NAME_START", "text": "testing" }
+    ]
+  },
+  {
+    "prompt": "new task deploy",
+    "tool_calls": ["CREATE_TASK"],
+    "parts": [
+      { "type": "TEXT", "text": "new task " },
+      { "type": "TASK_NAME_START", "text": "deploy" }
+    ]
   }
 ]
