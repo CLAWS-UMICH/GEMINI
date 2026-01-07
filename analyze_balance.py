@@ -2,12 +2,13 @@ import json
 from collections import Counter, defaultdict
 
 # Load the prompts
-with open('prompts.json', 'r', encoding='utf-8') as f:
+with open('data.json', 'r', encoding='utf-8') as f:
     prompts = json.load(f)
 
 # Count different metrics
 type_counts = Counter()
 prompt_counts = defaultdict(lambda: {'total': 0, 'types': Counter()})
+tool_call_counts = Counter()  # NEW: count prompt-level tool calls
 
 # Analyze each prompt
 for i, prompt_entry in enumerate(prompts):
@@ -22,7 +23,12 @@ for i, prompt_entry in enumerate(prompts):
     prompt_text = prompt_entry['prompt']
     parts = prompt_entry['parts']
 
-    # Count types in each part
+    # NEW: Count tool calls at prompt level
+    tool_calls = prompt_entry.get('tool_calls', [])
+    for tool_call in tool_calls:
+        tool_call_counts[tool_call] += 1
+
+    # Count types in each part (token level)
     for part in parts:
         if 'type' not in part:
             print(f"WARNING: Entry {i} has part missing 'type' field")
@@ -35,10 +41,13 @@ for i, prompt_entry in enumerate(prompts):
 
 # Print analysis
 print("=" * 70)
-print("PROMPT TYPE DISTRIBUTION ANALYSIS")
+print("PROMPT TYPE DISTRIBUTION ANALYSIS (NEW ARCHITECTURE)")
 print("=" * 70)
 print(f"\nTotal prompts: {len(prompts)}")
 print(f"Total parts: {sum(type_counts.values())}")
+print("\nNEW ARCHITECTURE:")
+print("  - Prompt level: tool_calls field indicates which tools are invoked")
+print("  - Token level: TEXT, TASK_NAME_START, TASK_NAME_CONT only")
 print()
 
 # Sort by count (descending)
@@ -84,15 +93,26 @@ if functional_types:
         if count >= avg_functional * 0.8:
             print(f"  {part_type:25s}: {count:5d}")
 
-# Check for specific action type balance
-action_types = ['GET_VITALS', 'CREATE_TASK', 'NAVIGATION_QUERY']
+# NEW: Tool call analysis (prompt-level classification)
 print("\n" + "=" * 70)
-print("ACTION TYPE BALANCE:")
+print("PROMPT-LEVEL TOOL CALL DISTRIBUTION:")
 print("-" * 70)
-for action in action_types:
-    if action in type_counts:
-        count = type_counts[action]
-        pct = (count / sum(type_counts[a] for a in action_types if a in type_counts)) * 100
-        print(f"{action:25s}: {count:5d} ({pct:5.2f}% of action types)")
+if tool_call_counts:
+    sorted_tools = sorted(tool_call_counts.items(), key=lambda x: x[1], reverse=True)
+    total_tool_calls = sum(tool_call_counts.values())
+    for tool, count in sorted_tools:
+        pct = (count / len(prompts)) * 100
+        print(f"{tool:25s}: {count:5d} prompts ({pct:5.2f}%)")
+
+    # Balance recommendation for tools
+    print("\nTOOL BALANCE:")
+    avg_tool_count = total_tool_calls / len(tool_call_counts) if tool_call_counts else 0
+    print(f"Average count per tool: {avg_tool_count:.1f}")
+    for tool, count in sorted_tools:
+        if count < avg_tool_count * 0.8:
+            deficit = int(avg_tool_count - count)
+            print(f"  {tool:25s}: needs ~{deficit} more prompts")
+else:
+    print("No tool calls found in data")
 
 print("\n" + "=" * 70)
