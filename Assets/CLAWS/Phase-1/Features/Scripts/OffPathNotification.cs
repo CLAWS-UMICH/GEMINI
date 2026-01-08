@@ -2,22 +2,26 @@ using UnityEngine;
 
 public class OffPathNotification : MonoBehaviour
 {
-    public GameObject notificationBar;
+    public GameObject notificationBarOffCourse;
+    public GameObject notificationBarOnCourse;
     void Start()
     {
-        notificationBar.SetActive(false);
+        notificationBarOffCourse.SetActive(false);
+        notificationBarOnCourse.SetActive(false);
     }
 
     // to make the notification bar visible
-    public void OnTriggerShow()
+    public void OffCourseTrigger()
     {
-        notificationBar.SetActive(true);
+        notificationBarOffCourse.SetActive(true);
+        notificationBarOnCourse.SetActive(false);
     }
 
     // to hide the notification bar after back on path
-    public void OnTriggerHide()
+    public void OnCourseTrigger()
     {
-        notificationBar.SetActive(false);
+        notificationBarOffCourse.SetActive(false);
+        notificationBarOnCourse.SetActive(true);
         // add fading effect?
     }
 }
