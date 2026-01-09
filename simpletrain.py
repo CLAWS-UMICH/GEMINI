@@ -15,7 +15,7 @@ from transformers import AutoModel, AutoTokenizer
 
 # Labels
 TOOL_LABELS = ["GET_VITALS", "CREATE_TASK", "NAVIGATION_QUERY"]
-TOKEN_LABELS = ["TASK_NAME_CONT", "TASK_NAME_START", "TEXT"]  # sorted alphabetically
+TOKEN_LABELS = ["TASK_NAME_CONT", "TASK_NAME_START", "TEXT"] 
 
 
 class TwoHeadModel(nn.Module):
