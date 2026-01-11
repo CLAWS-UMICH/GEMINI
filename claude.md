@@ -207,22 +207,27 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 - [x] Create `models/` folder
 - [x] Install dependencies with uv
 
-### 🔄 Phase 5: Install Piper.unity (TTS) (IN PROGRESS)
+### ⏸️ Phase 5: Install Piper.unity (TTS) (SKIPPED - TO REVISIT)
 - [ ] Install Piper.unity via Package Manager
 - [ ] Verify installation
 - [ ] Test basic TTS functionality
 
-### 📋 Phase 6: Create Unity Scripts
-- [ ] Create `WebSocketClient.cs` (Backend/Networking/)
-- [ ] Create `CorvusController.cs` (Backend/Networking/)
-- [ ] Create `IntentDisplayUI.cs` (UI/)
-- [ ] Create `CorvusTest.cs` (Testing/)
+**Note:** Skipping TTS for now to focus on core WebSocket functionality. Will revisit after testing Unity-Python communication.
 
-### 📋 Phase 7: Wire Up Unity Scene
-- [ ] Attach scripts to GameObjects
-- [ ] Connect UI references in Inspector
-- [ ] Configure Audio Source settings
-- [ ] Link button to test functionality
+### ✅ Phase 6: Create Unity Scripts (COMPLETED)
+- [x] Create `WebSocketClient.cs` (Backend/Networking/)
+- [x] Create `CorvusController.cs` (Backend/Networking/)
+- [x] Create `IntentDisplayUI.cs` (UI/)
+- [x] Create `CorvusTest.cs` (Testing/)
+
+### ✅ Phase 7: Wire Up Unity Scene (COMPLETED)
+- [x] Attach CorvusController script to CORVUS GameObject
+- [x] Attach IntentDisplayUI script to UIBackplate GameObject
+- [x] Attach CorvusTest script to CORVUS GameObject
+- [x] Connect all SerializeField references in Inspector:
+  - IntentDisplayUI: CorvusController, IntentText, ConfidenceText, LatencyText
+  - CorvusTest: CorvusController
+- [x] Save scene
 
 ### 📋 Phase 8: Implement Python Server
 - [ ] Code WebSocket server logic
@@ -299,3 +304,96 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 - Version control before major changes
 - Log everything during testing
 - Measure latency for every change
+
+## Learning Approach & Best Practices
+
+### Teaching Style
+1. **Step-by-Step Implementation**: Break down complex tasks into single, manageable steps. Wait for completion confirmation before moving to the next step.
+2. **Concept Explanations**: When introducing new syntax or patterns, explain:
+   - What it does
+   - Why we use it
+   - When to use it
+   - Analogies to familiar concepts (C++, Python, etc.)
+3. **Answer Questions First**: Address all clarifying questions before proceeding to the next step
+4. **Examples**: Provide concrete examples and use cases for abstract concepts
+
+### Bug Hunting Practice
+When reviewing code for bugs:
+1. **Don't reveal locations immediately** - State the number and type of bugs found
+2. **Let the developer hunt** - Encourage manual searching to build debugging skills
+3. **Provide hints if stuck** - Guide with line numbers or specific areas if needed
+4. **Explain the bug** - After finding it, explain why it's wrong and how to fix it
+
+**Example Bug Types to Watch For:**
+- Case sensitivity errors (Debug.log → Debug.Log, MonoBehavior → MonoBehaviour)
+- Missing property accessors (_text vs _text.text)
+- Wrong variable references (ClassName vs _instanceName)
+- Array index mismatches
+- Missing using statements
+- Typos in method names
+
+### Concepts Explained This Session
+
+**C# Fundamentals:**
+- **MonoBehaviour**: Unity base class providing lifecycle methods (Start, Update, OnDestroy)
+- **async/await**: Non-blocking operations, Task vs Task<T>, async void vs async Task
+- **Events & Delegates**: Action<T>, subscribing with +=, unsubscribing with -=
+- **Properties**: Expression-bodied members with `=>`, get/set accessors
+- **SerializeField**: Makes private fields visible in Unity Inspector
+- **Null operators**: `?.` (null-conditional), `??` (null-coalescing), `!` (logical NOT)
+- **ArraySegment<T>**: Lightweight array slice without copying data
+- **CancellationTokenSource**: Gracefully cancel async operations
+
+**Unity Patterns:**
+- **FindObjectOfType vs SerializeField**: Runtime search vs Inspector assignment (prefer SerializeField for clarity and performance)
+- **Event subscription patterns**: Subscribe in Start(), unsubscribe in OnDestroy() to prevent memory leaks
+- **3D TextMeshPro vs Canvas UI**: World-space 3D text for AR/VR vs 2D screen overlay
+- **Prefabs**: Reusable GameObject templates/blueprints
+- **Scenes**: Different levels/pages in your application
+
+**Architecture:**
+- **WebSocket Communication**: Persistent bidirectional connection (ws://)
+- **Event-Driven Design**: Loose coupling via events (WebSocketClient → CorvusController → IntentDisplayUI)
+- **Separation of Concerns**: Networking, Controller, UI, Testing in separate scripts
+- **SerializeField Pattern**: Inspector-assignable references instead of hardcoded dependencies
+
+### Git Best Practices (CRITICAL)
+
+**Golden Rule: ONE git init per project**
+- ✅ Run `git init` ONLY at the project root folder
+- ❌ NEVER run `git init` in subfolders (creates nested repositories/submodules)
+- ✅ Run `git add .` and `git commit -m "message"` anywhere in the project
+- The `.` in `git add .` means "current directory and all subdirectories"
+
+**If you accidentally create a nested repository:**
+```bash
+# Remove the submodule reference
+git rm --cached path/to/subfolder
+
+# Delete the nested .git folder
+rm -rf path/to/subfolder/.git
+
+# Remove .gitmodules if it exists
+rm -f .gitmodules
+
+# Re-add the files to main repository
+git add .
+git commit -m "Fix: Remove nested repository"
+```
+
+### Testing Philosophy
+1. **Test incrementally**: Test each component as you build it
+2. **Use keyboard shortcuts**: Create testing utilities (like CorvusTest.cs) for rapid iteration
+3. **Log everything**: Use Debug.Log liberally during development
+4. **Expect failures**: When testing without server, connection failures are normal and expected
+
+### Code Review Checklist
+Before moving to next phase, verify:
+- [ ] All using statements present
+- [ ] Case sensitivity correct (Unity API is case-sensitive)
+- [ ] Property accessors used correctly (.text, .color, etc.)
+- [ ] Null checks for optional references
+- [ ] Event subscriptions have matching unsubscriptions
+- [ ] SerializeField variables will be assigned in Inspector
+- [ ] Array indices match array length
+- [ ] Async methods properly awaited or fire-and-forget with `_`
