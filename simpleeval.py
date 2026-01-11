@@ -16,11 +16,11 @@ TOKEN_LABELS = ["TASK_NAME_CONT", "TASK_NAME_START", "TEXT"]
 
 
 class TwoHeadModel(nn.Module):
-    def __init__(self, base_model: str, num_tools: int, num_token_labels: int, token_weights=None):
+    def __init__(self, base_model: str, num_tag_outputs: int, num_token_labels: int, token_weights=None):
         super().__init__()
         self.encoder = AutoModel.from_pretrained(base_model)
         hidden = self.encoder.config.hidden_size
-        self.tag_head = nn.Linear(hidden, num_tools)
+        self.tag_head = nn.Linear(hidden, num_tag_outputs)
         self.token_head = nn.Linear(hidden, num_token_labels)
         if token_weights is not None:
             self.register_buffer("token_weights", token_weights)
@@ -43,15 +43,17 @@ def load_model(model_dir="outputs/simple-model"):
     ckpt = torch.load(model_dir / "model.pt", map_location=device)
     tool_labels = ckpt["tool_labels"]
     token_labels = ckpt["token_labels"]
+    num_tag_outputs = ckpt["model_state_dict"]["tag_head.weight"].shape[0]
+    has_threshold = num_tag_outputs == (len(tool_labels) + 1)
 
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
 
-    model = TwoHeadModel("distilbert-base-uncased", len(tool_labels), len(token_labels))
+    model = TwoHeadModel("distilbert-base-uncased", num_tag_outputs, len(token_labels))
     model.load_state_dict(ckpt["model_state_dict"])
     model.to(device)
     model.eval()
 
-    return model, tokenizer, device
+    return model, tokenizer, device, has_threshold
 
 
 def load_eval_data(path="simpleevals.json"):
@@ -59,7 +61,7 @@ def load_eval_data(path="simpleevals.json"):
         return json.load(f)
 
 
-def classify(prompt, model, tokenizer, device):
+def classify(prompt, model, tokenizer, device, has_threshold):
     """Get predictions for a single prompt."""
     enc = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=128)
     enc = {k: v.to(device) for k, v in enc.items()}
@@ -69,8 +71,15 @@ def classify(prompt, model, tokenizer, device):
         out = model(**enc)
 
     # Tags
-    tag_probs = torch.sigmoid(out["tag_logits"][0])
-    pred_tags = [TOOL_LABELS[i] for i, p in enumerate(tag_probs) if p > 0.5]
+    tag_logits = out["tag_logits"][0]
+    if has_threshold:
+        tool_logits = tag_logits[: len(TOOL_LABELS)]
+        threshold = torch.sigmoid(tag_logits[len(TOOL_LABELS)]).item()
+    else:
+        tool_logits = tag_logits
+        threshold = 0.5
+    tag_probs = torch.sigmoid(tool_logits)
+    pred_tags = [TOOL_LABELS[i] for i, p in enumerate(tag_probs) if p > threshold]
 
     # Tokens
     token_preds = out["token_logits"].argmax(dim=-1)[0]
@@ -105,7 +114,7 @@ def get_ground_truth_tokens(prompt, parts, tokenizer):
     return token_results
 
 
-def evaluate(model, tokenizer, device, eval_data):
+def evaluate(model, tokenizer, device, eval_data, has_threshold):
     """Run full evaluation and return metrics."""
     results = {
         "total": len(eval_data),
@@ -134,7 +143,7 @@ def evaluate(model, tokenizer, device, eval_data):
         true_tags = set(item["tool_calls"])
         parts = item["parts"]
 
-        pred_tags, pred_tokens = classify(prompt, model, tokenizer, device)
+        pred_tags, pred_tokens = classify(prompt, model, tokenizer, device, has_threshold)
         true_tokens = get_ground_truth_tokens(prompt, parts, tokenizer)
 
         pred_tags_set = set(pred_tags)
@@ -281,7 +290,7 @@ def print_results(results):
 def main():
     print("Loading model...")
     try:
-        model, tokenizer, device = load_model()
+        model, tokenizer, device, has_threshold = load_model()
     except FileNotFoundError:
         print("Model not found! Run simpletrain.py first.")
         return
@@ -293,7 +302,7 @@ def main():
     print(f"Loaded {len(eval_data)} eval examples")
 
     print("Running evaluation...")
-    results = evaluate(model, tokenizer, device, eval_data)
+    results = evaluate(model, tokenizer, device, eval_data, has_threshold)
 
     print_results(results)
 

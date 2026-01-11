@@ -1,7 +1,7 @@
 """
 Simple two-head embedding model fine-tuning.
 
-Head 1: Linear layer for overall task tags (GET_VITALS, CREATE_TASK, NAVIGATION_QUERY)
+Head 1: Linear layer for overall task tags plus a learned threshold
 Head 2: Linear layer for token-level prediction (TEXT, TASK_NAME_START, TASK_NAME_CONT)
 """
 
@@ -17,6 +17,24 @@ from transformers import AutoModel, AutoTokenizer
 TOOL_LABELS = ["GET_VITALS", "CREATE_TASK", "NAVIGATION_QUERY"]
 TOKEN_LABELS = ["TASK_NAME_CONT", "TASK_NAME_START", "TEXT"] 
 
+THRESHOLD_LOSS_WEIGHT = 0.5
+
+
+def compute_threshold_loss(tool_logits, threshold_logit, tag_labels):
+    """Encourage threshold to sit between positive and negative tool probs."""
+    tool_probs = torch.sigmoid(tool_logits)
+    threshold = torch.sigmoid(threshold_logit).unsqueeze(1)
+
+    pos_mask = tag_labels > 0.5
+    neg_mask = ~pos_mask
+
+    loss = tool_logits.new_tensor(0.0)
+    if pos_mask.any().item():
+        loss = loss + nn.functional.softplus(threshold - tool_probs)[pos_mask].mean()
+    if neg_mask.any().item():
+        loss = loss + nn.functional.softplus(tool_probs - threshold)[neg_mask].mean()
+
+    return loss
 
 class TwoHeadModel(nn.Module):
     """Embedding model with two linear heads."""
@@ -25,9 +43,10 @@ class TwoHeadModel(nn.Module):
         super().__init__()
         self.encoder = AutoModel.from_pretrained(base_model)
         hidden = self.encoder.config.hidden_size
+        self.num_tools = num_tools
 
         # Head 1: Overall tags from [CLS] token
-        self.tag_head = nn.Linear(hidden, num_tools)
+        self.tag_head = nn.Linear(hidden, num_tools + 1)
 
         # Head 2: Token-level classification
         self.token_head = nn.Linear(hidden, num_token_labels)
@@ -44,7 +63,9 @@ class TwoHeadModel(nn.Module):
 
         # CLS token for overall tags
         cls = hidden_states[:, 0, :]
-        tag_logits = self.tag_head(cls)  # (batch, num_tools)
+        tag_logits = self.tag_head(cls)  # (batch, num_tools + 1)
+        tool_logits = tag_logits[:, : self.num_tools]
+        threshold_logit = tag_logits[:, self.num_tools]
 
         # All tokens for token-level
         token_logits = self.token_head(hidden_states)  # (batch, seq, num_token_labels)
@@ -53,7 +74,7 @@ class TwoHeadModel(nn.Module):
         if tag_labels is not None and token_labels is not None:
             # Multi-label BCE for tags
             tag_loss = nn.functional.binary_cross_entropy_with_logits(
-                tag_logits, tag_labels.float()
+                tool_logits, tag_labels.float()
             )
 
             # Cross entropy for tokens with class weights (ignoring -100)
@@ -64,9 +85,15 @@ class TwoHeadModel(nn.Module):
                 ignore_index=-100,
             )
 
-            loss = tag_loss + token_loss
+            threshold_loss = compute_threshold_loss(tool_logits, threshold_logit, tag_labels)
+            loss = tag_loss + token_loss + (THRESHOLD_LOSS_WEIGHT * threshold_loss)
 
-        return {"loss": loss, "tag_logits": tag_logits, "token_logits": token_logits}
+        return {
+            "loss": loss,
+            "tag_logits": tool_logits,
+            "threshold_logit": threshold_logit,
+            "token_logits": token_logits,
+        }
 
 
 class PromptDataset(Dataset):
@@ -231,7 +258,9 @@ def train():
                 val_loss += out["loss"].item()
 
                 # Tag accuracy (exact match)
-                tag_preds = (torch.sigmoid(out["tag_logits"]) > 0.5).int()
+                tag_probs = torch.sigmoid(out["tag_logits"])
+                thresholds = torch.sigmoid(out["threshold_logit"]).unsqueeze(1)
+                tag_preds = (tag_probs > thresholds).int()
                 tag_correct += (tag_preds == batch["tag_labels"]).all(dim=1).sum().item()
                 tag_total += batch["tag_labels"].size(0)
 
@@ -297,13 +326,15 @@ def demo(model, tokenizer, device):
 
         # Tags
         tag_probs = torch.sigmoid(out["tag_logits"][0])
-        pred_tags = [TOOL_LABELS[i] for i, p in enumerate(tag_probs) if p > 0.5]
+        threshold = torch.sigmoid(out["threshold_logit"][0]).item()
+        pred_tags = [TOOL_LABELS[i] for i, p in enumerate(tag_probs) if p > threshold]
 
         # Tokens
         token_preds = out["token_logits"].argmax(dim=-1)[0]
 
         print(f"\nPrompt: {prompt}")
         print(f"Tags: {pred_tags}")
+        print(f"Threshold: {threshold:.2f}")
         print("Tokens:")
         for tok, pred in zip(tokens, token_preds):
             if tok not in ["[CLS]", "[SEP]", "[PAD]"]:
@@ -312,4 +343,3 @@ def demo(model, tokenizer, device):
 
 if __name__ == "__main__":
     train()
-

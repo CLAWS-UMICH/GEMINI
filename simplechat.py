@@ -11,11 +11,11 @@ from transformers import AutoModel, AutoTokenizer
 class TwoHeadModel(nn.Module):
     """Embedding model with two linear heads."""
 
-    def __init__(self, base_model: str, num_tools: int, num_token_labels: int, token_weights=None):
+    def __init__(self, base_model: str, num_tag_outputs: int, num_token_labels: int, token_weights=None):
         super().__init__()
         self.encoder = AutoModel.from_pretrained(base_model)
         hidden = self.encoder.config.hidden_size
-        self.tag_head = nn.Linear(hidden, num_tools)
+        self.tag_head = nn.Linear(hidden, num_tag_outputs)
         self.token_head = nn.Linear(hidden, num_token_labels)
         # Placeholder for class weights (loaded from state dict)
         if token_weights is not None:
@@ -40,20 +40,22 @@ def load_model(model_dir: str = "outputs/simple-model"):
     ckpt = torch.load(model_dir / "model.pt", map_location=device)
     tool_labels = ckpt["tool_labels"]
     token_labels = ckpt["token_labels"]
+    num_tag_outputs = ckpt["model_state_dict"]["tag_head.weight"].shape[0]
+    has_threshold = num_tag_outputs == (len(tool_labels) + 1)
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
 
     # Rebuild model
-    model = TwoHeadModel("distilbert-base-uncased", len(tool_labels), len(token_labels))
+    model = TwoHeadModel("distilbert-base-uncased", num_tag_outputs, len(token_labels))
     model.load_state_dict(ckpt["model_state_dict"])
     model.to(device)
     model.eval()
 
-    return model, tokenizer, tool_labels, token_labels, device
+    return model, tokenizer, tool_labels, token_labels, device, has_threshold
 
 
-def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device):
+def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device, has_threshold):
     """Classify a prompt and return results."""
     enc = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=128)
     enc = {k: v.to(device) for k, v in enc.items()}
@@ -63,8 +65,15 @@ def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device):
         out = model(**enc)
 
     # Tags
-    tag_probs = torch.sigmoid(out["tag_logits"][0])
-    pred_tags = [(tool_labels[i], f"{p:.2f}") for i, p in enumerate(tag_probs) if p > 0.5]
+    tag_logits = out["tag_logits"][0]
+    if has_threshold:
+        tool_logits = tag_logits[: len(tool_labels)]
+        threshold = torch.sigmoid(tag_logits[len(tool_labels)]).item()
+    else:
+        tool_logits = tag_logits
+        threshold = 0.5
+    tag_probs = torch.sigmoid(tool_logits)
+    pred_tags = [(tool_labels[i], f"{p:.2f}") for i, p in enumerate(tag_probs) if p > threshold]
     all_tags = [(tool_labels[i], f"{p:.2f}") for i, p in enumerate(tag_probs)]
 
     # Tokens
@@ -74,7 +83,7 @@ def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device):
         if tok not in ["[CLS]", "[SEP]", "[PAD]"]:
             token_results.append((tok, token_labels[pred.item()]))
 
-    return pred_tags, all_tags, token_results
+    return pred_tags, all_tags, token_results, threshold
 
 
 def format_token_output(token_results):
@@ -99,7 +108,7 @@ def format_token_output(token_results):
 def main():
     print("Loading model...")
     try:
-        model, tokenizer, tool_labels, token_labels, device = load_model()
+        model, tokenizer, tool_labels, token_labels, device, has_threshold = load_model()
     except FileNotFoundError:
         print("Model not found! Run simpletrain.py first.")
         return
@@ -124,8 +133,8 @@ def main():
             print("Bye!")
             break
 
-        pred_tags, all_tags, token_results = classify(
-            prompt, model, tokenizer, tool_labels, token_labels, device
+        pred_tags, all_tags, token_results, threshold = classify(
+            prompt, model, tokenizer, tool_labels, token_labels, device, has_threshold
         )
 
         print()
@@ -135,6 +144,7 @@ def main():
         else:
             print("(none)")
 
+        print("\033[95mThreshold:\033[0m", f"{threshold:.2f}")
         print("\033[95mAll scores:\033[0m", ", ".join(f"{t}: {p}" for t, p in all_tags))
 
         print("\033[95mTokens:\033[0m", format_token_output(token_results))
@@ -154,4 +164,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
