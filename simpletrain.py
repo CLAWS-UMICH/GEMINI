@@ -252,7 +252,7 @@ def train():
     patience = 5  # Stop if val_loss doesn't improve for this many epochs
     patience_counter = 0
 
-    for epoch in range(40):
+    for epoch in range(80):
         # Train
         model.train()
         total_loss = 0
