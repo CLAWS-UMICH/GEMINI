@@ -6,6 +6,7 @@ Head 2: Linear layer for token-level prediction (TEXT, TASK_NAME, WAYPOINT_NAME,
 """
 
 import json
+import math
 import torch
 import torch.nn as nn
 from pathlib import Path
@@ -238,21 +239,68 @@ def train():
     val_size = len(dataset) - train_size
     train_set, val_set = torch.utils.data.random_split(dataset, [train_size, val_size])
 
-    train_loader = DataLoader(train_set, batch_size=16, shuffle=True, collate_fn=collate)
-    val_loader = DataLoader(val_set, batch_size=16, shuffle=False, collate_fn=collate)
+    # Larger batch size for better gradient estimates
+    train_loader = DataLoader(train_set, batch_size=32, shuffle=True, collate_fn=collate)
+    val_loader = DataLoader(val_set, batch_size=32, shuffle=False, collate_fn=collate)
 
     model = TwoHeadModel(model_name, len(TOOL_LABELS), len(TOKEN_LABELS), token_weights.to(device))
     model.to(device)
 
-    optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
+    # Use Muon optimizer - PyTorch's built-in implementation
+    # Muon uses orthogonalized momentum (Newton-Schulz) which can help with faster convergence
+    # Note: Muon is for 2D params (weight matrices), use AdamW for embeddings/bias/layernorm
+    
+    # Separate parameters: use Muon for 2D weight matrices, AdamW for others
+    embed_params = []
+    muon_params = []
+    for name, param in model.named_parameters():
+        if 'embedding' in name.lower() or 'LayerNorm' in name or 'bias' in name or param.ndim != 2:
+            embed_params.append(param)
+        else:
+            muon_params.append(param)
+    
+    optimizer = torch.optim.Muon(
+        muon_params,
+        lr=0.02,  # Muon uses higher learning rates
+        momentum=0.95,
+        nesterov=True,
+        weight_decay=0.01,
+        ns_steps=5,
+        adjust_lr_fn='match_rms_adamw',  # Match AdamW RMS for easier LR tuning
+    )
+    
+    # Separate AdamW for embeddings/bias/layernorm (non-2D params)
+    optimizer_embed = torch.optim.AdamW(embed_params, lr=3e-4, weight_decay=0.01)
 
+    # Learning rate schedulers with warmup
+    num_epochs = 100
+    warmup_epochs = 5
+    
+    def get_lr_multiplier(epoch):
+        if epoch < warmup_epochs:
+            return (epoch + 1) / warmup_epochs
+        else:
+            # Cosine decay
+            progress = (epoch - warmup_epochs) / (num_epochs - warmup_epochs)
+            return 0.5 * (1 + math.cos(math.pi * progress))
+    
     best_acc = 0
     best_state = None
     best_val_loss = float("inf")
-    patience = 10  # Stop if val_loss doesn't improve for this many epochs
+    patience = 15  # Increased patience since we're using warmup
     patience_counter = 0
+    
+    # Gradient clipping value
+    max_grad_norm = 1.0
 
-    for epoch in range(80):
+    for epoch in range(num_epochs):
+        # Adjust learning rate based on schedule
+        lr_mult = get_lr_multiplier(epoch)
+        for param_group in optimizer.param_groups:
+            param_group['lr'] = 0.02 * lr_mult
+        for param_group in optimizer_embed.param_groups:
+            param_group['lr'] = 3e-4 * lr_mult
+        
         # Train
         model.train()
         total_loss = 0
@@ -262,8 +310,14 @@ def train():
             loss = out["loss"]
 
             optimizer.zero_grad()
+            optimizer_embed.zero_grad()
             loss.backward()
+            
+            # Gradient clipping for stability
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
+            
             optimizer.step()
+            optimizer_embed.step()
 
             total_loss += loss.item()
 
