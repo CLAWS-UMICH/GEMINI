@@ -119,11 +119,32 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &307881470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4125495309553998321, guid: 49aad1b6cad708240af6b7fd9f87b36a, type: 3}
+  m_PrefabInstance: {fileID: 1415507996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &307881471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4205010513405509735, guid: 49aad1b6cad708240af6b7fd9f87b36a, type: 3}
   m_PrefabInstance: {fileID: 1415507996}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &307881473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307881470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d472043e3ae3527468f0edaa08eab9ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.UI.IntentDisplayUI
+  _corvusController: {fileID: 1588965058}
+  _intentText: {fileID: 334319503}
+  _confidenceText: {fileID: 716024775}
+  _latencyText: {fileID: 940141772}
 --- !u!1 &334319501
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Confidence: -1%'
+  m_text: 'Confidence: 0%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -705,7 +726,7 @@ GameObject:
   - component: {fileID: 940141773}
   - component: {fileID: 940141772}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: LatencyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -939,7 +960,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7759758375038403720, guid: 49aad1b6cad708240af6b7fd9f87b36a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 940141771}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4125495309553998321, guid: 49aad1b6cad708240af6b7fd9f87b36a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 307881473}
   m_SourcePrefab: {fileID: 100100000, guid: 49aad1b6cad708240af6b7fd9f87b36a, type: 3}
 --- !u!1 &1588965054
 GameObject:
@@ -951,6 +975,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1588965056}
   - component: {fileID: 1588965055}
+  - component: {fileID: 1588965058}
+  - component: {fileID: 1588965057}
   m_Layer: 0
   m_Name: CORVUS
   m_TagString: Untagged
@@ -1071,6 +1097,32 @@ Transform:
   - {fileID: 307881471}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588965057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588965054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48c732a56eb7674fae8d423a1a74229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Testing.CorvusTest
+  _corvusController: {fileID: 1588965058}
+--- !u!114 &1588965058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588965054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397db298232e63a47a7d19fe1f5f88a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusController
+  _serverUrl: ws://localhost:8765
 --- !u!1 &2085924559
 GameObject:
   m_ObjectHideFlags: 0

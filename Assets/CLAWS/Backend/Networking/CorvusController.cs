@@ -5,13 +5,18 @@ using CLAWS.Networking;
 
 namespace CLAWS.Networking
 {
+    [System.Serializable]
+    public class CommandRequest
+    {
+        public string command;
+    }
     public class CorvusController : MonoBehaviour
     {
         // WebSocket connection to Python server
         private WebSocketClient _webSocketClient;
 
         // Server URL
-        [SerializeField] private string _serverUrl = "ws://localhost:8000";
+        [SerializeField] private string _serverUrl = "ws://localhost:8765";
 
         // Check CORVUS connection
         public bool IsConnected => _webSocketClient?.IsConnected ?? false;
@@ -82,9 +87,12 @@ namespace CLAWS.Networking
                 Debug.Log($"Sending command: {command}");
 
                 // TODO: Format as JSON later
+                var request = new CommandRequest { command = command };
+                string json = JsonUtility.ToJson(request);
+
+                Debug.Log($"Sending: {json}");
+                await _webSocketClient.SendAsync(json);
                 
-                // For now, send plain text
-                await _webSocketClient.SendAsync(command);
             }
             catch (Exception ex)
             {

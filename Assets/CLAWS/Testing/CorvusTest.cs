@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.InputSystem;
 using CLAWS.Networking;
 
 namespace CLAWS.Testing
@@ -27,20 +28,23 @@ namespace CLAWS.Testing
                 return;
             }
 
+            var keyboard = Keyboard.current;
+            if(keyboard == null) return;
+
             // 1-5 send test commands
-            if(Input.GetKeyDown(KeyCode.Alpha1))
+            if(keyboard.digit1Key.wasPressedThisFrame)
             {
                 _ = SendTestCommandAsync(0);    // "check my vitals"
-            } else if (Input.GetKeyDown(KeyCode.Alpha2))
+            } else if (keyboard.digit2Key.wasPressedThisFrame)
             {
                 _ = SendTestCommandAsync(1);    // "navigate to airlock"
-            } else if (Input.GetKeyDown(KeyCode.Alpha3))
+            } else if (keyboard.digit3Key.wasPressedThisFrame)
             {
                 _ = SendTestCommandAsync(2);    // "check oxygen level"
-            } else if (Input.GetKeyDown(KeyCode.Alpha4))
+            } else if (keyboard.digit4Key.wasPressedThisFrame)
             {
                 _ = SendTestCommandAsync(3);    // "show battery status"
-            } else if (Input.GetKeyDown(KeyCode.Alpha5))
+            } else if (keyboard.digit5Key.wasPressedThisFrame)
             {
                 _ = SendTestCommandAsync(4);    // "emergency abort"
             }
