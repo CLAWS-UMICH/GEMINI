@@ -67,6 +67,57 @@ def load_all_singletools(singletools_dir: str = None) -> List[Dict[str, Any]]:
     return all_data
 
 
+def load_twotools_combos(twotools_dir: str = None) -> List[Dict[str, Any]]:
+    """
+    Load the two-tool combo training data from the twotools directory.
+    
+    Returns:
+        List of two-tool combo training examples.
+    """
+    if twotools_dir is None:
+        # Default path relative to this script
+        twotools_dir = Path(__file__).parent / "data" / "twotools"
+    else:
+        twotools_dir = Path(twotools_dir)
+    
+    combo_file = twotools_dir / "intentcombos.jsonc"
+    
+    if not combo_file.exists():
+        print(f"Two-tool combos file not found: {combo_file}")
+        return []
+    
+    file_data = load_jsonc_file(combo_file)
+    
+    if "data" in file_data and isinstance(file_data["data"], list):
+        print(f"  Loaded {len(file_data['data'])} two-tool combo examples from {combo_file.name}")
+        return file_data["data"]
+    
+    return []
+
+
+def load_all_training_data(singletools_dir: str = None, twotools_dir: str = None) -> List[Dict[str, Any]]:
+    """
+    Load all training data from both singletools and twotools directories.
+    
+    Returns:
+        Combined list of all training examples.
+    """
+    all_data = []
+    
+    # Load single-tool examples
+    print("Loading single-tool data...")
+    single_data = load_all_singletools(singletools_dir)
+    all_data.extend(single_data)
+    
+    # Load two-tool combo examples
+    print("\nLoading two-tool combo data...")
+    combo_data = load_twotools_combos(twotools_dir)
+    all_data.extend(combo_data)
+    
+    print(f"\nCombined total: {len(all_data)} training examples")
+    return all_data
+
+
 def discover_labels(data: List[Dict[str, Any]]) -> Tuple[List[str], List[str]]:
     """
     Discover all unique tool_calls and token types from the data.
@@ -90,15 +141,24 @@ def discover_labels(data: List[Dict[str, Any]]) -> Tuple[List[str], List[str]]:
     return sorted(tool_labels), sorted(token_labels)
 
 
-def get_data_and_labels(singletools_dir: str = None) -> Tuple[List[Dict], List[str], List[str]]:
+def get_data_and_labels(singletools_dir: str = None, twotools_dir: str = None, include_combos: bool = True) -> Tuple[List[Dict], List[str], List[str]]:
     """
     Convenience function to load data and discover labels in one call.
+    
+    Args:
+        singletools_dir: Optional path to single-tool data directory
+        twotools_dir: Optional path to two-tool combo data directory
+        include_combos: If True, include two-tool combo examples (default True)
     
     Returns:
         Tuple of (data, tool_labels, token_labels)
     """
-    print("Loading singletools data...")
-    data = load_all_singletools(singletools_dir)
+    if include_combos:
+        data = load_all_training_data(singletools_dir, twotools_dir)
+    else:
+        print("Loading singletools data only...")
+        data = load_all_singletools(singletools_dir)
+    
     tool_labels, token_labels = discover_labels(data)
     
     print(f"\nDiscovered {len(tool_labels)} tool labels: {tool_labels}")
