@@ -2,7 +2,7 @@
 Simple two-head embedding model fine-tuning.
 
 Head 1: Linear layer for overall task tags plus a learned threshold
-Head 2: Linear layer for token-level prediction (TEXT, TASK_NAME_START, TASK_NAME_CONT)
+Head 2: Linear layer for token-level prediction (TEXT, TASK_NAME, WAYPOINT_NAME, etc.)
 """
 
 import json
@@ -12,12 +12,15 @@ from pathlib import Path
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModel, AutoTokenizer
 
+from simpledatacombine import get_data_and_labels
 
-# Labels
-TOOL_LABELS = ["GET_VITALS", "CREATE_TASK", "NAVIGATION_QUERY"]
-TOKEN_LABELS = ["TASK_NAME_CONT", "TASK_NAME_START", "TEXT"] 
+
+# Labels - will be populated dynamically from the data
+TOOL_LABELS = []
+TOKEN_LABELS = [] 
 
 THRESHOLD_LOSS_WEIGHT = 0.5
+TAG_LOSS_WEIGHT = 10.0  # Prioritize tool classification over token labeling
 
 
 def compute_threshold_loss(tool_logits, threshold_logit, tag_labels):
@@ -86,7 +89,7 @@ class TwoHeadModel(nn.Module):
             )
 
             threshold_loss = compute_threshold_loss(tool_logits, threshold_logit, tag_labels)
-            loss = tag_loss + token_loss + (THRESHOLD_LOSS_WEIGHT * threshold_loss)
+            loss = (TAG_LOSS_WEIGHT * tag_loss) + token_loss + (THRESHOLD_LOSS_WEIGHT * threshold_loss)
 
         return {
             "loss": loss,
@@ -97,15 +100,16 @@ class TwoHeadModel(nn.Module):
 
 
 class PromptDataset(Dataset):
-    """Dataset from data.json."""
+    """Dataset from combined singletools data."""
 
-    def __init__(self, data_path: str, tokenizer):
-        with open(data_path, "r", encoding="utf-8") as f:
-            self.data = json.load(f)
+    def __init__(self, data: list, tokenizer, tool_labels: list, token_labels: list):
+        self.data = data
         self.tokenizer = tokenizer
+        self.tool_labels = tool_labels
+        self.token_labels = token_labels
 
-        self.tool2id = {t: i for i, t in enumerate(TOOL_LABELS)}
-        self.label2id = {l: i for i, l in enumerate(TOKEN_LABELS)}
+        self.tool2id = {t: i for i, t in enumerate(tool_labels)}
+        self.label2id = {l: i for i, l in enumerate(token_labels)}
 
     def __len__(self):
         return len(self.data)
@@ -137,7 +141,7 @@ class PromptDataset(Dataset):
                 token_labels.append(self.label2id[label])
 
         # Tool labels (multi-hot)
-        tag_labels = [1 if t in tools else 0 for t in TOOL_LABELS]
+        tag_labels = [1 if t in tools else 0 for t in self.tool_labels]
 
         return {
             "input_ids": torch.tensor(input_ids),
@@ -195,13 +199,18 @@ def compute_class_weights(dataset):
 
 
 def train():
+    global TOOL_LABELS, TOKEN_LABELS
+    
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
     model_name = "distilbert-base-uncased"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-    dataset = PromptDataset("data.json", tokenizer)
+    # Load data from singletools directory
+    data, TOOL_LABELS, TOKEN_LABELS = get_data_and_labels()
+    
+    dataset = PromptDataset(data, tokenizer, TOOL_LABELS, TOKEN_LABELS)
     print(f"Loaded {len(dataset)} examples")
 
     # Compute class weights for imbalanced token labels
@@ -223,8 +232,11 @@ def train():
 
     best_acc = 0
     best_state = None
+    best_val_loss = float("inf")
+    patience = 5  # Stop if val_loss doesn't improve for this many epochs
+    patience_counter = 0
 
-    for epoch in range(10):
+    for epoch in range(40):
         # Train
         model.train()
         total_loss = 0
@@ -276,6 +288,16 @@ def train():
         combined = (tag_acc + token_acc) / 2
 
         print(f"Epoch {epoch+1}: train_loss={avg_loss:.4f} val_loss={avg_val_loss:.4f} tag_acc={tag_acc:.4f} token_acc={token_acc:.4f}")
+
+        # Early stopping check based on validation loss
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            patience_counter = 0
+        else:
+            patience_counter += 1
+            if patience_counter >= patience:
+                print(f"Early stopping triggered! Val loss hasn't improved for {patience} epochs.")
+                break
 
         if combined > best_acc:
             best_acc = combined

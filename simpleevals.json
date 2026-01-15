@@ -1,440 +1,116 @@
 [
-  {
-    "prompt": "how am i doing health wise",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "how am i doing "},
-      {"type": "TEXT", "text": "health wise"}
-    ]
-  },
-  {
-    "prompt": "run a health diagnostic on me",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "run a "},
-      {"type": "TEXT", "text": "health diagnostic"},
-      {"type": "TEXT", "text": " on me"}
-    ]
-  },
-  {
-    "prompt": "am i okay physically",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "am i okay "},
-      {"type": "TEXT", "text": "physically"}
-    ]
-  },
-  {
-    "prompt": "status report on my body",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "status report on "},
-      {"type": "TEXT", "text": "my body"}
-    ]
-  },
-  {
-    "prompt": "anything wrong with my heart rate",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "anything wrong with "},
-      {"type": "TEXT", "text": "my heart rate"}
-    ]
-  },
-  {
-    "prompt": "whats my blood pressure at",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "whats "},
-      {"type": "TEXT", "text": "my blood pressure"},
-      {"type": "TEXT", "text": " at"}
-    ]
-  },
-  {
-    "prompt": "lemme see how my body is holding up",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "lemme see how "},
-      {"type": "TEXT", "text": "my body"},
-      {"type": "TEXT", "text": " is holding up"}
-    ]
-  },
-  {
-    "prompt": "where we headed after this",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "where we "},
-      {"type": "TEXT", "text": "headed"},
-      {"type": "TEXT", "text": " after this"}
-    ]
-  },
-  {
-    "prompt": "eta to the next stop",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "eta to the "},
-      {"type": "TEXT", "text": "next stop"}
-    ]
-  },
-  {
-    "prompt": "whats our destination looking like",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "whats our "},
-      {"type": "TEXT", "text": "destination"},
-      {"type": "TEXT", "text": " looking like"}
-    ]
-  },
-  {
-    "prompt": "show the flight path",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "show the "},
-      {"type": "TEXT", "text": "flight path"}
-    ]
-  },
-  {
-    "prompt": "are we on course",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "are we on "},
-      {"type": "TEXT", "text": "course"}
-    ]
-  },
-  {
-    "prompt": "how far out are we",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "how far out are we"}
-    ]
-  },
-  {
-    "prompt": "gimme the route info",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "gimme the "},
-      {"type": "TEXT", "text": "route info"}
-    ]
-  },
-  {
-    "prompt": "throw a reminder on there for oxygen tank swap",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "throw a reminder on there for "},
-      {"type": "TASK_NAME_START", "text": "oxygen"},
-      {"type": "TASK_NAME_CONT", "text": " tank swap"}
-    ]
-  },
-  {
-    "prompt": "i need to remember to do hull integrity scan",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "i need to remember to do "},
-      {"type": "TASK_NAME_START", "text": "hull"},
-      {"type": "TASK_NAME_CONT", "text": " integrity scan"}
-    ]
-  },
-  {
-    "prompt": "put down calibrating sensors as a todo",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "put down "},
-      {"type": "TASK_NAME_START", "text": "calibrating"},
-      {"type": "TASK_NAME_CONT", "text": " sensors"},
-      {"type": "TEXT", "text": " as a todo"}
-    ]
-  },
-  {
-    "prompt": "schedule replacing air filters",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "schedule "},
-      {"type": "TASK_NAME_START", "text": "replacing"},
-      {"type": "TASK_NAME_CONT", "text": " air filters"}
-    ]
-  },
-  {
-    "prompt": "note down check battery levels",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "note down "},
-      {"type": "TASK_NAME_START", "text": "check"},
-      {"type": "TASK_NAME_CONT", "text": " battery levels"}
-    ]
-  },
-  {
-    "prompt": "jot this down run exterior camera diagnostics",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "jot this down "},
-      {"type": "TASK_NAME_START", "text": "run"},
-      {"type": "TASK_NAME_CONT", "text": " exterior camera diagnostics"}
-    ]
-  },
-  {
-    "prompt": "dont let me forget cleaning the solar panels",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "dont let me forget "},
-      {"type": "TASK_NAME_START", "text": "cleaning"},
-      {"type": "TASK_NAME_CONT", "text": " the solar panels"}
-    ]
-  },
-  {
-    "prompt": "set up a task real quick for antenna realignment",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "set up a task real quick for "},
-      {"type": "TASK_NAME_START", "text": "antenna"},
-      {"type": "TASK_NAME_CONT", "text": " realignment"}
-    ]
-  },
-  {
-    "prompt": "hows my health and wheres the ship going",
-    "tool_calls": ["GET_VITALS", "NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "hows "},
-      {"type": "TEXT", "text": "my health"},
-      {"type": "TEXT", "text": " and wheres the "},
-      {"type": "TEXT", "text": "ship going"}
-    ]
-  },
-  {
-    "prompt": "body check then tell me the next waypoint",
-    "tool_calls": ["GET_VITALS", "NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "body check"},
-      {"type": "TEXT", "text": " then tell me the "},
-      {"type": "TEXT", "text": "next waypoint"}
-    ]
-  },
-  {
-    "prompt": "run my diagnostics and where are we landing",
-    "tool_calls": ["GET_VITALS", "NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "run "},
-      {"type": "TEXT", "text": "my diagnostics"},
-      {"type": "TEXT", "text": " and where are we "},
-      {"type": "TEXT", "text": "landing"}
-    ]
-  },
-  {
-    "prompt": "am i healthy enough to proceed with eva and add eva prep checklist",
-    "tool_calls": ["GET_VITALS", "CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "am i "},
-      {"type": "TEXT", "text": "healthy enough"},
-      {"type": "TEXT", "text": " to proceed with eva and add "},
-      {"type": "TASK_NAME_START", "text": "eva"},
-      {"type": "TASK_NAME_CONT", "text": " prep checklist"}
-    ]
-  },
-  {
-    "prompt": "physical status then queue reviewing comms logs",
-    "tool_calls": ["GET_VITALS", "CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "physical status"},
-      {"type": "TEXT", "text": " then queue "},
-      {"type": "TASK_NAME_START", "text": "reviewing"},
-      {"type": "TASK_NAME_CONT", "text": " comms logs"}
-    ]
-  },
-  {
-    "prompt": "remind me to recalibrate gyroscope and check my stress levels",
-    "tool_calls": ["CREATE_TASK", "GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "remind me to "},
-      {"type": "TASK_NAME_START", "text": "recalibrate"},
-      {"type": "TASK_NAME_CONT", "text": " gyroscope"},
-      {"type": "TEXT", "text": " and check "},
-      {"type": "TEXT", "text": "my stress levels"}
-    ]
-  },
-  {
-    "prompt": "log water recycler maintenance and how far to mars",
-    "tool_calls": ["CREATE_TASK", "NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "log "},
-      {"type": "TASK_NAME_START", "text": "water"},
-      {"type": "TASK_NAME_CONT", "text": " recycler maintenance"},
-      {"type": "TEXT", "text": " and how far to "},
-      {"type": "TEXT", "text": "mars"}
-    ]
-  },
-  {
-    "prompt": "next target coordinates plus set a task for thermal imaging review",
-    "tool_calls": ["NAVIGATION_QUERY", "CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "next "},
-      {"type": "TEXT", "text": "target coordinates"},
-      {"type": "TEXT", "text": " plus set a task for "},
-      {"type": "TASK_NAME_START", "text": "thermal"},
-      {"type": "TASK_NAME_CONT", "text": " imaging review"}
-    ]
-  },
-  {
-    "prompt": "read me my biometrics also plot a course update and write down fuel consumption analysis",
-    "tool_calls": ["GET_VITALS", "NAVIGATION_QUERY", "CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "read me "},
-      {"type": "TEXT", "text": "my biometrics"},
-      {"type": "TEXT", "text": " also plot a "},
-      {"type": "TEXT", "text": "course update"},
-      {"type": "TEXT", "text": " and write down "},
-      {"type": "TASK_NAME_START", "text": "fuel"},
-      {"type": "TASK_NAME_CONT", "text": " consumption analysis"}
-    ]
-  },
-  {
-    "prompt": "do a wellness scan then show trajectory and add verifying docking clamps",
-    "tool_calls": ["GET_VITALS", "NAVIGATION_QUERY", "CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "do a "},
-      {"type": "TEXT", "text": "wellness scan"},
-      {"type": "TEXT", "text": " then show "},
-      {"type": "TEXT", "text": "trajectory"},
-      {"type": "TEXT", "text": " and add "},
-      {"type": "TASK_NAME_START", "text": "verifying"},
-      {"type": "TASK_NAME_CONT", "text": " docking clamps"}
-    ]
-  },
-  {
-    "prompt": "need a task for depressurization drill",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "need a task for "},
-      {"type": "TASK_NAME_START", "text": "depressurization"},
-      {"type": "TASK_NAME_CONT", "text": " drill"}
-    ]
-  },
-  {
-    "prompt": "yo am i dehydrated",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "yo am i "},
-      {"type": "TEXT", "text": "dehydrated"}
-    ]
-  },
-  {
-    "prompt": "still on track to the station",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "still on "},
-      {"type": "TEXT", "text": "track to the station"}
-    ]
-  },
-  {
-    "prompt": "todo inspect airlock seals",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "todo "},
-      {"type": "TASK_NAME_START", "text": "inspect"},
-      {"type": "TASK_NAME_CONT", "text": " airlock seals"}
-    ]
-  },
-  {
-    "prompt": "feeling weird check my readings",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "feeling weird check "},
-      {"type": "TEXT", "text": "my readings"}
-    ]
-  },
-  {
-    "prompt": "approaching anything soon",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "approaching anything soon"}
-    ]
-  },
-  {
-    "prompt": "heads up on testing emergency beacon",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "heads up on "},
-      {"type": "TASK_NAME_START", "text": "testing"},
-      {"type": "TASK_NAME_CONT", "text": " emergency beacon"}
-    ]
-  },
-  {
-    "prompt": "make sure i do backup critical data",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "make sure i do "},
-      {"type": "TASK_NAME_START", "text": "backup"},
-      {"type": "TASK_NAME_CONT", "text": " critical data"}
-    ]
-  },
-  {
-    "prompt": "orbit status",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "orbit status"}
-    ]
-  },
-  {
-    "prompt": "pulse and oxygen sat",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "pulse and "},
-      {"type": "TEXT", "text": "oxygen sat"}
-    ]
-  },
-  {
-    "prompt": "quick health overview",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "quick "},
-      {"type": "TEXT", "text": "health overview"}
-    ]
-  },
-  {
-    "prompt": "current bearing",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "current "},
-      {"type": "TEXT", "text": "bearing"}
-    ]
-  },
-  {
-    "prompt": "flag patching micro fractures for later",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "flag "},
-      {"type": "TASK_NAME_START", "text": "patching"},
-      {"type": "TASK_NAME_CONT", "text": " micro fractures"},
-      {"type": "TEXT", "text": " for later"}
-    ]
-  },
-  {
-    "prompt": "vitals check stat",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "vitals check stat"}
-    ]
-  },
-  {
-    "prompt": "trajectory report",
-    "tool_calls": ["NAVIGATION_QUERY"],
-    "parts": [
-      {"type": "TEXT", "text": "trajectory report"}
-    ]
-  },
-  {
-    "prompt": "add to my list sanitizing water tanks",
-    "tool_calls": ["CREATE_TASK"],
-    "parts": [
-      {"type": "TEXT", "text": "add to my list "},
-      {"type": "TASK_NAME_START", "text": "sanitizing"},
-      {"type": "TASK_NAME_CONT", "text": " water tanks"}
-    ]
-  },
-  {
-    "prompt": "getting dizzy whats going on with me",
-    "tool_calls": ["GET_VITALS"],
-    "parts": [
-      {"type": "TEXT", "text": "getting dizzy whats going on "},
-      {"type": "TEXT", "text": "with me"}
-    ]
-  }
+  {"prompt": "whats my pulse at right now", "tool_calls": ["GET_HEART_RATE"], "parts": [{"type": "TEXT", "text": "whats my pulse at right now"}]},
+  {"prompt": "any alerts I should worry about", "tool_calls": ["GET_WARNINGS"], "parts": [{"type": "TEXT", "text": "any alerts I should worry about"}]},
+  {"prompt": "how hot is it in my suit", "tool_calls": ["GET_VITALS_TEMPERATURE"], "parts": [{"type": "TEXT", "text": "how hot is it in my suit"}]},
+  {"prompt": "battery status please", "tool_calls": ["CHECK_BATTERY_TIME"], "parts": [{"type": "TEXT", "text": "battery status please"}]},
+  {"prompt": "am I running low on oxygen", "tool_calls": ["CHECK_PRIMARY_O2"], "parts": [{"type": "TEXT", "text": "am I running low on oxygen"}]},
+  {"prompt": "secondary o2 levels", "tool_calls": ["CHECK_SECONDARY_OXYGEN"], "parts": [{"type": "TEXT", "text": "secondary o2 levels"}]},
+  {"prompt": "whats my backup oxygen pressure at", "tool_calls": ["CHECK_SECONDARY_OXYGEN_PRESSURE"], "parts": [{"type": "TEXT", "text": "whats my backup oxygen pressure at"}]},
+  {"prompt": "coolant system holding up", "tool_calls": ["CHECK_COOLANT_STORAGE"], "parts": [{"type": "TEXT", "text": "coolant system holding up"}]},
+  {"prompt": "liquid coolant pressure reading", "tool_calls": ["CHECK_COOLANT_LIQUID_PRESSURE"], "parts": [{"type": "TEXT", "text": "liquid coolant pressure reading"}]},
+  {"prompt": "gas pressure in the cooling loop", "tool_calls": ["GET_COOLANT_GAS_PRESSURE"], "parts": [{"type": "TEXT", "text": "gas pressure in the cooling loop"}]},
+  {"prompt": "main fan working okay", "tool_calls": ["CHECK_PRIMARY_FAN_RPM"], "parts": [{"type": "TEXT", "text": "main fan working okay"}]},
+  {"prompt": "backup fan speed check", "tool_calls": ["CHECK_VITALS_FAN_SEC_RPM"], "parts": [{"type": "TEXT", "text": "backup fan speed check"}]},
+  {"prompt": "co2 scrubber a status", "tool_calls": ["CHECK_SCRUBBER_A_CO2"], "parts": [{"type": "TEXT", "text": "co2 scrubber a status"}]},
+  {"prompt": "hows scrubber b doing", "tool_calls": ["CHECK_SCRUBBER_B_CO2"], "parts": [{"type": "TEXT", "text": "hows scrubber b doing"}]},
+  {"prompt": "am I producing too much carbon dioxide", "tool_calls": ["GET_CO2_PRODUCTION"], "parts": [{"type": "TEXT", "text": "am I producing too much carbon dioxide"}]},
+  {"prompt": "helmet co2 level", "tool_calls": ["GET_HELMET_CO2"], "parts": [{"type": "TEXT", "text": "helmet co2 level"}]},
+  {"prompt": "suit co2 partial pressure", "tool_calls": ["GET_SUIT_CO2_PRESSURE"], "parts": [{"type": "TEXT", "text": "suit co2 partial pressure"}]},
+  {"prompt": "overall suit pressure", "tool_calls": ["GET_SUIT_PRESSURE_TOTAL"], "parts": [{"type": "TEXT", "text": "overall suit pressure"}]},
+  {"prompt": "oxygen partial pressure in suit", "tool_calls": ["GET_SUIT_OXYGEN_PRESSURE"], "parts": [{"type": "TEXT", "text": "oxygen partial pressure in suit"}]},
+  {"prompt": "other gases in my suit", "tool_calls": ["GET_SUIT_OTHER_GAS_PRESSURE"], "parts": [{"type": "TEXT", "text": "other gases in my suit"}]},
+  {"prompt": "how much o2 am I breathing through", "tool_calls": ["GET_VITALS_OXY_CONSUMPTION"], "parts": [{"type": "TEXT", "text": "how much o2 am I breathing through"}]},
+  {"prompt": "primary tank pressure", "tool_calls": ["GET_VITALS_OXY_PRI_PRESSURE"], "parts": [{"type": "TEXT", "text": "primary tank pressure"}]},
+  {"prompt": "how long until oxygen runs out", "tool_calls": ["GET_VITALS_OXY_TIME_LEFT"], "parts": [{"type": "TEXT", "text": "how long until oxygen runs out"}]},
+  
+  {"prompt": "throw a reminder down for checking comm systems", "tool_calls": ["CREATE_TASK"], "parts": [{"type": "TEXT", "text": "throw a reminder down for "}, {"type": "TASK_NAME", "text": "checking comm systems"}]},
+  {"prompt": "need to remember to verify seal integrity", "tool_calls": ["CREATE_TASK"], "parts": [{"type": "TEXT", "text": "need to remember to "}, {"type": "TASK_NAME", "text": "verify seal integrity"}]},
+  {"prompt": "jot down calibrate spectrometer", "tool_calls": ["CREATE_TASK"], "parts": [{"type": "TEXT", "text": "jot down "}, {"type": "TASK_NAME", "text": "calibrate spectrometer"}]},
+  {"prompt": "queue up thermal blanket reposition", "tool_calls": ["CREATE_TASK"], "parts": [{"type": "TEXT", "text": "queue up "}, {"type": "TASK_NAME", "text": "thermal blanket reposition"}]},
+  {"prompt": "flag for later antenna adjustment", "tool_calls": ["CREATE_TASK"], "parts": [{"type": "TEXT", "text": "flag for later "}, {"type": "TASK_NAME", "text": "antenna adjustment"}]},
+  
+  {"prompt": "scratch off verify power coupling from my list", "tool_calls": ["COMPLETE_TASK"], "parts": [{"type": "TEXT", "text": "scratch off "}, {"type": "TASK_NAME", "text": "verify power coupling"}, {"type": "TEXT", "text": " from my list"}]},
+  {"prompt": "that suit diagnostic is finished now", "tool_calls": ["COMPLETE_TASK"], "parts": [{"type": "TEXT", "text": "that "}, {"type": "TASK_NAME", "text": "suit diagnostic"}, {"type": "TEXT", "text": " is finished now"}]},
+  {"prompt": "did the oxygen filter swap", "tool_calls": ["COMPLETE_TASK"], "parts": [{"type": "TEXT", "text": "did the "}, {"type": "TASK_NAME", "text": "oxygen filter swap"}]},
+  {"prompt": "marking off geological survey from the checklist", "tool_calls": ["COMPLETE_TASK"], "parts": [{"type": "TEXT", "text": "marking off "}, {"type": "TASK_NAME", "text": "geological survey"}, {"type": "TEXT", "text": " from the checklist"}]},
+  
+  {"prompt": "nix the terrain mapping from my list", "tool_calls": ["DELETE_TASK"], "parts": [{"type": "TEXT", "text": "nix the "}, {"type": "TASK_NAME", "text": "terrain mapping"}, {"type": "TEXT", "text": " from my list"}]},
+  {"prompt": "forget about pressure valve test", "tool_calls": ["DELETE_TASK"], "parts": [{"type": "TEXT", "text": "forget about "}, {"type": "TASK_NAME", "text": "pressure valve test"}]},
+  {"prompt": "cancel the air quality sampling task", "tool_calls": ["DELETE_TASK"], "parts": [{"type": "TEXT", "text": "cancel the "}, {"type": "TASK_NAME", "text": "air quality sampling"}, {"type": "TEXT", "text": " task"}]},
+  
+  {"prompt": "drop a pin here as Mineral Survey Point", "tool_calls": ["ADD_WAYPOINT"], "parts": [{"type": "TEXT", "text": "drop a pin here as "}, {"type": "WAYPOINT_NAME", "text": "Mineral Survey Point"}]},
+  {"prompt": "save this location as Interesting Rock", "tool_calls": ["ADD_WAYPOINT"], "parts": [{"type": "TEXT", "text": "save this location as "}, {"type": "WAYPOINT_NAME", "text": "Interesting Rock"}]},
+  {"prompt": "bookmark current spot as Anomaly Site C", "tool_calls": ["ADD_WAYPOINT"], "parts": [{"type": "TEXT", "text": "bookmark current spot as "}, {"type": "WAYPOINT_NAME", "text": "Anomaly Site C"}]},
+  {"prompt": "tag this position Equipment Stash", "tool_calls": ["ADD_WAYPOINT"], "parts": [{"type": "TEXT", "text": "tag this position "}, {"type": "WAYPOINT_NAME", "text": "Equipment Stash"}]},
+  
+  {"prompt": "scratch Broken Sensor from my saved spots", "tool_calls": ["DELETE_WAYPOINT"], "parts": [{"type": "TEXT", "text": "scratch "}, {"type": "WAYPOINT_NAME", "text": "Broken Sensor"}, {"type": "TEXT", "text": " from my saved spots"}]},
+  {"prompt": "erase the Old Camp marker", "tool_calls": ["DELETE_WAYPOINT"], "parts": [{"type": "TEXT", "text": "erase the "}, {"type": "WAYPOINT_NAME", "text": "Old Camp"}, {"type": "TEXT", "text": " marker"}]},
+  {"prompt": "wipe Temporary Stop from waypoints", "tool_calls": ["DELETE_WAYPOINT"], "parts": [{"type": "TEXT", "text": "wipe "}, {"type": "WAYPOINT_NAME", "text": "Temporary Stop"}, {"type": "TEXT", "text": " from waypoints"}]},
+  
+  {"prompt": "where exactly is the Fuel Depot located", "tool_calls": ["GET_COORDINATES"], "parts": [{"type": "TEXT", "text": "where exactly is the "}, {"type": "COORDINATE_TARGET_NAME", "text": "Fuel Depot"}, {"type": "TEXT", "text": " located"}]},
+  {"prompt": "give me the gps for Relay Tower", "tool_calls": ["GET_COORDINATES"], "parts": [{"type": "TEXT", "text": "give me the gps for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Relay Tower"}]},
+  {"prompt": "lat long of Shelter Bravo", "tool_calls": ["GET_COORDINATES"], "parts": [{"type": "TEXT", "text": "lat long of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Shelter Bravo"}]},
+  {"prompt": "position data for Supply Cache 3", "tool_calls": ["GET_COORDINATES"], "parts": [{"type": "TEXT", "text": "position data for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Supply Cache 3"}]},
+  
+  {"prompt": "plot a course for Science Outpost", "tool_calls": ["SET_NAVIGATION_TARGET"], "parts": [{"type": "TEXT", "text": "plot a course for "}, {"type": "NAVIGATION_TARGET_NAME", "text": "Science Outpost"}]},
+  {"prompt": "take me over to Lander Site B", "tool_calls": ["SET_NAVIGATION_TARGET"], "parts": [{"type": "TEXT", "text": "take me over to "}, {"type": "NAVIGATION_TARGET_NAME", "text": "Lander Site B"}]},
+  {"prompt": "head toward the Recharge Point", "tool_calls": ["SET_NAVIGATION_TARGET"], "parts": [{"type": "TEXT", "text": "head toward the "}, {"type": "NAVIGATION_TARGET_NAME", "text": "Recharge Point"}]},
+  {"prompt": "set heading for Extraction Zone", "tool_calls": ["SET_NAVIGATION_TARGET"], "parts": [{"type": "TEXT", "text": "set heading for "}, {"type": "NAVIGATION_TARGET_NAME", "text": "Extraction Zone"}]},
+  {"prompt": "guide me to Observation Deck", "tool_calls": ["SET_NAVIGATION_TARGET"], "parts": [{"type": "TEXT", "text": "guide me to "}, {"type": "NAVIGATION_TARGET_NAME", "text": "Observation Deck"}]},
+  
+  {"prompt": "find another way around", "tool_calls": ["REROUTE_NAVIGATION"], "parts": [{"type": "TEXT", "text": "find another way around"}]},
+  {"prompt": "recalculate my path", "tool_calls": ["REROUTE_NAVIGATION"], "parts": [{"type": "TEXT", "text": "recalculate my path"}]},
+  {"prompt": "theres an obstacle need new route", "tool_calls": ["REROUTE_NAVIGATION"], "parts": [{"type": "TEXT", "text": "theres an obstacle need new route"}]},
+  
+  {"prompt": "open up my tasks", "tool_calls": ["OPEN_MENU_TASKS"], "parts": [{"type": "TEXT", "text": "open up my tasks"}]},
+  {"prompt": "lemme see the todo list", "tool_calls": ["OPEN_MENU_TASKS"], "parts": [{"type": "TEXT", "text": "lemme see the todo list"}]},
+  {"prompt": "show nav screen", "tool_calls": ["OPEN_MENU_NAVIGATION"], "parts": [{"type": "TEXT", "text": "show nav screen"}]},
+  {"prompt": "pull up the map please", "tool_calls": ["OPEN_MENU_NAVIGATION"], "parts": [{"type": "TEXT", "text": "pull up the map please"}]},
+  {"prompt": "vitals display", "tool_calls": ["OPEN_MENU_VITALS"], "parts": [{"type": "TEXT", "text": "vitals display"}]},
+  {"prompt": "health monitor on", "tool_calls": ["OPEN_MENU_VITALS"], "parts": [{"type": "TEXT", "text": "health monitor on"}]},
+  {"prompt": "messaging panel", "tool_calls": ["OPEN_MENU_MESSAGING"], "parts": [{"type": "TEXT", "text": "messaging panel"}]},
+  {"prompt": "comms window please", "tool_calls": ["OPEN_MENU_MESSAGING"], "parts": [{"type": "TEXT", "text": "comms window please"}]},
+  {"prompt": "show sample collection menu", "tool_calls": ["OPEN_MENU_GEOSAMPLES"], "parts": [{"type": "TEXT", "text": "show sample collection menu"}]},
+  {"prompt": "rock analysis interface", "tool_calls": ["OPEN_MENU_GEOSAMPLES"], "parts": [{"type": "TEXT", "text": "rock analysis interface"}]},
+  {"prompt": "rover controls", "tool_calls": ["OPEN_MENU_ROVER"], "parts": [{"type": "TEXT", "text": "rover controls"}]},
+  {"prompt": "vehicle status screen", "tool_calls": ["OPEN_MENU_ROVER"], "parts": [{"type": "TEXT", "text": "vehicle status screen"}]},
+  {"prompt": "umbilical interface", "tool_calls": ["OPEN_MENU_UIA"], "parts": [{"type": "TEXT", "text": "umbilical interface"}]},
+  {"prompt": "suit connection panel", "tool_calls": ["OPEN_MENU_UIA"], "parts": [{"type": "TEXT", "text": "suit connection panel"}]},
+  {"prompt": "talk to assistant", "tool_calls": ["OPEN_MENU_VOICE_ASSISTANT"], "parts": [{"type": "TEXT", "text": "talk to assistant"}]},
+  {"prompt": "ai help", "tool_calls": ["OPEN_MENU_VOICE_ASSISTANT"], "parts": [{"type": "TEXT", "text": "ai help"}]},
+  
+  {"prompt": "close this out", "tool_calls": ["CLOSE_MENU"], "parts": [{"type": "TEXT", "text": "close this out"}]},
+  {"prompt": "hide the window", "tool_calls": ["CLOSE_MENU"], "parts": [{"type": "TEXT", "text": "hide the window"}]},
+  {"prompt": "clear my view", "tool_calls": ["CLOSE_MENU"], "parts": [{"type": "TEXT", "text": "clear my view"}]},
+  
+  {"prompt": "start leaving the hab", "tool_calls": ["START_PROCEDURE_UIA_EGRESS"], "parts": [{"type": "TEXT", "text": "start leaving the hab"}]},
+  {"prompt": "begin exit procedure", "tool_calls": ["START_PROCEDURE_UIA_EGRESS"], "parts": [{"type": "TEXT", "text": "begin exit procedure"}]},
+  {"prompt": "initiate going outside", "tool_calls": ["START_PROCEDURE_UIA_EGRESS"], "parts": [{"type": "TEXT", "text": "initiate going outside"}]},
+  
+  {"prompt": "coming back in now", "tool_calls": ["START_PROCEDURE_UIA_INGRESS"], "parts": [{"type": "TEXT", "text": "coming back in now"}]},
+  {"prompt": "re-entry procedure", "tool_calls": ["START_PROCEDURE_UIA_INGRESS"], "parts": [{"type": "TEXT", "text": "re-entry procedure"}]},
+  {"prompt": "start habitat return checklist", "tool_calls": ["START_PROCEDURE_UIA_INGRESS"], "parts": [{"type": "TEXT", "text": "start habitat return checklist"}]},
+  
+  {"prompt": "emergency situation activate protocols", "tool_calls": ["START_PROCEDURE_ERM"], "parts": [{"type": "TEXT", "text": "emergency situation activate protocols"}]},
+  {"prompt": "red alert mode", "tool_calls": ["START_PROCEDURE_ERM"], "parts": [{"type": "TEXT", "text": "red alert mode"}]},
+  
+  {"prompt": "run pre-departure verification", "tool_calls": ["START_PROCEDURE_FINAL_SYSTEM_CHECKS"], "parts": [{"type": "TEXT", "text": "run pre-departure verification"}]},
+  {"prompt": "last checks before we go", "tool_calls": ["START_PROCEDURE_FINAL_SYSTEM_CHECKS"], "parts": [{"type": "TEXT", "text": "last checks before we go"}]},
+  
+  {"prompt": "equipment fix mode", "tool_calls": ["START_PROCEDURE_PHYSICAL_REPAIR_TASK"], "parts": [{"type": "TEXT", "text": "equipment fix mode"}]},
+  {"prompt": "hardware maintenance procedure", "tool_calls": ["START_PROCEDURE_PHYSICAL_REPAIR_TASK"], "parts": [{"type": "TEXT", "text": "hardware maintenance procedure"}]},
+  
+  {"prompt": "run system health check", "tool_calls": ["START_PROCEDURE_SYSTEM_DIAGNOSIS"], "parts": [{"type": "TEXT", "text": "run system health check"}]},
+  {"prompt": "diagnostic scan on all systems", "tool_calls": ["START_PROCEDURE_SYSTEM_DIAGNOSIS"], "parts": [{"type": "TEXT", "text": "diagnostic scan on all systems"}]},
+  
+  {"prompt": "reboot the system", "tool_calls": ["START_PROCEDURE_SYSTEM_RESTART"], "parts": [{"type": "TEXT", "text": "reboot the system"}]},
+  {"prompt": "power cycle everything", "tool_calls": ["START_PROCEDURE_SYSTEM_RESTART"], "parts": [{"type": "TEXT", "text": "power cycle everything"}]},
+  
+  {"prompt": "check o2 and also add task for sensor cleaning", "tool_calls": ["CHECK_PRIMARY_O2", "CREATE_TASK"], "parts": [{"type": "TEXT", "text": "check o2 and also add task for "}, {"type": "TASK_NAME", "text": "sensor cleaning"}]},
+  {"prompt": "heart rate then guide me to Emergency Station", "tool_calls": ["GET_HEART_RATE", "SET_NAVIGATION_TARGET"], "parts": [{"type": "TEXT", "text": "heart rate then guide me to "}, {"type": "NAVIGATION_TARGET_NAME", "text": "Emergency Station"}]},
+  {"prompt": "battery status and any warnings right now", "tool_calls": ["CHECK_BATTERY_TIME", "GET_WARNINGS"], "parts": [{"type": "TEXT", "text": "battery status and any warnings right now"}]},
+  {"prompt": "show vitals menu then open navigation", "tool_calls": ["OPEN_MENU_VITALS", "OPEN_MENU_NAVIGATION"], "parts": [{"type": "TEXT", "text": "show vitals menu then open navigation"}]},
+  {"prompt": "log maintenance check and mark cable inspection done", "tool_calls": ["CREATE_TASK", "COMPLETE_TASK"], "parts": [{"type": "TEXT", "text": "log "}, {"type": "TASK_NAME", "text": "maintenance check"}, {"type": "TEXT", "text": " and mark "}, {"type": "TASK_NAME", "text": "cable inspection"}, {"type": "TEXT", "text": " done"}]},
+  {"prompt": "save this spot as Sample Point D and head to Base Alpha", "tool_calls": ["ADD_WAYPOINT", "SET_NAVIGATION_TARGET"], "parts": [{"type": "TEXT", "text": "save this spot as "}, {"type": "WAYPOINT_NAME", "text": "Sample Point D"}, {"type": "TEXT", "text": " and head to "}, {"type": "NAVIGATION_TARGET_NAME", "text": "Base Alpha"}]},
+  {"prompt": "coordinates for Research Lab and delete Temp Marker from waypoints", "tool_calls": ["GET_COORDINATES", "DELETE_WAYPOINT"], "parts": [{"type": "TEXT", "text": "coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Research Lab"}, {"type": "TEXT", "text": " and delete "}, {"type": "WAYPOINT_NAME", "text": "Temp Marker"}, {"type": "TEXT", "text": " from waypoints"}]}
 ]
-

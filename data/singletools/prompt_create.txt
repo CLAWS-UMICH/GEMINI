@@ -1,0 +1,26 @@
+Your job is to generate HIGH quality diverse (in structure and approach and yada yada you get it ) training data for this intent.
+
+Note that the existing code in this file has the intent name and decsriptino to guide you. it also has the allowed text part labels, you MUST only use those labels.
+
+This file should end up being an array of objects, 50 objects long. Each object must represent a different prompt that a user could speak that would trigger this intent.
+
+Each object must be structured like this:
+{
+    "prompt": "make a new task for fuel checks",
+    "tool_calls": [ "CREATE_TASK"],
+    "parts": [
+      {
+        "type": "TEXT",
+        "text": "make a new task for "
+      },
+
+      {
+        "type": "TASK_NAME",
+        "text": "fuel checks"
+      }
+    ]
+  },
+
+Note that some intents may just have TEXT tokens, then you will just have one "part" which would be all the text from the propmt, rather than some of the text being for the TEXT and some being for the TASK_NAME_START as in the example. 
+
+You MUST keep the comments in the final version of the file with the array, just have them at the top.

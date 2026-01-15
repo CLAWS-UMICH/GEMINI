@@ -10,9 +10,9 @@ from collections import defaultdict
 from transformers import AutoModel, AutoTokenizer
 
 
-# Must match simpletrain.py
-TOOL_LABELS = ["GET_VITALS", "CREATE_TASK", "NAVIGATION_QUERY"]
-TOKEN_LABELS = ["TASK_NAME_CONT", "TASK_NAME_START", "TEXT"]
+# Labels - loaded dynamically from the model checkpoint
+TOOL_LABELS = []
+TOKEN_LABELS = []
 
 
 class TwoHeadModel(nn.Module):
@@ -37,18 +37,20 @@ class TwoHeadModel(nn.Module):
 
 
 def load_model(model_dir="outputs/simple-model"):
+    global TOOL_LABELS, TOKEN_LABELS
+    
     model_dir = Path(model_dir)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     ckpt = torch.load(model_dir / "model.pt", map_location=device)
-    tool_labels = ckpt["tool_labels"]
-    token_labels = ckpt["token_labels"]
+    TOOL_LABELS = ckpt["tool_labels"]
+    TOKEN_LABELS = ckpt["token_labels"]
     num_tag_outputs = ckpt["model_state_dict"]["tag_head.weight"].shape[0]
-    has_threshold = num_tag_outputs == (len(tool_labels) + 1)
+    has_threshold = num_tag_outputs == (len(TOOL_LABELS) + 1)
 
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
 
-    model = TwoHeadModel("distilbert-base-uncased", num_tag_outputs, len(token_labels))
+    model = TwoHeadModel("distilbert-base-uncased", num_tag_outputs, len(TOKEN_LABELS))
     model.load_state_dict(ckpt["model_state_dict"])
     model.to(device)
     model.eval()
