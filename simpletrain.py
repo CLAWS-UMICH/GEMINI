@@ -246,39 +246,13 @@ def train():
     model = TwoHeadModel(model_name, len(TOOL_LABELS), len(TOKEN_LABELS), token_weights.to(device))
     model.to(device)
 
-    # Use Muon optimizer - PyTorch's built-in implementation
-    # Muon uses orthogonalized momentum (Newton-Schulz) which can help with faster convergence
-    # Note: Muon is for 2D params (weight matrices), use AdamW for embeddings/bias/layernorm
-    
-    # Separate parameters: use Muon for 2D weight matrices, AdamW for others
-    embed_params = []
-    muon_params = []
-    for name, param in model.named_parameters():
-        if 'embedding' in name.lower() or 'LayerNorm' in name or 'bias' in name or param.ndim != 2:
-            embed_params.append(param)
-        else:
-            muon_params.append(param)
-    
-    optimizer = torch.optim.Muon(
-        muon_params,
-        lr=2e-4,  # Much lower for fine-tuning pretrained models
-        momentum=0.95,
-        nesterov=True,
-        weight_decay=0.01,
-        ns_steps=5,
-        adjust_lr_fn='match_rms_adamw',  # Match AdamW RMS for easier LR tuning
-    )
-    
-    # Separate AdamW for embeddings/bias/layernorm (non-2D params)
-    optimizer_embed = torch.optim.AdamW(embed_params, lr=2e-5, weight_decay=0.01)
+    # Simple AdamW optimizer - proven for fine-tuning pretrained transformers
+    optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5, weight_decay=0.01)
 
-    # Learning rate schedulers with warmup
-    num_epochs = 100
+    # Training settings
+    num_epochs = 80
     warmup_epochs = 3
-    
-    # Base learning rates for schedule
-    base_lr_muon = 2e-4
-    base_lr_embed = 2e-5
+    base_lr = 2e-5
     
     def get_lr_multiplier(epoch):
         if epoch < warmup_epochs:
@@ -291,7 +265,7 @@ def train():
     best_acc = 0
     best_state = None
     best_val_loss = float("inf")
-    patience = 15  # Increased patience since we're using warmup
+    patience = 10
     patience_counter = 0
     
     # Gradient clipping value
@@ -301,9 +275,7 @@ def train():
         # Adjust learning rate based on schedule
         lr_mult = get_lr_multiplier(epoch)
         for param_group in optimizer.param_groups:
-            param_group['lr'] = base_lr_muon * lr_mult
-        for param_group in optimizer_embed.param_groups:
-            param_group['lr'] = base_lr_embed * lr_mult
+            param_group['lr'] = base_lr * lr_mult
         
         # Train
         model.train()
@@ -314,14 +286,12 @@ def train():
             loss = out["loss"]
 
             optimizer.zero_grad()
-            optimizer_embed.zero_grad()
             loss.backward()
             
             # Gradient clipping for stability
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
             
             optimizer.step()
-            optimizer_embed.step()
 
             total_loss += loss.item()
 
