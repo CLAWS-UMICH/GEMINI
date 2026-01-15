@@ -1,0 +1,986 @@
+{
+  // intents: open_menu_rover AND delete_waypoint
+  // description_1: The user wants to access telemetry and control interfaces specific to the Pressurized Rover (PR) or Lunar Terrain Vehicle (LTV). They might ask, "Open rover dashboard" or "Show LTV status."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "open rover dashboard and delete waypoint Alpha",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover dashboard and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "open LTV status then remove Home",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open LTV status then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "show PR vitals and delete Beta",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show PR vitals and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up rover power plus erase marker Base Camp",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up rover power plus erase marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up LTV battery but first delete Cache 1",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up LTV battery but first delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 1"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover diagnostics while deleting Old Camp",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover diagnostics while deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR controls then clear Beacon-3",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR controls then clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-3"
+            }
+        ]
+    },
+    {
+        "prompt": "display rover telemetry and then remove LZ",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display rover telemetry and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "please open rover menu and delete EVA Start",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please open rover menu and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Start"
+            }
+        ]
+    },
+    {
+        "prompt": "could you open the LTV interface and remove ScienceSite A",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you open the LTV interface and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "ScienceSite A"
+            }
+        ]
+    },
+    {
+        "prompt": "hey pull up rover battery status and then remove the marker called Charlie",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey pull up rover battery status and then remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "please show PR suit data plus delete the map marker Delta",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please show PR suit data plus delete the map marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to open the LTV diagnostics while also removing Echo Point from the map",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to open the LTV diagnostics while also removing "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover control panel and in addition delete North Marker so it's gone",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover control panel and in addition delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " so it's gone"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR status and then erase South Marker",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR status and then erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "yo open the rover display and clear Fuel Spot",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo open the rover display and clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Spot"
+            }
+        ]
+    },
+    {
+        "prompt": "after you open LTV power, remove the Water Cache",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you open LTV power, remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up rover power levels as well as delete RidgePoint on the navigation layer",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up rover power levels as well as delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "RidgePoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " on the navigation layer"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover menus and then also delete the Crater Edge waypoint for me",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover menus and then also delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint for me"
+            }
+        ]
+    },
+    {
+        "prompt": "open the rover status plus remove Habitat",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open the rover status plus remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "open LTV controls, and then followed by removing Depot to declutter the map",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open LTV controls, and then followed by removing "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " to declutter the map"
+            }
+        ]
+    },
+    {
+        "prompt": "show rover vitals and delete LM Landing",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show rover vitals and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LM Landing"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover HUD and then remove ParaProbe from the overlay",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover HUD and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "ParaProbe"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up PR instrument panel along with deleting SensorNode from the route markers",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up PR instrument panel along with deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SensorNode"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the route markers"
+            }
+        ]
+    },
+    {
+        "prompt": "open diagnostics and then clear RockPile",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open diagnostics and then clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "RockPile"
+            }
+        ]
+    },
+    {
+        "prompt": "delete waypoint SampleSite-7 and open rover battery",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SampleSite-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover battery"
+            }
+        ]
+    },
+    {
+        "prompt": "remove TransitNode then show LTV status",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "TransitNode"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show LTV status"
+            }
+        ]
+    },
+    {
+        "prompt": "erase Waypoint 12 and open PR vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open PR vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "can you delete Target Alpha and also open the rover controls?",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "can you delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Target Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also open the rover controls?"
+            }
+        ]
+    },
+    {
+        "prompt": "yo remove Alpha Site then pull up LTV battery display",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up LTV battery display"
+            }
+        ]
+    },
+    {
+        "prompt": "please remove Site-42 and then show rover power levels",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site-42"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show rover power levels"
+            }
+        ]
+    },
+    {
+        "prompt": "after deleting Marker One, open the PR status and display suit biometrics",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker One"
+            },
+            {
+                "type": "TEXT",
+                "text": ", open the PR status and display suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "remove Camp Mercury, and then could you open the LTV diagnostics as well?",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Mercury"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then could you open the LTV diagnostics as well?"
+            }
+        ]
+    },
+    {
+        "prompt": "clear Camp Artemis and open rover HUD next",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Artemis"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover HUD next"
+            }
+        ]
+    },
+    {
+        "prompt": "please erase Mast-2 before opening the rover menu, I'm getting clutter",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mast-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " before opening the rover menu, I'm getting clutter"
+            }
+        ]
+    },
+    {
+        "prompt": "delete Comm Node and open LTV status at the same time",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open LTV status at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "could you remove Relay-7 in addition to bringing up the rover power display?",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to bringing up the rover power display?"
+            }
+        ]
+    },
+    {
+        "prompt": "remove ObservationPoint and open PR diagnostics",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "ObservationPoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open PR diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "delete Trench South and then pull up rover suit data",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trench South"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up rover suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "erase PilotBeacon, oh and open the LTV telemetry so I can cross-check readings",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "PilotBeacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and open the LTV telemetry so I can cross-check readings"
+            }
+        ]
+    },
+    {
+        "prompt": "remove LandingZone as well as show rover battery",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LandingZone"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show rover battery"
+            }
+        ]
+    },
+    {
+        "prompt": "clear Sunshade along with opening the rover interface to check power levels",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sunshade"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with opening the rover interface to check power levels"
+            }
+        ]
+    },
+    {
+        "prompt": "delete Tool Cache before you open the rover menu",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tool Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you open the rover menu"
+            }
+        ]
+    },
+    {
+        "prompt": "remove East Beacon meanwhile bring up LTV diagnostics and then display suit vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile bring up LTV diagnostics and then display suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "erase West Beacon and then open rover telemetry plus show charge status",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover telemetry plus show charge status"
+            }
+        ]
+    },
+    {
+        "prompt": "remove Summit Flag and open PR controls",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Summit Flag"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open PR controls"
+            }
+        ]
+    },
+    {
+        "prompt": "delete Midline followed by opening the rover power panel so I can verify battery",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Midline"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the rover power panel so I can verify battery"
+            }
+        ]
+    },
+    {
+        "prompt": "remove Supply Depot and then show the LTV instrument panel",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the LTV instrument panel"
+            }
+        ]
+    },
+    {
+        "prompt": "clear North Ridge and then at the same time open the PR HUD to compare telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time open the PR HUD to compare telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "delete South Crater and additionally pull up rover diagnostics to confirm navigation is unaffected",
+        "tool_calls": [
+            "open_menu_rover",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up rover diagnostics to confirm navigation is unaffected"
+            }
+        ]
+    }
+]
+}

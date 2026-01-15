@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_oxy_consumption
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user is interested in the rate at which they are using oxygen, which helps in planning strenuous activities or return trips. They might ask, "What is my current oxygen consumption rate?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary oxygen and consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen and consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my oxygen consumption and backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my oxygen consumption and backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary tank plus current rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary tank plus current rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Current O2 use and tank status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Current O2 use and tank status"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup O2 status then consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup O2 status then consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 burn rate, also backup",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 burn rate, also backup"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary oxygen tank levels and my current consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary oxygen tank levels and my current consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me my oxygen consumption rate and secondary supply?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me my oxygen consumption rate and secondary supply?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the backup oxygen tank details then the usage rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the backup oxygen tank details then the usage rate"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current O2 usage and also the secondary storage status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current O2 usage and also the secondary storage status"
+            }
+        ]
+    },
+    {
+        "prompt": "yo bring up secondary storage info and show my O2 consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo bring up secondary storage info and show my O2 consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my oxygen consumption and show backup tank?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my oxygen consumption and show backup tank?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm secondary tank capacity and the consumption rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm secondary tank capacity and the consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Display oxygen usage rate and along with it the secondary level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display oxygen usage rate and along with it the secondary level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup oxygen and then give me the usage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen and then give me the usage"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme my O2 consumption and also the secondary tank readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme my O2 consumption and also the secondary tank readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary oxygen levels plus report current consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary oxygen levels plus report current consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my consumption rate and additionally the backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my consumption rate and additionally the backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary tank status and at the same time show consumption rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary tank status and at the same time show consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Report oxygen consumption meanwhile also check the secondary supply",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report oxygen consumption meanwhile also check the secondary supply"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 check and tell consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 check and tell consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 burn rate and backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 burn rate and backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Status backup tank and consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status backup tank and consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "Consumption rate then secondary status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Consumption rate then secondary status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary supply also consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary supply also consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what's my current oxygen consumption and secondary level?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what's my current oxygen consumption and secondary level?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up secondary tank status and then the consumption info",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up secondary tank status and then the consumption info"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my O2 usage rate and as well backup",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my O2 usage rate and as well backup"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary oxygen report and meanwhile display consumption rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary oxygen report and meanwhile display consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the consumption rate plus the secondary tank details",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the consumption rate plus the secondary tank details"
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm the secondary oxygen tank pressure and then display my current oxygen consumption rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm the secondary oxygen tank pressure and then display my current oxygen consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my oxygen consumption trend and after bring up the backup tank status for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my oxygen consumption trend and after bring up the backup tank status for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary O2 storage report plus show how many minutes of oxygen I am consuming per hour",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary O2 storage report plus show how many minutes of oxygen I am consuming per hour"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display current oxygen consumption numbers and then also open the secondary tank readout for comparison",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display current oxygen consumption numbers and then also open the secondary tank readout for comparison"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the status of the backup oxygen reservoir followed by a report of my real-time consumption rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the status of the backup oxygen reservoir followed by a report of my real-time consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my current O2 usage rate and in addition show the secondary tank remaining percentage, please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my current O2 usage rate and in addition show the secondary tank remaining percentage, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the secondary oxygen supply before we start EVA and also give the consumption projection for the next hour",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the secondary oxygen supply before we start EVA and also give the consumption projection for the next hour"
+            }
+        ]
+    },
+    {
+        "prompt": "Report my oxygen consumption rate and then, at the same time, pull up the backup tank diagnostics for review",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report my oxygen consumption rate and then, at the same time, pull up the backup tank diagnostics for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify secondary tank oxygen mass and additionally calculate how long current consumption will sustain us",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify secondary tank oxygen mass and additionally calculate how long current consumption will sustain us"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, tell me my oxygen consumption rate and oh and check the secondary tank's valve and pressure settings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, tell me my oxygen consumption rate and oh and check the secondary tank's valve and pressure settings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary oxygen metrics and then show projected consumption under heavy exertion scenarios for mission planning",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary oxygen metrics and then show projected consumption under heavy exertion scenarios for mission planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up my O2 consumption rate next and while you're at it display secondary storage levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up my O2 consumption rate next and while you're at it display secondary storage levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm backup oxygen supply percentage and as well as report instantaneous consumption rate for the current suit configuration",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm backup oxygen supply percentage and as well as report instantaneous consumption rate for the current suit configuration"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the real-time oxygen consumption and along with that open the secondary tank log and pressure graph",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the real-time oxygen consumption and along with that open the secondary tank log and pressure graph"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the secondary oxygen reserve numbers and provide a breakdown of consumption by activity last hour",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the secondary oxygen reserve numbers and provide a breakdown of consumption by activity last hour"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my oxygen consumption forecast and before that please display the secondary tank condition and remaining time",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my oxygen consumption forecast and before that please display the secondary tank condition and remaining time"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary storage pressure and then estimate how long the current consumption rate will keep us safe",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary storage pressure and then estimate how long the current consumption rate will keep us safe"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you give me the instantaneous O2 use rate followed by the backup tank status and any discrepancies?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you give me the instantaneous O2 use rate followed by the backup tank status and any discrepancies?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify the secondary oxygen cartridge levels but first show my present oxygen consumption rate for crew safety",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify the secondary oxygen cartridge levels but first show my present oxygen consumption rate for crew safety"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see current oxygen consumption numbers and then also pull up secondary storage readings in addition to timestamps",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_consumption"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see current oxygen consumption numbers and then also pull up secondary storage readings in addition to timestamps"
+            }
+        ]
+    }
+]
+}

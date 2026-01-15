@@ -1,0 +1,998 @@
+{
+  // intents: get_warnings AND Complete_task
+  // description_1: The user wants a verbal summary of any active alerts or anomalies currently detected by the HALO system, such as high heart rate or low battery. They might ask, "What are the current warnings?" or "Read out active alerts."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Read alerts and mark Connect Umbilical complete",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read alerts and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell warnings then finish Battery Check",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell warnings then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Any alerts and mark Antenna Check",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Any alerts and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Show warnings plus complete EVA prep",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show warnings plus complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Read alerts then mark Sample Stow",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read alerts then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            }
+        ]
+    },
+    {
+        "prompt": "List warnings also mark Deploy Beacon",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "List warnings also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "What's active alerts and do Tether Inspect",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's active alerts and do "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspect"
+            }
+        ]
+    },
+    {
+        "prompt": "Warnings plus finish CO2 Filter Swap",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Warnings plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Filter Swap"
+            }
+        ]
+    },
+    {
+        "prompt": "Alert status and mark Thermal Loop Reset",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Alert status and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Loop Reset"
+            }
+        ]
+    },
+    {
+        "prompt": "Any alarms and then mark Camera Align",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Any alarms and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Align"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read active warnings and then mark Airlock Seal complete",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read active warnings and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check warnings for me and mark Solar Panel Deploy",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check warnings for me and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Deploy"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up suit alerts and then finish Suit Leak Test",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up suit alerts and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current alarms and then mark Comm Array Cal done",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current alarms and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Array Cal"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me warnings as well as mark Drill Secure complete",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me warnings as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you display alerts in addition and mark Rover Dock",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you display alerts in addition and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rover Dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Read warnings and additionally set Pressure Equalize as complete",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read warnings and additionally set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "What are active alerts meanwhile finish Waste Flush task",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What are active alerts meanwhile finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste Flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "Report warnings and then mark Nav Beacon Cal completed",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report warnings and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Nav Beacon Cal"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Open current alerts and then mark Radiation Check done",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open current alerts and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Please list warnings and then finish Coolant Top-up",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please list warnings and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Top-up"
+            }
+        ]
+    },
+    {
+        "prompt": "Quickly tell me alerts plus finish Hose Reattach task",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quickly tell me alerts plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hose Reattach"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey HALO, show alerts and mark Tool Stow as complete",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey HALO, show alerts and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check helmet vitals and then complete Glove Replace",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check helmet vitals and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Replace"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up system warnings and then mark Helmet Visor Clear",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up system warnings and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Visor Clear"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical done and then read alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then read alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Battery Check please and show active warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " please and show active warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Antenna Check and also report any current alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report any current alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Set EVA prep as complete and then tell me alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then tell me alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample Stow complete and next pull up warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and next pull up warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Deploy Beacon finished, then pull up current warnings as well as suit vitals",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished, then pull up current warnings as well as suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Tether Inspect now and then check for any active alerts plus report battery",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " now and then check for any active alerts plus report battery"
+            }
+        ]
+    },
+    {
+        "prompt": "I'm going to mark CO2 Filter Swap done after you read alerts and then show power",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'm going to mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Filter Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " done after you read alerts and then show power"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Thermal Loop Reset please, and then display alerts in addition to biometrics",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Loop Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " please, and then display alerts in addition to biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Camera Align complete and then, followed by reading warnings, also bring up charge level",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then, followed by reading warnings, also bring up charge level"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Airlock Seal as complete but first show me any active alarms and suit data",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete but first show me any active alarms and suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "Please finish Solar Panel Deploy and then check warnings while also pulling up battery charge",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check warnings while also pulling up battery charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Suit Leak Test completed and then, at the same time, read out any system alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed and then, at the same time, read out any system alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to mark Comm Array Cal done and additionally display active warnings along with vitals",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Array Cal"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and additionally display active warnings along with vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Drill Secure then check warnings next and also show power remaining plus suit telemetry",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check warnings next and also show power remaining plus suit telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Rover Dock finished and then read my alerts, followed by pulling up biometrics and battery",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rover Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished and then read my alerts, followed by pulling up biometrics and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set Pressure Equalize to complete, and then check for warnings in addition to oxygen levels",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " to complete, and then check for warnings in addition to oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Waste Flush done, but first show any critical warnings and then bring up suit power status",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste Flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, but first show any critical warnings and then bring up suit power status"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Nav Beacon Cal and meanwhile read alerts, also show battery percentage and life remaining",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Nav Beacon Cal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile read alerts, also show battery percentage and life remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Radiation Check complete and then open warnings while pulling up coolant levels at the same time",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then open warnings while pulling up coolant levels at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Coolant Top-up as done and then please display any alarms additionally with the helmet telemetry",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Top-up"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and then please display any alarms additionally with the helmet telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Hose Reattach finished and then check warnings, oh and also show me charge and biometrics",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hose Reattach"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished and then check warnings, oh and also show me charge and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Tool Stow now and then list all active alerts plus bring up suit diagnostics next",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " now and then list all active alerts plus bring up suit diagnostics next"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Glove Replace as complete followed by reading warnings and then display power and telemetry",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete followed by reading warnings and then display power and telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Helmet Visor Clear and then before reporting to ground, pull up any alerts and suit vitals",
+        "tool_calls": [
+            "get_warnings",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Visor Clear"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then before reporting to ground, pull up any alerts and suit vitals"
+            }
+        ]
+    }
+]
+}

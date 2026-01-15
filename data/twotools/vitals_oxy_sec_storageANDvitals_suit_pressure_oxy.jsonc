@@ -1,0 +1,905 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_suit_pressure_oxy
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, "What is the oxygen pressure inside the suit?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Secondary O2 status and O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 status and O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Suit O2 pressure, also secondary tank status please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit O2 pressure, also secondary tank status please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show the secondary oxygen tank level then display suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show the secondary oxygen tank level then display suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 partial pressure, plus backup tank readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 partial pressure, plus backup tank readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup oxygen storage while also reporting suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen storage while also reporting suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What is the suit oxygen partial pressure after you confirm the secondary oxygen storage amount?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is the suit oxygen partial pressure after you confirm the secondary oxygen storage amount?"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary tank level before showing suit O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary tank level before showing suit O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "But first suit O2 pressure and secondary tank read, please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first suit O2 pressure and secondary tank read, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary oxygen volume as well as suit O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary oxygen volume as well as suit O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Display suit oxygen partial pressure along with secondary oxygen status, please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display suit oxygen partial pressure along with secondary oxygen status, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary tank level, and then the suit O2 partial pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank level, and then the suit O2 partial pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read suit O2 partial pressure, additionally check secondary tank status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read suit O2 partial pressure, additionally check secondary tank status"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm backup oxygen storage percentage meanwhile provide the oxygen partial pressure in my suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm backup oxygen storage percentage meanwhile provide the oxygen partial pressure in my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and what's my suit oxygen pressure, also check the secondary tank level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and what's my suit oxygen pressure, also check the secondary tank level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the backup oxygen reservoir and report the O2 partial pressure in the suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the backup oxygen reservoir and report the O2 partial pressure in the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit oxygen partial pressure then also give me the secondary O2 reserve quantity",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit oxygen partial pressure then also give me the secondary O2 reserve quantity"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary oxygen numbers and the suit oxygen partial pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary oxygen numbers and the suit oxygen partial pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you confirm the backup O2 supply plus display the partial pressure of oxygen in suit?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you confirm the backup O2 supply plus display the partial pressure of oxygen in suit?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my secondary oxygen storage and also pull up suit O2 partial pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my secondary oxygen storage and also pull up suit O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "First confirm suit oxygen partial pressure and then show secondary tank status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First confirm suit oxygen partial pressure and then show secondary tank status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide secondary oxygen reserves in addition to the oxygen contribution to suit pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide secondary oxygen reserves in addition to the oxygen contribution to suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the secondary O2 tank reading and the suit's O2 partial pressure next",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the secondary O2 tank reading and the suit's O2 partial pressure next"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme know suit oxygen partial pressure as well as the backup tank level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme know suit oxygen partial pressure as well as the backup tank level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen supply followed by the suit O2 partial pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen supply followed by the suit O2 partial pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the oxygen partial pressure inside the suit and also the backup tank remaining percentage?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the oxygen partial pressure inside the suit and also the backup tank remaining percentage?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please confirm secondary oxygen storage, and then report suit oxygen partial pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please confirm secondary oxygen storage, and then report suit oxygen partial pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the backup oxygen status and then show the O2 partial pressure in my suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the backup oxygen status and then show the O2 partial pressure in my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit oxygen partial pressure before pulling up the secondary oxygen measurements",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit oxygen partial pressure before pulling up the secondary oxygen measurements"
+            }
+        ]
+    },
+    {
+        "prompt": "Inspect secondary O2 reserve and at the same time display the suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Inspect secondary O2 reserve and at the same time display the suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a quick secondary tank check and then report the oxygen partial reading for my suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a quick secondary tank check and then report the oxygen partial reading for my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the suit O2 partial pressure and along with that check secondary storage quantity?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the suit O2 partial pressure and along with that check secondary storage quantity?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup oxygen level plus the partial pressure of O2 contributing to suit pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup oxygen level plus the partial pressure of O2 contributing to suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you confirm the O2 partial pressure in suit, and then bring up the secondary tank readout?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you confirm the O2 partial pressure in suit, and then bring up the secondary tank readout?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display backup oxygen amount additionally show the oxygen partial pressure inside the suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display backup oxygen amount additionally show the oxygen partial pressure inside the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check secondary oxygen reserves and then check the suit's oxygen partial pressure too",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check secondary oxygen reserves and then check the suit's oxygen partial pressure too"
+            }
+        ]
+    },
+    {
+        "prompt": "Start with secondary O2 capacity and next show me the oxygen component of my suit pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start with secondary O2 capacity and next show me the oxygen component of my suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "As well as the backup tank status, display the suit oxygen partial pressure now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "As well as the backup tank status, display the suit oxygen partial pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by the secondary tank readout, read the suit O2 partial pressure as well",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by the secondary tank readout, read the suit O2 partial pressure as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, confirm the secondary oxygen reserves and give me the current partial pressure of oxygen in suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, confirm the secondary oxygen reserves and give me the current partial pressure of oxygen in suit"
+            }
+        ]
+    },
+    {
+        "prompt": "While you're at it check secondary tank quantity and show the O2 pressure inside my suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you're at it check secondary tank quantity and show the O2 pressure inside my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my backup oxygen and at the same time display the oxygen partial pressure in-suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my backup oxygen and at the same time display the oxygen partial pressure in-suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm secondary oxygen storage followed by the suit O2 partial pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm secondary oxygen storage followed by the suit O2 partial pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "How much O2 remains in the secondary tank and what's the oxygen partial pressure in my suit?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much O2 remains in the secondary tank and what's the oxygen partial pressure in my suit?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the suit oxygen partial pressure along with the remaining percentage in the backup tank",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the suit oxygen partial pressure along with the remaining percentage in the backup tank"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary oxygen level, and then also the O2 partial pressure that's keeping the suit breathable",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary oxygen level, and then also the O2 partial pressure that's keeping the suit breathable"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check suit oxygen partial pressure and along with that verify the backup oxygen tank quantity?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check suit oxygen partial pressure and along with that verify the backup oxygen tank quantity?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the backup oxygen storage and additionally show the oxygen partial pressure inside my suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the backup oxygen storage and additionally show the oxygen partial pressure inside my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, read suit O2 partial pressure and then also confirm secondary O2 reserves",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, read suit O2 partial pressure and then also confirm secondary O2 reserves"
+            }
+        ]
+    },
+    {
+        "prompt": "Formal check: verify secondary oxygen storage plus provide suit oxygen partial pressure report",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Formal check: verify secondary oxygen storage plus provide suit oxygen partial pressure report"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, gimme the backup tank status and show me the suit oxygen partial pressure too",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, gimme the backup tank status and show me the suit oxygen partial pressure too"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we start EVA confirm the secondary O2 supply and the suit's oxygen partial pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we start EVA confirm the secondary O2 supply and the suit's oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen storage, followed by a readout of the suit O2 partial pressure please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen storage, followed by a readout of the suit O2 partial pressure please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit oxygen partial pressure and in addition show the backup tank quantity?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit oxygen partial pressure and in addition show the backup tank quantity?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need both the backup oxygen gauge and the current oxygen partial pressure within the suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need both the backup oxygen gauge and the current oxygen partial pressure within the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Quick: secondary tank percentage and suit O2 partial pressure, report them",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quick: secondary tank percentage and suit O2 partial pressure, report them"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup O2, and then confirm the oxygen partial contribution to my suit pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup O2, and then confirm the oxygen partial contribution to my suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify the secondary oxygen store and meanwhile give me the O2 partial pressure inside suit atmosphere",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify the secondary oxygen store and meanwhile give me the O2 partial pressure inside suit atmosphere"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the suit oxygen partial pressure and then pull up the secondary tank remaining liters",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the suit oxygen partial pressure and then pull up the secondary tank remaining liters"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup oxygen reading as well as the suit's oxygen partial pressure numbers",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup oxygen reading as well as the suit's oxygen partial pressure numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check the secondary oxygen supply and and then report the suit O2 partial pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check the secondary oxygen supply and and then report the suit O2 partial pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Scan backup oxygen storage plus show the oxygen partial pressure contributing to suit pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scan backup oxygen storage plus show the oxygen partial pressure contributing to suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, meantime check my secondary tank and also the O2 partial pressure in the suit",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, meantime check my secondary tank and also the O2 partial pressure in the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA begins, confirm the backup oxygen reserves and report suit oxygen partial pressure as well",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA begins, confirm the backup oxygen reserves and report suit oxygen partial pressure as well"
+            }
+        ]
+    },
+    {
+        "prompt": "But first verify the secondary tank then display the suit O2 partial pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first verify the secondary tank then display the suit O2 partial pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "I want the secondary oxygen gauge followed by the suit oxygen partial pressure measurement",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want the secondary oxygen gauge followed by the suit oxygen partial pressure measurement"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show the suit oxygen partial pressure and then also confirm how much is left in the backup tank?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show the suit oxygen partial pressure and then also confirm how much is left in the backup tank?"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify backup O2 storage and as well as the O2 partial pressure inside my suit, please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify backup O2 storage and as well as the O2 partial pressure inside my suit, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary tank levels and additionally pull up the suit's oxygen partial pressure trace",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary tank levels and additionally pull up the suit's oxygen partial pressure trace"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary oxygen readout and at the same time show the suit oxygen partial pressure chart",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_suit_pressure_oxy"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary oxygen readout and at the same time show the suit oxygen partial pressure chart"
+            }
+        ]
+    }
+]
+}

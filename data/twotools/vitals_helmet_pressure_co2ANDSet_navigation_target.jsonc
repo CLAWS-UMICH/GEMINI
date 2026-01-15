@@ -1,0 +1,962 @@
+{
+  // intents: vitals_helmet_pressure_co2 AND Set_navigation_target
+  // description_1: The user specifically wants to know the CO2 concentration within the helmet/headspace area, which is the most immediate indicator of air quality. They might ask, "What is the CO2 level in the helmet?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check helmet CO2 and go LTV",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check helmet CO2 and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Helmet CO2 then navigate to rover",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Helmet CO2 then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "What's helmet CO2 and LZ-1?",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's helmet CO2 and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me headspace CO2, then Airlock",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me headspace CO2, then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Helmet CO2, then set destination Depot",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Helmet CO2, then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 level in helmet and go Home Base",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 level in helmet and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check helmet CO2 and set destination to Habitat",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check helmet CO2 and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check headspace CO2 and then guide me to Rover",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check headspace CO2 and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Need helmet CO2 reading and navigate to Command Module",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need helmet CO2 reading and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 concentration in helmet and display route to LZ2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 concentration in helmet and display route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ2"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up helmet CO2 and then lead me to Beacon?",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up helmet CO2 and then lead me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide helmet CO2 and set course for LZ-Alpha",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide helmet CO2 and set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Helmet CO2, along with map to Science Lab",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Helmet CO2, along with map to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Open helmet CO2 display and then route to MedBay",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open helmet CO2 display and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "MedBay"
+            }
+        ]
+    },
+    {
+        "prompt": "Check helmet CO2 plus take me to Sample Cache",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check helmet CO2 plus take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "First check my helmet CO2 concentration and then set navigation to Relay Station",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First check my helmet CO2 concentration and then set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the CO2 level inside my helmet and then guide me to Alpha Site",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the CO2 level inside my helmet and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the helmet CO2 reading and after that plot a course to North Ridge",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the helmet CO2 reading and after that plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display helmet CO2 levels and then open directions for South Cliffs",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display helmet CO2 levels and then open directions for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Cliffs"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up helmet CO2 info and then in addition show route to Alpha Site",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up helmet CO2 info and then in addition show route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time check helmet CO2 levels and bring up directions to LTV-2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time check helmet CO2 levels and bring up directions to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my helmet CO2 while you set destination to the primary Depot",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my helmet CO2 while you set destination to the primary "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you proceed, verify the helmet CO2 reading and next draw route to the Greenhouse area",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you proceed, verify the helmet CO2 reading and next draw route to the Greenhouse area"
+            }
+        ]
+    },
+    {
+        "prompt": "But first check helmet CO2 as well as prepare guidance to Science Lab",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first check helmet CO2 as well as prepare guidance to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally please show helmet CO2 concentration and then follow by setting nav to LZ-Beta",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally please show helmet CO2 concentration and then follow by setting nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to LTV and check helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Rover then helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Airlock and tell helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Habitat and check helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Go Beacon and helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Sample Cache and also show helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Module and then check helmet CO2 levels",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check helmet CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide me to LZ-1 and additionally display helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally display helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Greenhouse plus tell me helmet CO2 concentration",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me helmet CO2 concentration"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to North Ridge and meanwhile pull up helmet CO2",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile pull up helmet CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Depot and then what is my helmet CO2?",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then what is my helmet CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you go to Science Lab and also read helmet CO2?",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read helmet CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo get me to MedBay and check helmet CO2 please",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo get me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "MedBay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check helmet CO2 please"
+            }
+        ]
+    },
+    {
+        "prompt": "Next navigate to Relay Station and check helmet CO2 levels",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check helmet CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Follow me to LZ-2 and then show helmet CO2 info",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Follow me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show helmet CO2 info"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set navigation to Alpha Site and then verify the helmet CO2 reading for me",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then verify the helmet CO2 reading for me"
+            }
+        ]
+    },
+    {
+        "prompt": "After you set route to Bravo, also display my helmet CO2 concentration and trend",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", also display my helmet CO2 concentration and trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Relay and then at the same time pull up helmet CO2 and status",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time pull up helmet CO2 and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Chart a course to LZ-Alpha and then followed by showing helmet CO2 values",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Chart a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then followed by showing helmet CO2 values"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please route me to the Depot and in addition check helmet CO2 for safety",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition check helmet CO2 for safety"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Command Module and then at the same time show me helmet CO2 readings",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time show me helmet CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to LTV-1 and then before you arrive tell me the helmet CO2 levels",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then before you arrive tell me the helmet CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set course for Science Outpost and along with that pull up helmet CO2 metrics",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and along with that pull up helmet CO2 metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to the Greenhouse followed by also showing my helmet CO2 and the trend over time",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by also showing my helmet CO2 and the trend over time"
+            }
+        ]
+    },
+    {
+        "prompt": "Send me to the Sample Cache next and additionally could you display helmet CO2 concentration and alarms",
+        "tool_calls": [
+            "vitals_helmet_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Send me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and additionally could you display helmet CO2 concentration and alarms"
+            }
+        ]
+    }
+]
+}

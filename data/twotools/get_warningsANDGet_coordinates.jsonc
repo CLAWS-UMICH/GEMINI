@@ -1,0 +1,1014 @@
+{
+  // intents: get_warnings AND Get_coordinates
+  // description_1: The user wants a verbal summary of any active alerts or anomalies currently detected by the HALO system, such as high heart rate or low battery. They might ask, "What are the current warnings?" or "Read out active alerts."
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check warnings and find LTV",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check warnings and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is PR and read warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery warnings then locate rover",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery warnings then locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for beacon and alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Read active alerts but first locate PR",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read active alerts but first locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate sample alpha and list warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and list warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me vitals and LTV location",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me vitals and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " location"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the PR plus any alarms?",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus any alarms?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit data and find rover",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit data and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me coords for LTV and warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read current warnings and then tell me where LTV is",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read current warnings and then tell me where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " is"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the rover and also report any active alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report any active alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my battery and then pull up coordinates for PR",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my battery and then pull up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for sample site alpha and list warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and list warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check vitals and in addition tell me where beacon is",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check vitals and in addition tell me where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " is"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate PR then also read out any suit alarms",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also read out any suit alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you list active alerts and then show me rover coordinates",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you list active alerts and then show me "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the LTV and also give me current warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also give me current warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Read out alarms and then bring up coords for sample alpha",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out alarms and then bring up coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for beacon and then also check my power",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also check my power"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show suit data and after locate the rover",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show suit data and after locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Find PR and at the same time read active warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time read active warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current warnings as well as coordinates for LTV",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current warnings as well as coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coords for rover plus tell me any alarms",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me any alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery level and then follow up with beacon coordinates",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery level and then follow up with "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is sample site alpha and also show my vitals",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me active alerts plus bring up the coordinates for PR",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me active alerts plus bring up the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you locate the LTV and also read suit warnings?",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read suit warnings?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read all anomalies and then show me where the beacon is",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read all anomalies and then show me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " is"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me coordinates for PR and then list any vitals alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then list any vitals alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide a concise readout of any active warnings and then get coordinates for the PR",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide a concise readout of any active warnings and then get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the current location of the LTV and additionally tell me if there are any system alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the current location of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally tell me if there are any system alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my suit biometrics and then follow up by pulling up coordinates for rover",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my suit biometrics and then follow up by pulling up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate sample site alpha first and while you're at it read out any warnings or alarms",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " first and while you're at it read out any warnings or alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "I need an assessment of battery charge and additionally get me the beacon exact coordinates",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need an assessment of battery charge and additionally get me the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " exact coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you give me the coordinates for PR and then also summarize any critical warnings for my suit",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you give me the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also summarize any critical warnings for my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking active alerts, please display the rover coordinates along with any vitals anomalies",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking active alerts, please display the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates along with any vitals anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me exact location of the LTV next and meanwhile read out current heart rate alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me exact location of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and meanwhile read out current heart rate alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me any system anomalies and then bring up coordinates for sample site alpha please",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me any system anomalies and then bring up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the beacon followed by an overview of any active warnings or low power notices",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by an overview of any active warnings or low power notices"
+            }
+        ]
+    },
+    {
+        "prompt": "Please scan for alerts and as well as fetch the exact coordinates of the PR for rendezvous",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please scan for alerts and as well as fetch the exact coordinates of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " for rendezvous"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the coordinates for the rover and in addition a verbal readout of any alarm conditions",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition a verbal readout of any alarm conditions"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and while you check anomalies, also open the location display for LTV and mark it",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and while you check anomalies, also open the location display for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark it"
+            }
+        ]
+    },
+    {
+        "prompt": "First find sample site alpha and then also tell me if there are any suit warnings to worry about",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also tell me if there are any suit warnings to worry about"
+            }
+        ]
+    },
+    {
+        "prompt": "Before giving me coordinates, read all active alerts and then show the beacon position on my HUD",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before giving me coordinates, read all active alerts and then show the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " position on my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up PR coordinates and then at the same time summarize power and vitals warnings?",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates and then at the same time summarize power and vitals warnings?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please list faults and additionally provide the last-known coordinates for the rover for planning",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please list faults and additionally provide the last-known coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " for planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the exact position of the LTV and then also inform me of any critical alarms currently active",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the exact position of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also inform me of any critical alarms currently active"
+            }
+        ]
+    },
+    {
+        "prompt": "Display active alerts as well as bring up coordinates for sample site alpha and highlight hazards nearby",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display active alerts as well as bring up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and highlight hazards nearby"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me where the beacon is, followed by a full readout of my suit warnings and battery status",
+        "tool_calls": [
+            "get_warnings",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " is, followed by a full readout of my suit warnings and battery status"
+            }
+        ]
+    }
+]
+}

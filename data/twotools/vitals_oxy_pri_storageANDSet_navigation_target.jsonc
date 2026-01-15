@@ -1,0 +1,974 @@
+{
+  // intents: vitals_oxy_pri_storage AND Set_navigation_target
+  // description_1: The user wants to check the fill level or capacity of the primary oxygen tank, which is critical for life support during the EVA. The prompt would likely be a request such as "What is my primary oxygen level?" or "Check primary O2 storage."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check primary O2 then navigate to LTV",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 level and go to Hab",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 level and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab"
+            }
+        ]
+    },
+    {
+        "prompt": "Check O2 and set destination Rover",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen status then navigate to Airlock",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen status then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 level and go Home",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 level and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Cargo then check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Base and O2 status",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit O2 and head to Depot",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit O2 and head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to LZ but first tell me O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first tell me O2"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 readout then route to Vehicle",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 readout then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check my primary oxygen and then navigate to Habitat",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check my primary oxygen and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Science Lab and also show primary O2 level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show primary O2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up primary O2 then guide me to the rover",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up primary O2 then guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Command Module plus report primary O2 percentage",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus report primary O2 percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my primary oxygen status and then set destination Depot-2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my primary oxygen status and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Home Base and then display my primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show suit biometrics and also plot a course to LZ-1",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show suit biometrics and also plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination EVA Staging Point while checking primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " while checking primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my primary O2 level and then open navigation to Supply Cache",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my primary O2 level and then open navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Direct me to Alpha Site plus give primary oxygen readings",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus give primary oxygen readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme primary O2 numbers and then set navigation for Base Camp oh and show ETA",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme primary O2 numbers and then set navigation for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and show ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Habitat-3 and also report suit O2 percentage",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report suit O2 percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary oxygen remaining and follow with directions to LTV",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary oxygen remaining and follow with directions to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Cargo Bay and then check my primary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check my primary oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up suit O2 and guide me to Airlock",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up suit O2 and guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Observatory and also show primary O2 and vitals",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show primary O2 and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Report primary oxygen then set navigation to Science Outpost",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report primary oxygen then set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Maintenance Hub and display my primary O2 reading",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display my primary O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary O2 status and then route me to Medical",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 status and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Medical"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LZ-Alpha and report my suit primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report my suit primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my primary oxygen remaining and then calculate a route and display guidance to Docking Port",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my primary oxygen remaining and then calculate a route and display guidance to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Lunar Relay Node and also pull up my primary O2 percentage plus full vitals readout",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Relay Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up my primary O2 percentage plus full vitals readout"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a full report of primary O2 levels and then show me directions to the Forward Habitat Module",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a full report of primary O2 levels and then show me directions to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Habitat Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Resource Cache next and meanwhile display current primary oxygen and suit biometrics for diagnostics",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Resource Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and meanwhile display current primary oxygen and suit biometrics for diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open my primary oxygen metrics and after that plot a safe course to the EVA staging area",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open my primary oxygen metrics and after that plot a safe course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA staging area"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Medical Bay then also provide current primary oxygen hours remaining as well as heart rate trends",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Medical Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also provide current primary oxygen hours remaining as well as heart rate trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the primary oxygen tank capacity and in addition bring up navigation directions to the Science Module",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the primary oxygen tank capacity and in addition bring up navigation directions to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Supply Depot followed by a readout of my suit's primary oxygen level and remaining minutes",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout of my suit's primary oxygen level and remaining minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check my primary O2 percentage before routing me to the secondary habitat and then show the path",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check my primary O2 percentage before routing me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "secondary habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the path"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Observation Tower along with a live overlay and also report primary oxygen tank status and warnings",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with a live overlay and also report primary oxygen tank status and warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the suit's primary oxygen capacity and at the same time plot a stepwise route to the maintenance hatch",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the suit's primary oxygen capacity and at the same time plot a stepwise route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "maintenance hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Direct me to Habitat Two next, and then additionally show the primary oxygen consumption rate and predictive time remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " next, and then additionally show the primary oxygen consumption rate and predictive time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display remaining primary oxygen and then also start navigation toward the rendezvous beacon, oh and show overlays",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display remaining primary oxygen and then also start navigation toward the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rendezvous beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and show overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to LZ Bravo and meanwhile pull up my oxygen tanks' primary level plus an ETA for arrival",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile pull up my oxygen tanks' primary level plus an ETA for arrival"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up the primary O2 readout and then route me to Emergency Shelter with visuals",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up the primary O2 readout and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Emergency Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " with visuals"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Forward Lab and additionally show my primary oxygen trends, alarms, and remaining minutes",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally show my primary oxygen trends, alarms, and remaining minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Cargo Hold next and also check my primary oxygen levels plus suit telemetry for a full status",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also check my primary oxygen levels plus suit telemetry for a full status"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Scientific Outpost before displaying my primary oxygen remaining and then show mapping overlays",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Scientific Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " before displaying my primary oxygen remaining and then show mapping overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot a course to the Lunar Excavation Site and meanwhile provide primary O2 percentage and projected endurance",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot a course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Excavation Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile provide primary O2 percentage and projected endurance"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Base Alpha and in addition report the primary oxygen tank capacity plus predicted mission time remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition report the primary oxygen tank capacity plus predicted mission time remaining"
+            }
+        ]
+    }
+]
+}

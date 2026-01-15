@@ -1,0 +1,982 @@
+{
+  // intents: start_procedure_physical_repair_task AND Add_waypoint
+  // description_1: The user is ready to perform hands-on mechanical repairs and needs the step-by-step AR guidance and checklists. They might say, "Start physical repair instructions" or "Open repair checklist."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Start repair then mark Crater Edge",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin repair and add Airlock Alpha",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin repair and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Airlock Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist then mark waypoint Panel 3B",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist then mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Panel 3B"
+            }
+        ]
+    },
+    {
+        "prompt": "Start physical repair and mark Sample A",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start physical repair and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample A"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin repair plus add Rover Pickup",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin repair plus add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Pickup"
+            }
+        ]
+    },
+    {
+        "prompt": "Run repair then drop waypoint Valve A7",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run repair then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Valve A7"
+            }
+        ]
+    },
+    {
+        "prompt": "Start procedure and mark Coolant Leak",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start procedure and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Coolant Leak"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin repair then add Crater Rim",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin repair then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repairs and then mark Sample B",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repairs and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample B"
+            }
+        ]
+    },
+    {
+        "prompt": "Start repair and waypoint Solar Panel",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair and waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Start repair procedure for comms and mark waypoint Crater Edge",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair procedure for comms and mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open repair checklist and add waypoint Solar Array Bay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open repair checklist and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin mechanical fix then drop marker named Rover Pickup Point",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin mechanical fix then drop marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Pickup Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the repair steps and then mark this as Valve A7",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the repair steps and then mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Valve A7"
+            }
+        ]
+    },
+    {
+        "prompt": "Start hands-on repair before adding waypoint Egress Hatch",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start hands-on repair before adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Egress Hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start repair and also set waypoint Sample Site Bravo",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start repair and also set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this position as Crater Rim and then open repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this position as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Solar Panel then bring up repair procedure for panel",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " then bring up repair procedure for panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Panel 3B and start the diagnostics for repair",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Panel 3B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start the diagnostics for repair"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker named Airlock Alpha and then open the repair guide",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Airlock Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the repair guide"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Coolant Leak and also start the valve repair procedure",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Coolant Leak"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also start the valve repair procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Lander Bay along with starting physical repair steps",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lander Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with starting physical repair steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Sample C then run repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample C"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Storage Bay and start the external panel repair next",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start the external panel repair next"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint EVA Airlock and then initiate suit repair",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate suit repair"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Meteor Crater and then open mechanical repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Meteor Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open mechanical repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add waypoint Sample Site Delta and start repair steps",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start repair steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Comms Antenna and also start the antenna repair",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comms Antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also start the antenna repair"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Backup Battery and then run the battery repair procedure",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Backup Battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run the battery repair procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Sample Site Echo and start physical repairs on scoop",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start physical repairs on scoop"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Hab Module Entrance and then start the physical repair for the thermal regulator",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Module Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the physical repair for the thermal regulator"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Sample Site Foxtrot and then bring up the repair procedure for arm articulation",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up the repair procedure for arm articulation"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Solar Array Bay East and while you're at it start the step-by-step repairs on the solar array joint",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array Bay East"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it start the step-by-step repairs on the solar array joint"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater North Ridge, and then open the detailed repair checklist for the antenna mast",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then open the detailed repair checklist for the antenna mast"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate hands-on repair sequence for coolant line, but first mark this spot as Coolant Line Leak",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate hands-on repair sequence for coolant line, but first mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Coolant Line Leak"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Science Cache Alpha and then start the physical repair instructions for sampling arm, please",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Cache Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the physical repair instructions for sampling arm, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Relay Tower West and then start the hardware repair on the comms relay, followed by system checks",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay Tower West"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the hardware repair on the comms relay, followed by system checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Emergency Shelter and then run the emergency patch repair procedure as well as check seals",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run the emergency patch repair procedure as well as check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Start repair on the EVA suit umbilical, in addition add waypoint Suit Umbilical Point for later reference",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair on the EVA suit umbilical, in addition add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Suit Umbilical Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this area as Sample Site Gamma and then initiate structural repair steps for the rover docking clamp",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this area as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate structural repair steps for the rover docking clamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist for the docking port and then add waypoint Docking Port South, additionally note torque values",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist for the docking port and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking Port South"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally note torque values"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Fuel Cache Bravo and then start the fuel line repair procedure while monitoring pressure",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the fuel line repair procedure while monitoring pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin step-by-step mechanical repairs for the robotic arm and then mark the maintenance spot as Arm Service Node",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin step-by-step mechanical repairs for the robotic arm and then mark the maintenance spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Arm Service Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Ridge Observation Point and then open the physical repair guide for the camera turret, followed by diagnostics",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the physical repair guide for the camera turret, followed by diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the repair procedure on the thermal blanket and at the same time add waypoint Blanket Tear Location",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the repair procedure on the thermal blanket and at the same time add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blanket Tear Location"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark location as Navigation Beacon North and then open hands-on repair steps for navigation sensor alignment",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Navigation Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open hands-on repair steps for navigation sensor alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start guided repair of the fuel pump and after that add waypoint Pump Access Hatch for return path",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start guided repair of the fuel pump and after that add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pump Access Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " for return path"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Transit Point and then initiate the maintenance repair checklist, meanwhile flag battery status",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Transit Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate the maintenance repair checklist, meanwhile flag battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate structural repair for the antenna mast but first drop a waypoint Antenna Base Camp for rendezvous",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate structural repair for the antenna mast but first drop a waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Antenna Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " for rendezvous"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and add waypoint Cargo Cache Zulu and then pull up the physical repair instructions for the cargo latch",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Cache Zulu"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up the physical repair instructions for the cargo latch"
+            }
+        ]
+    }
+]
+}

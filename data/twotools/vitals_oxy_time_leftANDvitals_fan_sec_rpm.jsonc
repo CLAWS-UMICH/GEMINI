@@ -1,0 +1,645 @@
+{
+  // intents: vitals_oxy_time_left AND vitals_fan_sec_rpm
+  // description_1: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // description_2: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "How much O2 time left and RPM?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much O2 time left and RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan RPM then oxygen?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan RPM then oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen time remaining plus fan speed?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen time remaining plus fan speed?"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM also check O2?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM also check O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Time to depletion while checking RPM?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time to depletion while checking RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup fan RPM then how long O2?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup fan RPM then how long O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "How long oxygen left after RPM?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long oxygen left after RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan RPM before telling O2 time?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan RPM before telling O2 time?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 remaining but first check fan?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 remaining but first check fan?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show fan RPM as well as O2?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show fan RPM as well as O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me remaining oxygen time and fan RPM status",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me remaining oxygen time and fan RPM status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary fan RPM and then tell me O2 minutes left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM and then tell me O2 minutes left"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my O2 time left plus the backup fan RPM?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my O2 time left plus the backup fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Get fan RPM also show estimated remaining oxygen time please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get fan RPM also show estimated remaining oxygen time please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need oxygen time remaining and then check the aux fan RPM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need oxygen time remaining and then check the aux fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up secondary fan RPM while giving me oxygen time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up secondary fan RPM while giving me oxygen time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me O2 minutes left followed by the secondary fan RPM readout",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me O2 minutes left followed by the secondary fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Open fan telemetry and then display my current oxygen supply time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open fan telemetry and then display my current oxygen supply time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide remaining oxygen time and additionally report backup fan RPM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide remaining oxygen time and additionally report backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "How's the secondary fan RPM plus tell me how much O2 I have",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How's the secondary fan RPM plus tell me how much O2 I have"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check my oxygen time remaining and also check the fan RPM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check my oxygen time remaining and also check the fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup fan RPM then bring up oxygen time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup fan RPM then bring up oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Need oxygen estimate and the secondary fan RPM at the same time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need oxygen estimate and the secondary fan RPM at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Check auxiliary fan RPM along with my current oxygen minutes remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check auxiliary fan RPM along with my current oxygen minutes remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "After you calculate O2 time left, show me the secondary fan RPM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you calculate O2 time left, show me the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Before adjusting suit, verify fan RPM and then estimate oxygen duration",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before adjusting suit, verify fan RPM and then estimate oxygen duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open oxygen remaining display plus the backup fan RPM log",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open oxygen remaining display plus the backup fan RPM log"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me the secondary fan RPM and then provide O2 time remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me the secondary fan RPM and then provide O2 time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme know O2 time remaining and as well as the fan RPM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme know O2 time remaining and as well as the fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and get backup fan RPM and also give O2 time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and get backup fan RPM and also give O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please calculate how much longer my current oxygen supply will last, and in addition display secondary fan RPM readings.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please calculate how much longer my current oxygen supply will last, and in addition display secondary fan RPM readings."
+            }
+        ]
+    },
+    {
+        "prompt": "I need an estimate of remaining O2 time while meanwhile you pull up the backup fan RPM telemetry.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need an estimate of remaining O2 time while meanwhile you pull up the backup fan RPM telemetry."
+            }
+        ]
+    },
+    {
+        "prompt": "After you calculate my oxygen minutes remaining, and then also show me the secondary fan's RPM and trend.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you calculate my oxygen minutes remaining, and then also show me the secondary fan's RPM and trend."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please compute the time to oxygen depletion next and then present the backup fan RPM as well?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please compute the time to oxygen depletion next and then present the backup fan RPM as well?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide remaining oxygen estimate at the same time as you bring up the secondary fan RPM diagnostics.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide remaining oxygen estimate at the same time as you bring up the secondary fan RPM diagnostics."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me how many minutes of O2 are left followed by a readout of the auxiliary fan RPM history.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me how many minutes of O2 are left followed by a readout of the auxiliary fan RPM history."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the current oxygen time remaining along with the secondary fan RPM values and any anomalies.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the current oxygen time remaining along with the secondary fan RPM values and any anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the O2 time remaining display and then show secondary fan RPM trends.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the O2 time remaining display and then show secondary fan RPM trends."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need you to calculate O2 time remaining and additionally pull up backup fan RPM and status lights.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need you to calculate O2 time remaining and additionally pull up backup fan RPM and status lights."
+            }
+        ]
+    },
+    {
+        "prompt": "Check the backup fan RPM and then estimate how many minutes of oxygen remain in my suit.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the backup fan RPM and then estimate how many minutes of oxygen remain in my suit."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the secondary fan RPM while also calculating remaining oxygen time and flagging low thresholds.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the secondary fan RPM while also calculating remaining oxygen time and flagging low thresholds."
+            }
+        ]
+    },
+    {
+        "prompt": "Before I adjust propulsion, verify the fan RPM and provide O2 minutes remaining plus any warnings.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I adjust propulsion, verify the fan RPM and provide O2 minutes remaining plus any warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you get the auxiliary fan RPM, but first compute my oxygen time left and report it?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you get the auxiliary fan RPM, but first compute my oxygen time left and report it?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up fan RPM telemetry as well as an accurate calculation of remaining O2 time for my EVA.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up fan RPM telemetry as well as an accurate calculation of remaining O2 time for my EVA."
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the secondary fan RPM in detail and in addition tell me how long my oxygen will last.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the secondary fan RPM in detail and in addition tell me how long my oxygen will last."
+            }
+        ]
+    },
+    {
+        "prompt": "Get the backup fan RPM readings and meanwhile compute the projected oxygen depletion time with current usage.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get the backup fan RPM readings and meanwhile compute the projected oxygen depletion time with current usage."
+            }
+        ]
+    },
+    {
+        "prompt": "Read the secondary fan RPM followed by the oxygen time estimate next, and highlight any discrepancies.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the secondary fan RPM followed by the oxygen time estimate next, and highlight any discrepancies."
+            }
+        ]
+    },
+    {
+        "prompt": "Report the current fan RPM along with a calculation of O2 minutes remaining and any abnormal trends.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report the current fan RPM along with a calculation of O2 minutes remaining and any abnormal trends."
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify secondary fan RPM, and then additionally compute how many minutes of oxygen supply remain for me.",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify secondary fan RPM, and then additionally compute how many minutes of oxygen supply remain for me."
+            }
+        ]
+    }
+]
+}

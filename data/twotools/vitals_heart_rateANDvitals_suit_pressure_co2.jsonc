@@ -1,0 +1,658 @@
+{
+  // intents: vitals_heart_rate AND vitals_suit_pressure_co2
+  // description_1: The user wants to know their current physiological stress level, or the system may have flagged a high heart rate, prompting the user to query it. The prompt would be "What is my heart rate?" or "Check BPM."
+  // description_2: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check my heart rate and CO2.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my heart rate and CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 then my BPM.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 then my BPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Pulse check plus helmet CO2 read.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pulse check plus helmet CO2 read."
+            }
+        ]
+    },
+    {
+        "prompt": "Suit CO2 and then show pulse.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit CO2 and then show pulse."
+            }
+        ]
+    },
+    {
+        "prompt": "What's my BPM and CO2?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my BPM and CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Measure pCO2 before reading pulse.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Measure pCO2 before reading pulse."
+            }
+        ]
+    },
+    {
+        "prompt": "Show pulse while checking CO2.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show pulse while checking CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up suit CO2 then heart.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up suit CO2 then heart."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme heart rate and CO2.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme heart rate and CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check helmet CO2 plus my pulse.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check helmet CO2 plus my pulse."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my heart rate and then display suit CO2.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my heart rate and then display suit CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you read suit CO2 and also tell BPM?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you read suit CO2 and also tell BPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my pulse plus bring up CO2 levels.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my pulse plus bring up CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Read the helmet CO2 before checking my heart rate.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the helmet CO2 before checking my heart rate."
+            }
+        ]
+    },
+    {
+        "prompt": "I need current BPM while you display suit CO2.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current BPM while you display suit CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Show pCO2 and then show my pulse, please.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show pCO2 and then show my pulse, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up heart rate as well as CO2?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up heart rate as well as CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up suit CO2 along with my heart BPM.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up suit CO2 along with my heart BPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Show my pulse and also read the CO2 gauge.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my pulse and also read the CO2 gauge."
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 levels next and then check my heart rate.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 levels next and then check my heart rate."
+            }
+        ]
+    },
+    {
+        "prompt": "After checking heart rate, display suit CO2 in addition.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking heart rate, display suit CO2 in addition."
+            }
+        ]
+    },
+    {
+        "prompt": "Please report CO2 and then additionally show my BPM.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report CO2 and then additionally show my BPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my pulse and then bring up CO2 data.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my pulse and then bring up CO2 data."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check suit CO2 and also read my heart rate.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check suit CO2 and also read my heart rate."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and tell me my heart rate plus the CO2 reading.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and tell me my heart rate plus the CO2 reading."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 and then, followed by that, read my pulse.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 and then, followed by that, read my pulse."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display BPM and also open the CO2 panel?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display BPM and also open the CO2 panel?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up helmet CO2 along with heart rate readout, please.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up helmet CO2 along with heart rate readout, please."
+            }
+        ]
+    },
+    {
+        "prompt": "I need my pulse and then check suit CO2 levels.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my pulse and then check suit CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "First read CO2 but first show my pulse afterwards.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First read CO2 but first show my pulse afterwards."
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my current heart rate reading and additionally pull up the suit CO2 partial pressure data.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my current heart rate reading and additionally pull up the suit CO2 partial pressure data."
+            }
+        ]
+    },
+    {
+        "prompt": "Read the suit CO2 level now and then show me my heart beats per minute readout.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the suit CO2 level now and then show me my heart beats per minute readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme my pulse information plus also display helmet CO2 pressure so I can assess status.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme my pulse information plus also display helmet CO2 pressure so I can assess status."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up pCO2 in the suit and then at the same time report my heart rate?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up pCO2 in the suit and then at the same time report my heart rate?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the current BPM and, after that, the suit CO2 reading to rule out hypercapnia.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the current BPM and, after that, the suit CO2 reading to rule out hypercapnia."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the CO2 gauge readings first and then display my heart rate and stress indicators.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the CO2 gauge readings first and then display my heart rate and stress indicators."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my heart rate and then follow that by bringing up the suit CO2 telemetry?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my heart rate and then follow that by bringing up the suit CO2 telemetry?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read helmet CO2 levels and also provide my pulse and overall vitals display right away.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read helmet CO2 levels and also provide my pulse and overall vitals display right away."
+            }
+        ]
+    },
+    {
+        "prompt": "Show my pulse in beats per minute and along with that open the CO2 partial pressure readout.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my pulse in beats per minute and along with that open the CO2 partial pressure readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 concentrations in mmHg and then next report my heart rate plus any anomalies found.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 concentrations in mmHg and then next report my heart rate plus any anomalies found."
+            }
+        ]
+    },
+    {
+        "prompt": "After you pull up my heart rate, additionally display the suit CO2 trends for the past ten minutes.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you pull up my heart rate, additionally display the suit CO2 trends for the past ten minutes."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, check the CO2 sensor and then show my heart rate and the corresponding telemetry overlays.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, check the CO2 sensor and then show my heart rate and the corresponding telemetry overlays."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my heart rate, as well as pull up the suit CO2 partial pressure and timestamp?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my heart rate, as well as pull up the suit CO2 partial pressure and timestamp?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up the suit CO2 monitor and then immediately show my pulse and stress indicator bars.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up the suit CO2 monitor and then immediately show my pulse and stress indicator bars."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my BPM and along with that check the helmet CO2 to rule out any issues.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my BPM and along with that check the helmet CO2 to rule out any issues."
+            }
+        ]
+    },
+    {
+        "prompt": "Read the CO2 partial pressure in my suit, followed by reporting my heart rate and any alerts.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the CO2 partial pressure in my suit, followed by reporting my heart rate and any alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up my heart rate, and then also display the CO2 and oxygen readings.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up my heart rate, and then also display the CO2 and oxygen readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Check the suit CO2 now and at the same time show me my pulse and stress trend graph.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the suit CO2 now and at the same time show me my pulse and stress trend graph."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my current pulse and additionally bring up the suit CO2 histogram and recent spikes.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my current pulse and additionally bring up the suit CO2 histogram and recent spikes."
+            }
+        ]
+    },
+    {
+        "prompt": "Open CO2 readout, oh and then tell me my heart rate plus whether it's elevated.",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open CO2 readout, oh and then tell me my heart rate plus whether it's elevated."
+            }
+        ]
+    }
+]
+}

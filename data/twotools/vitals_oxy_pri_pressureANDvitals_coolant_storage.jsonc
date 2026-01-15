@@ -1,0 +1,762 @@
+{
+  // intents: vitals_oxy_pri_pressure AND vitals_coolant_storage
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and coolant.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and coolant."
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant storage and then read primary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant storage and then read primary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen pressure then coolant level",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen pressure then coolant level"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show coolant levels plus the primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show coolant levels plus the primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure also coolant storage",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure also coolant storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up coolant remaining and also primary oxygen pressure please.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up coolant remaining and also primary oxygen pressure please."
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen, plus coolant remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen, plus coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display coolant volume and then the primary tank pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display coolant volume and then the primary tank pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Report primary O2 while checking coolant",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report primary O2 while checking coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant level while you check the primary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant level while you check the primary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Primary tank pressure after coolant status",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary tank pressure after coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant storage, and then show me primary oxygen pressure reading.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant storage, and then show me primary oxygen pressure reading."
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 before coolant volume readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 before coolant volume readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open coolant tank status and then display primary pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open coolant tank status and then display primary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen but first show coolant",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen but first show coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit coolant and then also pull primary O2 pressure numbers.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit coolant and then also pull primary O2 pressure numbers."
+            }
+        ]
+    },
+    {
+        "prompt": "Primary pressure as well as coolant",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary pressure as well as coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coolant storage as well as primary oxygen pressure now.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coolant storage as well as primary oxygen pressure now."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary pressure along with coolant",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary pressure along with coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant remaining followed by the primary oxygen tank pressure count.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant remaining followed by the primary oxygen tank pressure count."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary oxygen pressure and then show coolant levels.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary oxygen pressure and then show coolant levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open coolant tank status and then display primary pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open coolant tank status and then display primary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up primary O2 pressure plus coolant storage numbers?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up primary O2 pressure plus coolant storage numbers?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up coolant remaining and also primary oxygen pressure please.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up coolant remaining and also primary oxygen pressure please."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up primary oxygen pressure and also the coolant amount.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up primary oxygen pressure and also the coolant amount."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display coolant volume and then the primary tank pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display coolant volume and then the primary tank pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Need primary tank pressure and then display remaining coolant volume.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need primary tank pressure and then display remaining coolant volume."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant level while you check the primary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant level while you check the primary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Who can tell me primary O2 pressure while pulling coolant status?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Who can tell me primary O2 pressure while pulling coolant status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant storage, and then show me primary oxygen pressure reading.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant storage, and then show me primary oxygen pressure reading."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary oxygen pressure as well as coolant storage levels.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary oxygen pressure as well as coolant storage levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit coolant and then also pull primary O2 pressure numbers.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit coolant and then also pull primary O2 pressure numbers."
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen pressure followed by coolant remaining, thanks.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen pressure followed by coolant remaining, thanks."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coolant storage as well as primary oxygen pressure now.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coolant storage as well as primary oxygen pressure now."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary O2 pressure then the coolant tank level.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary O2 pressure then the coolant tank level."
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant remaining followed by the primary oxygen tank pressure count.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant remaining followed by the primary oxygen tank pressure count."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open primary oxygen reading and then bring up coolant?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open primary oxygen reading and then bring up coolant?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coolant storage as well as primary oxygen pressure now.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coolant storage as well as primary oxygen pressure now."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme primary O2 pressure and then also the coolant amount.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme primary O2 pressure and then also the coolant amount."
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the coolant tank level and in addition report the primary O2 pressure status now.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the coolant tank level and in addition report the primary O2 pressure status now."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, could you please pull up the current primary oxygen tank pressure and in addition show coolant storage?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, could you please pull up the current primary oxygen tank pressure and in addition show coolant storage?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the coolant storage numbers followed by the primary tank's oxygen pressure, plus any anomalies found.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the coolant storage numbers followed by the primary tank's oxygen pressure, plus any anomalies found."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary oxygen pressure as well as coolant storage levels.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary oxygen pressure as well as coolant storage levels."
+            }
+        ]
+    },
+    {
+        "prompt": "After checking coolant levels, next pull up the primary oxygen pressure and show any caution flags.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking coolant levels, next pull up the primary oxygen pressure and show any caution flags."
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the coolant status panel and then show me the primary oxygen pressure followed by any trending data.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the coolant status panel and then show me the primary oxygen pressure followed by any trending data."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, bring up coolant volume and then also give me the primary O2 pressure readout.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, bring up coolant volume and then also give me the primary O2 pressure readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Please read the primary O2 pressure and additionally give me the suit coolant volume remaining.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read the primary O2 pressure and additionally give me the suit coolant volume remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the suit coolant storage along with reporting the primary oxygen tank pressure for redundancy.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the suit coolant storage along with reporting the primary oxygen tank pressure for redundancy."
+            }
+        ]
+    },
+    {
+        "prompt": "After you report primary oxygen pressure, next show me the coolant storage and any warnings.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you report primary oxygen pressure, next show me the coolant storage and any warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally, display coolant remaining and at the same time report the primary O2 pressure values.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally, display coolant remaining and at the same time report the primary O2 pressure values."
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the coolant status panel and then show me the primary oxygen pressure followed by any trending data.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the coolant status panel and then show me the primary oxygen pressure followed by any trending data."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull coolant capacity now and then provide the primary O2 pressure, as well as any heat-loop alerts?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull coolant capacity now and then provide the primary O2 pressure, as well as any heat-loop alerts?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant reservoir and additionally read the primary oxygen pressure, making sure to flag out-of-range values.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant reservoir and additionally read the primary oxygen pressure, making sure to flag out-of-range values."
+            }
+        ]
+    },
+    {
+        "prompt": "Next, show the coolant storage percentage and then display the primary tank pressure plus timestamp for the reading.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, show the coolant storage percentage and then display the primary tank pressure plus timestamp for the reading."
+            }
+        ]
+    },
+    {
+        "prompt": "I need coolant level status, and then after that the primary oxygen pressure with any recent fluctuations noted.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need coolant level status, and then after that the primary oxygen pressure with any recent fluctuations noted."
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up coolant quantity for the suit and at the same time present the primary O2 pressure and warnings.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up coolant quantity for the suit and at the same time present the primary O2 pressure and warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Before proceeding, check coolant remaining and then also read the primary oxygen pressure, followed by confirmation of nominal ranges.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before proceeding, check coolant remaining and then also read the primary oxygen pressure, followed by confirmation of nominal ranges."
+            }
+        ]
+    },
+    {
+        "prompt": "While on the airlock checklist, pull coolant storage numbers and then show me the primary oxygen tank pressure in addition.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While on the airlock checklist, pull coolant storage numbers and then show me the primary oxygen tank pressure in addition."
+            }
+        ]
+    }
+]
+}

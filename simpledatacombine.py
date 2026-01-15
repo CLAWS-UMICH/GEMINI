@@ -69,7 +69,8 @@ def load_all_singletools(singletools_dir: str = None) -> List[Dict[str, Any]]:
 
 def load_twotools_combos(twotools_dir: str = None) -> List[Dict[str, Any]]:
     """
-    Load the two-tool combo training data from the twotools directory.
+    Load all two-tool combo training data from the twotools directory.
+    Loads all JSONC files with 'AND' in the filename (generated combo files).
     
     Returns:
         List of two-tool combo training examples.
@@ -80,19 +81,24 @@ def load_twotools_combos(twotools_dir: str = None) -> List[Dict[str, Any]]:
     else:
         twotools_dir = Path(twotools_dir)
     
-    combo_file = twotools_dir / "intentcombos.jsonc"
-    
-    if not combo_file.exists():
-        print(f"Two-tool combos file not found: {combo_file}")
+    if not twotools_dir.exists():
+        print(f"Two-tool combos directory not found: {twotools_dir}")
         return []
     
-    file_data = load_jsonc_file(combo_file)
+    all_data = []
+    loaded_files = 0
     
-    if "data" in file_data and isinstance(file_data["data"], list):
-        print(f"  Loaded {len(file_data['data'])} two-tool combo examples from {combo_file.name}")
-        return file_data["data"]
+    # Find all JSONC files with "AND" in the filename
+    for jsonc_file in sorted(twotools_dir.glob("*AND*.jsonc")):
+        file_data = load_jsonc_file(jsonc_file)
+        
+        if "data" in file_data and isinstance(file_data["data"], list):
+            all_data.extend(file_data["data"])
+            loaded_files += 1
+            print(f"  Loaded {len(file_data['data'])} examples from {jsonc_file.name}")
     
-    return []
+    print(f"Two-tool total: Loaded {len(all_data)} examples from {loaded_files} combo files")
+    return all_data
 
 
 def load_all_training_data(singletools_dir: str = None, twotools_dir: str = None) -> List[Dict[str, Any]]:

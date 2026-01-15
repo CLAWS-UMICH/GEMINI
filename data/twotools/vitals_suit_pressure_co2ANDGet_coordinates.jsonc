@@ -1,0 +1,1221 @@
+{
+  // intents: vitals_suit_pressure_co2 AND Get_coordinates
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Read suit CO2, then where's the LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2, then where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Rover, check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit CO2 and get coordinates for PR",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit CO2 and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for sample site alpha and read CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read my suit partial pressure of CO2 and then tell me where the Habitat-2 is",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read my suit partial pressure of CO2 and then tell me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " is"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you get coordinates for Cargo Pod C and also pull up my suit CO2 readings",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Pod C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up my suit CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and show me LTV coords",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and show me "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme have Rover coordinates and CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme have "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates and CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit CO2 plus give me coordinates for EVA-2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit CO2 plus give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the PR while also checking my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also checking my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, read my suit CO2 level and then get coordinates for Lander-1 before I move",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, read my suit CO2 level and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " before I move"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Beacon Charlie and after that display my suit CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that display my suit CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and find Basecamp coords",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Basecamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's Relay-B? Check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Relay-B"
+            },
+            {
+                "type": "TEXT",
+                "text": "? Check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my suit CO2 readings and then show coordinates for Science-1 Rover",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my suit CO2 readings and then show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Science-1 Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me coordinates for Astronaut Nguyen and also read suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Astronaut Nguyen"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my suit CO2 partial pressure and in addition get coordinates for Astronaut Garcia",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my suit CO2 partial pressure and in addition get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Astronaut Garcia"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you locate Beacon Delta and additionally bring up my suit CO2 status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally bring up my suit CO2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 then LTV coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Give Rover coordinates and CO2 readout",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates and CO2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 while also sending me coordinates for Power Unit",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 while also sending me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Power Unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Comm Relay and then show my suit CO2 readings",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Comm Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my suit CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit CO2 readings before you give me coordinates for Supply Pod 4, please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit CO2 readings before you give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Pod 4"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the South Ridge Marker and then additionally read my suit CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "South Ridge Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally read my suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up CO2 and get coordinates for North Outpost next",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up CO2 and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "North Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Mobile Lab and at the same time check my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time check my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my suit CO2 values and then followed by coordinates for Drill Rig",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my suit CO2 values and then followed by coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Drill Rig"
+            }
+        ]
+    },
+    {
+        "prompt": "Provide coordinates for LZ-3 and as well as pull up suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as pull up suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 plus Lander-1 coords",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 plus "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's Module A and CO2?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Module A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me suit CO2 and then get coordinates for Rover 3",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me suit CO2 and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Hab Module while you check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hab Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, could you pull up my suit CO2 readings and along with that give coordinates for Engineering Hub",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, could you pull up my suit CO2 readings and along with that give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Engineering Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Cargo Bay and in addition display my suit CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition display my suit CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2, and then give me LZ Alpha coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2, and then give me "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for EVARover and then also show suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVARover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also show suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up suit CO2 at the same time as locating the Tether Anchor",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up suit CO2 at the same time as locating the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Tether Anchor"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Sample Cache Bravo, meanwhile read my suit CO2 status and report",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Cache Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile read my suit CO2 status and report"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 and then provide Beacon Echo coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 and then provide "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me coordinates for Beacon Echo and then read CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 then LTV2 coords",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV2"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Tether Anchor, check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Tether Anchor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check suit CO2 and also get coordinates for the Science Pod",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check suit CO2 and also get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Science Pod"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Drill Rig and additionally open my suit CO2 display",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Drill Rig"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally open my suit CO2 display"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and read my suit CO2 readings, followed by coordinates for Module B",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and read my suit CO2 readings, followed by coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Module B"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the Supply Cache and then check my suit CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check my suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 but first get coordinates for Module C",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 but first get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Module C"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show CO2 levels and along with that return coordinates for Cargo Bay 2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show CO2 levels and along with that return coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Bay 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Power Unit and then also tell me my suit CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Power Unit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also tell me my suit CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 before you locate the Beacon Charlie, please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 before you locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the Science Module, and then open my suit CO2 display in addition",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then open my suit CO2 display in addition"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you give coordinates for Cargo Pod 7 and next read my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Pod 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next read my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit CO2 checked and then coordinates for the Hab Module plus ETA",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit CO2 checked and then coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hab Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the Drill Rig, and then also pull up suit CO2 before I unclip",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Drill Rig"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then also pull up suit CO2 before I unclip"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme CO2 readout and then the coordinates for the Solar Array",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme CO2 readout and then the coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Beacon Echo and at the same time check my suit CO2 for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time check my suit CO2 for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my suit CO2 additionally followed by coordinates for LZ Beta",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my suit CO2 additionally followed by coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 and then find the Sample Plot as well as return coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 and then find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Plot"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as return coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the Excavator and meanwhile show me suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Excavator"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show me suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 and then also provide coordinates for Beacon Foxtrot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 and then also provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Foxtrot"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Module D followed by a suit CO2 status update, please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Module D"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a suit CO2 status update, please"
+            }
+        ]
+    }
+]
+}

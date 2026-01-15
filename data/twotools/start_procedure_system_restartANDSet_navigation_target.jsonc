@@ -1,0 +1,961 @@
+{
+  // intents: start_procedure_system_restart AND Set_navigation_target
+  // description_1: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Begin system restart for the navigation module and afterward set destination Alpha Pad while displaying route guidance",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart for the navigation module and afterward set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " while displaying route guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Rover and then immediately initiate a restart of the communications subsystem before departure",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then immediately initiate a restart of the communications subsystem before departure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin reboot sequence for the nav unit and then please navigate to Hab Alpha for diagnostics",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin reboot sequence for the nav unit and then please navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " for diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LTV then restart guidance and also run a full self-test before we move out",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart guidance and also run a full self-test before we move out"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart life support and set Home Base plus run a quick systems check and display route",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart life support and set "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus run a quick systems check and display route"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Module and reboot sensors",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and reboot sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the system restart procedure and then navigate to Supply Depot",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the system restart procedure and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Observatory plus reboot the thermal control unit now",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus reboot the thermal control unit now"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Cargo Bay while restarting the comms module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " while restarting the comms module"
+            }
+        ]
+    },
+    {
+        "prompt": "Start reboot of guidance plus set destination Landing Zone",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start reboot of guidance plus set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Dome and then begin restarting the nav array",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Dome"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin restarting the nav array"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot environmental sensors and also set destination West Outpost",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot environmental sensors and also set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Hab Alpha and before that restart the maneuvering unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before that restart the maneuvering unit"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to initiate a system restart for the power regulator and then route me to the shuttle dock",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to initiate a system restart for the power regulator and then route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Shuttle Dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Home Base and then please start the reboot of the attitude control system",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then please start the reboot of the attitude control system"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin the restart procedure for the comms relay and then navigate me to the science outpost",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin the restart procedure for the comms relay and then navigate me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Observatory, and then initiate the restart for the thermal sensor array as well as diagnostics",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then initiate the restart for the thermal sensor array as well as diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "After you start the system restart for navigation, please set my next destination to the extraction point",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you start the system restart for navigation, please set my next destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Extraction Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Cargo Bay and then, after that, begin the emergency reboot routine on the life support pack",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, after that, begin the emergency reboot routine on the life support pack"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart guidance and navigate to Docking Port",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart guidance and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Supply Depot and reboot sensors",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and reboot sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart sequence and also set destination Forward Habitat",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart sequence and also set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Research Lab and meanwhile reboot the sample analyzer",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile reboot the sample analyzer"
+            }
+        ]
+    },
+    {
+        "prompt": "Please perform system restart and then set destination Extraction Zone",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please perform system restart and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Extraction Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Greenhouse and then reboot oxygen regulator",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot oxygen regulator"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, restart the navigation array and then plot a route to the Far Mining Ridge next",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, restart the navigation array and then plot a route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Far Mining Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Habitat Ring and then, at the same time, initiate the restart for the EVA suit comms",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Ring"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, at the same time, initiate the restart for the EVA suit comms"
+            }
+        ]
+    },
+    {
+        "prompt": "After you run a full system restart on the guidance computer, set my waypoint to the Southern Crater",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you run a full system restart on the guidance computer, set my waypoint to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Southern Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Docking Bay Four followed by starting the reboot of the fuel management unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Bay Four"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by starting the reboot of the fuel management unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot attitude and set destination LZ1",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot attitude and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ1"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Lab Alpha and reboot comms",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and reboot comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start a system restart and also set destination Rescue Point",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start a system restart and also set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rescue Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Outer Rim plus reboot the guidance computer immediately",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outer Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus reboot the guidance computer immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a restart on the comms module and then navigate me to the Asteroid Survey Site, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a restart on the comms module and then navigate me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Asteroid Survey Site"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Research Outpost and additionally trigger the restart procedure for the sample caching system",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally trigger the restart procedure for the sample caching system"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart thermal control and also set destination to the Solar Farm",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart thermal control and also set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Farm"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the rover plus reboot the stabilization unit afterwards",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus reboot the stabilization unit afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart power then set destination Green Zone",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart power then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Green Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Beacon and restart controller",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and restart controller"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, reboot the propulsion diagnostics and then set my navigation target to the Western Plateau",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, reboot the propulsion diagnostics and then set my navigation target to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Western Plateau"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Habitat Two and additionally restart the life support controllers",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally restart the life support controllers"
+            }
+        ]
+    },
+    {
+        "prompt": "But first reboot avionics and then set destination North Ridge",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first reboot avionics and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Central Hub and then reboot the external cameras, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Central Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot the external cameras, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and run a restart on the suit telemetry module, afterwards set course to the Maintenance Bay",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and run a restart on the suit telemetry module, afterwards set course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to the Forward Dock and then, along with that, initiate the system restart for the cargo arm motors",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, along with that, initiate the system restart for the cargo arm motors"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme reboot sensor array and then set destination Crater Rim",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme reboot sensor array and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Science Bay and then in addition restart analyzer",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then in addition restart analyzer"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart comms and navigate to Beacon One",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart comms and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LZ and then reboot sensors",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot sensors"
+            }
+        ]
+    }
+]
+}

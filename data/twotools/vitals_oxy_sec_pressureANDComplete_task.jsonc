@@ -1,0 +1,1014 @@
+{
+  // intents: vitals_oxy_sec_pressure AND Complete_task
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Secondary O2 pressure, mark Battery Check",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 pressure, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical and read secondary O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Sec O2 pressure, complete Antenna Check",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Sec O2 pressure, complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Helmet Seal Test, check O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Seal Test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 read and Tether Inspection",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 read and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Suit Cooling Check and read O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Cooling Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 sec pressure, complete Communications Test",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 sec pressure, complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Communications Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Propulsion Valve then check secondary O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Propulsion Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary O2, mark Oxygen Refill",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary O2, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Refill"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal Control and tell me O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Control"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me O2"
+            }
+        ]
+    },
+    {
+        "prompt": "What is the secondary oxygen tank pressure and complete Sample Stowage",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is the secondary oxygen tank pressure and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stowage"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Tool Inventory complete then show me secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete then show me secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary O2 pressure and mark Solar Panel Deploy done",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary O2 pressure and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Glove Integrity and then pull up secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up secondary oxygen pressure and mark CO2 Scrubber complete",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up secondary oxygen pressure and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Power Bus Sync plus show me the secondary O2 reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Power Bus Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show me the secondary O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read secondary O2 pressure and then finish Comms Relay",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read secondary O2 pressure and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark EVA Prep as done while I get the secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA Prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done while I get the secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Quickly check secondary tank pressure and then complete Hatch Lock",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quickly check secondary tank pressure and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Lock"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Cupola Camera, and also report the secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cupola Camera"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and also report the secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary O2 readout and mark External Camera Align done",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary O2 readout and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "External Camera Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Latching Mechanism complete and then check secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Latching Mechanism"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then check secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me secondary O2 pressure followed by finishing Pressure Equalize",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me secondary O2 pressure followed by finishing "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete Joint Lubrication in addition to pulling secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Joint Lubrication"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to pulling secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary O2 pressure and mark Secondary Pump complete",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary O2 pressure and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secondary Pump"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Main Valve then also display secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Main Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also display secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show secondary O2 pressure and additionally mark Docking Clamp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show secondary O2 pressure and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Clamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Handrail Secure as done plus give me the secondary O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Handrail Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done plus give me the secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up secondary oxygen pressure and then finish Data Dump",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up secondary oxygen pressure and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Dump"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Radiation Monitor, in addition show me secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition show me secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "After you read the secondary oxygen tank pressure, but first mark the Sample Bag Seal task complete for me",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read the secondary oxygen tank pressure, but first mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Bag Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " task complete for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the secondary O2 pressure as well as complete Life Support Sync along with preflight checks",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the secondary O2 pressure as well as complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Life Support Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with preflight checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary O2 pressure now, meanwhile additionally mark Fuel Cell Check complete and update timeline",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary O2 pressure now, meanwhile additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Cell Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and update timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the secondary oxygen tank pressure, and then finish Battery Replace on the manifest",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the secondary oxygen tank pressure, and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " on the manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull secondary O2 pressure next and at the same time mark Antenna Deploy completed",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull secondary O2 pressure next and at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you do anything else, read secondary O2 pressure and then complete Vent Valve task",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you do anything else, read secondary O2 pressure and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Vent Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you bring up the secondary O2 pressure and then follow up by marking Module Seal complete in the log",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you bring up the secondary O2 pressure and then follow up by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Module Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete in the log"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the secondary tank pressure and then, along with that, mark Leak Check completed in checklist",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the secondary tank pressure and then, along with that, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Leak Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed in checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "While you pull the secondary O2 pressure, additionally and then complete the EVA Checklist entry",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you pull the secondary O2 pressure, additionally and then complete the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA Checklist"
+            },
+            {
+                "type": "TEXT",
+                "text": " entry"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the secondary oxygen pressure and as well as mark Backup Radio task as done for mission control",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the secondary oxygen pressure and as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Radio"
+            },
+            {
+                "type": "TEXT",
+                "text": " task as done for mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Suit Pressure Cycle complete and then, meanwhile, show me the secondary O2 pressure for confirmation",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Pressure Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then, meanwhile, show me the secondary O2 pressure for confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Visual Inspection but first read the secondary oxygen tank pressure after updating the manifest",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Visual Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first read the secondary oxygen tank pressure after updating the manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Surface Anchor now, oh and along with that report the secondary O2 pressure to MCC",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Surface Anchor"
+            },
+            {
+                "type": "TEXT",
+                "text": " now, oh and along with that report the secondary O2 pressure to MCC"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Reseal Port complete, followed by displaying the secondary oxygen pressure as well as logging the value",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reseal Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, followed by displaying the secondary oxygen pressure as well as logging the value"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete Airlock Transfer next and in addition show me the secondary tank oxygen pressure on display",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and in addition show me the secondary tank oxygen pressure on display"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Contingency Stow as done before you read the secondary O2 pressure and then notify flight",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Contingency Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done before you read the secondary O2 pressure and then notify flight"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Sample Log now, additionally please and plus display the secondary oxygen tank pressure in the telemetry",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Log"
+            },
+            {
+                "type": "TEXT",
+                "text": " now, additionally please and plus display the secondary oxygen tank pressure in the telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Camera Focus and then followed by pulling secondary O2 pressure, at the same time update the EVA timeline",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Focus"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then followed by pulling secondary O2 pressure, at the same time update the EVA timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal Blanket secured, meanwhile next show me secondary O2 pressure and annotate the record",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket"
+            },
+            {
+                "type": "TEXT",
+                "text": " secured, meanwhile next show me secondary O2 pressure and annotate the record"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Surface Camera Align but first display the secondary O2 pressure and then log it along with current time stamps",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Surface Camera Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first display the secondary O2 pressure and then log it along with current time stamps"
+            }
+        ]
+    }
+]
+}

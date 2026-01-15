@@ -1,0 +1,658 @@
+{
+  // intents: vitals_suit_pressure_co2 AND vitals_scrubber_a_co2_storage
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user wants to know the saturation level of the first CO2 scrubbing bed to determine if it is nearing capacity. They might ask, "Check Scrubber A status" or "How full is Scrubber A?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read suit CO2 and check Scrubber A",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 and check Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 pressure then Scrubber A",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 pressure then Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 pp and Scrubber A status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 pp and Scrubber A status"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit CO2 plus Scrubber A",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit CO2 plus Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up CO2 while checking Scrubber A",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up CO2 while checking Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read my suit CO2 and tell Scrubber A level",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read my suit CO2 and tell Scrubber A level"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my CO2 pressure and then report Scrubber A",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my CO2 pressure and then report Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit CO2 reading plus Scrubber A saturation",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit CO2 reading plus Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up CO2 partial pressure and also Scrubber A status?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up CO2 partial pressure and also Scrubber A status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 level before showing Scrubber A fullness",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 level before showing Scrubber A fullness"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit CO2 display and then bring up Scrubber A info",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit CO2 display and then bring up Scrubber A info"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see CO2 pressure and also the Scrubber A percentage",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see CO2 pressure and also the Scrubber A percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2, followed by Scrubber A saturation readout",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2, followed by Scrubber A saturation readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Need CO2 reading as well as Scrubber A capacity details",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need CO2 reading as well as Scrubber A capacity details"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit CO2 and Scrubber A status next please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit CO2 and Scrubber A status next please"
+            }
+        ]
+    },
+    {
+        "prompt": "Display my suit CO2 and then also present Scrubber A data",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display my suit CO2 and then also present Scrubber A data"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check suit CO2 and in addition check Scrubber A?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check suit CO2 and in addition check Scrubber A?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check CO2 readings and the first scrubber bed as well",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check CO2 readings and the first scrubber bed as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up CO2 pressure and additionally the status of Scrubber A",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up CO2 pressure and additionally the status of Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 meanwhile show Scrubber A saturation",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 meanwhile show Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 then Scrubber A please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 then Scrubber A please"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 read and Scrubber A check",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 read and Scrubber A check"
+            }
+        ]
+    },
+    {
+        "prompt": "After you read suit CO2, show me Scrubber A saturation info",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read suit CO2, show me Scrubber A saturation info"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my current suit CO2 partial pressure and then open the Scrubber A saturation display",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my current suit CO2 partial pressure and then open the Scrubber A saturation display"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up the suit CO2 level and then bring up the first CO2 scrubbing bed status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up the suit CO2 level and then bring up the first CO2 scrubbing bed status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A and read suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A and read suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A status then CO2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A status then CO2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A level plus suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A level plus suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show Scrubber A and also pull up suit CO2 readings?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show Scrubber A and also pull up suit CO2 readings?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report Scrubber A saturation before opening the suit CO2 display",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report Scrubber A saturation before opening the suit CO2 display"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up Scrubber A status and then show suit CO2 level",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up Scrubber A status and then show suit CO2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "Need Scrubber A percentage as well as suit CO2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need Scrubber A percentage as well as suit CO2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A saturation first and then provide my suit CO2 partial pressure readout immediately",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A saturation first and then provide my suit CO2 partial pressure readout immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the Scrubber A status display and then also bring up the suit CO2 levels for review",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the Scrubber A status display and then also bring up the suit CO2 levels for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check the first CO2 scrubbing bed along with a readout of suit CO2 partial pressure while I'm on EVA",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check the first CO2 scrubbing bed along with a readout of suit CO2 partial pressure while I'm on EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up Scrubber A's saturation, followed by the suit CO2 pressure and any advisory flags?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up Scrubber A's saturation, followed by the suit CO2 pressure and any advisory flags?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up Scrubber A status and then show me the suit CO2 ppm plus any trend information",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up Scrubber A status and then show me the suit CO2 ppm plus any trend information"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A now but first give me a suit CO2 pressure read before I proceed with the task",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A now but first give me a suit CO2 pressure read before I proceed with the task"
+            }
+        ]
+    },
+    {
+        "prompt": "I need Scrubber A capacity numbers in addition to an immediate suit CO2 partial pressure report, please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need Scrubber A capacity numbers in addition to an immediate suit CO2 partial pressure report, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me Scrubber A saturation and then open the suit CO2 timeline, and note abnormal spikes at the same time",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me Scrubber A saturation and then open the suit CO2 timeline, and note abnormal spikes at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check Scrubber A and then, while showing suit CO2, flag if levels exceed safe limits?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check Scrubber A and then, while showing suit CO2, flag if levels exceed safe limits?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open Scrubber A readout and then additionally pull up the suit CO2 history plus any scrubber bed temperature logs",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open Scrubber A readout and then additionally pull up the suit CO2 history plus any scrubber bed temperature logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring Scrubber A status up first and then show the suit CO2 pressure along with removal efficiency",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring Scrubber A status up first and then show the suit CO2 pressure along with removal efficiency"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display Scrubber A saturation followed by the suit CO2 reading and then highlight any scrubber nearing capacity",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display Scrubber A saturation followed by the suit CO2 reading and then highlight any scrubber nearing capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "I want Scrubber A details and then open suit CO2 numbers, additionally include estimated time to saturation",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want Scrubber A details and then open suit CO2 numbers, additionally include estimated time to saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A now and then bring up suit CO2 levels, oh and tell me if scrubber efficiency dropped",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A now and then bring up suit CO2 levels, oh and tell me if scrubber efficiency dropped"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull Scrubber A metrics before we continue, and then display suit CO2 pressure at the same time",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull Scrubber A metrics before we continue, and then display suit CO2 pressure at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Provide Scrubber A saturation and then, at the same time, pull up suit CO2 pressure and note warnings",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide Scrubber A saturation and then, at the same time, pull up suit CO2 pressure and note warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Show Scrubber A saturation then immediately read suit CO2 pressure, and estimate remaining scrubber capacity",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show Scrubber A saturation then immediately read suit CO2 pressure, and estimate remaining scrubber capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up Scrubber A fullness and then open suit CO2 history, plus display any correlated scrubber load trends",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up Scrubber A fullness and then open suit CO2 history, plus display any correlated scrubber load trends"
+            }
+        ]
+    }
+]
+}

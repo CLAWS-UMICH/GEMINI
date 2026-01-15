@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_temperature
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check backup oxygen tank and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen tank and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "What's suit temp and backup O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's suit temp and backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Status of secondary O2 plus core temp?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of secondary O2 plus core temp?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me core temp then O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me core temp then O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup oxygen level then temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup oxygen level then temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, suit temp and backup oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, suit temp and backup oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide secondary oxygen storage info and display internal temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide secondary oxygen storage info and display internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show suit temperature and then backup O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show suit temperature and then backup O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the reserve oxygen canister after that bring up my suit temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the reserve oxygen canister after that bring up my suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Need internal temp and reserve oxygen levels, please confirm both",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need internal temp and reserve oxygen levels, please confirm both"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary O2 storage readout and additionally display my core body temperature for monitoring",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary O2 storage readout and additionally display my core body temperature for monitoring"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up suit thermal status and then check the secondary oxygen reserves for me?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up suit thermal status and then check the secondary oxygen reserves for me?"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme the secondary O2 stat and show temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme the secondary O2 stat and show temp"
+            }
+        ]
+    },
+    {
+        "prompt": "First report my suit temperature and then report backup oxygen quantity",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First report my suit temperature and then report backup oxygen quantity"
+            }
+        ]
+    },
+    {
+        "prompt": "After you verify the secondary oxygen storage, next bring up the suit internal temperature along with the thermal trend",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you verify the secondary oxygen storage, next bring up the suit internal temperature along with the thermal trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my core body temperature and then also pull up the status of the backup oxygen storage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my core body temperature and then also pull up the status of the backup oxygen storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open secondary oxygen gauge and also show suit temperature readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open secondary oxygen gauge and also show suit temperature readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Core temp and secondary O2 status?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Core temp and secondary O2 status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need backup O2 and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need backup O2 and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "lemme see suit temp and the secondary oxygen levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "lemme see suit temp and the secondary oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by the secondary oxygen check, next display my suit temperature and any alarms",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by the secondary oxygen check, next display my suit temperature and any alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the suit internal temperature and in addition verify the quantity in the secondary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the suit internal temperature and in addition verify the quantity in the secondary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary oxygen while showing suit temperature?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary oxygen while showing suit temperature?"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my suit temperature but first confirm the backup oxygen tank level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my suit temperature but first confirm the backup oxygen tank level"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check reserve oxygen plus pull up suit temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check reserve oxygen plus pull up suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you bring up internal temperature and in addition run the secondary oxygen status check?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you bring up internal temperature and in addition run the secondary oxygen status check?"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary O2 storage pressure and then at the same time display the suit thermal profile for review",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary O2 storage pressure and then at the same time display the suit thermal profile for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Display suit temp and also show backup oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display suit temp and also show backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary oxygen levels as well as the current suit temperature readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary oxygen levels as well as the current suit temperature readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check temperature and then check the secondary O2 gauge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check temperature and then check the secondary O2 gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Check reserve O2 but first show temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check reserve O2 but first show temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Report temp meanwhile check backup O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report temp meanwhile check backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary oxygen manifold status along with bringing up my suit internal temperature telemetry",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary oxygen manifold status along with bringing up my suit internal temperature telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "I'm concerned about heat\u2014additionally show suit temperature then verify the reserve oxygen supply levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'm concerned about heat\u2014additionally show suit temperature then verify the reserve oxygen supply levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup O2 capacity in addition show suit temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup O2 capacity in addition show suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Read core temperature meanwhile confirm secondary oxygen quantity",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read core temperature meanwhile confirm secondary oxygen quantity"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify the auxiliary oxygen cartridge level and then pull up the suit thermal readouts for me",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify the auxiliary oxygen cartridge level and then pull up the suit thermal readouts for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the suit internal temperature followed by a detailed status of the secondary oxygen storage and valves",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the suit internal temperature followed by a detailed status of the secondary oxygen storage and valves"
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary oxygen pressure as well as suit temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary oxygen pressure as well as suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my body temp oh and check the secondary O2 canister status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my body temp oh and check the secondary O2 canister status"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 status and then temp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 status and then temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit temperature and also show backup O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit temperature and also show backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a diagnostics on the secondary oxygen reservoir and then bring up suit temperature trends",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a diagnostics on the secondary oxygen reservoir and then bring up suit temperature trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Prioritize reading my core temperature, and then in addition fetch the status of the secondary oxygen supply",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Prioritize reading my core temperature, and then in addition fetch the status of the secondary oxygen supply"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm auxiliary O2 canister capacity, followed by a complete suit thermal condition report please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm auxiliary O2 canister capacity, followed by a complete suit thermal condition report please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my internal temperature and while you're at it also check the backup oxygen storage valves and pressures",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my internal temperature and while you're at it also check the backup oxygen storage valves and pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the reserve oxygen tank metrics and at the same time display suit temperature graphs",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the reserve oxygen tank metrics and at the same time display suit temperature graphs"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my suit thermal telemetry and also confirm the secondary oxygen tank levels now?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my suit thermal telemetry and also confirm the secondary oxygen tank levels now?"
+            }
+        ]
+    },
+    {
+        "prompt": "Run status on the secondary oxygen circuit and then provide the suit internal temperature log",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run status on the secondary oxygen circuit and then provide the suit internal temperature log"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current body temperature readings and additionally have the system show secondary oxygen reserve percentages and alarms",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current body temperature readings and additionally have the system show secondary oxygen reserve percentages and alarms"
+            }
+        ]
+    }
+]
+}

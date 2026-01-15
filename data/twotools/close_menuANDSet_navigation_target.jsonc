@@ -1,0 +1,974 @@
+{
+  // intents: close_menu AND Set_navigation_target
+  // description_1: The user wants to minimize or dismiss the currently active AR window to clear their field of view. The command would be "Close menu" or "Dismiss window."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Close menu and set destination to LTV",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss window then go to Home Base",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss window then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Close that window then navigate to Rover",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close that window then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the menu, go to Airlock 2",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the menu, go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss menu and navigate to O2 Cache",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss menu and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "O2 Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu, set route to Sample Depot",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu, set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Close AR, go to Command Module",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close AR, go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss window and go to Relay Tower",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss window and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu then navigate to Science Outpost",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Close window then go to North Ridge",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close window then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please close the menu and set destination to South Dock",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please close the menu and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey close menu and then navigate to Supply Bay please",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey close menu and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the AR window and set waypoint to Landing Zone",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the AR window and set waypoint to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you dismiss the HUD and route me to Med Tent?",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you dismiss the HUD and route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Tent"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, close the menu and then take me to Fuel Depot",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, close the menu and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Please dismiss that window and set destination to Bio Lab",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please dismiss that window and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bio Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Need the menu closed and a route to Greenhouse",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need the menu closed and a route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the pop-up and then navigate to Beacon 7",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the pop-up and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu and also set my destination as Cargo Hold",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu and also set my destination as "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            }
+        ]
+    },
+    {
+        "prompt": "Close it and then mark Docking Port as my next target",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close it and then mark "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " as my next target"
+            }
+        ]
+    },
+    {
+        "prompt": "But first close the menu and then route me to Waypoint Charlie",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first close the menu and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Waypoint Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the HUD and set navigation to Station Gate, next show path",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the HUD and set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Station Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next show path"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu as well as navigate to Beacon Alpha",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu as well as navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the overlay along with setting destination to Observation Post",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the overlay along with setting destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Close interface and in addition set the route to Comms Array",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close interface and in addition set the route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to LTV and close the menu",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and close the menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Home Base and dismiss the HUD",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and dismiss the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Set my destination to Rover first and then close that window, followed by path guidance",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set my destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " first and then close that window, followed by path guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Hab Alpha as target and close the AR overlay next so I can move",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " as target and close the AR overlay next so I can move"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to set navigation to Airlock 2 and then minimize the menu, please",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then minimize the menu, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to O2 Cache and then close the overlay as well as hide other HUD elements",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "O2 Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the overlay as well as hide other HUD elements"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Sample Depot, plus dismiss the window so I can focus on transit",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", plus dismiss the window so I can focus on transit"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot route to Command Module and then close the menu, additionally show estimated time",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the menu, additionally show estimated time"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Relay Tower and then close the HUD before I begin EVA, at the same time show bearings",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the HUD before I begin EVA, at the same time show bearings"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Outpost and then dismiss the menu along with turning on guidance arrows",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the menu along with turning on guidance arrows"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to North Ridge and then close the HUD",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to South Dock and meanwhile close the overlay so I can recalibrate instruments",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile close the overlay so I can recalibrate instruments"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Supply Bay but first dismiss the pop-up and then start the path guidance please",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first dismiss the pop-up and then start the path guidance please"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course for Landing Zone and then close the menu, followed by projecting waypoints on terrain",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the menu, followed by projecting waypoints on terrain"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Med Tent and then close that window, in addition display patient supply list",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Tent"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close that window, in addition display patient supply list"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Fuel Depot and then close the menu, oh and show fuel estimates",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the menu, oh and show fuel estimates"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Bio Lab and then dismiss the HUD, while also turning on the environment sensors",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bio Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the HUD, while also turning on the environment sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to Greenhouse and then close it, next show approach vector",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close it, next show approach vector"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon 7 and then close the interface, additionally clear non-essential overlays and map",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the interface, additionally clear non-essential overlays and map"
+            }
+        ]
+    },
+    {
+        "prompt": "Set route to Cargo Hold and then minimize the display plus highlight secure zones on my HUD",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then minimize the display plus highlight secure zones on my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Docking Port and then close the menu, and then enable haptic waypoint cues",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the menu, and then enable haptic waypoint cues"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Waypoint Charlie, followed by closing the HUD as well as prepping the lighting",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Waypoint Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by closing the HUD as well as prepping the lighting"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Station Gate and then dismiss the overlay, meanwhile show wind vectors and slope data",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Station Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the overlay, meanwhile show wind vectors and slope data"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Comms Array and close menu, additionally enable signal map",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and close menu, additionally enable signal map"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to Observation Post and then close the current window, at the same time start guidance to landmark",
+        "tool_calls": [
+            "close_menu",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the current window, at the same time start guidance to landmark"
+            }
+        ]
+    }
+]
+}

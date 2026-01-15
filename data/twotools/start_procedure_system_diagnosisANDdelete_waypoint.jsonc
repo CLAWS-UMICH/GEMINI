@@ -1,0 +1,1392 @@
+{
+  // intents: start_procedure_system_diagnosis AND delete_waypoint
+  // description_1: The user wants the AI to run a diagnostic scan on a connected system, such as the LTV, to identify faults. The prompt might be "Run system diagnosis" or "Diagnose rover faults."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Diagnose rover and remove Alpha",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Diagnose rover and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home then run check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run check"
+            }
+        ]
+    },
+    {
+        "prompt": "Run system scan and then remove marker Bravo",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run system scan and then remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Depot and then run diagnostics please",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run diagnostics please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please perform a full systems diagnostics on the rover and remove the Old Camp waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please perform a full systems diagnostics on the rover and remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you delete the Home marker and then run a diagnostic scan on life support please",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and then run a diagnostic scan on life support please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery then remove LZ-1",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Science Marker 7 and scan",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Marker 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and scan"
+            }
+        ]
+    },
+    {
+        "prompt": "Inspect comms and also delete the Relay Node waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Inspect comms and also delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear the marker called Site Charlie and then run a systems check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to run a diagnostic on the suit systems and then remove the EVA-Point marker from the map",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to run a diagnostic on the suit systems and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA-Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you do anything delete the Habitat waypoint and also perform a power systems diagnostic",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you do anything delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and also perform a power systems diagnostic"
+            }
+        ]
+    },
+    {
+        "prompt": "Scan LTV plus remove the Sample Cache",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scan LTV plus remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Ridge Beacon next test rover",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " next test rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics, and then delete the Crater Edge waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics, and then delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Source-2 marker then run a quick system scan",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Source-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker then run a quick system scan"
+            }
+        ]
+    },
+    {
+        "prompt": "Please execute a full diagnostic sweep of the rover and while you're at it remove the Solar Array marker",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please execute a full diagnostic sweep of the rover and while you're at it remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "But first delete the Nav Buoy waypoint and then run diagnostics on the comms systems",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nav Buoy"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then run diagnostics on the comms systems"
+            }
+        ]
+    },
+    {
+        "prompt": "Check power and remove Cache-3",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check power and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Base Approach then check vitals",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base Approach"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostic and also delete the Landing Beacon waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostic and also delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove East Marker and then perform a systems scan please",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform a systems scan please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start diagnostics on the rover's wheel assembly as well as clear the West Marker from the map",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start diagnostics on the rover's wheel assembly as well as clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to delete the North Camp waypoint and then run a full life support diagnostic for me",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then run a full life support diagnostic for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Test comms and remove South Camp",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Test comms and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Lab Entrance then run diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a fuel cell diagnostic and also remove the Beacon Alpha waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a fuel cell diagnostic and also remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Node-7 marker and then perform a quick rover check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Node-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and then perform a quick rover check"
+            }
+        ]
+    },
+    {
+        "prompt": "Inspect power distribution and in addition remove the Waypoint Zeta marker to declutter the map",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Inspect power distribution and in addition remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint Zeta"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker to declutter the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Before diagnostics delete Marker-One and then execute a comprehensive systems sweep on the rover",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before diagnostics delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker-One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then execute a comprehensive systems sweep on the rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit vitals next erase Campground",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit vitals next erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Campground"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Broken Wheel and run diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Broken Wheel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform a wheel diagnostic and also remove the LTV Park waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform a wheel diagnostic and also remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LTV Park"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Rover Dock marker along with starting a systems diagnostic",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker along with starting a systems diagnostic"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run a full communications diagnostic and meanwhile remove the Supply Drop waypoint from the route",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run a full communications diagnostic and meanwhile remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from the route"
+            }
+        ]
+    },
+    {
+        "prompt": "Ok delete the BioSensor waypoint and after that perform a diagnostic on the suit telemetry systems",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Ok delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BioSensor"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and after that perform a diagnostic on the suit telemetry systems"
+            }
+        ]
+    },
+    {
+        "prompt": "Scan comms and delete Comm Relay",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scan comms and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Temp Marker then check battery",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Temp Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics and then clear Alpha Site waypoint please",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics and then clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint please"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Beta Site and then run a power systems check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a power systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you execute a diagnostic on the rover's power bus and additionally remove the Gamma Site marker for me",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you execute a diagnostic on the rover's power bus and additionally remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and delete the Home Base waypoint before you start diagnostics on life support",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint before you start diagnostics on life support"
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery plus delete Safe Point",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery plus delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Safe Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Emergency Beacon and run scan",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and run scan"
+            }
+        ]
+    },
+    {
+        "prompt": "Start a battery diagnostic and then remove the Storage Hub marker",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start a battery diagnostic and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear the Battery Bay waypoint and then perform diagnostics on the LTV",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Battery Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then perform diagnostics on the LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a quick diagnostic on the rover plus at the same time delete the Landing Zone beacon from my map",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a quick diagnostic on the rover plus at the same time delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " beacon from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Supply Cache marker followed by a systems scan of the rover's navigation arrays",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker followed by a systems scan of the rover's navigation arrays"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a sensor diagnostic and then remove Beacon-3 from the map",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a sensor diagnostic and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Nav Beacon and then perform a diagnostic on the solar panels",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nav Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform a diagnostic on the solar panels"
+            }
+        ]
+    },
+    {
+        "prompt": "Run an environmental diagnostic and then clear the Sample Cache Alpha waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run an environmental diagnostic and then clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Cache Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Supply Hub and then initiate a comms check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate a comms check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run diagnostics on the antenna array and then remove the Relay-02 marker",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run diagnostics on the antenna array and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay-02"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cache Point 9 and then run a thermal systems diagnostic",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache Point 9"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a thermal systems diagnostic"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics on the battery management and in addition delete the Ridge Top marker",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics on the battery management and in addition delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Top"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Observation Deck waypoint and then start a diagnostics routine on the rover",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then start a diagnostics routine on the rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a comms scan and then remove the Forward Beacon waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a comms scan and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear the Node Alpha marker and additionally run a power bus diagnostic",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Node Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and additionally run a power bus diagnostic"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Landing Beacon plus run a nav systems check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus run a nav systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Field Lab marker and then perform diagnostics on the environmental controls",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Field Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and then perform diagnostics on the environmental controls"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform full rover diagnostics and followed by that remove the Cache West marker",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform full rover diagnostics and followed by that remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache West"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Please inspect sensor arrays and then clear Beacon North from my map",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please inspect sensor arrays and then clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Run system health check and then delete the Hangar Waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run system health check and then delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hangar Waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear Docking Node and next run diagnostics on the docking interface",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next run diagnostics on the docking interface"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run a propulsion diagnostic and at the same time remove Approach Marker A",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run a propulsion diagnostic and at the same time remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Approach Marker A"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete South Ridge and then execute a hull breach scan",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then execute a hull breach scan"
+            }
+        ]
+    },
+    {
+        "prompt": "Run rover telemetry diagnostics and additionally remove the Science Platform waypoint",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run rover telemetry diagnostics and additionally remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Platform"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Solar Farm waypoint and then run battery health checks",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Farm"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then run battery health checks"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,994 @@
+{
+  // intents: vitals_temperature AND Set_navigation_target
+  // description_1: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check suit temp and go to LTV",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit temp and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Suit temp then go to Rover",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit temp then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me temp and set destination Home",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me temp and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "Core temp and navigate to Airlock",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Core temp and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Check helmet temp plus go to LZ",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check helmet temp plus go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell my suit temperature and then navigate to Habitat Alpha?",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell my suit temperature and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my internal temp and set destination to Cargo Bay",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my internal temp and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey what's my core temperature and also route me to Beacon 3",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey what's my core temperature and also route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Need my suit temp, plus navigate to Mobile Lab next",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need my suit temp, plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Mobile Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "I need core temp and then set destination: Science Outpost",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need core temp and then set destination: "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my helmet temperature and route to Supply Depot?",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my helmet temperature and route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open my vitals temp display and then head to Storage 2",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open my vitals temp display and then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show internal temperature and then follow route to Command Module",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show internal temperature and then follow route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, gimme my suit temp and also take me to Forward Camp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, gimme my suit temp and also take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you set course, tell my core temp and route me to Lander",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you set course, tell my core temp and route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey I need you to check my internal temperature and then navigate me to the science module",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey I need you to check my internal temperature and then navigate me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "science module"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my current core temp and set destination to Exploration Ridge as well as begin guidance",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my current core temp and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Exploration Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as begin guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check my suit's temp and then, followed by, route me to Hab 7 for inspection",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check my suit's temp and then, followed by, route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " for inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a temperature readout of my core, and then plot course to Junction Point next",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a temperature readout of my core, and then plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Junction Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check my internal temp, please display a path and set destination to Relay Tower",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check my internal temp, please display a path and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me suit temp and in addition take me to EVA Gate",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me suit temp and in addition take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Gate"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals temp plus navigate to the Observation Deck for me",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals temp plus navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up my core temperature meanwhile set destination to Alpha Beacon",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up my core temperature meanwhile set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Display helmet temp and then show route to Surface Elevator please",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display helmet temp and then show route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Surface Elevator"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "But first tell me my suit temperature and also plot navigation to Outpost Nine before we move",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first tell me my suit temperature and also plot navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost Nine"
+            },
+            {
+                "type": "TEXT",
+                "text": " before we move"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LTV and tell me temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Rover then report core temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then report core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Rover and give temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and give temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Airlock then temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " then temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to LZ and check core",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check core"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Habitat Alpha and then display my internal temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Cargo Bay while also showing my suit temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also showing my suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Beacon 3 and also pull up core temperature please",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up core temperature please"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot route to Mobile Lab in addition check my helmet temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Mobile Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition check my helmet temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Outpost and then open vitals temp display",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open vitals temp display"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Supply Depot and then report my internal temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report my internal temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Storage 2 and then show my suit temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Command Module and also display my core temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display my core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Forward Camp additionally check my helmet temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally check my helmet temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Outpost Nine and then pull up my temp readout",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost Nine"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up my temp readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Exploration Ridge and then, at the same time, report my suit's internal temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Exploration Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, at the same time, report my suit's internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Hab 7 followed by display my core temperature before entering EVA",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by display my core temperature before entering EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Junction Point then show internal temp as well as start guidance",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Junction Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show internal temp as well as start guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Relay Tower along with opening my temperature readout for verification",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with opening my temperature readout for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to EVA Gate and then, oh and, give me my current core temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, oh and, give me my current core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Observation Deck and then display suit temperature, additionally begin route markers",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display suit temperature, additionally begin route markers"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Surface Elevator and then check my internal temperature while prepping",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Surface Elevator"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check my internal temperature while prepping"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Forward Lab next and also show my core temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also show my core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Alpha Beacon and then show my helmet temp at the same time start navigation overlay",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my helmet temp at the same time start navigation overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Module and then check suit temperature and bring up guidance",
+        "tool_calls": [
+            "vitals_temperature",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check suit temperature and bring up guidance"
+            }
+        ]
+    }
+]
+}

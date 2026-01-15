@@ -1,0 +1,1289 @@
+{
+  // intents: start_procedure_erm AND delete_waypoint
+  // description_1: The user initiates the "Exit Recovery Mode" workflow to wake the LTV from its dormant state. They would likely say, "Start ERM procedure" or "Begin Exit Recovery Mode."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Start ERM and delete Alpha",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Home then start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM, remove LZ-1",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM, remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Alpha Site then wake LTV",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " then wake LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start Exit Recovery Mode and remove Beacon Three",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start Exit Recovery Mode and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Three"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Supply Cache and then start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM then delete the marker called Base",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM then delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear marker Forward Post and then wake the LTV",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then wake the LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "yo start ERM and remove waypoint Depot",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo start ERM and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you delete marker Cargo Bay and then begin ERM?",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin ERM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate Exit Recovery Mode now and after that remove the Old Camp",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate Exit Recovery Mode now and after that remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Science Site before you start the ERM procedure",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you start the ERM procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin exit recovery mode and additionally clear waypoint Rover Dock from my map",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin exit recovery mode and additionally clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Cache01 and in addition bring the LTV out of recovery mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache01"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition bring the LTV out of recovery mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM, plus delete the marker called Habitat A to declutter display",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM, plus delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat A"
+            },
+            {
+                "type": "TEXT",
+                "text": " to declutter display"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Main Base then initiate ERM please",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Main Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate ERM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake the LTV and remove waypoint Emergency Beacon",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake the LTV and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Observation Point and then start the ERM workflow",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the ERM workflow"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM then clear Marker Delta",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM then clear Marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Bravo then start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please start ERM and also remove the marker Landing Zone",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please start ERM and also remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove waypoint Depot along with initiating ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with initiating ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to activate Exit Recovery Mode and while you're at it delete the marker called Crew Quarters from my map",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to activate Exit Recovery Mode and while you're at it delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crew Quarters"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint LZ2, followed by starting the ERM so the rover can wake",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by starting the ERM so the rover can wake"
+            }
+        ]
+    },
+    {
+        "prompt": "Activate ERM and then remove the marker called Forward Camp",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Activate ERM and then remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear waypoint Marker Delta and then begin exit recovery mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin exit recovery mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the Exit Recovery Mode now and meanwhile delete the waypoint labeled MusterPoint",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the Exit Recovery Mode now and meanwhile delete the waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "MusterPoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the old marker Outpost North before you initiate ERM so HUD is clearer",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the old marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost North"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you initiate ERM so HUD is clearer"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and remove Charlie",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Zed then start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Zed"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up ERM and also delete the marker Basecamp",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up ERM and also delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Basecamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and remove the Science Marker, then start exit recovery mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then start exit recovery mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start ERM, and then in addition clear the waypoint called DockingPort for me",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start ERM, and then in addition clear the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "DockingPort"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the waypoint Observation Alpha as well as initiate the ERM sequence",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as initiate the ERM sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then remove marker Hab-1 please",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Safe Zone and then wake up the LTV",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Safe Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then wake up the LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM, and at the same time remove the waypoint called Emergency Cache to declutter HUD",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM, and at the same time remove the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " to declutter HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Beacon-3 followed by starting ERM so we can resume operations",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by starting ERM so we can resume operations"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake ERM then delete Outpost",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake ERM then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Marker7 then ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker7"
+            },
+            {
+                "type": "TEXT",
+                "text": " then ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start ERM and also clear the marker called Crew Cache",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start ERM and also clear the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crew Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Beacon Alpha then initiate exit recovery mode now",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate exit recovery mode now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please activate the Exit Recovery Mode and additionally remove the waypoint labeled Research Site",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please activate the Exit Recovery Mode and additionally remove the waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker called Supply Point next and then begin the ERM sequence",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then begin the ERM sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to begin ERM and also delete the Home marker",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to begin ERM and also delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove waypoint Cargo Drop and then open ERM procedure",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open ERM procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Start exit recovery mode, but first remove the marker called Alpha Site 2 from the map",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start exit recovery mode, but first remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Before starting ERM, delete the waypoint called Dock North and then bring the LTV online",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before starting ERM, delete the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Dock North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring the LTV online"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the marker called Hab Zone, additionally please start the ERM afterward",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally please start the ERM afterward"
+            }
+        ]
+    },
+    {
+        "prompt": "Open ERM and then remove the marker called Science Outpost",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open ERM and then remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start ERM and also clear the marker called Crew Cache",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start ERM and also clear the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crew Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Beacon Alpha then initiate exit recovery mode now",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate exit recovery mode now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please activate the Exit Recovery Mode and additionally remove the waypoint labeled Research Site",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please activate the Exit Recovery Mode and additionally remove the waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker called Supply Point next and then begin the ERM sequence",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then begin the ERM sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to begin ERM and also delete the Home marker",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to begin ERM and also delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove waypoint Cargo Drop and then open ERM procedure",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open ERM procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Start exit recovery mode, but first remove the marker called Alpha Site 2 from the map",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start exit recovery mode, but first remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the old marker Outpost North before you initiate ERM so HUD is clearer",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the old marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost North"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you initiate ERM so HUD is clearer"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and remove Charlie",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Zed then start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Zed"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up ERM and also delete the marker Basecamp",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up ERM and also delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Basecamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and remove the Science Marker, then start exit recovery mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then start exit recovery mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start ERM, and then in addition clear the waypoint called DockingPort for me",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start ERM, and then in addition clear the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "DockingPort"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the waypoint Observation Alpha as well as initiate the ERM sequence",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as initiate the ERM sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then remove marker Hab-1 please",
+        "tool_calls": [
+            "start_procedure_erm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    }
+]
+}

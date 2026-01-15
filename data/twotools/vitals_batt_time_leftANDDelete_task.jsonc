@@ -1,0 +1,966 @@
+{
+  // intents: vitals_batt_time_left AND Delete_task
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user wants to remove an erroneous or canceled item from their task list. The prompt specifies the task to remove, such as "Delete task Inspect Solar Panel."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check battery and delete task battery check",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Check power then delete Inspect Solar Panel",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check power then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check charge and delete sample collection",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check charge and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell power left and cancel sample collection",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell power left and cancel "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Show charge and remove task recalibrate arm",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show charge and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate arm"
+            }
+        ]
+    },
+    {
+        "prompt": "Check charge then delete deploy antenna",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check charge then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time and clear task EVA checklist",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time and clear task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme power then delete tether hook test",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme power then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether hook test"
+            }
+        ]
+    },
+    {
+        "prompt": "Need battery and cancel seal leak scan",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need battery and cancel "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal leak scan"
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery and remove oxygen flush",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery and remove "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen flush"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up battery time and delete task camera calibration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up battery time and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking battery time, delete task soil scoop",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking battery time, delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "soil scoop"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up my charge plus remove task radiation sensor",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up my charge plus remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "radiation sensor"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show suit vitals and then delete the task comm antenna",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show suit vitals and then delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics and remove task nav beacon now",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "nav beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me power remaining and then delete task drill motor",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me power remaining and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "drill motor"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me battery left and cancel pressure test task",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me battery left and cancel "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure test task"
+            }
+        ]
+    },
+    {
+        "prompt": "Display suit data and then remove task algae sample collection",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display suit data and then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "algae sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up charge status and delete task thermal blanket check",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up charge status and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thermal blanket check"
+            }
+        ]
+    },
+    {
+        "prompt": "Show battery plus remove the task toolbox inventory please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show battery plus remove the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "toolbox inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up power left and then delete spectrometer read",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up power left and then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "spectrometer read"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, check my suit charge and delete task lens clean afterward",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, check my suit charge and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "lens clean"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterward"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display battery time and then remove task path mapping",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display battery time and then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "path mapping"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up charge and additionally cancel the sonar ping task",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up charge and additionally cancel the sonar ping task"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time show power left and drop relay reset",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time show power left and drop "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "relay reset"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task battery swap and show me remaining power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show me remaining power"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the task antenna alignment then pull up my battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up my battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Cancel task sample bagging and display suit charge now",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Cancel task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample bagging"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display suit charge now"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete task radiation log and also open my vitals display",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "radiation log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also open my vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Alright remove task coolant flush then bring up remaining battery plus biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Alright remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " then bring up remaining battery plus biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task filter replace please and then show me how much suit power I have left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "filter replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " please and then show me how much suit power I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task instrument stow and then pull up battery duration while also showing biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "instrument stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up battery duration while also showing biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Cancel task camera pan and then in addition display my remaining charge and vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Cancel task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera pan"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then in addition display my remaining charge and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task suit pressure check before you show me battery time remaining and my biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure check"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you show me battery time remaining and my biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove task habitat inspection and then pull up power left plus suit vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "habitat inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up power left plus suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop task solar array check and then while you're at it show remaining power and vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar array check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then while you're at it show remaining power and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task seismometer deploy and then follow up by pulling battery time and biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seismometer deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then follow up by pulling battery time and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task habitat hatch then next display battery time along with my suit vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "habitat hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " then next display battery time along with my suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete task sample labeling and then show me remaining power in addition to suit data",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample labeling"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me remaining power in addition to suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "Cancel task waste stow and then bring up battery remaining while also displaying biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Cancel task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "waste stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up battery remaining while also displaying biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task oxygen monitor and then at the same time pull up power time and suit vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time pull up power time and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task toolbox stow but first show me battery life remaining and then open my biometrics readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "toolbox stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show me battery life remaining and then open my biometrics readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task bio-sample seal along with canceling the follow-up, and then display my suit battery time plus vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "bio-sample seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with canceling the follow-up, and then display my suit battery time plus vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task emergency beacon and then open battery remaining display as well as vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "emergency beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open battery remaining display as well as vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete task antenna realignment followed by showing me how much battery and my biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna realignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing me how much battery and my biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Cancel task rover docking then show battery remaining and next present the vitals panel",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Cancel task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "rover docking"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show battery remaining and next present the vitals panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task spectrometer read and then as well display the suit charge percentage and biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "spectrometer read"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then as well display the suit charge percentage and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task camera calibration followed by opening battery duration readout and at the same time show vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening battery duration readout and at the same time show vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task radiation sensor then followed by pulling up the remaining power time in addition to suit vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "radiation sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": " then followed by pulling up the remaining power time in addition to suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task path mapping and then oh and show me current battery time plus biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "path mapping"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then oh and show me current battery time plus biometrics"
+            }
+        ]
+    }
+]
+}

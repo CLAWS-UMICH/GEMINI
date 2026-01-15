@@ -1,0 +1,1172 @@
+{
+  // intents: start_procedure_physical_repair_task AND Complete_task
+  // description_1: The user is ready to perform hands-on mechanical repairs and needs the step-by-step AR guidance and checklists. They might say, "Start physical repair instructions" or "Open repair checklist."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Start repair and finish Battery Check",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical as complete then open repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete then open repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open AR repair checklist plus mark Antenna Check done",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open AR repair checklist plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Seal Replacement and pull up the repair steps",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Replacement"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up the repair steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin hands-on repair instructions and then mark Tether Inspect complete",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin hands-on repair instructions and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Regulator Swap done before you open the step-by-step guide",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Regulator Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " done before you open the step-by-step guide"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up maintenance steps while I mark Coolant Top-up as complete",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up maintenance steps while I mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Top-up"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Solar Panel Align then display the mechanical repair guide",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display the mechanical repair guide"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist and also mark Vent Valve Tighten complete",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Vent Valve Tighten"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample Transfer as complete and then show AR repair overlay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then show AR repair overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Show repair steps and mark Camera Calibrate done, please",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show repair steps and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, please"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Toolkit Stow and then bring up the repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Toolkit Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up the repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open mechanical repair guide followed by marking O2 Filter Replace complete",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open mechanical repair guide followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "O2 Filter Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "please open repair checklist as well as finish Comm Antenna Deploy",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please open repair checklist as well as finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Antenna Deploy"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark EVA prep done and then open the step-by-step physical repair guide",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then open the step-by-step physical repair guide"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up AR repair checklist next and mark Hatch Latch Verify complete",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up AR repair checklist next and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Latch Verify"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "after you open the repair checklist, mark Pump Prime finished",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you open the repair checklist, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump Prime"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Open step-by-step repair then also mark Pressure Equalize done",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open step-by-step repair then also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "please display repair procedure and additionally complete Lubricant Apply",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please display repair procedure and additionally complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lubricant Apply"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist and next mark Sensor Recalibrate completed",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist and next mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor Recalibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Show physical repair guide plus mark Radiator Flush as done",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show physical repair guide plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiator Flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Open AR repair checklist, followed by marking Thermal Blanket Fasten complete",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open AR repair checklist, followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Fasten"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sealant Apply as done and then bring up the repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sealant Apply"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and then bring up the repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist and along with that mark Relay Reset complete",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist and along with that mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Cable Reroute completed and then open hands-on repair protocol",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cable Reroute"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed and then open hands-on repair protocol"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the physical repair procedure meanwhile mark Module Lockdown done",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the physical repair procedure meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Module Lockdown"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Truss Bolt Torque as complete and then show step-by-step repair",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Truss Bolt Torque"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then show step-by-step repair"
+            }
+        ]
+    },
+    {
+        "prompt": "open repair checklist and at the same time mark Joint Clear finished",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open repair checklist and at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Joint Clear"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Fuel Line Secure then open the AR-guided repair steps, oh and confirm",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Line Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open the AR-guided repair steps, oh and confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "Start repair checklist and then finish Antenna Check, please",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair checklist and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Camera Calibrate before you open the repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you open the repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Toolkit Stow as complete and additionally pull up repair procedure",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Toolkit Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and additionally pull up repair procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up repair checklist and then mark O2 Filter Replace finished",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up repair checklist and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "O2 Filter Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Comm Antenna Deploy and then open step-by-step guide, could you?",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Antenna Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open step-by-step guide, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show repair steps and then finish EVA prep, thanks",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show repair steps and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": ", thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Hatch Latch Verify as completed and also open AR repair overlay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Latch Verify"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed and also open AR repair overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist but first mark Pump Prime done",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist but first mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump Prime"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Pressure Equalize and then pull up the repair checklist at the same time",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up the repair checklist at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair procedure meanwhile mark Lubricant Apply complete, gimme confirmation",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair procedure meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lubricant Apply"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, gimme confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sensor Recalibrate then display the repair checklist in addition to the AR overlay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor Recalibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display the repair checklist in addition to the AR overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "open repair checklist and then mark Radiator Flush as finished, thanks",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open repair checklist and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiator Flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal Blanket Fasten done and then open the mechanical repair steps, please",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Fasten"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then open the mechanical repair steps, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up repair checklist and then mark Sealant Apply complete, could you?",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up repair checklist and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sealant Apply"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Relay Reset then open hands-on procedure and then show me step one",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open hands-on procedure and then show me step one"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Cable Reroute finished and additionally display the repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cable Reroute"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished and additionally display the repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist and then mark Module Lockdown complete, informal style yo",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Module Lockdown"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, informal style yo"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Truss Bolt Torque done and then bring up AR-guided repair steps, thanks",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Truss Bolt Torque"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then bring up AR-guided repair steps, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist and then mark Joint Clear, oh and send status update",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Joint Clear"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and send status update"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Fuel Line Secure and then open the repair steps, followed by telemetry upload",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Line Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the repair steps, followed by telemetry upload"
+            }
+        ]
+    },
+    {
+        "prompt": "Start repair procedure then mark Antenna Check complete, and then confirm with MCC",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair procedure then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, and then confirm with MCC"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Camera Calibrate as complete before showing the repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete before showing the repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist and then mark Toolkit Stow done, in addition send update",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Toolkit Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, in addition send update"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark O2 Filter Replace complete and then pull up the repair AR overlay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "O2 Filter Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then pull up the repair AR overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Display repair procedure and next mark Comm Antenna Deploy finished",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display repair procedure and next mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Antenna Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the repair checklist and then finish EVA prep, could you confirm?",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the repair checklist and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": ", could you confirm?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Hatch Latch Verify as complete then open the AR repair guide, and then log it",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Latch Verify"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete then open the AR repair guide, and then log it"
+            }
+        ]
+    }
+]
+}

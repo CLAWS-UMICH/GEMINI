@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_time_left AND start_procedure_erm
+  // description_1: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // description_2: The user initiates the "Exit Recovery Mode" workflow to wake the LTV from its dormant state. They would likely say, "Start ERM procedure" or "Begin Exit Recovery Mode."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "O2 time left, then ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 time left, then ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check oxygen time and start ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check oxygen time and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "How long O2 lasts and begin ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long O2 lasts and begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Time to depletion, then start ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time to depletion, then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate O2 remaining and then ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate O2 remaining and then ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me oxygen time and do ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me oxygen time and do ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen minutes left plus start ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen minutes left plus start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "How long oxygen lasts, also ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long oxygen lasts, also ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Need O2 time then begin ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need O2 time then begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 remaining, then launch ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 remaining, then launch ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you calculate my oxygen time and then start ERM?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you calculate my oxygen time and then start ERM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me O2 remaining and also initiate ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me O2 remaining and also initiate ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining air time and open ERM procedure afterwards",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining air time and open ERM procedure afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current oxygen minutes and start the ERM sequence",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current oxygen minutes and start the ERM sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate my suit O2 time and then wake ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate my suit O2 time and then wake ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me oxygen time left plus begin Exit Recovery Mode",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me oxygen time left plus begin Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes until O2 depletion and then run ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes until O2 depletion and then run ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me remaining air time and start ERM please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me remaining air time and start ERM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up oxygen estimate and then bring up ERM flow",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up oxygen estimate and then bring up ERM flow"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you calculate O2 time and additionally begin ERM?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you calculate O2 time and additionally begin ERM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my oxygen time remaining and after that start the Exit Recovery Mode procedure please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my oxygen time remaining and after that start the Exit Recovery Mode procedure please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please calculate how long my suit oxygen will last and then initiate ERM to wake the LTV",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please calculate how long my suit oxygen will last and then initiate ERM to wake the LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "I need an estimate of O2 minutes left and then followed by starting the ERM workflow right away",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need an estimate of O2 minutes left and then followed by starting the ERM workflow right away"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my biometric oxygen usage rate and after calculating time remaining please start ERM",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my biometric oxygen usage rate and after calculating time remaining please start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate remaining oxygen time while also opening the ERM steps and confirm when it's active",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate remaining oxygen time while also opening the ERM steps and confirm when it's active"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM then tell me how much oxygen time I have left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM then tell me how much oxygen time I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode and also calculate my remaining O2 minutes?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode and also calculate my remaining O2 minutes?"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off ERM and then estimate suit oxygen time remaining for me",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off ERM and then estimate suit oxygen time remaining for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate ERM and before that show me O2 time remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate ERM and before that show me O2 time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM, plus tell me how many minutes of oxygen remain",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM, plus tell me how many minutes of oxygen remain"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM then also pull up my biometrics and calculate oxygen time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM then also pull up my biometrics and calculate oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start ERM and then provide the estimate of oxygen left?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start ERM and then provide the estimate of oxygen left?"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then, in addition, tell me expected O2 depletion time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then, in addition, tell me expected O2 depletion time"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM and then show remaining air time plus remaining percentage",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM and then show remaining air time plus remaining percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Run ERM and then calculate oxygen minutes left for the suit, please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run ERM and then calculate oxygen minutes left for the suit, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the Exit Recovery Mode now and then calculate my remaining oxygen time as well as suit status",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the Exit Recovery Mode now and then calculate my remaining oxygen time as well as suit status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin ERM procedure and afterwards give me an estimate of O2 minutes left plus battery info",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin ERM procedure and afterwards give me an estimate of O2 minutes left plus battery info"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM followed by pulling up my biometrics and meanwhile calculate the time until oxygen depletion",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM followed by pulling up my biometrics and meanwhile calculate the time until oxygen depletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode first, and then compute how long the suit oxygen will last before it runs out",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode first, and then compute how long the suit oxygen will last before it runs out"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then open the vitals display and then estimate O2 based on current consumption rates",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then open the vitals display and then estimate O2 based on current consumption rates"
+            }
+        ]
+    },
+    {
+        "prompt": "Activate ERM, and then at the same time calculate remaining oxygen time and bring up biometrics",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Activate ERM, and then at the same time calculate remaining oxygen time and bring up biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run ERM now, followed by showing my suit data and calculating O2 remaining, oh and confirm when finished",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run ERM now, followed by showing my suit data and calculating O2 remaining, oh and confirm when finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM, and then open biometrics along with estimating how many minutes of oxygen are left for EVA",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM, and then open biometrics along with estimating how many minutes of oxygen are left for EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin Exit Recovery Mode and then, followed by that, calculate my O2 time remaining and notify me",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin Exit Recovery Mode and then, followed by that, calculate my O2 time remaining and notify me"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM and then estimate remaining oxygen while also checking suit pressure and heart rate data",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM and then estimate remaining oxygen while also checking suit pressure and heart rate data"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM next and at the same time compute O2 depletion time and display my biometrics for confirmation",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM next and at the same time compute O2 depletion time and display my biometrics for confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM but first calculate the oxygen minutes left in my suit and then proceed with the wake sequence",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM but first calculate the oxygen minutes left in my suit and then proceed with the wake sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off the ERM workflow and then additionally run an O2 time remaining calculation plus show suit vitals",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off the ERM workflow and then additionally run an O2 time remaining calculation plus show suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the ERM procedure, and then calculate how long my oxygen will last while also opening the vitals panel",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the ERM procedure, and then calculate how long my oxygen will last while also opening the vitals panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Activate ERM and then bring up my biometrics in addition to estimating remaining O2 so I can plan EVA time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Activate ERM and then bring up my biometrics in addition to estimating remaining O2 so I can plan EVA time"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,978 @@
+{
+  // intents: vitals_oxy_pri_storage AND Get_coordinates
+  // description_1: The user wants to check the fill level or capacity of the primary oxygen tank, which is critical for life support during the EVA. The prompt would likely be a request such as "What is my primary oxygen level?" or "Check primary O2 storage."
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check primary O2 and where is LTV",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 and where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is rover and check primary oxygen",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check primary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen level and where is PR",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen level and where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Coordinates for Beacon 7 plus primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my primary O2 gauge while locating Habitat-1",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my primary O2 gauge while locating "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Garcia after you display primary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Garcia"
+            },
+            {
+                "type": "TEXT",
+                "text": " after you display primary oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my primary O2 status before getting coordinates for the LTV",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my primary O2 status before getting coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Find Lunar Rover 2 and O2 percentage",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Rover 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme my primary oxygen fill and also where is the Cargo Lander",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme my primary oxygen fill and also where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Beacon-09 and then open my primary O2 readout",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-09"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open my primary O2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display primary O2 capacity as well as the coordinates for Alpha Cache?",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display primary O2 capacity as well as the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Site Bravo next and check my primary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and check my primary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme know primary oxygen level plus give me coordinates for Transfer Vehicle",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme know primary oxygen level plus give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Transfer Vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Relay-2 and then pull up my primary O2 gauge",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Relay-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up my primary O2 gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 percent and Beacon 7 coordinates",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 percent and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Alpha Cache in addition get primary O2 status",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition get primary O2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary O2 display additionally find the LTV for me",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary O2 display additionally find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please get coordinates for Habitat-1 meanwhile show my primary oxygen time remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile show my primary oxygen time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check primary oxygen and then give coordinates for Lunar Rover 2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check primary oxygen and then give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Rover 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the PR, but first show me my primary O2 level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first show me my primary O2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen numbers and where is Garcia",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen numbers and where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Garcia"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Cargo Lander next and display primary O2 readings",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and display primary O2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up my primary O2 capacity at the same time as finding Beacon-09",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up my primary O2 capacity at the same time as finding "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-09"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the Transfer Vehicle followed by showing primary oxygen fill level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Transfer Vehicle"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing primary oxygen fill level"
+            }
+        ]
+    },
+    {
+        "prompt": "Show primary oxygen and Base Camp coords",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show primary oxygen and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's Alpha Cache and primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check my primary O2 and along with that locate Beacon 7",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check my primary O2 and along with that locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Lunar Telemetry Vehicle and then report primary oxygen percentage",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Telemetry Vehicle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report primary oxygen percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my primary O2 fill level as well as the coordinates for Site Bravo",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my primary O2 fill level as well as the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the PR, additionally bring up primary oxygen status",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally bring up primary oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary O2 readout before you give me coordinates for the rover",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary O2 readout before you give me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for TM-3 and show my primary oxygen level afterwards",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "TM-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show my primary oxygen level afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you display primary oxygen and also locate the Cargo Lander, please?",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you display primary oxygen and also locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please?"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Beacon-09, followed by showing my primary oxygen capacity",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-09"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by showing my primary oxygen capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, check primary O2 plus get coordinates for the Transfer Vehicle",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, check primary O2 plus get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Transfer Vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Habitat-1 while opening primary O2 readout",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " while opening primary O2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary oxygen then also give coordinates for Alpha Cache",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary oxygen then also give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for LTV and then show my primary oxygen time remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my primary oxygen time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, display primary oxygen numbers as well as locate the Lunar Rover 2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, display primary oxygen numbers as well as locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Rover 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you find Relay-2 and then pull up primary O2 status?",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Relay-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up primary O2 status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme my primary O2 and then give me coordinates for Beacon 7",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme my primary O2 and then give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Transfer Vehicle and open primary oxygen gauge afterwards",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Transfer Vehicle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open primary oxygen gauge afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up primary O2 readings in addition locate Site Bravo",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up primary O2 readings in addition locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Gamma Cache oh and show my primary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Gamma Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and show my primary oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my primary oxygen status and then get coordinates for the Relay-2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my primary oxygen status and then get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Relay-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Cargo Lander next, and then show primary O2 capacity",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " next, and then show primary O2 capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything, show primary oxygen and along with that find Beacon-09",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything, show primary oxygen and along with that find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-09"
+            }
+        ]
+    },
+    {
+        "prompt": "Find Site Bravo followed by opening my primary O2 gauge",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening my primary O2 gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a primary O2 readout plus coordinates for the Lunar Telemetry Vehicle",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a primary O2 readout plus coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Telemetry Vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for TM-3, and at the same time bring up my primary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "TM-3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and at the same time bring up my primary oxygen level"
+            }
+        ]
+    }
+]
+}

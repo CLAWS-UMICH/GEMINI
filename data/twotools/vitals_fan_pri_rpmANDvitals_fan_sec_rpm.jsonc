@@ -1,0 +1,658 @@
+{
+  // intents: vitals_fan_pri_rpm AND vitals_fan_sec_rpm
+  // description_1: The user needs to verify that the primary ventilation fan is spinning at the correct speed to circulate air and scrub CO2. The prompt might be "Check primary fan RPM" or "Is the primary fan working?"
+  // description_2: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check primary fan RPM and secondary",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary fan RPM and secondary"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary fan RPM then backup RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary fan RPM then backup RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify main fan RPM plus backup",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify main fan RPM plus backup"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary blower rpm and secondary rpm",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary blower rpm and secondary rpm"
+            }
+        ]
+    },
+    {
+        "prompt": "Main vent RPM then secondary check",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Main vent RPM then secondary check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary fan RPM and then secondary",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary fan RPM and then secondary"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up primary RPM and also secondary?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up primary RPM and also secondary?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo gimme primary fan RPM and then secondary readout",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo gimme primary fan RPM and then secondary readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary ventilation fan RPM while also checking secondary",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary ventilation fan RPM while also checking secondary"
+            }
+        ]
+    },
+    {
+        "prompt": "I need primary fan RPM and secondary fan RPM next",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need primary fan RPM and secondary fan RPM next"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary fan RPM and then backup",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary fan RPM and then backup"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary and secondary fan RPM, please",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary and secondary fan RPM, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary rpm, then sec rpm",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary rpm, then sec rpm"
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm the primary fan speed and additionally the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm the primary fan speed and additionally the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary fan RPM along with the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary fan RPM along with the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the primary ventilation fan RPM and then display the secondary's RPM as well",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the primary ventilation fan RPM and then display the secondary's RPM as well"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to check the primary blower RPM and afterwards show me the secondary blower RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to check the primary blower RPM and afterwards show me the secondary blower RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify primary fan revolutions per minute and then pull up the secondary fan revolutions per minute for comparison",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify primary fan revolutions per minute and then pull up the secondary fan revolutions per minute for comparison"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display primary fan RPM first and then followed by the secondary fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display primary fan RPM first and then followed by the secondary fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary RPM and also show secondary RPM next",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary RPM and also show secondary RPM next"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary rpm then secondary rpm, at the same time",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary rpm then secondary rpm, at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking primary fan RPM, please also pull up the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking primary fan RPM, please also pull up the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check primary fan RPM before you display the secondary fan RPM for redundancy",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check primary fan RPM before you display the secondary fan RPM for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary fan RPM and then also open secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary fan RPM and then also open secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up primary ventilation fan RPM and in addition show the secondary ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up primary ventilation fan RPM and in addition show the secondary ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary fan RPM and primary",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM and primary"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary and primary fan RPM, now",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary and primary fan RPM, now"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup fan RPM then primary RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup fan RPM then primary RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary fan RPM and then also the primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary fan RPM and then also the primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up backup blower rpm and then primary blower rpm",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up backup blower rpm and then primary blower rpm"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, open secondary fan RPM while also displaying primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, open secondary fan RPM while also displaying primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary ventilation fan RPM and then please verify the primary ventilation fan RPM as well",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary ventilation fan RPM and then please verify the primary ventilation fan RPM as well"
+            }
+        ]
+    },
+    {
+        "prompt": "After you read the secondary fan RPM, also pull up the primary fan RPM for me",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read the secondary fan RPM, also pull up the primary fan RPM for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary RPM first and then display primary RPM, please",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary RPM first and then display primary RPM, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the backup fan's revolutions per minute and then follow up with the primary fan's RPM readout",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the backup fan's revolutions per minute and then follow up with the primary fan's RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM and then primary RPM, additionally show timestamps",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM and then primary RPM, additionally show timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Sec fan RPM and primary readout",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Sec fan RPM and primary readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, check secondary fan RPM and then check primary fan RPM as well",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, check secondary fan RPM and then check primary fan RPM as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and verify the secondary fan RPM first, followed by a display of the primary fan RPM for comparison",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and verify the secondary fan RPM first, followed by a display of the primary fan RPM for comparison"
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm the backup fan RPM and next bring up the primary fan RPM so I can compare both",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm the backup fan RPM and next bring up the primary fan RPM so I can compare both"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read the secondary and then also read the primary fan speeds",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read the secondary and then also read the primary fan speeds"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary then primary RPM, but first verify values",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary then primary RPM, but first verify values"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme have the secondary fan RPM and then bring up the primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme have the secondary fan RPM and then bring up the primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary fan RPM and then show primary RPM before closing",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary fan RPM and then show primary RPM before closing"
+            }
+        ]
+    },
+    {
+        "prompt": "Along with the secondary fan RPM readout, please also pull up the primary fan RPM for a cross-check",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Along with the secondary fan RPM readout, please also pull up the primary fan RPM for a cross-check"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time, report the secondary RPM and then also report the primary RPM including timestamps",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time, report the secondary RPM and then also report the primary RPM including timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read secondary fan RPM as well as primary fan RPM, additionally include status",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read secondary fan RPM as well as primary fan RPM, additionally include status"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM and then primary RPM, along with any anomalies",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM and then primary RPM, along with any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the secondary backup fan RPM, and then also verify the primary fan RPM for me",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the secondary backup fan RPM, and then also verify the primary fan RPM for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, pull up the secondary fan RPM followed by the primary fan RPM and then compare the two readings",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, pull up the secondary fan RPM followed by the primary fan RPM and then compare the two readings"
+            }
+        ]
+    }
+]
+}

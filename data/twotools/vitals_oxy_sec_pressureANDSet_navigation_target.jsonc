@@ -1,0 +1,966 @@
+{
+  // intents: vitals_oxy_sec_pressure AND Set_navigation_target
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check secondary O2 then LTV",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify sec O2 pressure and Habitat Alpha",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify sec O2 pressure and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell sec O2 pressure plus Rover",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell sec O2 pressure plus "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen plus Airlock 2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen plus "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Need sec O2 pressure and Cargo Bay",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need sec O2 pressure and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check secondary O2 plus LZ-3",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check secondary O2 plus "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Check sec O2 and Command Module",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec O2 and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary O2 then Habitat Bravo",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary O2 then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme sec O2 pressure and Med Bay",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme sec O2 pressure and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 psi then Comm Array",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 psi then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check secondary oxygen pressure and can you set destination Orbital Beacon?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check secondary oxygen pressure and can you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Orbital Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you verify sec O2 pressure then navigate to Sample Cache?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you verify sec O2 pressure then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary O2 pressure and then route to Science Module",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary O2 pressure and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check secondary O2 and also set destination Solar Farm",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check secondary O2 and also set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Farm"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up sec O2 pressure plus navigate to Relay Tower",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up sec O2 pressure plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen pressure while navigate to Depot",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen pressure while navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary O2, and then set destination EVA Bus",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary O2, and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Bus"
+            }
+        ]
+    },
+    {
+        "prompt": "Give sec O2 pressure as well as route to South Ridge",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give sec O2 pressure as well as route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Open sec O2 readings along with navigation to North Crater",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open sec O2 readings along with navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull secondary oxygen data in addition to setting destination East Outpost",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull secondary oxygen data in addition to setting destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally check sec O2 pressure and navigate to West Beacon",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally check sec O2 pressure and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile verify secondary O2 plus set destination Fuel Depot",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile verify secondary O2 plus set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check sec O2, and then route me to Ops Center",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check sec O2, and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ops Center"
+            }
+        ]
+    },
+    {
+        "prompt": "Check sec O2, followed by setting destination Landing Pad",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec O2, followed by setting destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            }
+        ]
+    },
+    {
+        "prompt": "Before that verify secondary oxygen pressure next set destination Thermal Vent",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before that verify secondary oxygen pressure next set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Vent"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LTV and then check secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Home Base, and also can you verify sec O2 psi?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and also can you verify sec O2 psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Rover plus tell me the sec O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me the sec O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Habitat Alpha while showing sec O2 readings",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " while showing sec O2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Airlock 2 and also pull up sec O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up sec O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Cargo Bay, and then after you calculate route check secondary oxygen tank pressure for me",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then after you calculate route check secondary oxygen tank pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Module and then bring up secondary O2 pressure readings along with a mapped path",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up secondary O2 pressure readings along with a mapped path"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to LZ-3 first and then additionally display the secondary O2 pressure gauge for safety",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " first and then additionally display the secondary O2 pressure gauge for safety"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Module, followed by checking the secondary oxygen tank pressure before egress",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by checking the secondary oxygen tank pressure before egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Habitat Bravo while at the same time verify the pressure in the secondary O2 tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " while at the same time verify the pressure in the secondary O2 tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Med Bay and meanwhile pull up the secondary O2 pressure plus confirm nominal readings",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile pull up the secondary O2 pressure plus confirm nominal readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Comm Array, oh and after plotting the course give me the current secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Array"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and after plotting the course give me the current secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Solar Farm, but first display the secondary O2 tank pressure and then overlay route guidance",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Farm"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first display the secondary O2 tank pressure and then overlay route guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Relay Tower, and then as well as plotting navigation bring up the sec O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then as well as plotting navigation bring up the sec O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination EVA Bus followed by opening the secondary oxygen pressure display and additionally highlight any warnings",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Bus"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the secondary oxygen pressure display and additionally highlight any warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Depot and also check the secondary O2 pressure as well as show me the shortest route",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check the secondary O2 pressure as well as show me the shortest route"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to South Ridge and then open the secondary oxygen tank pressure along with projected ETA",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the secondary oxygen tank pressure along with projected ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination North Crater and then check sec O2 pressure next overlay waypoints and hazards",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check sec O2 pressure next overlay waypoints and hazards"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to East Outpost, and then while approaching tell me the pressure in the secondary O2 tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then while approaching tell me the pressure in the secondary O2 tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination West Beacon, followed by verifying the sec O2 pressure and then display the tactical route",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by verifying the sec O2 pressure and then display the tactical route"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Fuel Depot and then give me the secondary oxygen tank pressure in addition to the navigation overlay",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give me the secondary oxygen tank pressure in addition to the navigation overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Ops Center plus check the secondary O2 pressure meanwhile begin route guidance and estimated travel time",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ops Center"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check the secondary O2 pressure meanwhile begin route guidance and estimated travel time"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Landing Pad and then additionally display sec O2 pressure while showing the heading arrows",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally display sec O2 pressure while showing the heading arrows"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Thermal Vent and then as well as checking the secondary O2 pressure also mark safe corridors",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then as well as checking the secondary O2 pressure also mark safe corridors"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Sample Cache then at the same time check secondary O2 pressure and alert me to anomalies",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " then at the same time check secondary O2 pressure and alert me to anomalies"
+            }
+        ]
+    }
+]
+}

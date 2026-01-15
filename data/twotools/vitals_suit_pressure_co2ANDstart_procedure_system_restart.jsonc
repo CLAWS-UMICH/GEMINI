@@ -1,0 +1,658 @@
+{
+  // intents: vitals_suit_pressure_co2 AND start_procedure_system_restart
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read my suit CO2 and restart nav",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read my suit CO2 and restart nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 then reboot LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 then reboot LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo pull CO2 then start reboot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo pull CO2 then start reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 readout, then reboot module",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 readout, then reboot module"
+            }
+        ]
+    },
+    {
+        "prompt": "Show CO2 plus initiate reboot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show CO2 plus initiate reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Scan suit CO2 and restart",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scan suit CO2 and restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 then start procedure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 then start procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and then reboot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and then reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 levels then system restart",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 levels then system restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up CO2 and reboot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up CO2 and reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read suit CO2 and then initiate navigation restart",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read suit CO2 and then initiate navigation restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my CO2 levels and start reboot please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my CO2 levels and start reboot please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current CO2 reading and then system reboot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current CO2 reading and then system reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up CO2 as well as perform restart",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up CO2 as well as perform restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me suit CO2 and additionally run restart",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me suit CO2 and additionally run restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 then begin the LTV restart now",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 then begin the LTV restart now"
+            }
+        ]
+    },
+    {
+        "prompt": "Need CO2 readout and then kick off reboot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need CO2 readout and then kick off reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Display CO2 while you start the reboot procedure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display CO2 while you start the reboot procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 check plus initiate restart for nav module",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 check plus initiate restart for nav module"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read CO2 and then restart system",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read CO2 and then restart system"
+            }
+        ]
+    },
+    {
+        "prompt": "After you pull the suit CO2 reading, please begin the subsystem restart procedure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you pull the suit CO2 reading, please begin the subsystem restart procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit CO2 partial pressure value and then start the nav reboot procedure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit CO2 partial pressure value and then start the nav reboot procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read my CO2 levels as well as initiate the start procedure for the navigation module",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read my CO2 levels as well as initiate the start procedure for the navigation module"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display suit CO2 in addition to beginning the system restart sequence now",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display suit CO2 in addition to beginning the system restart sequence now"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check the CO2 and then follow with a full subsystem restart, thanks",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check the CO2 and then follow with a full subsystem restart, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Start system restart and then read CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start system restart and then read CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin reboot procedure, then show me my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin reboot procedure, then show me my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate restart and also bring up CO2 readout",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate restart and also bring up CO2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off the restart plus check the suit CO2 afterwards",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off the restart plus check the suit CO2 afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Go ahead and start restart while showing CO2 data",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go ahead and start restart while showing CO2 data"
+            }
+        ]
+    },
+    {
+        "prompt": "Run system restart, and then display my CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run system restart, and then display my CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate LTV restart and also pull up suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate LTV restart and also pull up suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start the reboot and then check CO2 pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start the reboot and then check CO2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please perform restart and additionally show suit CO2 readout",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please perform restart and additionally show suit CO2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart, and then open biosensor CO2 display for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart, and then open biosensor CO2 display for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you kick the subsystem, read my suit CO2 and report partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you kick the subsystem, read my suit CO2 and report partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the navigation module restart procedure but first pull up the suit CO2 trace",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the navigation module restart procedure but first pull up the suit CO2 trace"
+            }
+        ]
+    },
+    {
+        "prompt": "Start a full system restart followed by a CO2 readout from my suit sensors",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start a full system restart followed by a CO2 readout from my suit sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Please commence the restart sequence and then, at the same time, display CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please commence the restart sequence and then, at the same time, display CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to run the restart for the nav module next and show CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to run the restart for the nav module next and show CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you initiate the subsystem reboot, meanwhile pull up my suit CO2 and timestamp it",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you initiate the subsystem reboot, meanwhile pull up my suit CO2 and timestamp it"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the restart procedure for the failing module and then along with that display CO2 readings",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the restart procedure for the failing module and then along with that display CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin the restart, followed by a CO2 pressure check and a short status report",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin the restart, followed by a CO2 pressure check and a short status report"
+            }
+        ]
+    },
+    {
+        "prompt": "Commence system reboot as well as bring up suit CO2 partial pressure and log it",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Commence system reboot as well as bring up suit CO2 partial pressure and log it"
+            }
+        ]
+    },
+    {
+        "prompt": "Go ahead and start the procedure, followed by reading suit CO2 plus confirming levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go ahead and start the procedure, followed by reading suit CO2 plus confirming levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the restart now and then check CO2 before resuming EVA operations please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the restart now and then check CO2 before resuming EVA operations please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart for navigation module and then, in addition, display the CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart for navigation module and then, in addition, display the CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please execute the system restart and oh and bring up the suit CO2 monitor right away",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please execute the system restart and oh and bring up the suit CO2 monitor right away"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin reboot sequence next and then simultaneously pull CO2 data at the same time",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin reboot sequence next and then simultaneously pull CO2 data at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the restart, and then check my CO2 along with the rest of the biometrics before I exit airlock",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the restart, and then check my CO2 along with the rest of the biometrics before I exit airlock"
+            }
+        ]
+    }
+]
+}

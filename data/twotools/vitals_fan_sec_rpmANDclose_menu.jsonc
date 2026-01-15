@@ -1,0 +1,658 @@
+{
+  // intents: vitals_fan_sec_rpm AND close_menu
+  // description_1: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // description_2: The user wants to minimize or dismiss the currently active AR window to clear their field of view. The command would be "Close menu" or "Dismiss window."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary fan RPM and close menu",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM and close menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Close HUD then report fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close HUD then report fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the backup ventilation fan RPM chart and then dismiss the AR overlay for a clear view",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the backup ventilation fan RPM chart and then dismiss the AR overlay for a clear view"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss window and read fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss window and read fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the secondary fan RPM plus close the status panel, and then confirm the reading for my logs",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the secondary fan RPM plus close the status panel, and then confirm the reading for my logs"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup fan RPM readout and then clear the AR window so I can proceed with EVA tasks",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup fan RPM readout and then clear the AR window so I can proceed with EVA tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, gimme the sec fan RPM reading now and then close the menu so I can check the suit",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, gimme the sec fan RPM reading now and then close the menu so I can check the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the menu and then pull up the secondary fan revs per minute so I can verify stabilization",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the menu and then pull up the secondary fan revs per minute so I can verify stabilization"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show the secondary fan speed reading and dismiss the overlay, then annotate any deviations in my log?",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show the secondary fan speed reading and dismiss the overlay, then annotate any deviations in my log?"
+            }
+        ]
+    },
+    {
+        "prompt": "Close display then report fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close display then report fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Report the sec fan RPM accurately before closing the menu, and then wait for my confirmation to proceed",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report the sec fan RPM accurately before closing the menu, and then wait for my confirmation to proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Minimize the HUD and then read the secondary ventilation fan RPM out loud while I stabilize the tether",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Minimize the HUD and then read the secondary ventilation fan RPM out loud while I stabilize the tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the backup fan RPM continuously while dismissing the window, and alert me if the speed crosses safety thresholds",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the backup fan RPM continuously while dismissing the window, and alert me if the speed crosses safety thresholds"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the secondary fan RPM as well as hide the HUD overlay, then flag any anomalies in suit telemetry",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the secondary fan RPM as well as hide the HUD overlay, then flag any anomalies in suit telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup fan RPM displayed and then clear the overlay, additionally annotate timestamp and values for mission logs",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup fan RPM displayed and then clear the overlay, additionally annotate timestamp and values for mission logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu then read fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu then read fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the vitals panel, show the secondary fan RPM and close the menu, followed by a confirmation tone when finished",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the vitals panel, show the secondary fan RPM and close the menu, followed by a confirmation tone when finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the status window and also display the aux fan RPM on HUD, then flag deviations",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the status window and also display the aux fan RPM on HUD, then flag deviations"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up secondary fan RPM telemetry, then minimize the AR display so I can focus outside",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up secondary fan RPM telemetry, then minimize the AR display so I can focus outside"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking secondary fan RPM, dismiss the menu",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking secondary fan RPM, dismiss the menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide the overlay, read the backup fan RPM aloud, and then close it, while logging the values to suit telemetry",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide the overlay, read the backup fan RPM aloud, and then close it, while logging the values to suit telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the secondary fan RPM and please close the window?",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the secondary fan RPM and please close the window?"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu and report fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu and report fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you close the HUD, tell me the backup fan RPM and wait for my acknowledgment",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you close the HUD, tell me the backup fan RPM and wait for my acknowledgment"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the sec fan RPM and then dismiss the heads-up overlay, additionally marking the timestamp for the record?",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the sec fan RPM and then dismiss the heads-up overlay, additionally marking the timestamp for the record?"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the AR overlay and show me sec fan RPM now",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the AR overlay and show me sec fan RPM now"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the HUD plus show secondary ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the HUD plus show secondary ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, close menu and also report the backup fan RPM next",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, close menu and also report the backup fan RPM next"
+            }
+        ]
+    },
+    {
+        "prompt": "Minimize the display then read sec fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Minimize the display then read sec fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss window and report fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss window and report fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Need the secondary fan RPM before you close the overlay",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need the secondary fan RPM before you close the overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear my view but first pull up backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear my view but first pull up backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me the sec fan RPM while hiding the HUD, and then summarize the trend over the past minute?",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me the sec fan RPM while hiding the HUD, and then summarize the trend over the past minute?"
+            }
+        ]
+    },
+    {
+        "prompt": "Close status panel and show fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close status panel and show fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time show the secondary fan RPM and clear the menu, then flag any alarms",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time show the secondary fan RPM and clear the menu, then flag any alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Read fan RPM before closing HUD",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read fan RPM before closing HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by closing the menu, display secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by closing the menu, display secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Show sec fan RPM as well as dismiss that overlay",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show sec fan RPM as well as dismiss that overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and close the HUD after you give me backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and close the HUD after you give me backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you additionally pull up the secondary fan RPM, close the menu, and then send the snapshot to mission control?",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you additionally pull up the secondary fan RPM, close the menu, and then send the snapshot to mission control?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide overlay then read fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide overlay then read fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Read sec fan RPM and then dismiss the menu, please",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read sec fan RPM and then dismiss the menu, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please close the menu and meanwhile report secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please close the menu and meanwhile report secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, give me backup fan RPM along with clearing the HUD",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, give me backup fan RPM along with clearing the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "I need sec fan RPM, and then shut the status window",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need sec fan RPM, and then shut the status window"
+            }
+        ]
+    },
+    {
+        "prompt": "Minimize the HUD and also read the backup ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Minimize the HUD and also read the backup ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary fan RPM, followed by closing the overlay",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary fan RPM, followed by closing the overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu but first tell me the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu but first tell me the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see secondary fan RPM and in addition clear the AR window",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see secondary fan RPM and in addition clear the AR window"
+            }
+        ]
+    },
+    {
+        "prompt": "Close overlay and report fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close overlay and report fan RPM"
+            }
+        ]
+    }
+]
+}

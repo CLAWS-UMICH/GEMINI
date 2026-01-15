@@ -1,0 +1,958 @@
+{
+  // intents: Start_procedure_uia_egress AND Set_navigation_target
+  // description_1: The user is starting the airlock exit sequence and needs AI guidance for depressurization and switch configurations. They might command, "Begin UIA egress sequence."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Begin UIA egress, set destination to LTV",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress, set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress and navigate to rover",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate airlock exit, go to Home Base",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate airlock exit, go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin depressurization then set destination Habitat",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin depressurization then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Start egress and then route me to Forward Cache",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start egress and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA egress, then navigate to Command Module",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress, then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start UIA egress and set destination to science bay",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start UIA egress and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "science bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Start depressurization and also set nav to Cargo Bay",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start depressurization and also set nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin airlock sequence and then navigate to EVA Staging",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin airlock sequence and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress plus set destination to Lander",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress plus set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA egress while plotting route to Hab Alpha",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress while plotting route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Start egress and then take me to Relay Tower",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start egress and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate UIA egress and then set destination to South Ridge",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate UIA egress and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA egress sequence, and then plot a course to the Science Outpost",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress sequence, and then plot a course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the UIA egress procedure, followed by navigating to the Forward Hab",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the UIA egress procedure, followed by navigating to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Hab"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the airlock exit, and then set destination to the Command Hub",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the airlock exit, and then set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start depressurization first, next set destination to Power Relay",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start depressurization first, next set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Power Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin egress now, then route me to the Ice Cache",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin egress now, then route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ice Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress, at the same time plot navigation to the Surface Depot",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress, at the same time plot navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Surface Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Start emergency UIA egress and then mark the path to South Camp",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start emergency UIA egress and then mark the path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA egress, and then in addition navigate to Med Bay",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress, and then in addition navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress before also setting destination to EVA Hangar",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress before also setting destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Hangar"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the UIA egress sequence but first set navigation to Habitat Alpha",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the UIA egress sequence but first set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin egress and as well as set destination to the Observatory",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin egress and as well as set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate UIA egress, additionally bring up route to Logistics Node",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate UIA egress, additionally bring up route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Logistics Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to LTV and start UIA egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to rover then begin UIA egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then begin UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Home Base and then start egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Forward Cache then initiate UIA egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Hab Alpha and begin depressurization",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and begin depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to Command Module and then start UIA egress sequence",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA egress sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Outpost while you start the airlock exit",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you start the airlock exit"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Cargo Bay plus initiate UIA egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus initiate UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Relay Tower and also begin UIA egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also begin UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Med Bay and then start depressurization",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Ice Cache, after that begin UIA egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ice Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", after that begin UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Surface Depot first, and then start the UIA egress procedure",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Surface Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " first, and then start the UIA egress procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to South Camp, then followed by initiating airlock exit and depressurization",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then followed by initiating airlock exit and depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Observatory, followed by starting the UIA egress and opening valves",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by starting the UIA egress and opening valves"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Logistics Node and then begin the UIA egress sequence at the same time",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Logistics Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin the UIA egress sequence at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to EVA Hangar meanwhile start depressurization",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Hangar"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile start depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Hub along with initiating the UIA egress, please",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with initiating the UIA egress, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Hab Beta, in addition please start the UIA egress sequence",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition please start the UIA egress sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to South Ridge and then additionally begin pressure equalization",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally begin pressure equalization"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Forward Hab and start egress now",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Hab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start egress now"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Power Relay before starting the UIA egress",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Power Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting the UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Forward Cache, oh and then initiate UIA egress procedure",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and then initiate UIA egress procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Habitat Alpha and then start UIA egress, could you?",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA egress, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Command Module and then, at the same time, begin depressurization",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, at the same time, begin depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Ice Field and then start UIA egress followed by route guidance",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ice Field"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA egress followed by route guidance"
+            }
+        ]
+    }
+]
+}

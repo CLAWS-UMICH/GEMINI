@@ -1,0 +1,658 @@
+{
+  // intents: vitals_fan_sec_rpm AND start_procedure_system_restart
+  // description_1: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // description_2: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary fan RPM and restart nav",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM and restart nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart navigation then show backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart navigation then show backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Report backup ventilation fan speed and then begin system restart",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report backup ventilation fan speed and then begin system restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate system restart now and also pull up secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate system restart now and also pull up secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up secondary ventilation fan RPM while you start the restart procedure",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up secondary ventilation fan RPM while you start the restart procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin the system restart procedure and then display the backup fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin the system restart procedure and then display the backup fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup fan RPM and then reboot comms",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup fan RPM and then reboot comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart then check backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart then check backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the secondary fan rpm and also initiate subsystem restart",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the secondary fan rpm and also initiate subsystem restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart and then also show secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart and then also show secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the backup ventilation fan speed as well as kick off the restart sequence for navigation",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the backup ventilation fan speed as well as kick off the restart sequence for navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Commander requests: start procedure system restart and afterward bring up secondary fan RPM data",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Commander requests: start procedure system restart and afterward bring up secondary fan RPM data"
+            }
+        ]
+    },
+    {
+        "prompt": "Check fan RPM plus start restart",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check fan RPM plus start restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin restart plus then show fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin restart plus then show fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check the backup fan RPM and then start the reboot procedure",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check the backup fan RPM and then start the reboot procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate the restart procedure and then display the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate the restart procedure and then display the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary fan RPM displayed before you initiate the system restart for the comms module",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary fan RPM displayed before you initiate the system restart for the comms module"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the restart procedure for the navigation module and then open the backup fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the restart procedure for the navigation module and then open the backup fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan rpm then start system restart",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan rpm then start system restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Start reboot and show backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start reboot and show backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up backup fan RPM and then begin the subsystem restart sequence",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up backup fan RPM and then begin the subsystem restart sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the system restart and also display secondary fan rpm now",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the system restart and also display secondary fan rpm now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the backup ventilation fan revolutions per minute and afterwards initiate the prescribed restart procedure",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the backup ventilation fan revolutions per minute and afterwards initiate the prescribed restart procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please commence the restart procedure immediately and then bring up the secondary ventilation fan RPM data for verification",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please commence the restart procedure immediately and then bring up the secondary ventilation fan RPM data for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan rpm and reboot",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan rpm and reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart system then check fan",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart system then check fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey show secondary fan RPM and also start the restart routine",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey show secondary fan RPM and also start the restart routine"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start procedure system restart and then show the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start procedure system restart and then show the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Display the current rpm of the backup ventilation fan and then execute the full system restart sequence for the LTV",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display the current rpm of the backup ventilation fan and then execute the full system restart sequence for the LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the prescribed system restart immediately, and then alongside that bring up the secondary fan RPM telemetry for confirmation",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the prescribed system restart immediately, and then alongside that bring up the secondary fan RPM telemetry for confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary fan RPM and also kick off restart",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary fan RPM and also kick off restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin restart sequence and then pull up backup fan rpm",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin restart sequence and then pull up backup fan rpm"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup fan rpm displayed in addition to initiating the restart procedure for the failing guidance unit",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup fan rpm displayed in addition to initiating the restart procedure for the failing guidance unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the restart procedure for guidance and then as well as that show the secondary fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the restart procedure for guidance and then as well as that show the secondary fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up backup fan rpm and then start reboot sequence",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up backup fan rpm and then start reboot sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the system restart then also show ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the system restart then also show ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check the backup ventilation fan rotational speed and afterwards commence the subsystem restart protocol for the comms array",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check the backup ventilation fan rotational speed and afterwards commence the subsystem restart protocol for the comms array"
+            }
+        ]
+    },
+    {
+        "prompt": "Proceed to start the restart procedure for the comms module and next display the secondary fan's rpm telemetry",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Proceed to start the restart procedure for the comms module and next display the secondary fan's rpm telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary fan rpm and then initiate restart procedure now",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan rpm and then initiate restart procedure now"
+            }
+        ]
+    },
+    {
+        "prompt": "Start procedure system restart and then show me the backup fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start procedure system restart and then show me the backup fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up backup fan RPM along with starting the restart procedure",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up backup fan RPM along with starting the restart procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart but first show the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart but first show the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the secondary fan rpm, additionally kick off the restart sequence",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the secondary fan rpm, additionally kick off the restart sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart and meanwhile display the backup ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart and meanwhile display the backup ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the backup ventilation fan rpm and also start the formal system restart procedure for diagnostics",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the backup ventilation fan rpm and also start the formal system restart procedure for diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the restart procedure followed by showing the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the restart procedure followed by showing the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup fan RPM in addition to beginning the system restart",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup fan RPM in addition to beginning the system restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the restart sequence for the failing module at the same time bring up the backup fan RPM telemetry",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the restart sequence for the failing module at the same time bring up the backup fan RPM telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme secondary fan RPM and then start the restart procedure",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme secondary fan RPM and then start the restart procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Start procedure system restart before you display the backup fan RPM and then confirm post-restart readings",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start procedure system restart before you display the backup fan RPM and then confirm post-restart readings"
+            }
+        ]
+    }
+]
+}

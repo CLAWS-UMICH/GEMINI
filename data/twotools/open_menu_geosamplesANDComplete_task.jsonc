@@ -1,0 +1,993 @@
+{
+  // intents: open_menu_geosamples AND Complete_task
+  // description_1: The user wants to access the interface for logging or managing geological samples collected during the EVA. They might ask, "Open geology menu" or "Go to sampling tools."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open geosamples menu and mark Connect Umbilical",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geosamples menu and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Battery Check then open samples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Show sampling tools also complete Antenna Check",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show sampling tools also complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Antenna Check plus bring up geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus bring up geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up geosamples while finishing Camera Calibration",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up geosamples while finishing "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Sample Bag 4 after opening geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Bag 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " after opening geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geosamples before I finish Seal Hatch",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geosamples before I finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Deploy Beacon but first geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Tether Inspect along with geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geosamples in addition complete Tool Inventory",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geosamples in addition complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Solar Array Align as complete then open geosamples menu",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete then open geosamples menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the geosamples menu and finish CO2 Scrubber",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the geosamples menu and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Camera Calibration also bring up sampling tools please",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " also bring up sampling tools please"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up geosamples plus check off Sample Labeling now",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up geosamples plus check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Labeling"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo mark Comms Test while you open geosamples menu",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you open geosamples menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display geosamples and then complete Docking Prep",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display geosamples and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Need to complete Suit Integrity Check before opening geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need to complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Integrity Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " before opening geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geosamples as well as mark Battery Check finished",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geosamples as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Tool Inventory along with display geosamples menu please",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with display geosamples menu please"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the geosamples menu in addition mark Sample Cataloging",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the geosamples menu in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Cataloging"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally finish Radiation Monitor then pull up geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up geosamples meanwhile check off Rover Link",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up geosamples meanwhile check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rover Link"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and mark Seal Hatch complete then show geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete then show geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geosamples and then complete Stow Tools item",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geosamples and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Stow Tools"
+            },
+            {
+                "type": "TEXT",
+                "text": " item"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Soil Core 2 followed by bringing up geosamples menu",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Soil Core 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by bringing up geosamples menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up geosamples next mark Thermal Regulation Check",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up geosamples next mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Regulation Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Antenna Check at the same time open geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time open geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Display geosamples menu and then finish Umbilical Secure",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display geosamples menu and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Secure"
+            }
+        ]
+    },
+    {
+        "prompt": "Set done Camera Calibration and pull up sampling menu",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set done "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up sampling menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Comms Test and then display geosamples list for me",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display geosamples list for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the geosamples interface and, in addition, mark the task Pressure Equalization as completed for mission log",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the geosamples interface and, in addition, mark the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed for mission log"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey finish EVA Prep and then pull up geosamples so I can cross-check sample locations before stowage",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA Prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up geosamples so I can cross-check sample locations before stowage"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the sampling tools while you also set completed status for Battery Check and update timeline",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the sampling tools while you also set completed status for "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and update timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete the Camera Calibration task followed by bringing up the geosamples menu for logging rock IDs",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " task followed by bringing up the geosamples menu for logging rock IDs"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo bring up geosamples and then check off Sample Labeling so I can finish packaging the specimens",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo bring up geosamples and then check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Labeling"
+            },
+            {
+                "type": "TEXT",
+                "text": " so I can finish packaging the specimens"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please mark Radiation Monitor as complete and also open the geosamples screen for reference",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and also open the geosamples screen for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geosamples first and then complete the Stow Tools item so mission control sees the sample status update",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geosamples first and then complete the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Stow Tools"
+            },
+            {
+                "type": "TEXT",
+                "text": " item so mission control sees the sample status update"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to finish Thermal Regulation Check before opening the geosamples menu so I can tag samples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Regulation Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " before opening the geosamples menu so I can tag samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see the geosamples display and then mark the Umbilical Secure entry as done for telemetry",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see the geosamples display and then mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " entry as done for telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Tool Inventory and then, at the same time, open the geosamples menu so I can reconcile tools with samples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, at the same time, open the geosamples menu so I can reconcile tools with samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the geosamples menu along with marking Camera Calibration complete to keep the EVA checklist current",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the geosamples menu along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete to keep the EVA checklist current"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and mark Sample Bag 4 as finished, then pull up the geosamples interface so I can verify contents",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Bag 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished, then pull up the geosamples interface so I can verify contents"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up geosamples and then complete the Rover Link confirmation so we can log coordinates and transmission status",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up geosamples and then complete the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rover Link"
+            },
+            {
+                "type": "TEXT",
+                "text": " confirmation so we can log coordinates and transmission status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete the Pressure Equalization check and additionally open the geosamples menu for concurrent sample annotation",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " check and additionally open the geosamples menu for concurrent sample annotation"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey open geosamples menu and also mark the Comms Test task done before we try the long-range patch",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey open geosamples menu and also mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " task done before we try the long-range patch"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme confirmation that Camera Calibration is finished and bring up geosamples panel to tag rock 7",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme confirmation that "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " is finished and bring up geosamples panel to tag rock 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the geosamples interface followed by marking the Sample Cataloging task complete so inventory matches samples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the geosamples interface followed by marking the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Cataloging"
+            },
+            {
+                "type": "TEXT",
+                "text": " task complete so inventory matches samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Solar Array Align next open geosamples and make sure sample IDs are attached in the record",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " next open geosamples and make sure sample IDs are attached in the record"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up geosamples menu meanwhile set the status of Seal Hatch to complete and sync with ground",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up geosamples menu meanwhile set the status of "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " to complete and sync with ground"
+            }
+        ]
+    }
+]
+}

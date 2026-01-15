@@ -1,0 +1,658 @@
+{
+  // intents: open_menu_navigation AND open_menu_geosamples
+  // description_1: The user wants to access the mapping and pathfinding interface to see waypoints, routes, or the minimap. They might command, "Open navigation" or "Show the map."
+  // description_2: The user wants to access the interface for logging or managing geological samples collected during the EVA. They might ask, "Open geology menu" or "Go to sampling tools."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Open map and open geology",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map and open geology"
+            }
+        ]
+    },
+    {
+        "prompt": "Open samples and show map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open samples and show map"
+            }
+        ]
+    },
+    {
+        "prompt": "Show waypoints then log samples",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show waypoints then log samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo bring up samples then show minimap",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo bring up samples then show minimap"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up route and record samples",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up route and record samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geology plus pull up map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geology plus pull up map"
+            }
+        ]
+    },
+    {
+        "prompt": "Show minimap while logging samples",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show minimap while logging samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Log sample after opening map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log sample after opening map"
+            }
+        ]
+    },
+    {
+        "prompt": "Open route before opening samples",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open route before opening samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open sample log but first show map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open sample log but first show map"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you open the map and also bring up geology?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you open the map and also bring up geology?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the sample log and then pull up the route",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the sample log and then pull up the route"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me waypoints plus open the geology tools now",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me waypoints plus open the geology tools now"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the geosamples menu and then the minimap",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the geosamples menu and then the minimap"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation and also start a new sample entry",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation and also start a new sample entry"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you bring up sampling tools and lemme see the map?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you bring up sampling tools and lemme see the map?"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the route and then log this rock sample",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the route and then log this rock sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the geology interface while showing me current waypoint locations",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the geology interface while showing me current waypoint locations"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the minimap and then add this sample to log",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the minimap and then add this sample to log"
+            }
+        ]
+    },
+    {
+        "prompt": "Start a new sample record and then display the path",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start a new sample record and then display the path"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the map as well as the sampling tools",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the map as well as the sampling tools"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the sample log along with the waypoint list please",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the sample log along with the waypoint list please"
+            }
+        ]
+    },
+    {
+        "prompt": "Display navigation and in addition show the core sample panel",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display navigation and in addition show the core sample panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geology menu additionally pull up the route overview",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geology menu additionally pull up the route overview"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show the map and then open sample management?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show the map and then open sample management?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme the sample list, oh and then show my navigation",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme the sample list, oh and then show my navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me route options followed by opening the sample log",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me route options followed by opening the sample log"
+            }
+        ]
+    },
+    {
+        "prompt": "Log that core sample next and also display the minimap",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log that core sample next and also display the minimap"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the minimap and at the same time open samples",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the minimap and at the same time open samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open geology view meanwhile show me the current route",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open geology view meanwhile show me the current route"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the planetary map and then also bring up the geological sample logging interface for me",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the planetary map and then also bring up the geological sample logging interface for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my current route and then open the sample catalog so I can tag specimens",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my current route and then open the sample catalog so I can tag specimens"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the minimap and then additionally load the geosamples manager with last entries",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the minimap and then additionally load the geosamples manager with last entries"
+            }
+        ]
+    },
+    {
+        "prompt": "Display waypoints and at the same time open the sampling tools to record descriptions",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display waypoints and at the same time open the sampling tools to record descriptions"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation, followed by the sample log plus show timestamped coordinates for the sample",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation, followed by the sample log plus show timestamped coordinates for the sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the route planner and then also open the geologist's sample entry panel please?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the route planner and then also open the geologist's sample entry panel please?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show navigation overlay and then, while it's displayed, bring up the core-sample documentation form",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show navigation overlay and then, while it's displayed, bring up the core-sample documentation form"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the trajectory map and then open the stratigraphy sampling interface so I can log cores",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the trajectory map and then open the stratigraphy sampling interface so I can log cores"
+            }
+        ]
+    },
+    {
+        "prompt": "Display all navigational markers and then open the sample inventory in addition to the notes field",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display all navigational markers and then open the sample inventory in addition to the notes field"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me route alternatives and then open sample management as well as the recent entries list",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me route alternatives and then open sample management as well as the recent entries list"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the geology menu and then display the navigation overlay so I can map sample locations",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the geology menu and then display the navigation overlay so I can map sample locations"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open sample logging tools and then show me the route history for the last hour",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open sample logging tools and then show me the route history for the last hour"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the sample catalog followed by the minimap so I can mark coordinates for specimens",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the sample catalog followed by the minimap so I can mark coordinates for specimens"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the geosamples list and then also want the waypoint overview with distances displayed",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the geosamples list and then also want the waypoint overview with distances displayed"
+            }
+        ]
+    },
+    {
+        "prompt": "Open sample inventory along with the map and additionally show me elevation data for collection sites",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open sample inventory along with the map and additionally show me elevation data for collection sites"
+            }
+        ]
+    },
+    {
+        "prompt": "Load geology interface, followed by the route planner, and then highlight points with samples logged",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Load geology interface, followed by the route planner, and then highlight points with samples logged"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the core sample entry and then next pull up the minimap so I can geotag entries",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the core sample entry and then next pull up the minimap so I can geotag entries"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the sample log and at the same time display waypoints so I can confirm pick-up locations",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the sample log and at the same time display waypoints so I can confirm pick-up locations"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show the sample details and meanwhile bring up the navigation map to plot the next leg",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show the sample details and meanwhile bring up the navigation map to plot the next leg"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the geosamples panel and then at the same time open the route so I can plan",
+        "tool_calls": [
+            "open_menu_navigation",
+            "open_menu_geosamples"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the geosamples panel and then at the same time open the route so I can plan"
+            }
+        ]
+    }
+]
+}

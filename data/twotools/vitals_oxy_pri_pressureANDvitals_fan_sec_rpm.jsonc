@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_pri_pressure AND vitals_fan_sec_rpm
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and fan RPM?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM and O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM and O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen then sec fan?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen then sec fan?"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup fan RPM then primary O2?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup fan RPM then primary O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen pressure plus backup fan?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen pressure plus backup fan?"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM also primary pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM also primary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read main O2 tank PSI and fan?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read main O2 tank PSI and fan?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check aux fan RPM and primary O2?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check aux fan RPM and primary O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure, and then fan?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure, and then fan?"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan RPM, then primary oxygen?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan RPM, then primary oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary oxygen tank pressure and also display backup fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary oxygen tank pressure and also display backup fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check secondary fan RPM and bring up primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check secondary fan RPM and bring up primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up primary oxygen pressure and then show secondary fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up primary oxygen pressure and then show secondary fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Status of backup ventilation fan RPM plus main O2 tank pressure, please.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of backup ventilation fan RPM plus main O2 tank pressure, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo read primary O2 pressure and also check the aux fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo read primary O2 pressure and also check the aux fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify secondary fan RPM and in addition report primary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify secondary fan RPM and in addition report primary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Need primary oxygen pressure and backup fan RPM but first confirm seals.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need primary oxygen pressure and backup fan RPM but first confirm seals."
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary fan RPM and then open primary O2 pressure readout.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM and then open primary O2 pressure readout."
+            }
+        ]
+    },
+    {
+        "prompt": "After you read primary oxygen pressure, show me the secondary fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read primary oxygen pressure, show me the secondary fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Before you adjust anything check secondary fan RPM and primary O2 psi.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you adjust anything check secondary fan RPM and primary O2 psi."
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary breathing oxygen pressure and then also display backup fan speed.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary breathing oxygen pressure and then also display backup fan speed."
+            }
+        ]
+    },
+    {
+        "prompt": "What's secondary fan RPM and primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's secondary fan RPM and primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary O2 tank pressure plus the secondary fan RPM display.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary O2 tank pressure plus the secondary fan RPM display."
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see secondary fan RPM and also pull up primary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see secondary fan RPM and also pull up primary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up primary oxygen pressure, and then check secondary fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up primary oxygen pressure, and then check secondary fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary ventilation fan RPM and meanwhile read primary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary ventilation fan RPM and meanwhile read primary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Show primary oxygen tank pressure as well as the backup fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show primary oxygen tank pressure as well as the backup fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM and then open the primary O2 pressure widget.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM and then open the primary O2 pressure widget."
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary O2 pressure, followed by checking secondary fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure, followed by checking secondary fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan speed next and also bring up primary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan speed next and also bring up primary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the primary oxygen tank pressure reading and then additionally confirm the secondary fan RPM status for me.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the primary oxygen tank pressure reading and then additionally confirm the secondary fan RPM status for me."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary ventilation fan RPM reading first, and then please open the primary O2 pressure data for verification.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary ventilation fan RPM reading first, and then please open the primary O2 pressure data for verification."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, pull up the primary O2 pressure readout and while you're at it also show the secondary fan RPM numbers.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, pull up the primary O2 pressure readout and while you're at it also show the secondary fan RPM numbers."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you kindly read the backup fan RPM and in addition display the primary oxygen pressure on the HUD?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you kindly read the backup fan RPM and in addition display the primary oxygen pressure on the HUD?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need primary O2 tank pressure plus the secondary fan RPM data before I start ingress checks.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need primary O2 tank pressure plus the secondary fan RPM data before I start ingress checks."
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary fan RPM as well as bring up the primary oxygen pressure, followed by confirmation logs.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM as well as bring up the primary oxygen pressure, followed by confirmation logs."
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary breathing oxygen pressure reading and then also verify the backup ventilation fan RPM at the same time.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary breathing oxygen pressure reading and then also verify the backup ventilation fan RPM at the same time."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey what's the secondary fan RPM and then also pull up the primary O2 pressure while I prep suit",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey what's the secondary fan RPM and then also pull up the primary O2 pressure while I prep suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read out the primary oxygen pressure, and additionally report the secondary fan RPM along with any anomalies.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read out the primary oxygen pressure, and additionally report the secondary fan RPM along with any anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA, verify the secondary fan RPM and then bring up the main O2 tank pressure for inspection, please.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA, verify the secondary fan RPM and then bring up the main O2 tank pressure for inspection, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme primary O2 pressure readout plus the backup fan RPM next, I want both on my overlay.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme primary O2 pressure readout plus the backup fan RPM next, I want both on my overlay."
+            }
+        ]
+    },
+    {
+        "prompt": "Requesting secondary fan RPM telemetry data and then pull primary oxygen pressure telemetry to cross-check oxygen usage predictions.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Requesting secondary fan RPM telemetry data and then pull primary oxygen pressure telemetry to cross-check oxygen usage predictions."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the primary oxygen pressure panel and then check the secondary fan RPM gauge followed by a status summary.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the primary oxygen pressure panel and then check the secondary fan RPM gauge followed by a status summary."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary fan RPM readings, and then also show me the current primary O2 tank pressure values?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary fan RPM readings, and then also show me the current primary O2 tank pressure values?"
+            }
+        ]
+    },
+    {
+        "prompt": "After you confirm primary oxygen pressure is nominal, please also check secondary fan RPM and report any variance.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you confirm primary oxygen pressure is nominal, please also check secondary fan RPM and report any variance."
+            }
+        ]
+    },
+    {
+        "prompt": "While simulating failure, monitor secondary fan RPM and additionally bring up the primary O2 pressure to compare readings.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While simulating failure, monitor secondary fan RPM and additionally bring up the primary O2 pressure to compare readings."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary oxygen pressure reading displayed along with the secondary fan RPM, and then log both.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary oxygen pressure reading displayed along with the secondary fan RPM, and then log both."
+            }
+        ]
+    },
+    {
+        "prompt": "Next, check the backup fan RPM numbers and then also open the primary oxygen pressure gauge for cross-checking.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, check the backup fan RPM numbers and then also open the primary oxygen pressure gauge for cross-checking."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and read the primary O2 pressure then give me the secondary fan RPM readout as well.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and read the primary O2 pressure then give me the secondary fan RPM readout as well."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull the secondary fan RPM telemetry at the same time and display primary oxygen pressure for redundancy checks.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull the secondary fan RPM telemetry at the same time and display primary oxygen pressure for redundancy checks."
+            }
+        ]
+    }
+]
+}

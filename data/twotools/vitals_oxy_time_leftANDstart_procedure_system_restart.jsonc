@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_time_left AND start_procedure_system_restart
+  // description_1: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // description_2: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Oxygen time remaining and restart nav",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen time remaining and restart nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart guidance and show O2 time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart guidance and show O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate O2 time then reboot comms",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate O2 time then reboot comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system reboot then estimate oxygen",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system reboot then estimate oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me O2 left plus start reboot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me O2 left plus start reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Start LTV reboot plus O2 remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start LTV reboot plus O2 remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxy time left while restarting nav",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxy time left while restarting nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot nav first and time oxygen",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot nav first and time oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Check oxygen then begin restart",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check oxygen then begin restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart while checking oxygen",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart while checking oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my remaining oxygen time and then initiate the nav restart?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my remaining oxygen time and then initiate the nav restart?"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the nav module and then tell me O2 time remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the nav module and then tell me O2 time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me oxygen minutes left plus start the comms reboot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me oxygen minutes left plus start the comms reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start system restart and also display my current oxygen time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start system restart and also display my current oxygen time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my suit O2 and also begin system restart procedure",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my suit O2 and also begin system restart procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin LTV guidance reboot before you report remaining oxygen duration",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin LTV guidance reboot before you report remaining oxygen duration"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining O2 time before you start the navigation reboot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining O2 time before you start the navigation reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the comms restart after checking oxygen remaining and report O2 time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the comms restart after checking oxygen remaining and report O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up oxygen estimates and then run the guidance restart?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up oxygen estimates and then run the guidance restart?"
+            }
+        ]
+    },
+    {
+        "prompt": "Start emergency restart and then tell me how much oxygen remains",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start emergency restart and then tell me how much oxygen remains"
+            }
+        ]
+    },
+    {
+        "prompt": "Please give me time to depletion while you initiate power module restart",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please give me time to depletion while you initiate power module restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart while checking oxygen and then report vitals",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart while checking oxygen and then report vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Show vitals oxygen and then begin the LTV nav module reboot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show vitals oxygen and then begin the LTV nav module reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin module restart as well as provide current O2 time estimate",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin module restart as well as provide current O2 time estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me O2 remaining as well as start the backup nav restart",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me O2 remaining as well as start the backup nav restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a system restart followed by reporting oxygen minutes remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a system restart followed by reporting oxygen minutes remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate how long oxygen lasts and then follow with system restart",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate how long oxygen lasts and then follow with system restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the reboot next and calculate my remaining oxygen duration",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the reboot next and calculate my remaining oxygen duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Give oxygen time left along with initiating an emergency reboot sequence",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give oxygen time left along with initiating an emergency reboot sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Proceed with restart meanwhile check my oxygen consumption and time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Proceed with restart meanwhile check my oxygen consumption and time left"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes of oxygen do I have left and then please start the nav module restart",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes of oxygen do I have left and then please start the nav module restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the LTV navigation module reboot but first report my remaining oxygen time and usage rate",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the LTV navigation module reboot but first report my remaining oxygen time and usage rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate my remaining suit oxygen time and additionally initiate the guidance computer reboot sequence now",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate my remaining suit oxygen time and additionally initiate the guidance computer reboot sequence now"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate an immediate subsystem restart and then calculate how long the current oxygen supply will last",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate an immediate subsystem restart and then calculate how long the current oxygen supply will last"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you calculate oxygen depletion time while you begin the LTV attitude control system restart please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you calculate oxygen depletion time while you begin the LTV attitude control system restart please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin the guidance computer reboot, and also tell me the suit's oxygen minutes remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin the guidance computer reboot, and also tell me the suit's oxygen minutes remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me expected O2 duration and then follow with starting the navigation module reboot procedure",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me expected O2 duration and then follow with starting the navigation module reboot procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart followed by a full readout of oxygen time remaining and vitals on my HUD",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart followed by a full readout of oxygen time remaining and vitals on my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a reading of oxygen time remaining as well as initiation of the comms subsystem restart",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a reading of oxygen time remaining as well as initiation of the comms subsystem restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the emergency reboot now and additionally give me an exact estimate of oxygen time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the emergency reboot now and additionally give me an exact estimate of oxygen time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up my biometrics and oxygen remaining, then begin the guidance system restart sequence",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up my biometrics and oxygen remaining, then begin the guidance system restart sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off the comms module restart and then while that's running display my O2 remaining and biometrics",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off the comms module restart and then while that's running display my O2 remaining and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme oxygen minutes left, oh and perform the power distribution module restart while you can",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme oxygen minutes left, oh and perform the power distribution module restart while you can"
+            }
+        ]
+    },
+    {
+        "prompt": "Proceed to reboot the guidance unit, next compute the remaining oxygen duration and show the result",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Proceed to reboot the guidance unit, next compute the remaining oxygen duration and show the result"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display oxygen time left and then followed by start the backup navigation reboot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display oxygen time left and then followed by start the backup navigation reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the restart sequence for the nav box, in addition update me on oxygen left and consumption",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the restart sequence for the nav box, in addition update me on oxygen left and consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "Provide oxygen depletion estimate in addition to initiating an immediate restart of the nav computer",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide oxygen depletion estimate in addition to initiating an immediate restart of the nav computer"
+            }
+        ]
+    },
+    {
+        "prompt": "Activate the backup controller and then also pull up my oxygen time remaining and suit vitals",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Activate the backup controller and then also pull up my oxygen time remaining and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me exact oxygen remaining at the same time as you kick off the system restart",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me exact oxygen remaining at the same time as you kick off the system restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Execute the module restart at once, along with calculating remaining oxygen time and alert thresholds",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Execute the module restart at once, along with calculating remaining oxygen time and alert thresholds"
+            }
+        ]
+    }
+]
+}

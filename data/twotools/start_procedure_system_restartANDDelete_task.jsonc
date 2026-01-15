@@ -1,0 +1,998 @@
+{
+  // intents: start_procedure_system_restart AND Delete_task
+  // description_1: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // description_2: The user wants to remove an erroneous or canceled item from their task list. The prompt specifies the task to remove, such as "Delete task Inspect Solar Panel."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Restart nav and delete battery check",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart nav and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete battery check then restart comm relay",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin reboot then delete Replace comm antenna",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin reboot then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace comm antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Replace comm antenna then reboot IMU",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace comm antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reboot IMU"
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart and delete Check tether latch",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check tether latch"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Check tether latch and restart nav",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check tether latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and restart nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot LTV then delete sample collection",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot LTV then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove sample collection plus reboot LTV",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus reboot LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart comm relay and delete Calibrate IMU",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart comm relay and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate IMU"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Calibrate IMU before restarting comm relay",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate IMU"
+            },
+            {
+                "type": "TEXT",
+                "text": " before restarting comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart for nav module and delete Inspect EVA suit seal",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart for nav module and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect EVA suit seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the task Photograph crater rim and then reboot guidance module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Photograph crater rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot guidance module"
+            }
+        ]
+    },
+    {
+        "prompt": "Start system restart for comm relay and then delete Crop experiment 4",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start system restart for comm relay and then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Crop experiment 4"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task Crop experiment 4 and then begin reboot of comm relay",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Crop experiment 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin reboot of comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "yo reboot the power controller and also delete Replace power coupler",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo reboot the power controller and also delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace power coupler"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete Replace power coupler then start the power restart procedure",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace power coupler"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start the power restart procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart for life support plus delete Recycle air filter",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart for life support plus delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Recycle air filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Recycle air filter and then initiate life support restart",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Recycle air filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate life support restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart attitude control and then delete Map debris field",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart attitude control and then delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Map debris field"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Map debris field and then reboot attitude control module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Map debris field"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot attitude control module"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start restart of thruster system and delete Test thruster 3",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start restart of thruster system and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test thruster 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Test thruster 3 then restart the thruster control unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test thruster 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart the thruster control unit"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme a restart of diagnostics and delete Run diagnostics sequence",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme a restart of diagnostics and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run diagnostics sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Run diagnostics sequence and then restart diagnostics module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run diagnostics sequence"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart diagnostics module"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate reboot of LTV guidance while also deleting Docking procedure dry run",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate reboot of LTV guidance while also deleting "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking procedure dry run"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Docking procedure dry run and then initiate LTV guidance restart",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking procedure dry run"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate LTV guidance restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up restart for environmental controls and delete Pressure leak test",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up restart for environmental controls and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure leak test"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Pressure leak test before starting environmental restart",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting environmental restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reboot navigation plus delete Align star tracker from the list",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reboot navigation plus delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Align star tracker"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the list"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Align star tracker and then perform nav module restart",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Align star tracker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform nav module restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the system restart for the oxygen regulator, and after that delete the task Replace comm antenna from the list",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the system restart for the oxygen regulator, and after that delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace comm antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the list"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the task Photograph crater rim as well as start the restart sequence for the imaging subsystem",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Photograph crater rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as start the restart sequence for the imaging subsystem"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start reboot sequence for primary comm array and then remove task Deploy drone 2 from queue",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start reboot sequence for primary comm array and then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy drone 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " from queue"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Deploy drone 2 and then perform the restart for the drone control firmware, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy drone 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform the restart for the drone control firmware, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart on the thermal control unit and additionally delete the task Clean sensor array from list",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart on the thermal control unit and additionally delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Clean sensor array"
+            },
+            {
+                "type": "TEXT",
+                "text": " from list"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Clean sensor array and then start the thermal control unit restart, at the same time log the change",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Clean sensor array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the thermal control unit restart, at the same time log the change"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you initiate a restart of the attitude determination unit, and meanwhile delete the task Align star tracker",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you initiate a restart of the attitude determination unit, and meanwhile delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Align star tracker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Align star tracker followed by starting the attitude determination restart, please confirm status after reboot",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Align star tracker"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by starting the attitude determination restart, please confirm status after reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart of sensor bus before you delete the task Measure radiation probe and report progress",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart of sensor bus before you delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Measure radiation probe"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report progress"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Measure radiation probe and next initiate the sensor bus restart, additionally update the task log",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Measure radiation probe"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next initiate the sensor bus restart, additionally update the task log"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin restart of navigation processor but first delete the task Update flight log from my list",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin restart of navigation processor but first delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Update flight log"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my list"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Update flight log and then start navigation processor restart, oh and confirm that telemetry resumes",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Update flight log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start navigation processor restart, oh and confirm that telemetry resumes"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart of environmental monitoring as well as delete the task Measure radiation probe and notify me",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart of environmental monitoring as well as delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Measure radiation probe"
+            },
+            {
+                "type": "TEXT",
+                "text": " and notify me"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the task Collect regolith sample and then begin the environmental monitoring restart, plus archive the note",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Collect regolith sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin the environmental monitoring restart, plus archive the note"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the reboot of suit telemetry and then delete the task Inspect EVA suit seal along with updating checklist",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the reboot of suit telemetry and then delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect EVA suit seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with updating checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Inspect EVA suit seal and then reboot suit telemetry, and then verify biometrics are stable",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect EVA suit seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot suit telemetry, and then verify biometrics are stable"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the diagnostic restart for the power distribution panel and additionally remove the task Replace power coupler from queue",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the diagnostic restart for the power distribution panel and additionally remove the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace power coupler"
+            },
+            {
+                "type": "TEXT",
+                "text": " from queue"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Replace power coupler, followed by initiating power distribution panel restart, and then confirm power readings",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace power coupler"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by initiating power distribution panel restart, and then confirm power readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start system restart for robotic arm, in addition delete the task Secure tool bag and report completion",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start system restart for robotic arm, in addition delete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure tool bag"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report completion"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Secure tool bag and then perform robotic arm restart, while also updating the EVA timeline accordingly",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure tool bag"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform robotic arm restart, while also updating the EVA timeline accordingly"
+            }
+        ]
+    }
+]
+}

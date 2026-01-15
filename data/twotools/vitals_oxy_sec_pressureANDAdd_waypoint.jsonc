@@ -1,0 +1,1025 @@
+{
+  // intents: vitals_oxy_sec_pressure AND Add_waypoint
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check secondary O2 tank pressure and add waypoint Crater Edge",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 tank pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Alpha then report secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then report secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the pressure in the secondary O2 tank plus mark this spot as Fuel Cache",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the pressure in the secondary O2 tank plus mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Ridge Outcrop and then tell me secondary oxygen bottle pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me secondary oxygen bottle pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary O2 pressure while you place waypoint North Anchor",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary O2 pressure while you place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Anchor"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Lava Tube Entrance and also pull up sec O\u2082 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lava Tube Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up sec O\u2082 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Need the backup oxygen tank pressure and drop marker as Sample Site Bravo",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need the backup oxygen tank pressure and drop marker as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Rock Face then check pressure of secondary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Face"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check pressure of secondary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you read the pressure in the sec O2 and also add waypoint East Bluff?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you read the pressure in the sec O2 and also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Bluff"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Supply Drop next and give me secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and give me secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen tank pressure, then mark this spot as Thermal Vent",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen tank pressure, then mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Observation Point and while you're at it report the secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it report the secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen pressure first and then add waypoint Base Camp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen pressure first and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint South Ridge followed by reading the sec O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reading the sec O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me the pressure in the secondary oxygen tank as well as mark this as Deposit 3?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me the pressure in the secondary oxygen tank as well as mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Deposit 3"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up sec O2 pressure and additionally add waypoint Ice Lens",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up sec O2 pressure and additionally add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Lens"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check backup oxygen bottle pressure, then mark this spot as Cache 2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check backup oxygen bottle pressure, then mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint North Ridge and then also display the secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also display the secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pressure of the secondary tank and at the same time add waypoint Boulder Field",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pressure of the secondary tank and at the same time add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Boulder Field"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Pacing Turn and meanwhile read the secondary oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pacing Turn"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile read the secondary oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 pressure, and then add waypoint Meteor Fragment",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 pressure, and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Meteor Fragment"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crackline and before that tell me the pressure in the secondary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crackline"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before that tell me the pressure in the secondary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up secondary oxygen pressure plus mark this as Anomaly A1",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up secondary oxygen pressure plus mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Anomaly A1"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Water Ice and follow it by reading secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Ice"
+            },
+            {
+                "type": "TEXT",
+                "text": " and follow it by reading secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the secondary oxygen tank pressure and also drop waypoint Crater Rim",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the secondary oxygen tank pressure and also drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker as Sample Point Delta, and then display secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then display secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the pressure in the backup oxygen bottle as well as add waypoint Sediment Bed",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the pressure in the backup oxygen bottle as well as add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sediment Bed"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint West Fault, and then could you read the secondary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Fault"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then could you read the secondary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check sec O2 pressure and along with that add waypoint Trainer Beacon",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec O2 pressure and along with that add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trainer Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Dune Crest and additionally give me the secondary oxygen pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Dune Crest"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally give me the secondary oxygen pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the secondary tank pressure, followed by adding waypoint Sensor Array?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the secondary tank pressure, followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sensor Array"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sun Shadow then check the pressure in the secondary O2 unit",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sun Shadow"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check the pressure in the secondary O2 unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you do anything else, read the secondary oxygen pressure and add waypoint Lava Flow Zone",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you do anything else, read the secondary oxygen pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lava Flow Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Transit Node and oh and show me the secondary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Transit Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and oh and show me the secondary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the pressure of the secondary O2 then add waypoint Hollow Trench",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the pressure of the secondary O2 then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hollow Trench"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Portal Marker and at the same time check the secondary oxygen bottle pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Portal Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time check the secondary oxygen bottle pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open secondary O2 pressure readout and as well as drop waypoint Soil Sampling Point",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open secondary O2 pressure readout and as well as drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Soil Sampling Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Ridge Survey and meanwhile give me the secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Survey"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile give me the secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check secondary O2 pressure and then add waypoint Sample Pit 7",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check secondary O2 pressure and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Creekbed plus read out the pressure of the secondary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Creekbed"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus read out the pressure of the secondary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Before proceeding, show me the secondary O2 pressure and add waypoint Fault Scarp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before proceeding, show me the secondary O2 pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fault Scarp"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Echo Point, and then display the sec oxygen pressure, please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Point"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then display the sec oxygen pressure, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the pressure in the secondary tank, followed by adding waypoint Sky Line",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the pressure in the secondary tank, followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sky Line"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker as Ridge Base and also read secondary oxygen pressure now",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read secondary oxygen pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read my secondary O2 pressure and add waypoint Sample Grid 12?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read my secondary O2 pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Grid 12"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Landing Beacon and additionally check pressure in the secondary oxygen unit",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally check pressure in the secondary oxygen unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary oxygen pressure, and then mark this position as Meteorite Fragment Site",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary oxygen pressure, and then mark this position as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Meteorite Fragment Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Water Spring and after that tell me the secondary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Spring"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that tell me the secondary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Quick check: secondary O2 pressure and add waypoint Observation Trench",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quick check: secondary O2 pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Trench"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Foothill Camp and meanwhile report the pressure of the secondary O2 tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foothill Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile report the pressure of the secondary O2 tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me secondary O2 pressure and then add waypoint High Vista",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me secondary O2 pressure and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "High Vista"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Channel Marker and as well as display the secondary oxygen pressure, please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Channel Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as display the secondary oxygen pressure, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 tank pressure, next add waypoint Ridge Line Marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 tank pressure, next add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Line Marker"
+            }
+        ]
+    }
+]
+}

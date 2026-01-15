@@ -1,0 +1,658 @@
+{
+  // intents: vitals_batt_time_left AND vitals_oxy_time_left
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check battery and oxygen time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery and oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen time then battery readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen time then battery readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery duration plus O2 remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery duration plus O2 remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 time and power left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 time and power left"
+            }
+        ]
+    },
+    {
+        "prompt": "Power left while showing oxygen",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power left while showing oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "How long oxy then battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long oxy then battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time plus air supply",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time plus air supply"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen remaining and charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen remaining and charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Check charge and O2 left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check charge and O2 left"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 duration then power status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 duration then power status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up battery time and then show oxygen remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up battery time and then show oxygen remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display oxygen remaining and also give battery time?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display oxygen remaining and also give battery time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo bring up power left and also pull up O2 time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo bring up power left and also pull up O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check oxygen time and then open the power readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check oxygen time and then open the power readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Open battery duration plus show current oxygen consumption time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open battery duration plus show current oxygen consumption time"
+            }
+        ]
+    },
+    {
+        "prompt": "Need oxygen time and then battery charge info, please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need oxygen time and then battery charge info, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display suit charge and at the same time reveal O2 left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display suit charge and at the same time reveal O2 left"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me oxygen duration as well as battery status?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me oxygen duration as well as battery status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the battery time and then the oxygen time next",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the battery time and then the oxygen time next"
+            }
+        ]
+    },
+    {
+        "prompt": "Check O2 levels and then display power remaining, followed by logs",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 levels and then display power remaining, followed by logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery remaining and also open the vitals panel showing oxygen time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery remaining and also open the vitals panel showing oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my oxygen time left and then show the suit charge?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my oxygen time left and then show the suit charge?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check power level and in addition report remaining O2 time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check power level and in addition report remaining O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up oxygen remaining and additionally give battery duration?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up oxygen remaining and additionally give battery duration?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open charge status and also bring up oxygen consumption estimate",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open charge status and also bring up oxygen consumption estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check oxygen supply and then show me the power charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check oxygen supply and then show me the power charge"
+            }
+        ]
+    },
+    {
+        "prompt": "After reading battery time, also pull up current oxygen timeline",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After reading battery time, also pull up current oxygen timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell oxygen time left before opening battery information",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell oxygen time left before opening battery information"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit power and then display breathing gas time next",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit power and then display breathing gas time next"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme know oxygen remaining and then also check battery charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme know oxygen remaining and then also check battery charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the remaining battery time, and then also display my oxygen consumption estimate",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the remaining battery time, and then also display my oxygen consumption estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the oxygen supply duration first while also bringing up current suit power reserves",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the oxygen supply duration first while also bringing up current suit power reserves"
+            }
+        ]
+    },
+    {
+        "prompt": "I need battery time left plus an oxygen time projection for the return to rover",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need battery time left plus an oxygen time projection for the return to rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you calculate oxygen remaining and then open the power/charge readout as well?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you calculate oxygen remaining and then open the power/charge readout as well?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open battery duration readout and then follow that by showing suit biometrics including oxygen time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open battery duration readout and then follow that by showing suit biometrics including oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Before I proceed, tell me oxygen time left and afterwards display the suit's battery percentage",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I proceed, tell me oxygen time left and afterwards display the suit's battery percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my power level and at the same time bring up projected O2 depletion estimates",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my power level and at the same time bring up projected O2 depletion estimates"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show oxygen remaining and then, meanwhile, open the battery and vitals panels?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show oxygen remaining and then, meanwhile, open the battery and vitals panels?"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the suit charge time next and also include current oxygen consumption rate and estimate",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the suit charge time next and also include current oxygen consumption rate and estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up oxygen duration along with the battery status before we head back to base?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up oxygen duration along with the battery status before we head back to base?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display battery time remaining, additionally show oxygen minutes left and any alerts affecting consumption",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display battery time remaining, additionally show oxygen minutes left and any alerts affecting consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "I need oxygen time left and then also have you check the power reserves and thermal load",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need oxygen time left and then also have you check the power reserves and thermal load"
+            }
+        ]
+    },
+    {
+        "prompt": "After you open the battery timer, bring up oxygen estimates plus suit vitals for monitoring",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you open the battery timer, bring up oxygen estimates plus suit vitals for monitoring"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, tell me O2 time remaining and then open the charge indicator and biometric logs, please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, tell me O2 time remaining and then open the charge indicator and biometric logs, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show me battery percentage and also pull up oxygen time estimates and trend lines, thanks",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show me battery percentage and also pull up oxygen time estimates and trend lines, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we move, check oxygen remaining and then, but first, report battery time and status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we move, check oxygen remaining and then, but first, report battery time and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the power system readout and then additionally display oxygen timeline along with CO2 scrubber load",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the power system readout and then additionally display oxygen timeline along with CO2 scrubber load"
+            }
+        ]
+    },
+    {
+        "prompt": "While you're at it, calculate oxygen time left and then follow up by showing battery and suit vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you're at it, calculate oxygen time left and then follow up by showing battery and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey yo, check battery lifespan and at the same time provide oxygen remaining plus any critical warnings",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey yo, check battery lifespan and at the same time provide oxygen remaining plus any critical warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and tell me oxygen minutes left, then open the battery readout and present suit biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and tell me oxygen minutes left, then open the battery readout and present suit biometrics"
+            }
+        ]
+    }
+]
+}

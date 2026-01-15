@@ -1,0 +1,962 @@
+{
+  // intents: vitals_coolant_storage AND delete_waypoint
+  // description_1: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Please show remaining coolant volume and then delete waypoint Echo Base",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show remaining coolant volume and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Alpha and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit coolant levels and then delete marker Hab Camp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit coolant levels and then delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Raven and also tell me coolant remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Raven"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant then remove waypoint Plaza",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Plaza"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Supply Cache and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey could you pull up current coolant storage percentage and then delete waypoint Beacon One",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey could you pull up current coolant storage percentage and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Old Camp then show coolant levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "How much suit water is left and delete waypoint Landing Pad",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much suit water is left and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Alpha Site and also pull up coolant readings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up coolant readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check thermal coolant and remove waypoint Delta",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check thermal coolant and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Home marker and then tell me remaining coolant volume",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and then tell me remaining coolant volume"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you additionally display suit biometrics plus remaining coolant quantity before deleting waypoint Comm Relay",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you additionally display suit biometrics plus remaining coolant quantity before deleting waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint South Ridge and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check my coolant tank and then remove waypoint Workshop",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check my coolant tank and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Workshop"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker called High Point and also show coolant status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "High Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant level and delete waypoint Bunker",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant level and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bunker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Observation Deck but first pull up remaining suit water volume",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first pull up remaining suit water volume"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining coolant along with removing waypoint Docking Bay",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining coolant along with removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cargo Node and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up suit data including coolant remaining in addition delete waypoint Lab Annex",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up suit data including coolant remaining in addition delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab Annex"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Winter Camp marker and meanwhile tell me coolant left",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Winter Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and meanwhile tell me coolant left"
+            }
+        ]
+    },
+    {
+        "prompt": "Check water left and remove Beacon",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check water left and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Ridge Alpha and also pull up coolant readings please",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up coolant readings please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up coolant reserves and at the same time delete waypoint Forward Outpost",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up coolant reserves and at the same time delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Alpha Two and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me coolant percentage and then remove waypoint Solar Array",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me coolant percentage and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Habitat 3 followed by showing remaining suit coolant and full diagnostics please",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing remaining suit coolant and full diagnostics please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant and delete Marker Seven",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Seven"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Beacon East and show coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon East"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant levels then delete the map marker Oasis",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant levels then delete the map marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Oasis"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the waypoint Black Rock and also display coolant stats",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Black Rock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display coolant stats"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to open suit biometrics plus remaining coolant amount and then remove waypoint East Ridge",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to open suit biometrics plus remaining coolant amount and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker named Supply Point before you also show me the coolant level and suit vitals",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you also show me the coolant level and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display coolant remaining and after that remove waypoint North Beacon",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display coolant remaining and after that remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Delta-4 and additionally show coolant reserves",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta-4"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally show coolant reserves"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check the suit's coolant tank level and as well as delete waypoint Cistern One",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check the suit's coolant tank level and as well as delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cistern One"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Hydro Pond and meanwhile pull up coolant percentage",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hydro Pond"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile pull up coolant percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me coolant status and then remove waypoint Old Quarry",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me coolant status and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Quarry"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Emergency Site marker next and at the same time display remaining suit water and coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker next and at the same time display remaining suit water and coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant, oh and delete Beacon Four",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant, oh and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Four"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Old Dock and then tell me coolant remaining please",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me coolant remaining please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey show coolant readings and then remove the marker Greenhouse",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey show coolant readings and then remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Greenhouse"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the waypoint LZ-3 followed by displaying coolant and vitals",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by displaying coolant and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open my suit vitals and additionally give remaining coolant volume and then delete waypoint Storage Alpha",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open my suit vitals and additionally give remaining coolant volume and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker West Perimeter and then, additionally, bring up coolant tanks and full biometrics readout",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, additionally, bring up coolant tanks and full biometrics readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see coolant left and remove waypoint Supply Delta",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see coolant left and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Command Hub and also show remaining coolant and suit charge",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Command Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show remaining coolant and suit charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open suit diagnostics, and then as well delete waypoint South Outpost while showing coolant level",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open suit diagnostics, and then as well delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " while showing coolant level"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Alpha Base and pull up remaining coolant plus vitals",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up remaining coolant plus vitals"
+            }
+        ]
+    }
+]
+}

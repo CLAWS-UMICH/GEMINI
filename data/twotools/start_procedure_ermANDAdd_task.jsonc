@@ -1,0 +1,1008 @@
+{
+  // intents: start_procedure_erm AND Add_task
+  // description_1: The user initiates the "Exit Recovery Mode" workflow to wake the LTV from its dormant state. They would likely say, "Start ERM procedure" or "Begin Exit Recovery Mode."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Start ERM procedure and add task: Inspect solar panel",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM procedure and add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect solar panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Check oxygen levels then initiate ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check oxygen levels"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode then add task: Collect regolith sample",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode then add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Collect regolith sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Create new task: Recalibrate helmet HUD and start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create new task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Recalibrate helmet HUD"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM, also add task: Secure loose tether",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM, also add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure loose tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Run suit diagnostics plus begin ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake the LTV from recovery while also logging task: Photograph horizon",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake the LTV from recovery while also logging task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Photograph horizon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Take core sample while you run ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Take core sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you run ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start ERM and then add task: Check comms link",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start ERM and then add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check comms link"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Verify sample container seals and then begin Exit Recovery Mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify sample container seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM before you add task: Inspect rover wheel",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM before you add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect rover wheel"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to check coolant lines and also initiate ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant lines"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also initiate ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Exit Recovery Mode, plus add task: Document micrometeorite strike location",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Exit Recovery Mode, plus add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Document micrometeorite strike location"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Run payload calibration meanwhile start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run payload calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and then create task: Check solar array angle",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and then create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check solar array angle"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Replace battery module, and then wake LTV",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace battery module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then wake LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM as well as add task: Run external camera check",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM as well as add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run external camera check"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Log thermal spike, followed by starting ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Log thermal spike"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by starting ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start ERM and in addition add task: Check tether reels",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start ERM and in addition add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check tether reels"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Sample rock fragment and then kick off ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample rock fragment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then kick off ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM followed by add task: Calibrate oxygen sensor",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM followed by add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate oxygen sensor"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Inspect EVA suit joints before starting ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect EVA suit joints"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off ERM then also add task: Check beacon alignment",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off ERM then also add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check beacon alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Replace comms antenna meanwhile initiate Exit Recovery Mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace comms antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile initiate Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and then jot down task: Map crater rim samples",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and then jot down task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Map crater rim samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Put on checklist: Check rover coms and then start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put on checklist: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check rover coms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then add task: Secure sample tray, oh and confirm logs",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure sample tray"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and confirm logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Run radiation check and then bring LTV out of recovery",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run radiation check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring LTV out of recovery"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM along with add task: Verify pressure seals",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM along with add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify pressure seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Monitor suit CO2 levels, next start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Monitor suit CO2 levels"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake LTV and then add task: Inspect external antenna, please",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake LTV and then add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect external antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Check solar array connectors at the same time start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check solar array connectors"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and additionally add task: Run IMU calibration sequence",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and additionally add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run IMU calibration sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Reboot nav computer and then initiate ERM, thanks",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reboot nav computer"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate ERM, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off Exit Recovery Mode and then remind me to recalibrate LIDAR",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off Exit Recovery Mode and then remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate LIDAR"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Check fuel lines followed by initiating ERM immediately",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check fuel lines"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by initiating ERM immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM, and then create task: Inspect EVA glove seals",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM, and then create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect EVA glove seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Test beacon battery before you start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test beacon battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate ERM along with adding task: Photograph soil texture",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate ERM along with adding task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Photograph soil texture"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Secure EVA pack and then kick ERM into motion",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure EVA pack"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then kick ERM into motion"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM but first add task: Check coolant pump RPM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM but first add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check coolant pump RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Calibrate external sensors and then wake the vehicle",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate external sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then wake the vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM and then add task: Check sample bag seals, gimme that on the list",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM and then add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check sample bag seals"
+            },
+            {
+                "type": "TEXT",
+                "text": ", gimme that on the list"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Run pressure test and then start ERM, please confirm",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run pressure test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start ERM, please confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake the LTV and then add task: Inspect thermal blanket seams",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake the LTV and then add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect thermal blanket seams"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Measure ambient radiation levels, followed by ERM start",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Measure ambient radiation levels"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by ERM start"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then record task: Check docking latch clearance",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then record task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check docking latch clearance"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Run diagnostic on life support, and then initiate ERM, thanks",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run diagnostic on life support"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then initiate ERM, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode as well as add task: Check EVA camera focus",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode as well as add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check EVA camera focus"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Inspect coolant reservoir next start ERM, please",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect coolant reservoir"
+            },
+            {
+                "type": "TEXT",
+                "text": " next start ERM, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then also add task: Check heater element continuity",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then also add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check heater element continuity"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: Secure loose antenna cable, as well as initiate ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure loose antenna cable"
+            },
+            {
+                "type": "TEXT",
+                "text": ", as well as initiate ERM"
+            }
+        ]
+    }
+]
+}

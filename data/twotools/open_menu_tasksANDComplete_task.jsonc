@@ -1,0 +1,1046 @@
+{
+  // intents: open_menu_tasks AND Complete_task
+  // description_1: The user needs to see the current checklist, procedure steps, or to-do list for the mission. The prompt would be "Open task list" or "Show mission objectives."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open checklist and mark Connect Umbilical complete",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open checklist and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery Check done and open tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and open tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Show vitals then finish Antenna Alignment",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show vitals then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Tether Hookup also open checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            },
+            {
+                "type": "TEXT",
+                "text": " also open checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Show tasks plus mark Tool Inventory done",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show tasks plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Main Bus Reconnect while opening tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Main Bus Reconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": " while opening tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Open checklist after mark Airlock Seal Inspection",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open checklist after mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Seal Inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Comm Check before showing vitals",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " before showing vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals but first mark Glove Test",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals but first mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample Retrieval as well as open the mission checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Retrieval"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as open the mission checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the to-do list and then mark Cooling Loop Flush complete",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the to-do list and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cooling Loop Flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Helmet Visor Clean and bring up the vitals menu",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Visor Clean"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up the vitals menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up suit data and then mark Glove Integrity Test done?",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up suit data and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Integrity Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Oxygen Valve Cycle complete and also show battery status",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Valve Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and also show battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open tasks and mark Radiation Monitor Reset as finished please",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open tasks and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished please"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Solar Array Deploy then display power levels",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display power levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the checklist plus mark Thermal Blanket Secure completed",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the checklist plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Camera Calibration done and meanwhile pull up the telemetry",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and meanwhile pull up the telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the mission objectives and then mark Thruster Power Test as complete",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the mission objectives and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thruster Power Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Suit Pressure Check as finished and open the vitals display",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Pressure Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished and open the vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Open procedures and also mark Foot Restraint Lock complete",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open procedures and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Foot Restraint Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish External Panel Replace plus show me the power readout",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "External Panel Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show me the power readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the checklist and then mark Cable Routing done?",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the checklist and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cable Routing"
+            },
+            {
+                "type": "TEXT",
+                "text": " done?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sensor Array Mount complete followed by opening the task list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor Array Mount"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete followed by opening the task list"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up the mission checklist and in addition mark Handrail Attachment as completed",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up the mission checklist and in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Handrail Attachment"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Backup Battery Swap and then bring up the power and vitals menu for me",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up the power and vitals menu for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the EVA tasks and additionally mark Umbilical Disconnect as done, thanks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the EVA tasks and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Disconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Hatch Latch Verify complete while you also show me the maintenance checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Latch Verify"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete while you also show me the maintenance checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you bring up the to-do list and at the same time mark Propellant Vent Test complete",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you bring up the to-do list and at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Propellant Vent Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Lunar Sample Bag Seal and then open the sample procedures menu for reference",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lunar Sample Bag Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the sample procedures menu for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the mission objectives along with marking Footprint Tape Apply as finished so I can proceed",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the mission objectives along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Footprint Tape Apply"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished so I can proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Radiator Valve Tighten done and then display thermal control checklist, please",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiator Valve Tighten"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then display thermal control checklist, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the external ops checklist next and mark Heat Shield Check completed before we move",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the external ops checklist next and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Heat Shield Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed before we move"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Docking Clamp Inspect then open the docking procedures menu, could you?",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Clamp Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open the docking procedures menu, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the current tasks and then mark Water Separator Drain as complete for ground update",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the current tasks and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Water Separator Drain"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete for ground update"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Pressure Equalization as complete while also pulling up the suit telemetry display",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete while also pulling up the suit telemetry display"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the task list followed by marking Mission Log Entry as finished and sync with ground",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the task list followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mission Log Entry"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished and sync with ground"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Waste Collection Secure and then display the life support tasks menu",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste Collection Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display the life support tasks menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation tasks and mark Navigation Beacon Activate done next",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation tasks and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Navigation Beacon Activate"
+            },
+            {
+                "type": "TEXT",
+                "text": " done next"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Microphone Gain Set complete as well as show me the comms checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Microphone Gain Set"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete as well as show me the comms checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up power status and then mark Solar Panel Align finished",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up power status and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Radiation Shield Stow and then open the stowage procedures menu",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Shield Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the stowage procedures menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display sample handling checklist and additionally mark Sample Labeling as completed for the record",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display sample handling checklist and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Labeling"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed for the record"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Cargo Restraint Fasten done followed by opening the cargo checklist while we wait",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cargo Restraint Fasten"
+            },
+            {
+                "type": "TEXT",
+                "text": " done followed by opening the cargo checklist while we wait"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the EMI/grounding tasks and then mark EMI Shield Ground as complete, please confirm",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the EMI/grounding tasks and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EMI Shield Ground"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete, please confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Cooling Pump Start and at the same time show me the thermal pump procedures",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cooling Pump Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show me the thermal pump procedures"
+            }
+        ]
+    },
+    {
+        "prompt": "Open data recorder checklist and mark Data Recorder Sync completed next",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open data recorder checklist and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Recorder Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed next"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Fuel Line Purge done and open the propulsion tasks list, oh and confirm status",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Line Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and open the propulsion tasks list, oh and confirm status"
+            }
+        ]
+    },
+    {
+        "prompt": "Show power tasks and then mark Battery Reconnect as completed, could you?",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show power tasks and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Reconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Docking Camera Stow plus open the optics maintenance checklist and then report",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Camera Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus open the optics maintenance checklist and then report"
+            }
+        ]
+    }
+]
+}

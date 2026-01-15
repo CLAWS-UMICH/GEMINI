@@ -1,0 +1,1034 @@
+{
+  // intents: vitals_fan_pri_rpm AND Complete_task
+  // description_1: The user needs to verify that the primary ventilation fan is spinning at the correct speed to circulate air and scrub CO2. The prompt might be "Check primary fan RPM" or "Is the primary fan working?"
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "check fan RPM and mark Connect Umbilical",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check fan RPM and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Battery Check then check fan",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check fan"
+            }
+        ]
+    },
+    {
+        "prompt": "verify fan RPM and mark Antenna Check",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "verify fan RPM and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            }
+        ]
+    },
+    {
+        "prompt": "mark EVA prep then check fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "check primary fan and mark Leak Test",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check primary fan and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Leak Test"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Camera Alignment and then check fan",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check fan"
+            }
+        ]
+    },
+    {
+        "prompt": "fan RPM check plus mark Tether Secure",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "fan RPM check plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Secure"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Tool Stow then verify fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " then verify fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "check fan and mark Air Filter Replace",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check fan and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Air Filter Replace"
+            }
+        ]
+    },
+    {
+        "prompt": "mark CO2 Scrubber Cycle and check fan",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check fan"
+            }
+        ]
+    },
+    {
+        "prompt": "check primary fan RPM and then mark Battery Swap complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check primary fan RPM and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Camera Alignment as done and can you check fan RPM?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and can you check fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "yo check fan RPM also mark Sample Stow finished",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo check fan RPM also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "please mark Oxygen Swap complete and then show fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then show fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "need fan RPM info plus mark Comm Link Test done",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "need fan RPM info plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Link Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "after you mark Tether Secure, check the primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check the primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up fan RPM and also mark Thermal Panel Inspect as complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up fan RPM and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Panel Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "finish task Tool Stow and then verify fan RPM for me",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then verify fan RPM for me"
+            }
+        ]
+    },
+    {
+        "prompt": "check fan RPM while marking Backup Fan Start as complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check fan RPM while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Fan Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Suit Leak Test complete, then show me the fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, then show me the fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "display primary fan RPM in addition and mark Grip Test complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display primary fan RPM in addition and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Grip Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Antenna Check and then pull up fan RPM readings",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up fan RPM readings"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up fan RPM and then finish task Battery Check",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up fan RPM and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Docking Latch Inspect as done plus check fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Latch Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done plus check fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "show fan RPM and then mark Radiation Monitor Log complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show fan RPM and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Log"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "please finish task Sample Bag Seal and also check fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Bag Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "check fan RPM along with marking Pressure Equalization done",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check fan RPM along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Umbilical Clear completed and then verify primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Clear"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed and then verify primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "verify fan RPM and additionally mark Air Filter Replace complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "verify fan RPM and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Air Filter Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "finish task Drill Setup next and display fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and display fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "check the primary fan RPM before you mark the Docking Latch Inspect task complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check the primary fan RPM before you mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Latch Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " task complete"
+            }
+        ]
+    },
+    {
+        "prompt": "please mark Pressure Equalization as complete but first show me the fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete but first show me the fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "could you display fan RPM at the same time as marking Air Filter Replace complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you display fan RPM at the same time as marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Air Filter Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "finish task Comm Link Test, followed by checking the primary fan RPM for CO2 scrub",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Link Test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by checking the primary fan RPM for CO2 scrub"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up fan RPM while you also mark Radiation Monitor Log and log the time",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up fan RPM while you also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and log the time"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Thermal Panel Inspect done, oh and display the primary fan RPM readings",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Panel Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, oh and display the primary fan RPM readings"
+            }
+        ]
+    },
+    {
+        "prompt": "show me the fan RPM as well as mark Sample Bag Seal completed for manifest",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show me the fan RPM as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Bag Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed for manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Battery Swap completed and then, in addition, pull up primary fan RPM trends",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed and then, in addition, pull up primary fan RPM trends"
+            }
+        ]
+    },
+    {
+        "prompt": "verify primary fan RPM meanwhile finish task Grip Test and confirm nominal status",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "verify primary fan RPM meanwhile finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Grip Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and confirm nominal status"
+            }
+        ]
+    },
+    {
+        "prompt": "finish task Tool Stow before you bring up the fan RPM telemetry graphs please",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you bring up the fan RPM telemetry graphs please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to check fan RPM and then mark Mission Clock Sync as complete",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to check fan RPM and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mission Clock Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "could you mark Umbilical Clear as complete and also show me the current fan RPM numbers",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Clear"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and also show me the current fan RPM numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up the primary fan RPM and then finish task Drill Setup and confirm power",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up the primary fan RPM and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " and confirm power"
+            }
+        ]
+    },
+    {
+        "prompt": "please mark Evac Route Confirm complete, additionally display the fan RPM and any anomalies",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Evac Route Confirm"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, additionally display the fan RPM and any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "check fan RPM, and then mark Backup Fan Start as finished while logging timestamp",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check fan RPM, and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Fan Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished while logging timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Camera Alignment as complete and at the same time show me fan RPM history",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and at the same time show me fan RPM history"
+            }
+        ]
+    },
+    {
+        "prompt": "display primary fan RPM along with marking Oxygen Swap complete and record crew initials",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display primary fan RPM along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and record crew initials"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Antenna Check completed plus check primary fan RPM for a stable operating range",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed plus check primary fan RPM for a stable operating range"
+            }
+        ]
+    },
+    {
+        "prompt": "verify fan RPM and then mark Tether Secure as done, followed by notifying mission control",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "verify fan RPM and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done, followed by notifying mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "finish task Suit Leak Test and then, oh and check the primary fan RPM for me",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, oh and check the primary fan RPM for me"
+            }
+        ]
+    }
+]
+}

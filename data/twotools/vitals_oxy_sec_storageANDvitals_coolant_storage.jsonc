@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_coolant_storage
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Status secondary oxygen and coolant?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status secondary oxygen and coolant?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant and backup oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup oxygen levels then coolant status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup oxygen levels then coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Coolant remaining plus secondary oxygen quantity",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coolant remaining plus secondary oxygen quantity"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me secondary O2 and coolant now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me secondary O2 and coolant now"
+            }
+        ]
+    },
+    {
+        "prompt": "Coolant levels and backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coolant levels and backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check secondary oxygen then coolant please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check secondary oxygen then coolant please"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, check coolant and secondary oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, check coolant and secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary tank status and coolant?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank status and coolant?"
+            }
+        ]
+    },
+    {
+        "prompt": "Coolant status then secondary oxygen, please now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coolant status then secondary oxygen, please now"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary oxygen levels and also display coolant reserves",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary oxygen levels and also display coolant reserves"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up coolant storage then bring up backup oxygen?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up coolant storage then bring up backup oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary tank status and coolant volume as well",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary tank status and coolant volume as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me coolant remaining and then the secondary oxygen percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me coolant remaining and then the secondary oxygen percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen now and also check suit coolant levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen now and also check suit coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Scan coolant lines and then report secondary oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scan coolant lines and then report secondary oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up backup oxygen quantity plus the coolant storage gauge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up backup oxygen quantity plus the coolant storage gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Open coolant gauge and then show secondary oxygen supply numbers",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open coolant gauge and then show secondary oxygen supply numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the secondary oxygen amount and also the coolant remaining?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the secondary oxygen amount and also the coolant remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "How much coolant is left and then what's in the secondary oxygen?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much coolant is left and then what's in the secondary oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report secondary oxygen reserves and additionally display coolant totals",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report secondary oxygen reserves and additionally display coolant totals"
+            }
+        ]
+    },
+    {
+        "prompt": "I need coolant level readout and then secondary oxygen status immediately",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need coolant level readout and then secondary oxygen status immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking secondary oxygen, show me the coolant storage as well",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking secondary oxygen, show me the coolant storage as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we move, verify coolant amount and then backup oxygen levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we move, verify coolant amount and then backup oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary O2 pressure and also the suit coolant percentage?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary O2 pressure and also the suit coolant percentage?"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check coolant reserves and then open secondary oxygen diagnostics for me",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check coolant reserves and then open secondary oxygen diagnostics for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up secondary oxygen stats along with coolant levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up secondary oxygen stats along with coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant amounts and then also the secondary oxygen tank reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant amounts and then also the secondary oxygen tank reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Requesting secondary oxygen percentage and in addition the coolant reservoir status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Requesting secondary oxygen percentage and in addition the coolant reservoir status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check coolant storage and also report the backup oxygen cylinder",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check coolant storage and also report the backup oxygen cylinder"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary oxygen tank's exact remaining hours, but first also verify suit coolant storage volume.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary oxygen tank's exact remaining hours, but first also verify suit coolant storage volume."
+            }
+        ]
+    },
+    {
+        "prompt": "Run a coolant system check and then followed by reporting secondary oxygen, oh and include pressure readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a coolant system check and then followed by reporting secondary oxygen, oh and include pressure readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up secondary oxygen percentage while also bringing up coolant reservoir levels as well as flow rates.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up secondary oxygen percentage while also bringing up coolant reservoir levels as well as flow rates."
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant remaining in gallons and in addition next give me the backup oxygen cylinder percentage.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant remaining in gallons and in addition next give me the backup oxygen cylinder percentage."
+            }
+        ]
+    },
+    {
+        "prompt": "Display secondary oxygen reserve status at the same time show me current suit coolant storage and flow.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display secondary oxygen reserve status at the same time show me current suit coolant storage and flow."
+            }
+        ]
+    },
+    {
+        "prompt": "Monitor coolant tank levels and then followed by checking secondary oxygen tank pressure and reserve percent.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Monitor coolant tank levels and then followed by checking secondary oxygen tank pressure and reserve percent."
+            }
+        ]
+    },
+    {
+        "prompt": "After verifying secondary oxygen reserves, additionally run a coolant storage report and flag any leaks.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After verifying secondary oxygen reserves, additionally run a coolant storage report and flag any leaks."
+            }
+        ]
+    },
+    {
+        "prompt": "Before we EVA, inspect coolant levels next and as well report secondary oxygen backup status comprehensively.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we EVA, inspect coolant levels next and as well report secondary oxygen backup status comprehensively."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you measure secondary oxygen capacity meanwhile also bring up a detailed coolant storage summary for my suit?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you measure secondary oxygen capacity meanwhile also bring up a detailed coolant storage summary for my suit?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant distribution across loops but first confirm the total coolant storage and oh and show secondary oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant distribution across loops but first confirm the total coolant storage and oh and show secondary oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the secondary oxygen tank diagnostics and then include temperature trends along with coolant reservoir readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the secondary oxygen tank diagnostics and then include temperature trends along with coolant reservoir readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Run a full coolant health check in addition and then send me the secondary oxygen tank's remaining capacity report.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a full coolant health check in addition and then send me the secondary oxygen tank's remaining capacity report."
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen pressure and temperatures and then at the same time display coolant storage status and flow.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen pressure and temperatures and then at the same time display coolant storage status and flow."
+            }
+        ]
+    },
+    {
+        "prompt": "While running the coolant diagnostics, followed by a readout, also confirm secondary oxygen tank integrity and reserves.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While running the coolant diagnostics, followed by a readout, also confirm secondary oxygen tank integrity and reserves."
+            }
+        ]
+    },
+    {
+        "prompt": "Please report secondary oxygen supply plus present the coolant storage levels meanwhile highlight any anomalies found.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report secondary oxygen supply plus present the coolant storage levels meanwhile highlight any anomalies found."
+            }
+        ]
+    },
+    {
+        "prompt": "Verify coolant tank mass and then as well as show secondary oxygen nominal and emergency reserves breakdown.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify coolant tank mass and then as well as show secondary oxygen nominal and emergency reserves breakdown."
+            }
+        ]
+    },
+    {
+        "prompt": "Before we proceed, confirm the secondary oxygen backup percentage oh and also pull up the suit coolant remaining volume.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we proceed, confirm the secondary oxygen backup percentage oh and also pull up the suit coolant remaining volume."
+            }
+        ]
+    },
+    {
+        "prompt": "Please evaluate coolant reserve tanks but first report those numbers and then check the secondary oxygen backup levels too.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please evaluate coolant reserve tanks but first report those numbers and then check the secondary oxygen backup levels too."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you list secondary oxygen remaining as well as the next coolant tank scheduled for use and its amount?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you list secondary oxygen remaining as well as the next coolant tank scheduled for use and its amount?"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coolant storage totals for each loop followed by cross-checking secondary oxygen at the same time for redundancy.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_coolant_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coolant storage totals for each loop followed by cross-checking secondary oxygen at the same time for redundancy."
+            }
+        ]
+    }
+]
+}

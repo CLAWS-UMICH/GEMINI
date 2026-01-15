@@ -1,0 +1,990 @@
+{
+  // intents: get_warnings AND Add_waypoint
+  // description_1: The user wants a verbal summary of any active alerts or anomalies currently detected by the HALO system, such as high heart rate or low battery. They might ask, "What are the current warnings?" or "Read out active alerts."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check warnings and mark waypoint Alpha",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check warnings and mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark site Beta oh and report alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark site "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and report alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Read alerts then add waypoint Site 1",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read alerts then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Edge then check warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Report vitals and drop marker Delta",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report vitals and drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Place marker Sample Bravo and check warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery status and add waypoint Echo",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery status and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Ridge Crest and read alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Crest"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit data and mark waypoint Foxtrot",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit data and mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Landing Beacon and list alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and list alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you read current alerts and then add waypoint Echo Ridge",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you read current alerts and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Charlie as well as report any warnings",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as report any warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display vitals and then drop a waypoint named North Cliff",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display vitals and then drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Cliff"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker Crater Basin and also tell me battery charge",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Basin"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me battery charge"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my power status and add waypoint Sample Point Omega",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my power status and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point Omega"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint South Ridge and also pull up suit biometrics",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Read out active alerts and then create waypoint Rock Outcrop",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out active alerts and then create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Sample Site Delta and check my vitals",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me current suit alarms and then add waypoint Sunlit Ridge",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me current suit alarms and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sunlit Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Supply Cache plus report any anomalies now",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus report any anomalies now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up biometrics but first place waypoint Ice Fold",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up biometrics but first place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Fold"
+            }
+        ]
+    },
+    {
+        "prompt": "Place marker Habitat Entrance and also show battery and vitals",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show battery and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "I need status on alerts and then add waypoint Sample Pit",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need status on alerts and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Alpha Beacon while reading me the active alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " while reading me the active alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me any system warnings and then drop waypoint Ridge Base",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me any system warnings and then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark point Water Well and then display suit data for review",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark point "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Well"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display suit data for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Read warnings plus then add waypoint Eastern Crater for sampling",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read warnings plus then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Eastern Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " for sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint West Ridge and then tell me battery percentage",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me battery percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals menu and then create waypoint Rock Garden",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals menu and then create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Garden"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Survey Marker and also check for any alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check for any alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my heart rate and suit pressure and then add waypoint North Observation Point",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my heart rate and suit pressure and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Observation Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Foxtrot and then, while you're at it, read all active alerts",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, while you're at it, read all active alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide any current warnings, in addition check battery charge and drop waypoint Ridge Alpha",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide any current warnings, in addition check battery charge and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Crater Survey One and additionally tell me if alarms are active",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Survey One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally tell me if alarms are active"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read out anomalies and then add waypoint Solar Array Edge for later reference please",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read out anomalies and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later reference please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Permanent Marker Three and then show me suit biometrics along with battery level",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Permanent Marker Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me suit biometrics along with battery level"
+            }
+        ]
+    },
+    {
+        "prompt": "Read active alerts followed by creating a waypoint named Supply Drop Zone at this location",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read active alerts followed by creating a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " at this location"
+            }
+        ]
+    },
+    {
+        "prompt": "Place a waypoint called Ice Shelf Edge, then meanwhile display any high-priority warnings to me",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then meanwhile display any high-priority warnings to me"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a readout of suit warnings and after that add waypoint Low Gravity Crater",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a readout of suit warnings and after that add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Low Gravity Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Observation Post Bravo and then at the same time check my oxygen levels and battery",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time check my oxygen levels and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, tell me if any systems are in alert plus create waypoint Field Marker Seven before I move",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, tell me if any systems are in alert plus create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Field Marker Seven"
+            },
+            {
+                "type": "TEXT",
+                "text": " before I move"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Cargo Stash and then, additionally, display suit temperature and heart rate trends",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Stash"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, additionally, display suit temperature and heart rate trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Please list active anomalies and afterward add waypoint West Crater Rim as a reference",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please list active anomalies and afterward add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " as a reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this coordinate as Sampling Grid 12 and then show me power remaining and any alarms",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this coordinate as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sampling Grid 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me power remaining and any alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please announce all current warnings and next create waypoint Beacon North-East for mapping",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please announce all current warnings and next create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North-East"
+            },
+            {
+                "type": "TEXT",
+                "text": " for mapping"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Lava Tube Entrance and also check radiation levels and any HUD alerts before proceeding",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lava Tube Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check radiation levels and any HUD alerts before proceeding"
+            }
+        ]
+    },
+    {
+        "prompt": "Read me system warnings and then followed by dropping waypoint Science Grid Alpha for the team",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read me system warnings and then followed by dropping waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Grid Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " for the team"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Crevasse Rim and then at the same time pull up my oxygen pressure and battery indicators",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crevasse Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time pull up my oxygen pressure and battery indicators"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you scan for active alerts and additionally add waypoint Remote Outcrop to my map",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you scan for active alerts and additionally add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Remote Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " to my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Emergency Cache Next to the ridge and also report if any vitals are abnormal or warnings present",
+        "tool_calls": [
+            "get_warnings",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Cache Next"
+            },
+            {
+                "type": "TEXT",
+                "text": " to the ridge and also report if any vitals are abnormal or warnings present"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,1022 @@
+{
+  // intents: vitals_oxy_sec_storage AND Complete_task
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check backup oxygen then finish battery check",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Status secondary O2 and mark Connect Umbilical",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status secondary O2 and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup O2 status and mark antenna check",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup O2 status and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary oxygen tank level and mark EVA prep as complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary oxygen tank level and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up backup O2 readings and then finish Suit Seal Test",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up backup O2 readings and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Seal Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open my secondary oxygen status and also mark Tether Hookup done",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open my secondary oxygen status and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme secondary O2 levels and then mark Camera Alignment complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme secondary O2 levels and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen amount and also finish Canister Replace",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen amount and also finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Canister Replace"
+            }
+        ]
+    },
+    {
+        "prompt": "After you show me the backup oxygen reservoir percentage, please mark Airlock Cycle as complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you show me the backup oxygen reservoir percentage, please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "While you're at it pull up the secondary oxygen tank reading and then complete Sample Stow",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you're at it pull up the secondary oxygen tank reading and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and bring up my secondary oxygen storage level in addition and mark Radiation Log finished",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and bring up my secondary oxygen storage level in addition and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Log"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Please present the backup O2 supply level along with marking Thruster Warmup as done",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please present the backup O2 supply level along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thruster Warmup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen supply and then finish Tool Inventory",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen supply and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup oxygen then mark Panel Latch",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup oxygen then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Panel Latch"
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything show secondary O2 level and mark Tether Inspect complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything show secondary O2 level and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time display my secondary oxygen tank level and additionally mark Solar Array Deploy as complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time display my secondary oxygen tank level and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check secondary oxygen and as well as mark Comm Link Verify done",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check secondary oxygen and as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Link Verify"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile show backup oxygen readings and then followed by marking Life Support Sync complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile show backup oxygen readings and then followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Life Support Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Also display secondary oxygen gauge and in addition mark Pressure Equalize done",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Also display secondary oxygen gauge and in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup oxygen storage, but first show levels and then mark Data Dump complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen storage, but first show levels and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Dump"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my secondary oxygen, and then additionally please mark Rover Handover finished",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my secondary oxygen, and then additionally please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rover Handover"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary oxygen plus mark Seal Replace complete",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary oxygen plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "While you display the backup oxygen, also complete Filter Swap from my checklist",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you display the backup oxygen, also complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything else open secondary oxygen status and then finish Manual Override",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything else open secondary oxygen status and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Manual Override"
+            }
+        ]
+    },
+    {
+        "prompt": "And then pull up my secondary oxygen tank percentage and additionally mark Drill Setup as done",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "And then pull up my secondary oxygen tank percentage and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark antenna check and check secondary oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish EVA prep then show backup oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete battery check and then status secondary O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then status secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Connect Umbilical complete and then display secondary oxygen levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then display secondary oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo mark Suit Seal Test done and also tell me backup O2 reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Seal Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and also tell me backup O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you finish Tether Hookup and then open secondary oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open secondary oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to mark Camera Alignment as finished and after pull up the secondary oxygen storage percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished and after pull up the secondary oxygen storage percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete Canister Replace, followed by showing my backup oxygen tank level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Canister Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by showing my backup oxygen tank level"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Airlock Cycle done and plus bring up secondary oxygen gauge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and plus bring up secondary oxygen gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Sample Stow and meanwhile display the secondary oxygen reservoir level for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile display the secondary oxygen reservoir level for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Radiation Log complete and then also show backup O2 supply",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Log"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then also show backup O2 supply"
+            }
+        ]
+    },
+    {
+        "prompt": "Next mark Thruster Warmup as complete and then open the secondary oxygen storage readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thruster Warmup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then open the secondary oxygen storage readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Tool Inventory and as well as present the secondary oxygen metrics before EVA continues",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as present the secondary oxygen metrics before EVA continues"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Panel Latch finished and then display secondary O2 amount",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Panel Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished and then display secondary O2 amount"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Tether Inspect and pull backup oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Solar Array Deploy done and along with that show secondary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and along with that show secondary oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to complete Comm Link Verify and in addition bring up my secondary oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Link Verify"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition bring up my secondary oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you mark Life Support Sync complete and additionally show the backup oxygen percentage for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Life Support Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and additionally show the backup oxygen percentage for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Pressure Equalize and then check secondary oxygen storage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check secondary oxygen storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Data Dump and show backup O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Dump"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete Rover Handover and then pull up the secondary oxygen readings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rover Handover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up the secondary oxygen readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Seal Replace as finished and then check backup oxygen, oh and report levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished and then check backup oxygen, oh and report levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Filter Swap and then at the same time display my secondary oxygen tank percentage before I proceed",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time display my secondary oxygen tank percentage before I proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Manual Override and then also show secondary oxygen level please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Manual Override"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also show secondary oxygen level please"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Drill Setup complete, followed by opening the secondary oxygen storage report for Mission Control",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, followed by opening the secondary oxygen storage report for Mission Control"
+            }
+        ]
+    }
+]
+}

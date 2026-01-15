@@ -1,0 +1,982 @@
+{
+  // intents: open_menu_geosamples AND Set_navigation_target
+  // description_1: The user wants to access the interface for logging or managing geological samples collected during the EVA. They might ask, "Open geology menu" or "Go to sampling tools."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open geology menu and go to LTV",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geology menu and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Home Base then open samples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open sampling tools and go to Rover",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open sampling tools and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to LTV and open geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open samples and go to Cache",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open samples and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover and open sample log",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open sample log"
+            }
+        ]
+    },
+    {
+        "prompt": "Show rock log plus go to Beacon",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show rock log plus go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Beacon Bravo then open samples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open sample log and go to Crater",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open sample log and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Hab then open samples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the geology menu and then set destination to Rover",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the geology menu and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Beacon Bravo and bring up sampling tools",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up sampling tools"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up rock samples and next navigate to Cache 12",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up rock samples and next navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 12"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Crater Edge then open the sample log please",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open the sample log please"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the sampling tools and then set destination to Beacon Bravo",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the sampling tools and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you set destination to LTV and also show the geosamples menu?",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show the geosamples menu?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo pull up sample log and then navigate to Home Base",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo pull up sample log and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the rock log and after that route me to Rover",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the rock log and after that route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the sample log and set destination to Beacon Bravo",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the sample log and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "After opening samples, then navigate to Cache 12 and start route",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After opening samples, then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start route"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the geosamples plus set destination to Crater Edge",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the geosamples plus set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Science Station as well as open the sample menu",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as open the sample menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Display the rock log in addition and then route me to LTV",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display the rock log in addition and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Home Base additionally bring up the sampling tools",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally bring up the sampling tools"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and open the sample log then set destination to Rover",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and open the sample log then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Open geology menu followed by setting destination to Beacon Bravo",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open geology menu followed by setting destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Cache 12 next and also show the geosamples",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also show the geosamples"
+            }
+        ]
+    },
+    {
+        "prompt": "Open sampling tools and at the same time navigate to Crater",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open sampling tools and at the same time navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, set destination to LTV and show the sample log",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show the sample log"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the sample menu but first route me to Beacon",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the sample menu but first route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you please pull up the geology sampling interface and after that set destination to Home Base",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you please pull up the geology sampling interface and after that set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Beacon Bravo, and then additionally open the rock sample log for collection notes",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then additionally open the rock sample log for collection notes"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the sample log next and then route me to the Crater Edge for coring operations",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the sample log next and then route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " for coring operations"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to navigate to LTV and meanwhile bring up the geosamples menu so I can tag rocks",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile bring up the geosamples menu so I can tag rocks"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the sampling tools open along with setting my destination to Science Station",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the sampling tools open along with setting my destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Station"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you display the rock log, set the navigation target to Cache 12 and start guidance overlays",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you display the rock log, set the navigation target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start guidance overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the geosamples menu and then, at the same time, route me to the Regolith Pit?",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the geosamples menu and then, at the same time, route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Regolith Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set destination to Rover and additionally pull up the sample log so I can record the collection details",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up the sample log so I can record the collection details"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, open the rock log as well as the sampling tools, then navigate to Beacon Bravo for pickup",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, open the rock log as well as the sampling tools, then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " for pickup"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Crater Edge and then open the geosamples menu, additionally show me past entries",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the geosamples menu, additionally show me past entries"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the sample log, follow that by setting course to Home Base, and then start guidance",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the sample log, follow that by setting course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then start guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Beacon Bravo while also bringing up the sampling tools so I can note coordinates",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also bringing up the sampling tools so I can note coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my geosamples interface and then set the nav target to Cache 12 for collection run",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my geosamples interface and then set the nav target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " for collection run"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to route me to the Regolith Pit then also open the sample management menu to log findings",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Regolith Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also open the sample management menu to log findings"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up the sampling tools and then set destination to the Rover followed by initiating path guidance",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up the sampling tools and then set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by initiating path guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "After you set destination to LTV, could you open the geosamples log and display the most recent entries?",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": ", could you open the geosamples log and display the most recent entries?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the rock sample log in addition and next route me to Beacon Bravo with visual guidance overlays",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the rock sample log in addition and next route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " with visual guidance overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Science Station and then open the sample log so I can tag the specimen numbers",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the sample log so I can tag the specimen numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the geosample manager while I navigate to Cache 12, and then confirm the items to collect?",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the geosample manager while I navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 12"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then confirm the items to collect?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set course to Rover then also display the sample menu, and additionally show my previous entries",
+        "tool_calls": [
+            "open_menu_geosamples",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also display the sample menu, and additionally show my previous entries"
+            }
+        ]
+    }
+]
+}

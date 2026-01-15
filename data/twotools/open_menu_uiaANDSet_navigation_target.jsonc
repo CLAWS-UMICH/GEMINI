@@ -1,0 +1,994 @@
+{
+  // intents: open_menu_uia AND Set_navigation_target
+  // description_1: The user needs to bring up the specific interface controls and status displays for the User Interface Assembly (UIA) during airlock operations. The prompt would be "Open UIA controls" or "Show UIA panel."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open UIA panel and navigate to LTV",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open UIA panel and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover then open UIA",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open UIA"
+            }
+        ]
+    },
+    {
+        "prompt": "Show UIA controls plus set destination Home Base",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show UIA controls plus set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Airlock 2 and open UIA",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open UIA"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up UIA display and then go to LZ-3",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up UIA display and then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Crew Quarters and bring up UIA",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crew Quarters"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up UIA"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the UIA menu plus navigate to Habitat Alpha",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the UIA menu plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Direct me to LZ-1 then show UIA panel",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show UIA panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up UIA and set destination Lander",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up UIA and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Depot and open the UIA",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open the UIA"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the User Interface Assembly and navigate to EVA Cache",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the User Interface Assembly and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Node B and pull up the UIA controls",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Node B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up the UIA controls"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the UIA display while also routing me to Lab Module",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the UIA display while also routing me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Station and then open the UIA menu",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the UIA menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the interface and then set destination Relay Tower",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the interface and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Beacon 7 plus show the UIA panel",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show the UIA panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up UIA controls as well as set destination Solar Array",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up UIA controls as well as set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Greenhouse and display the UIA",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display the UIA"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the UIA and in addition mark Observatory as target",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the UIA and in addition mark "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": " as target"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Med Bay and also open the UIA display",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also open the UIA display"
+            }
+        ]
+    },
+    {
+        "prompt": "Open UIA controls and then route me to EVA Lock",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open UIA controls and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Lock"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Docking Port and show the UIA menu",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show the UIA menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Display the UIA panel in addition set target West Ridge",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display the UIA panel in addition set target "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to North Ridge and bring up the UIA controls",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up the UIA controls"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up UIA display and next set destination South Ridge",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up UIA display and next set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to East Ridge and then display UIA data",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display UIA data"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the UIA and followed by set destination Cargo Bay",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the UIA and followed by set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Maintenance Bay and additionally open UIA",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally open UIA"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up UIA controls and then guide me to Workshop",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up UIA controls and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Workshop"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Fuel Depot and meanwhile show UIA controls",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show UIA controls"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the UIA menu and then, after confirming suit status, set destination LZ-A",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the UIA menu and then, after confirming suit status, set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-A"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LZ-B and then open the UIA display so I can check my power",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the UIA display so I can check my power"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up the User Interface Assembly and next route navigation to LZ-C for pickup",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up the User Interface Assembly and next route navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-C"
+            },
+            {
+                "type": "TEXT",
+                "text": " for pickup"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Return Point then open UIA plus show me suit charge and vitals",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Return Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open UIA plus show me suit charge and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Open UIA controls before you set destination Surface Cache so I can confirm telemetry",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open UIA controls before you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Surface Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " so I can confirm telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Habitat Bravo and along with that bring up the UIA for diagnostics",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and along with that bring up the UIA for diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up UIA data and then, followed by setting destination Habitat Charlie, display routing",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up UIA data and then, followed by setting destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", display routing"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LTV-2 and also pull up the UIA so I can view biometrics",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up the UIA so I can view biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the UIA panel while also setting destination Rover 3 and prepare guidance overlay",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the UIA panel while also setting destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and prepare guidance overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination HomePlate and then open the UIA, additionally highlight battery and suit data",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "HomePlate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the UIA, additionally highlight battery and suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up UIA controls and then, at the same time, plot a course to Base Camp",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up UIA controls and then, at the same time, plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LZ-2 and oh and open the UIA so I can confirm charge levels",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and oh and open the UIA so I can confirm charge levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the user interface assembly and then set destination Supply Cache while checking thermal readings",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the user interface assembly and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " while checking thermal readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Comm Array and but first show the UIA to verify comm status and routing",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and but first show the UIA to verify comm status and routing"
+            }
+        ]
+    },
+    {
+        "prompt": "Display UIA controls in addition route me to Beacon Alpha for relay maintenance",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display UIA controls in addition route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " for relay maintenance"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon Beta and then show UIA along with the power and biometrics panels",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show UIA along with the power and biometrics panels"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the UIA display followed by setting target Storage Vault and project holographic path",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the UIA display followed by setting target "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Vault"
+            },
+            {
+                "type": "TEXT",
+                "text": " and project holographic path"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Core Station and meanwhile open UIA, plus overlay route markers on terrain",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Core Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile open UIA, plus overlay route markers on terrain"
+            }
+        ]
+    },
+    {
+        "prompt": "Show UIA controls as well as mark the Observatory for navigation and then prepare approach vectors",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show UIA controls as well as mark the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": " for navigation and then prepare approach vectors"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Solar Array and then open UIA, and then display suit power plus oxygen estimates",
+        "tool_calls": [
+            "open_menu_uia",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open UIA, and then display suit power plus oxygen estimates"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,962 @@
+{
+  // intents: vitals_suit_pressure_co2 AND Set_navigation_target
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "check suit CO2 and go LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check suit CO2 and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to rover but first check suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first check suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "read suit CO2 then set Habitat Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "read suit CO2 then set "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination LTV and check suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme suit CO2 and take me Rover",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme suit CO2 and take me "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "go to Airlock then read suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "please check my suit CO2 and navigate to Cargo Depot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please check my suit CO2 and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Science Outpost and read my suit CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read my suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "can you read suit CO2 then set destination to Lunar Gate",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "can you read suit CO2 then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Gate"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Base Camp and then check suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "hey check suit CO2 plus guide me to Landing Zone 2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey check suit CO2 plus guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone 2"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Relay Station then show my suit CO2 status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show my suit CO2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit CO2 reading and then navigate to Beacon 3",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit CO2 reading and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Beacon Charlie and also report suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "check my suit CO2 while you set destination to South Crater",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check my suit CO2 while you set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination West Ridge and check suit CO2 after",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check suit CO2 after"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up suit CO2 plus navigate me to Command Module",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up suit CO2 plus navigate me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "take me to Beacon Delta and meanwhile give my suit CO2 readout",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile give my suit CO2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and check suit CO2 then set course for Cargo Bay",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and check suit CO2 then set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Airlock as well as read my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as read my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "please provide suit CO2 partial pressure and then set destination to Habitat Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please provide suit CO2 partial pressure and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to LTV and also pull up my current suit CO2 partial pressure immediately",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up my current suit CO2 partial pressure immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "formal request: check suit CO2 levels and additionally program route to Science Lab",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "formal request: check suit CO2 levels and additionally program route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Landing Pad next and at the same time display my suit CO2 numbers",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and at the same time display my suit CO2 numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a suit CO2 readout before you plot a path to South Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a suit CO2 readout before you plot a path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Hab Alpha followed by a suit CO2 status check, please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a suit CO2 status check, please"
+            }
+        ]
+    },
+    {
+        "prompt": "check helmet CO2 concentration in addition and then set destination to Storage Module",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check helmet CO2 concentration in addition and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Module"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Beacon Delta and then meanwhile report suit CO2 pressure for safety",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then meanwhile report suit CO2 pressure for safety"
+            }
+        ]
+    },
+    {
+        "prompt": "could you read out the suit CO2 levels and along with that guide me to the rover",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you read out the suit CO2 levels and along with that guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Command Center and additionally display current suit CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Center"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally display current suit CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "need suit CO2 read and then navigate to Science Outpost",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "need suit CO2 read and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "go to Home Base and check suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "yo check suit CO2 and then set destination to Beacon Charlie",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo check suit CO2 and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination West Ridge plus give me suit CO2 data",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus give me suit CO2 data"
+            }
+        ]
+    },
+    {
+        "prompt": "check suit CO2 also go Command Module",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check suit CO2 also go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Cargo Bay and then report my suit CO2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report my suit CO2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "before you start the route, check suit CO2 levels and then set destination to Lunar Surface Camp",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before you start the route, check suit CO2 levels and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Surface Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination South Crater and at the same time pull up helmet CO2 readings for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time pull up helmet CO2 readings for me"
+            }
+        ]
+    },
+    {
+        "prompt": "please verify suit CO2 concentration and then guide me to the nearest relay, target Relay Node 1",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please verify suit CO2 concentration and then guide me to the nearest relay, target "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Node 1"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Landing Zone Alpha followed by a full suit CO2 assessment, please display values",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a full suit CO2 assessment, please display values"
+            }
+        ]
+    },
+    {
+        "prompt": "quick CO2 check and go Relay 2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "quick CO2 check and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay 2"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Habitat Alpha and meanwhile run a full suit CO2 concentration diagnostic and display results",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile run a full suit CO2 concentration diagnostic and display results"
+            }
+        ]
+    },
+    {
+        "prompt": "could you pull up suit CO2 levels and then open navigation to Cargo Depot, please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you pull up suit CO2 levels and then open navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Storage Module and in addition provide helmet CO2 partial pressure numbers",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition provide helmet CO2 partial pressure numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "check suit CO2, and then set course to Beacon Delta",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check suit CO2, and then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "go to Landing Zone 2 next and then display my suit CO2 readings while plotting route",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then display my suit CO2 readings while plotting route"
+            }
+        ]
+    },
+    {
+        "prompt": "please confirm helmet CO2 ppm and as well as guide me to the Science Lab",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please confirm helmet CO2 ppm and as well as guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Rover Plus and also check suit CO2 now",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover Plus"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check suit CO2 now"
+            }
+        ]
+    },
+    {
+        "prompt": "before departure, read my suit CO2 values and then alongside that set destination to Command Hub",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before departure, read my suit CO2 values and then alongside that set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Airlock and check suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check suit CO2"
+            }
+        ]
+    }
+]
+}

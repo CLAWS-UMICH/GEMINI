@@ -1,0 +1,982 @@
+{
+  // intents: vitals_coolant_storage AND Set_navigation_target
+  // description_1: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check coolant then go to LTV",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Report coolant and navigate to Rover",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report coolant and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Coolant levels and then Home Base",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coolant levels and then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Check water plus route to Hab Alpha",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check water plus route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant then set destination LZ",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me coolant level and navigate to Forward Cache",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me coolant level and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show coolant storage then route to Airlock 3",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show coolant storage then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 3"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my water reserves and then map to Supply Depot",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my water reserves and then map to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant and then direct me to Science Lab",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and then direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant status and navigate to Sample Site Charlie",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant status and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Site Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report coolant plus set course to Command Module",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report coolant plus set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit coolant and then plot course to Habitat 2",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit coolant and then plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my coolant levels and then set destination to the Lunar Gate",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my coolant levels and then set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Gate"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide current coolant volume and then navigate to Base Camp and display route markers",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide current coolant volume and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display route markers"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking coolant reserves, show me route to the South Ridge and start navigation",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking coolant reserves, show me route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to check suit water levels and then guide me to the North Crater for sampling",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to check suit water levels and then guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " for sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up coolant storage numbers and then bring up directions to the Maintenance Bay please",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up coolant storage numbers and then bring up directions to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit coolant and also route me to the Fuel Tank",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit coolant and also route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Coolant status then go to Comm Relay",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coolant status then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you route me, check my coolant and map to Landing Zone",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you route me, check my coolant and map to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "But first verify coolant reserves and then followed by plotting a course to the Science Lab",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first verify coolant reserves and then followed by plotting a course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "I need coolant numbers and then navigate to the Orbital Beacon",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need coolant numbers and then navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Orbital Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check the suit coolant levels and then set destination to the Command Module for docking prep",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check the suit coolant levels and then set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " for docking prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my coolant plus route to EVA Staging area before we depart",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my coolant plus route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " area before we depart"
+            }
+        ]
+    },
+    {
+        "prompt": "Open coolant report and then set destination to Supply Depot",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open coolant report and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to LTV then check water",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check water"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Home Base and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Airlock 3 and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Science Lab and then pull up coolant status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Sample Site Charlie and also show coolant volume",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show coolant volume"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Module then give me coolant readings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " then give me coolant readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, take me to Base Camp and check suit water levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check suit water levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to South Ridge and then while you're plotting, also display coolant reserves for my suit",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then while you're plotting, also display coolant reserves for my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Science Lab, and then subsequently check the coolant and show me the remaining liters",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then subsequently check the coolant and show me the remaining liters"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to the Orbital Beacon and at the same time pull up my suit coolant levels plus projected duration",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Orbital Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time pull up my suit coolant levels plus projected duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide me to Maintenance Bay and then show coolant storage numbers",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show coolant storage numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to the Landing Zone and then, before we depart, check coolant and display remaining percent",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, before we depart, check coolant and display remaining percent"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Habitat 2 and also give coolant capacity status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also give coolant capacity status"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Command Module and then along with the route, bring up coolant and water reserve details",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then along with the route, bring up coolant and water reserve details"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot a course to the Science Lab followed by checking my coolant tanks and showing remaining liters",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot a course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by checking my coolant tanks and showing remaining liters"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Supply Depot and in addition show my coolant level",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition show my coolant level"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Comm Relay and additionally while en route show the suit's coolant volume and ETA",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally while en route show the suit's coolant volume and ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Geology Outcrop and then as well as mapping the path, pull up coolant storage and estimated time left",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Geology Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then as well as mapping the path, pull up coolant storage and estimated time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to the Command Module next, and then check my coolant plus show projected mission time with current reserves",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " next, and then check my coolant plus show projected mission time with current reserves"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide to Fuel Tank and then also verify coolant remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Tank"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also verify coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Direct me to EVA Staging and then additionally check the suit coolant and let me know liters remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally check the suit coolant and let me know liters remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Landing Zone and at the same time display coolant reserves as well as projected cooling time",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time display coolant reserves as well as projected cooling time"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Base Camp and then, along with the route indicators, show coolant volume and expected hours of operation",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, along with the route indicators, show coolant volume and expected hours of operation"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to South Ridge and check coolant storage next",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant storage next"
+            }
+        ]
+    }
+]
+}

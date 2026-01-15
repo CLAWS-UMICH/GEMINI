@@ -1,0 +1,645 @@
+{
+  // intents: vitals_oxy_pri_pressure AND vitals_coolant_liquid_pressure
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user needs to verify the pressure of the liquid loop in the thermal control system to ensure coolant is circulating correctly. They might ask, "Check liquid coolant pressure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check primary O2 pressure and liquid loop.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 pressure and liquid loop."
+            }
+        ]
+    },
+    {
+        "prompt": "Read main oxygen tank, then read coolant.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read main oxygen tank, then read coolant."
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure plus coolant loop pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure plus coolant loop pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show primary oxygen pressure and coolant.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show primary oxygen pressure and coolant."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, pull up primary O2 and coolant.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, pull up primary O2 and coolant."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you read primary oxygen pressure and also display coolant pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you read primary oxygen pressure and also display coolant pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide primary O2 pressure and then show liquid coolant pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide primary O2 pressure and then show liquid coolant pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "After checking primary oxygen pressure, open the coolant loop pressure report.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking primary oxygen pressure, open the coolant loop pressure report."
+            }
+        ]
+    },
+    {
+        "prompt": "Need primary tank pressure as well as coolant loop pressure readout.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need primary tank pressure as well as coolant loop pressure readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Read the primary oxygen pressure and then bring up coolant loop pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the primary oxygen pressure and then bring up coolant loop pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check primary O2 pressure and in addition show coolant pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check primary O2 pressure and in addition show coolant pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Is primary oxygen pressure nominal and additionally confirm liquid loop pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Is primary oxygen pressure nominal and additionally confirm liquid loop pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up primary O2 pressure then coolant loop pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up primary O2 pressure then coolant loop pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open primary oxygen pressure and plus show liquid loop pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open primary oxygen pressure and plus show liquid loop pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Before you adjust suit settings, read primary O2 and coolant pressures.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you adjust suit settings, read primary O2 and coolant pressures."
+            }
+        ]
+    },
+    {
+        "prompt": "Provide current primary oxygen pressure and also the coolant loop pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide current primary oxygen pressure and also the coolant loop pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the primary oxygen tank pressure and then bring up the liquid coolant loop pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the primary oxygen tank pressure and then bring up the liquid coolant loop pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to verify primary O2 pressure, followed by a check of coolant loop pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to verify primary O2 pressure, followed by a check of coolant loop pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, while you're at it read primary oxygen pressure as well as check liquid loop pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, while you're at it read primary oxygen pressure as well as check liquid loop pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Check the primary oxygen pressure first, and then show me the coolant loop pressure next.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the primary oxygen pressure first, and then show me the coolant loop pressure next."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary oxygen pressure, and in addition provide the thermal coolant liquid pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary oxygen pressure, and in addition provide the thermal coolant liquid pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you confirm primary O2 pressure and at the same time read the coolant loop pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you confirm primary O2 pressure and at the same time read the coolant loop pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme primary oxygen pressure and along with that the coolant reading.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme primary oxygen pressure and along with that the coolant reading."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and before we suit up, read primary oxygen pressure plus verify coolant liquid loop pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and before we suit up, read primary oxygen pressure plus verify coolant liquid loop pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Check liquid coolant pressure and primary O2.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check liquid coolant pressure and primary O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Read coolant loop pressure then O2.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read coolant loop pressure then O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant pressure plus primary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant pressure plus primary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo pull up coolant and primary O2.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo pull up coolant and primary O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Liquid loop pressure and primary O2 reading?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Liquid loop pressure and primary O2 reading?"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you display coolant loop pressure and also the primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you display coolant loop pressure and also the primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify coolant liquid pressure and then provide primary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify coolant liquid pressure and then provide primary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "While checking coolant loop pressure, could you also read primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While checking coolant loop pressure, could you also read primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant loop pressure and primary tank pressure displayed now.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant loop pressure and primary tank pressure displayed now."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coolant pressure as well as primary oxygen pressure readings.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coolant pressure as well as primary oxygen pressure readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey open coolant loop pressure and in addition pull primary O2.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey open coolant loop pressure and in addition pull primary O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read coolant pressure and additionally confirm primary oxygen pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read coolant pressure and additionally confirm primary oxygen pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the coolant liquid loop pressure first, then bring up the primary oxygen tank pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the coolant liquid loop pressure first, then bring up the primary oxygen tank pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up coolant loop pressure and then follow with the primary O2 pressure report.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up coolant loop pressure and then follow with the primary O2 pressure report."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you confirm coolant loop pressure and at the same time check the primary oxygen pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you confirm coolant loop pressure and at the same time check the primary oxygen pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile read coolant liquid pressure and then open the primary O2 pressure display.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile read coolant liquid pressure and then open the primary O2 pressure display."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and after you confirm coolant pressure, please also show me the primary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and after you confirm coolant pressure, please also show me the primary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Before adjusting thermal controls, check coolant loop pressure and then read the primary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before adjusting thermal controls, check coolant loop pressure and then read the primary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Verify coolant loop pressure along with the primary oxygen tank pressure plus report any anomalies.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify coolant loop pressure along with the primary oxygen tank pressure plus report any anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you first verify coolant liquid pressure, followed by reporting the primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you first verify coolant liquid pressure, followed by reporting the primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the coolant loop pressure and then, at the same time, bring up the primary oxygen pressure readout.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the coolant loop pressure and then, at the same time, bring up the primary oxygen pressure readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme have the coolant pressure reading and along with that the main O2 tank pressure, please.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme have the coolant pressure reading and along with that the main O2 tank pressure, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm coolant loop pressure and additionally provide the current primary oxygen pressure values.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm coolant loop pressure and additionally provide the current primary oxygen pressure values."
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant pressure, but first read primary oxygen pressure and then compare both readings.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant pressure, but first read primary oxygen pressure and then compare both readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant liquid loop pressure and the primary tank oxygen pressure displayed before extravehicular activity.",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant liquid loop pressure and the primary tank oxygen pressure displayed before extravehicular activity."
+            }
+        ]
+    }
+]
+}

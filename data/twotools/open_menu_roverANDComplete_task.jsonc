@@ -1,0 +1,1182 @@
+{
+  // intents: open_menu_rover AND Complete_task
+  // description_1: The user wants to access telemetry and control interfaces specific to the Pressurized Rover (PR) or Lunar Terrain Vehicle (LTV). They might ask, "Open rover dashboard" or "Show LTV status."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open rover vitals and finish EVA prep",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover vitals and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical complete then show LTV dashboard",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete then show LTV dashboard"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display PR battery and mark battery check done?",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display PR battery and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done?"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Antenna Check and open rover telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "open the HUD then mark Seal Hatch as complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open the HUD then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "please bring up LTV status and then finish Tether Secure",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please bring up LTV status and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Secure"
+            }
+        ]
+    },
+    {
+        "prompt": "show PR power plus mark Sample Stow complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show PR power plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up rover comms while I mark Comm Relay Test done",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up rover comms while I mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Relay Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "display rover suit data after completing Life Support Cycle",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display rover suit data after completing "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Life Support Cycle"
+            }
+        ]
+    },
+    {
+        "prompt": "open vitals as well as mark Telemetry Sync complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open vitals as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Telemetry Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Tool Inventory done and show PR diagnostics next",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and show PR diagnostics next"
+            }
+        ]
+    },
+    {
+        "prompt": "after you open the rover map, finish Thermal Check",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you open the rover map, finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Check"
+            }
+        ]
+    },
+    {
+        "prompt": "open LTV status along with mark Radiation Survey complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open LTV status along with mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Survey"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "show wheel telemetry and then finish Wheel Inspection",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show wheel telemetry and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Wheel Inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up rover power in addition mark Solar Array Deploy done",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up rover power in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "open camera feed additionally finish Camera Cal",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open camera feed additionally finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Cal"
+            }
+        ]
+    },
+    {
+        "prompt": "meanwhile show rover nav and mark Navigation Update complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "meanwhile show rover nav and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Navigation Update"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "open the PR diagnostics oh and finish Glove Seal",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open the PR diagnostics oh and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Seal"
+            }
+        ]
+    },
+    {
+        "prompt": "show suit telemetry and then mark Helmet Visor Clear done",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show suit telemetry and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Visor Clear"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR diagnostics followed by finish Emergency Drill",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR diagnostics followed by finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Emergency Drill"
+            }
+        ]
+    },
+    {
+        "prompt": "show rover power then mark Fuel Transfer complete please",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show rover power then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete please"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Hab Pressure Equalize then open LTV life support menu",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hab Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open LTV life support menu"
+            }
+        ]
+    },
+    {
+        "prompt": "reset CO2 Scrub Replace and show rover environmental status",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "reset "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrub Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show rover environmental status"
+            }
+        ]
+    },
+    {
+        "prompt": "please mark Docking Clamp complete and pull up PR cameras",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Clamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and pull up PR cameras"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Aft Camera Check and display LTV external feed",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Aft Camera Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display LTV external feed"
+            }
+        ]
+    },
+    {
+        "prompt": "open seat sensors and then mark Seat Belt Check as done",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open seat sensors and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seat Belt Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Umbilical Disconnect then show rover HUD plus telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Disconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show rover HUD plus telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover leak monitor and finish Suit Leak Test next",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover leak monitor and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "show PR battery status as well as mark Battery Swap complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show PR battery status as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "open diagnostic panel and then finish Sensor Recal please",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open diagnostic panel and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor Recal"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "mark O2 Monitor Reset and show rover life support at the same time",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "O2 Monitor Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show rover life support at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "open the PR power bus meanwhile mark Main Relay Reset completed",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open the PR power bus meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Main Relay Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme the rover payload status and then finish Payload Lock",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme the rover payload status and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Lock"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR brakes display and mark Rover Brakes Test done",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR brakes display and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rover Brakes Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Thermal Blanket Secure then open rover thermal map",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open rover thermal map"
+            }
+        ]
+    },
+    {
+        "prompt": "open laptop sync and then mark Laptop Sync as complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open laptop sync and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Laptop Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "display rover data dump and finish Data Dump after that",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display rover data dump and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Dump"
+            },
+            {
+                "type": "TEXT",
+                "text": " after that"
+            }
+        ]
+    },
+    {
+        "prompt": "please show power distribution and mark Power Bus Reboot complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please show power distribution and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Power Bus Reboot"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "open manual control panel and then finish Manual Control Engage",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open manual control panel and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Manual Control Engage"
+            }
+        ]
+    },
+    {
+        "prompt": "Map Waypoint Set first then show rover nav interface",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Map "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waypoint Set"
+            },
+            {
+                "type": "TEXT",
+                "text": " first then show rover nav interface"
+            }
+        ]
+    },
+    {
+        "prompt": "Display radiation shield status and then mark Radiation Shield Close",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display radiation shield status and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Shield Close"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Solar Panel Sweep completed and open PR solar controls",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Sweep"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed and open PR solar controls"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Thermistor Check and pull up rover sensor board plus logs",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermistor Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up rover sensor board plus logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Open LTV HUD and then mark Camera Focus Cal complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open LTV HUD and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Focus Cal"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Sample Labeling before you show PR manifest",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Labeling"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you show PR manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover diagnostics and then mark Comm Antenna Align complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover diagnostics and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Antenna Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Brake Pad Replace then pull up PR brake system as well as logs",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Brake Pad Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up PR brake system as well as logs"
+            }
+        ]
+    },
+    {
+        "prompt": "show rover status and then mark Antenna Tuning done, please",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show rover status and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Tuning"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, please"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR telemetry and then finish Front Bumper Align, thanks",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR telemetry and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Front Bumper Align"
+            },
+            {
+                "type": "TEXT",
+                "text": ", thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "finish payload manifest update plus show LTV cargo bay",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "payload manifest update"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show LTV cargo bay"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover status and then mark Sensor Array Check as complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover status and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor Array Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Navigation Calibration then show PR nav map and telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Navigation Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show PR nav map and telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover logs followed by mark Science Log Upload complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover logs followed by mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Science Log Upload"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Sample Transfer as done and then display PR sample manifest",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and then display PR sample manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR battery details and then finish Main Bus Balance task",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR battery details and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Main Bus Balance"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "please finish Science Prep and open LTV experiment panel",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Science Prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open LTV experiment panel"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover power and then mark Bus Isolation as complete",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover power and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Bus Isolation"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "show LTV HUD additionally finish Solar Array Check now",
+        "tool_calls": [
+            "open_menu_rover",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show LTV HUD additionally finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,1468 @@
+{
+  // intents: vitals_oxy_pri_pressure AND delete_waypoint
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and delete Alpha",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Home then read primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check O2 pressure and delete Bravo",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 pressure and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Charlie then check primary pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide primary oxygen pressure and then remove Home Base",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide primary oxygen pressure and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Old Camp waypoint and also show primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and also show primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals, show primary oxygen pressure and remove Ridge Marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals, show primary oxygen pressure and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Science Site marker then display primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker then display primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check main O\u2082 pressure and remove Supply Cache",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check main O\u2082 pressure and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Hab1 then read O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up primary oxygen pressure and then delete Beacon One",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up primary oxygen pressure and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Cache-3 plus also report primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus also report primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary O2 tank pressure and remove EVA Staging marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary O2 tank pressure and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove LMS-4 and then show me the primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LMS-4"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me the primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need the current primary oxygen pressure followed by deleting Alpha Site from the map",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need the current primary oxygen pressure followed by deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Base Beacon marker first and then display the main oxygen tank pressure for me",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker first and then display the main oxygen tank pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the main O2 pressure in addition and remove North Ridge waypoint afterwards",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the main O2 pressure in addition and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove South Pit from the map, and after that pull up primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map, and after that pull up primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me primary oxygen pressure while you delete East Depot waypoint",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me primary oxygen pressure while you delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete West Beacon and also read the primary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read the primary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read O2 pressure and remove Relay-2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read O2 pressure and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Transit Node then check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Transit Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit vitals and delete Emergency Cache marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit vitals and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Crew Quarters marker plus show primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crew Quarters"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker plus show primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the current primary oxygen pressure and at the same time clear the Hangar Bay waypoint",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the current primary oxygen pressure and at the same time clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hangar Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Solar Array marker before showing me the primary oxygen tank pressure, please",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker before showing me the primary oxygen tank pressure, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary oxygen pressure and delete the Fuel Dump marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary oxygen pressure and delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Dump"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Primary Dock and additionally display main O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Primary Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally display main O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show primary oxygen pressure as well as remove Secondary Dock from view",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show primary oxygen pressure as well as remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Secondary Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " from view"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Observation Post, then pull up the primary O2 pressure and then remove duplicate markers",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then pull up the primary O2 pressure and then remove duplicate markers"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a readout of primary oxygen pressure in addition to deleting the Rock Outcrop waypoint to declutter",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a readout of primary oxygen pressure in addition to deleting the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint to declutter"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Landing Pad and also show me the primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show me the primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up main O2 pressure and then remove Supply Drop waypoint",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up main O2 pressure and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Med Tent and read O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Med Tent"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, display the primary oxygen tank pressure and along with that remove the Command Post marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, display the primary oxygen tank pressure and along with that remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Command Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Depot A next and bring up primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot A"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and bring up primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary oxygen pressure and then clear Depot B from the map",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary oxygen pressure and then clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot B"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Gamma Point but first report the primary O2 tank pressure for EVA checks",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first report the primary O2 tank pressure for EVA checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Check O2 pressure and delete Delta Camp",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 pressure and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Echo Bay then show main oxygen pressure as well",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show main oxygen pressure as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics, show primary oxygen pressure and remove Foxtrot Marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics, show primary oxygen pressure and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove GSA-1, meanwhile pull up the primary oxygen pressure and verify nominal levels",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "GSA-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile pull up the primary oxygen pressure and verify nominal levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you confirm primary oxygen pressure and additionally delete the Tool Cache waypoint from the HUD",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you confirm primary oxygen pressure and additionally delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tool Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Lathe Bay and also display the main O\u2082 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lathe Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display the main O\u2082 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary oxygen readings and then remove Oxygen Cache marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary oxygen readings and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Oxygen Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Pond Marker then read O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pond Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the current primary O2 pressure, and then followed by that remove Skylab-1 from my map",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the current primary O2 pressure, and then followed by that remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Skylab-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Zenith along with showing primary oxygen pressure so I can confirm safe levels",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Zenith"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with showing primary oxygen pressure so I can confirm safe levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen pressure oh and remove Beacon-B marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen pressure oh and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Nadir and then show primary oxygen pressure for systems check",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nadir"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show primary oxygen pressure for systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme the primary oxygen pressure and clear Home Base marker please",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme the primary oxygen pressure and clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker please"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Landing Pad marker and after check the primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and after check the primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit data, show primary oxygen pressure and then remove Supply Cache",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit data, show primary oxygen pressure and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Rock Outcrop waypoint, and next show main O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint, and next show main O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary oxygen pressure as well as delete the Landing Pad marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary oxygen pressure as well as delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Supply Drop and also display the primary O2 reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display the primary O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see the primary oxygen pressure and then clear the Med Tent marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see the primary oxygen pressure and then clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Med Tent"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Command Post, while showing primary oxygen pressure for verification",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Command Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", while showing primary oxygen pressure for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you get me the primary oxygen pressure and as well as delete Depot A marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you get me the primary oxygen pressure and as well as delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot A"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Gamma Point but first confirm the primary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first confirm the primary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen pressure and clear Delta Camp marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen pressure and clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Echo Bay next and then display the primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then display the primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics, pull up primary oxygen pressure and then remove Foxtrot Marker",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics, pull up primary oxygen pressure and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete GSA-1, meanwhile pull primary oxygen pressure and verify nominal",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "GSA-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile pull primary oxygen pressure and verify nominal"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm primary oxygen pressure additionally and remove the Tool Cache waypoint",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm primary oxygen pressure additionally and remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tool Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Lathe Bay and also pull up the main O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lathe Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up the main O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary oxygen readings and then remove Oxygen Cache",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary oxygen readings and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Oxygen Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Pond Marker then confirm primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pond Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " then confirm primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary oxygen pressure followed by clearing Skylab-1 from the display",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary oxygen pressure followed by clearing "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Skylab-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the display"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Zenith along with showing primary oxygen pressure to confirm nominal",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Zenith"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with showing primary oxygen pressure to confirm nominal"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen pressure oh and remove Beacon-B",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen pressure oh and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-B"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home Base and then show primary oxygen pressure for systems check",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show primary oxygen pressure for systems check"
+            }
+        ]
+    }
+]
+}

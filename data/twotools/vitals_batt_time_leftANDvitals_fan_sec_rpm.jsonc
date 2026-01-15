@@ -1,0 +1,658 @@
+{
+  // intents: vitals_batt_time_left AND vitals_fan_sec_rpm
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check battery time left and fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery time left and fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan RPM then battery time?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan RPM then battery time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery remaining, also report secondary fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery remaining, also report secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM and battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM and battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me battery duration plus fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me battery duration plus fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Status of backup fan and battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of backup fan and battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time, then secondary fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time, then secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check fan RPM and battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check fan RPM and battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show battery time and fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show battery time and fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Report fan RPM plus power time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report fan RPM plus power time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up battery time left and fan RPM?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up battery time left and fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary fan RPM then open battery status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary fan RPM then open battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "I need battery remaining time as well as secondary fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need battery remaining time as well as secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up backup fan RPM and battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up backup fan RPM and battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide power time left plus backup fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide power time left plus backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking secondary fan RPM, then tell me battery time left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking secondary fan RPM, then tell me battery time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit battery status and then show secondary fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit battery status and then show secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display backup fan RPM followed by my battery remaining time?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display backup fan RPM followed by my battery remaining time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up charge time remaining and fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up charge time remaining and fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see the backup fan RPM and battery duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see the backup fan RPM and battery duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me remaining suit power time in addition to fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me remaining suit power time in addition to fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check the secondary fan RPM and report battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check the secondary fan RPM and report battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery minutes left and secondary fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery minutes left and secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open fan RPM readout and also show battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open fan RPM readout and also show battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Need battery time left as well as the backup fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need battery time left as well as the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan RPM and then battery remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan RPM and then battery remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up battery status and at the same time show fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up battery status and at the same time show fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary fan RPM and also tell me battery time and vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary fan RPM and also tell me battery time and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey show battery time, and then fan RPM please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey show battery time, and then fan RPM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary fan status plus battery time left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary fan status plus battery time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need you to pull up my battery time remaining while also displaying secondary fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need you to pull up my battery time remaining while also displaying secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the backup ventilation fan RPM, followed by the suit battery time left for mission planning",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the backup ventilation fan RPM, followed by the suit battery time left for mission planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Check current power remaining and additionally bring up the secondary fan RPM readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check current power remaining and additionally bring up the secondary fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, check the secondary fan RPM and then after that tell me how much battery time I have left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, check the secondary fan RPM and then after that tell me how much battery time I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show remaining charge time for the suit and also display the secondary fan RPM values?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show remaining charge time for the suit and also display the secondary fan RPM values?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything else, read out secondary fan RPM and then report my battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything else, read out secondary fan RPM and then report my battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the battery duration estimate plus the backup fan RPM numbers, so I can decide whether to return now",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the battery duration estimate plus the backup fan RPM numbers, so I can decide whether to return now"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary fan RPM panel along with the suit power time-left display, please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary fan RPM panel along with the suit power time-left display, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up how many minutes my battery has left and at the same time show fan RPM",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up how many minutes my battery has left and at the same time show fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan RPM, and then as well show my remaining suit battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan RPM, and then as well show my remaining suit battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the estimated remaining operational time for battery and additionally confirm secondary fan RPM and suit biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the estimated remaining operational time for battery and additionally confirm secondary fan RPM and suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, verify the secondary fan RPM readings and bring up the battery time-left so we can plan",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, verify the secondary fan RPM readings and bring up the battery time-left so we can plan"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the battery minutes remaining and additionally pull up the backup fan RPM report now",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the battery minutes remaining and additionally pull up the backup fan RPM report now"
+            }
+        ]
+    },
+    {
+        "prompt": "First check the secondary fan RPM, but first tell me how much battery time is left overall",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First check the secondary fan RPM, but first tell me how much battery time is left overall"
+            }
+        ]
+    },
+    {
+        "prompt": "After you open the battery time display, also open the secondary fan RPM telemetry panel",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you open the battery time display, also open the secondary fan RPM telemetry panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the backup fan RPM and then next bring up battery time remaining for EVA",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the backup fan RPM and then next bring up battery time remaining for EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, show my suit power time remaining and additionally check secondary fan RPM before I move",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, show my suit power time remaining and additionally check secondary fan RPM before I move"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify secondary fan RPM and then also display the battery time-left readout for crew status verification",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify secondary fan RPM and then also display the battery time-left readout for crew status verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Open battery status and along with that display the backup fan RPM numbers",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open battery status and along with that display the backup fan RPM numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the secondary fan RPM, and then tell me my remaining battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the secondary fan RPM, and then tell me my remaining battery time"
+            }
+        ]
+    }
+]
+}

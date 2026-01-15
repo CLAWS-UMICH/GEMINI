@@ -1,0 +1,983 @@
+{
+  // intents: vitals_fan_sec_rpm AND Add_task
+  // description_1: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Secondary fan RPM, add task inspect antenna",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup ventilation fan RPM then create task: collect soil sample",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup ventilation fan RPM then create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect soil sample"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the secondary fan RPM and add task replace filter cartridge",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the secondary fan RPM and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter cartridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check auxiliary fan RPM and then remind me to tighten hatch bolts",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check auxiliary fan RPM and then remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tighten hatch bolts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary ventilation fan RPM and add task perform suit leak check",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary ventilation fan RPM and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform suit leak check"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup fan RPM reading, then put on checklist calibrate spectrometer",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup fan RPM reading, then put on checklist "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate spectrometer"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary fan RPM and also add task inspect solar panel wiring",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary fan RPM and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel wiring"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up backup ventilation RPM plus create task: photograph rock strata",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up backup ventilation RPM plus create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph rock strata"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary fan RPM and log task replace comms antenna",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary fan RPM and log task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace comms antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary fan RPM while adding task secure loose tools",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM while adding task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose tools"
+            }
+        ]
+    },
+    {
+        "prompt": "Read backup fan RPM after that add task inspect EVA tether",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read backup fan RPM after that add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect EVA tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM first, and then create task: check radiation monitor",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM first, and then create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check radiation monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Display backup fan RPM as well as add task verify sample container seals",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display backup fan RPM as well as add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify sample container seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the secondary fan RPM and along with that schedule battery swap",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the secondary fan RPM and along with that schedule "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery swap"
+            }
+        ]
+    },
+    {
+        "prompt": "Open backup fan RPM display in addition add task inspect thermal blanket",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open backup fan RPM display in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thermal blanket"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally show secondary fan RPM and add task run propulsion check",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally show secondary fan RPM and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run propulsion check"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check the backup fan RPM and then add task replace CO2 scrubber",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check the backup fan RPM and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace CO2 scrubber"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check secondary fan RPM, add task: inventory sample kits",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check secondary fan RPM, add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory sample kits"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan RPM and then jot down task tighten solar array clamp",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan RPM and then jot down task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tighten solar array clamp"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time display secondary fan RPM and add task run environmental sampling",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time display secondary fan RPM and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run environmental sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by reading the backup fan RPM, please add task check coolant lines",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by reading the backup fan RPM, please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant lines"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan RPM before you do anything else and add task update nav logs",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan RPM before you do anything else and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "update nav logs"
+            }
+        ]
+    },
+    {
+        "prompt": "But first check the backup fan RPM, then add task secure geology samples",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first check the backup fan RPM, then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure geology samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary ventilation RPM and add task replace worn tether",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary ventilation RPM and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace worn tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect coolant pump, then check secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect coolant pump"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then check secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task: swap battery pack and then show backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap battery pack"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to seal sample jars and also pull up the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal sample jars"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Log task check suit comms plus check backup ventilation fan RPM status",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check suit comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check backup ventilation fan RPM status"
+            }
+        ]
+    },
+    {
+        "prompt": "Put on the list: reorient antenna and bring up secondary fan RPM afterwards",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put on the list: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "reorient antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up secondary fan RPM afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: inspect manifold while also showing the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect manifold"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also showing the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "New task replace oxygen sensors as well as read secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "New task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace oxygen sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as read secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you add task check EVA backpacks and meanwhile check backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check EVA backpacks"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile check backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme add task secure comms cable and then show secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure comms cable"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task check pressure valves and before that display backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check pressure valves"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before that display backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to create task inspect thermal seals and next pull up secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thermal seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next pull up secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Schedule task: run camera diagnostics followed by reading backup ventilation RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Schedule task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run camera diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reading backup ventilation RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect drill head and then check secondary fan RPM next",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect drill head"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check secondary fan RPM next"
+            }
+        ]
+    },
+    {
+        "prompt": "Put task replace micrometeorite shield and plus show backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace micrometeorite shield"
+            },
+            {
+                "type": "TEXT",
+                "text": " and plus show backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Log: top up coolant reservoir and at the same time display secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "top up coolant reservoir"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time display secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect suit joints and then also pull the backup fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect suit joints"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also pull the backup fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Create new task: secure science bags and meanwhile show secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create new task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure science bags"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add task test oxygen gauge and additionally read backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test oxygen gauge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally read backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please create task inspect thermal paint and oh and check the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thermal paint"
+            },
+            {
+                "type": "TEXT",
+                "text": " and oh and check the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: confirm sample labels and then also display backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "confirm sample labels"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also display backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Log a reminder to clean visor and then bring up secondary fan RPM, please",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log a reminder to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean visor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up secondary fan RPM, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect solar tracker and followed by reading backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar tracker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and followed by reading backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to document sample locations plus check secondary ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document sample locations"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check secondary ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: verify thermal control, and then show backup fan RPM stats",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify thermal control"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then show backup fan RPM stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme add task test emergency beacon and while you're at it read the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test emergency beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it read the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please put task inspect sample tray and additionally pull the backup fan RPM reading",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please put task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect sample tray"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull the backup fan RPM reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you schedule task clean solar sensors and as well as show secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you schedule task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean solar sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as show secondary fan RPM"
+            }
+        ]
+    }
+]
+}

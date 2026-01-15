@@ -1,0 +1,1197 @@
+{
+  // intents: close_menu AND Complete_task
+  // description_1: The user wants to minimize or dismiss the currently active AR window to clear their field of view. The command would be "Close menu" or "Dismiss window."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "close the menu and mark TASK_NAME as complete",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the menu and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME done then hide the AR window",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done then hide the AR window"
+            }
+        ]
+    },
+    {
+        "prompt": "dismiss the overlay and finish TASK_NAME please",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "dismiss the overlay and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "finish TASK_NAME and then close the menu",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the menu"
+            }
+        ]
+    },
+    {
+        "prompt": "hide the window then mark TASK_NAME complete",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hide the window then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME as done and hide my HUD",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and hide my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "minimize the menu plus check off TASK_NAME",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "minimize the menu plus check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Reset"
+            }
+        ]
+    },
+    {
+        "prompt": "check off TASK_NAME then dismiss the AR panel",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " then dismiss the AR panel"
+            }
+        ]
+    },
+    {
+        "prompt": "clear the display while I mark TASK_NAME complete",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear the display while I mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Attach"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME complete and then hide menu",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then hide menu"
+            }
+        ]
+    },
+    {
+        "prompt": "close menu then finish TASK_NAME, please",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close menu then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "complete TASK_NAME plus dismiss the status display",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Communications Link"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus dismiss the status display"
+            }
+        ]
+    },
+    {
+        "prompt": "dismiss HUD and then mark TASK_NAME as done",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "dismiss HUD and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME and then clear the AR overlay",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then clear the AR overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "please hide the menu while I mark TASK_NAME finished",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please hide the menu while I mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Prop Valve Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "finish TASK_NAME and then minimize the overlay, thanks",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then minimize the overlay, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "hide the AR panel and mark TASK_NAME complete afterwards",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hide the AR panel and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Cell Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME completed before you clear the display",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Navigation Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed before you clear the display"
+            }
+        ]
+    },
+    {
+        "prompt": "clear my view and then check off TASK_NAME",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear my view and then check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Pin Engage"
+            }
+        ]
+    },
+    {
+        "prompt": "check TASK_NAME off and also hide that HUD panel",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cutting Tool Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " off and also hide that HUD panel"
+            }
+        ]
+    },
+    {
+        "prompt": "close the menu followed by marking TASK_NAME complete",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the menu followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME complete and then close the status overlay immediately",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Visor Defog"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then close the status overlay immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "minimize AR and then finish TASK_NAME, could you?",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "minimize AR and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": ", could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "complete TASK_NAME and meanwhile hide my menu",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Seal Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile hide my menu"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and close the menu then mark TASK_NAME done",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and close the menu then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lighting Adjust"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME finished and then minimize the info panel",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Upload"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished and then minimize the info panel"
+            }
+        ]
+    },
+    {
+        "prompt": "hide that menu as well as check TASK_NAME off",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hide that menu as well as check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Stabilizer Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " off"
+            }
+        ]
+    },
+    {
+        "prompt": "check off TASK_NAME plus close the HUD for now",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus close the HUD for now"
+            }
+        ]
+    },
+    {
+        "prompt": "clear the overlay and then mark TASK_NAME complete, thanks",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear the overlay and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gyro Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "finish TASK_NAME and then dismiss the heads-up display",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "External Camera Focus"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the heads-up display"
+            }
+        ]
+    },
+    {
+        "prompt": "close the window and also mark TASK_NAME as complete",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the window and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Life Support Audit"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME complete and then hide the menu at the same time",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then hide the menu at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme a quick minimize of AR and mark TASK_NAME off",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme a quick minimize of AR and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " off"
+            }
+        ]
+    },
+    {
+        "prompt": "check TASK_NAME off followed by hiding the overlay please",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " off followed by hiding the overlay please"
+            }
+        ]
+    },
+    {
+        "prompt": "close the menu before you mark TASK_NAME done",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the menu before you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "finish TASK_NAME and additionally dismiss the info overlay",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally dismiss the info overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "hide HUD and then mark TASK_NAME complete, next?",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hide HUD and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, next?"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME done along with minimizing the menu",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " done along with minimizing the menu"
+            }
+        ]
+    },
+    {
+        "prompt": "close my display and then finalize TASK_NAME, thanks",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close my display and then finalize "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "finish TASK_NAME then close the HUD, could you do that?",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Attach"
+            },
+            {
+                "type": "TEXT",
+                "text": " then close the HUD, could you do that?"
+            }
+        ]
+    },
+    {
+        "prompt": "dismiss the menu and also mark TASK_NAME as finished",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "dismiss the menu and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME complete then clear the HUD for me",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete then clear the HUD for me"
+            }
+        ]
+    },
+    {
+        "prompt": "can you hide the overlay and also mark TASK_NAME done?",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "can you hide the overlay and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Communications Link"
+            },
+            {
+                "type": "TEXT",
+                "text": " done?"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME as complete and then minimize that panel",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then minimize that panel"
+            }
+        ]
+    },
+    {
+        "prompt": "close the overlay and then check TASK_NAME off, please",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the overlay and then check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " off, please"
+            }
+        ]
+    },
+    {
+        "prompt": "check TASK_NAME off before you hide the HUD",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Prop Valve Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " off before you hide the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "hide my AR display and then mark TASK_NAME complete, thanks",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hide my AR display and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME complete and then hide the overlay, additionally report",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Cell Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then hide the overlay, additionally report"
+            }
+        ]
+    },
+    {
+        "prompt": "close HUD next and mark TASK_NAME done while you can",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close HUD next and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Navigation Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " done while you can"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME and then dismiss the AR window, at the same time",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Pin Engage"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the AR window, at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "hide the menu and then close TASK_NAME off, could you?",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hide the menu and then close "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cutting Tool Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " off, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "finish TASK_NAME plus hide the HUD now",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus hide the HUD now"
+            }
+        ]
+    },
+    {
+        "prompt": "close the menu followed by checking TASK_NAME off, please",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the menu followed by checking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Visor Defog"
+            },
+            {
+                "type": "TEXT",
+                "text": " off, please"
+            }
+        ]
+    },
+    {
+        "prompt": "check TASK_NAME off and then minimize the overlay, oh and report",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " off and then minimize the overlay, oh and report"
+            }
+        ]
+    },
+    {
+        "prompt": "minimize the HUD and then mark TASK_NAME complete, followed by comms update",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "minimize the HUD and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Seal Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, followed by comms update"
+            }
+        ]
+    },
+    {
+        "prompt": "mark TASK_NAME done in addition and hide the overlay",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lighting Adjust"
+            },
+            {
+                "type": "TEXT",
+                "text": " done in addition and hide the overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "clear the HUD and then close out TASK_NAME, next step please",
+        "tool_calls": [
+            "close_menu",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear the HUD and then close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Upload"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next step please"
+            }
+        ]
+    }
+]
+}

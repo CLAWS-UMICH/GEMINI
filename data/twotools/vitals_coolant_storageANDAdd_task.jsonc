@@ -1,0 +1,958 @@
+{
+  // intents: vitals_coolant_storage AND Add_task
+  // description_1: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check coolant and add task inspect panel",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task collect sample then check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Coolant left and add task clean visor",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coolant left and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean visor"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect antenna then check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "yo show coolant and task swap filter",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo show coolant and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task tighten bolts then coolant status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tighten bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " then coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check thermal fluid and task calibrate arm",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check thermal fluid and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate arm"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task sample soil plus check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample soil"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme coolant and task power cycle",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme coolant and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power cycle"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task verify seals then coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " then coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining coolant volume and then add task inspect solar array",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining coolant volume and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task replace thermal tubing while also reporting coolant levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace thermal tubing"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also reporting coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "How much water is left plus create task collect rock sample",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much water is left plus create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect rock sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to recalibrate sensors and then show coolant gauge, hey",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show coolant gauge, hey"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display coolant storage and also add task check tether",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display coolant storage and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect comm dish followed by reporting coolant remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect comm dish"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up coolant level then add task reseal hatch",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up coolant level then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "reseal hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Create new task: clear debris as well as show coolant status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create new task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clear debris"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit coolant readout and then make task test comms",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit coolant readout and then make task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task lubricate joint, then bring up coolant levels, lemme see",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "lubricate joint"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then bring up coolant levels, lemme see"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my coolant reserve in addition add task check life support",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my coolant reserve in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check life support"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect solar joints and also report coolant remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar joints"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile report coolant percentage and add task test radiation sensors",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile report coolant percentage and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test radiation sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task replace filter next show current coolant quantity",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " next show current coolant quantity"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant reservoir then also add task inspect EVA suit joints",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant reservoir then also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect EVA suit joints"
+            }
+        ]
+    },
+    {
+        "prompt": "Make task test pump before you display coolant level",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Make task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test pump"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you display coolant level"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me coolant status and then add task secure toolbag",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me coolant status and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure toolbag"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task survey crater while also pulling up coolant numbers",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "survey crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also pulling up coolant numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Show remaining coolant and in addition add task reboot module",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show remaining coolant and in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "reboot module"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task perform leak check as well as show coolant level",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform leak check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show coolant level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining coolant volume and then add task: inspect external solar panel for debris",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining coolant volume and then add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect external solar panel for debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: collect regolith sample, and then please show me current coolant storage levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect regolith sample"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then please show me current coolant storage levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Report coolant remaining percentage followed by adding task to secure loose comm cable after EVA",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report coolant remaining percentage followed by adding task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose comm cable after EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task replace broken valve while also bringing up the suit's coolant level readout",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace broken valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also bringing up the suit's coolant level readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the coolant gauge and additionally create a task to test the external camera",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the coolant gauge and additionally create a task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test the external camera"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task recalibrate the suit's temperature regulator, and then show me how much coolant remains",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate the suit's temperature regulator"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then show me how much coolant remains"
+            }
+        ]
+    },
+    {
+        "prompt": "While you're at it report current coolant liters remaining next add task to inspect the antenna",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you're at it report current coolant liters remaining next add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect the antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task perform pressure leak test followed by pulling up the coolant reservoir status and percentage",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform pressure leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by pulling up the coolant reservoir status and percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Check how much thermal fluid I have left and then add task to replace the heat exchanger",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check how much thermal fluid I have left and then add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace the heat exchanger"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task: verify battery and suit seals, and then bring up the suit coolant storage numbers please",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify battery and suit seals"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then bring up the suit coolant storage numbers please"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you start diagnostics, check the coolant remaining and add task to log the anomaly to Mission Control",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you start diagnostics, check the coolant remaining and add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log the anomaly to Mission Control"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect EVA lights but first show me coolant level and remaining liters in the suit",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect EVA lights"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show me coolant level and remaining liters in the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time report coolant tank status as well as add task to recalibrate the navigation sensors",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time report coolant tank status as well as add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate the navigation sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure loose insulation along with pulling up my coolant reserve and percent remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose insulation"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with pulling up my coolant reserve and percent remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my coolant levels in the suit and then add task to test the robotic arm",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my coolant levels in the suit and then add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test the robotic arm"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect the habitat hatch, additionally display the remaining coolant liters and percentage on my HUD",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect the habitat hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally display the remaining coolant liters and percentage on my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile bring up coolant storage numbers and add task to note the timestamp and crew ID for log",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile bring up coolant storage numbers and add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "note the timestamp and crew ID for log"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task run diagnostics on the oxygen scrubber, and then bring up coolant remaining and reserve status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics on the oxygen scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then bring up coolant remaining and reserve status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the suit coolant reservoir level next add task to inspect micrometeorite shield edges",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the suit coolant reservoir level next add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect micrometeorite shield edges"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task: document frost build-up on the port radiator, then also show me remaining coolant and percent",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document frost build-up on the port radiator"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then also show me remaining coolant and percent"
+            }
+        ]
+    }
+]
+}

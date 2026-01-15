@@ -1,0 +1,658 @@
+{
+  // intents: vitals_suit_pressure_co2 AND reroute_navigation
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, "Find a new route" or "Reroute."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read suit CO2 and reroute.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 and reroute."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute now then read CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute now then read CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2, then find route.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2, then find route."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute and show CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute and show CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up CO2 pressure plus recalc path.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up CO2 pressure plus recalc path."
+            }
+        ]
+    },
+    {
+        "prompt": "Plot new route while reading CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot new route while reading CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Open CO2 readout after reroute.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open CO2 readout after reroute."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute before checking CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute before checking CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Need CO2 check but first reroute.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need CO2 check but first reroute."
+            }
+        ]
+    },
+    {
+        "prompt": "Show CO2 as well as reroute.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show CO2 as well as reroute."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you read my suit CO2 and also compute a new path?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you read my suit CO2 and also compute a new path?"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me around debris and then show current CO2 levels.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me around debris and then show current CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Please open CO2 display plus find alternate route now.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open CO2 display plus find alternate route now."
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate a new navigation path while also pulling up suit CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate a new navigation path while also pulling up suit CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme CO2 pressure and reroute to safer terrain.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme CO2 pressure and reroute to safer terrain."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute navigation, then display my suit CO2 concentration in mmHg.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute navigation, then display my suit CO2 concentration in mmHg."
+            }
+        ]
+    },
+    {
+        "prompt": "Open my CO2 readout as well as plot alternate path.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my CO2 readout as well as plot alternate path."
+            }
+        ]
+    },
+    {
+        "prompt": "Find new route along with reading my CO2 levels.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new route along with reading my CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you bring up partial pressure of CO2 and also reroute me?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you bring up partial pressure of CO2 and also reroute me?"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute next to avoid hazard and then check CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute next to avoid hazard and then check CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display suit CO2 and in addition compute new heading.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display suit CO2 and in addition compute new heading."
+            }
+        ]
+    },
+    {
+        "prompt": "Plot an alternate course, additionally pull up my suit CO2 telemetry.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot an alternate course, additionally pull up my suit CO2 telemetry."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check CO2 levels meanwhile graph the new route options.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check CO2 levels meanwhile graph the new route options."
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate route oh and show me my current CO2 reading.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate route oh and show me my current CO2 reading."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up suit CO2 and then reroute around the blocked corridor.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up suit CO2 and then reroute around the blocked corridor."
+            }
+        ]
+    },
+    {
+        "prompt": "Replan navigation and also pull up CO2 partial pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Replan navigation and also pull up CO2 partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 and then calculate an alternative path to waypoint.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 and then calculate an alternative path to waypoint."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me and then display the suit CO2 trace over time.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me and then display the suit CO2 trace over time."
+            }
+        ]
+    },
+    {
+        "prompt": "Open CO2 monitor as well as update the navigation plan.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open CO2 monitor as well as update the navigation plan."
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate route next and show current CO2 partial pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate route next and show current CO2 partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my suit CO2 partial pressure and then find a safer path avoiding the crater.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my suit CO2 partial pressure and then find a safer path avoiding the crater."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute my EVA route to circumvent solar panels and afterwards display the suit CO2 trend.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute my EVA route to circumvent solar panels and afterwards display the suit CO2 trend."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the CO2 partial pressure reading and also work out an alternate route around debris.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the CO2 partial pressure reading and also work out an alternate route around debris."
+            }
+        ]
+    },
+    {
+        "prompt": "Before you change course, please read my suit CO2 level and then propose a new navigation plan.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you change course, please read my suit CO2 level and then propose a new navigation plan."
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate a detour that avoids the cliff and at the same time report my suit CO2 reading.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate a detour that avoids the cliff and at the same time report my suit CO2 reading."
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up suit CO2 and then immediately compute a new course.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up suit CO2 and then immediately compute a new course."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute navigation to the secondary waypoint followed by a readout of suit CO2 and environmental data.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute navigation to the secondary waypoint followed by a readout of suit CO2 and environmental data."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open my CO2 telemetry and then calculate an alternative trajectory to the rendezvous point?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open my CO2 telemetry and then calculate an alternative trajectory to the rendezvous point?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display suit CO2 and additionally replan the route to avoid the radiation hotspot now.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display suit CO2 and additionally replan the route to avoid the radiation hotspot now."
+            }
+        ]
+    },
+    {
+        "prompt": "Next, plot a new course that avoids the storm and at the same time show my CO2 partial-pressure trend.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, plot a new course that avoids the storm and at the same time show my CO2 partial-pressure trend."
+            }
+        ]
+    },
+    {
+        "prompt": "And then after recalculating route, bring up the suit CO2 concentration trace for the last hour.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "And then after recalculating route, bring up the suit CO2 concentration trace for the last hour."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, check the CO2 partial pressure and then redirect my path around the unstable ridge.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, check the CO2 partial pressure and then redirect my path around the unstable ridge."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and while you're recalculating route, please pull up the suit CO2 and oxygen mix readings.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and while you're recalculating route, please pull up the suit CO2 and oxygen mix readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by a route recalculation, open the CO2 monitor and show me current partial pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by a route recalculation, open the CO2 monitor and show me current partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Please compute an alternate path plus bring up my suit CO2 log for the past ten minutes, thanks.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please compute an alternate path plus bring up my suit CO2 log for the past ten minutes, thanks."
+            }
+        ]
+    },
+    {
+        "prompt": "Before rerouting, show CO2 levels and in addition verify oxygen and life support margins.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before rerouting, show CO2 levels and in addition verify oxygen and life support margins."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the CO2 indicator and then replan route to avoid the debris field ahead.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the CO2 indicator and then replan route to avoid the debris field ahead."
+            }
+        ]
+    },
+    {
+        "prompt": "I need CO2 partial pressure readout, and then please compute routing that avoids the damaged comms relay.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need CO2 partial pressure readout, and then please compute routing that avoids the damaged comms relay."
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate my path and then also display suit CO2 and suit temperature trends.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate my path and then also display suit CO2 and suit temperature trends."
+            }
+        ]
+    },
+    {
+        "prompt": "Please reroute around the solar flare zone and then pull up my suit CO2 plus cabin pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reroute around the solar flare zone and then pull up my suit CO2 plus cabin pressure."
+            }
+        ]
+    }
+]
+}

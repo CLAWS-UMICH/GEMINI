@@ -1,0 +1,986 @@
+{
+  // intents: vitals_suit_pressure_total AND Set_navigation_target
+  // description_1: The user wants to know the total internal pressure of the spacesuit relative to the vacuum outside, critical for maintaining structural integrity and life support. They might ask, "What is the total suit pressure?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Suit pressure, then navigate to LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit pressure, then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Home Base and check pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pressure and head to rover",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pressure and head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Hab Alpha then pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pressure readout then Airlock 3",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pressure readout then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Sample Cache and pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Report suit pressure plus go Forward Dock",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report suit pressure plus go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate Relay Beacon and then pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show pressure while heading to MSA",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show pressure while heading to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "MSA"
+            }
+        ]
+    },
+    {
+        "prompt": "Go Command Module and check pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check total suit pressure and then set destination Cargo Bay",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check total suit pressure and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Green Sector and what's my suit pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Green Sector"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's my suit pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide current suit pressure and navigate to Observation Post",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide current suit pressure and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Waypoint Bravo plus tell me suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Waypoint Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Need suit pressure as well as a route to Depot-1",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need suit pressure as well as a route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Comms Tower and then report suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the suit pressure while you set destination Medical Bay?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the suit pressure while you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Medical Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Habitat One and also pull up suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check suit pressure and then take me to Alpha Site",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check suit pressure and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set destination Beta Site and additionally display suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beta Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally display suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking suit pressure, set my route to Gamma Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking suit pressure, set my route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gamma Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and set destination Lunar LZ while I watch pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I watch pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit pressure and next guide me to North Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit pressure and next guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination South Crater and while you're at it show my pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it show my pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need pressure reading plus navigation to Site Echo",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need pressure reading plus navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon Charlie along with a suit pressure readout",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with a suit pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme have the suit pressure and set course to Landing Pad",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme have the suit pressure and set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination ROV Dock, and then provide current suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "ROV Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then provide current suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Report suit pressure at the same time and set Science Node",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report suit pressure at the same time and set "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Fuel Depot and also check suit pressure for me",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check suit pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you plot a course, tell me the total suit pressure and then navigate to Pressure Checkpoint",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you plot a course, tell me the total suit pressure and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Pressure Checkpoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set destination Supply Cache and additionally provide my current suit pressure now",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally provide my current suit pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my total suit pressure, and then plot a route to Solar Array for EVA prep",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my total suit pressure, and then plot a route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " for EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you navigate to Maintenance Hub, and also tell me the suit's total internal pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and also tell me the suit's total internal pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the current suit pressure, and in addition set my navigation target to EVA Staging",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the current suit pressure, and in addition set my navigation target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Thermal Shelter and meanwhile display my suit pressure so I can confirm levels",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile display my suit pressure so I can confirm levels"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check total suit pressure, then route me to Docking Ring and show path details",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check total suit pressure, then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Ring"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show path details"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Heat Shield and next give me the total internal pressure in the suit",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Heat Shield"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next give me the total internal pressure in the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and read my suit pressure first, plus send navigation to EVA Tram for pickup",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and read my suit pressure first, plus send navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Tram"
+            },
+            {
+                "type": "TEXT",
+                "text": " for pickup"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you set destination Navigation Beacon and then also show me total suit pressure, please?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Navigation Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also show me total suit pressure, please?"
+            }
+        ]
+    },
+    {
+        "prompt": "Provide the total internal suit pressure and followed by that, chart a course to Sample Return",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide the total internal suit pressure and followed by that, chart a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Return"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Lens Array along with reporting the current suit pressure and oxygen status",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lens Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with reporting the current suit pressure and oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my suit pressure as well as guide me over to the Observatory for checks",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my suit pressure as well as guide me over to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": " for checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to West Ridge and in addition pull up the total suit pressure to confirm safe transit",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition pull up the total suit pressure to confirm safe transit"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you head out, show total suit pressure and then set destination East Crater",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you head out, show total suit pressure and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey set destination Central Plaza, and then also check my suit pressure, okay?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Central Plaza"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then also check my suit pressure, okay?"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the suit's total pressure and next guide me toward Utility Bay using HUD markers",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the suit's total pressure and next guide me toward "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Utility Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " using HUD markers"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set destination Cargo Hatch, followed by displaying the suit pressure and estimated times",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by displaying the suit pressure and estimated times"
+            }
+        ]
+    },
+    {
+        "prompt": "But first, confirm total suit pressure and then take me to Habitat Delta for system check",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first, confirm total suit pressure and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " for system check"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Green Zone and then, at the same time, report the suit's total internal pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Green Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, at the same time, report the suit's total internal pressure"
+            }
+        ]
+    }
+]
+}

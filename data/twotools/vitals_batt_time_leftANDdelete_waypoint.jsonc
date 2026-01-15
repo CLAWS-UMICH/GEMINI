@@ -1,0 +1,1018 @@
+{
+  // intents: vitals_batt_time_left AND delete_waypoint
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "check battery then delete waypoint Alpha",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check battery then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "battery time left and remove waypoint Beta",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "battery time left and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "delete waypoint Home then tell me battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then tell me battery"
+            }
+        ]
+    },
+    {
+        "prompt": "how much power and remove waypoint Cache",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "how much power and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "check battery then remove waypoint old camp",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check battery then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "old camp"
+            }
+        ]
+    },
+    {
+        "prompt": "delete waypoint Site A and then report battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "check power and delete waypoint Rendezvous",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check power and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rendezvous"
+            }
+        ]
+    },
+    {
+        "prompt": "battery left and remove waypoint Beacon 1",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "battery left and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            }
+        ]
+    },
+    {
+        "prompt": "need battery time and delete waypoint Beacon 2",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "need battery time and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            }
+        ]
+    },
+    {
+        "prompt": "check charge and remove waypoint Marker One",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check charge and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker One"
+            }
+        ]
+    },
+    {
+        "prompt": "delete waypoint Charlie, then tell me battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then tell me battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "delete the marker called Delta, but first tell me battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first tell me battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "open my vitals and then remove waypoint Echo from map",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open my vitals and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " from map"
+            }
+        ]
+    },
+    {
+        "prompt": "remove waypoint Foxtrot and also tell me how long battery lasts",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me how long battery lasts"
+            }
+        ]
+    },
+    {
+        "prompt": "could you pull up remaining power and delete waypoint Gamma Ridge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you pull up remaining power and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "erase North Base marker first then show my battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker first then show my battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "show my power left plus remove waypoint South Base from list",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show my power left plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " from list"
+            }
+        ]
+    },
+    {
+        "prompt": "remove Supply Point waypoint and then display my suit's vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then display my suit's vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "show battery time remaining as well as delete the LZ waypoint",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show battery time remaining as well as delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "delete waypoint EVA Start, then tell me how long battery lasts",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then tell me how long battery lasts"
+            }
+        ]
+    },
+    {
+        "prompt": "clear the Return Point waypoint and then tell me remaining charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Return Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then tell me remaining charge"
+            }
+        ]
+    },
+    {
+        "prompt": "delete waypoint Camp Bravo and then pull up my battery duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up my battery duration"
+            }
+        ]
+    },
+    {
+        "prompt": "please report battery time and remove the Depot waypoint afterward",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please report battery time and remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint afterward"
+            }
+        ]
+    },
+    {
+        "prompt": "remove Landing Zone marker before you show my suit power remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker before you show my suit power remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "check my suit charge then delete Medical waypoint from map",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check my suit charge then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Medical"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from map"
+            }
+        ]
+    },
+    {
+        "prompt": "delete Science Pod marker and after that tell me battery time left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and after that tell me battery time left"
+            }
+        ]
+    },
+    {
+        "prompt": "open vitals meanwhile remove the Sample Cache waypoint please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open vitals meanwhile remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint please"
+            }
+        ]
+    },
+    {
+        "prompt": "remove waypoint Stash and then show me remaining power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Stash"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me remaining power"
+            }
+        ]
+    },
+    {
+        "prompt": "what's battery time left and then delete the Hangar waypoint",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "what's battery time left and then delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hangar"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "erase waypoint Lab 3 and additionally pull up my suit vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "erase waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up my suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up my remaining battery time and then remove the Power Node waypoint from the map",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up my remaining battery time and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Power Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "remove the Habitat waypoint first and after that please show me how many minutes of charge remain",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint first and after that please show me how many minutes of charge remain"
+            }
+        ]
+    },
+    {
+        "prompt": "clear the Airlock waypoint and then provide battery duration remaining for me",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then provide battery duration remaining for me"
+            }
+        ]
+    },
+    {
+        "prompt": "remove the Backup Beacon marker and then at the same time bring up my suit vitals readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Backup Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and then at the same time bring up my suit vitals readout"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current battery time remaining, and then also delete the Scout Marker waypoint on my HUD",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current battery time remaining, and then also delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Scout Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint on my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "please remove the Waypoint 7 marker, followed by showing my suit's power remaining and vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker, followed by showing my suit's power remaining and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "after checking battery time remaining, also delete waypoint Waypoint 8 to declutter my map",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after checking battery time remaining, also delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint 8"
+            },
+            {
+                "type": "TEXT",
+                "text": " to declutter my map"
+            }
+        ]
+    },
+    {
+        "prompt": "remove the South Ridge waypoint and in addition tell me how much battery time I have left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and in addition tell me how much battery time I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up estimated battery minutes remaining plus delete the North Ridge waypoint from the route list",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up estimated battery minutes remaining plus delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from the route list"
+            }
+        ]
+    },
+    {
+        "prompt": "delete the Kilo waypoint and then also display my suit battery forecast along with current vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Kilo"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then also display my suit battery forecast along with current vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "while you're at it pull up battery time remaining and then remove the Juliet waypoint I placed earlier",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "while you're at it pull up battery time remaining and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Juliet"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint I placed earlier"
+            }
+        ]
+    },
+    {
+        "prompt": "remove Observation Post marker followed by pulling up my suit charge and biometrics, please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker followed by pulling up my suit charge and biometrics, please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need to know battery duration remaining, as well as delete the Alpha Site waypoint from the HUD",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need to know battery duration remaining, as well as delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and delete the Beta Site waypoint, then bring up remaining power and show vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint, then bring up remaining power and show vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "could you show my suit's charge time remaining in addition to removing waypoint Old Camp 2",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you show my suit's charge time remaining in addition to removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp 2"
+            }
+        ]
+    },
+    {
+        "prompt": "remove Basecamp waypoint and then at the same time report how many minutes of battery are left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Basecamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then at the same time report how many minutes of battery are left"
+            }
+        ]
+    },
+    {
+        "prompt": "next pull up exact battery time left and then clear the East Marker waypoint for a cleaner HUD",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "next pull up exact battery time left and then clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint for a cleaner HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "delete the Fuel Cache waypoint and then additionally tell me current battery percentage and time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then additionally tell me current battery percentage and time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "at the same time bring up battery estimate and also remove the Marker Two waypoint from my saved markers",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "at the same time bring up battery estimate and also remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from my saved markers"
+            }
+        ]
+    },
+    {
+        "prompt": "and then delete waypoint Site B followed by reporting my suit's battery minutes remaining and vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting my suit's battery minutes remaining and vitals"
+            }
+        ]
+    }
+]
+}

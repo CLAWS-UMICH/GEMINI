@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND start_procedure_system_restart
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary oxygen then restart nav.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen then restart nav."
+            }
+        ]
+    },
+    {
+        "prompt": "Restart nav then check backup oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart nav then check backup oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Status of backup O2 and reboot.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of backup O2 and reboot."
+            }
+        ]
+    },
+    {
+        "prompt": "Begin reboot and check reserve oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin reboot and check reserve oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me secondary tank level, then reboot.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me secondary tank level, then reboot."
+            }
+        ]
+    },
+    {
+        "prompt": "Please start system restart, then show O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start system restart, then show O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen plus restart procedure.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen plus restart procedure."
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot nav module, then check backup.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot nav module, then check backup."
+            }
+        ]
+    },
+    {
+        "prompt": "Backup oxygen status and then reboot nav.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup oxygen status and then reboot nav."
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart procedure followed by oxygen check.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart procedure followed by oxygen check."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show secondary oxygen levels and then initiate the restart?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show secondary oxygen levels and then initiate the restart?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start the navigation reboot and also display backup O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start the navigation reboot and also display backup O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up reserve oxygen status plus begin the restart procedure.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up reserve oxygen status plus begin the restart procedure."
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart now and then pull up secondary oxygen readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart now and then pull up secondary oxygen readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the secondary tank and also reboot the navigation module.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the secondary tank and also reboot the navigation module."
+            }
+        ]
+    },
+    {
+        "prompt": "Start the restart procedure and then show me the backup oxygen gauge.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the restart procedure and then show me the backup oxygen gauge."
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen levels before you run the system restart.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen levels before you run the system restart."
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate reboot first, and then pull up my reserve O2 status.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate reboot first, and then pull up my reserve O2 status."
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics and then restart the nav subsystem, in addition check O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics and then restart the nav subsystem, in addition check O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Start reboot sequence, and then also bring up secondary oxygen telemetry.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start reboot sequence, and then also bring up secondary oxygen telemetry."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit vitals and also launch the system restart?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit vitals and also launch the system restart?"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the LTV navigation module next, and show secondary oxygen status.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the LTV navigation module next, and show secondary oxygen status."
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the secondary oxygen reserve and then execute the restart, please.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the secondary oxygen reserve and then execute the restart, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the restart procedure, but first check the reserve oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the restart procedure, but first check the reserve oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary O2 readout plus start the reboot sequence afterward.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary O2 readout plus start the reboot sequence afterward."
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the subsystem restart and then show secondary tank levels.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the subsystem restart and then show secondary tank levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up backup oxygen metrics and then run the restart checklist.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up backup oxygen metrics and then run the restart checklist."
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart procedure followed by bringing up suit biometric oxygen numbers.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart procedure followed by bringing up suit biometric oxygen numbers."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, check secondary O2 levels and then reset the navigation module.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, check secondary O2 levels and then reset the navigation module."
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the nav and then also display backup oxygen gauge.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the nav and then also display backup oxygen gauge."
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm the remaining oxygen in the secondary storage and then commence the navigation system restart procedure.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm the remaining oxygen in the secondary storage and then commence the navigation system restart procedure."
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the procedure to reboot the navigation module while also pulling up the secondary oxygen tank status for me.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the procedure to reboot the navigation module while also pulling up the secondary oxygen tank status for me."
+            }
+        ]
+    },
+    {
+        "prompt": "I need a readout of the secondary oxygen reserve plus initiate the system restart after verifying levels.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a readout of the secondary oxygen reserve plus initiate the system restart after verifying levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Start the system restart on the navigation unit, and then as well as that bring up the backup oxygen telemetry.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the system restart on the navigation unit, and then as well as that bring up the backup oxygen telemetry."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the suit biometrics, and then followed by performing the restart procedure for the failing nav subsystem.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the suit biometrics, and then followed by performing the restart procedure for the failing nav subsystem."
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the restart of the navigation systems and additionally check secondary oxygen storage levels.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the restart of the navigation systems and additionally check secondary oxygen storage levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up the secondary oxygen telemetry and then I want you to start the LTV's nav restart sequence.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up the secondary oxygen telemetry and then I want you to start the LTV's nav restart sequence."
+            }
+        ]
+    },
+    {
+        "prompt": "Please commence the system restart routine for the navigation module, followed by showing the reserve oxygen readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please commence the system restart routine for the navigation module, followed by showing the reserve oxygen readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you display the backup oxygen tank percentage and then, after that, perform the restart on the navigation board?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you display the backup oxygen tank percentage and then, after that, perform the restart on the navigation board?"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the restart process for the nav computer before you bring up the secondary oxygen supply data for verification.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the restart process for the nav computer before you bring up the secondary oxygen supply data for verification."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up suit vitals including secondary O2 and then proceed with the prescribed system restart checklist for nav.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up suit vitals including secondary O2 and then proceed with the prescribed system restart checklist for nav."
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to start the restart procedure on the failing subsystem and also show me the backup oxygen state.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to start the restart procedure on the failing subsystem and also show me the backup oxygen state."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up biometric vitals as well as the secondary oxygen level and then initiate the reboot of nav systems.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up biometric vitals as well as the secondary oxygen level and then initiate the reboot of nav systems."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, run the system restart routine for navigation and then open the secondary oxygen storage status page, please.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, run the system restart routine for navigation and then open the secondary oxygen storage status page, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm the secondary oxygen tank pressure and then, additionally, kick off the restart procedure on the guidance computer.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm the secondary oxygen tank pressure and then, additionally, kick off the restart procedure on the guidance computer."
+            }
+        ]
+    },
+    {
+        "prompt": "Before you reboot the navigation module, also pull up the reserve oxygen indicators along with suit vitals.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you reboot the navigation module, also pull up the reserve oxygen indicators along with suit vitals."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary oxygen quantity, followed by you executing the restart procedure on the LTV navigation subsystem.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary oxygen quantity, followed by you executing the restart procedure on the LTV navigation subsystem."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you initiate the restart of the navigation subsystem and then bring up the secondary tank status in addition?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you initiate the restart of the navigation subsystem and then bring up the secondary tank status in addition?"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the backup oxygen supply gauge, and then execute the formal restart procedure on the navigation unit.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the backup oxygen supply gauge, and then execute the formal restart procedure on the navigation unit."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, start the system restart for the navigation module and then open the secondary oxygen telemetry at the same time.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, start the system restart for the navigation module and then open the secondary oxygen telemetry at the same time."
+            }
+        ]
+    }
+]
+}

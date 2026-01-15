@@ -1,0 +1,1002 @@
+{
+  // intents: close_menu AND delete_waypoint
+  // description_1: The user wants to minimize or dismiss the currently active AR window to clear their field of view. The command would be "Close menu" or "Dismiss window."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Close the overlay and remove Alpha",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the overlay and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home then close menu",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then close menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss HUD and remove supply cache",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss HUD and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "supply cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker beacon 3 then hide panel",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then hide panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Minimize window and delete bravo",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Minimize window and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase waypoint Delta then clear HUD",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " then clear HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide display and remove LZ-2",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide display and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Home marker and dismiss overlay",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and dismiss overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Close panel then delete WP-Alpha",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close panel then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "WP-Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete OldBase and then hide the HUD",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "OldBase"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then hide the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Please close the AR window and remove waypoint SupplyPoint",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please close the AR window and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SupplyPoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you delete the marker called RelayTower and then minimize display",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "RelayTower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then minimize display"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey close the menu and also erase the Beacon-12 marker",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey close the menu and also erase the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-12"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint SampleSite42 plus hide the status overlay",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SampleSite42"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus hide the status overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to dismiss the panel then delete depot-7",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to dismiss the panel then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "depot-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove marker CommandPost and then close the overlay",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CommandPost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the HUD and remove the waypoint called IcePit",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the HUD and remove the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "IcePit"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Lander marker and then minimize the HUD, please",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and then minimize the HUD, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and close the overlay, then delete waypoint Beta Point",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and close the overlay, then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you remove the marker called Nexus point and then hide display",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nexus point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then hide display"
+            }
+        ]
+    },
+    {
+        "prompt": "Minimize the AR panel and also clear the waypoint Storage-1",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Minimize the AR panel and also clear the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the marker Alpha Site and additionally dismiss the menu",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally dismiss the menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you hide the HUD and then remove waypoint Hangar",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you hide the HUD and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hangar"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint CrewQuarters while closing the panel please",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CrewQuarters"
+            },
+            {
+                "type": "TEXT",
+                "text": " while closing the panel please"
+            }
+        ]
+    },
+    {
+        "prompt": "Close menu before you delete the waypoint called South Ridge",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close menu before you delete the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint North Beacon and then minimize the display, thanks",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then minimize the display, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Please clear the overlay and remove the marker called West Outpost",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please clear the overlay and remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase marker East Gate and then close the status panel",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the status panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide HUD at the same time and remove DrillSite",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide HUD at the same time and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "DrillSite"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Observation Point and additionally minimize UI",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally minimize UI"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the HUD but first remove the waypoint labeled Gamma Ridge so I can see terrain",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the HUD but first remove the waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " so I can see terrain"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the waypoint called MainBase as well as dismiss the AR panel before I move",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "MainBase"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as dismiss the AR panel before I move"
+            }
+        ]
+    },
+    {
+        "prompt": "Please dismiss the overlay along with deleting the waypoint named Fuel Depot to declutter my view",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please dismiss the overlay along with deleting the waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " to declutter my view"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Med-Bay in addition to minimizing the status display so I can focus",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Med-Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to minimizing the status display so I can focus"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the menu meanwhile remove waypoint BackupCache and then confirm the map is clear please",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the menu meanwhile remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BackupCache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then confirm the map is clear please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Cache-B followed by hiding the overlay so I can get a clear approach vector",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by hiding the overlay so I can get a clear approach vector"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the AR window, next delete the marker called Rover Marker and update me",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the AR window, next delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and update me"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint beacon 3 after you close the status window and then confirm deletion",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " after you close the status window and then confirm deletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Please hide the control panel and then erase the old waypoint called Old camp so I can proceed",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please hide the control panel and then erase the old waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " so I can proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Echo along with minimizing the HUD and then send me a confirmation",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with minimizing the HUD and then send me a confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the overlay in addition to deleting waypoint Foxtrot to clear my visual feed",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the overlay in addition to deleting waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " to clear my visual feed"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Charlie meanwhile hide the menu and then reroute my nav, please",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile hide the menu and then reroute my nav, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the main menu and then remove the waypoint named Landing Zone before I start sampling",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the main menu and then remove the waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " before I start sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Site Zeta and then dismiss the panel so I can focus on EVA tasks",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Zeta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the panel so I can focus on EVA tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Please dismiss the status window but first delete the waypoint called Beta-2 before I move to the rover",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please dismiss the status window but first delete the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " before I move to the rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Depot Nine next minimize the HUD and then confirm map synchronization",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot Nine"
+            },
+            {
+                "type": "TEXT",
+                "text": " next minimize the HUD and then confirm map synchronization"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide the overlay followed by deleting the waypoint called Beacon-14 and then verify displays are clear",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide the overlay followed by deleting the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-14"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then verify displays are clear"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint SampleCache and then close the HUD while I finish the EVA checklist",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SampleCache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the HUD while I finish the EVA checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the quick-access menu and in addition remove the waypoint called SupplyPoint-2 so we won't hit it on approach",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the quick-access menu and in addition remove the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SupplyPoint-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " so we won't hit it on approach"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Command Beacon and then minimize the overlay as well as report remaining waypoints",
+        "tool_calls": [
+            "close_menu",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Command Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then minimize the overlay as well as report remaining waypoints"
+            }
+        ]
+    }
+]
+}

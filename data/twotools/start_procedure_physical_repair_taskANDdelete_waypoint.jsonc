@@ -1,0 +1,978 @@
+{
+  // intents: start_procedure_physical_repair_task AND delete_waypoint
+  // description_1: The user is ready to perform hands-on mechanical repairs and needs the step-by-step AR guidance and checklists. They might say, "Start physical repair instructions" or "Open repair checklist."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Start repair checklist and delete waypoint Alpha",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair checklist and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Open AR repair steps then remove Home",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open AR repair steps then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin physical repair and delete Depot 3",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin physical repair and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Start hands-on repair also remove Beacon-1",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start hands-on repair also remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up repair then delete LZ-2",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up repair then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair checklist and remove Cache A",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair checklist and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            }
+        ]
+    },
+    {
+        "prompt": "Start procedure and remove Alpha Site",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start procedure and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin repair then delete Beacon Two",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin repair then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Two"
+            }
+        ]
+    },
+    {
+        "prompt": "Run repair guide and then remove Ranger",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run repair guide and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ranger"
+            }
+        ]
+    },
+    {
+        "prompt": "Start mechanical fix and delete Node-7",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start mechanical fix and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Node-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the repair procedure and remove waypoint Phoenix",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the repair procedure and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Phoenix"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker LandingPad and then open the repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LandingPad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up AR repair steps and then delete the Home marker",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up AR repair steps and then delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker called Alpha Site and start hands-on repair now",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start hands-on repair now"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the toolbox checklist plus remove waypoint Cargo Bay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the toolbox checklist plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase waypoint Beacon-3 and then initiate physical repair guidance",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate physical repair guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the physical repair steps, but first delete marker Beta-2",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the physical repair steps, but first delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Supply Marker and open AR repair checklist afterwards",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open AR repair checklist afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Start repair procedure while deleting the marker called Gamma ridge",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair procedure while deleting the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete old camp waypoint and then bring up the repair steps",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "old camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and then bring up the repair steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate hands-on repair and then remove marker Olympus",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate hands-on repair and then remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Olympus"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear marker Tranquility and after that open the physical repair guide",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tranquility"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that open the physical repair guide"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair instructions as well as delete waypoint NorthCamp",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair instructions as well as delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthCamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Home base waypoint and additionally start repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home base"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and additionally start repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up repair AR and then clear waypoint West Beacon",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up repair AR and then clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Cache B and also pull up the repair procedure",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up the repair procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the fix and then remove the marker called Node Seven",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the fix and then remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Node Seven"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Phoenix waypoint, oh and open repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Phoenix"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and open repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate physical repair, and then delete marker Marker Z",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate physical repair, and then delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Z"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase waypoint Ranger and next start the mechanical repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ranger"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next start the mechanical repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the physical repair procedure now and then delete waypoint Landing Pad Alpha",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the physical repair procedure now and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the navigation marker Echo Site and afterwards please open the hands-on repair checklist for me",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the navigation marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and afterwards please open the hands-on repair checklist for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Beacon Alpha before you pull up the AR repair steps and show me the checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you pull up the AR repair steps and show me the checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Supply Cache and then follow up by starting the physical repair guidance for suit hatch",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then follow up by starting the physical repair guidance for suit hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear the Old Camp waypoint, and then at the same time bring up the repair instructions for the solar array",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint, and then at the same time bring up the repair instructions for the solar array"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the repair checklist for the exterior panel, and additionally delete waypoint Cache Alpha from my map",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the repair checklist for the exterior panel, and additionally delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker called Gamma Ridge, and then could you also show me the step-by-step physical repair workflow",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then could you also show me the step-by-step physical repair workflow"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint North Camp before starting the hands-on repair steps, and then bring up the AR overlay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting the hands-on repair steps, and then bring up the AR overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase the marker called Habitat and next initiate the physical repair sequence for the comms antenna",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next initiate the physical repair sequence for the comms antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Home marker, followed by opening the repair checklist for the EVA suit seals, please",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker, followed by opening the repair checklist for the EVA suit seals, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Phoenix now, and then while you're at it start the procedural steps for the airlock repair",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Phoenix"
+            },
+            {
+                "type": "TEXT",
+                "text": " now, and then while you're at it start the procedural steps for the airlock repair"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Beacon-1 from my map and in addition pull up the physical repair guide for the coolant line",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my map and in addition pull up the physical repair guide for the coolant line"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Depot 3 and along with that open the AR repair checklist for the habitat docking port",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and along with that open the AR repair checklist for the habitat docking port"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the maintenance and repair procedure for the solar array, and then remove waypoint LZ-2 from display",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the maintenance and repair procedure for the solar array, and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " from display"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear the marker called Cache B, and then additionally bring up the step-by-step repair instructions for the fuel valve",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache B"
+            },
+            {
+                "type": "TEXT",
+                "text": " , and then additionally bring up the step-by-step repair instructions for the fuel valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the navigation marker Ranger and before you start the repair, please display the AR checklist for bolts and seals",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the navigation marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ranger"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before you start the repair, please display the AR checklist for bolts and seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Marker Z and meanwhile open the hands-on repair guide so I can follow the torque sequence",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Z"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile open the hands-on repair guide so I can follow the torque sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the AR repair overlay for the antenna fixes, and then delete the marker called Beta-2 from my HUD",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the AR repair overlay for the antenna fixes, and then delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Phoenix Base and at the same time start the step-by-step physical repair sequence for the cooling pump",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Phoenix Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time start the step-by-step physical repair sequence for the cooling pump"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker West Beacon now, followed by opening the procedural repair checklist and then show torque specs",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " now, followed by opening the procedural repair checklist and then show torque specs"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,978 @@
+{
+  // intents: vitals_scrubber_b_co2_storage AND Set_navigation_target
+  // description_1: The user needs to check the saturation level of the second CO2 scrubbing bed. The prompt might be "How much capacity is left in Scrubber B?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Scrubber B capacity, navigate to LTV",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber B capacity, navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Check saturation of Scrubber B and then set destination to Home Base",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check saturation of Scrubber B and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report Scrubber B saturation and also navigate me to the rover now",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report Scrubber B saturation and also navigate me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "I need Scrubber B remaining capacity plus route me to the Airlock and begin guidance",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need Scrubber B remaining capacity plus route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and begin guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber B status and go to Hab",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber B status and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking Scrubber B saturation, please open a route and navigate to Comms Relay",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking Scrubber B saturation, please open a route and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull Scrubber B CO2 level and then set destination to EVA Cache before starting guidance",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull Scrubber B CO2 level and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber B percent, navigate to Solar Array",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber B percent, navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the saturation on Scrubber B and next navigate to Gate",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the saturation on Scrubber B and next navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display Scrubber B remaining scrub capacity and then plot a course to Site Alpha",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display Scrubber B remaining scrub capacity and then plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check Scrubber B levels and also set destination to Site Bravo and start navigation",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check Scrubber B levels and also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up Scrubber B status and set destination to Forward Depot",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up Scrubber B status and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "First tell me the saturation of Scrubber B, and then bring up navigation to the Command Module",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First tell me the saturation of Scrubber B, and then bring up navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Need Scrubber B capacity and set destination to Lab",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need Scrubber B capacity and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the Scrubber B saturation level as well as display a route to the Med Bay",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the Scrubber B saturation level as well as display a route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check Scrubber B and also navigate me to Storage Locker",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check Scrubber B and also navigate me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Locker"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber B saturation and along with that open guidance to the Gateway",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber B saturation and along with that open guidance to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gateway"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber B, navigate to Beacon A",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber B, navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon A"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check Scrubber B, please set Nav to Return Point",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check Scrubber B, please set Nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Return Point"
+            }
+        ]
+    },
+    {
+        "prompt": "But first tell me Scrubber B saturation and then display a plotted path to the Lunar LZ",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first tell me Scrubber B saturation and then display a plotted path to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Open Scrubber B status and then navigate to the Solar Farm",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open Scrubber B status and then navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Farm"
+            }
+        ]
+    },
+    {
+        "prompt": "I need Scrubber B capacity numbers in addition, plot a route to the Habitat Module",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need Scrubber B capacity numbers in addition, plot a route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme Scrubber B percentage and then go to Gate",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme Scrubber B percentage and then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber B check and set destination to Lab",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber B check and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, verify Scrubber B saturation additionally map a course to Forward Depot and then start guidance",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, verify Scrubber B saturation additionally map a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Command Module and check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to LTV and tell me Scrubber B saturation",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me Scrubber B saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Hab and check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set navigation to Comms Relay, and additionally show me Scrubber B remaining capacity",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and additionally show me Scrubber B remaining capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to EVA Cache and also pull up Scrubber B CO2 readings",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up Scrubber B CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you start guidance to the Solar Array, check Scrubber B saturation and report back",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you start guidance to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check Scrubber B saturation and report back"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Gateway and next show Scrubber B percent",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gateway"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next show Scrubber B percent"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Beacon A and check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot route to Site Alpha and then open Scrubber B status",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open Scrubber B status"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you direct me to Site Bravo and while doing that report the saturation level of Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while doing that report the saturation level of Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Set nav to Forward Depot and tell me Scrubber B capacity",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me Scrubber B capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Med Bay, check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Habitat Module and afterwards pull up the Scrubber B saturation graph plus show guidance",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and afterwards pull up the Scrubber B saturation graph plus show guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Command Module and then give Scrubber B stats",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give Scrubber B stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Solar Farm, check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Farm"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Beacon A and also display Scrubber B status",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display Scrubber B status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to the Lunar LZ and at the same time show me the saturation for Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show me the saturation for Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Rover and then check Scrubber B capacity",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check Scrubber B capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Set my destination to the Gate and followed by that bring up Scrubber B CO2 percentage and guidance",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set my destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and followed by that bring up Scrubber B CO2 percentage and guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Nav to LTV and check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Storage Locker and additionally report Scrubber B saturation",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Locker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally report Scrubber B saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you set the destination to Forward Depot and while you're at it bring up the Scrubber B scrub graph",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you set the destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it bring up the Scrubber B scrub graph"
+            }
+        ]
+    },
+    {
+        "prompt": "Set nav to the Beacon A and oh and check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set nav to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and oh and check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Gateway, check Scrubber B",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gateway"
+            },
+            {
+                "type": "TEXT",
+                "text": ", check Scrubber B"
+            }
+        ]
+    },
+    {
+        "prompt": "Direct me to the Command Module next and also pull up the Scrubber B capacity numbers plus start navigation guidance",
+        "tool_calls": [
+            "vitals_scrubber_b_co2_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Direct me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also pull up the Scrubber B capacity numbers plus start navigation guidance"
+            }
+        ]
+    }
+]
+}

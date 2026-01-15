@@ -1,0 +1,762 @@
+{
+  // intents: start_procedure_system_restart AND start_procedure_final_system_checks
+  // description_1: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // description_2: The user wants to run the concluding verification steps after a repair to ensure the vehicle or system is fully operational. They might ask, "Run final system check" or "Start final verification."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Restart nav module and run final checks",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart nav module and run final checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final system check then reboot the comms unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final system check then reboot the comms unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Please restart the attitude control and also start final verification",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please restart the attitude control and also start final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin final checks and then reboot the LTV navigation module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin final checks and then reboot the LTV navigation module"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, reboot guidance system plus run the final system check",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, reboot guidance system plus run the final system check"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you run the final verification while you restart the power distribution?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you run the final verification while you restart the power distribution?"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the thermal regulator and then run the concluding verification steps",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the thermal regulator and then run the concluding verification steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final checks then initiate system restart for the flight computer",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final checks then initiate system restart for the flight computer"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reboot GN&C and additionally run the final post-repair checks",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reboot GN&C and additionally run the final post-repair checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Okay reboot the nav and then do final verification as well",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Okay reboot the nav and then do final verification as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final diagnostics and then restart the guidance computer",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final diagnostics and then restart the guidance computer"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the LTV navigation first, followed by final system checks please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the LTV navigation first, followed by final system checks please"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart for comms and then run concluding checks next",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart for comms and then run concluding checks next"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final verification then reboot the propulsion controller, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final verification then reboot the propulsion controller, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the navigation module and after that run the final checks",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the navigation module and after that run the final checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Launch final system checks while restarting the EVA suit telemetry",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Launch final system checks while restarting the EVA suit telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate the system restart on the flight deck and also perform final verification",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate the system restart on the flight deck and also perform final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the last checks and then reboot attitude control, could you?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the last checks and then reboot attitude control, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the guidance processor, and then run the final verification sequence",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the guidance processor, and then run the final verification sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final checks and then restart the nav CPU along with sensor re-init",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final checks and then restart the nav CPU along with sensor re-init"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to reboot mission nav and additionally run the final system tests",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to reboot mission nav and additionally run the final system tests"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification next and then perform a restart of the telemetry bus",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification next and then perform a restart of the telemetry bus"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the inertial unit and as well run the final checks afterwards",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the inertial unit and as well run the final checks afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you run the final system check and then reboot the nav computer?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you run the final system check and then reboot the nav computer?"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the navigation controller followed by final verification, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the navigation controller followed by final verification, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the final checks at the same time as you reboot the guidance unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the final checks at the same time as you reboot the guidance unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final system checks, and then reboot the LTV comms, oh and verify link health",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final system checks, and then reboot the LTV comms, oh and verify link health"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the flight computer and then run final checks plus confirm sensor alignment",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the flight computer and then run final checks plus confirm sensor alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Please perform final verification and then restart the nav stack immediately",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please perform final verification and then restart the nav stack immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot thruster controller, and then run the final pre-launch checks next",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot thruster controller, and then run the final pre-launch checks next"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate final checks now and then perform a restart of the antenna pointing system",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate final checks now and then perform a restart of the antenna pointing system"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart guidance first, followed by final system verification along with telemetry confirmation",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart guidance first, followed by final system verification along with telemetry confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a reboot of the navigation module and also the final validation run",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a reboot of the navigation module and also the final validation run"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the concluding verification and afterwards restart the sensor array, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the concluding verification and afterwards restart the sensor array, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the nav and then run the final system check, gimme confirmation",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the nav and then run the final system check, gimme confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final verification first and then reboot the environmental control unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final verification first and then reboot the environmental control unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot navigation hardware and meanwhile run the final systems sweep",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot navigation hardware and meanwhile run the final systems sweep"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you reboot the guidance unit and then pull up the final verification report?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you reboot the guidance unit and then pull up the final verification report?"
+            }
+        ]
+    },
+    {
+        "prompt": "Do final system checks and then restart the navigation processor, ok?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Do final system checks and then restart the navigation processor, ok?"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the onboard nav and additionally run final post-fix checks alongside telemetry test",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the onboard nav and additionally run final post-fix checks alongside telemetry test"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification then reboot the sensor controller, and then verify outputs",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification then reboot the sensor controller, and then verify outputs"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart guidance and then run the final checks, but first confirm power status",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart guidance and then run the final checks, but first confirm power status"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the final system check and then restart the navigation firmware, followed by log upload",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the final system check and then restart the navigation firmware, followed by log upload"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot nav module, then run final checks, plus run a quick suit data comparison",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot nav module, then run final checks, plus run a quick suit data comparison"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform the last verification and next reboot the LTV's navigation assembly, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform the last verification and next reboot the LTV's navigation assembly, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the inertial nav and at the same time run the final validation checks",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the inertial nav and at the same time run the final validation checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the final checks and then reboot guidance, meanwhile check battery and comms",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the final checks and then reboot guidance, meanwhile check battery and comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot navigation now and also execute the final system verification, could you please?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot navigation now and also execute the final system verification, could you please?"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final validation and then restart the nav bus, and then confirm sensor trim",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final validation and then restart the nav bus, and then confirm sensor trim"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot guidance module and then run the final checks as well as a comms ping",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot guidance module and then run the final checks as well as a comms ping"
+            }
+        ]
+    },
+    {
+        "prompt": "Do final system checks followed by a nav module restart, additionally dump the logs",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Do final system checks followed by a nav module restart, additionally dump the logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Okay reboot nav then run final verification plus verify batteries and biometrics",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Okay reboot nav then run final verification plus verify batteries and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final checks first, and then do a restart of the navigation control unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final checks first, and then do a restart of the navigation control unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart nav module and then run final checks, oh and confirm suit vitals",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart nav module and then run final checks, oh and confirm suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification and then restart the nav stack, followed by telemetry verification",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification and then restart the nav stack, followed by telemetry verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the guidance CPU and in addition run the final pre-return checks, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the guidance CPU and in addition run the final pre-return checks, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the final system check and then reboot the navigation subsystem and then confirm lock",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the final system check and then reboot the navigation subsystem and then confirm lock"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot nav and then run final checks, along with a quick power and biometrics readout",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot nav and then run final checks, along with a quick power and biometrics readout"
+            }
+        ]
+    }
+]
+}

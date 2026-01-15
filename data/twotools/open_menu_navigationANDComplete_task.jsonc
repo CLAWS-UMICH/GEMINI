@@ -1,0 +1,988 @@
+{
+  // intents: open_menu_navigation AND Complete_task
+  // description_1: The user wants to access the mapping and pathfinding interface to see waypoints, routes, or the minimap. They might command, "Open navigation" or "Show the map."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open map and mark Battery Check done",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical then show map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show map"
+            }
+        ]
+    },
+    {
+        "prompt": "Show minimap and finish Antenna Calibration",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show minimap and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation then complete Airlock Seal Test",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Seal Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Oxygen Valve Check and open map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Valve Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open map"
+            }
+        ]
+    },
+    {
+        "prompt": "Open map plus mark Tether Secure done",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up route and complete Radiation Monitor",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up route and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Map and then mark Suit Leak Test",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Map and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Show nav and finish Helmet Comm Test",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show nav and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Comm Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Open minimap and complete Solar Array Align",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open minimap and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Align"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the map and then mark Sample Container Seal as done?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the map and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Container Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done?"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Drill Prep and also bring up the route to base",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill Prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also bring up the route to base"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the minimap and next mark Camera Calibration complete for me?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the minimap and next mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete for me?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo finish Backup Power Switch and open the route planner please",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Power Switch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open the route planner please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the minimap and additionally mark Thermal Reg Check complete",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the minimap and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "After you show the map, mark Waste Compactor Reset as complete",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you show the map, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste Compactor Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Need navigation and CO2 Scrubber Replace marked off",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need navigation and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " marked off"
+            }
+        ]
+    },
+    {
+        "prompt": "Before opening map, finish Hydrazine Valve Close then show route",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before opening map, finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hydrazine Valve Close"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show route"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up the minimap and followed by marking Pressure Equalization?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up the minimap and followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the map as well as mark EVA Prep as completed",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the map as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA Prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up waypoints along with completing Deploy Sensor Array checklist",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up waypoints along with completing "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Sensor Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Show navigation in addition to marking Stow Tool Kit done",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show navigation in addition to marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Stow Tool Kit"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Open route, meanwhile mark Fuel Leak Inspection as finished",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open route, meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel Leak Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Open map, oh and mark Reboot Comms as complete",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map, oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reboot Comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Display the minimap and then mark Suit Pressure Stabilize finished",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display the minimap and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Pressure Stabilize"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation next and mark External Camera Check as done",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation next and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "External Camera Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the map, and at the same time mark Docking Latches Inspect complete",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the map, and at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Latches Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "But first open the minimap and finish Data Logger Sync",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first open the minimap and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Logger Sync"
+            }
+        ]
+    },
+    {
+        "prompt": "Open map and then mark Pan-Tilt Motor Check as completed for records",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pan-Tilt Motor Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed for records"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Deploy Flag as done first, then bring up the waypoint overlay and path to base",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Flag"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done first, then bring up the waypoint overlay and path to base"
+            }
+        ]
+    },
+    {
+        "prompt": "After completing Close Cargo Hatch, could you display the minimap and highlight the nearest airlock?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After completing "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Close Cargo Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", could you display the minimap and highlight the nearest airlock?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to finish Extend Boom and then open navigation with the next waypoint highlighted",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Extend Boom"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open navigation with the next waypoint highlighted"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you open the map and while it's up mark Umbilical Disconnect as complete in the checklist?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you open the map and while it's up mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Disconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete in the checklist?"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Relay Antenna Test and additionally pull up the route planner so I can confirm approach vector",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay Antenna Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up the route planner so I can confirm approach vector"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display waypoints plus mark Charge Battery complete and update mission control with status",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display waypoints plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Charge Battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and update mission control with status"
+            }
+        ]
+    },
+    {
+        "prompt": "Before showing the navigation overlay, seal Sample Lid then open waypoints and path to depot",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before showing the navigation overlay, seal "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Lid"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open waypoints and path to depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the minimap and then, as well as marking Replace Filter complete, zoom to sector four",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the minimap and then, as well as marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace Filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, zoom to sector four"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show the route and at the same time mark Align Antenna as finished in the log?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show the route and at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Align Antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished in the log?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the map display and also finish Calibrate IMU on the checklist for me",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the map display and also finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate IMU"
+            },
+            {
+                "type": "TEXT",
+                "text": " on the checklist for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up navigation, along with marking Secure Waste Bag complete and notify the ground team",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up navigation, along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure Waste Bag"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and notify the ground team"
+            }
+        ]
+    },
+    {
+        "prompt": "Open map, followed by marking Test Beacon as done, then send telemetry to mission control",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map, followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done, then send telemetry to mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "I need to open the route planner and afterward mark Cycle Power Module complete before I proceed",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need to open the route planner and afterward mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cycle Power Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete before I proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation and then, in addition, mark Purge Line checked so we can continue EVA operations",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation and then, in addition, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Purge Line"
+            },
+            {
+                "type": "TEXT",
+                "text": " checked so we can continue EVA operations"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Seal Airlock now, and then open the minimap with corridor paths displayed for egress planning",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " now, and then open the minimap with corridor paths displayed for egress planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey could you pull up the waypoint map meanwhile mark Backup Beacon Activate completed and log timestamp",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey could you pull up the waypoint map meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Beacon Activate"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed and log timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show me the minimap and then mark Thermal Blanket Check as finished, followed by status report",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show me the minimap and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished, followed by status report"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open navigation, oh and mark Set Waypoint Alpha completed then calculate shortest return route?",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open navigation, oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Set Waypoint Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed then calculate shortest return route?"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme have the map opened and then also mark Close Vent Valve as done before we undock",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme have the map opened and then also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Close Vent Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done before we undock"
+            }
+        ]
+    }
+]
+}

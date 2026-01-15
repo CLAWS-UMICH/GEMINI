@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_oxy_time_left
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check backup oxygen and time?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen and time?"
+            }
+        ]
+    },
+    {
+        "prompt": "How long will O2 last, also?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long will O2 last, also?"
+            }
+        ]
+    },
+    {
+        "prompt": "Status secondary tank then time?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status secondary tank then time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Time to depletion plus backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time to depletion plus backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 capacity and minutes?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 capacity and minutes?"
+            }
+        ]
+    },
+    {
+        "prompt": "Remaining O2 time while backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remaining O2 time while backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup oxygen level then remaining?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup oxygen level then remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes left before backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes left before backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary tank but first time?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary tank but first time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen time left and backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen time left and backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report secondary oxygen tank level and estimated time remaining.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report secondary oxygen tank level and estimated time remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "How long will current oxygen last and also check backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long will current oxygen last and also check backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup O2 storage then tell me time left.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup O2 storage then tell me time left."
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate minutes of oxygen left while showing secondary tank status.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate minutes of oxygen left while showing secondary tank status."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up redundant oxygen supply details plus remaining duration.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up redundant oxygen supply details plus remaining duration."
+            }
+        ]
+    },
+    {
+        "prompt": "How much longer until O2 depletion and then show backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much longer until O2 depletion and then show backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary oxygen storage and give me time estimates.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary oxygen storage and give me time estimates."
+            }
+        ]
+    },
+    {
+        "prompt": "What's my oxygen time remaining as well as backup status?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my oxygen time remaining as well as backup status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary tank pressure and also time remaining.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary tank pressure and also time remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "I need minutes left of oxygen and then check secondary.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need minutes left of oxygen and then check secondary."
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary O2 storage details and additionally project depletion time.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary O2 storage details and additionally project depletion time."
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate time to depletion and then followed by backup reading.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate time to depletion and then followed by backup reading."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up secondary oxygen storage and calculate remaining minutes?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up secondary oxygen storage and calculate remaining minutes?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show time left for my O2 and also bring up backup details.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show time left for my O2 and also bring up backup details."
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen status and how long current supply lasts.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen status and how long current supply lasts."
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes remain and then check secondary storage pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes remain and then check secondary storage pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify backup oxygen tank and in addition give depletion time.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify backup oxygen tank and in addition give depletion time."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me O2 time left and also display secondary tank report.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me O2 time left and also display secondary tank report."
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary storage report and then compute oxygen time remaining.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary storage report and then compute oxygen time remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "How long until oxygen depletion while also checking backup level?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long until oxygen depletion while also checking backup level?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the secondary oxygen tank capacity and after that calculate how many minutes remain.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the secondary oxygen tank capacity and after that calculate how many minutes remain."
+            }
+        ]
+    },
+    {
+        "prompt": "Compute current oxygen time remaining and then also pull up the secondary tank pressure and status.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Compute current oxygen time remaining and then also pull up the secondary tank pressure and status."
+            }
+        ]
+    },
+    {
+        "prompt": "Open redundant oxygen supply report plus determine how long the present supply will last, please.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open redundant oxygen supply report plus determine how long the present supply will last, please."
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes of oxygen remain before I switch to backups, and then show secondary levels.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes of oxygen remain before I switch to backups, and then show secondary levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary O2 storage details as well as project depletion time under current consumption rates.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary O2 storage details as well as project depletion time under current consumption rates."
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate oxygen time remaining and additionally bring up the backup tank status along with pressure readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate oxygen time remaining and additionally bring up the backup tank status along with pressure readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you verify the backup oxygen cylinder and meanwhile calculate the remaining life of O2 on suit?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you verify the backup oxygen cylinder and meanwhile calculate the remaining life of O2 on suit?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the time to oxygen depletion at current rate, and then check the secondary storage integrity next.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the time to oxygen depletion at current rate, and then check the secondary storage integrity next."
+            }
+        ]
+    },
+    {
+        "prompt": "Check the status of the secondary oxygen reservoir before you tell me how many minutes are left in my supply.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the status of the secondary oxygen reservoir before you tell me how many minutes are left in my supply."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me how long the current oxygen will last at this consumption, and then also report backup levels.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me how long the current oxygen will last at this consumption, and then also report backup levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary oxygen storage numbers and at the same time compute projected depletion time taking current usage.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary oxygen storage numbers and at the same time compute projected depletion time taking current usage."
+            }
+        ]
+    },
+    {
+        "prompt": "After calculating oxygen time remaining, also pull up the secondary tank's remaining capacity and timestamped readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After calculating oxygen time remaining, also pull up the secondary tank's remaining capacity and timestamped readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the backup O2 supply levels too, plus estimate how long the primary will last under current load.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the backup O2 supply levels too, plus estimate how long the primary will last under current load."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, tell me the minutes of oxygen left on this suit and then show backup storage status as well.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, tell me the minutes of oxygen left on this suit and then show backup storage status as well."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you confirm the redundant oxygen storage pressure and in addition provide the time remaining estimate for current consumption?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you confirm the redundant oxygen storage pressure and in addition provide the time remaining estimate for current consumption?"
+            }
+        ]
+    },
+    {
+        "prompt": "I want a projected depletion timeline for my oxygen, followed by a readout of secondary tank percentages and PSI.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want a projected depletion timeline for my oxygen, followed by a readout of secondary tank percentages and PSI."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up backup oxygen storage info and then calculate how many hours and minutes remain.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up backup oxygen storage info and then calculate how many hours and minutes remain."
+            }
+        ]
+    },
+    {
+        "prompt": "Before switching systems, how long will my oxygen last and also confirm the secondary tank health status.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before switching systems, how long will my oxygen last and also confirm the secondary tank health status."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary oxygen inventory and additionally show projected depletion minutes based on telemetry.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary oxygen inventory and additionally show projected depletion minutes based on telemetry."
+            }
+        ]
+    },
+    {
+        "prompt": "Give me time remaining estimate for oxygen supply, and then along with that display the backup tank reading.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me time remaining estimate for oxygen supply, and then along with that display the backup tank reading."
+            }
+        ]
+    }
+]
+}

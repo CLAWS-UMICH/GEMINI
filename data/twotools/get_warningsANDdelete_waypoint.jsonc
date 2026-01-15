@@ -1,0 +1,1010 @@
+{
+  // intents: get_warnings AND delete_waypoint
+  // description_1: The user wants a verbal summary of any active alerts or anomalies currently detected by the HALO system, such as high heart rate or low battery. They might ask, "What are the current warnings?" or "Read out active alerts."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Report alerts and delete Alpha",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report alerts and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home, then read alerts",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then read alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Check vitals and delete Bravo",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check vitals and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Depot and show warnings",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Read alarms and remove LZ-1",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read alarms and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Beacon 3 then check vitals",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Any alerts and delete Supply Cache",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Any alerts and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete MedPack and read warnings",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "MedPack"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check power then remove Alpha Site",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check power then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Old Camp and tell alerts",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report any active warnings and then delete Beacon Alpha marker",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report any active warnings and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Rover and also give me current alerts",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also give me current alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read my suit warnings and remove LZ Alpha afterwards?",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read my suit warnings and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterwards?"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker Supply Cache, and then display any alarms",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then display any alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, tell me active alerts and also delete the Home Base marker",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, tell me active alerts and also delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Observation Post before you read out warnings",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you read out warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my battery status and then delete the marker Fuel Cell",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my battery status and then delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cell"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the old marker Green Marker and also pull up suit vitals",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the old marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please list active system warnings and then remove the marker Antenna",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please list active system warnings and then remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Night Camp followed by a readout of my biometrics",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Night Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout of my biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me current alerts and also delete marker Echo Point?",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me current alerts and also delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Point"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Rock Collection and then bring up suit CO2 levels",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Read out any alarms and remove the marker Comm Array afterward",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out any alarms and remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterward"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Science Node and while you're at it list warnings",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it list warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my suit data and also delete the marker Secondary Site",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my suit data and also delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Secondary Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Yellow Flag, next report any active warnings please",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Yellow Flag"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next report any active warnings please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you pull up active alerts and then erase Red Marker?",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you pull up active alerts and then erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Long Range waypoint and additionally read suit heart rate",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Long Range"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and additionally read suit heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you list active alerts and delete the marker Observation Alpha",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you list active alerts and delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Emergency Stash and at the same time show warnings",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Stash"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Please summarize any active warnings plus then remove the waypoint called Habitat Module for me",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please summarize any active warnings plus then remove the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Alpha Site before you read my vitals and report any alerts",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you read my vitals and report any alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit telemetry and list all alarms, but first erase the waypoint called Camp Sigma, please",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit telemetry and list all alarms, but first erase the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Sigma"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Blue Flag marker as well as show me current battery and suit warnings",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Flag"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker as well as show me current battery and suit warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up any critical alerts along with deleting the waypoint called Science LZ after that",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up any critical alerts along with deleting the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " after that"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Depot in addition to providing a rundown of active system warnings",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to providing a rundown of active system warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Read out any system warnings meanwhile remove the marker called Fuel Cell after that",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out any system warnings meanwhile remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cell"
+            },
+            {
+                "type": "TEXT",
+                "text": " after that"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker Camp Alpha, oh and pull up my heart rate and battery status",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and pull up my heart rate and battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check active alerts and then delete Waypoint-7 followed by displaying suit biometrics",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check active alerts and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by displaying suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Sample Site 1 next and after that report any warnings and battery faults",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and after that report any warnings and battery faults"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me a rundown of active suit warnings and at the same time remove the marker LZ-2",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me a rundown of active suit warnings and at the same time remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker Habitat and then read out any critical alerts plus my oxygen level",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read out any critical alerts plus my oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit vitals while also deleting the marker called Comm Relay if it's redundant",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit vitals while also deleting the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " if it's redundant"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Beacon Beta as well as give me a summary of active warnings and power",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as give me a summary of active warnings and power"
+            }
+        ]
+    },
+    {
+        "prompt": "Please list any active alerts, in addition remove the map marker called Science Outpost to declutter",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please list any active alerts, in addition remove the map marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " to declutter"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Water Cache and meanwhile gimme a readout of any active alarms and battery",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile gimme a readout of any active alarms and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a status on current warnings and then please remove the marker called Comm Array West",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a status on current warnings and then please remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Array West"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker Yellow Flag followed by an inspection of any active suit warnings and power alerts",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Yellow Flag"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by an inspection of any active suit warnings and power alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check all active warnings oh and then delete the map marker called Emergency Shelter Alpha",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check all active warnings oh and then delete the map marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Shelter Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Old Base marker, I need current warnings and my battery percentage shown",
+        "tool_calls": [
+            "get_warnings",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker, I need current warnings and my battery percentage shown"
+            }
+        ]
+    }
+]
+}

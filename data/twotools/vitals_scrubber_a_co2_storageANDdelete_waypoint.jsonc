@@ -1,0 +1,990 @@
+{
+  // intents: vitals_scrubber_a_co2_storage AND delete_waypoint
+  // description_1: The user wants to know the saturation level of the first CO2 scrubbing bed to determine if it is nearing capacity. They might ask, "Check Scrubber A status" or "How full is Scrubber A?"
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check Scrubber A and remove Alpha",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home then check Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check first CO2 bed then delete Alpha",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check first CO2 bed then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Beacon then show Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check scrubber A and delete Cache",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check scrubber A and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete marker Base then check scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Status Scrubber A and remove LZ",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status Scrubber A and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Supply Drop then report scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " then report scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check scrubber alpha then delete Rover",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check scrubber alpha then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete old camp and check Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "old camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A status and then delete waypoint Alpha",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A status and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Beacon and also show scrubber A status?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show scrubber A status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up scrubber alpha then remove waypoint Cache please",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up scrubber alpha then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove waypoint Home and then display Scrubber A saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "How saturated is Scrubber A plus remove waypoint Supply Cache",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How saturated is Scrubber A plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and delete marker Alpha Site then check first CO2 bed",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check first CO2 bed"
+            }
+        ]
+    },
+    {
+        "prompt": "Need scrubber A status while also removing waypoint Base",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need scrubber A status while also removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Rover and then pull up scrubber A details",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up scrubber A details"
+            }
+        ]
+    },
+    {
+        "prompt": "Display Scrubber A saturation along with deleting waypoint LZ",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display Scrubber A saturation along with deleting waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Cache in addition show me scrubber A status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition show me scrubber A status"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up scrubber A readings followed by removing waypoint Beacon",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up scrubber A readings followed by removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the Home marker and additionally verify scrubber A level",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and additionally verify scrubber A level"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check Scrubber A then remove the waypoint Cache?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check Scrubber A then remove the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Supply Drop before you check Scrubber A saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you check Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, gimme Scrubber A status and then delete waypoint Alpha Site",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, gimme Scrubber A status and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint old camp and then pull up scrubber alpha readings",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "old camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up scrubber alpha readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A level as well as removing waypoint Rover",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A level as well as removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Beacon meanwhile display first CO2 bed saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile display first CO2 bed saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Show scrubber A saturation and then remove waypoint LZ please",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show scrubber A saturation and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Supply Cache next and then tell me scrubber status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then tell me scrubber status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the saturation of Scrubber A after that remove the waypoint called Landing Zone",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the saturation of Scrubber A after that remove the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Cache Site and after that display the saturation level of Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that display the saturation level of Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report Scrubber A CO2 saturation but first remove the map marker named Alpha Base",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report Scrubber A CO2 saturation but first remove the map marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and delete the waypoint called Rover Depot then pull up the first CO2 bed status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and delete the waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up the first CO2 bed status"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey bring up Scrubber A saturation at the same time remove the Home marker please",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey bring up Scrubber A saturation at the same time remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the waypoint Alpha Site as well as show me the saturation percentage for Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show me the saturation percentage for Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify Scrubber A saturation in addition delete the map marker labeled Supply Drop, please",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify Scrubber A saturation in addition delete the map marker labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Old Camp, meanwhile bring up detailed scrubber A diagnostics for CO2 storage",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile bring up detailed scrubber A diagnostics for CO2 storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the first CO2 bed Scrubber A reading followed by removing the marker called Beacon Point",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the first CO2 bed Scrubber A reading followed by removing the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Landing Pad and then next check the saturation level on Scrubber A, thanks",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next check the saturation level on Scrubber A, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you additionally display Scrubber A saturation and also clear the marker labeled Supply Cache?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you additionally display Scrubber A saturation and also clear the marker labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the waypoint named Forward Beacon and then can you tell me how full Scrubber A is?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then can you tell me how full Scrubber A is?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a report on Scrubber A CO2 saturation and then remove the Habitat waypoint",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a report on Scrubber A CO2 saturation and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a quick delete of waypoint Cache Site and after that pull up Scrubber A status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a quick delete of waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that pull up Scrubber A status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the CO2 storage of Scrubber A but first remove the marker named Forward Camp",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the CO2 storage of Scrubber A but first remove the marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Beacon Point at the same time bring up the Scrubber A saturation readout",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time bring up the Scrubber A saturation readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you clear anything, check the saturation of Scrubber A and then delete waypoint Alpha",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you clear anything, check the saturation of Scrubber A and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Rover Garage waypoint and as well as that please show me Scrubber A saturation details",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Garage"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and as well as that please show me Scrubber A saturation details"
+            }
+        ]
+    },
+    {
+        "prompt": "Open Scrubber A diagnostics and then after clearing waypoint Old Beacon confirm CO2 bed levels",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open Scrubber A diagnostics and then after clearing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " confirm CO2 bed levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the marker named Supply Drop and in addition provide Scrubber A saturation metrics",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition provide Scrubber A saturation metrics"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,658 @@
+{
+  // intents: vitals_batt_time_left AND vitals_suit_pressure_co2
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check battery time and CO2?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery time and CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery status then suit CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery status then suit CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Power remaining and CO2 levels.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power remaining and CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "How much charge and CO2?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much charge and CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show battery life plus CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show battery life plus CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check power and CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check power and CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery time and CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery time and CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Need charge left then CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need charge left then CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Read battery and suit CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read battery and suit CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check power, then CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check power, then CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my battery time left and display suit CO2?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my battery time left and display suit CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up power remaining and then read the CO2 pressure.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up power remaining and then read the CO2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check charge left and also bring up CO2 levels, please.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check charge left and also bring up CO2 levels, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 partial pressure and then tell me battery time left.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 partial pressure and then tell me battery time left."
+            }
+        ]
+    },
+    {
+        "prompt": "Before returning, show me battery time and suit CO2 readings.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before returning, show me battery time and suit CO2 readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read suit CO2 and additionally open the battery display?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read suit CO2 and additionally open the battery display?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need power remaining shown plus current CO2 partial pressure.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need power remaining shown plus current CO2 partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Show battery life while also pulling up my suit biometrics.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show battery life while also pulling up my suit biometrics."
+            }
+        ]
+    },
+    {
+        "prompt": "Open charge status and then bring up CO2 monitor, thanks.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open charge status and then bring up CO2 monitor, thanks."
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 levels first and then give me battery time remaining.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 levels first and then give me battery time remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display power left as well as suit CO2 pressure readings.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display power left as well as suit CO2 pressure readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my battery estimate and along with that show CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my battery estimate and along with that show CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery charge then, followed by a CO2 pressure readout.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery charge then, followed by a CO2 pressure readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check CO2 and in addition tell me battery minutes?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check CO2 and in addition tell me battery minutes?"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see the power remaining and at the same time CO2.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see the power remaining and at the same time CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up battery life next and then the suit CO2 levels.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up battery life next and then the suit CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery minutes and then, meanwhile, read CO2 partial pressure.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery minutes and then, meanwhile, read CO2 partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the power display and also pull up CO2?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the power display and also pull up CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check battery percent and furthermore show the suit CO2 levels.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check battery percent and furthermore show the suit CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 levels and then also report battery remaining time, please.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 levels and then also report battery remaining time, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Read the suit CO2 partial pressure first and after that open my battery time remaining display.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the suit CO2 partial pressure first and after that open my battery time remaining display."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the current CO2 level and then, but first, show my power remaining?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the current CO2 level and then, but first, show my power remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display CO2 pressure and additionally bring up the estimated battery minutes left for EVA.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display CO2 pressure and additionally bring up the estimated battery minutes left for EVA."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 levels now and then follow that up with opening the battery life readout, thanks.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 levels now and then follow that up with opening the battery life readout, thanks."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, read my suit CO2 and as well as open the power status so I can estimate return time.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, read my suit CO2 and as well as open the power status so I can estimate return time."
+            }
+        ]
+    },
+    {
+        "prompt": "After checking CO2 partial pressure, please also show me the battery charge percentage and time left.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking CO2 partial pressure, please also show me the battery charge percentage and time left."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile read CO2 levels and then open the battery display so I can monitor both simultaneously.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile read CO2 levels and then open the battery display so I can monitor both simultaneously."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read the CO2 partial pressure and in addition pull up the suit power estimate for me?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read the CO2 partial pressure and in addition pull up the suit power estimate for me?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the CO2 monitor now and then, at the same time, bring up my battery remaining and status.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the CO2 monitor now and then, at the same time, bring up my battery remaining and status."
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 pressure quickly and then show the estimated battery time, followed by any warnings if present.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 pressure quickly and then show the estimated battery time, followed by any warnings if present."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit CO2 levels checked and then also have you display my remaining power and charge.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit CO2 levels checked and then also have you display my remaining power and charge."
+            }
+        ]
+    },
+    {
+        "prompt": "Okay read CO2 monitor and then open the battery estimation along with suit biometrics for a full check.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Okay read CO2 monitor and then open the battery estimation along with suit biometrics for a full check."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 pressure first and then next bring up the battery life display so I can plan return.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 pressure first and then next bring up the battery life display so I can plan return."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey read CO2 partials and then gimme the battery minutes plus percent so I know status.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey read CO2 partials and then gimme the battery minutes plus percent so I know status."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up CO2 readings and then also display the power remaining, in addition show any critical flags.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up CO2 readings and then also display the power remaining, in addition show any critical flags."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check the suit CO2 partial pressure and then, oh and before that, give battery time remaining?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check the suit CO2 partial pressure and then, oh and before that, give battery time remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 now and then after that open the charge status and additionally present remaining minutes for EVA.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 now and then after that open the charge status and additionally present remaining minutes for EVA."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 levels and then show the battery time remaining, but first confirm no suit leaks are reported.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 levels and then show the battery time remaining, but first confirm no suit leaks are reported."
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 pressure and then at the same time pull up battery estimates along with oxygen usage statistics.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 pressure and then at the same time pull up battery estimates along with oxygen usage statistics."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display CO2 concentration first and then next open my power readout as well as the vitals summary?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display CO2 concentration first and then next open my power readout as well as the vitals summary?"
+            }
+        ]
+    }
+]
+}

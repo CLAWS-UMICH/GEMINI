@@ -1,0 +1,998 @@
+{
+  // intents: open_menu_tasks AND Set_navigation_target
+  // description_1: The user needs to see the current checklist, procedure steps, or to-do list for the mission. The prompt would be "Open task list" or "Show mission objectives."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open checklist and go to LTV",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open checklist and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Show mission objectives then navigate to Rover",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show mission objectives then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Open tasks and set course Home Base",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open tasks and set course "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up checklist then go to Airlock",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up checklist then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Open procedure then head to LZ-1",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open procedure then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the vitals menu and then navigate to Habitat Alpha",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the vitals menu and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the checklist and also set destination to Rover",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the checklist and also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the mission to-do list and then set destination to LTV",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the mission to-do list and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display procedure steps and navigate to the Rover next?",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display procedure steps and navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " next?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the checklist and then set my route to Habitat Alpha",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the checklist and then set my route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the to-do list and also guide me to the Command Module",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the to-do list and also guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up procedure steps and then navigate to EVA Staging",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up procedure steps and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the objectives menu and then plot a course to Science Site",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the objectives menu and then plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Display mission checklist and also set destination to Crater Edge",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display mission checklist and also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit data and then direct me to the Med Bay",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit data and then direct me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need you to pull up my current battery time remaining and then take me to the Relay Station",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need you to pull up my current battery time remaining and then take me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the full procedure checklist and in addition, after you confirm, navigate to the Science Site for sample collection",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the full procedure checklist and in addition, after you confirm, navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " for sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the mission objectives and then set the navigation target to North Ridge, plus show route overlays",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the mission objectives and then set the navigation target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", plus show route overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the checklist and then, while plotting the path, set destination to the Fuel Cache?",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the checklist and then, while plotting the path, set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the procedure steps before you guide me to the Array Field and also overlay waypoints",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the procedure steps before you guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Array Field"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also overlay waypoints"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the to-do list and then, followed by routing, navigate to the Thermal Tower for inspection",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the to-do list and then, followed by routing, navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " for inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the checklist and then plot a course to the Sample Site, additionally highlight hazards along the way",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the checklist and then plot a course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Site"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally highlight hazards along the way"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my mission tasks and as well as chart a route to the Depot with overlay markers",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my mission tasks and as well as chart a route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " with overlay markers"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the procedure steps and then navigate me to Waypoint Bravo while showing step-by-step cues",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the procedure steps and then navigate me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Waypoint Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " while showing step-by-step cues"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the checklist and then at the same time guide me to the Ascender and show approach vectors",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the checklist and then at the same time guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ascender"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show approach vectors"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Rover and open checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LTV then show tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Home Base and open checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Airlock and show tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to LZ-1 and open checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to EVA Staging and then bring up the to-do list for me",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up the to-do list for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Depot and also display the full procedure checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display the full procedure checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Science Site and then show the mission objectives next",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the mission objectives next"
+            }
+        ]
+    },
+    {
+        "prompt": "Set route to Thermal Tower and pull up suit data as well",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up suit data as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Sample Site and then open the checklist plus show hazards",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the checklist plus show hazards"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Relay Station and also display step-by-step procedures",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display step-by-step procedures"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide me to North Ridge and then open the objectives menu, additionally highlight tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the objectives menu, additionally highlight tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Fuel Cache and open the to-do list, as well as show route",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open the to-do list, as well as show route"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Array Field and then pull up mission checklist, meanwhile display overlays",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Array Field"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up mission checklist, meanwhile display overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Waypoint Bravo and open the procedure steps followed by hazard markers",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Waypoint Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open the procedure steps followed by hazard markers"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Sample Site and before you guide me, please open the full mission checklist and highlight pending steps",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before you guide me, please open the full mission checklist and highlight pending steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Depot, but first display my vitals and also show the procedure steps for the transfer",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first display my vitals and also show the procedure steps for the transfer"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to the Crater Edge and then open the to-do list while overlaying navigation cues for approach",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the to-do list while overlaying navigation cues for approach"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide to the Array Field and then bring up the step-by-step procedure, and then show waypoints along the path",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Array Field"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up the step-by-step procedure, and then show waypoints along the path"
+            }
+        ]
+    },
+    {
+        "prompt": "Set route to the Thermal Tower and at the same time open mission objectives plus annotate critical tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time open mission objectives plus annotate critical tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Med Bay and then open the checklist, along with highlighting medical prep steps",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the checklist, along with highlighting medical prep steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to the Storage Bay and additionally pull up the equipment checklist while flagging missing items",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up the equipment checklist while flagging missing items"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Module and then, followed by routing, display the procedural checklist and next steps",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, followed by routing, display the procedural checklist and next steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Recon Beacon and meanwhile open the mission to-do list, in addition show priority tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Recon Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile open the mission to-do list, in addition show priority tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide me to North Ridge and oh and also pull up the checklist, then highlight which steps are incomplete",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and oh and also pull up the checklist, then highlight which steps are incomplete"
+            }
+        ]
+    }
+]
+}

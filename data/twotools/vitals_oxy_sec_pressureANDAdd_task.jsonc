@@ -1,0 +1,958 @@
+{
+  // intents: vitals_oxy_sec_pressure AND Add_task
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check secondary O2, add task inspect panel",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel"
+            }
+        ]
+    },
+    {
+        "prompt": "What's secondary O2 pressure and add task collect soil",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's secondary O2 pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect soil"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide secondary O2 pressure and add task calibrate comms",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide secondary O2 pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up secondary O2 tank pressure and then add task inspect solar array for damage",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up secondary O2 tank pressure and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array for damage"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup oxygen pressure, then add task run suit diagnostics",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen pressure, then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run suit diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen bottle pressure and add task replace CO2 filter",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen bottle pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace CO2 filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what's the pressure in the secondary O2 tank and add task log radiation reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what's the pressure in the secondary O2 tank and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log radiation reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary O2 psi and then add task secure loose bolt on ladder",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary O2 psi and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose bolt on ladder"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary O2 pressure and add task photograph horizon for mapping",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary O2 pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph horizon for mapping"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 reading and add task test tether at the rim",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 reading and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test tether at the rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Report backup O2 pressure and add task inspect footpad for debris",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report backup O2 pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect footpad for debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary O2 pressure and add task align comm antenna",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary O2 pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "align comm antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary oxygen pressure and then add task take visor photo",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary oxygen pressure and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "take visor photo"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary O2 tank pressure and additionally add task stow sample kit",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary O2 tank pressure and additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow sample kit"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 pressure, as well as add task check suit valve",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 pressure, as well as add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check suit valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me secondary O2 psi, but first add task run camera check",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me secondary O2 psi, but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run camera check"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check secondary oxygen pressure and add task measure suit leak",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check secondary oxygen pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure suit leak"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 level, followed by add task recalibrate spectrometer",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 level, followed by add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate spectrometer"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pressure in the secondary O2 tank and after that add task inspect secondary feed line",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pressure in the secondary O2 tank and after that add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect secondary feed line"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 status and then add task record microphone noise event",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 status and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record microphone noise event"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time verify backup O2 pressure and add task clean visor",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time verify backup O2 pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean visor"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup oxygen pressure along with add task secure tether anchor",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup oxygen pressure along with add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tether anchor"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals for secondary oxygen and in addition add task check rover wheel",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals for secondary oxygen and in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check rover wheel"
+            }
+        ]
+    },
+    {
+        "prompt": "Display secondary O2 pressure, and then add task perform EVA suit checkout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display secondary O2 pressure, and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform EVA suit checkout"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check O2 secondary pressure and also add task mark sample site",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check O2 secondary pressure and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mark sample site"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect solar panel and check secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Create new task: collect soil sample then check the secondary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create new task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect soil sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check the secondary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to calibrate comms plus tell me secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task run camera check and report O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run camera check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task replace CO2 filter and then display secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace CO2 filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Log task: secure loose bolt while you pull up backup O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose bolt"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you pull up backup O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task stow tools before showing secondary O2 psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow tools"
+            },
+            {
+                "type": "TEXT",
+                "text": " before showing secondary O2 psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a task to test tether and then open secondary O2 vitals",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open secondary O2 vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph horizon but first bring up secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph horizon"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first bring up secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please create task: check suit valve as well as tell me secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check suit valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as tell me secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "New task: run suit diagnostics along with report backup oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "New task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with report backup oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task document mic noise in addition show secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document mic noise"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition show secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task take visor photo additionally pull up secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "take visor photo"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally pull up secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and add task check rover wheel and then verify secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check rover wheel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then verify secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task perform EVA suit checkout followed by report on secondary O2 tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform EVA suit checkout"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by report on secondary O2 tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Next add task align antenna and also check backup O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "align antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check backup O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task mark sample site meanwhile show me secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mark sample site"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile show me secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task recalibrate spectrometer and then what's the secondary O2 psi?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate spectrometer"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then what's the secondary O2 psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "Put task: replace filter, and then display secondary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then display secondary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure tether anchor and at the same time check secondary O2 level",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tether anchor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time check secondary O2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check helmet seal next read O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check helmet seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " next read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task: clean visor, and then pull up secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean visor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then pull up secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task test thruster before telling me secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test thruster"
+            },
+            {
+                "type": "TEXT",
+                "text": " before telling me secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task take biometric log plus show backup oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "take biometric log"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show backup oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect feed line and then report O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect feed line"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report O2"
+            }
+        ]
+    }
+]
+}

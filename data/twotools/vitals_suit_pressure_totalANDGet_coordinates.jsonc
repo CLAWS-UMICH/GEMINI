@@ -1,0 +1,962 @@
+{
+  // intents: vitals_suit_pressure_total AND Get_coordinates
+  // description_1: The user wants to know the total internal pressure of the spacesuit relative to the vacuum outside, critical for maintaining structural integrity and life support. They might ask, "What is the total suit pressure?"
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "check total suit pressure and LTV coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check total suit pressure and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "suit pressure total then where is PR",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "suit pressure total then where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "what's my suit pressure and find rover",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "what's my suit pressure and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "total internal pressure and locate Habitat-1",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "total internal pressure and locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up pressure plus Lander-3 coords",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up pressure plus "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "pressure total, oh and where's Beacon Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pressure total, oh and where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme suit pressure and find Sample Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme suit pressure and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "need total pressure while locating O2 cache",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "need total pressure while locating "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "O2 cache"
+            }
+        ]
+    },
+    {
+        "prompt": "check suit pressure before get coordinates LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check suit pressure before get coordinates "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "show pressure and then locate Rover-2",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show pressure and then locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-2"
+            }
+        ]
+    },
+    {
+        "prompt": "where is the LTV and what's my total suit pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's my total suit pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "please provide total suit pressure and get coordinates for PR",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please provide total suit pressure and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "locate Habitat-1 then also display my suit internal pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also display my suit internal pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "open total suit pressure readout along with coordinates for rover",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open total suit pressure readout along with coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for Sample Site Alpha and also show my pressure total",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show my pressure total"
+            }
+        ]
+    },
+    {
+        "prompt": "could you show me total suit pressure and meanwhile locate Beacon Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you show me total suit pressure and meanwhile locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "where's Lander-3 plus what's the suit internal pressure right now",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus what's the suit internal pressure right now"
+            }
+        ]
+    },
+    {
+        "prompt": "display total suit pressure as well as get coordinates for O2 cache",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display total suit pressure as well as get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "O2 cache"
+            }
+        ]
+    },
+    {
+        "prompt": "find the EVA buddy Hawkins and also report total suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "find the EVA buddy "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hawkins"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report total suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need total suit pressure and then coordinates for Habitat-1",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need total suit pressure and then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            }
+        ]
+    },
+    {
+        "prompt": "locate the base Alpha followed by displaying my suit pressure total",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "base Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by displaying my suit pressure total"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up my suit pressure total but first get coordinates for LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up my suit pressure total but first get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "give me coordinates for Rover-2 and additionally show total pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally show total pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "show me the total internal pressure and then find PR coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show me the total internal pressure and then find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "where is the O2 cache as well as display suit total pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "O2 cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as display suit total pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up suit total pressure and next give coordinates for Hawkins",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up suit total pressure and next give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hawkins"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for Sample Site Alpha and meanwhile show my pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show my pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "open suit pressure total plus locate Beacon Bravo for me",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open suit pressure total plus locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "find Lander-3 and then display total suit pressure please",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display total suit pressure please"
+            }
+        ]
+    },
+    {
+        "prompt": "display my suit pressure total and also give coordinates for base Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display my suit pressure total and also give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "base Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "where exactly is the rover at this time, and could you also pull up the suit pressure total?",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where exactly is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " at this time, and could you also pull up the suit pressure total?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the total suit pressure right now and then get coordinates for LTV immediately",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the total suit pressure right now and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "could you locate Beacon Bravo for me and while you're at it show suit pressure total",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me and while you're at it show suit pressure total"
+            }
+        ]
+    },
+    {
+        "prompt": "please verify the suit's total internal pressure and afterwards provide coordinates for Sample Site Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please verify the suit's total internal pressure and afterwards provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "get me exact coordinates for Habitat-1 followed by a readout of the suit pressure total",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get me exact coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout of the suit pressure total"
+            }
+        ]
+    },
+    {
+        "prompt": "open the total pressure display for my suit and then locate the O2 cache",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open the total pressure display for my suit and then locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "O2 cache"
+            }
+        ]
+    },
+    {
+        "prompt": "where is the Lander-3 right now, and also what is my suit pressure total",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " right now, and also what is my suit pressure total"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a current read on total suit pressure and next get coordinates for Rover-2",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a current read on total suit pressure and next get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-2"
+            }
+        ]
+    },
+    {
+        "prompt": "locate Hawkins and then additionally run a total suit pressure diagnostic for me please",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hawkins"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally run a total suit pressure diagnostic for me please"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up the suit pressure total readout and at the same time fetch coordinates for LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up the suit pressure total readout and at the same time fetch coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "give me precise coordinates for O2 cache, followed by displaying my suit's total internal pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "give me precise coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "O2 cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by displaying my suit's total internal pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "before we move, confirm the suit total pressure and then get location for base Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before we move, confirm the suit total pressure and then get location for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "base Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "I want coordinates for Sample Site Alpha as well as a full suit pressure total readout",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as a full suit pressure total readout"
+            }
+        ]
+    },
+    {
+        "prompt": "after you check the suit pressure total, please also provide coordinates for Beacon Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you check the suit pressure total, please also provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "find the Rover-2 location and in addition open the suit total pressure telemetry",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " location and in addition open the suit total pressure telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "could you display total suit pressure additionally get coordinates for Hawkins before EVA continues",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you display total suit pressure additionally get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hawkins"
+            },
+            {
+                "type": "TEXT",
+                "text": " before EVA continues"
+            }
+        ]
+    },
+    {
+        "prompt": "where is the LTV now, and then also show me the suit pressure total on HUD",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " now, and then also show me the suit pressure total on HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up suit total pressure and followed by that, return coordinates for Lander-3",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up suit total pressure and followed by that, return coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-3"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for base Alpha and at the same time report the suit pressure total to me",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "base Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time report the suit pressure total to me"
+            }
+        ]
+    },
+    {
+        "prompt": "I'm low on time, show suit pressure total and then also fetch exact coordinates for Sample Site Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'm low on time, show suit pressure total and then also fetch exact coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    }
+]
+}

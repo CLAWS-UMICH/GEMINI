@@ -1,0 +1,658 @@
+{
+  // intents: vitals_suit_pressure_oxy AND vitals_suit_pressure_co2
+  // description_1: The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, "What is the oxygen pressure inside the suit?"
+  // description_2: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read O2 pressure and CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read O2 pressure and CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 pressure and O2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 pressure and O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check oxygen pressure then CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check oxygen pressure then CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 then O2 pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 then O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "O2 partial and CO2 partial.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 partial and CO2 partial."
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 level and O2 level.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 level and O2 level."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell O2 pressure plus CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell O2 pressure plus CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell CO2 plus O2 pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell CO2 plus O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen pressure, also CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen pressure, also CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 pressure, also oxygen.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 pressure, also oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up my oxygen partial pressure and then show CO2 levels.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up my oxygen partial pressure and then show CO2 levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display CO2 pressure and then also bring up O2?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display CO2 pressure and then also bring up O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the suit O2 pressure and also the CO2 readout.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the suit O2 pressure and also the CO2 readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check CO2 partial pressure and then open my O2 report.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check CO2 partial pressure and then open my O2 report."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up oxygen pp and CO2 pp next, please.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up oxygen pp and CO2 pp next, please."
+            }
+        ]
+    },
+    {
+        "prompt": "I need current CO2 pressure and also the oxygen partial pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current CO2 pressure and also the oxygen partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show O2 levels while also checking the CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show O2 levels while also checking the CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 level and then also display O2 partial pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 level and then also display O2 partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "After you read O2 pressure, please then show me CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read O2 pressure, please then show me CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything else, read CO2 levels and then pull up O2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything else, read CO2 levels and then pull up O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the oxygen pressure report and additionally bring up CO2 concentration.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the oxygen pressure report and additionally bring up CO2 concentration."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you report suit CO2 and in addition display O2 partial pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you report suit CO2 and in addition display O2 partial pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my O2 partial first and then show CO2, followed by alerts.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my O2 partial first and then show CO2, followed by alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull CO2 readings, and then open the oxygen pressure panel.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull CO2 readings, and then open the oxygen pressure panel."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me the suit oxygen pressure and also the current CO2.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me the suit oxygen pressure and also the current CO2."
+            }
+        ]
+    },
+    {
+        "prompt": "Display CO2 partial pressure as well as O2 status, please.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display CO2 partial pressure as well as O2 status, please."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, open my O2 pressure then also show CO2 concentration readout.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, open my O2 pressure then also show CO2 concentration readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 and then at the same time bring up O2 numbers.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 and then at the same time bring up O2 numbers."
+            }
+        ]
+    },
+    {
+        "prompt": "Quickly read O2 pressure and in addition show CO2 warning levels.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quickly read O2 pressure and in addition show CO2 warning levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check CO2 pressure and then display oxygen partial pressure afterwards.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check CO2 pressure and then display oxygen partial pressure afterwards."
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my oxygen partial pressure first, and then check CO2 levels for any rise.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my oxygen partial pressure first, and then check CO2 levels for any rise."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the CO2 partial pressure readout immediately, and additionally display the O2 partial.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the CO2 partial pressure readout immediately, and additionally display the O2 partial."
+            }
+        ]
+    },
+    {
+        "prompt": "After you pull up oxygen pressure, meanwhile check CO2 warnings and tell me any exceedances.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you pull up oxygen pressure, meanwhile check CO2 warnings and tell me any exceedances."
+            }
+        ]
+    },
+    {
+        "prompt": "Before you adjust life support, first read CO2 concentration and then show oxygen partial pressure.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you adjust life support, first read CO2 concentration and then show oxygen partial pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display oxygen partial pressure along with CO2 partials and flag anything outside limits?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display oxygen partial pressure along with CO2 partials and flag anything outside limits?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the suit CO2 partial pressure followed by a readout of O2 partial and safety margins.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the suit CO2 partial pressure followed by a readout of O2 partial and safety margins."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the oxygen pressure and then also pull up the CO2 trends over the last hour.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the oxygen pressure and then also pull up the CO2 trends over the last hour."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check CO2 pressure and then, at the same time, show me the oxygen partial pressure numbers.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check CO2 pressure and then, at the same time, show me the oxygen partial pressure numbers."
+            }
+        ]
+    },
+    {
+        "prompt": "Please report the O2 partial pressure, and then display CO2 concentration plus any timestamped alarms.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report the O2 partial pressure, and then display CO2 concentration plus any timestamped alarms."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull CO2 levels and then open the oxygen pressure panel, but first confirm sampling source?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull CO2 levels and then open the oxygen pressure panel, but first confirm sampling source?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit oxygen partial pressure displayed as well as CO2 readings and corresponding timestamps.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit oxygen partial pressure displayed as well as CO2 readings and corresponding timestamps."
+            }
+        ]
+    },
+    {
+        "prompt": "After verifying CO2 partial pressure, additionally bring up the O2 partial and any trending data available.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After verifying CO2 partial pressure, additionally bring up the O2 partial and any trending data available."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the O2 partial pressure readout and then follow it by the CO2 levels and alarm statuses.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the O2 partial pressure readout and then follow it by the CO2 levels and alarm statuses."
+            }
+        ]
+    },
+    {
+        "prompt": "Please check CO2 concentration along with oxygen pressure and indicate if any values are approaching limits.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check CO2 concentration along with oxygen pressure and indicate if any values are approaching limits."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me the current oxygen partial pressure and also summarize CO2 partial pressure trends for the EVA.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me the current oxygen partial pressure and also summarize CO2 partial pressure trends for the EVA."
+            }
+        ]
+    },
+    {
+        "prompt": "Report CO2 partial pressure first and then bring up O2 pressure, and then show any related alerts.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report CO2 partial pressure first and then bring up O2 pressure, and then show any related alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the O2 partial pressure, plus pull up CO2 readings and the newest sensor diagnostics?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the O2 partial pressure, plus pull up CO2 readings and the newest sensor diagnostics?"
+            }
+        ]
+    },
+    {
+        "prompt": "I want the CO2 pressure readout along with the oxygen partial pressure and then a safety recommendation.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want the CO2 pressure readout along with the oxygen partial pressure and then a safety recommendation."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey mission, bring up O2 partial pressure followed by CO2 partials and then indicate if scrubber is working.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey mission, bring up O2 partial pressure followed by CO2 partials and then indicate if scrubber is working."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check the CO2 levels, and then open the oxygen partial pressure display with timestamps and trends.",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check the CO2 levels, and then open the oxygen partial pressure display with timestamps and trends."
+            }
+        ]
+    }
+]
+}

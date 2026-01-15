@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_pri_pressure AND vitals_suit_pressure_co2
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and CO2?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen pressure and suit CO2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen pressure and suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary tank pressure then suit CO2?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary tank pressure then suit CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure, plus CO2?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure, plus CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen pressure and CO2 reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen pressure and CO2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary oxygen pressure and then display suit CO2 levels",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary oxygen pressure and then display suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up main O2 pressure and also suit CO2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up main O2 pressure and also suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme primary O2 pressure then show suit CO2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme primary O2 pressure then show suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "I need primary tank pressure, and then the suit CO2 partial pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need primary tank pressure, and then the suit CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide primary oxygen pressure as well as suit CO2 readings",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide primary oxygen pressure as well as suit CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open oxygen primary pressure but first bring up suit CO2 levels",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open oxygen primary pressure but first bring up suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary O2 pressure plus show suit CO2 partial pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 pressure plus show suit CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Would you display primary tank pressure and additionally read suit CO2?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Would you display primary tank pressure and additionally read suit CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm primary O2 pressure and then follow with suit CO2 values",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm primary O2 pressure and then follow with suit CO2 values"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up primary oxygen pressure and also the suit CO2?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up primary oxygen pressure and also the suit CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "After you read the primary oxygen tank pressure, please also display the suit CO2 partial pressure immediately",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read the primary oxygen tank pressure, please also display the suit CO2 partial pressure immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Before I ingress, check the primary O2 pressure and then bring up suit CO2 to verify nominal levels",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I ingress, check the primary O2 pressure and then bring up suit CO2 to verify nominal levels"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary tank pressure read out and in addition the suit CO2 partial pressure logged",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary tank pressure read out and in addition the suit CO2 partial pressure logged"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the current primary oxygen pressure and at the same time show the suit CO2 reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the current primary oxygen pressure and at the same time show the suit CO2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check primary O2 pressure along with suit CO2 levels before I proceed with EVA tasks",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check primary O2 pressure along with suit CO2 levels before I proceed with EVA tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read primary oxygen pressure and then, followed by, check the suit CO2 partial pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read primary oxygen pressure and then, followed by, check the suit CO2 partial pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary O2 pressure display and additionally pull up the suit CO2 graph for trend analysis",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary O2 pressure display and additionally pull up the suit CO2 graph for trend analysis"
+            }
+        ]
+    },
+    {
+        "prompt": "I want the primary oxygen tank pressure reading, and then also the suit CO2 partial pressure measurements",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want the primary oxygen tank pressure reading, and then also the suit CO2 partial pressure measurements"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check primary O2 tank pressure, along with a readout of suit CO2 so I can evaluate status",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check primary O2 tank pressure, along with a readout of suit CO2 so I can evaluate status"
+            }
+        ]
+    },
+    {
+        "prompt": "After confirming the primary oxygen pressure, next bring up the suit CO2 partial pressure for safety confirmation",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After confirming the primary oxygen pressure, next bring up the suit CO2 partial pressure for safety confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit CO2 and primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 and primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit CO2 then primary oxygen",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit CO2 then primary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me suit CO2 plus primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me suit CO2 plus primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Suit CO2 reading and then primary pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit CO2 reading and then primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Give suit CO2 and primary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give suit CO2 and primary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display suit CO2 levels and then open primary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display suit CO2 levels and then open primary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up suit CO2 partial pressure and also main O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up suit CO2 partial pressure and also main O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey lemme see suit CO2 then bring up primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey lemme see suit CO2 then bring up primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit CO2 reading and then the primary tank pressure displayed",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit CO2 reading and then the primary tank pressure displayed"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit carbon dioxide and then show the primary oxygen pressure, please",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit carbon dioxide and then show the primary oxygen pressure, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open suit CO2 readout and in addition pull primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open suit CO2 readout and in addition pull primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit CO2 display and then also show primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit CO2 display and then also show primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit CO2, and then followed by the primary tank pressure readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit CO2, and then followed by the primary tank pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check suit CO2 and then open the primary O2 pressure panel",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check suit CO2 and then open the primary O2 pressure panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Display suit CO2 and then primary oxygen pressure as well?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display suit CO2 and then primary oxygen pressure as well?"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking the suit CO2 partial pressure, next bring up the primary oxygen tank pressure for verification",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking the suit CO2 partial pressure, next bring up the primary oxygen tank pressure for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA, read suit CO2 levels and then also show me the primary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA, read suit CO2 levels and then also show me the primary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit CO2 and then, followed by, a full readout of primary oxygen pressure for monitoring",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit CO2 and then, followed by, a full readout of primary oxygen pressure for monitoring"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check suit carbon dioxide partial pressure and then, at the same time, pull up primary O2 pressure trends",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check suit carbon dioxide partial pressure and then, at the same time, pull up primary O2 pressure trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you monitor suit CO2 while also reading the primary oxygen tank pressure before I exit the airlock?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you monitor suit CO2 while also reading the primary oxygen tank pressure before I exit the airlock?"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, pull up the suit CO2 graph and then show the primary O2 pressure along with timestamps",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, pull up the suit CO2 graph and then show the primary O2 pressure along with timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check suit CO2 partial pressure, and then open the primary oxygen pressure display for a trend check",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check suit CO2 partial pressure, and then open the primary oxygen pressure display for a trend check"
+            }
+        ]
+    },
+    {
+        "prompt": "Analyze suit CO2 levels, then followed by primary O2 tank pressure, additionally flag any out-of-range values",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Analyze suit CO2 levels, then followed by primary O2 tank pressure, additionally flag any out-of-range values"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the suit CO2 immediately and then read the primary O2 pressure, as well as log both for telemetry",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the suit CO2 immediately and then read the primary O2 pressure, as well as log both for telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit CO2 readings and then next show primary oxygen tank pressure, in addition provide timestamps for each",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_suit_pressure_co2"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit CO2 readings and then next show primary oxygen tank pressure, in addition provide timestamps for each"
+            }
+        ]
+    }
+]
+}

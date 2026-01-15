@@ -1,0 +1,996 @@
+{
+  // intents: open_menu_tasks AND Add_waypoint
+  // description_1: The user needs to see the current checklist, procedure steps, or to-do list for the mission. The prompt would be "Open task list" or "Show mission objectives."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Open task list and mark waypoint Sample Site Alpha",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open task list and mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Edge then show mission objectives",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show mission objectives"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the checklist and then place marker Beacon One",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the checklist and then place marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Rover Cache and show me the to-do list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show me the to-do list"
+            }
+        ]
+    },
+    {
+        "prompt": "Open procedure steps and add waypoint O2 Leak Entrance",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open procedure steps and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "O2 Leak Entrance"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Fuel Cache B plus bring up the current tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache B"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus bring up the current tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Show mission objectives and add waypoint Survey Point 7",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show mission objectives and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Point 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Hatch 3 while you pull up the task list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hatch 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you pull up the task list"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the to-do list and then add waypoint North Ridge",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the to-do list and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Delta Pit and also display current procedure steps",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display current procedure steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my checklist first and then set marker Geo Sample Bravo",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my checklist first and then set marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geo Sample Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Landing Beacon followed by opening the mission tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the mission tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the checklist as well as drop waypoint Thermal Vent",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the checklist as well as drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Habitat Module Port, and then open the tasks menu",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Module Port"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then open the tasks menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Open steps and also add waypoint Science Cache",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open steps and also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Survey Grid 12 while showing the protocol list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Grid 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " while showing the protocol list"
+            }
+        ]
+    },
+    {
+        "prompt": "Open mission objectives and then add waypoint Radiation Monitor",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open mission objectives and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Radiation Monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Forward Cache and next pull up the checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next pull up the checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open procedure list and at the same time drop marker East Ridge",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open procedure list and at the same time drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and open the task menu plus add waypoint Sample Site Bravo",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and open the task menu plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Alpha Beacon and then display the mission checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display the mission checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open tasks and along with that mark this spot as South Crater",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open tasks and along with that mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Supply Drop and also pull up current objectives",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up current objectives"
+            }
+        ]
+    },
+    {
+        "prompt": "Show checklist and then add waypoint Transit Node 3",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show checklist and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Transit Node 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Supply Cache before displaying the procedure steps",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " before displaying the procedure steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the to-do list and additionally drop marker Gamma Site",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the to-do list and additionally drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Maintenance Hatch then open the task menu please",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Maintenance Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open the task menu please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my tasks and also mark this place as Beacon Two",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my tasks and also mark this place as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Two"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Research Node plus show the checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show the checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open mission tasks and then add waypoint LZ-1, I'm near the edge",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open mission tasks and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", I'm near the edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Rim next and also open the checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also open the checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the tasks menu but first set marker West Bluff",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the tasks menu but first set marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Bluff"
+            }
+        ]
+    },
+    {
+        "prompt": "Put a waypoint named Cache North and meanwhile show the mission objectives",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show the mission objectives"
+            }
+        ]
+    },
+    {
+        "prompt": "Open procedure steps and then add waypoint Delta Station, please",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open procedure steps and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Station"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint LZ Bravo and along with that display current tasks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and along with that display current tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the procedure list and also set waypoint Outer Wall",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the procedure list and also set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outer Wall"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint North Beacon followed by opening the to-do list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the to-do list"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the mission checklist and in addition mark this as Science Pad",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the mission checklist and in addition mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Pad"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Site Z-4 plus bring up my current tasks please",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Z-4"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus bring up my current tasks please"
+            }
+        ]
+    },
+    {
+        "prompt": "Open tasks and additionally drop waypoint Cold Trap",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open tasks and additionally drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cold Trap"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Node 9 and then show me the checklist, thanks",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Node 9"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me the checklist, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Open mission objectives and oh and add waypoint South Lobe",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open mission objectives and oh and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Lobe"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Beacon Alpha and as well as that open the tasks menu",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as that open the tasks menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the checklist and and then drop marker West Cache",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the checklist and and then drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the task list and then add waypoint Delta Ridge",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the task list and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Camp Six then open the mission checklist at the same time",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Six"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open the mission checklist at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the to-do list and meanwhile set marker Fuel Spill",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the to-do list and meanwhile set marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Spill"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme add waypoint Perimeter Post and also pull up the procedure list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Perimeter Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up the procedure list"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display tasks first and then add waypoint Summit Marker",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display tasks first and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Summit Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Observation Deck followed by showing the checklist",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing the checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open tasks and in addition place marker Alpha Cache",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open tasks and in addition place marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "After you open the mission checklist, add waypoint Fuel Depot",
+        "tool_calls": [
+            "open_menu_tasks",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you open the mission checklist, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Depot"
+            }
+        ]
+    }
+]
+}

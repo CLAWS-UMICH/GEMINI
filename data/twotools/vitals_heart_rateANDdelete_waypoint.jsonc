@@ -1,0 +1,1220 @@
+{
+  // intents: vitals_heart_rate AND delete_waypoint
+  // description_1: The user wants to know their current physiological stress level, or the system may have flagged a high heart rate, prompting the user to query it. The prompt would be "What is my heart rate?" or "Check BPM."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check my heart rate and remove Alpha",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my heart rate and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home and check BPM",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my BPM then remove Depot-3",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my BPM then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Beacon One plus show heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me my pulse and then delete LZ Bravo",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me my pulse and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the old camp then check my vitals",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "old camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my heart rate while deleting Sample Site 12",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my heart rate while deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site 12"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Beacon One and also show BPM",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up my vitals and then remove Hab Module",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up my vitals and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cache A, then show my BPM please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then show my BPM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pulse and delete Relay now",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pulse and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Cargo-2 and tell me my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check my BPM and then remove Nexus Point?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check my BPM and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nexus Point"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Ridge Camp as well as show vitals",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my suit vitals and remove Marker Z next",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my suit vitals and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Z"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my heart rate along with clearing Supply Drop",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my heart rate along with clearing "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear WaypointEcho and simultaneously pull up my vitals",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "WaypointEcho"
+            },
+            {
+                "type": "TEXT",
+                "text": " and simultaneously pull up my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Check heart rate while deleting Outpost-14, please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check heart rate while deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost-14"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the lander then show my BPM and oxygen",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show my BPM and oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a vitals readout plus delete ResearchSite",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a vitals readout plus delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "ResearchSite"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Alpha Site and then tell me my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my BPM and clear Site-7 before proceeding",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my BPM and clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " before proceeding"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up heart rate and remove Olympus from map",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up heart rate and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Olympus"
+            },
+            {
+                "type": "TEXT",
+                "text": " from map"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Trench while also checking my pulse status",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trench"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also checking my pulse status"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up heart rate and delete Gamma Base next",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up heart rate and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Delta and then give me a pulse report",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give me a pulse report"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what's my heart rate and remove PointZero please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what's my heart rate and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "PointZero"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear Echo-North and show vitals in addition",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo-North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show vitals in addition"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my BPM and additionally remove LunarGate marker",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my BPM and additionally remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LunarGate"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete South Ridge, meanwhile show my heart rate monitor",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile show my heart rate monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pulse oh and remove NorthStar",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pulse oh and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthStar"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Beacon-7 and then pull up my vitals panel",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up my vitals panel"
+            }
+        ]
+    },
+    {
+        "prompt": "I need heart rate and delete Hab B from map",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need heart rate and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab B"
+            },
+            {
+                "type": "TEXT",
+                "text": " from map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Main Base and check my vitals at the same time",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Main Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check my vitals at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up BPM and clear Storage-Alpha followed by oxygen readout",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up BPM and clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage-Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by oxygen readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Nest next and show me my current pulse",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nest"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and show me my current pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Show heart rate and remove Observation Post, please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show heart rate and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear Glacier Camp and also display my vitals panel",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Glacier Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display my vitals panel"
+            }
+        ]
+    },
+    {
+        "prompt": "What is my heart rate and delete Blue Rock marker as well?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is my heart rate and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Rock"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker as well?"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Red Crater and then gimme a pulse read",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then gimme a pulse read"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my BPM and additionally clear Green Patch waypoint",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my BPM and additionally clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Module-5 and meanwhile display suit vitals",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Module-5"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile display suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my heart rate and delete Hangar first?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my heart rate and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hangar"
+            },
+            {
+                "type": "TEXT",
+                "text": " first?"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Docking Port but first check my BPM",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first check my BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pulse and then delete Aft Cache from display",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pulse and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Aft Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " from display"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Storm Shelter as well as show my current heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storm Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show my current heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals and then delete Lab-2, followed by a stability check",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab-2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by a stability check"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear Temp Camp and at the same time show my pulse",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Temp Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my heart rate and delete BeaconEast afterwards?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my heart rate and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BeaconEast"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterwards?"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete West LZ next and also display my BPM readout",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also display my BPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Show vitals, and then remove Nexus Relay",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show vitals, and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nexus Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Supply Cache but first give me a heart rate read",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first give me a heart rate read"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my pulse checked and delete Forward Beacon afterwards",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my pulse checked and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Cargo Bay 7 and then could you show my BPM?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then could you show my BPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check heart rate and then remove Observation Marker A",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check heart rate and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Marker A"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Science Hub and also open my vitals display please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also open my vitals display please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show BPM and remove the temporary marker Ridge-2",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show BPM and remove the temporary marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Forward Camp and then give me vitals plus status",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give me vitals plus status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my biometrics and along with that remove Landing Pad 3",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my biometrics and along with that remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Beacon Central and next display my heart rate details",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Central"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next display my heart rate details"
+            }
+        ]
+    }
+]
+}

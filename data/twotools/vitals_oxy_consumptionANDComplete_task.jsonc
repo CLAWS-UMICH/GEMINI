@@ -1,0 +1,998 @@
+{
+  // intents: vitals_oxy_consumption AND Complete_task
+  // description_1: The user is interested in the rate at which they are using oxygen, which helps in planning strenuous activities or return trips. They might ask, "What is my current oxygen consumption rate?"
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "oxygen rate and mark Battery Check",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oxygen rate and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "pull O2 consumption then complete Tether Attach",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull O2 consumption then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Attach"
+            }
+        ]
+    },
+    {
+        "prompt": "what's O2 use and finish Sample Stow",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "what's O2 use and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            }
+        ]
+    },
+    {
+        "prompt": "tell me current oxygen consumption and then mark Antenna Check complete",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "tell me current oxygen consumption and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up O2 burn rate and close out Airlock Cycle",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up O2 burn rate and close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Cycle"
+            }
+        ]
+    },
+    {
+        "prompt": "how fast am I using oxygen also finish Camera Calibrate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "how fast am I using oxygen also finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibrate"
+            }
+        ]
+    },
+    {
+        "prompt": "hey bring up my suit oxygen consumption while you mark Solar Array Deploy complete",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey bring up my suit oxygen consumption while you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "please provide current O2 usage and then mark Thermal Reg Check as done",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please provide current O2 usage and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "need O2 consumption numbers plus finish Seal Hatch",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "need O2 consumption numbers plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "show O2 use and complete Umbilical Connect",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show O2 use and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Connect"
+            }
+        ]
+    },
+    {
+        "prompt": "at the same time pull my oxygen burn rate and then mark Battery Thermal Check complete",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "at the same time pull my oxygen burn rate and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Thermal Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "give me oxygen consumption numbers and then finish EVA prep",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "give me oxygen consumption numbers and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "meanwhile can you display my O2 consumption and also check off Comm Systems Test",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "meanwhile can you display my O2 consumption and also check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Systems Test"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and tell me O2 rate and complete Payload Mounting",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and tell me O2 rate and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Mounting"
+            }
+        ]
+    },
+    {
+        "prompt": "tell me the current oxygen use and after that mark Sample Collection as completed",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "tell me the current oxygen use and after that mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed"
+            }
+        ]
+    },
+    {
+        "prompt": "could you show my oxygen consumption in addition mark Instrument Bay Check done",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you show my oxygen consumption in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Instrument Bay Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 burn and finish Suit Leak Test",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 burn and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            }
+        ]
+    },
+    {
+        "prompt": "tell oxygen consumption while you mark Heat Shield Inspect",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "tell oxygen consumption while you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Heat Shield Inspect"
+            }
+        ]
+    },
+    {
+        "prompt": "could you pull up my oxygen consumption, followed by marking Docking Latch Check complete",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you pull up my oxygen consumption, followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Latch Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "show me O2 usage and then mark Comms Antenna Deploy",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show me O2 usage and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Antenna Deploy"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current oxygen consumption as well as finishing the Remote Camera Setup task",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current oxygen consumption as well as finishing the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Remote Camera Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "please display O2 consumption and additionally close out Power Relay Test",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please display O2 consumption and additionally close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Power Relay Test"
+            }
+        ]
+    },
+    {
+        "prompt": "check O2 and mark Sample Bagging",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check O2 and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Bagging"
+            }
+        ]
+    },
+    {
+        "prompt": "before anything else tell me oxygen consumption and then check off the Solar Panel Alignment task",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before anything else tell me oxygen consumption and then check off the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme O2 rate and then set Camera Focus Calibration complete",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme O2 rate and then set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Focus Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "complete Antenna Check and O2?",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Tether Attach then show O2",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Attach"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show O2"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Sample Stow and O2 rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 rate"
+            }
+        ]
+    },
+    {
+        "prompt": "please complete Airlock Cycle and then tell me my oxygen use",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me my oxygen use"
+            }
+        ]
+    },
+    {
+        "prompt": "check off Camera Calibrate plus show current O2 consumption",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show current O2 consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Solar Array Deploy and then pull up my suit oxygen consumption numbers",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up my suit oxygen consumption numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "close out Thermal Reg Check and also report O2 burn rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report O2 burn rate"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Seal Hatch as complete before you give me the current oxygen consumption",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete before you give me the current oxygen consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "complete Umbilical Connect while showing my O2 usage",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Connect"
+            },
+            {
+                "type": "TEXT",
+                "text": " while showing my O2 usage"
+            }
+        ]
+    },
+    {
+        "prompt": "finish EVA prep and O2 numbers?",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 numbers?"
+            }
+        ]
+    },
+    {
+        "prompt": "check off Comm Systems Test and then display oxygen consumption",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Systems Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display oxygen consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "set Payload Mounting complete and then tell me how fast I'm using oxygen, please",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Mounting"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then tell me how fast I'm using oxygen, please"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Sample Collection along with O2 consumption readout",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with O2 consumption readout"
+            }
+        ]
+    },
+    {
+        "prompt": "complete Instrument Bay Check and then additionally pull my current oxygen consumption figures",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Instrument Bay Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally pull my current oxygen consumption figures"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Suit Leak Test and meanwhile show suit O2 burn rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show suit O2 burn rate"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Heat Shield Inspect and show O2",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Heat Shield Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show O2"
+            }
+        ]
+    },
+    {
+        "prompt": "check off Docking Latch Check, followed by reporting my oxygen consumption for the last five minutes",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Latch Check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by reporting my oxygen consumption for the last five minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "complete Comms Antenna Deploy and then what is my O2 rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Antenna Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then what is my O2 rate"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Remote Camera Setup as done and as well as display my current O2 usage stats",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Remote Camera Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and as well as display my current O2 usage stats"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Power Relay Test but first show O2 consumption",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Power Relay Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show O2 consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "check Solar Panel Alignment next and at the same time give me my oxygen consumption rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and at the same time give me my oxygen consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "close Camera Focus Calibration and then also report suit oxygen use",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Focus Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also report suit oxygen use"
+            }
+        ]
+    },
+    {
+        "prompt": "complete Remote Sample Stow plus O2?",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Remote Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "finish Instrument Checkout followed by showing my oxygen consumption",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Instrument Checkout"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing my oxygen consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Hull Inspection as complete and then at the same time pull up my oxygen consumption trends for mission control",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hull Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then at the same time pull up my oxygen consumption trends for mission control"
+            }
+        ]
+    }
+]
+}

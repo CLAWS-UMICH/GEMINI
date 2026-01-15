@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_fan_sec_rpm
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary oxygen and fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen and fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen tank status then fan speed.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen tank status then fan speed."
+            }
+        ]
+    },
+    {
+        "prompt": "Backup O2 readout plus backup fan?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup O2 readout plus backup fan?"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 level and then fan?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 level and then fan?"
+            }
+        ]
+    },
+    {
+        "prompt": "Status reserve oxygen, also fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status reserve oxygen, also fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary oxygen and also the backup fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary oxygen and also the backup fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up reserve oxygen levels and fan RPM?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up reserve oxygen levels and fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme the secondary oxygen gauge and then backup vent speed.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme the secondary oxygen gauge and then backup vent speed."
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary oxygen status plus secondary fan RPM now.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary oxygen status plus secondary fan RPM now."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display backup oxygen tank and show fan RPM?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display backup oxygen tank and show fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary O2 readout and also the backup vent RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary O2 readout and also the backup vent RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide reserve oxygen level then open secondary fan speed.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide reserve oxygen level then open secondary fan speed."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check the backup oxygen and then report fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check the backup oxygen and then report fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary oxygen tank info and then the vent RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary oxygen tank info and then the vent RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "After checking secondary oxygen, show me the backup fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking secondary oxygen, show me the backup fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "After checking the secondary oxygen reservoir, please also bring up the backup fan RPM readout.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking the secondary oxygen reservoir, please also bring up the backup fan RPM readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide a full status on the secondary O2 supply and then additionally display the secondary ventilation fan speed.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide a full status on the secondary O2 supply and then additionally display the secondary ventilation fan speed."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the reserve oxygen percentage and as well as the backup fan RPM at the same time.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the reserve oxygen percentage and as well as the backup fan RPM at the same time."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the secondary oxygen level, followed by the secondary vent fan RPM and the fan health report.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the secondary oxygen level, followed by the secondary vent fan RPM and the fan health report."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the backup oxygen tank telemetry then while you're at it bring up the backup fan RPM?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the backup oxygen tank telemetry then while you're at it bring up the backup fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you finalize primary checks, also run a status on the secondary oxygen storage and the secondary fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you finalize primary checks, also run a status on the secondary oxygen storage and the secondary fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Please check backup oxygen levels in addition and then present the secondary ventilation fan RPM plus any anomalies.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check backup oxygen levels in addition and then present the secondary ventilation fan RPM plus any anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "I need a readout of the reserve oxygen supply and then followed by that show the backup fan RPM.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a readout of the reserve oxygen supply and then followed by that show the backup fan RPM."
+            }
+        ]
+    },
+    {
+        "prompt": "Along with the secondary oxygen percentage, could you also display the backup fan RPM and the ventilation fault logs?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Along with the secondary oxygen percentage, could you also display the backup fan RPM and the ventilation fault logs?"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally, check the secondary oxygen tank pressure and at the same time bring up the secondary fan RPM and trends.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally, check the secondary oxygen tank pressure and at the same time bring up the secondary fan RPM and trends."
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan RPM and oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan RPM and oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Fan speed then secondary oxygen status.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan speed then secondary oxygen status."
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary vent RPM plus reserve O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary vent RPM plus reserve O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup fan RPM, also show oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup fan RPM, also show oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Report fan RPM and then oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report fan RPM and then oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display backup fan RPM and also the secondary oxygen level?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display backup fan RPM and also the secondary oxygen level?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up secondary fan speed and then bring up backup oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up secondary fan speed and then bring up backup oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the backup vent RPM and also show reserve oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the backup vent RPM and also show reserve oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "Need backup fan revolutions and then the secondary oxygen reading.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need backup fan revolutions and then the secondary oxygen reading."
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary fan RPM display and then check backup oxygen tank.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary fan RPM display and then check backup oxygen tank."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show backup fan RPM and in addition reserve oxygen?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show backup fan RPM and in addition reserve oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please indicate fan RPM as well as the secondary oxygen readout.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please indicate fan RPM as well as the secondary oxygen readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check secondary fan RPM and also pull up backup oxygen.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check secondary fan RPM and also pull up backup oxygen."
+            }
+        ]
+    },
+    {
+        "prompt": "After you read fan RPM, show me the reserve oxygen level.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read fan RPM, show me the reserve oxygen level."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you bring up fan RPM then open oxygen reserve data?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you bring up fan RPM then open oxygen reserve data?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we proceed, check backup fan RPM then while you're at it show secondary oxygen level and trends.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we proceed, check backup fan RPM then while you're at it show secondary oxygen level and trends."
+            }
+        ]
+    },
+    {
+        "prompt": "Run a diagnostic on the secondary ventilation fan RPM and additionally report the current backup oxygen percentage and pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a diagnostic on the secondary ventilation fan RPM and additionally report the current backup oxygen percentage and pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary fan RPM reading followed by the reserve oxygen status, and then any warnings displayed.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary fan RPM reading followed by the reserve oxygen status, and then any warnings displayed."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, lemme see the backup fan RPM along with the secondary oxygen tank pressure and any leak indicators.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, lemme see the backup fan RPM along with the secondary oxygen tank pressure and any leak indicators."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open backup fan telemetry then also pull up secondary oxygen levels plus estimated endurance?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open backup fan telemetry then also pull up secondary oxygen levels plus estimated endurance?"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, verify the backup fan RPM and in addition confirm the secondary oxygen gauge and flow rate for redundancy.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, verify the backup fan RPM and in addition confirm the secondary oxygen gauge and flow rate for redundancy."
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and run a quick check of the secondary fan RPM, then open the reserve oxygen storage status and health.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and run a quick check of the secondary fan RPM, then open the reserve oxygen storage status and health."
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time bring up backup fan RPM and also display backup oxygen tank telemetry.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time bring up backup fan RPM and also display backup oxygen tank telemetry."
+            }
+        ]
+    },
+    {
+        "prompt": "Please sequence checks: but first check the backup fan RPM, followed by checking secondary oxygen storage and reporting any anomalies.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please sequence checks: but first check the backup fan RPM, followed by checking secondary oxygen storage and reporting any anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "Next, check the secondary vent fan RPM and then before switching tasks open the backup oxygen storage status and values.",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, check the secondary vent fan RPM and then before switching tasks open the backup oxygen storage status and values."
+            }
+        ]
+    }
+]
+}

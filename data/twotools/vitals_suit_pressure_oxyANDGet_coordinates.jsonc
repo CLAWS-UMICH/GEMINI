@@ -1,0 +1,998 @@
+{
+  // intents: vitals_suit_pressure_oxy AND Get_coordinates
+  // description_1: The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, "What is the oxygen pressure inside the suit?"
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check O2 pressure and find the LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 pressure and find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the PR and what's O2?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Report oxygen partial pressure then LTV coords",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report oxygen partial pressure then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "LTV coordinates and O2 pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates and O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me suit O2 then find Rover-3",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me suit O2 then find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's Rover-3 and O2 partial?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 partial?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 partial pressure and get Base Camp",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 partial pressure and get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Base Camp coordinates plus O2 pp?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates plus O2 pp?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check O2 pp and then LZ1 location",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 pp and then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ1"
+            },
+            {
+                "type": "TEXT",
+                "text": " location"
+            }
+        ]
+    },
+    {
+        "prompt": "Find LZ1 and report O2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show suit oxygen partial pressure and Lander coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show suit oxygen partial pressure and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for CargoPod and also read my O2 partial",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "CargoPod"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read my O2 partial"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up O2 pressure, and then show Beacon 4 location?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up O2 pressure, and then show "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " location?"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Science Station and also what's my oxygen pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Science Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also what's my oxygen pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me O2 partial pressure plus give coordinates for Rover Beta",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me O2 partial pressure plus give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the Supply Cache and then display suit oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display suit oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals, read O2 pressure after that and then find Astronaut Ortiz",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals, read O2 pressure after that and then find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Astronaut Ortiz"
+            }
+        ]
+    },
+    {
+        "prompt": "Get me coordinates of Astronaut Kim and also show O2 pp",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get me coordinates of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Astronaut Kim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show O2 pp"
+            }
+        ]
+    },
+    {
+        "prompt": "I need oxygen partial pressure and then the Lander coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need oxygen partial pressure and then the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide coordinates for Hab Ops and additionally report O2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hab Ops"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally report O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, tell me O2 pressure while you pull up Comms Array position",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, tell me O2 pressure while you pull up "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Comms Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " position"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Seismic Array and give me the suit O2 reading",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Seismic Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and give me the suit O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Display the oxygen partial pressure as well as the MAV coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display the oxygen partial pressure as well as the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "MAV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Forward Station and also report my O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Forward Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report my O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read suit O2 pressure and then pull up LTV-2 coordinates?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read suit O2 pressure and then pull up "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates?"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Sample Site Alpha and also check my O2 pp",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check my O2 pp"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up my oxygen partial pressure and then locate Engineering Pod",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up my oxygen partial pressure and then locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Engineering Pod"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the CargoPod and in addition what's my O2 level?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "CargoPod"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition what's my O2 level?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read the O2 partial pressure and then show Beacon 4 coordinates",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read the O2 partial pressure and then show "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the Science Station then also display my suit oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Science Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also display my suit oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read my suit oxygen partial pressure and then give me coordinates for Habitat-7",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read my suit oxygen partial pressure and then give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the Lander followed by a readout of the suit O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout of the suit O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display partial pressure of oxygen, and then also show the coordinates for LTV-2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display partial pressure of oxygen, and then also show the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Rover Alpha, and then while you're at it report my O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then while you're at it report my O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the O2 partial pressure reading before you pull up coordinates for the Comms Array",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the O2 partial pressure reading before you pull up coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Comms Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Supply Cache next, and at the same time give me my suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " next, and at the same time give me my suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics and report oxygen partial pressure, additionally bring up the location for the Science Station",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics and report oxygen partial pressure, additionally bring up the location for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Science Station"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Seismic Array along with my current O2 partial pressure so I can make a systems check",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Seismic Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with my current O2 partial pressure so I can make a systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the oxygen partial pressure as well as the coordinates for the Forward Station?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the oxygen partial pressure as well as the coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Forward Station"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Get me coordinates for Beacon 4 followed by a full read of suit O2 partial pressure and status",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a full read of suit O2 partial pressure and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check O2 partial pressure and then show the location of the Mobile Transport Vehicle",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check O2 partial pressure and then show the location of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Transport Vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Engineering Pod, oh and while you're at it read my suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Engineering Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and while you're at it read my suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Need O2 partial pressure and then coordinates for the Drill Rig so mission control can confirm",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need O2 partial pressure and then coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Drill Rig"
+            },
+            {
+                "type": "TEXT",
+                "text": " so mission control can confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "Provide coordinates for Sample Site Bravo and then also give me the current O2 pressure inside suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also give me the current O2 pressure inside suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up my suit oxygen pressure and next show me the GPS for the Lunar Relay",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up my suit oxygen pressure and next show me the GPS for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Comms Array followed by reading the O2 partial pressure, and then report any deviations",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Comms Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reading the O2 partial pressure, and then report any deviations"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit vitals, read O2 partial pressure, along with pulling coordinates for Habitat A",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit vitals, read O2 partial pressure, along with pulling coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat A"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Lander, meanwhile check and tell me the partial pressure of oxygen in my suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile check and tell me the partial pressure of oxygen in my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you additionally display oxygen partial pressure but first give me coordinates for the Rover-1 unit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you additionally display oxygen partial pressure but first give me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the CargoPod and then at the same time show my suit O2 partial pressure, please",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "CargoPod"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time show my suit O2 partial pressure, please"
+            }
+        ]
+    }
+]
+}

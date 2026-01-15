@@ -1,0 +1,990 @@
+{
+  // intents: vitals_suit_pressure_oxy AND Add_waypoint
+  // description_1: The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, "What is the oxygen pressure inside the suit?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "O2 pressure and mark Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 pressure and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Base Camp and check O2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check PO2 then mark waypoint Echo",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check PO2 then mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample A and read O2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my oxygen pressure, drop waypoint Foothold",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my oxygen pressure, drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foothold"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker Crater Edge and report PO2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report PO2"
+            }
+        ]
+    },
+    {
+        "prompt": "PO2 then add waypoint RidgePoint",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "PO2 then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "RidgePoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint LZ and tell PO2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell PO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me O2 pressure, mark Site One",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me O2 pressure, mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site One"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark SampleSite and show oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SampleSite"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my partial pressure of oxygen and add waypoint Beta",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my partial pressure of oxygen and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add waypoint Sample Site Bravo and then tell my PO2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell my PO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me PO2 please and then drop a marker named South Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me PO2 please and then drop a marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint East Crater followed by check of oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by check of oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current oxygen partial pressure plus add waypoint Alpha One",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current oxygen partial pressure plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha One"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop a waypoint named Ridge Crest and also report O2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Crest"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report O2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the PO2 in my suit and add waypoint Lab Entrance",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the PO2 in my suit and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab Entrance"
+            }
+        ]
+    },
+    {
+        "prompt": "Tag this spot as Sample Pit and then pull up oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tag this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up oxygen partial pressure, and then create waypoint Summit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up oxygen partial pressure, and then create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Summit"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint North Ridge next and also show suit PO2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also show suit PO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up oxygen partial pressure and drop waypoint Delta",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up oxygen partial pressure and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Cargo Bay plus report current PO2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus report current PO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check the O2 pressure and add waypoint Observatory",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check the O2 pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observatory"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Supply Cache and then tell me the oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me the oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show the oxygen partial pressure and then mark LZ Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show the oxygen partial pressure and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you add waypoint Solar Array and also show my suit O2 pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show my suit O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need oxygen pressure reading and add waypoint Water Source",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need oxygen pressure reading and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Source"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Charlie followed by reporting the PO2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting the PO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up PO2 values and then drop marker Cargo-1",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up PO2 values and then drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Extraction Point and then tell my oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Extraction Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell my oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my suit's oxygen partial pressure and then add waypoint Geological Transect for samples",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my suit's oxygen partial pressure and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geological Transect"
+            },
+            {
+                "type": "TEXT",
+                "text": " for samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Hab D and also pull up the current partial pressure of oxygen inside my suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab D"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up the current partial pressure of oxygen inside my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the partial pressure of oxygen while placing a marker named Outcrop West for later",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the partial pressure of oxygen while placing a marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outcrop West"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you leave, tag this site as Borehole Gamma and in addition report PO2 in the suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you leave, tag this site as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Borehole Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition report PO2 in the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display oxygen partial pressure now and then drop waypoint Thermal Vent for reference",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display oxygen partial pressure now and then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by adding waypoint Cache-03, show me the PO2 readings so I can confirm breathable mix",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-03"
+            },
+            {
+                "type": "TEXT",
+                "text": ", show me the PO2 readings so I can confirm breathable mix"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the current oxygen partial pressure, and then place waypoint Secondary LZ for extraction planning",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the current oxygen partial pressure, and then place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Secondary LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " for extraction planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Put a waypoint labeled Research Grid 7 and then also tell me the suit O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Grid 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also tell me the suit O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the oxygen partial pressure reading and add waypoint Meteorite Fragment followed by a timestamp",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the oxygen partial pressure reading and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Meteorite Fragment"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Hab Supply Drop and then, at the same time, show me the PO2 trend over last hour",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, at the same time, show me the PO2 trend over last hour"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my suit oxygen partial pressure as well as create waypoint Site Delta for the EVA log",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my suit oxygen partial pressure as well as create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " for the EVA log"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and add waypoint Waterfall Ridge, additionally pull up my current PO2 to verify safe levels",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waterfall Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally pull up my current PO2 to verify safe levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me the oxygen partial pressure and along with that drop a waypoint designated Sample Grid B4",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me the oxygen partial pressure and along with that drop a waypoint designated "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Grid B4"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Crater Rim 2 and before you go, also report the PO2 for my safety check",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before you go, also report the PO2 for my safety check"
+            }
+        ]
+    },
+    {
+        "prompt": "Need a readout of oxygen partial pressure, plus add waypoint Subsurface Access for geotech team to reference",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need a readout of oxygen partial pressure, plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Subsurface Access"
+            },
+            {
+                "type": "TEXT",
+                "text": " for geotech team to reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Depot North and then follow up by checking the suit's oxygen partial pressure for telemetry",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then follow up by checking the suit's oxygen partial pressure for telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you verify the suit oxygen partial pressure while I mark this area as Observation Point 12?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you verify the suit oxygen partial pressure while I mark this area as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point 12"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before deployment, add waypoint EVA Start and then additionally retrieve my current oxygen partial pressure readout",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before deployment, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally retrieve my current oxygen partial pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the oxygen partial pressure but first set a waypoint named Medical Cache 3",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the oxygen partial pressure but first set a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Medical Cache 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint EVA Perimeter and after that report my suit oxygen partial pressure for mission log",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that report my suit oxygen partial pressure for mission log"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,970 @@
+{
+  // intents: vitals_suit_pressure_co2 AND delete_waypoint
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check suit CO2 then delete waypoint Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit CO2 then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and remove marker Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Report suit CO2 also delete Home",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report suit CO2 also delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my CO2 plus remove Old Camp",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my CO2 plus remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 while deleting Cache",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 while deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Need CO2 reading then remove Relay 1",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need CO2 reading then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check CO2 and delete Beacon A",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check CO2 and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon A"
+            }
+        ]
+    },
+    {
+        "prompt": "Show CO2 then erase Site 7",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show CO2 then erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up CO2 and remove Basecamp",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up CO2 and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Basecamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2, then delete LZ",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2, then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read my suit CO2 and then remove waypoint Beacon-3",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read my suit CO2 and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show CO2 levels and also delete Supply Cache",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show CO2 levels and also delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit CO2 reading and remove ForwardPost",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit CO2 reading and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "ForwardPost"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up CO2 then erase Point Delta please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up CO2 then erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Point Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 levels and then delete Alpha Site from map",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 levels and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " from map"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a CO2 read and then remove Nest, please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a CO2 read and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nest"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything else show my CO2 and delete Depot",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything else show my CO2 and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Need current suit CO2, also remove the marker Marker One",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need current suit CO2, also remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker One"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display CO2 readings and then clear Camp Echo",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display CO2 readings and then clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me CO2 plus delete the Habitat marker",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me CO2 plus delete the Habitat marker"
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up my suit CO2 levels and then remove the East Ridge waypoint",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up my suit CO2 levels and then remove the East Ridge waypoint"
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the suit biometrics CO2 readout and after delete the West Saddle marker",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the suit biometrics CO2 readout and after delete the West Saddle marker"
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Saddle"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, while you check my suit carbon dioxide pressure please remove the NorthStar waypoint from the map",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, while you check my suit carbon dioxide pressure please remove the NorthStar waypoint from the map"
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthStar"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report current CO2 partial pressure and then delete Olympus waypoint from my map",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report current CO2 partial pressure and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Olympus"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "After you display the suit CO2 reading, go ahead and remove the Horizon marker",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you display the suit CO2 reading, go ahead and remove the Horizon marker"
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Horizon"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Trench and show my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trench"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Pit Stop and then read CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pit Stop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase waypoint Highpoint also display current CO2 for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Highpoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " also display current CO2 for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear marker Lowpoint plus pull up suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lowpoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus pull up suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Cave Entrance while reporting my CO2 readings",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cave Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " while reporting my CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Rock Pile and then show CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Pile"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete LandingPad and also bring up suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LandingPad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also bring up suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get rid of Beacon Charlie and then report CO2 please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get rid of "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report CO2 please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Storage-2 and show me current CO2 next",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show me current CO2 next"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Grid-14 and then pull up suit biometrics CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Grid-14"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up suit biometrics CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Zulu waypoint, as well as remove any duplicate markers and then read suit CO2 for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Zulu"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint, as well as remove any duplicate markers and then read suit CO2 for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove MarkerX from the map, but first show me the suit CO2 partial pressure and a short trend",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "MarkerX"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map, but first show me the suit CO2 partial pressure and a short trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete LabStation along with other unused markers, and then additionally display my suit CO2 reading",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LabStation"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with other unused markers, and then additionally display my suit CO2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase Observatory, in addition remove outdated markers, and afterwards pull up my suit CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition remove outdated markers, and afterwards pull up my suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Shelter and at the same time show me the suit CO2 partial pressure and oxygen status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show me the suit CO2 partial pressure and oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Cache-12 followed by clearing small markers and then display the suit CO2 concentration please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-12"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by clearing small markers and then display the suit CO2 concentration please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Mooring and then meanwhile show my suit CO2 so I can confirm there's no buildup",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mooring"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then meanwhile show my suit CO2 so I can confirm there's no buildup"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Anchor, and then at the same time bring up CO2 readings as well as heartbeat rate",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Anchor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then at the same time bring up CO2 readings as well as heartbeat rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear Rendezvous, oh and after that read my suit CO2 partial pressure along with any recent trend",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rendezvous"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and after that read my suit CO2 partial pressure along with any recent trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove BeaconBeta, additionally report the CO2 reading and then show me whether levels are rising or stable",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BeaconBeta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally report the CO2 reading and then show me whether levels are rising or stable"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete South Ridge first, next display suit CO2 data plus give me a quick assessment",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " first, next display suit CO2 data plus give me a quick assessment"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove West Outpost and then in addition read my CO2 levels so I can check for hypercapnia",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then in addition read my CO2 levels so I can check for hypercapnia"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Crater Rim, followed by removing any tiny markers, and at the same time bring up CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by removing any tiny markers, and at the same time bring up CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Fossil Site and then show CO2 readings, as well as include oxygen percentage",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fossil Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show CO2 readings, as well as include oxygen percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Ice Shelf and then next pull up suit carbon dioxide partial pressure, additionally display recent trends",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next pull up suit carbon dioxide partial pressure, additionally display recent trends"
+            }
+        ]
+    }
+]
+}

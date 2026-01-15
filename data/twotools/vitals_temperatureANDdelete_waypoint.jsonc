@@ -1,0 +1,987 @@
+{
+  // intents: vitals_temperature AND delete_waypoint
+  // description_1: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check suit temp then remove waypoint Alpha",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit temp then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home and also show my core temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show my core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my core temp plus remove waypoint Old Camp",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my core temp plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove beacon 3 after checking suit temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " after checking suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display suit thermal reading and then delete waypoint Supply Cache",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display suit thermal reading and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics while removing waypoint LZ-1",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics while removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my suit temp and delete waypoint Base",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my suit temp and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Charlie Point plus show my core temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show my core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme suit temp and then remove waypoint Echo",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme suit temp and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up vitals as well as delete waypoint Nesting Site",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up vitals as well as delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nesting Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Check core temp and then remove the Habitat marker",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check core temp and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me my body temperature and delete waypoint Rover Parking",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me my body temperature and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Parking"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Marker Bravo while I check suit temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I check suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Open thermal readout and delete waypoint Flight Line",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open thermal readout and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Flight Line"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit temp plus remove Science Site 2 marker",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit temp plus remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Site 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Temperature check and then delete waypoint Depot",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Temperature check and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit temp along with removing Waypoint Zulu?",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit temp along with removing Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Zulu"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check core body temp and delete waypoint Cache-A, please",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check core body temp and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me my suit temperature and then remove Refuel Point",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me my suit temperature and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Refuel Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Need suit temp and delete waypoint Alpha Site",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need suit temp and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Landing Pad first then show my vitals temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " first then show my vitals temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals and also remove waypoint Storage Bay",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals and also remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Lab Node and then pull up suit temp, please",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up suit temp, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my core temp in addition to deleting Camp Delta waypoint",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my core temp in addition to deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up thermal status and remove the Safe Harbor marker",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up thermal status and remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Safe Harbor"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and show my suit temp, then delete Observation Post",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and show my suit temp, then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide body temperature and additionally remove Outpost 7 waypoint",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide body temperature and additionally remove Outpost 7 waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Display my vitals meanwhile delete waypoint Beacon-A",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display my vitals meanwhile delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-A"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Site 12 and also show suit temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site 12"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home Base then pull up my core temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up my core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete East Ridge and then display my suit thermal readout",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my suit thermal readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you remove West Spur followed by showing vitals temperature?",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Spur"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing vitals temperature?"
+            }
+        ]
+    },
+    {
+        "prompt": "Next delete waypoint Trailhead and show me core temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trailhead"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show me core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time display suit temp and remove Upper Shaft marker",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time display suit temp and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Upper Shaft"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Ore Cache and open vitals please",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ore Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open vitals please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check body temp and then remove Supply Drop marker",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check body temp and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up my suit temp and along with that delete Depot North",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up my suit temp and along with that delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot North"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Outpost Alpha and then show vitals readout, could you?",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show vitals readout, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what's my core temp and delete waypoint LZ Bravo",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what's my core temp and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Science Cache then display suit temperature status",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display suit temperature status"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show suit temp and also remove Beacon West?",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show suit temp and also remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon West"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Cargo Hold then pull up my vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Hold"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me core temperature in addition to removing Marker Delta",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me core temperature in addition to removing "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Habitat East and then open biometrics for thermal check",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat East"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open biometrics for thermal check"
+            }
+        ]
+    },
+    {
+        "prompt": "Before deleting Beacon South, show my suit temperature readout",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon South"
+            },
+            {
+                "type": "TEXT",
+                "text": ", show my suit temperature readout"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my core temp and also remove the Trail Marker Sierra",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my core temp and also remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trail Marker Sierra"
+            }
+        ]
+    },
+    {
+        "prompt": "Check vitals and then delete the marker called Observation Node",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check vitals and then delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Science Outcrop and at the same time display suit temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time display suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up my body temp and then delete the marker called South Cache",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up my body temp and then delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Ridge Camp and also open thermal vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also open thermal vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Okay remove Forward Marker then show me core body temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Okay remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show me core body temperature"
+            }
+        ]
+    }
+]
+}

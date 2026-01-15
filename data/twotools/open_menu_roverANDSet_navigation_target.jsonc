@@ -1,0 +1,958 @@
+{
+  // intents: open_menu_rover AND Set_navigation_target
+  // description_1: The user wants to access telemetry and control interfaces specific to the Pressurized Rover (PR) or Lunar Terrain Vehicle (LTV). They might ask, "Open rover dashboard" or "Show LTV status."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "open rover vitals and go Home Base",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover vitals and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "show LTV status then navigate to Science Outpost",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show LTV status then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up PR dashboard and then set destination Supply Cache",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up PR dashboard and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "please open the rover control menu and while you're at it navigate to Beacon Alpha",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please open the rover control menu and while you're at it navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover map then go to LZT",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover map then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZT"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up PR telemetry and set course to East Ridge",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up PR telemetry and set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover diagnostics plus plot route to South Bowl",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover diagnostics plus plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Bowl"
+            }
+        ]
+    },
+    {
+        "prompt": "show me rover power and navigate to Command Module",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show me rover power and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR menu and head to Station",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR menu and head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Station"
+            }
+        ]
+    },
+    {
+        "prompt": "please display rover biometrics and then route me to Ridgecrest Beacon",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please display rover biometrics and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridgecrest Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover status and then navigate to the sample cache at Delta",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover status and then navigate to the sample cache at "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "pull rover telemetry, oh and go to Outpost",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull rover telemetry, oh and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "check rover charge and then navigate to Hab Three",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check rover charge and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Three"
+            }
+        ]
+    },
+    {
+        "prompt": "after you open the rover energy display, also plot a course to Landing Pad Charlie",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you open the rover energy display, also plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover vitals and go Base Camp",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover vitals and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "could you open PR controls and also route us to Fuel Depot in addition",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you open PR controls and also route us to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to display rover suit data and at the same time set navigation for North Ridge",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to display rover suit data and at the same time set navigation for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover status and then head to South Camp",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover status and then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "yo open rover map then go to Outpost",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo open rover map then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "before you close comms, bring up rover diagnostics plus guide me to Black Crater",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before you close comms, bring up rover diagnostics plus guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Black Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR dashboard and then navigate to LTV at Sector Nine",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR dashboard and then navigate to LTV at "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sector Nine"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover controls and also set destination to Ion Beacon",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover controls and also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ion Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover telemetry and then, as well as plotting a route, send guidance to Deep Trench",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover telemetry and then, as well as plotting a route, send guidance to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Deep Trench"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover telemetry then go Home Base",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover telemetry then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover vitals and then navigate to the emergency shelter at Echo",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover vitals and then navigate to the emergency shelter at "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Home Base and open rover",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination to Science Outpost then show rover telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show rover telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Supply Cache and then pull up the PR dashboard for systems check",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up the PR dashboard for systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "go to Beacon Alpha then open rover controls and check power",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open rover controls and check power"
+            }
+        ]
+    },
+    {
+        "prompt": "head to LZT and open rover",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZT"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover"
+            }
+        ]
+    },
+    {
+        "prompt": "set a course to East Ridge but first bring up PR telemetry plus display suit charge estimates for me",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first bring up PR telemetry plus display suit charge estimates for me"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to South Bowl and open rover diagnostics",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Bowl"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "route to Command Module and then open the rover vitals as well as show oxygen levels",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the rover vitals as well as show oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Ridgecrest Beacon and then display rover biometrics and power",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridgecrest Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display rover biometrics and power"
+            }
+        ]
+    },
+    {
+        "prompt": "go Delta and open rover status please",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover status please"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Hab Three and bring up rover energy display",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up rover energy display"
+            }
+        ]
+    },
+    {
+        "prompt": "set waypoint Landing Pad Charlie and then open rover diagnostics along with plotting the route",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set waypoint "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover diagnostics along with plotting the route"
+            }
+        ]
+    },
+    {
+        "prompt": "route to Base Camp meanwhile open rover vitals and comms",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile open rover vitals and comms"
+            }
+        ]
+    },
+    {
+        "prompt": "go North Ridge and open rover",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to South Camp and then show PR controls and diagnostics",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show PR controls and diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Outpost and afterwards open rover map and then additionally display battery levels",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and afterwards open rover map and then additionally display battery levels"
+            }
+        ]
+    },
+    {
+        "prompt": "set course to Black Crater and then open PR dashboard",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Black Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open PR dashboard"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Sector Nine and then bring up PR dashboard followed by opening the LTV status panel",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sector Nine"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up PR dashboard followed by opening the LTV status panel"
+            }
+        ]
+    },
+    {
+        "prompt": "go Ion Beacon and open rover controls",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ion Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover controls"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Deep Trench and then open telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Deep Trench"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Echo and then open rover vitals, plus at the same time project navigation overlays on HUD",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover vitals, plus at the same time project navigation overlays on HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "route to Ridgecrest Beacon and then show rover diagnostics next",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridgecrest Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show rover diagnostics next"
+            }
+        ]
+    },
+    {
+        "prompt": "go Delta then open PR",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open PR"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Landing Pad Charlie and then open rover energy display",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover energy display"
+            }
+        ]
+    },
+    {
+        "prompt": "route to Base Camp and then open PR telemetry, followed by guiding me visually",
+        "tool_calls": [
+            "open_menu_rover",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open PR telemetry, followed by guiding me visually"
+            }
+        ]
+    }
+]
+}

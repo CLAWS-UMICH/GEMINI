@@ -1,0 +1,958 @@
+{
+  // intents: vitals_fan_pri_rpm AND Get_coordinates
+  // description_1: The user needs to verify that the primary ventilation fan is spinning at the correct speed to circulate air and scrub CO2. The prompt might be "Check primary fan RPM" or "Is the primary fan working?"
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check fan RPM and coordinates for LTV",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check fan RPM and coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary fan RPM, locate PR",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary fan RPM, locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check fan RPM and also get coordinates for Rover-2",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check fan RPM and also get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan RPM then coordinates for base Alpha",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan RPM then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "base Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary fan RPM and then get coords for Habitat-1",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary fan RPM and then get coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need you to check primary fan RPM and also pull up coordinates for science beacon",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need you to check primary fan RPM and also pull up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display fan RPM and then show me coordinates for Sample Site Alpha",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display fan RPM and then show me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Check fan RPM plus coordinates for LZ",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check fan RPM plus coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify primary fan RPM and additionally send coordinates for CR-3 relay",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify primary fan RPM and additionally send coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "CR-3 relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you continue, check primary fan RPM and afterwards bring up coordinates for Mobile Drill MD1",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you continue, check primary fan RPM and afterwards bring up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Drill MD1"
+            }
+        ]
+    },
+    {
+        "prompt": "Need you to check primary fan RPM while also locating the airlock module",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need you to check primary fan RPM while also locating the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "airlock module"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the primary ventilation fan RPM, and then show coordinates for cargo pallet CP-7",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the primary ventilation fan RPM, and then show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "cargo pallet CP-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan RPM and then coordinates for Beacon-3",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan RPM and then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check fan RPM and get coordinates for WP-12",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check fan RPM and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "WP-12"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the fan RPM and as well as pull up coordinates for the LTV vehicle",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the fan RPM and as well as pull up coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Check fan RPM along with coordinates for habitat module HM-1",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check fan RPM along with coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "habitat module HM-1"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check the primary fan RPM, also get me the coordinates for sample cache SC-A",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check the primary fan RPM, also get me the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample cache SC-A"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify fan RPM and then provide coordinates for the rover unit",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify fan RPM and then provide coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Check RPM, and then coordinates for PR",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check RPM, and then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to check the primary fan RPM and at the same time pull up coordinates for Habitat",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to check the primary fan RPM and at the same time pull up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check primary fan RPM in addition show coordinates for comm relay",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check primary fan RPM in addition show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "But first confirm primary fan RPM and then afterward display coordinates for landing zone",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first confirm primary fan RPM and then afterward display coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "landing zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Check fan RPM and then find Rover-3",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check fan RPM and then find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Need fan RPM reading and also GPS coordinates for science beacon",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need fan RPM reading and also GPS coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the primary fan RPM reading and then followed by coordinates for Ortiz",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the primary fan RPM reading and then followed by coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Ortiz"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Rover-7 and check fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for LTV then verify fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " then verify fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Find coordinates for PR and also confirm primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also confirm primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show coordinates for comm relay and then check the fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check the fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull coordinates for habitat module HM-1 and at the same time read out primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "habitat module HM-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time read out primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Beacon-3 plus verify primary ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus verify primary ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Display coordinates for landing zone before checking primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "landing zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " before checking primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you get coordinates for sample site alpha meanwhile verify the primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile verify the primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Ortiz and check fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Ortiz"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coordinates for Mobile Drill MD1 and then check fan RPM please",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Drill MD1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check fan RPM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for EVA scooter, and then additionally confirm the primary fan RPM status",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA scooter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then additionally confirm the primary fan RPM status"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the science cache SC-A and also read fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science cache SC-A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Next get coordinates for comm relay CR-9 and after that check the primary ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay CR-9"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that check the primary ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Request coordinates for WP-12 and then display primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Request coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "WP-12"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is LZ and check fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and get coordinates for cargo pallet CP-7, then while you're at it verify the primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "cargo pallet CP-7"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then while you're at it verify the primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me coordinates for rover unit and then check RPM of primary fan",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover unit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check RPM of primary fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you provide coordinates for science beacon and then, additionally, pull up the primary fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, additionally, pull up the primary fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Find coordinates for PR and meanwhile confirm fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile confirm fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate LTV and as well as check the primary fan RPM for the life support system",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as check the primary fan RPM for the life support system"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Beacon-9 and then read out the primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-9"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read out the primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please retrieve coordinates for Habitat and before you finish, confirm the primary ventilation fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please retrieve coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before you finish, confirm the primary ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Coordinates for CP-7 and check fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "CP-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me coordinates for Ortiz and then display the fan RPM readout",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Ortiz"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display the fan RPM readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for landing beacon followed by verifying the primary fan RPM and report any anomalies",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "landing beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by verifying the primary fan RPM and report any anomalies"
+            }
+        ]
+    }
+]
+}

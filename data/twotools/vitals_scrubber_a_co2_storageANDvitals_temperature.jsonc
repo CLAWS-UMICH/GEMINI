@@ -1,0 +1,658 @@
+{
+  // intents: vitals_scrubber_a_co2_storage AND vitals_temperature
+  // description_1: The user wants to know the saturation level of the first CO2 scrubbing bed to determine if it is nearing capacity. They might ask, "Check Scrubber A status" or "How full is Scrubber A?"
+  // description_2: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check Scrubber A and suit temp",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A and suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A saturation then report temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A saturation then report temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A status plus internal temp",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A status plus internal temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Report Scrubber A and core temp",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report Scrubber A and core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "How full is Scrubber A and temp?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How full is Scrubber A and temp?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check Scrubber A saturation level and display suit temperature for the last five minutes",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check Scrubber A saturation level and display suit temperature for the last five minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check Scrubber A then show my internal temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check Scrubber A then show my internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify first CO2 bed A and also pull up suit temp",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify first CO2 bed A and also pull up suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "I need Scrubber A capacity and then the suit core temperature readout plus any warnings",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need Scrubber A capacity and then the suit core temperature readout plus any warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check scrubber alpha saturation as well as my suit temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check scrubber alpha saturation as well as my suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking Scrubber A, please report my suit internal temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking Scrubber A, please report my suit internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 bed A saturation then show my core temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 bed A saturation then show my core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display Scrubber A fill percentage in addition to showing my suit thermal status?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display Scrubber A fill percentage in addition to showing my suit thermal status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the first CO2 scrubber A levels and additionally open the suit temperature gauge",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the first CO2 scrubber A levels and additionally open the suit temperature gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A saturation followed by a read on my internal temperature at the same time",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A saturation followed by a read on my internal temperature at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A saturation and then show suit temp please, and flag if thermal limits approached",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A saturation and then show suit temp please, and flag if thermal limits approached"
+            }
+        ]
+    },
+    {
+        "prompt": "Report how full Scrubber A is and also my current temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report how full Scrubber A is and also my current temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking Scrubber A, bring up my suit temperature and then warn if it's outside range",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking Scrubber A, bring up my suit temperature and then warn if it's outside range"
+            }
+        ]
+    },
+    {
+        "prompt": "Open Scrubber A status along with displaying the suit core temperature and any trending data for thirty minutes",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open Scrubber A status along with displaying the suit core temperature and any trending data for thirty minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A then show my suit temperature, please",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A then show my suit temperature, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A and then show my current temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A and then show my current temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme Scrubber A saturation and also the suit temp readout, and then warn me if it's high",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme Scrubber A saturation and also the suit temp readout, and then warn me if it's high"
+            }
+        ]
+    },
+    {
+        "prompt": "Check saturation for scrubber A and then give me a readout of my internal body temperature",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check saturation for scrubber A and then give me a readout of my internal body temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify CO2 bed A capacity, and then alongside that, pull up the suit temperature trends for the last hour",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify CO2 bed A capacity, and then alongside that, pull up the suit temperature trends for the last hour"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check Scrubber A plus display my suit temperature and advise if temperature deviation noted",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check Scrubber A plus display my suit temperature and advise if temperature deviation noted"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit temperature and then check Scrubber A status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit temperature and then check Scrubber A status"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit temperature, and then show Scrubber A status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit temperature, and then show Scrubber A status"
+            }
+        ]
+    },
+    {
+        "prompt": "What is my suit temperature and can you also check Scrubber A?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is my suit temperature and can you also check Scrubber A?"
+            }
+        ]
+    },
+    {
+        "prompt": "Report temperature and Scrubber A fill",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report temperature and Scrubber A fill"
+            }
+        ]
+    },
+    {
+        "prompt": "Temperature then check first CO2 bed",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Temperature then check first CO2 bed"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my suit internal temperature but first check Scrubber A saturation as well",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my suit internal temperature but first check Scrubber A saturation as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey what is suit temp and show Scrubber A levels",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey what is suit temp and show Scrubber A levels"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my core temperature and then check the CO2 scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my core temperature and then check the CO2 scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit temperature as well as Scrubber A status?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit temperature as well as Scrubber A status?"
+            }
+        ]
+    },
+    {
+        "prompt": "While you're reporting my suit temperature, also pull up the saturation reading for Scrubber A plus any warnings",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you're reporting my suit temperature, also pull up the saturation reading for Scrubber A plus any warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my internal temperature before you read Scrubber A saturation and then advise if swap needed",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my internal temperature before you read Scrubber A saturation and then advise if swap needed"
+            }
+        ]
+    },
+    {
+        "prompt": "Show core temp followed by the CO2 scrubber A capacity report and additionally flag high-CO2 alerts",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show core temp followed by the CO2 scrubber A capacity report and additionally flag high-CO2 alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Open temperature readout and then also open Scrubber A status screen",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open temperature readout and then also open Scrubber A status screen"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me suit temp and next check Scrubber A?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me suit temp and next check Scrubber A?"
+            }
+        ]
+    },
+    {
+        "prompt": "Temp and Scrubber A, do it",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Temp and Scrubber A, do it"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check suit temperature and then display the Scrubber A saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check suit temperature and then display the Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time show me my thermal status and pull up the first CO2 scrubber A fill percentage",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time show me my thermal status and pull up the first CO2 scrubber A fill percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check suit temp then check Scrubber A saturation please",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check suit temp then check Scrubber A saturation please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit internal temperature, and then along with that show the status of Scrubber A plus remaining capacity",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit internal temperature, and then along with that show the status of Scrubber A plus remaining capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display body temp and open Scrubber A status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display body temp and open Scrubber A status"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see temp and Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see temp and Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up temperature and then check scrubber A as well?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up temperature and then check scrubber A as well?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before proceeding, show me suit temperature and then in addition give Scrubber A saturation plus time to swap",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before proceeding, show me suit temperature and then in addition give Scrubber A saturation plus time to swap"
+            }
+        ]
+    },
+    {
+        "prompt": "Show temperature next and then also show Scrubber A details",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show temperature next and then also show Scrubber A details"
+            }
+        ]
+    },
+    {
+        "prompt": "Suit temp and then Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit temp and then Scrubber A"
+            }
+        ]
+    }
+]
+}

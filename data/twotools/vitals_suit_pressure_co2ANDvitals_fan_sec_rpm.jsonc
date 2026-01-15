@@ -1,0 +1,658 @@
+{
+  // intents: vitals_suit_pressure_co2 AND vitals_fan_sec_rpm
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read suit CO2 then fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit CO2 then fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 and secondary fan",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 and secondary fan"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 readout plus backup fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 readout plus backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Show CO2 and then fan",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show CO2 and then fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Report suit CO2 also check fan",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report suit CO2 also check fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my suit CO2 and fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my suit CO2 and fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me CO2 level then show secondary fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me CO2 level then show secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up CO2 and also the backup fan",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up CO2 and also the backup fan"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit CO2 plus check the secondary fan",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit CO2 plus check the secondary fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me CO2 pressure and then secondary fan status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me CO2 pressure and then secondary fan status"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up CO2 concentration and additionally the backup fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up CO2 concentration and additionally the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and then display backup fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and then display backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open CO2 monitor and also show fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open CO2 monitor and also show fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Need suit CO2 and fan rpm at the same time",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need suit CO2 and fan rpm at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit CO2 and then check backup ventilation fan",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit CO2 and then check backup ventilation fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the current suit CO2 partial pressure and then the secondary fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the current suit CO2 partial pressure and then the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the suit carbon dioxide reading and also bring up the backup fan status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the suit carbon dioxide reading and also bring up the backup fan status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read my CO2 level, followed by the secondary fan RPM and then any alerts",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read my CO2 level, followed by the secondary fan RPM and then any alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a CO2 pressure check as well as a report on the backup ventilation fan RPM",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a CO2 pressure check as well as a report on the backup ventilation fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the suit CO\u2082 monitor and then show me the secondary fan RPM plus any anomalies",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the suit CO\u2082 monitor and then show me the secondary fan RPM plus any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "After reading suit CO2 pressure, next display the backup fan RPM and any status flags",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After reading suit CO2 pressure, next display the backup fan RPM and any status flags"
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA, pull up suit CO2 pressure followed by secondary fan RPM and then confirm nominal operation",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA, pull up suit CO2 pressure followed by secondary fan RPM and then confirm nominal operation"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 levels and then show secondary fan RPM, meanwhile report any deviations",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 levels and then show secondary fan RPM, meanwhile report any deviations"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the suit CO2 reading and additionally bring up the secondary fan rpm data for review",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the suit CO2 reading and additionally bring up the secondary fan rpm data for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit carbon dioxide pressure, at the same time display the backup fan RPM and status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit carbon dioxide pressure, at the same time display the backup fan RPM and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check fan RPM and CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check fan RPM and CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan status then read suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan status then read suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup fan RPM plus CO2 reading",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup fan RPM plus CO2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary fan check and CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary fan check and CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read fan RPM also CO2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read fan RPM also CO2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report the backup fan RPM and then the suit CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report the backup fan RPM and then the suit CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me secondary fan RPM then show suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me secondary fan RPM then show suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display fan RPM and also pull up CO2 monitor",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display fan RPM and also pull up CO2 monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup ventilation fan RPM and additionally the suit carbon dioxide reading",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup ventilation fan RPM and additionally the suit carbon dioxide reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Check sec fan RPM and then open CO2 display",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec fan RPM and then open CO2 display"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up fan RPM along with the suit CO2 concentration report",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up fan RPM along with the suit CO2 concentration report"
+            }
+        ]
+    },
+    {
+        "prompt": "Need backup fan RPM readout and then CO2 data",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need backup fan RPM readout and then CO2 data"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show secondary fan RPM and in addition the suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show secondary fan RPM and in addition the suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open fan RPM display and then show suit CO2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open fan RPM display and then show suit CO2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check backup fan rpm and as well as CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check backup fan rpm and as well as CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the backup fan RPM but first read the suit CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the backup fan RPM but first read the suit CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the secondary fan RPM followed by the suit carbon dioxide reading and any alerts",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the secondary fan RPM followed by the suit carbon dioxide reading and any alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show me the backup ventilation fan RPM, next read the suit CO2 and indicate trend",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show me the backup ventilation fan RPM, next read the suit CO2 and indicate trend"
+            }
+        ]
+    },
+    {
+        "prompt": "After confirming the secondary fan RPM, also open the CO2 monitor and report concentrations over time",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After confirming the secondary fan RPM, also open the CO2 monitor and report concentrations over time"
+            }
+        ]
+    },
+    {
+        "prompt": "Before I proceed, check the backup fan RPM and then display the suit CO2 pressure plus any warnings",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I proceed, check the backup fan RPM and then display the suit CO2 pressure plus any warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, read the secondary fan rpm while also pulling up the suit CO2 levels for my review",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, read the secondary fan rpm while also pulling up the suit CO2 levels for my review"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the backup fan RPM, followed by a CO2 pressure readout and status summary",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the backup fan RPM, followed by a CO2 pressure readout and status summary"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you first report the secondary fan RPM, and then in addition display the suit CO2 concentration and trends",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you first report the secondary fan RPM, and then in addition display the suit CO2 concentration and trends"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the fan RPM data and then the suit CO2 pressure, as well as any recent anomaly logs",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the fan RPM data and then the suit CO2 pressure, as well as any recent anomaly logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see the backup fan RPM and then bring up the CO2 monitor, and then check for any deviations",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_fan_sec_rpm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see the backup fan RPM and then bring up the CO2 monitor, and then check for any deviations"
+            }
+        ]
+    }
+]
+}

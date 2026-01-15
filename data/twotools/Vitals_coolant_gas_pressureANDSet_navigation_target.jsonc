@@ -1,0 +1,974 @@
+{
+  // intents: Vitals_coolant_gas_pressure AND Set_navigation_target
+  // description_1: The user checks the pressure of the gas loop associated with the cooling system. The prompt might be "What is the coolant gas pressure?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check coolant pressure and navigate LTV",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant pressure and navigate "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Read gas loop pressure then go rover",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read gas loop pressure then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell coolant loop psi also Home Base",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell coolant loop psi also "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Show cooling system pressure then Lander-2",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show cooling system pressure then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant gas psi and go Airlock",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant gas psi and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show coolant gas pressure and navigate to the rover",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show coolant gas pressure and navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up cooling loop pressure then set destination to Depot-3",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up cooling loop pressure then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check gas loop pressure and then take me to Cargo Bay",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check gas loop pressure and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Need cooling system pressure plus navigate to Landing Site",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need cooling system pressure plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Read coolant pressure while setting route to Habitat One",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read coolant pressure while setting route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display coolant gas pressure and then guide me to Science Lab",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display coolant gas pressure and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Check cooling loop psi as well as set destination to Command Module",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check cooling loop psi as well as set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up coolant gas pressure along with navigate to Base Camp",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up coolant gas pressure along with navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me cooling loop pressure in addition send route to Relay Tower",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me cooling loop pressure in addition send route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me coolant gas pressure additionally plot course to Maintenance Bay",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me coolant gas pressure additionally plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the current coolant gas pressure and then set the navigation target to Habitat One",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the current coolant gas pressure and then set the navigation target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check the cooling system pressure, open a route and guide me to the Science Lab",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check the cooling system pressure, open a route and guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the coolant loop pressure while also plotting a course to Forward Cache next",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the coolant loop pressure while also plotting a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the gas loop pressure first, and then display holographic directions to the LTV",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the gas loop pressure first, and then display holographic directions to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read coolant gas pressure and then followed by that show route to Airlock",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read coolant gas pressure and then followed by that show route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the coolant gas pressure and then bring up navigation to the Vehicle Bay at the same time",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the coolant gas pressure and then bring up navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Vehicle Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the cooling loop pressure, as well as activate route guidance to Beacon Alpha",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the cooling loop pressure, as well as activate route guidance to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you change anything, tell me the coolant gas pressure and also set destination to Depot-3",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you change anything, tell me the coolant gas pressure and also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot-3"
+            }
+        ]
+    },
+    {
+        "prompt": "While monitoring coolant pressure, can you also open nav to the Command Module and then show path",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While monitoring coolant pressure, can you also open nav to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show path"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check the coolant loop pressure, plus then display the route to the Forward Cache for me",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check the coolant loop pressure, plus then display the route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LTV and check coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination rover then read coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Home Base and tell coolant psi",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell coolant psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Airlock and check gas loop",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check gas loop"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Cargo Bay also show coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " also show coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Lab and then show the coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to Base Camp and pull up cooling loop psi",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up cooling loop psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Please guide me to Relay Tower plus read the coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus read the coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you route to Maintenance Bay and also display coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, navigate to Habitat One and show me the cooling system pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show me the cooling system pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open path to Landing Site and then tell me coolant loop psi",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me coolant loop psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Module while also checking coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also checking coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Vehicle Bay as well as read the cooling loop pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Vehicle Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as read the cooling loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up navigation to Forward Cache in addition to showing coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to showing coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Send route to Lander-2 and then display the gas loop pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Send route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display the gas loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you set destination to Beacon Alpha and meanwhile check the current coolant loop pressure for me",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile check the current coolant loop pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "After you plot a course to Depot-3, also pull up the coolant gas pressure and show warnings",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot-3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", also pull up the coolant gas pressure and show warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Follow the route to Cargo Bay and then, followed by that, report the cooling system pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Follow the route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, followed by that, report the cooling system pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to the Science Lab, in addition tell me the coolant gas pressure before EVA tasks",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition tell me the coolant gas pressure before EVA tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to go to Base Camp and then check coolant loop pressure, additionally flag low readings",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check coolant loop pressure, additionally flag low readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Set my target to Relay Tower and then check the coolant gas pressure but first confirm sensors are online",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set my target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check the coolant gas pressure but first confirm sensors are online"
+            }
+        ]
+    },
+    {
+        "prompt": "Point navigation to Maintenance Bay and also bring up the cooling system pressure, oh and highlight anomalies",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Point navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also bring up the cooling system pressure, oh and highlight anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Habitat One followed by opening the coolant pressure readout and then display trends",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the coolant pressure readout and then display trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Please route to Vehicle Bay and at the same time show me the current gas loop pressure metrics",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Vehicle Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show me the current gas loop pressure metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Forward Cache and along with that give me the coolant gas pressure and next show graphs",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and along with that give me the coolant gas pressure and next show graphs"
+            }
+        ]
+    }
+]
+}

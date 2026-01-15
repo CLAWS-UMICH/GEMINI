@@ -1,0 +1,1054 @@
+{
+  // intents: start_procedure_system_restart AND Complete_task
+  // description_1: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Restart navigation module then mark antenna check complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart navigation module then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical then reboot comms array",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reboot comms array"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart and then finish task Battery Check",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task EVA prep and initiate reboot of LTV nav",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and initiate reboot of LTV nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot life support then mark suit pressure seal done",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot life support then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark tether hook as complete before restarting the comms module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether hook"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete before restarting the comms module"
+            }
+        ]
+    },
+    {
+        "prompt": "Start reboot sequence and then mark oxygen flush complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start reboot sequence and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete sample bag seal plus restart thermal controller",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample bag seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus restart thermal controller"
+            }
+        ]
+    },
+    {
+        "prompt": "Boot the power distribution then mark deploy beacon done",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Boot the power distribution then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark comm check and then restart navigation software",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart navigation software"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate reboot of the guidance unit and mark thermal run complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate reboot of the guidance unit and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thermal run"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark solar panel deploy then start restart of attitude control",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar panel deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start restart of attitude control"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reboot the comms relay and also mark 'seal sample pouch' done",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reboot the comms relay and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal sample pouch"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'vent valve close' then perform restart of the environmental sensors",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "vent valve close"
+            },
+            {
+                "type": "TEXT",
+                "text": " then perform restart of the environmental sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot motion control and then mark 'align docking ring' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot motion control and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "align docking ring"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'battery swap' next and then kick off a restart of the power bus",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then kick off a restart of the power bus"
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart for the telemetry pipeline while marking 'log transfer' done",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart for the telemetry pipeline while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'pressure equalization' as complete and then reboot the habitat controller",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then reboot the habitat controller"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey reboot the antenna mast and also mark 'align antenna' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey reboot the antenna mast and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "align antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'stow tools' then restart robotic arm controller",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow tools"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart robotic arm controller"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform reboot of navigation then mark 'transfer sample' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform reboot of navigation then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transfer sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'seal hatch' and then start a restart of the air scrubbers",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start a restart of the air scrubbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate main bus reboot plus mark 'cable routing' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate main bus reboot plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "cable routing"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'deploy sensor pack' then initiate restart on the guidance computer",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy sensor pack"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate restart on the guidance computer"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the diagnostic module and then mark 'cooldown cycle' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the diagnostic module and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "cooldown cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'pressure gauge check' then run restart on the secondary avionics",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure gauge check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run restart on the secondary avionics"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start reboot and additionally mark tether inspection complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start reboot and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'sample catalog' and then restart the science payload",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample catalog"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart the science payload"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off a restart of the locomotion servos followed by marking 'calibrate joints' done",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off a restart of the locomotion servos followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate joints"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'clean visor' as complete while restarting station exterior lights",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean visor"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete while restarting station exterior lights"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the attitude control system and in addition mark 'gyro align' finished",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the attitude control system and in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "gyro align"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'stow sample' first and then reboot the sample analyzer",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " first and then reboot the sample analyzer"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you restart the thermal regulator and also mark 'insulation check' complete?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you restart the thermal regulator and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "insulation check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'inventory log update' then perform a restart on the maintenance bus",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory log update"
+            },
+            {
+                "type": "TEXT",
+                "text": " then perform a restart on the maintenance bus"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the docking guidance and along with that mark 'seal verify' done",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the docking guidance and along with that mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal verify"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'install comm patch' and then restart payload router meanwhile report status",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "install comm patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart payload router meanwhile report status"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme a restart of the telemetry uplink and also mark 'uplink test' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme a restart of the telemetry uplink and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "uplink test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'clean connectors' in addition then trigger a restart of the main comms",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean connectors"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition then trigger a restart of the main comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the docking camera and then mark 'focus calibration' as complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the docking camera and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "focus calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task 'strap check' and then perform a restart on EVA suit diagnostics",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "strap check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform a restart on EVA suit diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reboot the science lab controller followed by marking 'sample stowage' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reboot the science lab controller followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample stowage"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'antenna alignment' and then restart the pointing system at the same time",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart the pointing system at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Start a reboot of habitat comms but first mark 'oxygen valve test' done",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start a reboot of habitat comms but first mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen valve test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'transmit log' and then request a restart of the antenna control firmware",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transmit log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then request a restart of the antenna control firmware"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please restart the environmental controller and along with it mark 'filter replace' complete?",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please restart the environmental controller and along with it mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "filter replace"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'check fasteners' and then initiate a restart of the external camera array, oh and confirm status",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check fasteners"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate a restart of the external camera array, oh and confirm status"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the internal network and additionally mark 'sync clocks' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the internal network and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sync clocks"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'deploy tether' then restart the winch controller followed by status update",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart the winch controller followed by status update"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to reboot the maneuvers computer and as well as mark 'burn checklist' complete",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to reboot the maneuvers computer and as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "burn checklist"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task 'strap down payload' then restart cargo bay controllers and then report",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "strap down payload"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart cargo bay controllers and then report"
+            }
+        ]
+    }
+]
+}

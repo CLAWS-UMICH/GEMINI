@@ -1,0 +1,978 @@
+{
+  // intents: vitals_suit_pressure_oxy AND Add_task
+  // description_1: The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, "What is the oxygen pressure inside the suit?"
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "O2 pressure, add task Fix leak",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 pressure, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fix leak"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Collect sample plus O2?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen pressure then add task Calibrate arm",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen pressure then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate arm"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to Inspect antenna and O2?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 pressure and add task Check seals",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Repair tether plus suit O2?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Repair tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus suit O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 readout then add task Sample regolith",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 readout then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample regolith"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task Inspect solar and O2?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect solar"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 read and add task Check HUD",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 read and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Test comms while O2?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " while O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the oxygen partial pressure and add task Replace filter next",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the oxygen partial pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Inspect solar panel and what's O2 pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect solar panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me suit oxygen pressure then add task Secure tether",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me suit oxygen pressure then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task Check seals and report O2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the oxygen partial pressure, then add task Test beacon",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the oxygen partial pressure, then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Collect sample plus show suit oxygen",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show suit oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit oxygen readout and add task Replace battery",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit oxygen readout and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task Calibrate arm and then tell me O2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate arm"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's current oxygen partial pressure and add task Check vents",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's current oxygen partial pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check vents"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to Repair antenna and show O2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Repair antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide suit oxygen partial pressure and additionally add task Inspect joints",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide suit oxygen partial pressure and additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect joints"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Test life support, plus what's the oxygen pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test life support"
+            },
+            {
+                "type": "TEXT",
+                "text": ", plus what's the oxygen pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up O2 partial pressure and add task Fix valve",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up O2 partial pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fix valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Tighten bolts and show O2 readout",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tighten bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show O2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me oxygen pressure while adding a task to inspect coolant lines",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me oxygen pressure while adding a task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect coolant lines"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Verify seal integrity and after that tell me O2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify seal integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that tell me O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up suit oxygen partial pressure and add task Reboot sensor",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up suit oxygen partial pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reboot sensor"
+            }
+        ]
+    },
+    {
+        "prompt": "Queue task Check radiation shielding and show oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Queue task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check radiation shielding"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Report O2 pressure and then add task Replace O-ring",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report O2 pressure and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace O-ring"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Survey crater, followed by reporting suit oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Survey crater"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by reporting suit oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the suit oxygen partial pressure, and then add task Replace the external camera assembly",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the suit oxygen partial pressure, and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace the external camera assembly"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Perform EVA diagnostic, followed by showing me the current oxygen partial pressure inside suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Perform EVA diagnostic"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by showing me the current oxygen partial pressure inside suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display oxygen partial pressure, then create task Reconnect solar array connector on panel three",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display oxygen partial pressure, then create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reconnect solar array connector on panel three"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task Collect ice core, in addition show me the suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Collect ice core"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition show me the suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the oxygen partial pressure for the suit, plus add task Run full suit diagnostics before re-entry",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the oxygen partial pressure for the suit, plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run full suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " before re-entry"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Secure loose cable along with reporting the current oxygen partial pressure in the suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure loose cable"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with reporting the current oxygen partial pressure in the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up O2 partial pressure as well as add task Verify heat exchanger efficiency",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up O2 partial pressure as well as add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify heat exchanger efficiency"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to Inspect the antenna array, and then tell me the suit oxygen partial pressure at once",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect the antenna array"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then tell me the suit oxygen partial pressure at once"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we move, tell me oxygen partial pressure and add task Check propulsion feedline for leaks, oh and update log",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we move, tell me oxygen partial pressure and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check propulsion feedline for leaks"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and update log"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Replace valve cover, followed by pulling up the suit oxygen partial pressure readings",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace valve cover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by pulling up the suit oxygen partial pressure readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me suit oxygen pressure but first add task Run telemetry alignment sequence next?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me suit oxygen pressure but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run telemetry alignment sequence"
+            },
+            {
+                "type": "TEXT",
+                "text": " next?"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check thermal blanket, and then at the same time report the oxygen partial pressure in suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check thermal blanket"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then at the same time report the oxygen partial pressure in suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Display O2 partial pressure, and then add task Monitor CO2 scrubber efficiency for the next hour",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display O2 partial pressure, and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Monitor CO2 scrubber efficiency for the next hour"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task Align comms dish and in addition show me the current oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Align comms dish"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition show me the current oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the current oxygen partial pressure while adding task Re-lubricate joint bearings, and then confirm completed items",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the current oxygen partial pressure while adding task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Re-lubricate joint bearings"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then confirm completed items"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Swap out pump module, before showing me the suit oxygen partial pressure readout",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Swap out pump module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", before showing me the suit oxygen partial pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Report suit oxygen partial pressure, and then add task Update emergency checklist with times",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report suit oxygen partial pressure, and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Update emergency checklist with times"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Secure sample container, along with displaying the suit oxygen partial pressure and logging the values",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure sample container"
+            },
+            {
+                "type": "TEXT",
+                "text": ", along with displaying the suit oxygen partial pressure and logging the values"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me the oxygen partial pressure, additionally add task Reconfigure power distribution to isolate faulty bus and monitor",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me the oxygen partial pressure, additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reconfigure power distribution to isolate faulty bus and monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Verify O-ring seals, meanwhile pull up the suit's oxygen partial pressure and timestamp",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify O-ring seals"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile pull up the suit's oxygen partial pressure and timestamp"
+            }
+        ]
+    }
+]
+}

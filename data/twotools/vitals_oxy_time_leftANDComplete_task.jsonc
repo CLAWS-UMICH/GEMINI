@@ -1,0 +1,1014 @@
+{
+  // intents: vitals_oxy_time_left AND Complete_task
+  // description_1: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "O2 time left and mark Connect Umbilical",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 time left and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery Check done, O2 time?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, O2 time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen time left then mark Tether Inspection",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen time left then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Antenna Check and O2 time?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need oxygen minutes and mark Seal Test",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need oxygen minutes and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Coolant Valve then O2 remaining?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " then O2 remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 remaining and finish Camera Alignment",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 remaining and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark EVA prep done plus oxygen time?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " done plus oxygen time?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 time left along with Panel Check",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 time left along with "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Panel Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Seal Test while reporting O2",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " while reporting O2"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my oxygen time left and mark Antenna Check complete",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my oxygen time left and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery Check as done then tell me O2 remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done then tell me O2 remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me minutes of O2 left while I mark Tether Inspection",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me minutes of O2 left while I mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Camera Alignment and also report how much O2 remains",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report how much O2 remains"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show oxygen time remaining and finish Coolant Valve task",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show oxygen time remaining and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Seal Test complete plus tell me O2 time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete plus tell me O2 time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, how long will my oxygen last and then mark Antenna Check",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, how long will my oxygen last and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Raster Camera Alignment then also show current oxygen remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Raster Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also show current oxygen remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Need oxygen minutes remaining and then mark Battery Check as done",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need oxygen minutes remaining and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical complete while also telling me O2 time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete while also telling me O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my suit O2 time left but first mark EVA prep complete",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my suit O2 time left but first mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Tether Inspection as done and then give oxygen minutes remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and then give oxygen minutes remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes of oxygen remain plus finish Panel Check for me",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes of oxygen remain plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Panel Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Panel Check and then tell me how long O2 will last",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Panel Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me how long O2 will last"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up oxygen remaining and mark Coolant Valve as complete",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up oxygen remaining and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Antenna Check and in addition display my oxygen time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition display my oxygen time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me the time to oxygen depletion and then mark Camera Alignment",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me the time to oxygen depletion and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery Check done and then show me current O2 remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then show me current O2 remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me remaining oxygen time plus complete Raster Camera Alignment",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me remaining oxygen time plus complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Raster Camera Alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical as complete and additionally report O2 minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and additionally report O2 minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, tell me how many minutes of oxygen I have left while I mark Battery Check complete",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, tell me how many minutes of oxygen I have left while I mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Antenna Check as finished first, and then also display my current oxygen time remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished first, and then also display my current oxygen time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you calculate oxygen depletion time and then mark the Tether Inspection task complete for me",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you calculate oxygen depletion time and then mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " task complete for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please finish Camera Alignment and then also tell me precisely how much oxygen time remains",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also tell me precisely how much oxygen time remains"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to show my suit's oxygen time left and then mark Coolant Valve complete",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to show my suit's oxygen time left and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Seal Test now before you report my remaining oxygen minutes for mission control",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " now before you report my remaining oxygen minutes for mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the estimated time until oxygen runs out, and then mark Raster Camera Alignment done",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the estimated time until oxygen runs out, and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Raster Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark EVA prep complete followed by giving me the remaining O2 time and detailed minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete followed by giving me the remaining O2 time and detailed minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time calculate my oxygen time remaining and also log that I've finished Panel Check",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time calculate my oxygen time remaining and also log that I've finished "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Panel Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Connect Umbilical then additionally bring up my current oxygen minutes left for monitoring",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " then additionally bring up my current oxygen minutes left for monitoring"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the remaining oxygen minutes and then mark Antenna Check off the list, please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the remaining oxygen minutes and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " off the list, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery Check as complete and then meanwhile display estimated oxygen time left on HUD",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then meanwhile display estimated oxygen time left on HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show oxygen time remaining, and then along with that mark Seal Test complete for mission logs",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show oxygen time remaining, and then along with that mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete for mission logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Coolant Valve and then at the same time tell me how many O2 minutes I have",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time tell me how many O2 minutes I have"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you also compute my oxygen depletion ETA and after that mark Camera Alignment as done",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you also compute my oxygen depletion ETA and after that mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Raster Camera Alignment finished, then in addition give me a precise O2 time estimate",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Raster Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished, then in addition give me a precise O2 time estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the time to oxygen depletion as well as mark Connect Umbilical complete for MCC",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the time to oxygen depletion as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete for MCC"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Panel Check complete and then next calculate my remaining oxygen minutes for EVA planning",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Panel Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then next calculate my remaining oxygen minutes for EVA planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and tell me my remaining oxygen time and then follow by logging that I finished EVA prep",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and tell me my remaining oxygen time and then follow by logging that I finished "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Antenna Check as done, and then next show me a detailed oxygen time remaining readout",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done, and then next show me a detailed oxygen time remaining readout"
+            }
+        ]
+    }
+]
+}

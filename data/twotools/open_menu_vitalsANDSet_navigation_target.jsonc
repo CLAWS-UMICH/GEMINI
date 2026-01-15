@@ -1,0 +1,962 @@
+{
+  // intents: open_menu_vitals AND Set_navigation_target
+  // description_1: The user wants to bring up the detailed biometrics and consumables display on the AR HUD. The prompt would be "Open vitals menu" or "Show me my suit data."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open vitals and navigate to LTV",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit data then go to rover",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit data then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery also set destination Home Base",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery also set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up biometrics plus navigate to Airlock",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up biometrics plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals while heading to Cargo Bay",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals while heading to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Display suit data after go to Orbiter",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display suit data after go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Orbiter"
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery and set destination LTV",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Show vitals before navigating to Med Bay",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show vitals before navigating to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme vitals then go to Comms Array",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme vitals then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see vitals and go to Relay",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see vitals and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Habitat and then show my suit vitals",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my biometrics and navigate to Gate Alpha",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my biometrics and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover, also bring up the vitals menu",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", also bring up the vitals menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Show battery level plus set course to Service Module",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show battery level plus set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Service Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Set my destination to Comms Array while opening vitals display",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set my destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " while opening vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up suit data after you lock destination to Airlock",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up suit data after you lock destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Cargo Bay before showing the biometrics panel",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " before showing the biometrics panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics and as well as set navigation to Observation Deck",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics and as well as set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Research Lab along with displaying my suit power stats",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with displaying my suit power stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my power and set course to South Ridge",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my power and set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Storage Locker 7 in addition show vitals",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Locker 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition show vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me my heart rate and additionally mark Airlock as target",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me my heart rate and additionally mark "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " as target"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon 3 meanwhile bring up my suit diagnostics",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile bring up my suit diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up vitals oh and set my next target to Orbiter",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up vitals oh and set my next target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Orbiter"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Forward Cache and then display my consumables",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my consumables"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up suit data followed by routing to Comms Relay",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up suit data followed by routing to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Next set destination to Greenhouse and open the vitals overlay",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open the vitals overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time show battery and navigate to Water Recycler",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time show battery and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Water Recycler"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Gate Alpha and also bring up heart rate",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also bring up heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up biometrics and then set course to South Ridge",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up biometrics and then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey I need you to pull up my current battery time remaining and then set destination to Lander",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey I need you to pull up my current battery time remaining and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display full suit biometrics, along with plotting a route to the Science Module",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display full suit biometrics, along with plotting a route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme my vitals and oxygen levels while you calculate a path over to South Ridge",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme my vitals and oxygen levels while you calculate a path over to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the biometrics panel but first plan a safe route for me to the Forward Cache",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the biometrics panel but first plan a safe route for me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up consumables and then, at the same time, set navigation to the Observation Deck",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up consumables and then, at the same time, set navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            }
+        ]
+    },
+    {
+        "prompt": "Set my navigation target to Med Bay and also bring up the suit vitals and diagnostics panel",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set my navigation target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also bring up the suit vitals and diagnostics panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Comms Array, followed by opening the full suit data overlay for review",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by opening the full suit data overlay for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot a course to Gate Alpha and then simultaneously show me heart rate and oxygen levels",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then simultaneously show me heart rate and oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to the Research Lab in addition to bringing up my telemetry and power readings",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to bringing up my telemetry and power readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Storage Locker 7 while also displaying the consumables and suit status overlays",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Locker 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also displaying the consumables and suit status overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course for the Orbiter and then show my suit vitals plus battery charge percentage",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course for the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Orbiter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my suit vitals plus battery charge percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to the Forward Cache, and then after route confirmation open the biometrics screen",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then after route confirmation open the biometrics screen"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon 5 and meanwhile bring up both vitals and power consumption graphs",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 5"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile bring up both vitals and power consumption graphs"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Greenhouse and then additionally overlay temperature and my heart rate readings",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally overlay temperature and my heart rate readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot route to Airlock, oh and also show suit data, oxygen time remaining, and temperature",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and also show suit data, oxygen time remaining, and temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation target to Cargo Bay and then open vitals, followed by detailed consumables breakdown",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open vitals, followed by detailed consumables breakdown"
+            }
+        ]
+    },
+    {
+        "prompt": "Please route me to the Service Module and in addition present my suit biometrics and alerts",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Service Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition present my suit biometrics and alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Comms Relay next and also pull up the oxygen and battery vitals overlay",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also pull up the oxygen and battery vitals overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Course to the Observation Deck and then at the same time show the biometrics and suit pressure details",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time show the biometrics and suit pressure details"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to the Water Recycler followed by displaying vitals and also the consumables timeline",
+        "tool_calls": [
+            "open_menu_vitals",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Water Recycler"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by displaying vitals and also the consumables timeline"
+            }
+        ]
+    }
+]
+}

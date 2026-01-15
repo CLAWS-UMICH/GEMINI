@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_pressure AND vitals_temperature
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary O2 tank pressure and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 tank pressure and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my suit temperature and secondary oxygen pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my suit temperature and secondary oxygen pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read backup O2 pressure and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read backup O2 pressure and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my core temp and then pull up secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my core temp and then pull up secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo gimme O2 pressure and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo gimme O2 pressure and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Need internal temperature plus secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need internal temperature plus secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the reserve oxygen tank pressure, also bring up body temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the reserve oxygen tank pressure, also bring up body temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit temperature as well as the secondary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit temperature as well as the secondary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before egress check O2 and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before egress check O2 and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit temperature then check secondary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit temperature then check secondary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen pressure and then suit temperature please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen pressure and then suit temperature please"
+            }
+        ]
+    },
+    {
+        "prompt": "What is my internal suit temperature, and also the secondary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is my internal suit temperature, and also the secondary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary O2 pressure followed by displaying internal temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary O2 pressure followed by displaying internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my suit temperature while you read secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my suit temperature while you read secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary O2 and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary O2 and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide suit temperature and additionally show secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide suit temperature and additionally show secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary O2 pressure readout as well as the suit thermal readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary O2 pressure readout as well as the suit thermal readout"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time show my core temp and secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time show my core temp and secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary bottle pressure, then show internal temperature meanwhile",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary bottle pressure, then show internal temperature meanwhile"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up suit temp before checking the secondary oxygen pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up suit temp before checking the secondary oxygen pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm O2 pressure and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm O2 pressure and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Temperature reading and then secondary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Temperature reading and then secondary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary oxygen pressure and show suit temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary oxygen pressure and show suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "What is the suit's internal temperature plus the backup O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is the suit's internal temperature plus the backup O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "But first check the secondary oxygen tank pressure and then display my core temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first check the secondary oxygen tank pressure and then display my core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Monitor suit temperature and then verify secondary oxygen bottle pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Monitor suit temperature and then verify secondary oxygen bottle pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary O2 pressure along with suit temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary O2 pressure along with suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what is my body temperature and also check secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what is my body temperature and also check secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the secondary O2 pressure and then display suit thermal status",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the secondary O2 pressure and then display suit thermal status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the suit temperature display and then read secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the suit temperature display and then read secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up sec O2 and temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up sec O2 and temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see suit temp and then verify secondary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see suit temp and then verify secondary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen pressure and temp please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen pressure and temp please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read my internal temperature and also the secondary O2 tank pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read my internal temperature and also the secondary O2 tank pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "After verifying secondary O2 pressure, pull up suit temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After verifying secondary O2 pressure, pull up suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check suit thermal state along with the secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check suit thermal state along with the secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary tank pressure and at the same time show internal temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank pressure and at the same time show internal temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Display core temp first, then read secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display core temp first, then read secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify reserve O2 bottle pressure, followed by suit temperature readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify reserve O2 bottle pressure, followed by suit temperature readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit temperature, and then check the secondary O2 bottle pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit temperature, and then check the secondary O2 bottle pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 pressure, next show suit internal temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 pressure, next show suit internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check my suit temperature and then check secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check my suit temperature and then check secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary oxygen tank pressure and meanwhile pull up suit temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary oxygen tank pressure and meanwhile pull up suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "I'm cold \u2014 can you show suit temp and also verify secondary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'm cold \u2014 can you show suit temp and also verify secondary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary O2 pressure and in addition display my core temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary O2 pressure and in addition display my core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you also show internal temperature and then check the secondary O2 supply pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you also show internal temperature and then check the secondary O2 supply pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before suit checkout, read secondary tank pressure and also show suit temp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before suit checkout, read secondary tank pressure and also show suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme suit temp oh and O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme suit temp oh and O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary O2 pressure but first display suit temperature",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 pressure but first display suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display internal temperature and then also pull up secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display internal temperature and then also pull up secondary O2 pressure"
+            }
+        ]
+    }
+]
+}

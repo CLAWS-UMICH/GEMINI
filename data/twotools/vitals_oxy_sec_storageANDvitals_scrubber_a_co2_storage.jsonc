@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_scrubber_a_co2_storage
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to know the saturation level of the first CO2 scrubbing bed to determine if it is nearing capacity. They might ask, "Check Scrubber A status" or "How full is Scrubber A?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary oxygen and Scrubber A",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen and Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A status and secondary oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A status and secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup O2 then Scrubber A",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup O2 then Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A saturation plus backup oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A saturation plus backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary O2 and scrubber",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary O2 and scrubber"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A and backup oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A and backup oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up spare oxygen and Scrubber A",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up spare oxygen and Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A then spare O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A then spare O2"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 backup level and Scrubber A?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 backup level and Scrubber A?"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A saturation then O2 reserve",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A saturation then O2 reserve"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary oxygen level and also check Scrubber A saturation",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary oxygen level and also check Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check Scrubber A saturation and then display backup oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check Scrubber A saturation and then display backup oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo gimme spare O2 level and bring up Scrubber A readings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo gimme spare O2 level and bring up Scrubber A readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check Scrubber A and also pull up the secondary oxygen gauge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check Scrubber A and also pull up the secondary oxygen gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary tank percent and show Scrubber A fill level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary tank percent and show Scrubber A fill level"
+            }
+        ]
+    },
+    {
+        "prompt": "Please inspect Scrubber A saturation then open backup oxygen report, please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please inspect Scrubber A saturation then open backup oxygen report, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup O2 reserve plus verify Scrubber A capacity now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup O2 reserve plus verify Scrubber A capacity now"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify Scrubber A CO2 load and then show secondary oxygen readings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify Scrubber A CO2 load and then show secondary oxygen readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA, open backup oxygen status but first check CO2 bed A saturation",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA, open backup oxygen status but first check CO2 bed A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking scrubber A, also bring up the secondary O2 numbers",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking scrubber A, also bring up the secondary O2 numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up secondary oxygen levels and meanwhile check Scrubber A?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up secondary oxygen levels and meanwhile check Scrubber A?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open Scrubber A diagnostics and then display backup oxygen tank percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open Scrubber A diagnostics and then display backup oxygen tank percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see spare O2 and also give me Scrubber A saturation readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see spare O2 and also give me Scrubber A saturation readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Check how full Scrubber A is and also show the secondary O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check how full Scrubber A is and also show the secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report secondary oxygen quantity and additionally pull up Scrubber A stats",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report secondary oxygen quantity and additionally pull up Scrubber A stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, verify Scrubber A and in addition display the backup oxygen level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, verify Scrubber A and in addition display the backup oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Open backup oxygen report then check CO2 bed A saturation right away",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open backup oxygen report then check CO2 bed A saturation right away"
+            }
+        ]
+    },
+    {
+        "prompt": "Assess Scrubber A then also bring up spare oxygen gauge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Assess Scrubber A then also bring up spare oxygen gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary oxygen and at the same time check Scrubber A",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary oxygen and at the same time check Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A levels and then open secondary O2 monitor for me",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A levels and then open secondary O2 monitor for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the secondary oxygen tank percentage and then also assess Scrubber A CO2 saturation level for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the secondary oxygen tank percentage and then also assess Scrubber A CO2 saturation level for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "After you verify Scrubber A's saturation, could you next display the backup oxygen storage and confirm reserve capacity?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you verify Scrubber A's saturation, could you next display the backup oxygen storage and confirm reserve capacity?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the spare O2 status first and then bring up Scrubber A saturation along with any warnings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the spare O2 status first and then bring up Scrubber A saturation along with any warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you inspect Scrubber A saturation and after that also show the secondary oxygen tank level and time remaining?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you inspect Scrubber A saturation and after that also show the secondary oxygen tank level and time remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "In addition to checking the secondary oxygen supply, please also evaluate Scrubber A's CO2 load and report",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "In addition to checking the secondary oxygen supply, please also evaluate Scrubber A's CO2 load and report"
+            }
+        ]
+    },
+    {
+        "prompt": "While you monitor Scrubber A's fill level, simultaneously pull up the backup oxygen storage metrics and alarms",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you monitor Scrubber A's fill level, simultaneously pull up the backup oxygen storage metrics and alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA checkout, open the secondary oxygen inventory and followed by that display Scrubber A saturation percentages",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA checkout, open the secondary oxygen inventory and followed by that display Scrubber A saturation percentages"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run diagnostics on Scrubber A and then additionally open the secondary O2 readout plus estimated duration",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run diagnostics on Scrubber A and then additionally open the secondary O2 readout plus estimated duration"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup oxygen level and also, while you're at it, have you checked Scrubber A's saturation?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup oxygen level and also, while you're at it, have you checked Scrubber A's saturation?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A's CO2 capacity and next bring up the secondary oxygen tank status along with pressure readings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A's CO2 capacity and next bring up the secondary oxygen tank status along with pressure readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and confirm the secondary oxygen percentage, additionally check Scrubber A for near-capacity warnings and timers",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and confirm the secondary oxygen percentage, additionally check Scrubber A for near-capacity warnings and timers"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by verifying Scrubber A saturation, please also display the spare oxygen reserve and expected endurance estimates",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by verifying Scrubber A saturation, please also display the spare oxygen reserve and expected endurance estimates"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show me the secondary O2 inventory and then evaluate Scrubber A's CO2 scrubber bed one saturation level?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show me the secondary O2 inventory and then evaluate Scrubber A's CO2 scrubber bed one saturation level?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need Scrubber A's saturation numbers and before that open the backup oxygen report with time remaining and pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need Scrubber A's saturation numbers and before that open the backup oxygen report with time remaining and pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the secondary oxygen storage levels and additionally run a check on Scrubber A's saturation, report deviations",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the secondary oxygen storage levels and additionally run a check on Scrubber A's saturation, report deviations"
+            }
+        ]
+    },
+    {
+        "prompt": "Next inspect Scrubber A and at the same time pull up the spare oxygen gauge so I can compare margins",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next inspect Scrubber A and at the same time pull up the spare oxygen gauge so I can compare margins"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the backup oxygen status and as well as that include Scrubber A saturation?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the backup oxygen status and as well as that include Scrubber A saturation?"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, scan Scrubber A's saturation and then also bring up the secondary oxygen tank readings with timestamps",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, scan Scrubber A's saturation and then also bring up the secondary oxygen tank readings with timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, before we proceed, confirm spare O2 capacity and additionally check scrubber A for CO2 saturation and cycles left",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, before we proceed, confirm spare O2 capacity and additionally check scrubber A for CO2 saturation and cycles left"
+            }
+        ]
+    },
+    {
+        "prompt": "Please and then check Scrubber A saturation, followed by presenting the secondary oxygen storage level and remaining hours",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please and then check Scrubber A saturation, followed by presenting the secondary oxygen storage level and remaining hours"
+            }
+        ]
+    }
+]
+}

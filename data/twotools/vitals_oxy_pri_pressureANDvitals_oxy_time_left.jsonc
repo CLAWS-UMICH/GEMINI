@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_pri_pressure AND vitals_oxy_time_left
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and time left",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and time left"
+            }
+        ]
+    },
+    {
+        "prompt": "How much oxygen time remains then show primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much oxygen time remains then show primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey show primary oxygen tank pressure and also calculate remaining oxygen time",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey show primary oxygen tank pressure and also calculate remaining oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate time to oxygen depletion plus display primary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate time to oxygen depletion plus display primary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Read pri O2 pressure while estimating how long oxygen will last",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read pri O2 pressure while estimating how long oxygen will last"
+            }
+        ]
+    },
+    {
+        "prompt": "Time to depletion after primary pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time to depletion after primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read primary oxygen pressure before telling me time remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read primary oxygen pressure before telling me time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "How much oxygen time remains but first display primary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much oxygen time remains but first display primary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the primary O2 pressure as well as compute remaining oxygen duration for egress",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the primary O2 pressure as well as compute remaining oxygen duration for egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me how many minutes of oxygen I have left along with current primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me how many minutes of oxygen I have left along with current primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure and then time?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure and then time?"
+            }
+        ]
+    },
+    {
+        "prompt": "How much oxygen time remains in addition show primary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much oxygen time remains in addition show primary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary O2 pressure and additionally give time to depletion estimate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and additionally give time to depletion estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate oxygen minutes remaining meanwhile pull up the primary oxygen pressure gauge",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate oxygen minutes remaining meanwhile pull up the primary oxygen pressure gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Show primary tank pressure oh and tell me time remaining for ingress",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show primary tank pressure oh and tell me time remaining for ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "How long O2 lasts and then pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long O2 lasts and then pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up primary oxygen tank pressure followed by an estimate of remaining oxygen time for EVA",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up primary oxygen tank pressure followed by an estimate of remaining oxygen time for EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo next calculate time to oxygen depletion then show primary pressure readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo next calculate time to oxygen depletion then show primary pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the primary O2 pressure and at the same time compute oxygen time left for egress planning",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the primary O2 pressure and at the same time compute oxygen time left for egress planning"
+            }
+        ]
+    },
+    {
+        "prompt": "How much oxygen time remains while reporting primary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much oxygen time remains while reporting primary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure please plus time remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure please plus time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me remaining O2 duration as well as the primary pressure reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me remaining O2 duration as well as the primary pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Display primary oxygen pressure along with a projected oxygen runtime in minutes",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display primary oxygen pressure along with a projected oxygen runtime in minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes of oxygen remain in addition show primary oxygen pressure gauge",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes of oxygen remain in addition show primary oxygen pressure gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read the primary oxygen tank pressure and additionally provide a precise time-to-depletion estimate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read the primary oxygen tank pressure and additionally provide a precise time-to-depletion estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Time remaining then primary pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time remaining then primary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary pressure and time?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary pressure and time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate oxygen time remaining then display the primary pressure reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate oxygen time remaining then display the primary pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the primary oxygen pressure readout and compute projected oxygen endurance for current flow rate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the primary oxygen pressure readout and compute projected oxygen endurance for current flow rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme how long my oxygen will last next show primary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme how long my oxygen will last next show primary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure then remaining time?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure then remaining time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme calculate remaining O2 time and then report primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme calculate remaining O2 time and then report primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the primary oxygen tank pressure gauge and also estimate minutes of oxygen available",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the primary oxygen tank pressure gauge and also estimate minutes of oxygen available"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes remain but first read primary O2 pressure for safety",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes remain but first read primary O2 pressure for safety"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary O2 pressure along with projecting oxygen duration under current metabolic load",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure along with projecting oxygen duration under current metabolic load"
+            }
+        ]
+    },
+    {
+        "prompt": "Time remaining and then pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time remaining and then pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Query the primary oxygen pressure followed by a detailed estimate of remaining oxygen time accounting for tasks",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Query the primary oxygen pressure followed by a detailed estimate of remaining oxygen time accounting for tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me oxygen time remaining in addition show the primary pressure value",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me oxygen time remaining in addition show the primary pressure value"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the primary oxygen tank pressure meanwhile compute remaining oxygen minutes at current consumption",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the primary oxygen tank pressure meanwhile compute remaining oxygen minutes at current consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "How long before oxygen depletion as well as a simultaneous read of primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long before oxygen depletion as well as a simultaneous read of primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure oh and time?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure oh and time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me time until O2 runs out and then display the primary oxygen tank pressure reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me time until O2 runs out and then display the primary oxygen tank pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary oxygen pressure next include a precise oxygen time remaining calculation for mission planning",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary oxygen pressure next include a precise oxygen time remaining calculation for mission planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate my remaining oxygen time at the same time pull up the primary tank pressure and status",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate my remaining oxygen time at the same time pull up the primary tank pressure and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary oxygen pressure but first calculate expected oxygen duration given current suit flow and activity",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary oxygen pressure but first calculate expected oxygen duration given current suit flow and activity"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes of oxygen are left plus display the primary O2 pressure and remaining percentage",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes of oxygen are left plus display the primary O2 pressure and remaining percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the primary O2 tank pressure and then provide a conservative estimate of oxygen time left for contingency",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the primary O2 tank pressure and then provide a conservative estimate of oxygen time left for contingency"
+            }
+        ]
+    },
+    {
+        "prompt": "Provide time-to-oxygen depletion followed by a live read of the primary oxygen tank pressure and status",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide time-to-oxygen depletion followed by a live read of the primary oxygen tank pressure and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the primary oxygen pressure gauge and additionally run a minute-by-minute oxygen burn-rate projection",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the primary oxygen pressure gauge and additionally run a minute-by-minute oxygen burn-rate projection"
+            }
+        ]
+    },
+    {
+        "prompt": "How long will oxygen last in addition show primary pressure now",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long will oxygen last in addition show primary pressure now"
+            }
+        ]
+    }
+]
+}

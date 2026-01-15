@@ -1,0 +1,658 @@
+{
+  // intents: vitals_scrubber_a_co2_storage AND start_procedure_erm
+  // description_1: The user wants to know the saturation level of the first CO2 scrubbing bed to determine if it is nearing capacity. They might ask, "Check Scrubber A status" or "How full is Scrubber A?"
+  // description_2: The user initiates the "Exit Recovery Mode" workflow to wake the LTV from its dormant state. They would likely say, "Start ERM procedure" or "Begin Exit Recovery Mode."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check Scrubber A saturation level please and then start the ERM procedure while logging timestamp",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A saturation level please and then start the ERM procedure while logging timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode now, then please report the first CO2 scrubbing bed fullness and trend",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode now, then please report the first CO2 scrubbing bed fullness and trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A status, then start ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A status, then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM now and then pull up Scrubber A saturation and show me the projected capacity timeline",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM now and then pull up Scrubber A saturation and show me the projected capacity timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show me the first CO2 bed level and start Exit Recovery Mode",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show me the first CO2 bed level and start Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Start Exit Recovery Mode, then also display Scrubber Alpha's CO2 saturation along with recent venting events and status",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start Exit Recovery Mode, then also display Scrubber Alpha's CO2 saturation along with recent venting events and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the CO2 canister A fill and begin ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the CO2 canister A fill and begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM first and then check the CO2 canister A fill",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM first and then check the CO2 canister A fill"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, gimme Scrubber A fullness then kick off ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, gimme Scrubber A fullness then kick off ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and bring up Scrubber A saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and bring up Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Check first CO2 scrubbing bed level, then initiate ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check first CO2 scrubbing bed level, then initiate ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate Exit Recovery Mode before you display Scrubber A saturation and then confirm airlock readiness as well",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate Exit Recovery Mode before you display Scrubber A saturation and then confirm airlock readiness as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Report Scrubber A CO2 percentage after that and then begin ERM procedure",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report Scrubber A CO2 percentage after that and then begin ERM procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start ERM immediately and also pull up the first CO2 bed status plus any recent CO2 intake anomalies",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start ERM immediately and also pull up the first CO2 bed status plus any recent CO2 intake anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A nearly full? start ERM if needed",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A nearly full? start ERM if needed"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM, and then check Scrubber A saturation level",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM, and then check Scrubber A saturation level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A and start Exit Recovery Mode now",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A and start Exit Recovery Mode now"
+            }
+        ]
+    },
+    {
+        "prompt": "Head's up, start ERM plus show me the first CO2 bed status in addition to the last scrub cycle logs",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head's up, start ERM plus show me the first CO2 bed status in addition to the last scrub cycle logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up Scrubber A saturation as well as initiate ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up Scrubber A saturation as well as initiate ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM, followed by a check of Scrubber A saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM, followed by a check of Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Need Scrubber A saturation and start ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need Scrubber A saturation and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start Exit Recovery Mode as well and display Scrubber A percentage and then provide the estimated time to saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start Exit Recovery Mode as well and display Scrubber A percentage and then provide the estimated time to saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the first CO2 bed and start ERM please",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the first CO2 bed and start ERM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you start ERM, and then show Scrubber A fill?",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you start ERM, and then show Scrubber A fill?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show Scrubber A saturation before you begin ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show Scrubber A saturation before you begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM while also pulling up the first CO2 scrubbing bed data and the associated environmental sensor readings as well",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM while also pulling up the first CO2 scrubbing bed data and the associated environmental sensor readings as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check Scrubber A CO2 levels, then start ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check Scrubber A CO2 levels, then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM next and then display Scrubber A saturation",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM next and then display Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A, plus kick off Exit Recovery Mode",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A, plus kick off Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and then also check the first CO2 bed fill level and additionally record percentage timestamp",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and then also check the first CO2 bed fill level and additionally record percentage timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A saturation and then start ERM now",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A saturation and then start ERM now"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and check Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and check Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A then start ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM first, then pull up Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM first, then pull up Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A status and start ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A status and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and check scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and check scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check first CO2 bed then start ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check first CO2 bed then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM then show Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM then show Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A fill and start ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A fill and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off ERM and pull up Scrubber A",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off ERM and pull up Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the first CO2 scrubbing bed saturation and then start ERM, meanwhile bring up scrub cycle history",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the first CO2 scrubbing bed saturation and then start ERM, meanwhile bring up scrub cycle history"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate Exit Recovery Mode but first display Scrubber A saturation along with CO2 ingestion rates and recent averages",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate Exit Recovery Mode but first display Scrubber A saturation along with CO2 ingestion rates and recent averages"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up Scrubber A CO2 percentage and then start ERM, followed by a confirmation of airlock and suit readiness",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up Scrubber A CO2 percentage and then start ERM, followed by a confirmation of airlock and suit readiness"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM next and then display the first CO2 bed level as well as projected saturation curves for planning",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM next and then display the first CO2 bed level as well as projected saturation curves for planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Report Scrubber A saturation in addition to scrubber temperature and then initiate ERM while logging all readings",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report Scrubber A saturation in addition to scrubber temperature and then initiate ERM while logging all readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode and then also pull up the CO2 scrubber A fill level and additionally show maintenance flags",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode and then also pull up the CO2 scrubber A fill level and additionally show maintenance flags"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A then ERM",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A then ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then check Scrubber A saturation along with battery vitals at the same time for cross-check",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then check Scrubber A saturation along with battery vitals at the same time for cross-check"
+            }
+        ]
+    },
+    {
+        "prompt": "Open Scrubber A status, and then begin ERM, and then verify CO2 scrub rates plus filter health trends",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open Scrubber A status, and then begin ERM, and then verify CO2 scrub rates plus filter health trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Please kick off Exit Recovery Mode, followed by a check of Scrubber A saturation and meanwhile prepare telemetry logs",
+        "tool_calls": [
+            "vitals_scrubber_a_co2_storage",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please kick off Exit Recovery Mode, followed by a check of Scrubber A saturation and meanwhile prepare telemetry logs"
+            }
+        ]
+    }
+]
+}

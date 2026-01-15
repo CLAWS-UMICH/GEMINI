@@ -1,0 +1,982 @@
+{
+  // intents: vitals_suit_pressure_co2 AND Add_task
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Read CO2 and add task tether inspection",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect panel then check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit CO2 plus add task sample",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit CO2 plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me flag debris and check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "flag debris"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my suit CO2 and add task clean lens?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my suit CO2 and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task collect soil sample while you read CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect soil sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you read CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up suit CO2 and add task replace filter?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up suit CO2 and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task secure tool plus check my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tool"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Need CO2 reading and add task inspect antenna",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need CO2 reading and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo add task log radiation levels and then read CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log radiation levels"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my current suit CO2 levels and then add task photograph the lunar horizon",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my current suit CO2 levels and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph the lunar horizon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task perform suit diagnostics and while you're at it read my CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it read my CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the partial pressure of CO2 in my suit and also create a reminder to recalibrate instruments?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the partial pressure of CO2 in my suit and also create a reminder to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate instruments"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Create new task check battery and after that show me suit CO2 readings",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create new task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that show me suit CO2 readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check suit CO2 in addition add task secure sample container to manifest",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check suit CO2 in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample container to manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and then add task inspect solar array before EVA ends",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " before EVA ends"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task verify comms and also what's my suit CO2?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also what's my suit CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 then add task sample bag",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample bag"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check O2 then read CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check O2"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up suit CO2 readings and also add task replace comm antenna",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up suit CO2 readings and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace comm antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task inventory tools and then display my suit CO2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory tools"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my suit CO2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "While you check my suit CO2 levels, additionally add task collect rock sample at waypoint alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you check my suit CO2 levels, additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect rock sample at waypoint alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo add task clean visor and while you're at it read my suit CO2 numbers",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean visor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it read my suit CO2 numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and add task note",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "note"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph flag and also what's my CO2?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph flag"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also what's my CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check coolant lines and then read my suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant lines"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read my suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task seal leak and check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal leak"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Create new task document power draw and next show me the suit's CO2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create new task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document power draw"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next show me the suit's CO2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add task recalibrate gyro and also pull CO2 readings?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate gyro"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull CO2 readings?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task secure the evidence bag followed by a suit CO2 status update",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure the evidence bag"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a suit CO2 status update"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo add task mark sample site then read CO2 for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mark sample site"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read CO2 for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check tether lines plus CO2 read",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether lines"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus CO2 read"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task run diagnostic log in addition to reading my suit CO2 trending data",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostic log"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to reading my suit CO2 trending data"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task retrieve sample before EVA end and while you're at it check CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "retrieve sample before EVA end"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect duct and read CO2?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect duct"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task verify external comm link as well as show me the current suit CO2 pressure and trend",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify external comm link"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show me the current suit CO2 pressure and trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task tag rock sample and then display CO2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag rock sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit CO2 and then add task update navigation markers",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit CO2 and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "update navigation markers"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 and add task log temp",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure tether then read CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you proceed, pull up my suit CO2 readings and in addition create a task to realign the antenna",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you proceed, pull up my suit CO2 readings and in addition create a task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "realign the antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking suit CO2, add task replace the filter cartridge",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking suit CO2, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace the filter cartridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what's my suit CO2 and oh and add task top off coolant",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what's my suit CO2 and oh and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "top off coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull suit CO2 readings and additionally add task calibrate solar tracker",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull suit CO2 readings and additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate solar tracker"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to bring up the suit CO2 levels next and also add task photograph tool inventory for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to bring up the suit CO2 levels next and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph tool inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Check CO2 and add task swap filter",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check CO2 and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read my suit CO2 at the same time add task verify seals?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read my suit CO2 at the same time add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify seals"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "But first read suit CO2 and then add task inspect EVA pack",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first read suit CO2 and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect EVA pack"
+            }
+        ]
+    },
+    {
+        "prompt": "Display CO2 along with add task check ladder stability",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display CO2 along with add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check ladder stability"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile read suit CO2 and additionally add task secure sample container",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile read suit CO2 and additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample container"
+            }
+        ]
+    }
+]
+}

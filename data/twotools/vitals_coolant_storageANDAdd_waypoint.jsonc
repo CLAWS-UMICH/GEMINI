@@ -1,0 +1,962 @@
+{
+  // intents: vitals_coolant_storage AND Add_waypoint
+  // description_1: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check coolant then mark waypoint Alpha",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant then mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant then add waypoint CraterEdge",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CraterEdge"
+            }
+        ]
+    },
+    {
+        "prompt": "How much water and mark SiteOne",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much water and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SiteOne"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit coolant and drop marker BaseCamp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit coolant and drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BaseCamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell coolant left and place waypoint Ridge",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell coolant left and place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant plus add waypoint SampleAlpha",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SampleAlpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant while naming waypoint CraterEdge",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant while naming waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CraterEdge"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant levels and then waypoint Foxtrot",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant levels and then waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            }
+        ]
+    },
+    {
+        "prompt": "Report coolant, and then mark Outcrop",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report coolant, and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outcrop"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell remaining coolant and mark Cache",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell remaining coolant and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show coolant level and add waypoint Sample Site Bravo",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show coolant level and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "How much suit water do I have and mark waypoint North Rim",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much suit water do I have and mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up coolant reserves and then drop marker South Crater",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up coolant reserves and then drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining thermal fluid and place waypoint IceField",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining thermal fluid and place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "IceField"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant status and then add waypoint SampleSiteCharlie",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant status and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SampleSiteCharlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display coolant volume as well as mark waypoint SupplyCache",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display coolant volume as well as mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SupplyCache"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coolant tank reading and also set waypoint East Ridge",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coolant tank reading and also set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show coolant then follow up with add waypoint CliffSide",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show coolant then follow up with add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CliffSide"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the remaining coolant volume reported and then have you mark this spot as Sample Location Delta",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the remaining coolant volume reported and then have you mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Location Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up my suit coolant reserves and after that add waypoint Southern Boulder Echo",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up my suit coolant reserves and after that add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Southern Boulder Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the coolant remaining in my suit and then drop a waypoint labeled Rock Sample One",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the coolant remaining in my suit and then drop a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Sample One"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant tank level displayed and then also mark current coordinates as Hab Junction",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant tank level displayed and then also mark current coordinates as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Junction"
+            }
+        ]
+    },
+    {
+        "prompt": "Check thermal fluid quantity and in addition pin this location as Subsurface Outcrop Bravo",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check thermal fluid quantity and in addition pin this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Subsurface Outcrop Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you report water coolant percentage remaining and then, followed by that, add waypoint Crater Rim North",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you report water coolant percentage remaining and then, followed by that, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim North"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my coolant reserve while also creating a waypoint named Emergency Cache Two at this spot",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my coolant reserve while also creating a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Cache Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " at this spot"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Alpha Base and then check coolant levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Crater Edge and also report coolant remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker Supply Point and then show me suit coolant volume",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me suit coolant volume"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Rock Outcrop plus display coolant tank reading",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus display coolant tank reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Bravo while also telling me coolant left",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also telling me coolant left"
+            }
+        ]
+    },
+    {
+        "prompt": "Create marker Ridge Line and then pull up coolant reserve percent",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Line"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up coolant reserve percent"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Foam Pit and in addition show suit water remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foam Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition show suit water remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint LZ-3 and then also display remaining coolant liters",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also display remaining coolant liters"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Observatory and show coolant level next",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show coolant level next"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Central Node and then show coolant percentage",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Central Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show coolant percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this as Beacon 7 and then tell me coolant remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Southland and then also bring up coolant status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Southland"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also bring up coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Ice Shelf, but first tell me how much coolant I have left",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first tell me how much coolant I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop a marker called Lab Access and then, before proceeding, show my coolant reserves",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop a marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab Access"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, before proceeding, show my coolant reserves"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Hidden Gully and then simultaneously display coolant levels at the same time",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hidden Gully"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then simultaneously display coolant levels at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Supply Delta along with reporting remaining suit coolant in liters",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with reporting remaining suit coolant in liters"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Fault Line and meanwhile pull up the coolant tank percentage remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fault Line"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile pull up the coolant tank percentage remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Create waypoint North Ridge and then additionally show me the remaining coolant and water volume",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally show me the remaining coolant and water volume"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Perimeter Beacon oh and report suit coolant remaining before we move",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Perimeter Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and report suit coolant remaining before we move"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker Core Sample Alpha along with the coolant status and then tell me liters left",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Core Sample Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with the coolant status and then tell me liters left"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Research Outpost and then pull up coolant levels, additionally display estimated time remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up coolant levels, additionally display estimated time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Lava Flow, and then show the suit coolant gauge as well as projected coolant consumption rates",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lava Flow"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then show the suit coolant gauge as well as projected coolant consumption rates"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint South Crater Next and at the same time report coolant reserves and water remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Crater Next"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time report coolant reserves and water remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Helipad and then, followed by that, show coolant percentage and also give estimated hours remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Helipad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, followed by that, show coolant percentage and also give estimated hours remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Water Cache and then display my coolant and water reserves, along with projected mission endurance",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my coolant and water reserves, along with projected mission endurance"
+            }
+        ]
+    }
+]
+}

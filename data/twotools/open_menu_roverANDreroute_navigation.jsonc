@@ -1,0 +1,658 @@
+{
+  // intents: open_menu_rover AND reroute_navigation
+  // description_1: The user wants to access telemetry and control interfaces specific to the Pressurized Rover (PR) or Lunar Terrain Vehicle (LTV). They might ask, "Open rover dashboard" or "Show LTV status."
+  // description_2: The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, "Find a new route" or "Reroute."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Open the PR dashboard and then reroute me around that obstacle",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the PR dashboard and then reroute me around that obstacle"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to the next waypoint and open suit vitals display, please",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to the next waypoint and open suit vitals display, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the LTV status then calculate an alternate path to bypass the newly detected crater ahead",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the LTV status then calculate an alternate path to bypass the newly detected crater ahead"
+            }
+        ]
+    },
+    {
+        "prompt": "Find new route first then pull up rover telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new route first then pull up rover telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the rover HUD plus reroute me to avoid the boulder",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the rover HUD plus reroute me to avoid the boulder"
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate the path and then show PR power and environmental readouts",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate the path and then show PR power and environmental readouts"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the PR diagnostics and also set a new route that skirts the unstable slope on the left",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the PR diagnostics and also set a new route that skirts the unstable slope on the left"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to avoid crater and bring up suit vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to avoid crater and bring up suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display LTV battery status and then calculate an alternate navigation path now",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display LTV battery status and then calculate an alternate navigation path now"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate a new course to the target and also open the rover's telemetry display",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate a new course to the target and also open the rover's telemetry display"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover status and reroute around debris, then display battery levels",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover status and reroute around debris, then display battery levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute around the hazard then show PR life support and oxygen trends",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute around the hazard then show PR life support and oxygen trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the rover power panel and then reroute to safe ground, avoiding the sunshadow region and loose rocks",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the rover power panel and then reroute to safe ground, avoiding the sunshadow region and loose rocks"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute now and also pull up the LTV diagnostics",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute now and also pull up the LTV diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up PR telemetry, and then find a new path avoiding slope hazards ahead",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up PR telemetry, and then find a new path avoiding slope hazards ahead"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate alternate route away from rock field and additionally display rover battery and telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate alternate route away from rock field and additionally display rover battery and telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Show rover HUD and reroute now to a safer approach path, please",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show rover HUD and reroute now to a safer approach path, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me then open suit vitals, show heart rate",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me then open suit vitals, show heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Open PR diagnostics as well as compute a new navigation plan that avoids the observed dust flow area",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open PR diagnostics as well as compute a new navigation plan that avoids the observed dust flow area"
+            }
+        ]
+    },
+    {
+        "prompt": "Find a detour and then display rover temperature and power",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find a detour and then display rover temperature and power"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the LTV telemetry and then, after checking sensors, reroute to the next safe waypoint immediately",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the LTV telemetry and then, after checking sensors, reroute to the next safe waypoint immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to waypoint delta, and then open the PR environmental controls and power feeds",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to waypoint delta, and then open the PR environmental controls and power feeds"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover map and reroute around obstacle",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover map and reroute around obstacle"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a reroute and bring up suit biometrics",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a reroute and bring up suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Open PR status then compute an alternate route and additionally show me the current battery and power distribution",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open PR status then compute an alternate route and additionally show me the current battery and power distribution"
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate path while opening rover telemetry and display battery percentage",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate path while opening rover telemetry and display battery percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the rover diagnostics, but first recalculate a path avoiding that ridge over there",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the rover diagnostics, but first recalculate a path avoiding that ridge over there"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, reroute navigation to the new target and also bring up the LTV status and power",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, reroute navigation to the new target and also bring up the LTV status and power"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover diagnostics and reroute path",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover diagnostics and reroute path"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute then open rover battery display",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute then open rover battery display"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the LTV HUD and then find a safer route for us",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the LTV HUD and then find a safer route for us"
+            }
+        ]
+    },
+    {
+        "prompt": "Find a new route before showing PR telemetry and suit vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find a new route before showing PR telemetry and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display rover power and environmental readouts and then calculate an alternate route avoiding loose regolith",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display rover power and environmental readouts and then calculate an alternate route avoiding loose regolith"
+            }
+        ]
+    },
+    {
+        "prompt": "Compute a detour next, and then meanwhile open the rover's systems page as well as the suit status",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Compute a detour next, and then meanwhile open the rover's systems page as well as the suit status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open LTV status and reroute around crater",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open LTV status and reroute around crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme reroute and then pull up rover stats",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme reroute and then pull up rover stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Open PR telemetry and then update route to avoid that ridge",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open PR telemetry and then update route to avoid that ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo plot a new path and then show rover battery",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo plot a new path and then show rover battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and open the rover systems dashboard, followed by recalculating our course around that boulder field",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and open the rover systems dashboard, followed by recalculating our course around that boulder field"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me to waypoint echo and then bring up the PR vitals, plus display thermal readings at the same time",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me to waypoint echo and then bring up the PR vitals, plus display thermal readings at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover telemetry and recalibrate route",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover telemetry and recalibrate route"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute next and open LTV power display",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute next and open LTV power display"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the PR power page and then compute a safer path",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the PR power page and then compute a safer path"
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate route and also open the rover environmental readouts next",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate route and also open the rover environmental readouts next"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you bring up the LTV diagnostics along with route recalculation as well as the suit status so we avoid the solar panel array ahead",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you bring up the LTV diagnostics along with route recalculation as well as the suit status so we avoid the solar panel array ahead"
+            }
+        ]
+    },
+    {
+        "prompt": "Need a new navigation plan that bypasses the crater, and then, in addition, open rover battery and suit status displays",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need a new navigation plan that bypasses the crater, and then, in addition, open rover battery and suit status displays"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover HUD plus reroute away",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover HUD plus reroute away"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute before opening PR telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute before opening PR telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Open PR telemetry and then calculate alternate path, also show battery",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open PR telemetry and then calculate alternate path, also show battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to waypoint Foxtrot and then open the rover's diagnostics and suit vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to waypoint Foxtrot and then open the rover's diagnostics and suit vitals"
+            }
+        ]
+    }
+]
+}

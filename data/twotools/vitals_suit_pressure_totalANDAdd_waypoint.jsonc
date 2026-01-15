@@ -1,0 +1,966 @@
+{
+  // intents: vitals_suit_pressure_total AND Add_waypoint
+  // description_1: The user wants to know the total internal pressure of the spacesuit relative to the vacuum outside, critical for maintaining structural integrity and life support. They might ask, "What is the total suit pressure?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check suit pressure and mark site Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit pressure and mark site "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me pressure then add waypoint Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me pressure then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Show pressure and waypoint Crater Rim",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show pressure and waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Pressure reading then mark Sample Point One",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pressure reading then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point One"
+            }
+        ]
+    },
+    {
+        "prompt": "Read suit pressure and add Base",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read suit pressure and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pressure as well as tag Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pressure as well as tag "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Need suit pressure then drop waypoint Delta",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need suit pressure then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Show total pressure plus add waypoint Echo",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show total pressure plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up pressure while marking Site B",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up pressure while marking "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit pressure, then waypoint Foxtrot",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit pressure, then waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add waypoint Crater Edge and then display suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check my pressure and add waypoint Sample Site Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check my pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you mark waypoint Ridge Base and then pull up suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me total pressure and also drop waypoint Lava Flow",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me total pressure and also drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lava Flow"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit pressure and add waypoint North Crater",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "What is my suit pressure and add waypoint Sample Bravo",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is my suit pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Observation Point before you display suit pressure and other vitals",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you display suit pressure and other vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Put waypoint Comm Relay then check suit psi",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check suit psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up pressure readings then tag waypoint Solar Panel",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up pressure readings then tag waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey show my vitals and drop waypoint Sampling Zone One",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey show my vitals and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sampling Zone One"
+            }
+        ]
+    },
+    {
+        "prompt": "Display suit internal pressure and place waypoint Crater North",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display suit internal pressure and place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater North"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Water Ice and then give me pressure numbers",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Ice"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give me pressure numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Check total suit pressure then add waypoint South Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check total suit pressure then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show suit pressure plus mark waypoint Alpha-2",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show suit pressure plus mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics and add waypoint East Lander please",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Rock Outcrop after you read suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " after you read suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check suit pressure and then place waypoint Depot",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check suit pressure and then place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "As well as pressure, also add waypoint Crater Rim South",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "As well as pressure, also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim South"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read suit pressure and then add waypoint Control Hatch",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read suit pressure and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Control Hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up pressure and then tag waypoint Sample Pit",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up pressure and then tag waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Horizon Ridge now and then show me the total suit pressure numbers please",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Horizon Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " now and then show me the total suit pressure numbers please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Supply Cache followed by pulling up my suit internal pressure readout",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by pulling up my suit internal pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark waypoint Ice Deposit before you display my suit pressure and other vitals",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Deposit"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you display my suit pressure and other vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Tag waypoint Observation Post, and in addition bring up total suit pressure and battery",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tag waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and in addition bring up total suit pressure and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Put waypoint Geological Transect next and also open the suit pressure telemetry for inspection",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geological Transect"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also open the suit pressure telemetry for inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crevasse Edge at the same time show my current suit pressure and readouts",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crevasse Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time show my current suit pressure and readouts"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Sample Ridge, oh and while you're at it display the total suit pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and while you're at it display the total suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Alpha Sector and then additionally pull up the suit pressure and biometrics",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Sector"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally pull up the suit pressure and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Lander A-3 along with checking the total suit pressure and oxygen status",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lander A-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with checking the total suit pressure and oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint South Bluff plus show me the suit total pressure and remaining air percentage",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Bluff"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show me the suit total pressure and remaining air percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add waypoint Communication Tower and then next provide my suit pressure and charge levels",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Communication Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next provide my suit pressure and charge levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Ridge Overlook, followed by pulling up overall suit pressure and heart rate",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Overlook"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by pulling up overall suit pressure and heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint North Lobe and while doing that also display the suit total pressure and pulse",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Lobe"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while doing that also display the suit total pressure and pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set waypoint Sample Site Charlie, but first report my suit pressure plus CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first report my suit pressure plus CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint West Crater in addition to showing me the suit total pressure and temperature",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to showing me the suit total pressure and temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Beta Ridge, as well as pull up the suit pressure and provide oxygen readings",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", as well as pull up the suit pressure and provide oxygen readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Fuel Cache and then additionally report the total suit pressure along with battery",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally report the total suit pressure along with battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Ridge Gate and at the same time show suit pressure, heart rate, and oxygen levels",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show suit pressure, heart rate, and oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Delta Sector meanwhile bring up my suit pressure plus remaining EVA duration as well",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Sector"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile bring up my suit pressure plus remaining EVA duration as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Beacon Hill and then next display the suit's total pressure, battery and CO2 stats",
+        "tool_calls": [
+            "vitals_suit_pressure_total",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Hill"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next display the suit's total pressure, battery and CO2 stats"
+            }
+        ]
+    }
+]
+}

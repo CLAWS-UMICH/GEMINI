@@ -1,0 +1,978 @@
+{
+  // intents: vitals_oxy_pri_pressure AND Set_navigation_target
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and go LTV",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Home Base then check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary O2 pressure then rover",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 pressure then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Hab Alpha and read O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read O2 pressure plus go Landing Pad",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read O2 pressure plus go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Gateway and check primary pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gateway"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Report O2 pressure and Cargo Bay",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report O2 pressure and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Module 3 and read O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Module 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure and then Airlock",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure and then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Alpha Station and check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you read primary oxygen pressure and then navigate to Science Site",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you read primary oxygen pressure and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set destination Beacon Charlie and also report O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my primary O2 pressure and take me to Depot",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my primary O2 pressure and take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Relay Tower while checking primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " while checking primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read the primary oxygen pressure and then show route to EVA Cache",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read the primary oxygen pressure and then show route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination North Ridge and also tell me O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check my primary O2 pressure and then lead me to South Crater",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check my primary O2 pressure and then lead me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Sunpoint plus display my O2 primary pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sunpoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus display my O2 primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you confirm primary oxygen pressure and after that navigate to Gale Site",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you confirm primary oxygen pressure and after that navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gale Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Habitat One and read primary O2 pressure please",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read primary O2 pressure please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current primary O2 pressure and then set destination Lander",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current primary O2 pressure and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Base Camp and check the primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check the primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary O2 pressure and also open navigation to Field Lab",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary O2 pressure and also open navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Field Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Observation Post while also reporting primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also reporting primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary tank pressure and then guide me to Supply Node",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary tank pressure and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Comms Array and additionally tell me primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally tell me primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the suit's primary oxygen pressure and then head to EVA Zone 2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the suit's primary oxygen pressure and then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Zone 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to Maintenance Bay and meanwhile confirm primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile confirm primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me the primary oxygen pressure and then route to Thermal Tower",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me the primary oxygen pressure and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Hangar and check primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hangar"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Depot first and then confirm the primary oxygen tank pressure for me",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " first and then confirm the primary oxygen tank pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report the primary O2 pressure before you display navigation to Beacon Charlie",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report the primary O2 pressure before you display navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LTV and then show me primary O2 pressure along with the route holograms",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me primary O2 pressure along with the route holograms"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme the primary oxygen pressure and then take me to Cargo Bay, thanks",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme the primary oxygen pressure and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Site and in addition check the suit's primary O2 pressure for anomalies",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition check the suit's primary O2 pressure for anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary oxygen pressure reported, and then route me to Maintenance Bay next",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary oxygen pressure reported, and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Landing Pad followed by a readout of the primary O2 pressure, please",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout of the primary O2 pressure, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm primary tank oxygen pressure at the same time as you plot course to Habitat One",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm primary tank oxygen pressure at the same time as you plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Relay Tower, oh and while you're at it display primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and while you're at it display primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you measure and report my primary O2 pressure and then bring up navigation to North Ridge",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you measure and report my primary O2 pressure and then bring up navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to Field Lab and also check the primary oxygen pressure before ingress",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Field Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also check the primary oxygen pressure before ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Formal request: provide the primary oxygen pressure, followed by an AR route to Alpha Station",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Formal request: provide the primary oxygen pressure, followed by an AR route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Station"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Supply Node and then additionally display my primary O2 pressure plus ETA",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally display my primary O2 pressure plus ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we move, tell me the primary tank pressure, and then plot a path to South Crater",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we move, tell me the primary tank pressure, and then plot a path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Okay, set destination Comms Array and then confirm primary oxygen pressure as well as suit temp",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Okay, set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then confirm primary oxygen pressure as well as suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you read my primary O2 pressure and then open navigation targeting the Observation Post?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you read my primary O2 pressure and then open navigation targeting the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination EVA Zone 2 followed by reading the primary oxygen pressure and then commence route guidance",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Zone 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reading the primary oxygen pressure and then commence route guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up the primary oxygen pressure, additionally route me to Thermal Tower and show deviations",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up the primary oxygen pressure, additionally route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show deviations"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Hab-1 and at the same time report the primary oxygen pressure to verify nominal levels",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time report the primary oxygen pressure to verify nominal levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary O2 pressure, but first set destination Lander so I can review the path after",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 pressure, but first set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " so I can review the path after"
+            }
+        ]
+    }
+]
+}

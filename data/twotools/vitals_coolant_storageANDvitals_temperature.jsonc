@@ -1,0 +1,658 @@
+{
+  // intents: vitals_coolant_storage AND vitals_temperature
+  // description_1: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // description_2: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check coolant and suit temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Coolant level then read core temp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Coolant level then read core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant plus internal temp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant plus internal temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Report coolant and body temp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report coolant and body temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Read coolant storage and suit temp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read coolant storage and suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check coolant reservoir and display suit temp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check coolant reservoir and display suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up coolant level and then show my internal temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up coolant level and then show my internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the coolant remaining and also the suit core temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the coolant remaining and also the suit core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant storage as well as report current body temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant storage as well as report current body temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display coolant level along with my suit temperature?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display coolant level along with my suit temperature?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need coolant percentage and suit internal temp before EVA begins",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need coolant percentage and suit internal temp before EVA begins"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking coolant levels, also pull up my temperature readout",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking coolant levels, also pull up my temperature readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the coolant storage remaining and additionally show my suit's internal temperature readings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the coolant storage remaining and additionally show my suit's internal temperature readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify coolant reservoir status and then bring up the suit temperature trend for last hour",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify coolant reservoir status and then bring up the suit temperature trend for last hour"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to read the suit coolant volume and at the same time display core temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to read the suit coolant volume and at the same time display core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the thermal loop coolant amount, followed by a detailed printout of my current body temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the thermal loop coolant amount, followed by a detailed printout of my current body temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we proceed, open the coolant tank capacity readout and then also present my internal temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we proceed, open the coolant tank capacity readout and then also present my internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Scan coolant and then report temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scan coolant and then report temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Open coolant status next and then show my suit's current temp",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open coolant status next and then show my suit's current temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check coolant levels plus show core temp, please",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check coolant levels plus show core temp, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up remaining coolant volume in addition to the suit's internal temperature graph?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up remaining coolant volume in addition to the suit's internal temperature graph?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant, and then at the same time display my body temperature",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant, and then at the same time display my body temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify the water supply in the suit cooling loop and next show me the internal temperature history",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify the water supply in the suit cooling loop and next show me the internal temperature history"
+            }
+        ]
+    },
+    {
+        "prompt": "Need a coolant check, followed by the suit temperature readout and any anomalies flagged",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need a coolant check, followed by the suit temperature readout and any anomalies flagged"
+            }
+        ]
+    },
+    {
+        "prompt": "Along with checking coolant, also show me the suit temperature, thanks",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Along with checking coolant, also show me the suit temperature, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my suit temp and coolant?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my suit temp and coolant?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read core temp plus coolant level",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read core temp plus coolant level"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me temp then coolant status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me temp then coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Suit temperature and then coolant reading",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit temperature and then coolant reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what's my internal temperature and also the coolant remaining?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what's my internal temperature and also the coolant remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show suit temp but first open coolant storage info",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show suit temp but first open coolant storage info"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me core temperature plus show the coolant level, please?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me core temperature plus show the coolant level, please?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need my body temp as well as a coolant percentage readout",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need my body temp as well as a coolant percentage readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we move, check suit temperature and then show coolant volume",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we move, check suit temperature and then show coolant volume"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you display my current temperature and additionally the coolant reservoir?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you display my current temperature and additionally the coolant reservoir?"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a temp read and along with it the coolant status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a temp read and along with it the coolant status"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my internal temp, and then pull up coolant numbers",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my internal temp, and then pull up coolant numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time show my temp and the coolant level",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time show my temp and the coolant level"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my suit's internal temperature reading and followed by a detailed coolant storage report",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my suit's internal temperature reading and followed by a detailed coolant storage report"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read my core body temperature first and then bring up remaining coolant volume with trends",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read my core body temperature first and then bring up remaining coolant volume with trends"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the temperature history for the last hour while also checking the coolant reservoir status and levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the temperature history for the last hour while also checking the coolant reservoir status and levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify my current internal temperature, followed by opening the coolant tank capacity and any leak indicators",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify my current internal temperature, followed by opening the coolant tank capacity and any leak indicators"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit temperature measurements and then, as well as the coolant storage, flag any anomalies",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit temperature measurements and then, as well as the coolant storage, flag any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, pull up my body temperature trend and next show the remaining coolant in the thermal loop",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, pull up my body temperature trend and next show the remaining coolant in the thermal loop"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the suit temperature graph and additionally report the water coolant remaining and estimated duration",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the suit temperature graph and additionally report the water coolant remaining and estimated duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Before reporting to mission control, pull temperature readings and then also check the suit's coolant quantity",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before reporting to mission control, pull temperature readings and then also check the suit's coolant quantity"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a full temp readout in addition to coolant status and then any recommended actions if low",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a full temp readout in addition to coolant status and then any recommended actions if low"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check my internal temperature and at the same time present the coolant storage percentage and projected time remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check my internal temperature and at the same time present the coolant storage percentage and projected time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check the core temperature, followed by opening the coolant supply readout plus the expected runtime?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check the core temperature, followed by opening the coolant supply readout plus the expected runtime?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull a quick suit temp check and then in addition show coolant levels and any warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "vitals_temperature"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull a quick suit temp check and then in addition show coolant levels and any warnings"
+            }
+        ]
+    }
+]
+}

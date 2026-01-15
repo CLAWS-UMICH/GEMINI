@@ -1,0 +1,658 @@
+{
+  // intents: vitals_batt_time_left AND vitals_oxy_sec_storage
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check battery and secondary oxygen",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery and secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen and battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time left then oxy status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time left then oxy status"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen level then battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen level then battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check charge and backup oxygen",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check charge and backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check backup oxygen and charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check backup oxygen and charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Show power plus secondary O2",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show power plus secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary O2 plus battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary O2 plus battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA check battery and secondary",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA check battery and secondary"
+            }
+        ]
+    },
+    {
+        "prompt": "Before EVA check secondary and battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before EVA check secondary and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up battery time remaining and secondary oxygen?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up battery time remaining and secondary oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary oxygen level and battery time?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary oxygen level and battery time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my suit power time and also backup O2",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my suit power time and also backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary O2 and also suit power time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary O2 and also suit power time"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery duration and then check secondary oxygen",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery duration and then check secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme secondary oxygen then also tell battery duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme secondary oxygen then also tell battery duration"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining battery time plus secondary oxygen status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining battery time plus secondary oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen status plus remaining battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen status plus remaining battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Check battery time and additionally show secondary oxygen readings",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery time and additionally show secondary oxygen readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen and additionally give me battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen and additionally give me battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking battery time, open secondary oxygen display",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking battery time, open secondary oxygen display"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking secondary oxygen, open battery time display",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking secondary oxygen, open battery time display"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up charge estimate and while you're at it show O2 reserve",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up charge estimate and while you're at it show O2 reserve"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up O2 reserve and while you're at it show charge estimate",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up O2 reserve and while you're at it show charge estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up battery time and then bring up secondary tank level",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up battery time and then bring up secondary tank level"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary tank level and then bring up battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary tank level and then bring up battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit power remaining along with secondary oxygen metrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit power remaining along with secondary oxygen metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary oxygen metrics along with suit power remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary oxygen metrics along with suit power remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Next check battery time, and show secondary oxygen numbers",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next check battery time, and show secondary oxygen numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "Next check secondary oxygen, and show battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next check secondary oxygen, and show battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me current battery time left but first also display the secondary oxygen reserve status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me current battery time left but first also display the secondary oxygen reserve status"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up secondary oxygen tank level as well as my remaining suit power time please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up secondary oxygen tank level as well as my remaining suit power time please"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery remaining time in addition to showing secondary oxygen tank pressure and levels",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery remaining time in addition to showing secondary oxygen tank pressure and levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show secondary oxygen storage status meanwhile give me an estimate of battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show secondary oxygen storage status meanwhile give me an estimate of battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit power time left, oh and also pull up the secondary oxygen readings",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit power time left, oh and also pull up the secondary oxygen readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary oxygen tank details and then followed by a readout of battery time remaining for the EVA",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary oxygen tank details and then followed by a readout of battery time remaining for the EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we leave, pull up battery time remaining as well as secondary oxygen backup percentages and pressures",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we leave, pull up battery time remaining as well as secondary oxygen backup percentages and pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "Display secondary oxygen reserve in addition to suit vitals and meanwhile tell me the battery time left for return",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display secondary oxygen reserve in addition to suit vitals and meanwhile tell me the battery time left for return"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining charge on the suit battery followed by a detailed status of the secondary oxygen tank and valves",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining charge on the suit battery followed by a detailed status of the secondary oxygen tank and valves"
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary oxygen storage level at the same time report remaining battery operational time so I can plan",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary oxygen storage level at the same time report remaining battery operational time so I can plan"
+            }
+        ]
+    },
+    {
+        "prompt": "After you open the battery time estimate, and then additionally show the secondary oxygen tank's usable minutes and pressure",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you open the battery time estimate, and then additionally show the secondary oxygen tank's usable minutes and pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check secondary oxygen capacity but first provide me the predicted battery time left for the suit on current settings",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check secondary oxygen capacity but first provide me the predicted battery time left for the suit on current settings"
+            }
+        ]
+    },
+    {
+        "prompt": "I need battery time remaining in addition to a simultaneous readout of secondary oxygen storage at the same time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need battery time remaining in addition to a simultaneous readout of secondary oxygen storage at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see secondary oxygen levels, oh and also show battery charge time left plus estimated margins for EVA tasks",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see secondary oxygen levels, oh and also show battery charge time left plus estimated margins for EVA tasks"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up battery remaining time as well as secondary oxygen backup, meanwhile flag any low thresholds",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up battery remaining time as well as secondary oxygen backup, meanwhile flag any low thresholds"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen reserve and then display battery time remaining followed by estimated safe return window",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen reserve and then display battery time remaining followed by estimated safe return window"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify battery time remaining before we proceed and also confirm the secondary oxygen storage percentages and flow",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify battery time remaining before we proceed and also confirm the secondary oxygen storage percentages and flow"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary oxygen tank pressure in addition, and then give me the suit battery time left plus predicted margin",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary oxygen tank pressure in addition, and then give me the suit battery time left plus predicted margin"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me how much battery time is left next open the secondary oxygen status at the same time for crosscheck",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me how much battery time is left next open the secondary oxygen status at the same time for crosscheck"
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything else, check secondary oxygen backup meanwhile but first report the estimated battery time remaining for EVA",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_oxy_sec_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything else, check secondary oxygen backup meanwhile but first report the estimated battery time remaining for EVA"
+            }
+        ]
+    }
+]
+}

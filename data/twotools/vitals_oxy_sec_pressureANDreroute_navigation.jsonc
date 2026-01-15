@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_pressure AND reroute_navigation
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, "Find a new route" or "Reroute."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary O2 pressure and reroute me.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 pressure and reroute me."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to waypoint and then show O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to waypoint and then show O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary oxygen tank pressure then reroute.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary oxygen tank pressure then reroute."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute now and check secondary O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute now and check secondary O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me secondary O2 pressure and then recalculate route.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me secondary O2 pressure and then recalculate route."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you reroute me while showing secondary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you reroute me while showing secondary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary tank pressure and then a new path.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary tank pressure and then a new path."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey reroute navigation and also bring up the O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey reroute navigation and also bring up the O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up O2 and reroute me.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up O2 and reroute me."
+            }
+        ]
+    },
+    {
+        "prompt": "Replan my route and then display O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Replan my route and then display O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the secondary oxygen tank pressure readout and then calculate an alternate path to the destination.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the secondary oxygen tank pressure readout and then calculate an alternate path to the destination."
+            }
+        ]
+    },
+    {
+        "prompt": "Find a safe new route to the target and additionally pull up the secondary O2 tank pressure for confirmation.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find a safe new route to the target and additionally pull up the secondary O2 tank pressure for confirmation."
+            }
+        ]
+    },
+    {
+        "prompt": "Before egress check the secondary O2 tank pressure plus reroute me around debris fields.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before egress check the secondary O2 tank pressure plus reroute me around debris fields."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me now and then also open the suit biometrics including secondary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me now and then also open the suit biometrics including secondary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary O2 pressure display and then find another route.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary O2 pressure display and then find another route."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you calculate a detour next and also show secondary oxygen pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you calculate a detour next and also show secondary oxygen pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary oxygen tank pressure displayed as well as a recalculated path if obstacles are detected.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary oxygen tank pressure displayed as well as a recalculated path if obstacles are detected."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey reroute to the rendezvous point before I get closer and also pull up secondary O2 readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey reroute to the rendezvous point before I get closer and also pull up secondary O2 readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary O2 pressure then provide new nav.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 pressure then provide new nav."
+            }
+        ]
+    },
+    {
+        "prompt": "Please reroute around that hazard and additionally show secondary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reroute around that hazard and additionally show secondary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary O2, and reroute.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary O2, and reroute."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute and then give O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute and then give O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Before you proceed, check secondary tank pressure and then compute an alternate navigation path around the crater.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you proceed, check secondary tank pressure and then compute an alternate navigation path around the crater."
+            }
+        ]
+    },
+    {
+        "prompt": "Compute a new trajectory to the waypoint and at the same time show me the secondary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Compute a new trajectory to the waypoint and at the same time show me the secondary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary O2 pressure and then plan a detour.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary O2 pressure and then plan a detour."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a new route oh and open the secondary oxygen readout.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a new route oh and open the secondary oxygen readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the secondary O2 tank pressure in addition and then suggest an alternate course?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the secondary O2 tank pressure in addition and then suggest an alternate course?"
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate navigation next, followed by showing me secondary oxygen tank pressure for cross-check.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate navigation next, followed by showing me secondary oxygen tank pressure for cross-check."
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary O2 plus reroute me to avoid micrometeorites.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 plus reroute me to avoid micrometeorites."
+            }
+        ]
+    },
+    {
+        "prompt": "Next recalc route and then display secondary O2 pressure please.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next recalc route and then display secondary O2 pressure please."
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary tank pressure and reroute now.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank pressure and reroute now."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me then show secondary O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me then show secondary O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary O2 pressure and after create new navigation options.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary O2 pressure and after create new navigation options."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you reroute the path and also tell me secondary tank pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you reroute the path and also tell me secondary tank pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up secondary oxygen and then plot an alternate route.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up secondary oxygen and then plot an alternate route."
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme have a new route but first show the secondary O2 readout.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme have a new route but first show the secondary O2 readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit biometrics with secondary O2 and then reroute.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit biometrics with secondary O2 and then reroute."
+            }
+        ]
+    },
+    {
+        "prompt": "Please calculate a new trajectory and also display secondary O2 level.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please calculate a new trajectory and also display secondary O2 level."
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen pressure and also plan a safe detour.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen pressure and also plan a safe detour."
+            }
+        ]
+    },
+    {
+        "prompt": "Recompute route along with showing the secondary O2 pressure readings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recompute route along with showing the secondary O2 pressure readings."
+            }
+        ]
+    },
+    {
+        "prompt": "Before I move, verify the secondary O2 tank pressure and then compute an alternate route that avoids the solar arrays.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I move, verify the secondary O2 tank pressure and then compute an alternate route that avoids the solar arrays."
+            }
+        ]
+    },
+    {
+        "prompt": "Re-route around the debris field next, and then display the secondary oxygen pressure along with timestamps.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Re-route around the debris field next, and then display the secondary oxygen pressure along with timestamps."
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm secondary O2 pressure, additionally provide a recalculation of navigation to the safe zone before I proceed further.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm secondary O2 pressure, additionally provide a recalculation of navigation to the safe zone before I proceed further."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you find an alternative path followed by opening the secondary oxygen pressure readout for status verification?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you find an alternative path followed by opening the secondary oxygen pressure readout for status verification?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary oxygen tank pressure displayed as well as a planned reroute that skirts the ridge.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary oxygen tank pressure displayed as well as a planned reroute that skirts the ridge."
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me to the backup waypoint and then show secondary O2 pressure for safety assessment.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me to the backup waypoint and then show secondary O2 pressure for safety assessment."
+            }
+        ]
+    },
+    {
+        "prompt": "Check the secondary O2 tank pressure and in addition provide an alternate navigation plan that avoids the damaged module.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the secondary O2 tank pressure and in addition provide an alternate navigation plan that avoids the damaged module."
+            }
+        ]
+    },
+    {
+        "prompt": "Please calculate an alternate route, followed by pulling up the secondary oxygen pressure logs for the past hour.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please calculate an alternate route, followed by pulling up the secondary oxygen pressure logs for the past hour."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the secondary O2 pressure readout and then plot a new course clear of the radiation hotspot.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the secondary O2 pressure readout and then plot a new course clear of the radiation hotspot."
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile reroute navigation to the safest corridor and also display the secondary oxygen tank pressure so we can confirm margins.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile reroute navigation to the safest corridor and also display the secondary oxygen tank pressure so we can confirm margins."
+            }
+        ]
+    }
+]
+}

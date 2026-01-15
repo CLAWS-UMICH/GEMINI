@@ -1,0 +1,990 @@
+{
+  // intents: vitals_oxy_sec_storage AND Get_coordinates
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check secondary oxygen and LTV coords",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is PR and secondary oxygen?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and secondary oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "Status of backup oxygen then rover?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of backup oxygen then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Get Base Camp coords and oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords and oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup O2 and Scout location",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup O2 and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Scout"
+            },
+            {
+                "type": "TEXT",
+                "text": " location"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's Rover-3 and secondary O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and secondary O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup tank level then Beacon Bravo?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup tank level then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Supply Cache and O2 status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen check plus Cargo Lander?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen check plus "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Dr. Chen and backup O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Dr. Chen"
+            },
+            {
+                "type": "TEXT",
+                "text": " and backup O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report secondary oxygen percentage and get coordinates for LTV",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report secondary oxygen percentage and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Rover-3 then also report backup O2 level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also report backup O2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the secondary oxygen valve and locate Beacon-2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the secondary oxygen valve and locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Mobile Lab and what's the backup oxygen?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's the backup oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup oxygen status plus get coordinates for Scout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup oxygen status plus get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Scout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up coordinates for Habitat 1 and check secondary O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary oxygen level as well as coords for Recon-5",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary oxygen level as well as coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Recon-5"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Telemetry Pod and check my backup oxygen please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Telemetry Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check my backup oxygen please"
+            }
+        ]
+    },
+    {
+        "prompt": "Report backup oxygen reserves and then give coordinates for Beacon Bravo",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report backup oxygen reserves and then give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Supply Cache and then show secondary O2 level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show secondary O2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary tank pressure and locate the Cargo Lander next",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary tank pressure and locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Commander Ruiz and also report backup oxygen percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Commander Ruiz"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report backup oxygen percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen status before you fetch coordinates for EVA-2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen status before you fetch coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Sample Site Alpha and check backup O2 levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check backup O2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary oxygen tanks and additionally the position of Rover",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary oxygen tanks and additionally the position of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Lunar Relay and what's the backup oxygen reading?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's the backup oxygen reading?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need remaining backup oxygen then coordinates for Mobile Lab",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need remaining backup oxygen then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Get me the coordinates for Beacon-2 and report secondary oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get me the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen levels while also locating the Cargo Lander",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen levels while also locating the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Find Scout and then display backup oxygen tank percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Scout"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display backup oxygen tank percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm secondary oxygen tank percentage and then provide coordinates for Rover-3 now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm secondary oxygen tank percentage and then provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Habitat 1 but first show the secondary oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show the secondary oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup oxygen tank pressure and after checking, pull up coordinates for Beacon Bravo",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen tank pressure and after checking, pull up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Telemetry Pod followed by reporting the secondary oxygen reserves for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Telemetry Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting the secondary oxygen reserves for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen remaining as well as the coordinates for Sample Site Alpha",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen remaining as well as the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Commander Ruiz right now and also give me the secondary oxygen tank readings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Commander Ruiz"
+            },
+            {
+                "type": "TEXT",
+                "text": " right now and also give me the secondary oxygen tank readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the secondary oxygen tanks' status and then send coordinates for the Mobile Lab",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the secondary oxygen tanks' status and then send coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Cargo Lander next and in addition display the backup oxygen percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and in addition display the backup oxygen percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary oxygen pressure immediately and along with that give me the location of Scout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary oxygen pressure immediately and along with that give me the location of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Scout"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Lunar Relay and additionally check the status of my backup oxygen tanks for safety",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lunar Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally check the status of my backup oxygen tanks for safety"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary oxygen reserves but first locate Recon-5 for site verification purposes, please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary oxygen reserves but first locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Recon-5"
+            },
+            {
+                "type": "TEXT",
+                "text": " for site verification purposes, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Telemetry Pod now, followed by reporting the backup oxygen level for my suit?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Telemetry Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": " now, followed by reporting the backup oxygen level for my suit?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the secondary oxygen line status and before anything else provide coordinates for Beacon-2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the secondary oxygen line status and before anything else provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get me the precise coordinates for Supply Cache and meanwhile display secondary oxygen tank status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get me the precise coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile display secondary oxygen tank status"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the backup O2 percentage immediately and also the last known position of EVA-2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the backup O2 percentage immediately and also the last known position of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Dr. Patel and then show the secondary oxygen capacity so I can confirm redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Dr. Patel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the secondary oxygen capacity so I can confirm redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up secondary oxygen tanks' estimated time remaining and then mark the coordinates for Beacon Bravo",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up secondary oxygen tanks' estimated time remaining and then mark the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Cargo Lander currently and at the same time report the secondary oxygen header pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " currently and at the same time report the secondary oxygen header pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary oxygen backup levels before proceeding and also provide coordinates for the Mobile Lab",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary oxygen backup levels before proceeding and also provide coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Commander Ruiz and oh and check the secondary oxygen tank status as well",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Commander Ruiz"
+            },
+            {
+                "type": "TEXT",
+                "text": " and oh and check the secondary oxygen tank status as well"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_pri_pressure AND vitals_heart_rate
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user wants to know their current physiological stress level, or the system may have flagged a high heart rate, prompting the user to query it. The prompt would be "What is my heart rate?" or "Check BPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and heart rate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my pulse and primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my pulse and primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen pressure then BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen pressure then BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my BPM also primary psi",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my BPM also primary psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Main O2 tank psi plus pulse",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Main O2 tank psi plus pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Pulse while checking primary pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pulse while checking primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read main oxygen before HR",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read main oxygen before HR"
+            }
+        ]
+    },
+    {
+        "prompt": "HR but first check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "HR but first check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary tank as well as BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary tank as well as BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Show pulse along with O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show pulse along with O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me my heart rate and open primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me my heart rate and open primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary oxygen tank pressure then show my BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary oxygen tank pressure then show my BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme pulse and also pull up main O2 psi",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme pulse and also pull up main O2 psi"
+            }
+        ]
+    },
+    {
+        "prompt": "I need primary O2 pressure and then my current heart rate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need primary O2 pressure and then my current heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check my BPM plus bring up the main oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check my BPM plus bring up the main oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary oxygen pressure and then display heart rate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary oxygen pressure and then display heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my pulse as well as the primary O2 psi?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my pulse as well as the primary O2 psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up primary O2 pressure and also show BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up primary O2 pressure and also show BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check heart rate and then pull up primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check heart rate and then pull up primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up main oxygen pressure while showing my heart rate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up main oxygen pressure while showing my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check BPM and then check the primary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check BPM and then check the primary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide primary O2 psi along with current pulse reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide primary O2 psi along with current pulse reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Monitor my heart rate and then show primary oxygen pressure please",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Monitor my heart rate and then show primary oxygen pressure please"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check primary oxygen pressure, also display my BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check primary oxygen pressure, also display my BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check my pulse and bring up the primary O2 reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check my pulse and bring up the primary O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "First read primary O2 pressure, next show me heart rate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First read primary O2 pressure, next show me heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my BPM in addition display the main oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my BPM in addition display the main oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary oxygen pressure and then show BPM readings",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary oxygen pressure and then show BPM readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open heart rate and then followed by primary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open heart rate and then followed by primary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display primary O2 psi and my pulse?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display primary O2 psi and my pulse?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the primary oxygen tank pressure and additionally provide my current heart rate in BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the primary oxygen tank pressure and additionally provide my current heart rate in BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, my chest feels tight so check my heart rate and then display the main O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, my chest feels tight so check my heart rate and then display the main O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "After confirming the primary O2 pressure, could you also show my pulse and any trend data?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After confirming the primary O2 pressure, could you also show my pulse and any trend data?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you monitor my BPM while also opening the primary oxygen pressure readout for verification?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you monitor my BPM while also opening the primary oxygen pressure readout for verification?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the primary O2 pressure display first, and then report my heart rate and stress level metrics",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the primary O2 pressure display first, and then report my heart rate and stress level metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my heart rate and, then, the primary oxygen tank pressure shown before EVA ingress",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my heart rate and, then, the primary oxygen tank pressure shown before EVA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the primary O2 psi along with continuous heart rate monitoring and any alerts for tachycardia",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the primary O2 psi along with continuous heart rate monitoring and any alerts for tachycardia"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check my pulse and additionally pull up the primary oxygen pressure, include timestamped readings",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check my pulse and additionally pull up the primary oxygen pressure, include timestamped readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you start EVA prep, show me the primary oxygen pressure and then show my current BPM and trends",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you start EVA prep, show me the primary oxygen pressure and then show my current BPM and trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you display my heart rate, oh and bring up the primary O2 tank pressure while you're at it?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you display my heart rate, oh and bring up the primary O2 tank pressure while you're at it?"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by reading primary oxygen pressure, I want the heart rate and a five minute moving average of BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by reading primary oxygen pressure, I want the heart rate and a five minute moving average of BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Next check my BPM and then pull up the main O2 pressure along with alarm thresholds and margins",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next check my BPM and then pull up the main O2 pressure along with alarm thresholds and margins"
+            }
+        ]
+    },
+    {
+        "prompt": "Show primary oxygen tank pressure plus current pulse and flag if either reading is abnormal",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show primary oxygen tank pressure plus current pulse and flag if either reading is abnormal"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you report my heart rate and then additionally open the primary O2 pressure log for the last hour?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you report my heart rate and then additionally open the primary O2 pressure log for the last hour?"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time read primary O2 pressure and show my BPM including any irregular rhythm alerts",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time read primary O2 pressure and show my BPM including any irregular rhythm alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the BPM and then, in addition, a readout of the primary oxygen tank pressure and status",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the BPM and then, in addition, a readout of the primary oxygen tank pressure and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Before suit-up, display main oxygen pressure and then provide a heart rate readout plus stress indicators",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before suit-up, display main oxygen pressure and then provide a heart rate readout plus stress indicators"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, check my pulse and then show primary O2 pressure along with any recent spikes in BPM",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, check my pulse and then show primary O2 pressure along with any recent spikes in BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the primary oxygen tank pressure but first confirm sensor status and then show my heart rate",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the primary oxygen tank pressure but first confirm sensor status and then show my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see my BPM trends and then bring up the primary O2 pressure log, additionally include timestamps",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see my BPM trends and then bring up the primary O2 pressure log, additionally include timestamps"
+            }
+        ]
+    }
+]
+}

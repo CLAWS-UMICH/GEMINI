@@ -1,0 +1,990 @@
+{
+  // intents: vitals_heart_rate AND Get_coordinates
+  // description_1: The user wants to know their current physiological stress level, or the system may have flagged a high heart rate, prompting the user to query it. The prompt would be "What is my heart rate?" or "Check BPM."
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check my heart rate and LTV location",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my heart rate and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " location"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my BPM and where's Rover?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my BPM and where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Heart rate, then coordinates for PR",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Heart rate, then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo gimme BPM and Rover coords",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo gimme BPM and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Check BPM and find Base Camp",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check BPM and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "BPM now, plus coordinates for EVA-2",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "BPM now, plus coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my heart rate and PR",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my heart rate and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Heart rate then show rover-3",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Heart rate then show "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Need BPM and location of Lander-1",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need BPM and location of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell heart rate and Cache-7 coords",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell heart rate and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cache-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you check my heart rate and bring up mobile lab coordinates",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you check my heart rate and bring up "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "mobile lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my BPM and pull up coordinates for Beacon Alpha",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my BPM and pull up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what is my heart rate and where is the command module?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what is my heart rate and where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "command module"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current heart rate and then coordinates for habitat north",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current heart rate and then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "habitat north"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my heart rate and also show coordinates for astronaut Lee",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my heart rate and also show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "astronaut Lee"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my HR and next get coordinates for PR",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my HR and next get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my heart rate display and then locate the supply cache",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my heart rate display and then locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Show BPM and find the forward base coordinates",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show BPM and find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "forward base"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my heart rate and where is the generator?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my heart rate and where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "generator"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Heart rate please, and then get coordinates for Node-3",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Heart rate please, and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Node-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Show HR and at the same time pull coordinates for Delta beacon",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show HR and at the same time pull coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Delta beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide my heart rate and along with that find Habitat-02",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide my heart rate and along with that find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-02"
+            }
+        ]
+    },
+    {
+        "prompt": "I need BPM and in addition get coordinates for EVA suit depot",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need BPM and in addition get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA suit depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me my heart rate and additionally locate the medbay",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me my heart rate and additionally locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "medbay"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check heart rate and also show coordinates for Cache-7",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check heart rate and also show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cache-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the rover and also tell me my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the PR and then check my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Base Camp and after that show my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that show my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Retrieve coordinates for sample site alpha and also pull up my BPM",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Retrieve coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up my BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Find astronaut Chen and while you're at it report my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "astronaut Chen"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it report my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Ares Rover, and then could you also show me my current heart rate please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Ares Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then could you also show me my current heart rate please"
+            }
+        ]
+    },
+    {
+        "prompt": "Get me coordinates for the forward module followed by a readout of my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "forward module"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout of my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the comm relay before you display my heart rate and vitals overview",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you display my heart rate and vitals overview"
+            }
+        ]
+    },
+    {
+        "prompt": "I need coordinates for the orbital module plus show me my BPM and status",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "orbital module"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show me my BPM and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull coordinates for the mobile lab and then at the same time show my heart rate data",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "mobile lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time show my heart rate data"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the Command Module, and while you're fetching that also read my current heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and while you're fetching that also read my current heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Beacon Alpha followed by a vitals summary including my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a vitals summary including my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the generator and then display my heart rate as well as any abnormal alerts",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "generator"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my heart rate as well as any abnormal alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please locate the supply cache, but first tell me my heart rate and HR trend",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first tell me my heart rate and HR trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coordinates for the rear module and additionally bring up my heart rate monitor",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rear module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally bring up my heart rate monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Habitat-02, along with that could you open my vitals and show heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-02"
+            },
+            {
+                "type": "TEXT",
+                "text": ", along with that could you open my vitals and show heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Node-3 and meanwhile check and report my current heart beats per minute",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Node-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile check and report my current heart beats per minute"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the EVA-2 airlock and then also give me a heart rate readout with timestamps",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2 airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also give me a heart rate readout with timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the Cache-7 coordinates and oh and while you're at it show my heart rate trend graph",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cache-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates and oh and while you're at it show my heart rate trend graph"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you fetch coordinates for the Commander's Lander and at the same time display heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you fetch coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Commander's Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time display heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the Utility Rover followed by a quick heart rate check and any anomaly flags",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Utility Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a quick heart rate check and any anomaly flags"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me coordinates for Beacon Beta and then show my current BPM plus trendline analysis",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my current BPM plus trendline analysis"
+            }
+        ]
+    },
+    {
+        "prompt": "Retrieve coordinates for the mobile habitat and before that read my heart rate and confirm it's stable",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Retrieve coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "mobile habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before that read my heart rate and confirm it's stable"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate EVA suit depot and followed by that display my heart rate along with oxygen levels",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA suit depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and followed by that display my heart rate along with oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the medbay, in addition to giving me my heart rate and any red alerts for tachycardia",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "medbay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition to giving me my heart rate and any red alerts for tachycardia"
+            }
+        ]
+    }
+]
+}

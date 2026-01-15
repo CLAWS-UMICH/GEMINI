@@ -1,0 +1,658 @@
+{
+  // intents: vitals_suit_pressure_co2 AND vitals_coolant_liquid_pressure
+  // description_1: The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, "Read suit CO2 pressure."
+  // description_2: The user needs to verify the pressure of the liquid loop in the thermal control system to ensure coolant is circulating correctly. They might ask, "Check liquid coolant pressure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check suit CO2 and coolant pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit CO2 and coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read CO2 level then liquid pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read CO2 level then liquid pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show CO2 partial pressure plus loop pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show CO2 partial pressure plus loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Suit CO2 and liquid loop pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Suit CO2 and liquid loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 reading then coolant pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 reading then coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant and suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Liquid loop pressure then CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Liquid loop pressure then CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant pressure plus CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant pressure plus CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read liquid pressure and CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read liquid pressure and CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Liquid coolant then suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Liquid coolant then suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit CO2 pressure and then display coolant loop pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit CO2 pressure and then display coolant loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you read liquid coolant pressure and also tell me suit CO2?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you read liquid coolant pressure and also tell me suit CO2?"
+            }
+        ]
+    },
+    {
+        "prompt": "yo check my CO2 level and show the liquid loop pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo check my CO2 level and show the liquid loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the liquid loop pressure and additionally provide suit CO2 reading",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the liquid loop pressure and additionally provide suit CO2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Need suit CO2 numbers as well as liquid coolant pressure now",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need suit CO2 numbers as well as liquid coolant pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check the liquid coolant pressure, show me suit CO2 too",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check the liquid coolant pressure, show me suit CO2 too"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my suit CO2 pressure and pull up coolant pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my suit CO2 pressure and pull up coolant pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "hey read the coolant loop pressure and then show suit CO2 please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey read the coolant loop pressure and then show suit CO2 please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide suit CO2 pressure before pulling up liquid coolant pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide suit CO2 pressure before pulling up liquid coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read liquid coolant pressure plus also show me the suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read liquid coolant pressure plus also show me the suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up CO2 partial pressure and then check the liquid loop pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up CO2 partial pressure and then check the liquid loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant pressure meanwhile also report suit CO2 readings for me",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant pressure meanwhile also report suit CO2 readings for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me suit CO2 pressure as well as liquid coolant pressure please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me suit CO2 pressure as well as liquid coolant pressure please"
+            }
+        ]
+    },
+    {
+        "prompt": "Read liquid loop pressure and then followed by the suit CO2 reading",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read liquid loop pressure and then followed by the suit CO2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit CO2 numbers and in addition display liquid coolant pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit CO2 numbers and in addition display liquid coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check liquid coolant pressure and additionally give suit CO2 readings?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check liquid coolant pressure and additionally give suit CO2 readings?"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme the suit CO2 reading and also the liquid coolant pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme the suit CO2 reading and also the liquid coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the coolant pressure, oh and read my suit CO2 level too",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the coolant pressure, oh and read my suit CO2 level too"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up CO2 pressure next and also verify liquid loop pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up CO2 pressure next and also verify liquid loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read liquid coolant pressure at the same time report suit CO2",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read liquid coolant pressure at the same time report suit CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit CO2 partial pressure while also pulling up the liquid coolant pressure logs",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit CO2 partial pressure while also pulling up the liquid coolant pressure logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify the liquid loop pressure but first read my suit CO2 partial pressure and report",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify the liquid loop pressure but first read my suit CO2 partial pressure and report"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the suit CO2 partial pressure and then display temperature and coolant liquid pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the suit CO2 partial pressure and then display temperature and coolant liquid pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "hey could you open the liquid coolant pressure readout next and then pull my suit CO2 details",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey could you open the liquid coolant pressure readout next and then pull my suit CO2 details"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the CO2 partial pressure in my suit currently and also what's the liquid loop pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the CO2 partial pressure in my suit currently and also what's the liquid loop pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need the liquid coolant pressure along with the suit CO2 readings and trend data please",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need the liquid coolant pressure along with the suit CO2 readings and trend data please"
+            }
+        ]
+    },
+    {
+        "prompt": "After you confirm suit CO2 pressure, next check the liquid loop coolant pressure and report anomalies",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you confirm suit CO2 pressure, next check the liquid loop coolant pressure and report anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you assess the liquid coolant pressure and in addition provide the suit CO2 partial pressure readout?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you assess the liquid coolant pressure and in addition provide the suit CO2 partial pressure readout?"
+            }
+        ]
+    },
+    {
+        "prompt": "yo read my CO2 pressure followed by the liquid coolant loop pressure and a quick status",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo read my CO2 pressure followed by the liquid coolant loop pressure and a quick status"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a check on liquid coolant pressure meanwhile also pull up the suit CO2 pressure and timestamps",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a check on liquid coolant pressure meanwhile also pull up the suit CO2 pressure and timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit CO2 reading but first verify there are no leaks and then check coolant pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit CO2 reading but first verify there are no leaks and then check coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Inspect the liquid loop pressure and then as well as report the suit CO2 level and trend",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Inspect the liquid loop pressure and then as well as report the suit CO2 level and trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the suit CO2 partial pressure, in addition bring up the liquid coolant pressure history",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the suit CO2 partial pressure, in addition bring up the liquid coolant pressure history"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the liquid coolant pressure and then next compare it with previous suit CO2 levels for correlation",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the liquid coolant pressure and then next compare it with previous suit CO2 levels for correlation"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me the suit CO2 partial pressure reading and also the current liquid coolant pressure values?",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me the suit CO2 partial pressure reading and also the current liquid coolant pressure values?"
+            }
+        ]
+    },
+    {
+        "prompt": "lemme see the liquid coolant pressure and at the same time bring up my suit CO2 readout",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "lemme see the liquid coolant pressure and at the same time bring up my suit CO2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Need immediate suit CO2 pressure reading along with liquid loop pressure and any alarms reported",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need immediate suit CO2 pressure reading along with liquid loop pressure and any alarms reported"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read the liquid coolant pressure followed by the suit CO2 partial pressure and include timestamps",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read the liquid coolant pressure followed by the suit CO2 partial pressure and include timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Report the suit CO2 concentration as a partial pressure along with the liquid coolant pressure curve",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report the suit CO2 concentration as a partial pressure along with the liquid coolant pressure curve"
+            }
+        ]
+    },
+    {
+        "prompt": "Before any EVA, verify liquid coolant pressure and also confirm suit CO2 pressure levels are nominal",
+        "tool_calls": [
+            "vitals_suit_pressure_co2",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before any EVA, verify liquid coolant pressure and also confirm suit CO2 pressure levels are nominal"
+            }
+        ]
+    }
+]
+}

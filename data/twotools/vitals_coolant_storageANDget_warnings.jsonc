@@ -1,0 +1,658 @@
+{
+  // intents: vitals_coolant_storage AND get_warnings
+  // description_1: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // description_2: The user wants a verbal summary of any active alerts or anomalies currently detected by the HALO system, such as high heart rate or low battery. They might ask, "What are the current warnings?" or "Read out active alerts."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check coolant and read warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and read warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open coolant storage then speak warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open coolant storage then speak warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant plus list active alerts",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant plus list active alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up coolant then give warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up coolant then give warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coolant while reading alerts",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coolant while reading alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Check water reserve and then read warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check water reserve and then read warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Check cooling fluid before summarizing warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check cooling fluid before summarizing warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant but first read alerts",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant but first read alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Read coolant levels as well as warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read coolant levels as well as warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Display coolant along with active warnings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display coolant along with active warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show coolant storage levels and then read any warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show coolant storage levels and then read any warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo pull up my coolant tank and also list warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo pull up my coolant tank and also list warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open coolant gauge and additionally report active alerts?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open coolant gauge and additionally report active alerts?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need coolant remaining plus a summary of current warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need coolant remaining plus a summary of current warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant volume and then follow up with system warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant volume and then follow up with system warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Open thermal loop coolant and then read out active alerts.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open thermal loop coolant and then read out active alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up coolant storage as well as any hazard warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up coolant storage as well as any hazard warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Display coolant tank level while also summarizing HALO warnings for me.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display coolant tank level while also summarizing HALO warnings for me."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up coolant status in addition to reading active system alerts.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up coolant status in addition to reading active system alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Please check coolant capacity and then tell me if warnings exist.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check coolant capacity and then tell me if warnings exist."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the remaining suit coolant volume and then read out any active HALO warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the remaining suit coolant volume and then read out any active HALO warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the water reserve numbers and additionally give a verbal summary of alerts.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the water reserve numbers and additionally give a verbal summary of alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the coolant storage readout followed by a spoken list of current system warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the coolant storage readout followed by a spoken list of current system warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to display coolant levels and then immediately report any active anomalies or warnings.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to display coolant levels and then immediately report any active anomalies or warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the suit coolant indicator first and then, at the same time, give me a warnings summary.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the suit coolant indicator first and then, at the same time, give me a warnings summary."
+            }
+        ]
+    },
+    {
+        "prompt": "Read current warnings and then show me coolant levels.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read current warnings and then show me coolant levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me active alerts plus pull up suit coolant capacity.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me active alerts plus pull up suit coolant capacity."
+            }
+        ]
+    },
+    {
+        "prompt": "What are the HALO warnings and also display my coolant status?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What are the HALO warnings and also display my coolant status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read out active anomalies then bring up remaining water reserves.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out active anomalies then bring up remaining water reserves."
+            }
+        ]
+    },
+    {
+        "prompt": "Report system warnings before showing coolant tank and storage numbers.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report system warnings before showing coolant tank and storage numbers."
+            }
+        ]
+    },
+    {
+        "prompt": "Give me warnings as well as a coolant remaining readout.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me warnings as well as a coolant remaining readout."
+            }
+        ]
+    },
+    {
+        "prompt": "Please summarize alerts and then open the coolant gauge for me.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please summarize alerts and then open the coolant gauge for me."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, read warnings and then display the thermal loop coolant level.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, read warnings and then display the thermal loop coolant level."
+            }
+        ]
+    },
+    {
+        "prompt": "List active alarms alongside coolant storage and then tell me values.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "List active alarms alongside coolant storage and then tell me values."
+            }
+        ]
+    },
+    {
+        "prompt": "Read active warnings, followed by pulling up coolant status for review.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read active warnings, followed by pulling up coolant status for review."
+            }
+        ]
+    },
+    {
+        "prompt": "Give me a verbal rundown of current warnings and then pull up the coolant tank levels.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me a verbal rundown of current warnings and then pull up the coolant tank levels."
+            }
+        ]
+    },
+    {
+        "prompt": "Read out any active HALO alerts first and then, in addition, display my suit coolant remaining volume.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out any active HALO alerts first and then, in addition, display my suit coolant remaining volume."
+            }
+        ]
+    },
+    {
+        "prompt": "Please read the active warnings and then bring up the water reserve numbers along with any anomaly notes.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read the active warnings and then bring up the water reserve numbers along with any anomaly notes."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you summarize all warnings meanwhile open the coolant indicator and then tell me the milliliters left?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you summarize all warnings meanwhile open the coolant indicator and then tell me the milliliters left?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read current alerts oh and after that show the remaining thermal loop coolant percentage.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read current alerts oh and after that show the remaining thermal loop coolant percentage."
+            }
+        ]
+    },
+    {
+        "prompt": "List all active warnings followed by opening the coolant display and then estimate time remaining.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "List all active warnings followed by opening the coolant display and then estimate time remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me the warnings next and then pull up the suit coolant status plus a short summary.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me the warnings next and then pull up the suit coolant status plus a short summary."
+            }
+        ]
+    },
+    {
+        "prompt": "Read the active alerts first and then display coolant capacity as well as projected cooling time remaining.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the active alerts first and then display coolant capacity as well as projected cooling time remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "Give me warnings and then show coolant levels, additionally include any anomalies related to thermal control.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me warnings and then show coolant levels, additionally include any anomalies related to thermal control."
+            }
+        ]
+    },
+    {
+        "prompt": "Report any current warnings and then open the coolant readout followed by an estimate of usage left.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report any current warnings and then open the coolant readout followed by an estimate of usage left."
+            }
+        ]
+    },
+    {
+        "prompt": "Read out the system warnings, and then at the same time pull up coolant storage and metrics for review.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out the system warnings, and then at the same time pull up coolant storage and metrics for review."
+            }
+        ]
+    },
+    {
+        "prompt": "Give a spoken list of active alerts, and then display coolant levels along with expected remaining minutes.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give a spoken list of active alerts, and then display coolant levels along with expected remaining minutes."
+            }
+        ]
+    },
+    {
+        "prompt": "Please read active alarms and then show the coolant meter, additionally provide any correlated biometrics if available.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read active alarms and then show the coolant meter, additionally provide any correlated biometrics if available."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey HALO, read warnings before pulling up coolant storage and then give me a quick estimate of leftover liters.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey HALO, read warnings before pulling up coolant storage and then give me a quick estimate of leftover liters."
+            }
+        ]
+    },
+    {
+        "prompt": "Summarize all active warnings next, and then pull up the coolant level display as well as remaining time estimates.",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Summarize all active warnings next, and then pull up the coolant level display as well as remaining time estimates."
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,962 @@
+{
+  // intents: vitals_fan_pri_rpm AND Add_task
+  // description_1: The user needs to verify that the primary ventilation fan is spinning at the correct speed to circulate air and scrub CO2. The prompt might be "Check primary fan RPM" or "Is the primary fan working?"
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Primary fan RPM? Add task inspect antenna",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary fan RPM? Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task swap filter, primary fan RPM?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap filter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", primary fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary fan RPM? Add task log RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary fan RPM? Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task run fan check; primary RPM?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run fan check"
+            },
+            {
+                "type": "TEXT",
+                "text": "; primary RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary fan, add task replace filter",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary fan, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect port; primary fan RPM?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect port"
+            },
+            {
+                "type": "TEXT",
+                "text": "; primary fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary fan RPM? Add task clean intake",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary fan RPM? Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean intake"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check seals, primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            },
+            {
+                "type": "TEXT",
+                "text": ", primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary RPM? Add task test valve",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary RPM? Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task log CO2, primary fan RPM?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log CO2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", primary fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check primary fan RPM and add task inspect solar panel",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check primary fan RPM and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task collect rock sample then check primary fan RPM status",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect rock sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check primary fan RPM status"
+            }
+        ]
+    },
+    {
+        "prompt": "yo check the primary fan RPM and then add task test tether",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo check the primary fan RPM and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add task verify coolant lines before checking primary fan RPM?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify coolant lines"
+            },
+            {
+                "type": "TEXT",
+                "text": " before checking primary fan RPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need primary fan RPM and add task replace O2 scrubber cartridge",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need primary fan RPM and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace O2 scrubber cartridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to record temperatures and then check primary fan RPM please",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record temperatures"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check primary fan RPM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary fan RPM and additionally create task inspect EVA hatch",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary fan RPM and additionally create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect EVA hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check battery health, and then show primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery health"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then show primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary fan RPM readout and add task log anomalies",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary fan RPM readout and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme add task tidy up toolbox, while checking primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tidy up toolbox"
+            },
+            {
+                "type": "TEXT",
+                "text": ", while checking primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary ventilation fan RPM, plus add task secure loose bolts",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary ventilation fan RPM, plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose bolts"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task audit thermal sensors as well as show primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "audit thermal sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "What's primary fan RPM and can you add task inspect comms array?",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's primary fan RPM and can you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect comms array"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Create new task check coolant pump, then show primary fan RPM metrics",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create new task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant pump"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then show primary fan RPM metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary fan RPM and next add task verify glove integrity",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary fan RPM and next add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify glove integrity"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph rock sample followed by checking primary fan RPM status",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph rock sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by checking primary fan RPM status"
+            }
+        ]
+    },
+    {
+        "prompt": "Display primary fan RPM and then add task test pressure relief valve",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display primary fan RPM and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test pressure relief valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task inventory toolkit, meanwhile tell me primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory toolkit"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile tell me primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check primary fan RPM, add task replace worn gasket",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check primary fan RPM, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace worn gasket"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure sample bag, and then report primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample bag"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then report primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up primary fan RPM readout, and then add task inspect radiation shielding around port three",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up primary fan RPM readout, and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect radiation shielding around port three"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey add task replace exterior camera lens, oh and while you're at it check primary fan RPM for me",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace exterior camera lens"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and while you're at it check primary fan RPM for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check the primary ventilation fan RPM first, and in addition create a task to test suit seals",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check the primary ventilation fan RPM first, and in addition create a task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test suit seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task perform EVA suit diagnostics followed by reporting the primary fan RPM and status",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform EVA suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting the primary fan RPM and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Need you to confirm primary fan RPM and also add task secure loose power cable near module B",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need you to confirm primary fan RPM and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose power cable near module B"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inventory oxygen tanks plus display the primary fan RPM and any anomalies detected",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory oxygen tanks"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus display the primary fan RPM and any anomalies detected"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, open primary fan RPM log and then add task run diagnostics on external comms array",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, open primary fan RPM log and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics on external comms array"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add task calibrate the CO2 scrubber, followed by pulling up the primary fan RPM trend graph",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate the CO2 scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by pulling up the primary fan RPM trend graph"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary fan RPM and report numbers, but first add task power cycle the auxiliary pump to logs",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary fan RPM and report numbers, but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power cycle the auxiliary pump to logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph the north ridge along with cataloging sample IDs, at the same time show primary fan RPM",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph the north ridge along with cataloging sample IDs"
+            },
+            {
+                "type": "TEXT",
+                "text": ", at the same time show primary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the current primary fan RPM and in addition create task check radiation dosimeter calibration next",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the current primary fan RPM and in addition create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check radiation dosimeter calibration next"
+            }
+        ]
+    },
+    {
+        "prompt": "lemme add task secure tether lines, and then please tell me the primary fan RPM readings",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "lemme add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tether lines"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then please tell me the primary fan RPM readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the primary fan RPM meter and additionally log a task to verify beacon alignment with star tracker",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the primary fan RPM meter and additionally log a task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify beacon alignment with star tracker"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect thermal blanket before you check primary fan RPM and then send me the result",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thermal blanket"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you check primary fan RPM and then send me the result"
+            }
+        ]
+    },
+    {
+        "prompt": "While monitoring the primary fan RPM, also add task replace the worn O-ring on sample bay three",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While monitoring the primary fan RPM, also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace the worn O-ring on sample bay three"
+            }
+        ]
+    },
+    {
+        "prompt": "Please create task run full habitat diagnostics, and then pull up primary fan RPM along with vibration spectra",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run full habitat diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then pull up primary fan RPM along with vibration spectra"
+            }
+        ]
+    },
+    {
+        "prompt": "Report current primary fan RPM values, followed by adding a task to check the solar array connector bolts",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report current primary fan RPM values, followed by adding a task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check the solar array connector bolts"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task note fuel cell anomaly, then simultaneously show me the primary fan RPM and temperature readouts",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "note fuel cell anomaly"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then simultaneously show me the primary fan RPM and temperature readouts"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you verify primary fan RPM trends over the last hour and additionally add task to flag spikes",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you verify primary fan RPM trends over the last hour and additionally add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "flag spikes"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task run emergency drills, but first read primary fan RPM and tell me if it exceeds safe thresholds",
+        "tool_calls": [
+            "vitals_fan_pri_rpm",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run emergency drills"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first read primary fan RPM and tell me if it exceeds safe thresholds"
+            }
+        ]
+    }
+]
+}

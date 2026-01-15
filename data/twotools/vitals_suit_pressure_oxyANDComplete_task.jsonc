@@ -1,0 +1,1241 @@
+{
+  // intents: vitals_suit_pressure_oxy AND Complete_task
+  // description_1: The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, "What is the oxygen pressure inside the suit?"
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Oxygen pressure and mark Connect Umbilical done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen pressure and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery Check and what's the O2 pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's the O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 pressure then mark Tether Secure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 pressure then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Secure"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Airlock Seal, tell me oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": ", tell me oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the O2 and mark Antenna Check complete",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the O2 and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Camera Calibration then report oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " then report oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me the oxygen partial pressure and check off Tool Stow",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me the oxygen partial pressure and check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Stow"
+            }
+        ]
+    },
+    {
+        "prompt": "Check off Sample Bag Seal and what's my O2 pressure?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Bag Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's my O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Display oxygen pressure and then mark Pressure Valve Test",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display oxygen pressure and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Valve Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Log off Radiation Monitor plus tell me the O2 pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me the O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the oxygen partial pressure and then check off Comms Test?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the oxygen partial pressure and then check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Test"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal Probe Install and also show me O2 stats please",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Probe Install"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show me O2 stats please"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up oxygen pressure plus set Sample Collection as done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up oxygen pressure plus set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals, and then finish task Suit Leak Check",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals, and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Umbilical Disconnect while reporting oxygen pressure to me",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Disconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": " while reporting oxygen pressure to me"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me oxygen partial pressure and also check off Solar Panel Mount",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me oxygen partial pressure and also check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Mount"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Power Bus then report O2 pressure and mark Bus Isolation done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Power Bus then report O2 pressure and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Bus Isolation"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my suit O2 and mark Downlink Setup as finished please",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my suit O2 and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Downlink Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display oxygen partial pressure followed by checking off Thermal Blanket Install",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display oxygen partial pressure followed by checking off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Install"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark EVA prep and then open oxygen pressure readout for me",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open oxygen pressure readout for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Show O2 partial pressure at the same time mark Bolt Torque as done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show O2 partial pressure at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Bolt Torque"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear the sample tray plus give me current oxygen pressure and check Seal Check",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear the sample tray plus give me current oxygen pressure and check "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up suit oxygen pressure and then log Camera Biasing as complete",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up suit oxygen pressure and then log "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Biasing"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, finish task Sample Transfer and also display O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's oxygen pressure along with marking Solar Array Check complete?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's oxygen pressure along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check off Data Logger first and then show me the suit O2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Logger"
+            },
+            {
+                "type": "TEXT",
+                "text": " first and then show me the suit O2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen pressure, oh and mark Sensor Array Alignment as done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen pressure, oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor Array Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Deploy Beacon plus tell me the current O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me the current O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you report oxygen pressure while I mark Hatch Latch as complete?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you report oxygen pressure while I mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Power Relay then also pull up the suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Power Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also pull up the suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me oxygen pressure in addition to marking Sample Seal as done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me oxygen pressure in addition to marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete task Ladder Secure meanwhile display oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Ladder Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile display oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me my O2 pressure and then close out Payload Mount?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me my O2 pressure and then close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Mount"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need oxygen pressure and also mark Heat Shield Check complete",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need oxygen pressure and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Heat Shield Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open oxygen pressure readout followed by finishing task Sample Inventory",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open oxygen pressure readout followed by finishing task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Inventory"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, show O2 pressure and then check off Relay Mount, okay?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, show O2 pressure and then check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay Mount"
+            },
+            {
+                "type": "TEXT",
+                "text": ", okay?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Experiment Setup and then give me the suit oxygen partial pressure next",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Experiment Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give me the suit oxygen partial pressure next"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the O2 level and then check off Antenna Stow as completed?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the O2 level and then check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed?"
+            }
+        ]
+    },
+    {
+        "prompt": "After you report oxygen partial pressure, mark Thermal Coupler Removal done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you report oxygen partial pressure, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Coupler Removal"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Before I move, show me the O2 pressure and also finish task Umbilical Secure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I move, show me the O2 pressure and also finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Secure"
+            }
+        ]
+    },
+    {
+        "prompt": "Report oxygen pressure and then followed by marking Comms Antenna Deploy",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report oxygen pressure and then followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Antenna Deploy"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit O2, additionally mark the Ground Clamp task as complete",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit O2, additionally mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Ground Clamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " task as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Tool Rack Stowed meanwhile give me the oxygen partial pressure readout",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Rack Stowed"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile give me the oxygen partial pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up oxygen pressure and then check off Alignment Pin Removal?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up oxygen pressure and then check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Alignment Pin Removal"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current O2 partial pressure as well as marking External Pump Test done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current O2 partial pressure as well as marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "External Pump Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Calibration Complete, and show oxygen pressure at the same time please",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibration Complete"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and show oxygen pressure at the same time please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, give me the suit oxygen partial pressure and then mark Hatch Torque completed",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, give me the suit oxygen partial pressure and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Torque"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Antenna Alignment and at the same time display oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time display oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show oxygen pressure and also confirm Completion of Docking Bolt Removal?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show oxygen pressure and also confirm Completion of "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Bolt Removal"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Vent Valve Test, and then pull up current suit oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Vent Valve Test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then pull up current suit oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the oxygen partial pressure plus set Payload Fasten as complete next?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the oxygen partial pressure plus set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Fasten"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete next?"
+            }
+        ]
+    },
+    {
+        "prompt": "Alright mark Cable Tidy followed by returning oxygen pressure readout, please",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Alright mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cable Tidy"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by returning oxygen pressure readout, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme know oxygen pressure and then also log Offboard Transmitter Setup as done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme know oxygen pressure and then also log "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Offboard Transmitter Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the O2 reading along with checking off Shield Latch Alignment",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the O2 reading along with checking off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Shield Latch Alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Check oxygen pressure and then next, finish task Cable Connector Inspect",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check oxygen pressure and then next, finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cable Connector Inspect"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the O2 partial pressure, and then confirm Battery Pack Swap is complete",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the O2 partial pressure, and then confirm "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Pack Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " is complete"
+            }
+        ]
+    },
+    {
+        "prompt": "After you show oxygen pressure, go ahead and mark Payload Seal Inspection done",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you show oxygen pressure, go ahead and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Seal Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit oxygen pressure as well as checking off Solar Panel Fasten?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit oxygen pressure as well as checking off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Fasten"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Instrument Bay Secure and then meanwhile give me the O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Instrument Bay Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then meanwhile give me the O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up oxygen pressure then follow by setting Sample Lid Close as finished",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up oxygen pressure then follow by setting "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Lid Close"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show me oxygen pressure and then check off Docking Clamp Release, additionally?",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show me oxygen pressure and then check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Clamp Release"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally?"
+            }
+        ]
+    }
+]
+}

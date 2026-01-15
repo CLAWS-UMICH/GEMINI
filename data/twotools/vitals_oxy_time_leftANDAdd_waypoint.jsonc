@@ -1,0 +1,978 @@
+{
+  // intents: vitals_oxy_time_left AND Add_waypoint
+  // description_1: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "O2 time left, mark Alpha",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 time left, mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "How long's O2 and add Beta",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long's O2 and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Time to O2 depletion, drop Gamma",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time to O2 depletion, drop "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "Remaining oxygen, tag site Delta",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remaining oxygen, tag site "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell oxygen minutes then mark Echo",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell oxygen minutes then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes of O2 remain and add waypoint Foxtrot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes of O2 remain and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            }
+        ]
+    },
+    {
+        "prompt": "Please calculate oxygen time left then mark location Golf",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please calculate oxygen time left then mark location "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Golf"
+            }
+        ]
+    },
+    {
+        "prompt": "Quickly tell me remaining O2 and then drop site Hotel",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quickly tell me remaining O2 and then drop site "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hotel"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show oxygen minutes left plus add waypoint India",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show oxygen minutes left plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "India"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining O2 time while also marking Juliet",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining O2 time while also marking "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Juliet"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my estimated oxygen time as well as add Kilo",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my estimated oxygen time as well as add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Kilo"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me O2 remaining minutes along with placing waypoint Lima",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me O2 remaining minutes along with placing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lima"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up oxygen time in addition drop waypoint Mike",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up oxygen time in addition drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mike"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display oxygen minutes additionally mark location November",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display oxygen minutes additionally mark location "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "November"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, calculate how much oxygen I have left and then add waypoint Site One for samples",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, calculate how much oxygen I have left and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site One"
+            },
+            {
+                "type": "TEXT",
+                "text": " for samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Please estimate time until oxygen depletion while also dropping a waypoint named Ridge Crest",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please estimate time until oxygen depletion while also dropping a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Crest"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining O2 time before you place a waypoint called Sample Site Alpha, please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining O2 time before you place a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit oxygen estimate and then add waypoint Crater Edge next for navigation",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit oxygen estimate and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " next for navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes of breathable air remain, and then pin marker at South Lobe",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes of breathable air remain, and then pin marker at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Lobe"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the O2 duration remaining, followed by adding waypoint Observation Point",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the O2 duration remaining, followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme an estimate of remaining oxygen at the same time drop a waypoint labeled West Ridge",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme an estimate of remaining oxygen at the same time drop a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "After you calculate my oxygen runtime, please create a waypoint named Ice Patch for later",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you calculate my oxygen runtime, please create a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, tell me how much oxygen is left and add marker Station Bravo for reference",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, tell me how much oxygen is left and add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Station Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my O2 minutes remaining and then drop a waypoint named Narrow Pass",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my O2 minutes remaining and then drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Narrow Pass"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide oxygen time remaining followed by marking the location as Sample Cache Sierra",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide oxygen time remaining followed by marking the location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Cache Sierra"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Alpha and tell O2 time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Beta then oxygen minutes?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " then oxygen minutes?"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop Gamma and check remaining O2",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check remaining O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Tag Delta then time to O2",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tag "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " then time to O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Place Echo and how long O2 lasts",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and how long O2 lasts"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Foxtrot and then estimate my oxygen remaining minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then estimate my oxygen remaining minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Golf and also display time until O2 depletion",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Golf"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display time until O2 depletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop Hotel plus tell me remaining breathable air minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hotel"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me remaining breathable air minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Create waypoint India while also pulling up my suit oxygen time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "India"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also pulling up my suit oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Juliet and then show estimated O2 runtime please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Juliet"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show estimated O2 runtime please"
+            }
+        ]
+    },
+    {
+        "prompt": "Pin Kilo and in addition tell me oxygen minutes remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Kilo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition tell me oxygen minutes remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Place Lima as well as calculate my O2 time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lima"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as calculate my O2 time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Mike along with showing how long my oxygen will last",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mike"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with showing how long my oxygen will last"
+            }
+        ]
+    },
+    {
+        "prompt": "Add November and additionally estimate remaining suit O2 minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "November"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally estimate remaining suit O2 minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Create waypoint Oscar and then tell me minutes until O2 depletion",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Oscar"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me minutes until O2 depletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Papa followed by calculating how much oxygen I have left for EVA",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Papa"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by calculating how much oxygen I have left for EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add waypoint Quebec and then pull up the estimated O2 runtime for my suit",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Quebec"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up the estimated O2 runtime for my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Romeo next and at the same time estimate remaining breathable air in minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Romeo"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and at the same time estimate remaining breathable air in minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Pin Sierra followed by showing how many minutes of oxygen remain for my current activity",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sierra"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing how many minutes of oxygen remain for my current activity"
+            }
+        ]
+    },
+    {
+        "prompt": "Place Tango and meanwhile calculate the O2 duration left so I can plan route",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tango"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile calculate the O2 duration left so I can plan route"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Uniform and then next tell me the estimated time until oxygen depletion",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Uniform"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next tell me the estimated time until oxygen depletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop Victor followed by an O2 estimate and then save the remaining minutes to my log",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Victor"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by an O2 estimate and then save the remaining minutes to my log"
+            }
+        ]
+    },
+    {
+        "prompt": "Please create waypoint Whiskey and before anything else evaluate how long my oxygen will last",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Whiskey"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before anything else evaluate how long my oxygen will last"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop Xray but first tell me the time left on my tank plus any safety margin",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Xray"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first tell me the time left on my tank plus any safety margin"
+            }
+        ]
+    },
+    {
+        "prompt": "Add marker Yankee and then at the same time bring up my suit biometrics showing oxygen remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Yankee"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time bring up my suit biometrics showing oxygen remaining"
+            }
+        ]
+    }
+]
+}

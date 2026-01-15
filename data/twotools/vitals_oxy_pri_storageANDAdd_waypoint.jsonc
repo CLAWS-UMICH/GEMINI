@@ -1,0 +1,990 @@
+{
+  // intents: vitals_oxy_pri_storage AND Add_waypoint
+  // description_1: The user wants to check the fill level or capacity of the primary oxygen tank, which is critical for life support during the EVA. The prompt would likely be a request such as "What is my primary oxygen level?" or "Check primary O2 storage."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check primary O2 then mark crater edge",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "crater edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary oxygen level and add waypoint Alpha",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary oxygen level and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my O2 then mark sample A",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my O2 then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "sample A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check O2 plus drop waypoint Ridge",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 plus drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary oxygen level and add waypoint Summit for the team log",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary oxygen level and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Summit"
+            },
+            {
+                "type": "TEXT",
+                "text": " for the team log"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up O2 storage then mark Site 7 for mission records",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up O2 storage then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " for mission records"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check primary O2 and then add waypoint Depot before we move now",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check primary O2 and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " before we move now"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my oxygen level and also place waypoint Base",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my oxygen level and also place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my primary O2 storage, then create waypoint South Ridge",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my primary O2 storage, then create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up my primary oxygen tank level and then add waypoint Sample Site Alpha",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up my primary oxygen tank level and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "After confirming my primary O2 capacity, mark this spot as Geological Marker One",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After confirming my primary O2 capacity, mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geological Marker One"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my O2 level while you drop waypoint Ice Shelf and record it",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my O2 level while you drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": " and record it"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display primary oxygen percentage and additionally add waypoint Habitat Node Three for retrieval",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display primary oxygen percentage and additionally add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Node Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " for retrieval"
+            }
+        ]
+    },
+    {
+        "prompt": "Need O2 status and then set waypoint Science Patch",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need O2 status and then set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Patch"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 and mark waypoint Alpha-2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 and mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Before moving on, check my primary oxygen tank level as well as add waypoint Eastern Crater",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before moving on, check my primary oxygen tank level as well as add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Eastern Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals but first add waypoint Cargo Cache",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals but first add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey could you show my primary oxygen levels and then add waypoint Radiation Threshold for team",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey could you show my primary oxygen levels and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Radiation Threshold"
+            },
+            {
+                "type": "TEXT",
+                "text": " for team"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up suit O2 storage and also tag spot as Ridge West",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up suit O2 storage and also tag spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge West"
+            }
+        ]
+    },
+    {
+        "prompt": "Show oxygen in primary tank and next add waypoint Sample Pit for sample retrieval",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show oxygen in primary tank and next add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " for sample retrieval"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the primary O2 percentage and then follow up by placing waypoint Medical Cache nearby",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the primary O2 percentage and then follow up by placing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Medical Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " nearby"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 level and add waypoint North Pole",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 level and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Pole"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen then followed by adding waypoint Observation Deck",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen then followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Deck"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you go, open my vitals display and along with that drop waypoint Crew Entrance",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you go, open my vitals display and along with that drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crew Entrance"
+            }
+        ]
+    },
+    {
+        "prompt": "Display primary O2 storage and then add waypoint Fuel Reserve",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display primary O2 storage and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Reserve"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Alpha then check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Edge and check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Site B plus show O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint LZ-1 and then show my primary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my primary oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Sample Site Bravo before showing the primary O2 status",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " before showing the primary O2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add waypoint Cache Area and then pull up oxygen tank readings",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache Area"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up oxygen tank readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Northern Ridge and additionally give me my primary oxygen tank percentage for safety checks",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Northern Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally give me my primary oxygen tank percentage for safety checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Put down marker Research Point then also show primary O2 storage so I can plan",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Put down marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also show primary O2 storage so I can plan"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint South Valley and meanwhile display my primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Valley"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile display my primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "After you add waypoint Supply Drop, please display my suit's primary oxygen capacity and status",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please display my suit's primary oxygen capacity and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Waypoint Medical and then check primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Medical"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Alpha Base and also tell me primary O2 remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me primary O2 remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Fuel Cache followed by pulling up the primary oxygen tank level for ETA planning",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by pulling up the primary oxygen tank level for ETA planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Observation Post and then open my vitals display",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open my vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Site C as waypoint and then show O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site C"
+            },
+            {
+                "type": "TEXT",
+                "text": " as waypoint and then show O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add waypoint Crew Staging Area and additionally bring up my primary oxygen readings for mission control",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crew Staging Area"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally bring up my primary oxygen readings for mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Beacon next and check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop a waypoint named West Ledge then also show primary O2 level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Ledge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also show primary O2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add waypoint Science Quadrant and in addition display the percentage remaining in the primary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Quadrant"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition display the percentage remaining in the primary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Entrance and then also pull up O2 readouts",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also pull up O2 readouts"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and drop waypoint Backup Cache, and at the same time show me primary O2 and alarms",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Backup Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and at the same time show me primary O2 and alarms"
+            }
+        ]
+    },
+    {
+        "prompt": "Please place waypoint Ridgecrest and then display primary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridgecrest"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display primary oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Alpha Sector followed by showing me primary O2 status",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Sector"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing me primary O2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint LZ and then O2 check",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then O2 check"
+            }
+        ]
+    },
+    {
+        "prompt": "And then add waypoint Emergency Exit plus also pull up the primary oxygen tank capacity and estimated time remaining",
+        "tool_calls": [
+            "vitals_oxy_pri_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "And then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Exit"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus also pull up the primary oxygen tank capacity and estimated time remaining"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,1002 @@
+{
+  // intents: vitals_oxy_sec_pressure AND delete_waypoint
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check secondary O2 pressure and delete Alpha",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 pressure and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Home then check sec oxy psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check sec oxy psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify backup oxygen and remove Old camp",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify backup oxygen and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Supply cache plus read sec O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus read sec O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me sec oxygen psi then delete Beacon-3",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me sec oxygen psi then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Base while I check secondary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I check secondary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check sec O2 before removing LZ",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec O2 before removing "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Charlie but first show secondary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show secondary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Need sec oxy psi and then delete Delta",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need sec oxy psi and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read backup O2 and delete Port",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read backup O2 and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up secondary oxygen pressure and remove Starboard marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up secondary oxygen pressure and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Starboard marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the LZ-2 marker then display secondary O\u2082 tank pressure for me",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker then display secondary O\u2082 tank pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check secondary oxygen cylinder pressure and also remove Habitat waypoint",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check secondary oxygen cylinder pressure and also remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove MainBase as well as report the backup O2 pressure now",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "MainBase"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as report the backup O2 pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary O2 psi and delete SM-2 marker please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary O2 psi and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SM-2 marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete Beacon Echo and then show me the secondary oxygen level",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me the secondary oxygen level"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary oxygen gauge plus remove the Hydroponics marker for clarity",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary oxygen gauge plus remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hydroponics marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " for clarity"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show me secondary O2 and delete the Lab waypoint afterward",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show me secondary O2 and delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab waypoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterward"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Node3 next then pull up secondary oxygen bottle pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Node3"
+            },
+            {
+                "type": "TEXT",
+                "text": " next then pull up secondary oxygen bottle pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the secondary O2 cylinder and remove Docking marker as well",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the secondary O2 cylinder and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile delete CargoBay and bring up the secondary oxygen pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CargoBay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up the secondary oxygen pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary oxygen tank pressure and then clear South Marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary oxygen tank pressure and then clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove NorthMarker first before I check backup oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthMarker"
+            },
+            {
+                "type": "TEXT",
+                "text": " first before I check backup oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need secondary O2 pressure and delete LandingPad while here",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need secondary O2 pressure and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LandingPad"
+            },
+            {
+                "type": "TEXT",
+                "text": " while here"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Relay followed by showing me the secondary oxygen cylinder psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing me the secondary oxygen cylinder psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull secondary oxygen pressure additionally remove the Observation marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull secondary oxygen pressure additionally remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation marker"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to check the secondary O2 and delete ScienceSite next",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to check the secondary O2 and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "ScienceSite"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete West Ridge and at the same time report backup O2 psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time report backup O2 psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you open the sec oxygen display and remove East Ridge marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you open the sec oxygen display and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Habitat module plus tell me secondary oxygen pressure readings",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat module"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus tell me secondary oxygen pressure readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the secondary oxygen bottle pressure and then delete the Dock marker please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the secondary oxygen bottle pressure and then delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Dock marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cargo-1 along with reporting the secondary oxygen tank pressure for system check",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with reporting the secondary oxygen tank pressure for system check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the pressure in the secondary O\u2082 cylinder and also remove the Science Cache marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the pressure in the secondary O\u2082 cylinder and also remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Cache marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Cache-7 after you confirm the secondary oxygen pressure readings for me",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " after you confirm the secondary oxygen pressure readings for me"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up secondary O2 pressure in addition delete the Worksite marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up secondary O2 pressure in addition delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Worksite marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you remove Observation-2 and then show the secondary oxygen pressure gauge to me",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the secondary oxygen pressure gauge to me"
+            }
+        ]
+    },
+    {
+        "prompt": "yo check the backup oxygen psi oh and clear the Rendezvous marker off my map",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo check the backup oxygen psi oh and clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rendezvous"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker off my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete Depot plus bring up secondary oxygen tank pressure for verification",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus bring up secondary oxygen tank pressure for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "After you read secondary oxygen pressure, followed by remove Marker Bravo from the map",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read secondary oxygen pressure, followed by remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Need you to remove Alpha Site and also report the pressure in the secondary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need you to remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report the pressure in the secondary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the secondary oxygen tank pressure and additionally delete the Lab Beacon marker",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the secondary oxygen tank pressure and additionally delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab Beacon marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear the Old Camp North waypoint along with giving me the current secondary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp North waypoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with giving me the current secondary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Before deleting the CargoBay-2 marker, show me the secondary oxygen pressure and status",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before deleting the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CargoBay-2 marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", show me the secondary oxygen pressure and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you remove the Airlock waypoint and meanwhile tell me the secondary oxygen tank pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Airlock waypoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile tell me the secondary oxygen tank pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "lemme see the sec oxy psi and then delete the South Marker A please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "lemme see the sec oxy psi and then delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Marker A"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Docking beacon next and at the same time show me backup oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and at the same time show me backup oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the secondary oxygen gauge, and then remove the Habitat waypoint from display",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the secondary oxygen gauge, and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat waypoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " from display"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the ScienceSite marker followed by reporting the pressure in the secondary oxygen bottle",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "ScienceSite marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting the pressure in the secondary oxygen bottle"
+            }
+        ]
+    },
+    {
+        "prompt": "yo pull up the sec O2 pressure in addition delete the West Ridge Point marker afterwards",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo pull up the sec O2 pressure in addition delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Ridge Point marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please delete Marker Echo and then also show me the secondary oxygen psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also show me the secondary oxygen psi"
+            }
+        ]
+    }
+]
+}

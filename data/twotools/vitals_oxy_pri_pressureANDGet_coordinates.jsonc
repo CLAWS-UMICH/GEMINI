@@ -1,0 +1,998 @@
+{
+  // intents: vitals_oxy_pri_pressure AND Get_coordinates
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Read primary O2 pressure and LTV location",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 pressure and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " location"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme get coordinates for Rover-2 then show primary oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show primary oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is PR and what's my primary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's my primary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please get coordinates for Habitat Alpha plus display primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus display primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the LTV and check primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "After you pull up my primary oxygen tank psi, also give me the coordinates for Sample Site Bravo",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you pull up my primary oxygen tank psi, also give me the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for EVA teammate John and then read primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA teammate John"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check primary O2 then find Rover",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check primary O2 then find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Find Base One and also read primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me where the LTV is before you pull up my primary oxygen tank pressure reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " is before you pull up my primary oxygen tank pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Find PR and check O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure, then give coordinates for Rover Alpha",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure, then give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the hab module and check primary oxygen tank pressure too",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "hab module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check primary oxygen tank pressure too"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the primary oxygen pressure reading and in addition fetch location coordinates for Supply Cache Delta",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the primary oxygen pressure reading and in addition fetch location coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 psi and Rover coords",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 psi and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's Rover-3 and check O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up primary oxygen pressure and give LTV coordinates",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up primary oxygen pressure and give "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Command Module and then read primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you report the LTV position, please open my primary oxygen tank pressure display and confirm nominal",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you report the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " position, please open my primary oxygen tank pressure display and confirm nominal"
+            }
+        ]
+    },
+    {
+        "prompt": "Need primary O2 and PR coords",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need primary O2 and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate Rover Charlie along with checking primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with checking primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Find coordinates for Sample Site Alpha and then display my primary oxygen tank pressure readings for verification",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my primary oxygen tank pressure readings for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Show O2 pressure and locate Base-2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show O2 pressure and locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open primary O2 readout as well as get coordinates for the rover",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open primary O2 readout as well as get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Base Alpha and read my O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read my O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you additionally pull up the primary oxygen pressure and follow that by sending me coordinates for Rover Delta",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you additionally pull up the primary oxygen pressure and follow that by sending me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary O2 but first fetch coordinates for EVA Lander",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary O2 but first fetch coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my primary O2 then get LTV coords",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my primary O2 then get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coordinates for Rover Echo plus read primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus read primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show primary O2 pressure and additionally get Base Gamma coords",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show primary O2 pressure and additionally get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, tell me where the EVA rover is located and at the same time read my primary oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, tell me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " is located and at the same time read my primary oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary O2 plus find Rover Foxtrot",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 plus find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Foxtrot"
+            }
+        ]
+    },
+    {
+        "prompt": "Need primary oxygen pressure along with location for Comms Relay",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need primary oxygen pressure along with location for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Comms Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Provide coordinates for Habitat Two followed by confirming primary oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by confirming primary oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull O2 pressure and locate Lander",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull O2 pressure and locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up primary O2 readout and then give Rover-1 coordinates",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up primary O2 readout and then give "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey where's the Supply Cache Delta located and could you also pull my primary oxygen pressure for a check",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " located and could you also pull my primary oxygen pressure for a check"
+            }
+        ]
+    },
+    {
+        "prompt": "What's primary O2 then where's LTV",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's primary O2 then where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Please get Rover Tango coords and as well read primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Tango"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords and as well read primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Fetch coordinates for Beacon-7 and also display primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fetch coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you hand me the LTV coordinates, could you verify the primary oxygen tank pressure and report any anomalies",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you hand me the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates, could you verify the primary oxygen tank pressure and report any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary O2 plus LTV coords",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 plus "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's Rover and read primary O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read primary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "After you verify primary O2, next give me coordinates for Base-Zulu",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you verify primary O2, next give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base-Zulu"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and read my primary oxygen pressure and then point me to where Comms Array Charlie is located",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and read my primary oxygen pressure and then point me to where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Comms Array Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " is located"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate EVA Lander and simultaneously pull up primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " and simultaneously pull up primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read O2 and find Sample Site Echo",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read O2 and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify primary oxygen pressure and then get coordinates for Beacon Z",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify primary oxygen pressure and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Z"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you fetch the coordinates for Rover Sierra and before that confirm my primary oxygen tank pressure is stable",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you fetch the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Sierra"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before that confirm my primary oxygen tank pressure is stable"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary oxygen pressure and meanwhile show me Base Beta coordinates",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary oxygen pressure and meanwhile show me "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    }
+]
+}

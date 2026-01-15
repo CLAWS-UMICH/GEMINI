@@ -1,0 +1,970 @@
+{
+  // intents: vitals_batt_time_left AND Add_waypoint
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Battery time left and mark Alpha",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time left and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Power remaining then add waypoint Bravo",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power remaining then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Check charge and drop waypoint Base",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check charge and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Show vitals and mark Crater Edge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show vitals and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Delta and check battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Site Seven then check power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Seven"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check power"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Echo and show charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Foxtrot then check battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Gamma then show vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery and mark Site One",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site One"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me battery time left and add waypoint Sample Alpha",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me battery time left and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display power remaining then add waypoint Crater North",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display power remaining then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater North"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining charge and also mark waypoint Ridge Line",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining charge and also mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Line"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my vitals and then add waypoint Sample Site Bravo",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my vitals and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check battery, but first mark this spot as Alpha Ridge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check battery, but first mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Delta Point while you pull up my charge estimate",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you pull up my charge estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check suit power and also drop waypoint Ice Crater",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check suit power and also drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, gimme battery time and add waypoint Sample B",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, gimme battery time and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample B"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up vitals and then place waypoint South Ridge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up vitals and then place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Check how long power lasts plus mark waypoint Alpha-2",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check how long power lasts plus mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint West Crater and display my battery time, please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display my battery time, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up biometrics and add waypoint Rock Outcrop next",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up biometrics and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check remaining power and then add waypoint Sample Point",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check remaining power and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit charge and along with that mark waypoint Ridge 3",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit charge and along with that mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals display and then add waypoint Fuel Cache",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals display and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Need battery time as well as a waypoint named Beacon One",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need battery time as well as a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show power remaining and additionally drop waypoint South Base",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show power remaining and additionally drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Before I move, check battery and add waypoint Ice Shelf",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I move, check battery and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by viewing my vitals, put a waypoint called North Ridge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by viewing my vitals, put a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, check my suit power and mark this location as Sample Zeta",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, check my suit power and mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Zeta"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Rim for return and then tell me current battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " for return and then tell me current battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Sample Site Charlie here and please provide the suit power duration estimate",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " here and please provide the suit power duration estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop a waypoint called Fuel Cache One while also giving me the battery time left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache One"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also giving me the battery time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Ridgecrest so I can return and then check remaining charge for the suit",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridgecrest"
+            },
+            {
+                "type": "TEXT",
+                "text": " so I can return and then check remaining charge for the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Set a waypoint landing zone Delta at this spot and afterwards open my vitals display",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set a waypoint landing zone "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " at this spot and afterwards open my vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Create waypoint Beacon One plus pull up suit power estimate so we know how long I have",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus pull up suit power estimate so we know how long I have"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Beacon East followed by showing my charge estimate and then tag it for the team",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon East"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing my charge estimate and then tag it for the team"
+            }
+        ]
+    },
+    {
+        "prompt": "Save this spot as Crater South waypoint and meanwhile display my suit charge information",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Save this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater South"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint and meanwhile display my suit charge information"
+            }
+        ]
+    },
+    {
+        "prompt": "Place a waypoint Resource Pocket at the boulder and along with that show my battery status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place a waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Resource Pocket"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the boulder and along with that show my battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Science Trench for reference and before I move, display remaining battery duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Trench"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference and before I move, display remaining battery duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop a waypoint labeled Site Omega so the team can find me and oh and display vitals too",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Omega"
+            },
+            {
+                "type": "TEXT",
+                "text": " so the team can find me and oh and display vitals too"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sunlit Ridge as my north anchor and at the same time bring up battery percentage",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sunlit Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " as my north anchor and at the same time bring up battery percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Icefall Trench and additionally show me the remaining power estimate for planning",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Icefall Trench"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally show me the remaining power estimate for planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Sample Cache West next and then check battery life before I move downhill",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Cache West"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then check battery life before I move downhill"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Rock Garden and I need you to pull up suit vitals plus annotate it for samples",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Garden"
+            },
+            {
+                "type": "TEXT",
+                "text": " and I need you to pull up suit vitals plus annotate it for samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Check how much battery time I have left and followed by adding waypoint Beacon North for rendezvous",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check how much battery time I have left and followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " for rendezvous"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my vitals in addition to dropping a waypoint named Crescent Bluff so mission control can log it",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my vitals in addition to dropping a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crescent Bluff"
+            },
+            {
+                "type": "TEXT",
+                "text": " so mission control can log it"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Lava Tube Entrance for future navigation and also display power remaining for ETA",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lava Tube Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " for future navigation and also display power remaining for ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Create waypoint East Ridge then check my suit charge and ping the rover for status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check my suit charge and ping the rover for status"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Crater West for pickup coordination and also pull battery time remaining for logistics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater West"
+            },
+            {
+                "type": "TEXT",
+                "text": " for pickup coordination and also pull battery time remaining for logistics"
+            }
+        ]
+    }
+]
+}

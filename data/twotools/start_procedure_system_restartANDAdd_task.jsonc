@@ -1,0 +1,1071 @@
+{
+  // intents: start_procedure_system_restart AND Add_task
+  // description_1: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Restart comms and add task inspect antenna",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart comms and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check oxygen then restart battery",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot nav and add task log position",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot nav and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log position"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo add task fix solar then restart",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fix solar"
+            },
+            {
+                "type": "TEXT",
+                "text": " then restart"
+            }
+        ]
+    },
+    {
+        "prompt": "Please restart life support and add task inspect seals",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please restart life support and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task collect soil sample before you reboot the rover nav",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect soil sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you reboot the rover nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart procedure for LTV comms and also add task recalibrate antenna array",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart procedure for LTV comms and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate antenna array"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task run suit diagnostics and then reboot the biometrics module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot the biometrics module"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you restart the navigation module and add task verify waypoint logs",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you restart the navigation module and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify waypoint logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect solar panel arrays while you reboot power distribution",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel arrays"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you reboot power distribution"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the guidance computer and then add task check star tracker alignment",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the guidance computer and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check star tracker alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task sample regolith then reboot the rover comms module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample regolith"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reboot the rover comms module"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey please reboot attitude control and additionally add task secure loose tether",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey please reboot attitude control and additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check radiation levels as well as restart the sensor bus",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check radiation levels"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as restart the sensor bus"
+            }
+        ]
+    },
+    {
+        "prompt": "Fire off a restart of the thermal regulator and add task record temperature gradient",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fire off a restart of the thermal regulator and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record temperature gradient"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph crater rim and then initiate reboot of navigation",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph crater rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate reboot of navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin restart of data bus plus add task archive recent telemetry",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin restart of data bus plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "archive recent telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inventory sample containers meanwhile reboot the sample carousel",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory sample containers"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile reboot the sample carousel"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the rover power module followed by add task inspect circuit junctions",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the rover power module followed by add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect circuit junctions"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task calibrate the spectrometer and then reboot instrument controller",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate the spectrometer"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot instrument controller"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you restart the LTV guidance while adding task replace micrometeoroid shield",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you restart the LTV guidance while adding task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace micrometeoroid shield"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check comms logs along with rebooting the uplink interface",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms logs"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with rebooting the uplink interface"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the antenna controller and add task verify signal lock",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the antenna controller and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify signal lock"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure sample box and then restart manipulator arm controls",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample box"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart manipulator arm controls"
+            }
+        ]
+    },
+    {
+        "prompt": "Power-cycle the telemetry node next and add task flag anomalous packets",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power-cycle the telemetry node next and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "flag anomalous packets"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task replace worn glove before you reboot suit sensors",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace worn glove"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you reboot suit sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey restart the attitude thruster controller and then add task inspect fuel lines",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey restart the attitude thruster controller and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect fuel lines"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check cabin pressure and then initiate restart of environmental monitor",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check cabin pressure"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate restart of environmental monitor"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart of the science payload and add task secure data cache",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart of the science payload and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure data cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect solar array joints and then restart the power regulator module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array joints"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart the power regulator module"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please restart the hull breach sensor and add task run leak check protocol",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please restart the hull breach sensor and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run leak check protocol"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task verify sample catalog entries followed by reboot of inventory manager",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify sample catalog entries"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reboot of inventory manager"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the camera array and add task capture panoramic sweep",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the camera array and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "capture panoramic sweep"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task record audio log and then restart comms uplink at the same time",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record audio log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart comms uplink at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reboot the attitude gyro and add task check sensor drift additionally",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reboot the attitude gyro and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check sensor drift"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task tighten external bolts oh and restart the external camera rig",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tighten external bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and restart the external camera rig"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin restart of the life support controller and then add task verify oxygen scrubber efficiency",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin restart of the life support controller and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify oxygen scrubber efficiency"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task log anomalous vibration, and then reboot attitude sensors",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log anomalous vibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then reboot attitude sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot the science computer and add task back up experiment data in addition",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot the science computer and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "back up experiment data"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task mount radiation badge plus restart the dosimeter module",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mount radiation badge"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus restart the dosimeter module"
+            }
+        ]
+    },
+    {
+        "prompt": "After you reboot the nav stack, add task reconcile inertial logs",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you reboot the nav stack, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "reconcile inertial logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task replace battery cell as well as restart the power management unit",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace battery cell"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as restart the power management unit"
+            }
+        ]
+    },
+    {
+        "prompt": "Please restart the thermal control loop and add task monitor radiator temps next",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please restart the thermal control loop and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "monitor radiator temps"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task remove debris from solar inboard, and then initiate restart of the array controller",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "remove debris from solar inboard"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then initiate restart of the array controller"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to restart the comms relay and add task annotate downlink warnings simultaneously",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to restart the comms relay and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "annotate downlink warnings"
+            },
+            {
+                "type": "TEXT",
+                "text": " simultaneously"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure EVA toolkit and then reboot suit telemetry before departure",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure EVA toolkit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reboot suit telemetry before departure"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by a restart of the docking sensors, add task inspect latch alignment",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by a restart of the docking sensors, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect latch alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task run emergency drill next and then reboot the scenario manager",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run emergency drill"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then reboot the scenario manager"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you restart the environmental sensors and add task verify CO2 scrubber levels, please",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you restart the environmental sensors and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify CO2 scrubber levels"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph sample site, followed by reboot of sample collection controller",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph sample site"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by reboot of sample collection controller"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the power bus and add task confirm battery charge and state of health",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the power bus and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "confirm battery charge and state of health"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task mount comms beacon and then restart the relay node meanwhile",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mount comms beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart the relay node meanwhile"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you reboot the flight computer, add task verify mission clock sync",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you reboot the flight computer, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify mission clock sync"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check suit comms and then restart the EVA uplink but first confirm antenna stow",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check suit comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then restart the EVA uplink but first confirm antenna stow"
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the diagnostic controller and add task schedule follow-up inspection",
+        "tool_calls": [
+            "start_procedure_system_restart",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the diagnostic controller and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "schedule follow-up inspection"
+            }
+        ]
+    }
+]
+}

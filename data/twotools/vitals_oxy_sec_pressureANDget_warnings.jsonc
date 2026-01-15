@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_pressure AND get_warnings
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user wants a verbal summary of any active alerts or anomalies currently detected by the HALO system, such as high heart rate or low battery. They might ask, "What are the current warnings?" or "Read out active alerts."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary O2 pressure and warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 pressure and warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 pressure then read alerts.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 pressure then read alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Read backup O2 pressure, also report warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read backup O2 pressure, also report warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up aux O2 pressure and alerts.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up aux O2 pressure and alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen bottle, then warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen bottle, then warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "What's the secondary O2 tank pressure and show alerts?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the secondary O2 tank pressure and show alerts?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the backup O2 pressure and active warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the backup O2 pressure and active warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check secondary O2 pressure and then list anomalies.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check secondary O2 pressure and then list anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary oxygen pressure plus read out warnings?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary oxygen pressure plus read out warnings?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary O2 pressure and current warnings read.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary O2 pressure and current warnings read."
+            }
+        ]
+    },
+    {
+        "prompt": "After checking secondary O2 pressure, also tell me any alerts.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking secondary O2 pressure, also tell me any alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary O2 reservoir pressure and then summarize active alerts.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary O2 reservoir pressure and then summarize active alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up secondary O2 pressure as well as warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up secondary O2 pressure as well as warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show me the secondary oxygen pressure and then list warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show me the secondary oxygen pressure and then list warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary O2 pressure meanwhile read any active alerts.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary O2 pressure meanwhile read any active alerts."
+            }
+        ]
+    },
+    {
+        "prompt": "Check the pressure in the secondary oxygen tank and then give me a verbal rundown of warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the pressure in the secondary oxygen tank and then give me a verbal rundown of warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you pull up the secondary O2 bottle pressure and additionally read any current anomalies for me?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you pull up the secondary O2 bottle pressure and additionally read any current anomalies for me?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, bring up the backup O2 tank pressure and then also tell me what the HALO warnings are.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, bring up the backup O2 tank pressure and then also tell me what the HALO warnings are."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the pressure of the secondary oxygen reservoir and then provide any active system warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the pressure of the secondary oxygen reservoir and then provide any active system warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Before egress, check secondary O2 pressure and after that read any active alerts and anomalies.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before egress, check secondary O2 pressure and after that read any active alerts and anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "Need the secondary O2 pressure along with a summary of all current HALO alerts and anomalies.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need the secondary O2 pressure along with a summary of all current HALO alerts and anomalies."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary oxygen tank pressure and then followed by readout of any active warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary oxygen tank pressure and then followed by readout of any active warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check the secondary oxygen bottle pressure and in addition read out any outstanding system warnings?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check the secondary oxygen bottle pressure and in addition read out any outstanding system warnings?"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the secondary O2 reservoir pressure along with a spoken list of current alerts, please.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the secondary O2 reservoir pressure along with a spoken list of current alerts, please."
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary oxygen pressure and at the same time a verbal summary of HALO active warnings.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary oxygen pressure and at the same time a verbal summary of HALO active warnings."
+            }
+        ]
+    },
+    {
+        "prompt": "Read warnings and check secondary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read warnings and check secondary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "List active alerts then secondary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "List active alerts then secondary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo list alerts and check sec O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo list alerts and check sec O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Report anomalies and then secondary O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report anomalies and then secondary O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me alerts plus secondary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me alerts plus secondary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "What are the current warnings and also show secondary O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What are the current warnings and also show secondary O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read out active alerts then open the backup O2 pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read out active alerts then open the backup O2 pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please summarize HALO warnings and then display secondary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please summarize HALO warnings and then display secondary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey read the alerts as well as check reserve O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey read the alerts as well as check reserve O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Need active warnings and secondary O2 pressure displayed.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need active warnings and secondary O2 pressure displayed."
+            }
+        ]
+    },
+    {
+        "prompt": "After you read the warnings, also pull up the secondary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read the warnings, also pull up the secondary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Read any system anomalies and then bring up the secondary oxygen pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read any system anomalies and then bring up the secondary oxygen pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Show me current alerts and check pressure in secondary O2.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me current alerts and check pressure in secondary O2."
+            }
+        ]
+    },
+    {
+        "prompt": "Read HALO warnings, oh and then report the secondary O2 pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read HALO warnings, oh and then report the secondary O2 pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "List active alerts and then display the secondary O2 tank pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "List active alerts and then display the secondary O2 tank pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Read out any active alerts and anomalies first, while after that check the secondary oxygen tank pressure.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out any active alerts and anomalies first, while after that check the secondary oxygen tank pressure."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you first summarize current HALO warnings and next bring up the secondary O2 pressure for verification?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you first summarize current HALO warnings and next bring up the secondary O2 pressure for verification?"
+            }
+        ]
+    },
+    {
+        "prompt": "Report current HALO warnings and anomalies, but first show me the secondary O2 tank pressure for safety.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report current HALO warnings and anomalies, but first show me the secondary O2 tank pressure for safety."
+            }
+        ]
+    },
+    {
+        "prompt": "Summarize any active alerts and then as well as confirm the pressure in the secondary oxygen reservoir.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Summarize any active alerts and then as well as confirm the pressure in the secondary oxygen reservoir."
+            }
+        ]
+    },
+    {
+        "prompt": "Read out all current warnings in detail, in addition followed by a pressure reading of the secondary O2 tank.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read out all current warnings in detail, in addition followed by a pressure reading of the secondary O2 tank."
+            }
+        ]
+    },
+    {
+        "prompt": "List active alerts along with any anomalies, meanwhile then bring up the secondary O2 pressure for a status check.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "List active alerts along with any anomalies, meanwhile then bring up the secondary O2 pressure for a status check."
+            }
+        ]
+    },
+    {
+        "prompt": "Read HALO warnings and additionally at the same time display the current pressure of the secondary oxygen bottle.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read HALO warnings and additionally at the same time display the current pressure of the secondary oxygen bottle."
+            }
+        ]
+    },
+    {
+        "prompt": "Start by reading the active warnings next and then check the secondary O2 reservoir pressure for confirmation.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start by reading the active warnings next and then check the secondary O2 reservoir pressure for confirmation."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you verbalize current warnings while also opening the secondary O2 tank pressure readout for me?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you verbalize current warnings while also opening the secondary O2 tank pressure readout for me?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read all active system warnings and then additionally provide the secondary oxygen tank pressure for my records.",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "get_warnings"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read all active system warnings and then additionally provide the secondary oxygen tank pressure for my records."
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,994 @@
+{
+  // intents: start_procedure_erm AND Add_waypoint
+  // description_1: The user initiates the "Exit Recovery Mode" workflow to wake the LTV from its dormant state. They would likely say, "Start ERM procedure" or "Begin Exit Recovery Mode."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Start ERM then mark Alpha",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Bravo then ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and drop waypoint Site1",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site1"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker Rock7 and start ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake LTV and add waypoint Pit",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake LTV and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pit"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark location Base and then ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark location "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Exit recovery mode and add Alpha",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Exit recovery mode and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Waypoint Beta then begin ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " then begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM plus mark Ridge",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM plus mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this as SampleA and then ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SampleA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the ERM procedure and add waypoint Crater Edge",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the ERM procedure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint South Ridge then initiate Exit Recovery Mode now",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate Exit Recovery Mode now"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode and then drop marker Sample Site Bravo",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode and then drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Rock Cluster and wake the ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Cluster"
+            },
+            {
+                "type": "TEXT",
+                "text": " and wake the ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM procedure plus add waypoint Landing Beacon for reference",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM procedure plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Fuel Cache and then start the Exit Recovery Mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Please wake LTV and add waypoint Ridge Line as reference",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please wake LTV and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Line"
+            },
+            {
+                "type": "TEXT",
+                "text": " as reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Observation Post and then begin ERM immediately please",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin ERM immediately please"
+            }
+        ]
+    },
+    {
+        "prompt": "Open ERM workflow and mark current spot as Sample Site Gamma",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open ERM workflow and mark current spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop marker Crater Rim and then kick off Exit Recovery Mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then kick off Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM and also add waypoint Science Grid",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM and also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Grid"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Alpha Pit and then wake up LTV",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then wake up LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate Exit Recovery Mode and then set waypoint Cargo Stash",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate Exit Recovery Mode and then set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Stash"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Solar Array additionally and then start ERM sequence",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally and then start ERM sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM then add waypoint Beacon 3 for navigation",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " for navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Sample Zone as well as initiate ERM",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as initiate ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run ERM and then drop a marker named North Bluff",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run ERM and then drop a marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Bluff"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop a waypoint named Crater Mouth and then begin Exit Recovery",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Mouth"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin Exit Recovery"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake recovery mode and additionally add waypoint Cache Site",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake recovery mode and additionally add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Ridgecrest and then start the Exit Recovery Mode now",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridgecrest"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the Exit Recovery Mode now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please start the Exit Recovery Mode workflow and also mark this place as Research Site Delta",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please start the Exit Recovery Mode workflow and also mark this place as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Site Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, mark this exact location as Water Ice Deposit Beta and then initiate the ERM please",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, mark this exact location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Ice Deposit Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate the ERM please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to wake the LTV and then drop a waypoint called Summit Ridge for us",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to wake the LTV and then drop a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Summit Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " for us"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Emergency Cache Zeta followed by beginning the Exit Recovery Mode, thanks",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Cache Zeta"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by beginning the Exit Recovery Mode, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the ERM sequence first, and then add a waypoint labeled Fuel Transfer Point",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the ERM sequence first, and then add a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Transfer Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Geological Transect 4 and then kick off the Exit Recovery Mode",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geological Transect 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then kick off the Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start Exit Recovery Mode and at the same time drop a marker named North Gate",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start Exit Recovery Mode and at the same time drop a marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Gate"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Cargo Bay Three, and then start the ERM procedure while I secure samples",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay Three"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then start the ERM procedure while I secure samples"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM, and then also add waypoint South Crater Edge for later navigation",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM, and then also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Record waypoint Ridge Sampling Site and then initiate the Exit Recovery Mode, could you?",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Record waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Sampling Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate the Exit Recovery Mode, could you?"
+            }
+        ]
+    },
+    {
+        "prompt": "Wake up recovery mode and additionally place waypoint Stallion Point before I move forward",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Wake up recovery mode and additionally place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Stallion Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " before I move forward"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Lander Shadow, but first begin Exit Recovery Mode so systems wake",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lander Shadow"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first begin Exit Recovery Mode so systems wake"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM workflow and then along with that drop a marker named Observatory Hub",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM workflow and then along with that drop a marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observatory Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Beta Outcrop as well as trigger the Exit Recovery Mode after I finish sampling",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as trigger the Exit Recovery Mode after I finish sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode and then, in addition, add waypoint Crevasse Rim for mapping",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode and then, in addition, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crevasse Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " for mapping"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Pit Delta and then, additionally, start the ERM procedure to wake systems",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, additionally, start the ERM procedure to wake systems"
+            }
+        ]
+    },
+    {
+        "prompt": "Run ERM and then meanwhile drop a waypoint named Echo Beacon so we don't lose location",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run ERM and then meanwhile drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " so we don't lose location"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Flashpoint Seven, oh and initiate the Exit Recovery Mode too because I'm moving",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Flashpoint Seven"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and initiate the Exit Recovery Mode too because I'm moving"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM now followed by adding waypoint Granite Outcrop next, please confirm marker placement",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM now followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Granite Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " next, please confirm marker placement"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Alpha Ridge and then open the ERM workflow at the same time for checks",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the ERM workflow at the same time for checks"
+            }
+        ]
+    }
+]
+}

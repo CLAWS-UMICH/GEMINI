@@ -1,0 +1,974 @@
+{
+  // intents: start_procedure_system_diagnosis AND Get_coordinates
+  // description_1: The user wants the AI to run a diagnostic scan on a connected system, such as the LTV, to identify faults. The prompt might be "Run system diagnosis" or "Diagnose rover faults."
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Diagnose LTV then locate rover",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Diagnose LTV then locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the PR and run diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics and where is Beacon-7",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics and where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for rover then run diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Diagnose comms array and find LTV-A",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Diagnose comms array and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV-A"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's habitat, also run system diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", also run system diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Check power then get coordinates for EVA-2",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check power then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate relay tower and run diagnostics next",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "relay tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and run diagnostics next"
+            }
+        ]
+    },
+    {
+        "prompt": "Diagnose arm plus find sample alpha",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Diagnose arm plus find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Beacon Zeta, run diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Zeta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run a full system diagnosis and also get coordinates for LTV",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run a full system diagnosis and also get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the base station plus run diagnostics on life support",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "base station"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus run diagnostics on life support"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics on the rover and then give coordinates for rover-3",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics on the rover and then give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for solar array A and run diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "solar array A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start system diagnosis then also tell me where the PR is located",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start system diagnosis then also tell me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " is located"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you give coordinates for Nguyen but first run checks",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Nguyen"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first run checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform a diagnostic sweep and then bring up coordinates for Beacon-7",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform a diagnostic sweep and then bring up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the habitat-1 and then run a diagnostics routine on comms",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "habitat-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a diagnostics routine on comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Run hardware diagnostics along with fetching coordinates for the cargo rover",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run hardware diagnostics along with fetching coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "cargo rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for sample site bravo and then start full system diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start full system diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Diagnose comms array and also show coordinates for antenna mast",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Diagnose comms array and also show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "antenna mast"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the landing beacon in addition run diagnostics on propulsion",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "landing beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition run diagnostics on propulsion"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate system diagnosis and then get coordinates for the lab module",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate system diagnosis and then get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "lab module"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you fetch coordinates for the relay tower and meanwhile run diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you fetch coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "relay tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a diagnostics pass before you provide coordinates for Rover Alpha",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a diagnostics pass before you provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the science package as well as initiate diagnostics",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science package"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as initiate diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run life support diagnostics and give coordinates for oxygen cache",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run life support diagnostics and give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "oxygen cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the storage bay and then perform a systems diagnostic, please",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "storage bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform a systems diagnostic, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics plus show me coordinates for the lunar south base",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics plus show me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "lunar south base"
+            }
+        ]
+    },
+    {
+        "prompt": "Give coordinates for the orbital module and additionally run a quick diagnostic",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "orbital module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally run a quick diagnostic"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a comprehensive system diagnosis on the rover and then provide precise coordinates for the sample cache Charlie",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a comprehensive system diagnosis on the rover and then provide precise coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample cache Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you give me the exact coordinates for Commander Liu and after that start a full diagnostic of suit systems",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you give me the exact coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Commander Liu"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that start a full diagnostic of suit systems"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate an automated diagnostics routine, and while it's running fetch coordinates for the cargo carrier",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate an automated diagnostics routine, and while it's running fetch coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "cargo carrier"
+            }
+        ]
+    },
+    {
+        "prompt": "I need coordinates for rover beta and then run a diagnostics sweep on the power systems",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a diagnostics sweep on the power systems"
+            }
+        ]
+    },
+    {
+        "prompt": "Start diagnostics on the telerobotic arm followed by giving me coordinates for the comms relay tower, please",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start diagnostics on the telerobotic arm followed by giving me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comms relay tower"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you begin diagnostics, fetch the coordinates for the solar panel array and then run a health check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you begin diagnostics, fetch the coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "solar panel array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a health check"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a systems diagnosis on the comms relay and then, followed by that, provide coordinates for the supply pod",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a systems diagnosis on the comms relay and then, followed by that, provide coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply pod"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you locate the science module at the same time and additionally execute a diagnostic on its environmental controls?",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science module"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time and additionally execute a diagnostic on its environmental controls?"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform a status scan of propulsion systems and then next give me coordinates for the landing beacon near site three",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform a status scan of propulsion systems and then next give me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "landing beacon near site three"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you pull coordinates for EVA teammate Garcia and meanwhile run diagnostics on my suit telemetry?",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you pull coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA teammate Garcia"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile run diagnostics on my suit telemetry?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a diagnostic on the science payload, followed by giving me exact coordinates for the nearest beacon Zeta",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a diagnostic on the science payload, followed by giving me exact coordinates for the nearest "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon Zeta"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide coordinates for module Delta and then also initiate a remote diagnostics sequence on its power bus",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "module Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also initiate a remote diagnostics sequence on its power bus"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a quick diagnostic, oh and afterwards fetch coordinates for the soil sample cache at grid B7",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a quick diagnostic, oh and afterwards fetch coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "soil sample cache at grid B7"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the coordinates for the antenna mast and then before diagnostics begin check signal integrity as well",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "antenna mast"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then before diagnostics begin check signal integrity as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Execute a full diagnostics routine, and then at the same time provide the coordinates for the science team's rover",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Execute a full diagnostics routine, and then at the same time provide the coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science team's rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you first get coordinates for storage locker seven and then perform a diagnostic scan of the adjacent systems?",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you first get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "storage locker seven"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform a diagnostic scan of the adjacent systems?"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system diagnosis on the solar inverter followed by fetching coordinates for the nearest EVA airlock, please",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system diagnosis on the solar inverter followed by fetching coordinates for the nearest "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "I want coordinates for the cargo bay next and then additionally request that you run a transient fault diagnostic",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "cargo bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then additionally request that you run a transient fault diagnostic"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform diagnostics on the life-support manifold and then followed by supplying coordinates to the medical module, thanks",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform diagnostics on the life-support manifold and then followed by supplying coordinates to the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "medical module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Get me the coordinates for Captain Ruiz and then run a remote diagnostic of all attached suit sensors",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get me the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Captain Ruiz"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a remote diagnostic of all attached suit sensors"
+            }
+        ]
+    }
+]
+}

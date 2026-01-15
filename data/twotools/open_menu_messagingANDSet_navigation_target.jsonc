@@ -1,0 +1,950 @@
+{
+  // intents: open_menu_messaging AND Set_navigation_target
+  // description_1: The user wants to access text-based communication logs or send messages to Mission Control or other astronauts. They might ask, "Open messages" or "Show comms log."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open comms and navigate to LTV",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Show messages then go to Rover",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show messages then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages also go to Home Base",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages also go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up comms plus go to Airlock",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up comms plus go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms while heading to Solar Array",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms while heading to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages after set destination Cargo Bay",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages after set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms before navigate to Habitat Alpha",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms before navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages but first head to LTV",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages but first head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms as well go to Rover",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms as well go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms and then head to LTV",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms and then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages and then set destination to Science Lab",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open comms and then navigate to Habitat Alpha",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open comms and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the comms log and then route me to Rover",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the comms log and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages and then guide me to the Solar Array",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages and then guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up comms and then set waypoint to Cargo Bay",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up comms and then set waypoint to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms and then direct me to the Command Module",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms and then direct me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages and then lead me to the Airlock, please",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages and then lead me to the Airlock, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms then show messages and then route to Med Bay",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms then show messages and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms as well and navigate to the Science Module",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms as well and navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the messages while plotting a course to Site Bravo",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the messages while plotting a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms and then send to MCC and route to LTV",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms and then send to MCC and route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open comms in addition set destination to Fuel Cache",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open comms in addition set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages additionally guide me to the Seismic Array",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages additionally guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Seismic Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Open comms meanwhile plan route to East Ridge",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open comms meanwhile plan route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Open messages oh and set course to North Crater",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open messages oh and set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Gamma Beacon and then open comms",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gamma Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to the Landing Site and then open that message thread",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open that message thread"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Ops Center then open my latest messages",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ops Center"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open my latest messages"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Cargo Bay next and also open messages",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also open messages"
+            }
+        ]
+    },
+    {
+        "prompt": "Display my inbox followed by routing me to Gamma Beacon",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display my inbox followed by routing me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gamma Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Science Lab while also opening the comms log and showing unread threads",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also opening the comms log and showing unread threads"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Habitat Alpha and then open messages, after that please send a status update to MCC",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open messages, after that please send a status update to MCC"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Airlock and open my comms as well, then plot the safest route back",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open my comms as well, then plot the safest route back"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course for the Solar Array and open messages in addition bring up the latest transmission logs",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course for the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open messages in addition bring up the latest transmission logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Cargo Bay and then open comms, additionally pull up the thread with mission updates",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open comms, additionally pull up the thread with mission updates"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Command Module before opening messages, and then summarize unread reports for me",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " before opening messages, and then summarize unread reports for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Landing Site and then open messages while also starting breadcrumb navigation to Home Base",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open messages while also starting breadcrumb navigation to Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Site Bravo and open my comms as well, but first display the last five messages",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open my comms as well, but first display the last five messages"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Med Bay and then open messages, along with showing any priority alerts waiting there",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open messages, along with showing any priority alerts waiting there"
+            }
+        ]
+    },
+    {
+        "prompt": "Set navigation to Ops Center and then open the comms log, followed by highlighting my unread priority threads",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ops Center"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the comms log, followed by highlighting my unread priority threads"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Gamma Beacon and then open communications, next display the latest mission directives for me",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gamma Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open communications, next display the latest mission directives for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to East Ridge and at the same time open messages so I can read the inbound instructions",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time open messages so I can read the inbound instructions"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to North Crater and then open the messages, meanwhile start a high-precision approach profile",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the messages, meanwhile start a high-precision approach profile"
+            }
+        ]
+    },
+    {
+        "prompt": "Set route to Fuel Cache and open comms, additionally send me any pinned notes and mission priorities",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open comms, additionally send me any pinned notes and mission priorities"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Seismic Array and open messages, oh and check for EVA checklists attached to threads",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Seismic Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open messages, oh and check for EVA checklists attached to threads"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to the Science Module and then open comms and then pull up crew messages for review",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open comms and then pull up crew messages for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Cargo Bay and first open my messages, followed by plotting a two-stage route back to base",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and first open my messages, followed by plotting a two-stage route back to base"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course for Temporary Shelter and then open the comms log, as well as attach any relevant nav waypoints",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Temporary Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the comms log, as well as attach any relevant nav waypoints"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the Landing Zone and then open messages, along with starting the environmental sensors check at the same time",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open messages, along with starting the environmental sensors check at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Gamma Relay then open comms and then send navigation summary to Mission Control",
+        "tool_calls": [
+            "open_menu_messaging",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gamma Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open comms and then send navigation summary to Mission Control"
+            }
+        ]
+    }
+]
+}

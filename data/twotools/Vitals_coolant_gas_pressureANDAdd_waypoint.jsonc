@@ -1,0 +1,966 @@
+{
+  // intents: Vitals_coolant_gas_pressure AND Add_waypoint
+  // description_1: The user checks the pressure of the gas loop associated with the cooling system. The prompt might be "What is the coolant gas pressure?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "coolant gas pressure, add waypoint Alpha",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "coolant gas pressure, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Crater Edge and coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "check gas loop pressure, then waypoint Base",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check gas loop pressure, then waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Sample Site Bravo and coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "what's coolant pressure, add waypoint Storage",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "what's coolant pressure, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Rock Outcrop and coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "report coolant gas pressure also add Beacon",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "report coolant gas pressure also add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "tag Airlock, what's coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "tag "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", what's coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "coolant loop pressure and add Depot",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "coolant loop pressure and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Thermal Vent then coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": " then coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "please display coolant gas pressure and then drop waypoint Cache",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please display coolant gas pressure and then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Survey Grid Three and also tell me coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Grid Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "check pressure of the cooling gas and add Beacon",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check pressure of the cooling gas and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "drop waypoint Landing Beacon, then open coolant gas pressure readout",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then open coolant gas pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "what's the coolant gas pressure and then mark Cache",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "what's the coolant gas pressure and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this spot as Sample Pit and show coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up coolant loop pressure plus add waypoint Hab Module",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up coolant loop pressure plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Module"
+            }
+        ]
+    },
+    {
+        "prompt": "I'd like to add waypoint Rock Ridge, and check coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'd like to add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and check coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "could you tell coolant gas pressure and also set waypoint Debris Field",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you tell coolant gas pressure and also set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Debris Field"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Sample Site Alpha while I check coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I check coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "open coolant gas pressure then add waypoint Instrument Array",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open coolant gas pressure then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Instrument Array"
+            }
+        ]
+    },
+    {
+        "prompt": "please add waypoint Rover Cache, as well as display coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", as well as display coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "report gas loop pressure and then follow with waypoint Water Source",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "report gas loop pressure and then follow with waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Source"
+            }
+        ]
+    },
+    {
+        "prompt": "place Thermal Vent marker, then check coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "place "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker, then check coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "meanwhile, check coolant gas pressure and add waypoint Science Grid",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "meanwhile, check coolant gas pressure and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Grid"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and add waypoint Sample Shelf, then pull up coolant pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then pull up coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "after you read coolant gas pressure, also drop waypoint Med Bay",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you read coolant gas pressure, also drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Science Cache in addition, and display coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition, and display coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "check coolant gas pressure and then add waypoint Sample Pit Two",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check coolant gas pressure and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit Two"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Beacon One before checking coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": " before checking coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up the coolant gas pressure readout and then mark this location as Rock Collection Point",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up the coolant gas pressure readout and then mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Collection Point"
+            }
+        ]
+    },
+    {
+        "prompt": "please add waypoint Old Crater Edge, and additionally display the current coolant gas pressure for me",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and additionally display the current coolant gas pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "could you show coolant loop pressure while also placing a waypoint called Fuel Dump",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you show coolant loop pressure while also placing a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Dump"
+            }
+        ]
+    },
+    {
+        "prompt": "after you tag this as Survey Marker Two, please open the coolant gas pressure readout and confirm",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you tag this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Marker Two"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please open the coolant gas pressure readout and confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "get me the coolant gas pressure and additionally drop a waypoint labeled Sample Ridge",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get me the coolant gas pressure and additionally drop a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this spot as Habitat Perimeter and then at the same time show me the coolant gas pressure trend",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time show me the coolant gas pressure trend"
+            }
+        ]
+    },
+    {
+        "prompt": "report the pressure in the coolant gas loop and then add waypoint North Ridge",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "report the pressure in the coolant gas loop and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "please place a waypoint labeled Sample Hole Three and meanwhile pull up the coolant pressure data",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please place a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Hole Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile pull up the coolant pressure data"
+            }
+        ]
+    },
+    {
+        "prompt": "display coolant gas pressure and then follow with adding waypoint Solar Array Site",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display coolant gas pressure and then follow with adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array Site"
+            }
+        ]
+    },
+    {
+        "prompt": "I'd like to add waypoint Sample Shelf Two in addition, and then have you show coolant gas pressure",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'd like to add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Shelf Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition, and then have you show coolant gas pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "check the cooling system gas pressure before you set waypoint EVA Staging Area",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check the cooling system gas pressure before you set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Staging Area"
+            }
+        ]
+    },
+    {
+        "prompt": "can you add waypoint Debris Cluster and then also bring up the coolant gas pressure logs for the last hour",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "can you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Debris Cluster"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also bring up the coolant gas pressure logs for the last hour"
+            }
+        ]
+    },
+    {
+        "prompt": "before we move, show me coolant gas pressure and additionally tag this location as Sampling Zone B",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before we move, show me coolant gas pressure and additionally tag this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sampling Zone B"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Fuel Cache along with reading out the coolant gas pressure now",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with reading out the coolant gas pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a status on coolant gas pressure, and then immediately set a waypoint named Emergency Return Waypoint for navigation",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a status on coolant gas pressure, and then immediately set a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Return Waypoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " for navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "and then add waypoint Science Marker Alpha, but first display the coolant gas pressure numbers",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Marker Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first display the coolant gas pressure numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "show me the coolant gas pressure trend for the last ten minutes and then add waypoint Ridge Crest for later",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show me the coolant gas pressure trend for the last ten minutes and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Crest"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later"
+            }
+        ]
+    },
+    {
+        "prompt": "followed by placing waypoint Center Node, please report coolant loop gas pressure now",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "followed by placing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Center Node"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please report coolant loop gas pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "meanwhile bring up the coolant gas pressure and then in addition pin this location as Rock Sample A",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "meanwhile bring up the coolant gas pressure and then in addition pin this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Sample A"
+            }
+        ]
+    },
+    {
+        "prompt": "next add waypoint Payload Drop Zone and then show the coolant gas pressure meters",
+        "tool_calls": [
+            "Vitals_coolant_gas_pressure",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "next add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Payload Drop Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the coolant gas pressure meters"
+            }
+        ]
+    }
+]
+}

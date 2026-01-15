@@ -1,0 +1,986 @@
+{
+  // intents: open_menu_rover AND Add_task
+  // description_1: The user wants to access telemetry and control interfaces specific to the Pressurized Rover (PR) or Lunar Terrain Vehicle (LTV). They might ask, "Open rover dashboard" or "Show LTV status."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open rover and add task Soil sample",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Soil sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check battery then open dashboard",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open dashboard"
+            }
+        ]
+    },
+    {
+        "prompt": "Show LTV and add task Seal hatch",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show LTV and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task Repair antenna and open rover",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Repair antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover and add task Soil sample",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Soil sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check suit and open vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check suit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals and add task Reset comms",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reset comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Inspect wheel then show rover",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect wheel"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Show rover and add task Check seals",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show rover and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task Replace filter plus open dashboard",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus open dashboard"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover diagnostics and add task Run suit leak test",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover diagnostics and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run suit leak test"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Calibrate camera then show LTV telemetry",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibrate camera"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show LTV telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the rover HUD and also add task Update nav waypoints",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the rover HUD and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Update nav waypoints"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Log radiation readings and then open rover display",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Log radiation readings"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover display"
+            }
+        ]
+    },
+    {
+        "prompt": "Show LTV status and add task Secure loose tether",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show LTV status and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure loose tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Inspect solar array while opening power menu",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " while opening power menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up rover power and add task Check battery connections",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up rover power and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check battery connections"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task Tighten sample container and then open cargo bay",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tighten sample container"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open cargo bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover telemetry and add task Run sensor calibration",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover telemetry and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run sensor calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Take panoramic photos and open LTV camera controls",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Take panoramic photos"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open LTV camera controls"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit data and add task Perform CO2 scrubber check",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit data and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Perform CO2 scrubber check"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Record EVA timeline then display rover logs",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Record EVA timeline"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display rover logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover console and add task Verify comms link strength",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover console and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify comms link strength"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Collect basalt sample plus show LTV status",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Collect basalt sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show LTV status"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up rover HUD and add task Reboot guidance computer",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up rover HUD and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reboot guidance computer"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check thermal blanket before opening heat map",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check thermal blanket"
+            },
+            {
+                "type": "TEXT",
+                "text": " before opening heat map"
+            }
+        ]
+    },
+    {
+        "prompt": "Display LTV diagnostics and add task Replace damaged tire",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display LTV diagnostics and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace damaged tire"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Measure regolith depth and open sampling tools after clearing debris",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Measure regolith depth"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open sampling tools after clearing debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover map and add task Mark radiation hotspot location",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover map and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mark radiation hotspot location"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check life support filters as well as show vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check life support filters"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover diagnostics but first add task Perform fuel cell pressure check and log time",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover diagnostics but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Perform fuel cell pressure check and log time"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Take atmospheric profile in addition open the LTV environmental panel followed by rover map",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Take atmospheric profile"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition open the LTV environmental panel followed by rover map"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover power display and then add task Verify solar array alignment along with sample prep",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover power display and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify solar array alignment along with sample prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Photograph entry hatch meanwhile open rover camera controls and then check focus",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Photograph entry hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile open rover camera controls and then check focus"
+            }
+        ]
+    },
+    {
+        "prompt": "Show LTV telemetry additionally add task Recalibrate inertial measurement unit and save settings",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show LTV telemetry additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Recalibrate inertial measurement unit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and save settings"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check coolant loop oh and open the rover thermal monitor to review temps",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check coolant loop"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and open the rover thermal monitor to review temps"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover navigation panel followed by add task Update waypoint coordinates next verify fix quality",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover navigation panel followed by add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Update waypoint coordinates"
+            },
+            {
+                "type": "TEXT",
+                "text": " next verify fix quality"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Secure EVAs tether before opening rover comms at the same time check signal strength",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secure EVAs tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " before opening rover comms at the same time check signal strength"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover cargo manifest in addition add task Inventory sample containers along with labeling new jars",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover cargo manifest in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inventory sample containers"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with labeling new jars"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check backup battery currents and then open rover power diagram meanwhile log the reading",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check backup battery currents"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover power diagram meanwhile log the reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Open LTV status but first add task Inspect tether anchors around module and report anomalies",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open LTV status but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect tether anchors around module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Replace worn O-ring and then open rover maintenance schedule to confirm procedures",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Replace worn O-ring"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover maintenance schedule to confirm procedures"
+            }
+        ]
+    },
+    {
+        "prompt": "Show rover environmental sensors and add task Reposition CO2 scrubber along with rechecking seals",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show rover environmental sensors and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Reposition CO2 scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with rechecking seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Run antenna diagnostics and then pull up rover comms array status for me",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Run antenna diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up rover comms array status for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover's scientific payload menu and additionally add task Initiate spectrometer warm-up sequence before sampling",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover's scientific payload menu and additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Initiate spectrometer warm-up sequence"
+            },
+            {
+                "type": "TEXT",
+                "text": " before sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Seal sample bag next followed by opening rover sample transfer controls to begin transfer",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal sample bag"
+            },
+            {
+                "type": "TEXT",
+                "text": " next followed by opening rover sample transfer controls to begin transfer"
+            }
+        ]
+    },
+    {
+        "prompt": "Open rover camera array oh and add task Adjust exposure settings and store presets for low light",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open rover camera array oh and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Adjust exposure settings and store presets for low light"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Check external sensors at the same time open the rover diagnostics log to cross-check timestamps",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Check external sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time open the rover diagnostics log to cross-check timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up rover route map meanwhile add task Flag steep slope at coordinate 12.34N 56.78E for caution",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up rover route map meanwhile add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Flag steep slope at coordinate 12.34N 56.78E"
+            },
+            {
+                "type": "TEXT",
+                "text": " for caution"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task Verify emergency oxygen reserve levels and then open rover life support readouts at the same time",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Verify emergency oxygen reserve levels"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover life support readouts at the same time"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,974 @@
+{
+  // intents: vitals_batt_time_left AND Set_navigation_target
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check battery then navigate rover",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery then navigate "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LTV and battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "Power left and go to habitat",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power left and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to home base, battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "home base"
+            },
+            {
+                "type": "TEXT",
+                "text": ", battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "How much battery time do I have and set course to LZ-3",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much battery time do I have and set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Supply Cache and tell me battery time left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me battery time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining charge and after that guide me to the rover",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining charge and after that guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Alpha Ridge and then show battery status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my suit power and navigate to Base Camp",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my suit power and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Comm Buoy and also report battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Buoy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need current battery time remaining and set waypoint to South Crater",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need current battery time remaining and set waypoint to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to North Ridge while also checking how much battery time I have left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also checking how much battery time I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "Power left and head to Lander",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power left and head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Echo Point and battery status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Echo Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery time, then set route to Science Module",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery time, then set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Beacon-7 along with pulling up my vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with pulling up my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please tell me the remaining power duration and then navigate me to the ascent module",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please tell me the remaining power duration and then navigate me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "ascent module"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Depot and while you're at it show suit biometrics plus battery time remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it show suit biometrics plus battery time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my charge and then take me to Rendezvous",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my charge and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rendezvous"
+            }
+        ]
+    },
+    {
+        "prompt": "Point navigation to Main Base and report battery minutes left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Point navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Main Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report battery minutes left"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, but first check the remaining suit charge and then set destination to East Outpost so I can move",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, but first check the remaining suit charge and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " so I can move"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Cargo Bay and before that tell me how much battery time I have left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before that tell me how much battery time I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery status also route to Gate",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery status also route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Hab and battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show battery percentage and next set navigation to Ridge Beacon",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show battery percentage and next set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridge Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Tranquility and then display my suit vitals in addition show battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Tranquility"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my suit vitals in addition show battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up remaining power estimate and at the same time mark the waypoint as Habitat-2",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up remaining power estimate and at the same time mark the waypoint as "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to LZ and additionally check how many minutes of battery life are left for me",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally check how many minutes of battery life are left for me"
+            }
+        ]
+    },
+    {
+        "prompt": "How long is the battery plus guide me to Beacon-7",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long is the battery plus guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Set heading to Waypoint Alpha and report battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set heading to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Waypoint Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit power and go to Depot",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit power and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide me to Meridian and battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Meridian"
+            },
+            {
+                "type": "TEXT",
+                "text": " and battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme know battery minutes left and bring up navigation to South Crater",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme know battery minutes left and bring up navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination East Outpost and also show my biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show my biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the remaining battery time before you set navigation to the science module and get me moving",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the remaining battery time before you set navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "science module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get me moving"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to West Valley followed by a readout of suit vitals and remaining power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Valley"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout of suit vitals and remaining power"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining charge as well as routing me to Base Camp",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining charge as well as routing me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to South Crater and meanwhile tell me my battery minutes",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile tell me my battery minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time then head to Beacon-7",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Gate and check charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you route me, check my suit power levels and then set destination to Olympus",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you route me, check my suit power levels and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Olympus"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Rendezvous and additionally pull up full vitals plus remaining battery duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rendezvous"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up full vitals plus remaining battery duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show battery estimate and next point to LZ-3",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show battery estimate and next point to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Habitat and then also display suit data",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also display suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "Power left and route to Cargo Bay",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power left and route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Depot and battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open battery readout and then mark the Beacon-7 waypoint",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open battery readout and then mark the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Main Base and at the same time show my battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Main Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show my battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my remaining power, followed by setting navigation to the Science Module for transit",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my remaining power, followed by setting navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " for transit"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Tranquility and then additionally give me a full battery and vitals summary",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Tranquility"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally give me a full battery and vitals summary"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,998 @@
+{
+  // intents: vitals_temperature AND Get_coordinates
+  // description_1: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "check suit temp and locate LTV",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check suit temp and locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "where is the LTV and suit temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme suit temperature then coordinates for PR",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme suit temperature then coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for PR and show temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show temp"
+            }
+        ]
+    },
+    {
+        "prompt": "suit temp plus find Rover-1",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "suit temp plus find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-1"
+            }
+        ]
+    },
+    {
+        "prompt": "where's Rover-1 and my core temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and my core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "need core temp and coordinates Lander",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "need core temp and coordinates "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "find Lander then show suit temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "display biometrics and get Base Camp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display biometrics and get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "coordinates for Base Camp and temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "please show my suit temperature and coordinates for Hab Module",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please show my suit temperature and coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Hab Module"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for Cargo Pod but first show temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show temp"
+            }
+        ]
+    },
+    {
+        "prompt": "open vitals and also locate Science Station please",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open vitals and also locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Science Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "where is the Relay Tower and show my suit temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show my suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "show biometrics plus give me coordinates for LZ Alpha",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show biometrics plus give me coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for Sample Site Alpha and then display vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "hey check my core temp as well as find Martinez",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey check my core temp as well as find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Martinez"
+            }
+        ]
+    },
+    {
+        "prompt": "locate Chen followed by showing my suit temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Chen"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing my suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "I need suit temp and coordinates for Orbiter, please",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need suit temp and coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Orbiter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "could you get coordinates for Mobile Transport but first show temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Mobile Transport"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show temp"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up suit data and also locate LZ-1 for me",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up suit data and also locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " for me"
+            }
+        ]
+    },
+    {
+        "prompt": "where is Beacon 3 and then display my biometrics",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and check my temperature plus get coordinates for LZ Bravo",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and check my temperature plus get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for PR-2 and additionally show suit temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally show suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "meanwhile pull up my vitals and find the Cargo Bay",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "meanwhile pull up my vitals and find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "find Supply Cache and at the same time display core temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time display core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "please display suit temp and then get coordinates for Depot 4",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please display suit temp and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Depot 4"
+            }
+        ]
+    },
+    {
+        "prompt": "where's Research Outpost and also open my biometrics panel",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Research Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also open my biometrics panel"
+            }
+        ]
+    },
+    {
+        "prompt": "check body temp and next give coordinates for Forward Station",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check body temp and next give coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Forward Station"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for Navigation Buoy and display suit temperature afterwards",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Navigation Buoy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display suit temperature afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up my suit internal temperature and then find Beacon Alpha",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up my suit internal temperature and then find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "first get coordinates for LZ Bravo and afterward display my current core temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "first get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and afterward display my current core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "please open my biometrics readout and in addition locate the Command Module now",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please open my biometrics readout and in addition locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "could you get coordinates for Solar Array and at the same time show my suit temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show my suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "check my core body temperature and then bring up coordinates for Telescope, please",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check my core body temperature and then bring up coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Telescope"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "locate Dr. Kim and then also display my suit temperature along with battery status",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Dr. Kim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also display my suit temperature along with battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "after you pull up my suit temperature, also get the exact coordinates for Unit 7",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you pull up my suit temperature, also get the exact coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Unit 7"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for Explorer and then while at it show me my biometrics panel",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Explorer"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then while at it show me my biometrics panel"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to display suit data next and follow that by locating Transport Vehicle for rendezvous",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to display suit data next and follow that by locating "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Transport Vehicle"
+            },
+            {
+                "type": "TEXT",
+                "text": " for rendezvous"
+            }
+        ]
+    },
+    {
+        "prompt": "find Habitat-2 then additionally pull up my temperature readings before EVA continues now",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Habitat-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " then additionally pull up my temperature readings before EVA continues now"
+            }
+        ]
+    },
+    {
+        "prompt": "open my vitals display and then get coordinates for Rover Beta, and then report back",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open my vitals display and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then report back"
+            }
+        ]
+    },
+    {
+        "prompt": "could you tell me where LTV-2 is and at the same time show my internal temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you tell me where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " is and at the same time show my internal temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "yo check my suit temp followed by fetching coordinates for Cargo Bay, I'm prepping extraction",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo check my suit temp followed by fetching coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", I'm prepping extraction"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for Supply Cache and then meanwhile pull up my core body temperature readout",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then meanwhile pull up my core body temperature readout"
+            }
+        ]
+    },
+    {
+        "prompt": "before we move, please show my biometrics and also provide coordinates for Depot 4",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before we move, please show my biometrics and also provide coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Depot 4"
+            }
+        ]
+    },
+    {
+        "prompt": "find Research Outpost and additionally open my suit temperature panel as well as status",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Research Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally open my suit temperature panel as well as status"
+            }
+        ]
+    },
+    {
+        "prompt": "after you check the suit temperature, could you also get coordinates for Forward Station and report",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after you check the suit temperature, could you also get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Forward Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report"
+            }
+        ]
+    },
+    {
+        "prompt": "could you locate Navigation Buoy then open my vitals readout, and then give me a summary",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Navigation Buoy"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open my vitals readout, and then give me a summary"
+            }
+        ]
+    },
+    {
+        "prompt": "lemme see my internal temperature followed by coordinates for Beacon 3, plus the ETA to reach it",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "lemme see my internal temperature followed by coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", plus the ETA to reach it"
+            }
+        ]
+    },
+    {
+        "prompt": "get coordinates for LZ Alpha and then at the same time bring up my suit temp and biometrics",
+        "tool_calls": [
+            "vitals_temperature",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time bring up my suit temp and biometrics"
+            }
+        ]
+    }
+]
+}

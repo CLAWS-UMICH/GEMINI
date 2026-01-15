@@ -1,0 +1,1007 @@
+{
+  // intents: vitals_oxy_sec_storage AND Set_navigation_target
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check backup O2 and go to LTV",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup O2 and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Status of secondary tank then Home Base",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of secondary tank then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Need spare oxygen and navigate Rover",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need spare oxygen and navigate "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check reserve O2 then LTV",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check reserve O2 then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "How much backup O2 and Depot",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much backup O2 and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the secondary oxygen level for me and then navigate to Home Base with route overlay",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the secondary oxygen level for me and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " with route overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me the backup oxygen remaining and set destination to LTV with turn-by-turn guidance",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me the backup oxygen remaining and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " with turn-by-turn guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo gimme spare oxygen status and then Rover",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo gimme spare oxygen status and then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide secondary oxygen levels, and also set destination to Hab Alpha and show ETA",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide secondary oxygen levels, and also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking backup oxygen, bring up route to the Gateway",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking backup oxygen, bring up route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gateway"
+            }
+        ]
+    },
+    {
+        "prompt": "Need status of secondary O2 and then plot course to Landing Zone with guidance markers and ETA",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need status of secondary O2 and then plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " with guidance markers and ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the spare oxygen supply and set destination Depot",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the spare oxygen supply and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "What's remaining in backup oxygen and can you navigate to Base Camp while showing path and distance",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's remaining in backup oxygen and can you navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " while showing path and distance"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary oxygen status and then route to Hab 1",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary oxygen status and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up spare oxygen levels as well as navigate to Science Module",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up spare oxygen levels as well as navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary O2 readout along with heading to Crew Quarters",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary O2 readout along with heading to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crew Quarters"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup oxygen percentage plus take me to Airlock",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup oxygen percentage plus take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary oxygen in addition to plotting course to Comm Relay",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary oxygen in addition to plotting course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally show spare oxygen level and then set destination Supply Cache",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally show spare oxygen level and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen meanwhile open navigation to Forward Outpost",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen meanwhile open navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Outpost"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up secondary oxygen tank status and then plot a guided route to Docking Port",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up secondary oxygen tank status and then plot a guided route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the reserve oxygen gauge and then bring up holographic navigation to EVA Shuttle",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the reserve oxygen gauge and then bring up holographic navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Shuttle"
+            }
+        ]
+    },
+    {
+        "prompt": "After you confirm spare oxygen levels, also set destination to Habitat 2 and show path overlay",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you confirm spare oxygen levels, also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show path overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you leave, check the backup oxygen storage and then navigate me to the Science Module with overlays",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you leave, check the backup oxygen storage and then navigate me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " with overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you verify secondary O2 quantities and then, followed by routing, take me to the Observation Post",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you verify secondary O2 quantities and then, followed by routing, take me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Rover and check backup O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate Rover and check backup O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to LTV then spare oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " then spare oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Depot then check secondary tank",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check secondary tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Home Base and show spare oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show spare oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course Airlock and backup oxygen?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and backup oxygen?"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Supply Cache and next check secondary oxygen level for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next check secondary oxygen level for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Crew Quarters and then report spare O2 percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crew Quarters"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report spare O2 percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Gateway and also show secondary oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gateway"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show secondary oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo take me to Forward Outpost and then check reserve oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check reserve oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set route to Science Module and in addition display spare oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition display spare oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot a path to Docking Port plus show secondary oxygen remaining",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot a path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show secondary oxygen remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Base Camp along with pulling up backup oxygen readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with pulling up backup oxygen readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Med Bay and then display secondary oxygen gauge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display secondary oxygen gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Send navigation to Payload Bay followed by reporting spare oxygen levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Send navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Payload Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting spare oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Forward Hab meanwhile check the backup oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Hab"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile check the backup oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you depart, set destination to Beacon 3 and then verify the secondary oxygen storage levels for me",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you depart, set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then verify the secondary oxygen storage levels for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Geology Site but first pull up the status of the backup oxygen tank and confirm",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Geology Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first pull up the status of the backup oxygen tank and confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Lunar Lab as well as show me the spare oxygen percentage and estimated runtime",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as show me the spare oxygen percentage and estimated runtime"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Observation Dome and then additionally report secondary oxygen capacity plus expected duration remaining",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Dome"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally report secondary oxygen capacity plus expected duration remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Control Node and at the same time pull up the backup O2 readout with trends",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Control Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time pull up the backup O2 readout with trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and set navigation to Beacon Alpha, also check the secondary oxygen tank level and pressure trends",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", also check the secondary oxygen tank level and pressure trends"
+            }
+        ]
+    },
+    {
+        "prompt": "While you're plotting the path to Habitation Module, show me the spare oxygen supply and margins",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you're plotting the path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitation Module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", show me the spare oxygen supply and margins"
+            }
+        ]
+    },
+    {
+        "prompt": "In addition to routing to the Observation Post, display the secondary oxygen quantities and time remaining",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "In addition to routing to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", display the secondary oxygen quantities and time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot a course to Docking Bay and then, at the same time, report the backup oxygen tank reserves",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, at the same time, report the backup oxygen tank reserves"
+            }
+        ]
+    },
+    {
+        "prompt": "Send me to Control Hub, followed by showing the secondary oxygen storage status and projected endurance estimates",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Send me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Control Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by showing the secondary oxygen storage status and projected endurance estimates"
+            }
+        ]
+    }
+]
+}

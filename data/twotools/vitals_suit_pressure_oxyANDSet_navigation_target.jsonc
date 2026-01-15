@@ -1,0 +1,1365 @@
+{
+  // intents: vitals_suit_pressure_oxy AND Set_navigation_target
+  // description_1: The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, "What is the oxygen pressure inside the suit?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check oxygen pressure then set destination LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check oxygen pressure then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination rover then check oxygen",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell O2 partial pressure and go Habitat",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell O2 partial pressure and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Airlock and read O2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and read O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen pressure plus set destination LZ-3",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen pressure plus set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Go Depot then verify oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " then verify oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Report suit O2 then navigate Command Module",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report suit O2 then navigate "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Science Lab and check O2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read my oxygen and go Home Base",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read my oxygen and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Send me to Rover oh and report O2",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Send me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and report O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report suit oxygen partial pressure and set destination Depot",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report suit oxygen partial pressure and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell my O2 pressure then navigate to Habitat Alpha",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell my O2 pressure then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "I need oxygen partial pressure along with set destination Relay now",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need oxygen partial pressure along with set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify O2 pressure and then route me to EVA Staging",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify O2 pressure and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show oxygen partial pressure while you set destination Med Bay",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show oxygen partial pressure while you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme my suit O2 pressure oh and send me to North Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme my suit O2 pressure oh and send me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Check oxygen pressure as well as set destination Beacon 7",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check oxygen pressure as well as set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 7"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the O2 reading and then take me to Workshop",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the O2 reading and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Workshop"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read oxygen levels additionally set destination Fuel Cache",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read oxygen levels additionally set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up oxygen partial pressure and then set destination Alpha Site",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up oxygen partial pressure and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Bravo Post and then check my suit oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bravo Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check my suit oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Charlie Dock plus give me the O2 partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Charlie Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus give me the O2 partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Delta Hub and also read suit oxygen levels",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Delta Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also read suit oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Echo Station then report oxygen partial pressure for suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Echo Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " then report oxygen partial pressure for suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Landing Zone but first check my O2 pressure please",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first check my O2 pressure please"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Storage Bay and additionally display the oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally display the oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Canteen and at the same time tell oxygen pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Canteen"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time tell oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Send me to Greenhouse then check my suit O2 levels",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Send me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check my suit O2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Docking Port followed by reading suit oxygen partial pressure",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reading suit oxygen partial pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Waypoint A next and display oxygen pressure readings",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Waypoint A"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and display oxygen pressure readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey I need you to pull up the suit oxygen partial pressure and then set my destination to Research Annex",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey I need you to pull up the suit oxygen partial pressure and then set my destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Annex"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide oxygen partial pressure for my suit while also routing me to the Comm Tower",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide oxygen partial pressure for my suit while also routing me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the O2 partial pressure and next set the AR navigation to the Main Module",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the O2 partial pressure and next set the AR navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Main Module"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a readout of suit oxygen pressure in addition set destination to Power Node and guide me",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a readout of suit oxygen pressure in addition set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Power Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and guide me"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, check my oxygen partial pressure and then bring up directions to the Observation Deck",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, check my oxygen partial pressure and then bring up directions to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            }
+        ]
+    },
+    {
+        "prompt": "After you verify oxygen pressure, follow up by setting navigation to the Research Annex and display route",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you verify oxygen pressure, follow up by setting navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Annex"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display route"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my O2 pressure, as well as program the AR to take me to Sample Cache",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my O2 pressure, as well as program the AR to take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the partial pressure of oxygen inside the suit and also have you set destination to Tool Locker",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the partial pressure of oxygen inside the suit and also have you set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Tool Locker"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up suit oxygen partial pressure and then route the holograms toward EVA Spot followed by a confirmation",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up suit oxygen partial pressure and then route the holograms toward "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Spot"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read my oxygen partial pressure and at the same time set the route to Recovery Point",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read my oxygen partial pressure and at the same time set the route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Recovery Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Lander; meanwhile tell me the suit oxygen partial pressure right now",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": "; meanwhile tell me the suit oxygen partial pressure right now"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LTV-2 and then provide the current O2 partial pressure for my suit including units",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then provide the current O2 partial pressure for my suit including units"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Habitat Bravo and additionally pull up my suit oxygen pressure and any warnings",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up my suit oxygen pressure and any warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Power Node, next report oxygen partial pressure and display whether it's within safe limits",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Power Node"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next report oxygen partial pressure and display whether it's within safe limits"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Medbay while checking the suit O2 partial pressure and then confirm route is active",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Medbay"
+            },
+            {
+                "type": "TEXT",
+                "text": " while checking the suit O2 partial pressure and then confirm route is active"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Observation Deck and in addition show me the current oxygen partial pressure inside my suit",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition show me the current oxygen partial pressure inside my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Research Annex followed by reading suit oxygen partial pressure and highlight any anomalies",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Annex"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reading suit oxygen partial pressure and highlight any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Node 2 and at the same time report suit oxygen partial pressure as an immediate check",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Node 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time report suit oxygen partial pressure as an immediate check"
+            }
+        ]
+    },
+    {
+        "prompt": "Send navigation to Cargo Hold and before that tell me the oxygen partial pressure in the suit and warnings",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Send navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            },
+            {
+                "type": "TEXT",
+                "text": " and before that tell me the oxygen partial pressure in the suit and warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Beacon 7 then display my oxygen partial pressure plus confirm whether EVA is safe to continue",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display my oxygen partial pressure plus confirm whether EVA is safe to continue"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Docking Port along with checking my oxygen partial pressure and flagging anomalies",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with checking my oxygen partial pressure and flagging anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display oxygen levels and then set navigation to Bay 4 with route overlays",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display oxygen levels and then set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bay 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " with route overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my O2 partial pressure and then set the AR path to the Cargo Hold",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my O2 partial pressure and then set the AR path to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the oxygen partial pressure readout and then set destination to Lander with guidance cues",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the oxygen partial pressure readout and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " with guidance cues"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you route me, tell me the oxygen partial pressure and then set destination LTV-2 with confirmation",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you route me, tell me the oxygen partial pressure and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " with confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a full O2 pressure readout plus set my destination to Habitat Bravo and overlay hazards",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a full O2 pressure readout plus set my destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and overlay hazards"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up oxygen pressure, and then route me to the Power Node with turn-by-turn holograms",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up oxygen pressure, and then route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Power Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " with turn-by-turn holograms"
+            }
+        ]
+    },
+    {
+        "prompt": "Show oxygen partial pressure and then queue navigation to the Observation Deck followed by status ping",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show oxygen partial pressure and then queue navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by status ping"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you confirm O2 partial pressure and as well as establish route to the Research Annex",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you confirm O2 partial pressure and as well as establish route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Annex"
+            }
+        ]
+    },
+    {
+        "prompt": "I want oxygen partial pressure displayed and then send navigation to the Sample Cache with ETA",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want oxygen partial pressure displayed and then send navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " with ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Node 5 and meanwhile show the oxygen partial pressure and any red flags",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Node 5"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show the oxygen partial pressure and any red flags"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the suit O2 readout and then set the AR route to Main Module plus mark obstacles",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the suit O2 readout and then set the AR route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Main Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus mark obstacles"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Recovery Point and then display my oxygen partial pressure along with suit status",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Recovery Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display my oxygen partial pressure along with suit status"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Workshop and after that report oxygen partial pressure plus any immediate alerts",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Workshop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that report oxygen partial pressure plus any immediate alerts"
+            }
+        ]
+    },
+    {
+        "prompt": "Please give me the O2 partial pressure and then navigate to the Comm Tower and route around hazards",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please give me the O2 partial pressure and then navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and route around hazards"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit oxygen partial pressure and then set destination to the Greenhouse with overlays",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit oxygen partial pressure and then set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " with overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Tool Locker and then read the oxygen partial pressure and show trend data",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Tool Locker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read the oxygen partial pressure and show trend data"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the oxygen partial pressure and then guide me to Bay 4, and then confirm arrival ETA",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the oxygen partial pressure and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bay 4"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then confirm arrival ETA"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check oxygen partial pressure and then send navigation to the Sample Cache next",
+        "tool_calls": [
+            "vitals_suit_pressure_oxy",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check oxygen partial pressure and then send navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    }
+]
+}

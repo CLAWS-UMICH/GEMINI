@@ -1,0 +1,962 @@
+{
+  // intents: open_menu_tasks AND delete_waypoint
+  // description_1: The user needs to see the current checklist, procedure steps, or to-do list for the mission. The prompt would be "Open task list" or "Show mission objectives."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Show checklist and delete Home",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show checklist and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "Open mission tasks then remove waypoint Alpha",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open mission tasks then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Display to-do and then remove marker Base",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display to-do and then remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up objectives and delete marker LZ",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up objectives and delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Open checklist also remove waypoint Alpha Site",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open checklist also remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Show tasks and remove Home",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show tasks and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "Check list and delete Echo",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check list and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Open to-dos and then delete waypoint Camp2",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open to-dos and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show mission objectives and remove LandingPad",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show mission objectives and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LandingPad"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up task list and delete Alpha-1",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up task list and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the vitals menu and then delete waypoint Delta Camp",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the vitals menu and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit data and remove the marker called Storage Bay",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit data and remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the checklist and also delete waypoint Outpost-3",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the checklist and also delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Show mission tasks plus remove waypoint Beacon Bravo",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show mission tasks plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my to-do list but first delete the marker named Eagle",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my to-do list but first delete the marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Eagle"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up objectives and then remove waypoint South Ridge",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up objectives and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show the tasks and after remove marker Alpha Sector",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show the tasks and after remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Sector"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the checklist while deleting waypoint Supply Cache",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the checklist while deleting waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the task list and then remove marker Observation Point",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the task list and then remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the objectives menu and also remove waypoint Hab-1",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the objectives menu and also remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the mission checklist and remove marker Lunar Gate please",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the mission checklist and remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lunar Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the to-do and then delete waypoint Home Base Alpha",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the to-do and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up suit vitals and then delete the marker dubbed Raven",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up suit vitals and then delete the marker dubbed "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Raven"
+            }
+        ]
+    },
+    {
+        "prompt": "Display my checklist and after remove waypoint Beacon-2",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display my checklist and after remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Open tasks as well as delete waypoint Charlie Zone",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open tasks as well as delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Delta-Base and then show the tasks menu",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta-Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the tasks menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Echo Point and pull up the vitals display",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up the vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker Home then open my checklist please",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open my checklist please"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Supply Depot and also show mission objectives",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show mission objectives"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker LZ and next display the task list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next display the task list"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Old Camp, and then open the mission checklist so I can verify objectives",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then open the mission checklist so I can verify objectives"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker called Ridge Station before you display my suit vitals and task list",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you display my suit vitals and task list"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete waypoint Alpha Site and then pull up the to-do list plus show suit biometrics",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up the to-do list plus show suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear waypoint Beacon Thirty and after open objectives while also bringing up power status",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Thirty"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after open objectives while also bringing up power status"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Camp Horizon followed by opening the tasks menu and then show me battery levels",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Horizon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the tasks menu and then show me battery levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Eagle Nest, and then at the same time bring up the full checklist and vitals display",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Eagle Nest"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then at the same time bring up the full checklist and vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker named Raven and then open my task list, and then display suit charge and vitals",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Raven"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open my task list, and then display suit charge and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Observation Point next show me the mission objectives and additionally open the vitals menu",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " next show me the mission objectives and additionally open the vitals menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the Home marker before you pull up my checklist and also bring up power diagnostics",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you pull up my checklist and also bring up power diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Hab-1 then display the task list while also showing my suit power and biometrics",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display the task list while also showing my suit power and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker LandingPad followed by showing the objectives and oh and bring up remaining battery life",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LandingPad"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing the objectives and oh and bring up remaining battery life"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Charlie Zone and then bring up the mission checklist in addition to displaying my suit vitals",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up the mission checklist in addition to displaying my suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the waypoint Outpost-3, and then open the objectives menu and then show battery percentage and charge time",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost-3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then open the objectives menu and then show battery percentage and charge time"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Beacon-2 and at the same time pull up my task list as well as display suit telemetry",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time pull up my task list as well as display suit telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Delta Camp meanwhile open the to-do list and then show diagnostics plus remaining power",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile open the to-do list and then show diagnostics plus remaining power"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Ridge Station marker and then open tasks, followed by showing suit biometrics and battery",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open tasks, followed by showing suit biometrics and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Beacon Bravo, and then as well as open the checklist also display power and vitals",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then as well as open the checklist also display power and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Camp Horizon and then next pull up the tasks menu and at the same time show suit telemetry",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Horizon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next pull up the tasks menu and at the same time show suit telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Eagle Nest and additionally open mission objectives, plus bring up remaining battery and vitals",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Eagle Nest"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally open mission objectives, plus bring up remaining battery and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker Lunar Gate and then open my task list, and then also display suit charge along with biometrics",
+        "tool_calls": [
+            "open_menu_tasks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lunar Gate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open my task list, and then also display suit charge along with biometrics"
+            }
+        ]
+    }
+]
+}

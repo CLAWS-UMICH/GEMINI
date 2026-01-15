@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_pressure AND vitals_coolant_liquid_pressure
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user needs to verify the pressure of the liquid loop in the thermal control system to ensure coolant is circulating correctly. They might ask, "Check liquid coolant pressure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary O2 and coolant pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 and coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read coolant loop then sec O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read coolant loop then sec O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary oxygen plus liquid pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary oxygen plus liquid pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Need liquid loop and secondary O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need liquid loop and secondary O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Show sec O2 then check coolant",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show sec O2 then check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check liquid coolant pressure and then display secondary O2 reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check liquid coolant pressure and then display secondary O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up secondary O2 status and also the coolant loop pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up secondary O2 status and also the coolant loop pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up liquid loop pressure plus bring up secondary oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up liquid loop pressure plus bring up secondary oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary O2 pressure and the liquid coolant pressure next",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary O2 pressure and the liquid coolant pressure next"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the coolant pressure, and then report secondary O2, please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the coolant pressure, and then report secondary O2, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the secondary oxygen tank pressure and additionally verify the liquid loop pressure for me",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the secondary oxygen tank pressure and additionally verify the liquid loop pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display liquid coolant pressure first and then bring up the secondary O2 tank readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display liquid coolant pressure first and then bring up the secondary O2 tank readout"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking the secondary O2 tank pressure, also check the thermal control liquid loop pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking the secondary O2 tank pressure, also check the thermal control liquid loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you do anything, check the coolant loop pressure and then show the secondary oxygen reserve",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you do anything, check the coolant loop pressure and then show the secondary oxygen reserve"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 and coolant, report",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 and coolant, report"
+            }
+        ]
+    },
+    {
+        "prompt": "Read liquid coolant pressure and also pull up secondary O2 values, thanks",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read liquid coolant pressure and also pull up secondary O2 values, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check backup O2 and also the coolant pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check backup O2 and also the coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to confirm liquid loop pressure, and then once stable report the secondary O2 tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to confirm liquid loop pressure, and then once stable report the secondary O2 tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify secondary oxygen reserve pressure as well as the liquid loop pressure before EVA egress",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify secondary oxygen reserve pressure as well as the liquid loop pressure before EVA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up coolant loop pressure and then show secondary O2, please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up coolant loop pressure and then show secondary O2, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by confirming secondary O2 pressure, also run a check on the coolant liquid pressure and report anomalies",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by confirming secondary O2 pressure, also run a check on the coolant liquid pressure and report anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant pressure followed by secondary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant pressure followed by secondary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm sec O2 and liquid",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm sec O2 and liquid"
+            }
+        ]
+    },
+    {
+        "prompt": "Liquid coolant then sec O2 status",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Liquid coolant then sec O2 status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary oxygen tank pressure and then display the coolant loop metrics",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary oxygen tank pressure and then display the coolant loop metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Check liquid coolant pressure in addition, then please report the secondary O2 tank pressure for pre-eva checks",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check liquid coolant pressure in addition, then please report the secondary O2 tank pressure for pre-eva checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the secondary oxygen tank pressure along with the liquid loop pressure and report any drops",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the secondary oxygen tank pressure along with the liquid loop pressure and report any drops"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read coolant pressure as well as the secondary O2 reading?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read coolant pressure as well as the secondary O2 reading?"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary O2 pressure meanwhile also confirm liquid coolant pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary O2 pressure meanwhile also confirm liquid coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "But first check the liquid coolant pressure, and then open the secondary O2 tank status",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first check the liquid coolant pressure, and then open the secondary O2 tank status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary O2 status and then fetch coolant loop pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary O2 status and then fetch coolant loop pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read coolant loop pressure and at the same time show secondary O2 values",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read coolant loop pressure and at the same time show secondary O2 values"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm the secondary O2 tank pressure, oh and while you're at it check the liquid coolant pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm the secondary O2 tank pressure, oh and while you're at it check the liquid coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Check liquid coolant pressure, additionally report secondary oxygen tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check liquid coolant pressure, additionally report secondary oxygen tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary oxygen reserve pressure followed by a diagnostic on the liquid cooling pressure and report results",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary oxygen reserve pressure followed by a diagnostic on the liquid cooling pressure and report results"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant plus sec O2",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant plus sec O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme the secondary O2 pressure and then also show coolant pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme the secondary O2 pressure and then also show coolant pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the liquid loop pressure in addition to pulling up the secondary O2 pressure and check for leaks",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the liquid loop pressure in addition to pulling up the secondary O2 pressure and check for leaks"
+            }
+        ]
+    },
+    {
+        "prompt": "Please confirm secondary O2 pressure as well as the coolant loop pressure, thanks",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please confirm secondary O2 pressure as well as the coolant loop pressure, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Check liquid coolant pressure before you display the secondary oxygen tank pressure and confirm nominal levels",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check liquid coolant pressure before you display the secondary oxygen tank pressure and confirm nominal levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Sec O2 then coolant, please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Sec O2 then coolant, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull the coolant pressure and also display the secondary O2 gauge?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull the coolant pressure and also display the secondary O2 gauge?"
+            }
+        ]
+    },
+    {
+        "prompt": "Inspect the secondary oxygen tank pressure and then evaluate the liquid coolant pressure for thermal stability",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Inspect the secondary oxygen tank pressure and then evaluate the liquid coolant pressure for thermal stability"
+            }
+        ]
+    },
+    {
+        "prompt": "Show liquid coolant pressure along with the secondary O2 tank reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show liquid coolant pressure along with the secondary O2 tank reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Verify secondary O2 pressure, meanwhile run the liquid coolant pressure check and flag any inconsistencies",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Verify secondary O2 pressure, meanwhile run the liquid coolant pressure check and flag any inconsistencies"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a check on the coolant loop pressure followed by the secondary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a check on the coolant loop pressure followed by the secondary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read secondary O2 pressure as well as the liquid coolant reading now",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read secondary O2 pressure as well as the liquid coolant reading now"
+            }
+        ]
+    },
+    {
+        "prompt": "After you confirm liquid coolant pressure, and then show the secondary O2 tank status along with timestamps",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you confirm liquid coolant pressure, and then show the secondary O2 tank status along with timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm the secondary oxygen tank pressure and at the same time monitor the liquid loop pressure for fluctuations",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm the secondary oxygen tank pressure and at the same time monitor the liquid loop pressure for fluctuations"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the liquid coolant pressure, oh and then display the secondary O2 pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_coolant_liquid_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the liquid coolant pressure, oh and then display the secondary O2 pressure reading"
+            }
+        ]
+    }
+]
+}

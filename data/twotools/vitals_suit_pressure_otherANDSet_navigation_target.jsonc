@@ -1,0 +1,982 @@
+{
+  // intents: vitals_suit_pressure_other AND Set_navigation_target
+  // description_1: The user requests data on other gas partial pressures within the suit environment that are not oxygen or CO2. The prompt might be "Check other gas pressures in the suit."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "check other gas pressures, go LTV",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check other gas pressures, go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "go to Home Base, and check gases",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and check gases"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up suit gas levels, head to Rover",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up suit gas levels, head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Habitat Alpha and show gases",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show gases"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme other gas partials, go Airlock 2",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme other gas partials, go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock 2"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to LZ-3 then check suit gases",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check suit gases"
+            }
+        ]
+    },
+    {
+        "prompt": "need other gases and go Supply Cache",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "need other gases and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "go EVA Jeep and show gases",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Jeep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show gases"
+            }
+        ]
+    },
+    {
+        "prompt": "check nitrogen and head South Ridge",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check nitrogen and head "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "set course North Beacon then gas check",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set course "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " then gas check"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up argon and helium partials and navigate to Command Module",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up argon and helium partials and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Orbiter and also show me other suit gas pressures",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Orbiter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show me other suit gas pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "check suit argon, plus display remaining partial pressures then go Cargo Bay",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check suit argon, plus display remaining partial pressures then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Habitat Beta while also pulling up other gas readings",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also pulling up other gas readings"
+            }
+        ]
+    },
+    {
+        "prompt": "open suit biometrics and then route me to Main Hub",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open suit biometrics and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Main Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "plot a course to Landing Zone, and then display other gas partials",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then display other gas partials"
+            }
+        ]
+    },
+    {
+        "prompt": "show helium and neon partials as well as go Beacon Charlie",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show helium and neon partials as well as go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "take me to Research Outpost while showing other gas levels too",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " while showing other gas levels too"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit's trace gas data and then set destination Medbay",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit's trace gas data and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Medbay"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Science Dome, and also pull up remaining gas partials",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Dome"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and also pull up remaining gas partials"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up xenon and krypton pressures and then route to West Crater",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up xenon and krypton pressures and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination East Ridge and bring up suit argon levels",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up suit argon levels"
+            }
+        ]
+    },
+    {
+        "prompt": "please display helium partial and also navigate me to Comms Tower",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please display helium partial and also navigate me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "route me to Depot A, and show other gas readings",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and show other gas readings"
+            }
+        ]
+    },
+    {
+        "prompt": "open suit data plus pull up trace gases then go Habitat Gamma",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open suit data plus pull up trace gases then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "take me to EVA Station while also listing other gas partials",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also listing other gas partials"
+            }
+        ]
+    },
+    {
+        "prompt": "report suit neon and xenon partials then go Lander 1",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "report suit neon and xenon partials then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander 1"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination LTV-2 and additionally pull up other gas pressures",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up other gas pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "I need trace gas levels while you plot course to Alpha Site",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need trace gas levels while you plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Bravo Point and then show suit helium and neon readings",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bravo Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show suit helium and neon readings"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up the suit's xenon, krypton, and argon partial pressures and then set destination Central Hub",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up the suit's xenon, krypton, and argon partial pressures and then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Central Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "plot a route to Engineering Bay and meanwhile show me the other trace gas partial pressures",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "plot a route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Engineering Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show me the other trace gas partial pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "hey check neon, helium and argon levels, and then navigate me to Docking Port next",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey check neon, helium and argon levels, and then navigate me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination LZ Alpha and then pull up suit trace gases followed by oxygen exclusion",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up suit trace gases followed by oxygen exclusion"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to display other gas partials, as well as plot a course to LZ Bravo afterwards",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to display other gas partials, as well as plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "could you set destination Surface Lab and at the same time bring up xenon and krypton pressures",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Surface Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time bring up xenon and krypton pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "open up suit gas diagnostics and along with that route me to Sample Cache please",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open up suit gas diagnostics and along with that route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "take me to Fuel Depot but first also display other internal gas partial pressures for verification",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first also display other internal gas partial pressures for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "after checking helium and argon partial pressures, set my route to Solar Array and proceed",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after checking helium and argon partial pressures, set my route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "route to Thermal Shelter and then additionally pull up suit trace gas information before we depart",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally pull up suit trace gas information before we depart"
+            }
+        ]
+    },
+    {
+        "prompt": "display all non-O2 and non-CO2 partial pressures and next set a holographic path to Crew Quarters",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display all non-O2 and non-CO2 partial pressures and next set a holographic path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crew Quarters"
+            }
+        ]
+    },
+    {
+        "prompt": "set destination Relay Point and then, while you're at it, pull up trace gas levels for inspection",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, while you're at it, pull up trace gas levels for inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "could you pull up argon, neon, xenon levels in the suit and then plot navigation to Observation Post",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you pull up argon, neon, xenon levels in the suit and then plot navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "navigate to Green Zone and additionally show me other gas partials followed by a route overlay",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Green Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally show me other gas partials followed by a route overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "I want the suit's trace gas breakdown, oh and then take me to Yellow Zone with guidance",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want the suit's trace gas breakdown, oh and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Yellow Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " with guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "set course to Blue Module and meanwhile open the non-O2 gas pressure logs along with timestamps",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Blue Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile open the non-O2 gas pressure logs along with timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "please bring up other gas partials, and then followed by that, chart a path to Habitat One",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please bring up other gas partials, and then followed by that, chart a path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat One"
+            }
+        ]
+    },
+    {
+        "prompt": "direct me to Hab-2 and then display remaining suit trace gases in addition to the usual vitals",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display remaining suit trace gases in addition to the usual vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "check xenon, krypton, and argon partial pressures as well as set a route to Charlie Dock next",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check xenon, krypton, and argon partial pressures as well as set a route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Charlie Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "plot a route to Basecamp, and at the same time pull up suit trace gases for me before departure",
+        "tool_calls": [
+            "vitals_suit_pressure_other",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "plot a route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Basecamp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and at the same time pull up suit trace gases for me before departure"
+            }
+        ]
+    }
+]
+}

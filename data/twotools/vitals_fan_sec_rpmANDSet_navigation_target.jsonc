@@ -1,0 +1,976 @@
+{
+  // intents: vitals_fan_sec_rpm AND Set_navigation_target
+  // description_1: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check sec fan RPM then LTV",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec fan RPM then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Home Base and check RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup ventilation RPM plus Rover",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup ventilation RPM plus "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Go Airlock Alpha then check RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check aux fan RPM and Cargo Bay",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check aux fan RPM and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Hab Module and check fan",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary ventilation rpm plus Beacon 3",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary ventilation rpm plus "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate Command Module then check RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup fan RPM and Landing Site",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup fan RPM and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to EVA Cache and check RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check the secondary fan RPM and then set destination to Node-2",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check the secondary fan RPM and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Node-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon 3 before you check the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you check the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check auxiliary fan speed while also plotting route to Survey Point",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check auxiliary fan speed while also plotting route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Survey Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme set destination Cargo Pod and then show me sec fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me sec fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you read backup ventilation rpm and also guide me to the rover?",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you read backup ventilation rpm and also guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Command Deck followed by checking the sec fan RPM please",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by checking the sec fan RPM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme backup fan RPM and then set nav to LZ-1",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme backup fan RPM and then set nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit vitals and check sec fan RPM then Beacon 7",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit vitals and check sec fan RPM then "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LTV in addition check backup fan RPM for me",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition check backup fan RPM for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check secondary fan RPM and set destination to the rover",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check secondary fan RPM and set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Airlock B and also pull up the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Check sec fan RPM and then provide route to Cargo Bay next",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec fan RPM and then provide route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Survey Site and then also report backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Survey Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also report backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Node-1 and then check auxiliary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Node-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check auxiliary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LZ-Alpha and check the sec fan RPM please",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check the sec fan RPM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Beacon-9 along with checking the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon-9"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with checking the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Proceed to Cargo Hold and then show me secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Proceed to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show me secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Survey Point and additionally read sec fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Survey Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally read sec fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Landing Site and then, before anything else, report the backup fan RPM readings",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, before anything else, report the backup fan RPM readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Command Module and then after routing do a sec fan RPM check for diagnostics please",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then after routing do a sec fan RPM check for diagnostics please"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Hab Module but first show me the secondary ventilation fan rpm and my suit vitals",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show me the secondary ventilation fan rpm and my suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon 3 in addition to plotting route, also pull up the backup fan RPM and stats",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to plotting route, also pull up the backup fan RPM and stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination EVA Cache meanwhile check the auxiliary fan RPM and display biometrics at the same time",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile check the auxiliary fan RPM and display biometrics at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Docking Port followed by verifying secondary fan rpm and then overlay holographic path on my visor",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by verifying secondary fan rpm and then overlay holographic path on my visor"
+            }
+        ]
+    },
+    {
+        "prompt": "Please route to Cargo Bay and then check backup ventilation fan RPM as well as display suit telemetry",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check backup ventilation fan RPM as well as display suit telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Survey Grid oh and while you're at it read the sec fan RPM and show route",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Survey Grid"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and while you're at it read the sec fan RPM and show route"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint LZ-2 and additionally confirm the auxiliary fan speed then bring up navigation cues for me",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally confirm the auxiliary fan speed then bring up navigation cues for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Proceed to Node Alpha next and at the same time report the backup fan RPM plus suit heart rate",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Proceed to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Node Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and at the same time report the backup fan RPM plus suit heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to the rover while also checking the backup ventilation RPM and then highlight the path on HUD",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also checking the backup ventilation RPM and then highlight the path on HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Beacon-1 and then after checking routing, show secondary fan RPM and suit pressure",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then after checking routing, show secondary fan RPM and suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Airlock B, followed by a readout of the backup fan RPM and then plot ingress route",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by a readout of the backup fan RPM and then plot ingress route"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Hab Beta in addition show me the sec fan RPM and simultaneously bring up the map",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition show me the sec fan RPM and simultaneously bring up the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to the Command Deck and then confirm the backup fan RPM as well as my oxygen levels, please",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then confirm the backup fan RPM as well as my oxygen levels, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Cargo Pod, and then check secondary fan RPM, additionally show ETA and route overlays",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Pod"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then check secondary fan RPM, additionally show ETA and route overlays"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination LTV and then read sec fan RPM before we proceed with EVA deployment",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then read sec fan RPM before we proceed with EVA deployment"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Beacon 5 and then check backup fan RPM after you lock in the path and confirm",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon 5"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check backup fan RPM after you lock in the path and confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Survey Marker and then check the auxiliary fan RPM while also displaying waypoints on HUD",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Survey Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check the auxiliary fan RPM while also displaying waypoints on HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LZ-3 and then check backup fan RPM, oh and show the holographic breadcrumb trail next",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check backup fan RPM, oh and show the holographic breadcrumb trail next"
+            }
+        ]
+    }
+]
+}

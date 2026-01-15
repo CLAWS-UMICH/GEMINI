@@ -1,0 +1,966 @@
+{
+  // intents: start_procedure_physical_repair_task AND Set_navigation_target
+  // description_1: The user is ready to perform hands-on mechanical repairs and needs the step-by-step AR guidance and checklists. They might say, "Start physical repair instructions" or "Open repair checklist."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Start repair then go LTV",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start repair then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to rover and start repairs",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start repairs"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin repair then head Airlock",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin repair then head "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Cargo Bay and repair",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and repair"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up repair steps then go Hub",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up repair steps then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to solar array and open toolkit",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open toolkit"
+            }
+        ]
+    },
+    {
+        "prompt": "Start hands-on fix and navigate to Lander-1",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start hands-on fix and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to antenna mast and pull checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "antenna mast"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Open repair guide then go Alpha Site",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open repair guide then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Go med bay and start repair",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "med bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start repair"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the repair checklist and then navigate to Home Base",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the repair checklist and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to rover then pull up the physical repair steps",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull up the physical repair steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Start physical repair procedure and set destination to EVA vehicle",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start physical repair procedure and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA vehicle"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to tool depot and bring up the repair manual",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "tool depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and bring up the repair manual"
+            }
+        ]
+    },
+    {
+        "prompt": "Open mechanical fix steps and route to solar array",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open mechanical fix steps and route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "solar array"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Command Module and then show repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up repair checklist plus take me to the comm relay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up repair checklist plus take me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the sample locker and open hands-on repair steps",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "sample locker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open hands-on repair steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin toolbox procedure and then guide me to the antenna mast",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin toolbox procedure and then guide me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "antenna mast"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Hab Module and display physical repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display physical repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the repair guide but first set a course for LTV",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the repair guide but first set a course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to cargo bay and pull up the maintenance procedure next",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up the maintenance procedure next"
+            }
+        ]
+    },
+    {
+        "prompt": "Show repair steps along with navigating me to the engine module",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show repair steps along with navigating me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "engine module"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to the north beacon and then start the physical repair checklist",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "north beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the physical repair checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "I need repair instructions and also directions to the battery cache",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need repair instructions and also directions to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "battery cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to sample locker and additionally bring up the repair manual",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "sample locker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally bring up the repair manual"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit diagnostics and then route me to Crew Quarters",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit diagnostics and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crew Quarters"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to orbital tether and also show the repair sequence",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "orbital tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show the repair sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Start maintenance checklist as well as head to the toolkit depot",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start maintenance checklist as well as head to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "toolkit depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Lander-2 and open the hands-on repair protocol",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lander-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open the hands-on repair protocol"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up the full mechanical repair procedure and then set navigation for the command module",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up the full mechanical repair procedure and then set navigation for the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "command module"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the solar array and while you're at it open the step-by-step repair guide for me",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it open the step-by-step repair guide for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin the physical repair sequence and then chart a course to the med bay for me",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin the physical repair sequence and then chart a course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "med bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to the habitat 2 and then also display the hands-on maintenance checklist for suit repairs",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "habitat 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also display the hands-on maintenance checklist for suit repairs"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the step-by-step repair checklist and after that route me to the antenna mast for parts",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the step-by-step repair checklist and after that route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "antenna mast"
+            },
+            {
+                "type": "TEXT",
+                "text": " for parts"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot a course to Beta Site and then open the physical repair instructions so I can begin work",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beta Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the physical repair instructions so I can begin work"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the emergency repair checklist and before routing, bring up navigation to the life support module",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the emergency repair checklist and before routing, bring up navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "life support module"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to the sample return locker and additionally start the repair guide for the docking clamp assembly",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "sample return locker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally start the repair guide for the docking clamp assembly"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the mechanical troubleshooting steps and meanwhile set my route to the north habitat beacon",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the mechanical troubleshooting steps and meanwhile set my route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "north habitat beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to the orbital tether and then follow up by pulling up the hands-on repair checklist for me",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "orbital tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then follow up by pulling up the hands-on repair checklist for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, gimme the repair procedure for the solar array and at the same time navigate me to the array mast",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, gimme the repair procedure for the solar array and at the same time navigate me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "array mast"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the crew quarters and then, additionally, open the step-by-step maintenance and repair instructions",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "crew quarters"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, additionally, open the step-by-step maintenance and repair instructions"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up the full maintenance checklist, followed by setting my nav to the cargo shuttle dock",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up the full maintenance checklist, followed by setting my nav to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo shuttle dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Set target to comm relay two and then open the physical repair protocol so I can start unscrewing the panel",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set target to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay two"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the physical repair protocol so I can start unscrewing the panel"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to open the EVA tool checklist and as well as set a route to the repair bay",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to open the EVA tool checklist and as well as set a route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "repair bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the sample return module and meanwhile display the physical repair checklist for the sample arm",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "sample return module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile display the physical repair checklist for the sample arm"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show the mechanical repair steps and then, oh and also, plot a route to the landing beacon",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show the mechanical repair steps and then, oh and also, plot a route to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "landing beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to the antenna farm and in addition bring up the teardown and repair sequence for the transmitter",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "antenna farm"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition bring up the teardown and repair sequence for the transmitter"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey could you open the structural repair protocol, followed by plotting navigation to the lunar scaffold for resupply",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey could you open the structural repair protocol, followed by plotting navigation to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "lunar scaffold"
+            },
+            {
+                "type": "TEXT",
+                "text": " for resupply"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to the antenna mast and then also open the maintenance checklist so I can begin the physical repairs safely",
+        "tool_calls": [
+            "start_procedure_physical_repair_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "antenna mast"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also open the maintenance checklist so I can begin the physical repairs safely"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,762 @@
+{
+  // intents: vitals_oxy_sec_pressure AND vitals_oxy_time_left
+  // description_1: The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, "What is the pressure in the secondary O2 tank?"
+  // description_2: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check secondary O2 pressure and time left",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 pressure and time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Time left for O2 and show secondary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time left for O2 and show secondary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Report secondary oxygen tank psi then estimate remaining minutes",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report secondary oxygen tank psi then estimate remaining minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "How much longer will my oxygen last, then what is secondary pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much longer will my oxygen last, then what is secondary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 readout and then give time to depletion",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 readout and then give time to depletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate oxygen time remaining and then display secondary tank psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate oxygen time remaining and then display secondary tank psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo pull up secondary O2 pressure plus show how long air lasts",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo pull up secondary O2 pressure plus show how long air lasts"
+            }
+        ]
+    },
+    {
+        "prompt": "How long until oxygen depletion, and then read the secondary bottle pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long until oxygen depletion, and then read the secondary bottle pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me secondary oxygen pressure and also compute remaining duration",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me secondary oxygen pressure and also compute remaining duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Time remaining for suit O2 and show secondary pressure please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time remaining for suit O2 and show secondary pressure please"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary O2 tank psi, then calculate minutes left for current consumption",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 tank psi, then calculate minutes left for current consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "How much O2 time do I have left and then what is the secondary psi?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much O2 time do I have left and then what is the secondary psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide secondary oxygen pressure as well as remaining oxygen duration",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide secondary oxygen pressure as well as remaining oxygen duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me remaining O2 minutes first and then the secondary tank pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me remaining O2 minutes first and then the secondary tank pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary tank psi, and then tell me estimated oxygen endurance please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank psi, and then tell me estimated oxygen endurance please"
+            }
+        ]
+    },
+    {
+        "prompt": "How long will the suit O2 last followed by the secondary pressure readout?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long will the suit O2 last followed by the secondary pressure readout?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up the secondary oxygen pressure plus calculate time to depletion",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up the secondary oxygen pressure plus calculate time to depletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Time to oxygen depletion and then pull up the reserve tank psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time to oxygen depletion and then pull up the reserve tank psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the backup O2 pressure and in addition estimate remaining life support minutes",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the backup O2 pressure and in addition estimate remaining life support minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate remaining oxygen time plus show secondary O2 psi next",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate remaining oxygen time plus show secondary O2 psi next"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen pressure, and then how many minutes until depletion?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen pressure, and then how many minutes until depletion?"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate how long my O2 holds out and then report secondary tank psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate how long my O2 holds out and then report secondary tank psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary O2 tank pressure along with time remaining under current load",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary O2 tank pressure along with time remaining under current load"
+            }
+        ]
+    },
+    {
+        "prompt": "How many minutes left on oxygen while also giving secondary tank psi?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How many minutes left on oxygen while also giving secondary tank psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the secondary O2 gauge then calculate remaining supply in minutes",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the secondary O2 gauge then calculate remaining supply in minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Time remaining on O2, also pull up the secondary tank pressure display",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time remaining on O2, also pull up the secondary tank pressure display"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary bottle psi first, and then give projected oxygen minutes left",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary bottle psi first, and then give projected oxygen minutes left"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme remaining O2 time and then read the secondary tank pressure, please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme remaining O2 time and then read the secondary tank pressure, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Before proceeding, display secondary oxygen pressure and also estimated time left",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before proceeding, display secondary oxygen pressure and also estimated time left"
+            }
+        ]
+    },
+    {
+        "prompt": "How long is oxygen good for plus what's the secondary tank psi?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long is oxygen good for plus what's the secondary tank psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary O2 pressure as well as compute time remaining under EVA workload",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 pressure as well as compute time remaining under EVA workload"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate oxygen endurance and then bring up the secondary O2 PSI readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate oxygen endurance and then bring up the secondary O2 PSI readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary tank pressure and then time remaining, along with any warnings please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank pressure and then time remaining, along with any warnings please"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time tell me remaining oxygen duration and show secondary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time tell me remaining oxygen duration and show secondary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by a time estimate, first display secondary O2 pressure and status",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by a time estimate, first display secondary O2 pressure and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, calculate how many minutes of oxygen remain and also read backup tank psi",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, calculate how many minutes of oxygen remain and also read backup tank psi"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary O2 pressure meanwhile compute projected time to depletion",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary O2 pressure meanwhile compute projected time to depletion"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate remaining suit O2 time followed by the secondary pressure reading please",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate remaining suit O2 time followed by the secondary pressure reading please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you pull up the secondary oxygen psi and then show time remaining?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you pull up the secondary oxygen psi and then show time remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining oxygen minutes and the secondary tank pressure as well, now",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining oxygen minutes and the secondary tank pressure as well, now"
+            }
+        ]
+    },
+    {
+        "prompt": "But first confirm secondary O2 pressure, plus estimate how long my O2 will last",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first confirm secondary O2 pressure, plus estimate how long my O2 will last"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and tell me remaining O2 time, then display the secondary tank PSI readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and tell me remaining O2 time, then display the secondary tank PSI readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we proceed, calculate oxygen minutes left and also show backup tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we proceed, calculate oxygen minutes left and also show backup tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add secondary O2 pressure to the readout and additionally compute time left",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add secondary O2 pressure to the readout and additionally compute time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you estimate remaining breathable oxygen and then report secondary tank PSI, please?",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you estimate remaining breathable oxygen and then report secondary tank PSI, please?"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up reserve oxygen pressure, and then give me projected minutes left under stress",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up reserve oxygen pressure, and then give me projected minutes left under stress"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary O2 PSI followed by the remaining oxygen time estimate, asap",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary O2 PSI followed by the remaining oxygen time estimate, asap"
+            }
+        ]
+    },
+    {
+        "prompt": "Estimate time until my oxygen is depleted along with the secondary tank pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Estimate time until my oxygen is depleted along with the secondary tank pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary O2 pressure and at the same time compute remaining minutes on supply",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary O2 pressure and at the same time compute remaining minutes on supply"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate O2 remaining while also pulling the secondary tank PSI, thank you",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate O2 remaining while also pulling the secondary tank PSI, thank you"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display the secondary oxygen bottle pressure and next show projected oxygen duration",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display the secondary oxygen bottle pressure and next show projected oxygen duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Do the time-to-depletion calc and then open the secondary O2 pressure readout",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Do the time-to-depletion calc and then open the secondary O2 pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up reserve tank psi followed by remaining oxygen time and any cautions",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up reserve tank psi followed by remaining oxygen time and any cautions"
+            }
+        ]
+    },
+    {
+        "prompt": "Need remaining O2 minutes and the secondary pressure reading as well, please confirm",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need remaining O2 minutes and the secondary pressure reading as well, please confirm"
+            }
+        ]
+    },
+    {
+        "prompt": "Quick check: secondary O2 tank pressure and then time left for EVA return",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quick check: secondary O2 tank pressure and then time left for EVA return"
+            }
+        ]
+    },
+    {
+        "prompt": "First read the secondary O2 PSI, followed by the calculation of minutes remaining",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First read the secondary O2 PSI, followed by the calculation of minutes remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally, compute oxygen endurance and also display the secondary tank pressure now",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally, compute oxygen endurance and also display the secondary tank pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 pressure read and then give remaining life support time plus margin",
+        "tool_calls": [
+            "vitals_oxy_sec_pressure",
+            "vitals_oxy_time_left"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 pressure read and then give remaining life support time plus margin"
+            }
+        ]
+    }
+]
+}

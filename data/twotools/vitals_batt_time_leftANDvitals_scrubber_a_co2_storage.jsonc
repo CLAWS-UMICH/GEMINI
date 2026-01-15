@@ -1,0 +1,658 @@
+{
+  // intents: vitals_batt_time_left AND vitals_scrubber_a_co2_storage
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user wants to know the saturation level of the first CO2 scrubbing bed to determine if it is nearing capacity. They might ask, "Check Scrubber A status" or "How full is Scrubber A?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check battery and scrubber A",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery and scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time left, check scrubber",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time left, check scrubber"
+            }
+        ]
+    },
+    {
+        "prompt": "Show power remaining plus scrubber status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show power remaining plus scrubber status"
+            }
+        ]
+    },
+    {
+        "prompt": "Power time and scrubber level",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Power time and scrubber level"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery remaining then Scrubber A",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery remaining then Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check scrubber A and battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check scrubber A and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A level then battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A level then battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber saturation and power time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber saturation and power time"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber status plus battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber status plus battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Show Scrubber A and remaining power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show Scrubber A and remaining power"
+            }
+        ]
+    },
+    {
+        "prompt": "How much battery time do I have left and scrubber?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much battery time do I have left and scrubber?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show battery remaining and after that display Scrubber A level",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show battery remaining and after that display Scrubber A level"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme power time left plus the status of Scrubber A",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme power time left plus the status of Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit battery and meanwhile pull up Scrubber A saturation",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit battery and meanwhile pull up Scrubber A saturation"
+            }
+        ]
+    },
+    {
+        "prompt": "Need battery runtime then also show Scrubber A carbon levels",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need battery runtime then also show Scrubber A carbon levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery charge and then tell me Scrubber A percentage",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery charge and then tell me Scrubber A percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you display my power remaining, oh and Scrubber A?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you display my power remaining, oh and Scrubber A?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report battery time left as well as Scrubber A",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report battery time left as well as Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Show current battery duration followed by Scrubber A status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show current battery duration followed by Scrubber A status"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check battery then in addition check Scrubber A capacity",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check battery then in addition check Scrubber A capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A and then tell me battery time left",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A and then tell me battery time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A saturation then also show remaining power duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A saturation then also show remaining power duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open Scrubber A status and while at it show battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open Scrubber A status and while at it show battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, what's Scrubber A saturation plus how much battery I have?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, what's Scrubber A saturation plus how much battery I have?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A status but first show my battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A status but first show my battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Show Scrubber A CO2 level and then pull up battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show Scrubber A CO2 level and then pull up battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me Scrubber A fullness and also show power remaining?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me Scrubber A fullness and also show power remaining?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need Scrubber A saturation followed by battery duration readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need Scrubber A saturation followed by battery duration readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Scrubber A CO2 report and then battery estimate, please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Scrubber A CO2 report and then battery estimate, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display Scrubber A level next and the battery time?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display Scrubber A level next and the battery time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need you to pull up my remaining battery time and additionally bring up Scrubber A saturation levels",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need you to pull up my remaining battery time and additionally bring up Scrubber A saturation levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide current power duration left for the suit and then display the CO2 level of Scrubber A",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide current power duration left for the suit and then display the CO2 level of Scrubber A"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme an estimate of battery runtime while also showing Scrubber A's CO2 storage percentage, thanks",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme an estimate of battery runtime while also showing Scrubber A's CO2 storage percentage, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my suit charge and then, as well as the battery time, bring up Scrubber A capacity details",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my suit charge and then, as well as the battery time, bring up Scrubber A capacity details"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show remaining power time followed by Scrubber A saturation and then comment on urgency?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show remaining power time followed by Scrubber A saturation and then comment on urgency?"
+            }
+        ]
+    },
+    {
+        "prompt": "Before I head to the rover, pull up battery time left and along with that show Scrubber A levels",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I head to the rover, pull up battery time left and along with that show Scrubber A levels"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current battery estimate plus the first scrubber's CO2 saturation so I can plan return timing",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current battery estimate plus the first scrubber's CO2 saturation so I can plan return timing"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display battery time remaining at the same time as pulling up Scrubber A's CO2 storage percentage",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display battery time remaining at the same time as pulling up Scrubber A's CO2 storage percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check my power remaining and then show me Scrubber A capacity, and then advise if it's critical",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check my power remaining and then show me Scrubber A capacity, and then advise if it's critical"
+            }
+        ]
+    },
+    {
+        "prompt": "I need battery minutes left followed by Scrubber A saturation report and additionally a status flag",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need battery minutes left followed by Scrubber A saturation report and additionally a status flag"
+            }
+        ]
+    },
+    {
+        "prompt": "Check Scrubber A CO2 capacity and then also show remaining battery minutes so I can decide whether to abort",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check Scrubber A CO2 capacity and then also show remaining battery minutes so I can decide whether to abort"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up Scrubber A saturation followed by my power time left and additionally an urgency recommendation",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up Scrubber A saturation followed by my power time left and additionally an urgency recommendation"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, show me Scrubber A levels along with battery remaining and then tell me if we need to switch beds",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, show me Scrubber A levels along with battery remaining and then tell me if we need to switch beds"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you report Scrubber A fullness and then open the suit's battery duration display for mission planning?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you report Scrubber A fullness and then open the suit's battery duration display for mission planning?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need Scrubber A CO2 percentage and next show battery charge remaining so I can estimate safe return time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need Scrubber A CO2 percentage and next show battery charge remaining so I can estimate safe return time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check Scrubber A saturation before you display battery time left, and then recommend next steps",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check Scrubber A saturation before you display battery time left, and then recommend next steps"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme a readout of Scrubber A capacity at the same time show my suit's battery duration and warnings",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme a readout of Scrubber A capacity at the same time show my suit's battery duration and warnings"
+            }
+        ]
+    },
+    {
+        "prompt": "Show Scrubber A status, followed by battery remaining, plus an assessment of whether it's urgent to return",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show Scrubber A status, followed by battery remaining, plus an assessment of whether it's urgent to return"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display Scrubber A CO2 storage and then also pull up my current power remaining for calculation?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display Scrubber A CO2 storage and then also pull up my current power remaining for calculation?"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile check Scrubber A saturation and in addition show battery time left with a predicted margin",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "vitals_scrubber_a_co2_storage"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile check Scrubber A saturation and in addition show battery time left with a predicted margin"
+            }
+        ]
+    }
+]
+}

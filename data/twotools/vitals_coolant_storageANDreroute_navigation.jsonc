@@ -1,0 +1,658 @@
+{
+  // intents: vitals_coolant_storage AND reroute_navigation
+  // description_1: The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, "Check coolant levels" or "How much coolant storage is left?"
+  // description_2: The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, "Find a new route" or "Reroute."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check coolant and reroute me",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and reroute me"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute then check coolant levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute then check coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display coolant volume and calculate new route",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display coolant volume and calculate new route"
+            }
+        ]
+    },
+    {
+        "prompt": "Find a new path and show coolant remaining",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find a new path and show coolant remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my thermal fluid remaining and then plot a detour now",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my thermal fluid remaining and then plot a detour now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you compute an alternate route first and also show my coolant level and status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you compute an alternate route first and also show my coolant level and status"
+            }
+        ]
+    },
+    {
+        "prompt": "Open coolant readout and reroute",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open coolant readout and reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute navigation plus show coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute navigation plus show coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant percentage and then find another route",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant percentage and then find another route"
+            }
+        ]
+    },
+    {
+        "prompt": "New route please and also bring up coolant data",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "New route please and also bring up coolant data"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide remaining suit water volume and at the same time calculate a new path to the site",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide remaining suit water volume and at the same time calculate a new path to the site"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a reroute to the next waypoint and afterwards show coolant reserves and vitals",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a reroute to the next waypoint and afterwards show coolant reserves and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant plus reroute now",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant plus reroute now"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute and then check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute and then check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Open coolant gauge and then recalc navigation for obstruction",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open coolant gauge and then recalc navigation for obstruction"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you reroute me while also showing coolant levels?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you reroute me while also showing coolant levels?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, show my suit coolant remaining as well as compute an alternate path around the debris field",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, show my suit coolant remaining as well as compute an alternate path around the debris field"
+            }
+        ]
+    },
+    {
+        "prompt": "Please find a safe detour around that hazard and then additionally pull up my thermal management readings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please find a safe detour around that hazard and then additionally pull up my thermal management readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant now and reroute",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant now and reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute and then open coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute and then open coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Check water storage before recalculating route",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check water storage before recalculating route"
+            }
+        ]
+    },
+    {
+        "prompt": "Find alternate route next and also show my coolant gauge",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find alternate route next and also show my coolant gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my coolant tank percentage and along with that compute a safe reroute to the base",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my coolant tank percentage and along with that compute a safe reroute to the base"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to reroute my course around the crater and then show me the remaining coolant and suit vitals",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to reroute my course around the crater and then show me the remaining coolant and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant and find route",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant and find route"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me and check coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display coolant level and also replan my route",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display coolant level and also replan my route"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot a new route followed by showing coolant levels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot a new route followed by showing coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, open the coolant status display and then compute an alternate navigation plan to avoid the solar panels",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, open the coolant status display and then compute an alternate navigation plan to avoid the solar panels"
+            }
+        ]
+    },
+    {
+        "prompt": "After you calculate an alternate path, also bring up the remaining thermal fluid readings and tank pressures",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you calculate an alternate path, also bring up the remaining thermal fluid readings and tank pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme coolant stats and reroute",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme coolant stats and reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me around and show coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me around and show coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant volume plus re-route me to safer sector",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant volume plus re-route me to safer sector"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you reroute and then display coolant reserves please",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you reroute and then display coolant reserves please"
+            }
+        ]
+    },
+    {
+        "prompt": "Please check suit coolant reservoirs, in addition bring up route alternatives to the station for review",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check suit coolant reservoirs, in addition bring up route alternatives to the station for review"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile compute a new course to the scrap pile and also show remaining coolant and life support readings",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile compute a new course to the scrap pile and also show remaining coolant and life support readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open coolant and reroute me",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open coolant and reroute me"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute now and show coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute now and show coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see coolant level and then find alternate navigation",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see coolant level and then find alternate navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Find alternative path and then pull up coolant info",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find alternative path and then pull up coolant info"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display remaining coolant in liters and at the same time plan a detour around the solar array",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display remaining coolant in liters and at the same time plan a detour around the solar array"
+            }
+        ]
+    },
+    {
+        "prompt": "Please recalculate route to the habitat, but first show me the coolant reserve and pump status",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please recalculate route to the habitat, but first show me the coolant reserve and pump status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check coolant now then reroute",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check coolant now then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute then show coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute then show coolant"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me coolant percentage and next calculate a new path",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me coolant percentage and next calculate a new path"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you reroute me followed by displaying coolant levels?",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you reroute me followed by displaying coolant levels?"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the remaining thermal fluid reported and additionally have the nav system compute a safer route back",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the remaining thermal fluid reported and additionally have the nav system compute a safer route back"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate a new trajectory to the research node and oh and then show my coolant and vitals readouts",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate a new trajectory to the research node and oh and then show my coolant and vitals readouts"
+            }
+        ]
+    },
+    {
+        "prompt": "Show coolant plus reroute me",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show coolant plus reroute me"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot detour and check coolant",
+        "tool_calls": [
+            "vitals_coolant_storage",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot detour and check coolant"
+            }
+        ]
+    }
+]
+}

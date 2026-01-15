@@ -1,0 +1,1002 @@
+{
+  // intents: vitals_oxy_pri_pressure AND Complete_task
+  // description_1: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check O2 pressure and mark hatch closed",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 pressure and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch closed"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Battery Check then show O2",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary oxygen then mark antenna check",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary oxygen then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 pressure, then complete EVA prep",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 pressure, then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Is primary O2 nominal and finish tether secure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Is primary O2 nominal and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether secure"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme oxy pressure plus mark Camera Calibration",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme oxy pressure plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Check pri O2 and mark vent valve",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check pri O2 and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "vent valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Read O2, then mark Seal Inspection",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read O2, then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure and complete manipulator stow",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "manipulator stow"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull oxygen gauge then finish sample stow",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull oxygen gauge then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample stow"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical as complete, and then read primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete, and then read primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me primary O2 pressure and then finish Battery Check",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me primary O2 pressure and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Gas Equalize and show me the primary O2 reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gas Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show me the primary O2 reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display primary oxygen pressure and then mark Seal Inspection complete",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display primary oxygen pressure and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Manipulator Stow as done and also read O2 pressure for me",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Manipulator Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and also read O2 pressure for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey show primary O2 pressure plus mark Camera Calibration complete",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey show primary O2 pressure plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete task Tether Secure and also tell me primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary oxygen pressure followed by finishing the hatch check",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary oxygen pressure followed by finishing the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Vent Valve Check complete and then read primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Vent Valve Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then read primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Show primary O2 at the same time and mark Sample Stow",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show primary O2 at the same time and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Camera Calibration then also display primary O2 pressure for status",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " then also display primary O2 pressure for status"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up primary oxygen pressure along with marking Thermal Blanket Secure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up primary oxygen pressure along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Secure"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Oxygen Purge done and meanwhile show primary O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and meanwhile show primary O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, show primary O2 pressure and then mark Radiation Monitor Reset complete",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, show primary O2 pressure and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Main Bus Power then pull the primary oxygen pressure readout",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Main Bus Power"
+            },
+            {
+                "type": "TEXT",
+                "text": " then pull the primary oxygen pressure readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the primary O2 pressure as well as mark Seal Inspection done",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the primary O2 pressure as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you complete task Communication Check and also show primary oxygen pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Communication Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show primary oxygen pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Before marking Camera Calibration, read primary oxygen pressure for me please",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", read primary oxygen pressure for me please"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Primary Pump Cycle complete and then display the O2 primary pressure",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Primary Pump Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then display the O2 primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull primary oxygen pressure and then mark Radiation Monitor Reset",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull primary oxygen pressure and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Reset"
+            }
+        ]
+    },
+    {
+        "prompt": "Please finish task Hatch Closed but first pull up the primary oxygen pressure readout for me",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hatch Closed"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first pull up the primary oxygen pressure readout for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check the primary O2 pressure first and then mark Manipulator Stow as completed in the log",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check the primary O2 pressure first and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Manipulator Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed in the log"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete the task Thermal Blanket Secure and then also bring up my current primary oxygen pressure reading",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete the task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also bring up my current primary oxygen pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read the primary oxygen tank pressure and in addition mark Camera Calibration finished for the timeline",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read the primary oxygen tank pressure and in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished for the timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Oxygen Purge as complete and then follow up by showing me the primary O2 pressure numbers",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then follow up by showing me the primary O2 pressure numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary oxygen pressure readout while you also log Sample Stow as finished with mission control",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary oxygen pressure readout while you also log "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished with mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, finish task Communication Check and then at the same time bring up the primary oxygen pressure on my HUD",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Communication Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time bring up the primary oxygen pressure on my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull primary oxygen pressure and after that mark the Radiation Monitor Reset entry as completed for the timeline",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull primary oxygen pressure and after that mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " entry as completed for the timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Main Bus Power next and also display the primary oxygen pressure so I can verify nominal readings",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Main Bus Power"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also display the primary oxygen pressure so I can verify nominal readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you close the log, read primary oxygen pressure and additionally mark Vent Valve Check as complete",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you close the log, read primary oxygen pressure and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Vent Valve Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Radiation Monitor Reset as completed, followed by pulling the primary O2 pressure readout for confirmation",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Monitor Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed, followed by pulling the primary O2 pressure readout for confirmation"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, pull up the primary oxygen pressure and oh and set Thermal Blanket Secure to done in the checklist",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, pull up the primary oxygen pressure and oh and set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " to done in the checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you mark Primary Pump Cycle as complete, and then meanwhile show me the primary oxygen tank pressure values",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Primary Pump Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete, and then meanwhile show me the primary oxygen tank pressure values"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to display primary oxygen pressure and as well as mark Oxygen Purge complete for mission control",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to display primary oxygen pressure and as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete for mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "Okay finish task Seal Inspection and then next pull the primary O2 pressure so I can sign off",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Okay finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next pull the primary O2 pressure so I can sign off"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the primary O2 tank PSI and plus mark Battery Check completed for the EVA timeline",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the primary O2 tank PSI and plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed for the EVA timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample Stow done and then at the same time display the current primary oxygen pressure on my display",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then at the same time display the current primary oxygen pressure on my display"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you get the current primary oxygen tank pressure and additionally mark Manipulator Stow in the checklist as finished",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you get the current primary oxygen tank pressure and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Manipulator Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " in the checklist as finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete task Communication Check and then while it's updating show me the primary O2 pressure trends",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Communication Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then while it's updating show me the primary O2 pressure trends"
+            }
+        ]
+    },
+    {
+        "prompt": "After you read primary oxygen pressure, also mark Deploy Antenna as complete and notify Mission Control",
+        "tool_calls": [
+            "vitals_oxy_pri_pressure",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read primary oxygen pressure, also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and notify Mission Control"
+            }
+        ]
+    }
+]
+}

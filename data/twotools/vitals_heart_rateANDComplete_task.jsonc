@@ -1,0 +1,1030 @@
+{
+  // intents: vitals_heart_rate AND Complete_task
+  // description_1: The user wants to know their current physiological stress level, or the system may have flagged a high heart rate, prompting the user to query it. The prompt would be "What is my heart rate?" or "Check BPM."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check HR and mark antenna check done",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check HR and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my pulse then mark Battery Check",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my pulse then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you show my BPM and finish task EVA prep",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you show my BPM and finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up vitals and then mark Sample Collection",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up vitals and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up my heart rate reading while you also mark Deploy Beacon as completed",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up my heart rate reading while you also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my biometrics and then mark Seal Hatch as done",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my biometrics and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Show BPM plus mark Tool Inventory",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show BPM plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my heart rate and then finish task Tether Attachment right now",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my heart rate and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Attachment"
+            },
+            {
+                "type": "TEXT",
+                "text": " right now"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my suit data, and after that mark Solar Panel Align as complete",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my suit data, and after that mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals and also mark Lunar Drill Setup completed",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lunar Drill Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my current BPM displayed and then mark CO2 Scrubber Inspect done",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my current BPM displayed and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Pulse, and mark Camera Mount",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pulse, and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Mount"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my heart rate, plus mark Thermal Reg Check completed",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my heart rate, plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, show me my biometrics and then followed by marking Pressure Equalize as finished",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, show me my biometrics and then followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " as finished"
+            }
+        ]
+    },
+    {
+        "prompt": "Report my pulse and then mark Oxygen Flow check as complete",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report my pulse and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Flow check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open suit vitals and at the same time mark Comm Relay Setup as complete for Mission Control",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open suit vitals and at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Relay Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete for Mission Control"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my heart rate meanwhile mark Harness Adjust task",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my heart rate meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Harness Adjust"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "Check BPM and then mark Glove Check",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check BPM and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my vitals as well as mark Boot Lacing completed before I exit airlock",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my vitals as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Boot Lacing"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed before I exit airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me my heart rate and then mark Airlock Cycle task done",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me my heart rate and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " task done"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up current BPM and then finish task Motor Test followed by a report",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up current BPM and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Motor Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a report"
+            }
+        ]
+    },
+    {
+        "prompt": "Show pulse and finish task Gyro Calibrate, please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show pulse and finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gyro Calibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "BPM, and then mark Sample Stow",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "BPM, and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics and additionally mark Deck Latch as complete for records",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deck Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete for records"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my current heart rate, in addition bring up the vitals panel and mark Camera Calibration as done",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my current heart rate, in addition bring up the vitals panel and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Connect Umbilical done and pulse?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and pulse?"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Battery Check then show BPM",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark antenna check as done and then display my vitals",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and then display my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete task EVA prep and also pull up my heart rate now",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also pull up my heart rate now"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample Collection as complete, but first show me my current BPM and stats",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete, but first show me my current BPM and stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Deploy Beacon complete and please show my pulse",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deploy Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and please show my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Set task Seal Hatch to done and then bring up my biometrics along with oxygen levels",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " to done and then bring up my biometrics along with oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Tool Inventory done and then open suit data",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then open suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Tether Attachment and show my pulse",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Attachment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Solar Panel Align complete and also display my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Panel Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and also display my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Lunar Drill Setup as done and afterwards pull up my vitals plus oxygen remaining",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lunar Drill Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and afterwards pull up my vitals plus oxygen remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish CO2 Scrubber Inspect then show my BPM reading",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show my BPM reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Camera Mount done and BPM?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Mount"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and BPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal Reg Check done and then display my pulse",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then display my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Pressure Equalize to completed and then, in addition, open the biometrics panel and report my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalize"
+            },
+            {
+                "type": "TEXT",
+                "text": " to completed and then, in addition, open the biometrics panel and report my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Oxygen Flow finished and next show my current BPM",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Flow"
+            },
+            {
+                "type": "TEXT",
+                "text": " finished and next show my current BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Comm Relay Setup, oh and show my pulse?",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Relay Setup"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and show my pulse?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Harness Adjust as done, and then bring up the vitals display while I check seals",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Harness Adjust"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done, and then bring up the vitals display while I check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Glove Check completed and then pull up my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " completed and then pull up my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Boot Lacing then display my biometrics plus suit pressure",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Boot Lacing"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display my biometrics plus suit pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Airlock Cycle to done and then, additionally, show my BPM and oxygen percentage on screen",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " to done and then, additionally, show my BPM and oxygen percentage on screen"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Motor Test and BPM",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Motor Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Gyro Calibrate done and then bring up my heart rate, please",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gyro Calibrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then bring up my heart rate, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample Stow as complete and then follow by opening the biometrics panel and reporting my current pulse",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then follow by opening the biometrics panel and reporting my current pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Deck Latch done and show my heart rate",
+        "tool_calls": [
+            "vitals_heart_rate",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Deck Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and show my heart rate"
+            }
+        ]
+    }
+]
+}

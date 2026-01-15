@@ -1,0 +1,990 @@
+{
+  // intents: vitals_co2_production AND Add_waypoint
+  // description_1: The user needs to monitor the rate at which they are generating carbon dioxide, which can indicate physical exertion or scrubber efficiency. The prompt might be "Check CO2 production levels."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "check CO2 and mark Sample Site Alpha",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check CO2 and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Crater Edge and check CO2",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "show CO2 production then mark Rock 17",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show CO2 production then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock 17"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Cache-B and tell me CO2",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "check breath CO2 plus add Beacon Bravo",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check breath CO2 plus add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "drop waypoint Ridge Point also check CO2",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " also check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "CO2 levels and then mark Sample A",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "CO2 levels and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample A"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Habitat Vicinity and then CO2",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Vicinity"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "tell me CO2, then set Beacon1",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "tell me CO2, then set "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon1"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Rockface and show CO2",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rockface"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "could you pull up CO2 production and add waypoint Sample Site Bravo",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you pull up CO2 production and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "please add waypoint Survey Beacon then show my CO2 levels",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show my CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "check carbon dioxide output and then drop waypoint Rockfall Ridge",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check carbon dioxide output and then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rockfall Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Thermal Vent while also displaying CO2 generation rate",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also displaying CO2 generation rate"
+            }
+        ]
+    },
+    {
+        "prompt": "what's my CO2 production plus mark this point as Cache North",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "what's my CO2 production plus mark this point as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache North"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this location as Sample Site Charlie and check CO2",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "open suit vitals, additionally report CO2 and drop waypoint LZ-3",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open suit vitals, additionally report CO2 and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Crater Rim followed by a CO2 production readout",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a CO2 production readout"
+            }
+        ]
+    },
+    {
+        "prompt": "lemme see CO2 generation rate and then add waypoint Beacon Delta",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "lemme see CO2 generation rate and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "plant waypoint South Ridge and also report my carbon dioxide output",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "plant waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also report my carbon dioxide output"
+            }
+        ]
+    },
+    {
+        "prompt": "check CO2 production, then set waypoint Sample A-2 for later",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check CO2 production, then set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample A-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later"
+            }
+        ]
+    },
+    {
+        "prompt": "could you add waypoint Beacon Echo and show CO2 production afterward",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show CO2 production afterward"
+            }
+        ]
+    },
+    {
+        "prompt": "what's my CO2 and also add waypoint Alpha Ridge for reference",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "what's my CO2 and also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "drop waypoint Rock 42 and then pull up CO2 production numbers",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock 42"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up CO2 production numbers"
+            }
+        ]
+    },
+    {
+        "prompt": "please display CO2 rates and also create waypoint Sample Pit One",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please display CO2 rates and also create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit One"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Supply Cache and in addition report my CO2 levels",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition report my CO2 levels"
+            }
+        ]
+    },
+    {
+        "prompt": "after checking CO2 production, mark this spot as Ridge Beacon",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "after checking CO2 production, mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "place waypoint Foxtrot Point, meanwhile give me the CO2 readout",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot Point"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile give me the CO2 readout"
+            }
+        ]
+    },
+    {
+        "prompt": "check my suit CO2, and then add waypoint Rock Sample Delta",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "check my suit CO2, and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Sample Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Lander Shadow and then report CO2 production, please",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lander Shadow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then report CO2 production, please"
+            }
+        ]
+    },
+    {
+        "prompt": "hey, pull up my CO2 production numbers first, then add waypoint Deep Core Sample",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey, pull up my CO2 production numbers first, then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Deep Core Sample"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Observation Post Zeta before checking CO2 production so we have location tagged",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post Zeta"
+            },
+            {
+                "type": "TEXT",
+                "text": " before checking CO2 production so we have location tagged"
+            }
+        ]
+    },
+    {
+        "prompt": "could you check my current CO2 generation rate and then, as well as, mark Ridge North",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you check my current CO2 generation rate and then, as well as, mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge North"
+            }
+        ]
+    },
+    {
+        "prompt": "please add waypoint Sample Transect 7 and then while you're at it display CO2 metrics",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Transect 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then while you're at it display CO2 metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a CO2 readout and then drop a waypoint named Proton Survey for later reference",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a CO2 readout and then drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Proton Survey"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later reference"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this coordinate as Cache-Red, additionally give me the CO2 production readings immediately",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this coordinate as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-Red"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally give me the CO2 production readings immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "before you mark anything, check my CO2 production rate and then add waypoint Water Ice Patch",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "before you mark anything, check my CO2 production rate and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Ice Patch"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Solar Array Edge, followed by pulling up CO2 generation and suit vitals",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by pulling up CO2 generation and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "report my carbon dioxide output, and then create waypoint Geological Transect Alpha next for navigation",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "report my carbon dioxide output, and then create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geological Transect Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " next for navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Sample Pit Bravo and then, oh and check CO2 production with priority alert",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Pit Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, oh and check CO2 production with priority alert"
+            }
+        ]
+    },
+    {
+        "prompt": "at the same time, pull up my CO2 production and also plant waypoint Beacon North-2 for mapping",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "at the same time, pull up my CO2 production and also plant waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " for mapping"
+            }
+        ]
+    },
+    {
+        "prompt": "place waypoint Rock Ledge, along with displaying my CO2 output and remaining scrubber capacity",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Ledge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", along with displaying my CO2 output and remaining scrubber capacity"
+            }
+        ]
+    },
+    {
+        "prompt": "could you open suit biometrics and CO2 production numbers and then add waypoint Cache South-East",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you open suit biometrics and CO2 production numbers and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache South-East"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this spot as LZ-Five, in addition report my CO2 generation and heart rate",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-Five"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition report my CO2 generation and heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "show me CO2 production rates, but first drop a waypoint labeled Fuel Cache 3 for recovery",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show me CO2 production rates, but first drop a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " for recovery"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Beacon Charlie and then additionally give me a CO2 utilization and scrubber status report",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally give me a CO2 utilization and scrubber status report"
+            }
+        ]
+    },
+    {
+        "prompt": "I want CO2 output and then set waypoint Survey Grid 12, please capture location",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I want CO2 output and then set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Grid 12"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please capture location"
+            }
+        ]
+    },
+    {
+        "prompt": "create waypoint East Bluff, and then while monitoring CO2 production check my suit pressure as well",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Bluff"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then while monitoring CO2 production check my suit pressure as well"
+            }
+        ]
+    },
+    {
+        "prompt": "get me current CO2 generation, and then at the same time place waypoint North Beacon for EVA mapping",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "get me current CO2 generation, and then at the same time place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " for EVA mapping"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint South Transit along with CO2 production numbers and heart rate, and then flag anomalies",
+        "tool_calls": [
+            "vitals_co2_production",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Transit"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with CO2 production numbers and heart rate, and then flag anomalies"
+            }
+        ]
+    }
+]
+}

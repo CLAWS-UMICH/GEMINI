@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_oxy_pri_pressure
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be "Read primary oxygen pressure" or "Is primary O2 pressure nominal?"
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Secondary tank status and primary pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank status and primary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup O2 remaining then primary pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup O2 remaining then primary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary storage plus primary O2 psi?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary storage plus primary O2 psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "How much in backup and primary psi?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much in backup and primary psi?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary O2 and then main pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 and then main pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary O2 pressure and backup level?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary O2 pressure and backup level?"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary psi then show backup O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary psi then show backup O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Primary tank pressure plus secondary status?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Primary tank pressure plus secondary status?"
+            }
+        ]
+    },
+    {
+        "prompt": "Main O2 pressure and secondary storage?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Main O2 pressure and secondary storage?"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell primary pressure then backup amount?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell primary pressure then backup amount?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary oxygen storage and primary pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary oxygen storage and primary pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you read primary oxygen pressure then show backup level?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you read primary oxygen pressure then show backup level?"
+            }
+        ]
+    },
+    {
+        "prompt": "Need secondary tank status and main O2 pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need secondary tank status and main O2 pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary tank pressure also display secondary O2 amount",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary tank pressure also display secondary O2 amount"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up secondary O2 storage then give me primary psi",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up secondary O2 storage then give me primary psi"
+            }
+        ]
+    },
+    {
+        "prompt": "First read primary oxygen pressure and then show backup storage status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First read primary oxygen pressure and then show backup storage status"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup oxygen amount as well as current primary pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup oxygen amount as well as current primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me primary O2 pressure and additionally the secondary tank level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me primary O2 pressure and additionally the secondary tank level"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen storage check plus read the primary O2 pressure now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen storage check plus read the primary O2 pressure now"
+            }
+        ]
+    },
+    {
+        "prompt": "What is the primary tank pressure and then the backup oxygen amount?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What is the primary tank pressure and then the backup oxygen amount?"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary reserve and show primary pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary reserve and show primary pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Display primary pressure and then pull up secondary supply levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display primary pressure and then pull up secondary supply levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up secondary oxygen storage and then read primary pressure?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up secondary oxygen storage and then read primary pressure?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check primary O2 pressure and also secondary tank status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check primary O2 pressure and also secondary tank status"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup oxygen and then report primary pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen and then report primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read primary oxygen pressure and then show backup levels in addition",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read primary oxygen pressure and then show backup levels in addition"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the secondary tank level and then give primary pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the secondary tank level and then give primary pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary tank pressure and also the backup oxygen amount",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary tank pressure and also the backup oxygen amount"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary supply along with primary pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary supply along with primary pressure reading"
+            }
+        ]
+    },
+    {
+        "prompt": "After reading primary pressure, show me secondary reserve level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After reading primary pressure, show me secondary reserve level"
+            }
+        ]
+    },
+    {
+        "prompt": "Read the current primary oxygen tank pressure and while you're at it display the backup storage levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read the current primary oxygen tank pressure and while you're at it display the backup storage levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Please inspect the secondary oxygen reserve, then also report the precise primary O2 pressure before EVA",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please inspect the secondary oxygen reserve, then also report the precise primary O2 pressure before EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you measure primary tank pressure followed by pulling up the secondary oxygen storage data for redundancy?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you measure primary tank pressure followed by pulling up the secondary oxygen storage data for redundancy?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme the backup oxygen storage numbers and then read the main tank pressure for verification",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme the backup oxygen storage numbers and then read the main tank pressure for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the primary O2 pressure reading and additionally the secondary tank amount reported before suit ingress",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the primary O2 pressure reading and additionally the secondary tank amount reported before suit ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary O2 storage levels and then, at the same time, give me the precise primary tank pressure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary O2 storage levels and then, at the same time, give me the precise primary tank pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up primary oxygen pressure next, and then bring up the secondary reserve figures as well",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up primary oxygen pressure next, and then bring up the secondary reserve figures as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Before I egress, open secondary oxygen storage details plus read the current primary pressure so I can confirm redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before I egress, open secondary oxygen storage details plus read the current primary pressure so I can confirm redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "After you read primary tank pressure, also along with that show the secondary oxygen storage numbers for cross-check",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you read primary tank pressure, also along with that show the secondary oxygen storage numbers for cross-check"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, could you display secondary oxygen storage and then provide the exact primary O2 pressure reading for trend analysis",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, could you display secondary oxygen storage and then provide the exact primary O2 pressure reading for trend analysis"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check primary pressure, followed by bringing up the backup oxygen reserve levels so I can validate both systems",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check primary pressure, followed by bringing up the backup oxygen reserve levels so I can validate both systems"
+            }
+        ]
+    },
+    {
+        "prompt": "But first, confirm secondary tank oxygen amount and then read the main tank pressure plus timestamp the readings",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first, confirm secondary tank oxygen amount and then read the main tank pressure plus timestamp the readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you confirm the primary oxygen pressure and additionally pull up the secondary storage metrics along with timestamps",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you confirm the primary oxygen pressure and additionally pull up the secondary storage metrics along with timestamps"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen storage values, and then next show me the primary O2 pressure so I can compare",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen storage values, and then next show me the primary O2 pressure so I can compare"
+            }
+        ]
+    },
+    {
+        "prompt": "Please read precise primary O2 pressure and then open backup storage readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please read precise primary O2 pressure and then open backup storage readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Before suit-up, verify secondary oxygen reserve amounts and then report the primary tank pressure along with trends",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before suit-up, verify secondary oxygen reserve amounts and then report the primary tank pressure along with trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Read primary tank pressure followed by secondary oxygen level, additionally flag any anomalies",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read primary tank pressure followed by secondary oxygen level, additionally flag any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you pull up the backup oxygen storage data and then measure the primary pressure, plus include timestamps?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you pull up the backup oxygen storage data and then measure the primary pressure, plus include timestamps?"
+            }
+        ]
+    },
+    {
+        "prompt": "While you're monitoring, read the primary oxygen pressure and then also retrieve the secondary storage statistics for redundancy verification",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While you're monitoring, read the primary oxygen pressure and then also retrieve the secondary storage statistics for redundancy verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you additionally open the secondary oxygen storage log and then immediately provide the current primary O2 pressure reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_oxy_pri_pressure"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you additionally open the secondary oxygen storage log and then immediately provide the current primary O2 pressure reading"
+            }
+        ]
+    }
+]
+}

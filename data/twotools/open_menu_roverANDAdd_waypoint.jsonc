@@ -1,0 +1,962 @@
+{
+  // intents: open_menu_rover AND Add_waypoint
+  // description_1: The user wants to access telemetry and control interfaces specific to the Pressurized Rover (PR) or Lunar Terrain Vehicle (LTV). They might ask, "Open rover dashboard" or "Show LTV status."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "open rover dashboard and mark Alpha",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover dashboard and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "show LTV status then drop waypoint Crater Edge now",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show LTV status then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up the rover power readings and then add waypoint Sample Site Bravo",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up the rover power readings and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR vitals and mark Ridge",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR vitals and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up rover battery levels also add waypoint Solar Panel A",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up rover battery levels also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Panel A"
+            }
+        ]
+    },
+    {
+        "prompt": "could you display the LTV diagnostics plus while you're at it drop a waypoint named Eastern Bluff",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you display the LTV diagnostics plus while you're at it drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Eastern Bluff"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover status and then mark this location as Cache One",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover status and then mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache One"
+            }
+        ]
+    },
+    {
+        "prompt": "show rover telemetry plus add waypoint Delta",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show rover telemetry plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up rover power and vitals in addition mark the spot as Rock Outcrop",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up rover power and vitals in addition mark the spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            }
+        ]
+    },
+    {
+        "prompt": "open LTV control panel and then drop waypoint West Crater Rim",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open LTV control panel and then drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Crater Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover GUI and then mark Trench",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover GUI and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trench"
+            }
+        ]
+    },
+    {
+        "prompt": "please open the rover status display and as well as add waypoint Sample Collection North",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please open the rover status display and as well as add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Collection North"
+            }
+        ]
+    },
+    {
+        "prompt": "display rover charge and then add waypoint Fuel Cache",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display rover charge and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover power and mark Base",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover power and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "bring up rover vitals, followed by dropping a waypoint labeled Geological Transect Alpha",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "bring up rover vitals, followed by dropping a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geological Transect Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "show rover telemetry and then add waypoint Supply Drop 3",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show rover telemetry and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop 3"
+            }
+        ]
+    },
+    {
+        "prompt": "open PR diagnostics additionally while you're at the same time mark our current position as Portal Marker",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open PR diagnostics additionally while you're at the same time mark our current position as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Portal Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover logs and mark Beacon",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover logs and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "pull up rover status and then add waypoint South Ridge Station",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "pull up rover status and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge Station"
+            }
+        ]
+    },
+    {
+        "prompt": "open the rover HUD and then along with that mark this coordinate as Cache B",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open the rover HUD and then along with that mark this coordinate as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache B"
+            }
+        ]
+    },
+    {
+        "prompt": "show rover systems and also add waypoint Ice Patch",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "show rover systems and also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Patch"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover diagnostics oh and mark Sagan",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover diagnostics oh and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sagan"
+            }
+        ]
+    },
+    {
+        "prompt": "please pull up LTV performance metrics, followed by adding a waypoint named Hab Approach",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please pull up LTV performance metrics, followed by adding a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Approach"
+            }
+        ]
+    },
+    {
+        "prompt": "display rover telemetry next add waypoint Northern Crater Edge",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "display rover telemetry next add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Northern Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "open rover console and mark Beacon2",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "open rover console and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon2"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Omega then open rover",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Omega"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open rover"
+            }
+        ]
+    },
+    {
+        "prompt": "drop waypoint Crater South and then show LTV status",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater South"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show LTV status"
+            }
+        ]
+    },
+    {
+        "prompt": "please mark this spot as Sample Site Charlie, and then open rover diagnostics",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then open rover diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "mark waypoint Echo then show rover",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show rover"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Beta while also bring up rover battery display",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also bring up rover battery display"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this location as Lava Tube Entrance and after open the rover systems panel",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lava Tube Entrance"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after open the rover systems panel"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint North Ridge and open LTV menu",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open LTV menu"
+            }
+        ]
+    },
+    {
+        "prompt": "could you please mark waypoint Science Staging Area before pulling up rover diagnostics and status screens",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you please mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Staging Area"
+            },
+            {
+                "type": "TEXT",
+                "text": " before pulling up rover diagnostics and status screens"
+            }
+        ]
+    },
+    {
+        "prompt": "drop waypoint Hab Perimeter and then display rover power and vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display rover power and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Solar Array Alpha, additionally open the rover telemetry so we can check charge levels",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally open the rover telemetry so we can check charge levels"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this as Supply Point One and show rover logs",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show rover logs"
+            }
+        ]
+    },
+    {
+        "prompt": "mark waypoint Ice Field followed by bringing up LTV status and then open the power display please",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Field"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by bringing up LTV status and then open the power display please"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Ridge Top plus pull up rover health readouts",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Top"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus pull up rover health readouts"
+            }
+        ]
+    },
+    {
+        "prompt": "mark site Horizon and then open rover status now",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark site "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Horizon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover status now"
+            }
+        ]
+    },
+    {
+        "prompt": "please add waypoint East Ridge as well as open rover telemetry and at the same time show suit data",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as open rover telemetry and at the same time show suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Cache North and then pull up rover charge indicators",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up rover charge indicators"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this spot Crater Edge Beta before you open the rover diagnostics and vitals",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this spot "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you open the rover diagnostics and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "drop waypoint South Saddle and then show rover HUD",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Saddle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show rover HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "mark waypoint Regolith Sampling Site meanwhile pull up rover status and additionally open the LTV control panel",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Regolith Sampling Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile pull up rover status and additionally open the LTV control panel"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Observation Point then open rover diagnostics",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open rover diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "mark waypoint Alpha Trench followed by opening the rover telemetry and suit biometrics",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Trench"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the rover telemetry and suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Fuel Shed and then display rover battery and suit vitals for monitoring now",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Shed"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display rover battery and suit vitals for monitoring now"
+            }
+        ]
+    },
+    {
+        "prompt": "mark waypoint South Lobe, but first open the rover telemetry and show the suit biometrics",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Lobe"
+            },
+            {
+                "type": "TEXT",
+                "text": ", but first open the rover telemetry and show the suit biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "drop waypoint Gamma Basin and then bring up the rover power and diagnostics panels",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Basin"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up the rover power and diagnostics panels"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this as Beacon North and then open rover control",
+        "tool_calls": [
+            "open_menu_rover",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open rover control"
+            }
+        ]
+    }
+]
+}

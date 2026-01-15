@@ -1,0 +1,974 @@
+{
+  // intents: vitals_oxy_time_left AND delete_waypoint
+  // description_1: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Oxygen time left and delete Alpha",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen time left and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Check oxygen time then remove Base",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check oxygen time then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo, how long oxy and clear Camp",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo, how long oxy and clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Need oxygen time plus delete Home",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need oxygen time plus delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            }
+        ]
+    },
+    {
+        "prompt": "How much O2 left then remove Depot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much O2 left then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Please give oxygen time and delete Beacon",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please give oxygen time and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme time to depletion and erase LZ",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme time to depletion and erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my oxygen time left and remove waypoint Alpha Site",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my oxygen time left and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Check remaining O2 and then delete marker Old Camp",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check remaining O2 and then delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me oxygen minutes left plus remove the Home marker",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me oxygen minutes left plus remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey how much oxy left and also remove Beacon 3",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey how much oxy left and also remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you calculate O2 time and delete waypoint Staging Area",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you calculate O2 time and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Staging Area"
+            }
+        ]
+    },
+    {
+        "prompt": "Need remaining oxygen time and remove marker Supply Cache",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need remaining oxygen time and remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking oxygen time, please remove marker Delta",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking oxygen time, please remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my oxygen duration and then delete waypoint Bravo Site",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my oxygen duration and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo Site"
+            }
+        ]
+    },
+    {
+        "prompt": "What's left on O2 and can you remove Camp 4?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's left on O2 and can you remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp 4"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check oxygen and also ditch marker Supply Point",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check oxygen and also ditch marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide oxygen time remaining and delete the marker Observation Post",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide oxygen time remaining and delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up oxy time and then remove waypoint Fuel Cache",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up oxy time and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals and then delete the beacon called North Ridge",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals and then delete the beacon called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "I need an estimate of how much oxygen time remains and remove waypoint Ice Shelf marker",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need an estimate of how much oxygen time remains and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you calculate remaining suit O2 time while also deleting the map marker Corral Site",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you calculate remaining suit O2 time while also deleting the map marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Corral Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme time to oxygen depletion and then take off waypoint Old Shuttle Pad",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme time to oxygen depletion and then take off waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Shuttle Pad"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide the oxygen time left in minutes and additionally remove the map pin Science Station",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide the oxygen time left in minutes and additionally remove the map pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Station"
+            }
+        ]
+    },
+    {
+        "prompt": "After you compute my remaining oxygen time, please delete the marker called Supply Depot next",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you compute my remaining oxygen time, please delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha and check oxygen time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase Home and check oxygen",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear Depot plus give oxygen time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus give oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Beacon 7 and then give O2 time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give O2 time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove waypoint Staging Area and also tell me remaining oxygen",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Staging Area"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me remaining oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Supply Cache and then calculate my oxygen hours",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then calculate my oxygen hours"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey delete Delta plus check O2 minutes left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check O2 minutes left"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you remove Bravo Site and also show vitals oxygen time?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show vitals oxygen time?"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Camp 4 and then provide the expected oxygen duration",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then provide the expected oxygen duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Supply Point and meanwhile calculate how long O2 lasts",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile calculate how long O2 lasts"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker called Observation Post and then at the same time tell me remaining oxygen time in minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time tell me remaining oxygen time in minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Fuel Cache before calculating my suit oxygen time so I can plan EVA duration",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " before calculating my suit oxygen time so I can plan EVA duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete the North Ridge marker followed by computing how many minutes of oxygen remain",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker followed by computing how many minutes of oxygen remain"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and remove Ice Shelf pin, then also tell me time to oxygen depletion for my suit",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": " pin, then also tell me time to oxygen depletion for my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Along with deleting the Corral Site marker, calculate remaining O2 so mission control can update plans",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Along with deleting the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Corral Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker, calculate remaining O2 so mission control can update plans"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Old Shuttle Pad and in addition compute the estimated oxygen minutes remaining for EVA planning",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Shuttle Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition compute the estimated oxygen minutes remaining for EVA planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Need the Science Station marker removed as well as an oxygen time estimate for my current consumption rate",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker removed as well as an oxygen time estimate for my current consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you clear the Supply Depot waypoint, tell me how many hours of oxygen I have left, please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you clear the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint, tell me how many hours of oxygen I have left, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Observation Outpost marker and then calculate remaining O2 as well so I can check logs",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and then calculate remaining O2 as well so I can check logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove beacon Echo Point followed by a readout that shows expected time until oxygen depletion at current usage",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove beacon "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a readout that shows expected time until oxygen depletion at current usage"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey delete the Landing Zone and then also pull up my vitals showing oxygen time remaining plus battery status",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also pull up my vitals showing oxygen time remaining plus battery status"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove the West Ridge marker, and then calculate how long the suit's O2 will last under current load",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker, and then calculate how long the suit's O2 will last under current load"
+            }
+        ]
+    },
+    {
+        "prompt": "Along with deleting Camp Omega, could you also compute remaining oxygen time and then display vitals for verification",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Along with deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Omega"
+            },
+            {
+                "type": "TEXT",
+                "text": ", could you also compute remaining oxygen time and then display vitals for verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Sector Twelve meanwhile calculate the estimated minutes of oxygen remaining and report back",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sector Twelve"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile calculate the estimated minutes of oxygen remaining and report back"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home Base but first tell me exact oxygen time left and then confirm waypoint deletion",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first tell me exact oxygen time left and then confirm waypoint deletion"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,658 @@
+{
+  // intents: vitals_batt_time_left AND close_menu
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user wants to minimize or dismiss the currently active AR window to clear their field of view. The command would be "Close menu" or "Dismiss window."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check battery time left and close menu",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery time left and close menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss menu then tell me battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss menu then tell me battery"
+            }
+        ]
+    },
+    {
+        "prompt": "How much charge and close window",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much charge and close window"
+            }
+        ]
+    },
+    {
+        "prompt": "Close HUD plus show my power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close HUD plus show my power"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time then dismiss that menu",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time then dismiss that menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide the menu and check power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide the menu and check power"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me remaining power then close",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me remaining power then close"
+            }
+        ]
+    },
+    {
+        "prompt": "Close window and tell me battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close window and tell me battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Get battery estimate and dismiss HUD",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get battery estimate and dismiss HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Close that menu then show vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close that menu then show vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me battery time remaining and close the menu?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me battery time remaining and close the menu?"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the current AR window then report my suit charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the current AR window then report my suit charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up battery duration and then dismiss HUD",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up battery duration and then dismiss HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Please close menu and also show my vitals display",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please close menu and also show my vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining power estimate and then clear that window",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining power estimate and then clear that window"
+            }
+        ]
+    },
+    {
+        "prompt": "Dismiss that overlay plus bring up my biometrics readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Dismiss that overlay plus bring up my biometrics readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display battery life and then close the panel?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display battery life and then close the panel?"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the HUD, next show me suit power status",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the HUD, next show me suit power status"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme charge time left and dismiss the menu afterwards",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme charge time left and dismiss the menu afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide the menu then pull up my vitals and gauges",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide the menu then pull up my vitals and gauges"
+            }
+        ]
+    },
+    {
+        "prompt": "How long will the power last and also close UI",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long will the power last and also close UI"
+            }
+        ]
+    },
+    {
+        "prompt": "Close this display and then report remaining battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close this display and then report remaining battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me battery time plus hide that overlay",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me battery time plus hide that overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and close menu before you show my power stats",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and close menu before you show my power stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Need a battery estimate and then clear the HUD",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need a battery estimate and then clear the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Close overlay and then display suit biometrics for me",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close overlay and then display suit biometrics for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me the power remaining and next dismiss AR panel",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me the power remaining and next dismiss AR panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Please shut the menu and at the same time show battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please shut the menu and at the same time show battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up remaining charge and then close display",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up remaining charge and then close display"
+            }
+        ]
+    },
+    {
+        "prompt": "Close the interactive menu and show battery as well as vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close the interactive menu and show battery as well as vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, I need you to pull up my remaining battery time and then dismiss the mission menu",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, I need you to pull up my remaining battery time and then dismiss the mission menu"
+            }
+        ]
+    },
+    {
+        "prompt": "Close that obstructing window first and afterwards display my suit power and biometric summary",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close that obstructing window first and afterwards display my suit power and biometric summary"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide an estimate of charge remaining and then clear the HUD overlay so I can proceed",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide an estimate of charge remaining and then clear the HUD overlay so I can proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you close the current AR panel and then bring up my vitals and oxygen readings please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you close the current AR panel and then bring up my vitals and oxygen readings please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need to know how long the power will last and then hide the status menu immediately",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need to know how long the power will last and then hide the status menu immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "First close the overlay, followed by pulling up my suit data and remaining battery duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First close the overlay, followed by pulling up my suit data and remaining battery duration"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, give me the remaining charge estimate and additionally remove the AR menu from my view",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, give me the remaining charge estimate and additionally remove the AR menu from my view"
+            }
+        ]
+    },
+    {
+        "prompt": "Please dismiss that menu along with any popups and then report back my suit's battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please dismiss that menu along with any popups and then report back my suit's battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme know the estimated battery time left and then close every overlay so I get a clear view",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme know the estimated battery time left and then close every overlay so I get a clear view"
+            }
+        ]
+    },
+    {
+        "prompt": "Hide the menu and then, in addition, show me the suit biometrics and remaining power percentage",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hide the menu and then, in addition, show me the suit biometrics and remaining power percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check my battery time remaining, please close the HUD so I can focus on this task",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check my battery time remaining, please close the HUD so I can focus on this task"
+            }
+        ]
+    },
+    {
+        "prompt": "Close that persistent menu but first show me the current battery duration and vitals summary",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close that persistent menu but first show me the current battery duration and vitals summary"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you run a quick power estimate while also dismissing the overlay to clear my field of view?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you run a quick power estimate while also dismissing the overlay to clear my field of view?"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and close the settings menu, next pull up my suit's charge and vitals for status check",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and close the settings menu, next pull up my suit's charge and vitals for status check"
+            }
+        ]
+    },
+    {
+        "prompt": "I need a readout of battery autonomy along with closing the distracting HUD before I move out",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need a readout of battery autonomy along with closing the distracting HUD before I move out"
+            }
+        ]
+    },
+    {
+        "prompt": "Shut the interface and then show the remaining power and biometrics, followed by a concise status report",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Shut the interface and then show the remaining power and biometrics, followed by a concise status report"
+            }
+        ]
+    },
+    {
+        "prompt": "Please calculate the expected battery duration for the EVA and additionally remove any menus from view",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please calculate the expected battery duration for the EVA and additionally remove any menus from view"
+            }
+        ]
+    },
+    {
+        "prompt": "Before anything else, close the pop-up, and then display my suit power left along with vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before anything else, close the pop-up, and then display my suit power left along with vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you estimate how many minutes of charge remain and then clear all overlays so I have full visibility?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you estimate how many minutes of charge remain and then clear all overlays so I have full visibility?"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile close this menu and at the same time pull up my battery status and vital signs report",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "close_menu"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile close this menu and at the same time pull up my battery status and vital signs report"
+            }
+        ]
+    }
+]
+}

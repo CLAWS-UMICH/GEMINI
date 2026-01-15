@@ -1,0 +1,935 @@
+{
+  // intents: vitals_oxy_consumption AND Get_coordinates
+  // description_1: The user is interested in the rate at which they are using oxygen, which helps in planning strenuous activities or return trips. They might ask, "What is my current oxygen consumption rate?"
+  // description_2: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // tokens: COORDINATE_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check O2 rate and find LTV",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 rate and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the rover and O2 rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and O2 rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Need O2 burn and PR coords",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need O2 burn and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " coords"
+            }
+        ]
+    },
+    {
+        "prompt": "Show oxygen use then LZ-3",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show oxygen use then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "O2 consumption, where's Base Alpha",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 consumption, where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up vitals and rover-2",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up vitals and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover-2"
+            }
+        ]
+    },
+    {
+        "prompt": "How fast O2 used and beacon 7",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How fast O2 used and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit oxygen plus module Delta",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit oxygen plus "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "module Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen flow and drone Charlie please",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen flow and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "drone Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo show O2 rate then hangar",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo show O2 rate then "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "hangar"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my current oxygen consumption and coordinates for LTV",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my current oxygen consumption and coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the PR but first show my O2 rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show my O2 rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up my vitals and also locate Base Alpha",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up my vitals and also locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Base Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the rover plus show me current oxygen consumption",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show me current oxygen consumption"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics display and get coordinates for sample site alpha",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics display and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate EVA buddy Martinez and then tell me my O2 burn rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate EVA buddy "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Martinez"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me my O2 burn rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display suit data as well as get LZ-3 coordinates",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display suit data as well as get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "I need oxygen usage and the position of rover-2 next",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need oxygen usage and the position of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Show my O2 rate while also bringing up beacon 7 coordinates",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show my O2 rate while also bringing up "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for module Delta and additionally display oxygen flow",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "module Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally display oxygen flow"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up biometrics plus show me where the hangar is",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up biometrics plus show me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "hangar"
+            },
+            {
+                "type": "TEXT",
+                "text": " is"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals and then get coords for drone Charlie please",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals and then get coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "drone Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my O2 rate and also find forward station",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my O2 rate and also find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "forward station"
+            }
+        ]
+    },
+    {
+        "prompt": "Get the coordinates for the command module and check oxygen use",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get the coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "command module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check oxygen use"
+            }
+        ]
+    },
+    {
+        "prompt": "Display my current breath O2 usage and then locate supply cache Bravo",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display my current breath O2 usage and then locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply cache Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the comms tower and what's my oxygen consumption?",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comms tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and what's my oxygen consumption?"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my O2 rate as well as science outpost location",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my O2 rate as well as "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " location"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check oxygen, get coordinates for mobile lab",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check oxygen, get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "mobile lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Need my O2 consumption then find the oxygen cache nearby",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need my O2 consumption then find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "oxygen cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " nearby"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check suit O2 and then get LTV coordinates next",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check suit O2 and then get "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " coordinates next"
+            }
+        ]
+    },
+    {
+        "prompt": "Get precise coordinates for the science outpost and then tell me my current oxygen consumption rate",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get precise coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me my current oxygen consumption rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Where exactly is the mobile lab and display my suit O2 burn rate so I can decide",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where exactly is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "mobile lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display my suit O2 burn rate so I can decide"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for forward station followed by pulling up my current oxygen consumption statistics please",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "forward station"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by pulling up my current oxygen consumption statistics please"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the location of supply cache Bravo and at the same time show my O2 usage trend",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the location of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply cache Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show my O2 usage trend"
+            }
+        ]
+    },
+    {
+        "prompt": "I'd like the coordinates for beacon 7 and then additionally see my oxygen flow over the last ten minutes",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'd like the coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally see my oxygen flow over the last ten minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the comms tower meanwhile check my O2 consumption so mission control can be updated",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comms tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile check my O2 consumption so mission control can be updated"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me coordinates for the command module and then pull up my current oxygen consumption and projected remaining time",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "command module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up my current oxygen consumption and projected remaining time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up my biometrics including oxygen consumption rate and then get the location of the hangar",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up my biometrics including oxygen consumption rate and then get the location of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "hangar"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display my oxygen consumption trend over the last fifteen minutes and also get coordinates for the hangar",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display my oxygen consumption trend over the last fifteen minutes and also get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "hangar"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for drone Charlie and at the same time show my current O2 rate and remaining minutes",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "drone Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show my current O2 rate and remaining minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the forward station in relation to me and additionally pull up my suit oxygen consumption graph",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "forward station"
+            },
+            {
+                "type": "TEXT",
+                "text": " in relation to me and additionally pull up my suit oxygen consumption graph"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the location of the oxygen cache along with providing my current O2 consumption rate and projected time remaining",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the location of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "oxygen cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with providing my current O2 consumption rate and projected time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Please locate supply cache Bravo next and also open my biometrics so I can check oxygen burn trends",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply cache Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and also open my biometrics so I can check oxygen burn trends"
+            }
+        ]
+    },
+    {
+        "prompt": "Get me the exact position of the command module and meanwhile bring up my oxygen usage history for the EVA",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get me the exact position of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "command module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile bring up my oxygen usage history for the EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's LTV and then show O2 consumption, followed by an ETA to rendezvous based on current oxygen",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show O2 consumption, followed by an ETA to rendezvous based on current oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the rover and in addition display my suit O2 usage plus projected safe time margin",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition display my suit O2 usage plus projected safe time margin"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you move, get the position of the LZ-3 and show my oxygen consumption so I can confirm return timing",
+        "tool_calls": [
+            "vitals_oxy_consumption",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you move, get the position of the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show my oxygen consumption so I can confirm return timing"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,962 @@
+{
+  // intents: vitals_oxy_time_left AND Set_navigation_target
+  // description_1: The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as "How much oxygen time remains?" or "Time to oxygen depletion?"
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "O2 time left and go to LTV",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "O2 time left and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "How long oxygen lasts, head to rover",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long oxygen lasts, head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Time to depletion then set destination Airlock",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time to depletion then set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen remaining, go to Home Base",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen remaining, go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit air then go Habitat",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit air then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me O2 time plus set LZ-3",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me O2 time plus set "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "How much oxygen left, route to rover",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How much oxygen left, route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Oxygen remaining, go to Med Bay",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oxygen remaining, go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Time left for O2 and set Habitat",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Time left for O2 and set "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Check O2 then navigate to Comm Beacon",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check O2 then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me oxygen time remaining and plot course to Cargo Depot",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me oxygen time remaining and plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my O2 time left and can you set destination Alpha Site?",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my O2 time left and can you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check oxygen time and then navigate to Solar Array",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check oxygen time and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide time to oxygen depletion and direct me to Hab 1",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide time to oxygen depletion and direct me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Need remaining oxygen plus set course for Landing Zone",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need remaining oxygen plus set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking O2, show route to Science Lab",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking O2, show route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up my oxygen estimate and then take me to Base Camp",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up my oxygen estimate and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "How long until O2 runs out and also navigate to Relay Station",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "How long until O2 runs out and also navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit oxygen while plotting a course to Observation Post",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit oxygen while plotting a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me remaining breathable air and set destination LTV",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me remaining breathable air and set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "I need exact time remaining on my oxygen supply and then route me to the Lunar Module",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need exact time remaining on my oxygen supply and then route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you calculate my remaining O2 duration and additionally set navigation to Sector 7",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you calculate my remaining O2 duration and additionally set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sector 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me how long my suit oxygen will last and then plot a path to South Crater",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me how long my suit oxygen will last and then plot a path to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Give me the time to oxygen depletion while also setting course for Comm Beacon",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Give me the time to oxygen depletion while also setting course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "I need an estimate of remaining breathable gas and follow that by displaying route to Supply Cache",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need an estimate of remaining breathable gas and follow that by displaying route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover and tell me oxygen time remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me oxygen time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Home Base and then calculate my remaining O2",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then calculate my remaining O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo take me to Alpha Site plus check my suit oxygen time",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check my suit oxygen time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please route me to Cargo Depot and provide oxygen time remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and provide oxygen time remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Solar Array and tell me remaining breathable air",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me remaining breathable air"
+            }
+        ]
+    },
+    {
+        "prompt": "After you set destination Relay Station, give me my O2 estimate",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            },
+            {
+                "type": "TEXT",
+                "text": ", give me my O2 estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Observation Post and then show my oxygen time left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my oxygen time left"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Landing Zone while also reporting suit O2 remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also reporting suit O2 remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Lab and give me remaining O2 minutes",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and give me remaining O2 minutes"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Hab 2 and also calculate how long oxygen lasts",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also calculate how long oxygen lasts"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Relay Station before telling me how many minutes of oxygen I have remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " before telling me how many minutes of oxygen I have remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Lunar Module but first calculate my remaining suit oxygen time please",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lunar Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first calculate my remaining suit oxygen time please"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot course to Command Module and as well as report my current oxygen duration estimate",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as report my current oxygen duration estimate"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Base Camp along with giving me an O2 time estimate for the suit",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with giving me an O2 time estimate for the suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Emergency Shelter in addition provide the remaining oxygen time and display it",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Emergency Shelter"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition provide the remaining oxygen time and display it"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course for Cargo Depot, additionally show my time until oxygen depletion on HUD",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally show my time until oxygen depletion on HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Supply Cache meanwhile calculate how long my breathable air will last and show it",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile calculate how long my breathable air will last and show it"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Observation Post, oh and tell me how much oxygen time I have left",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and tell me how much oxygen time I have left"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Science Lab and then calculate my oxygen remaining, followed by plotting the best route",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then calculate my oxygen remaining, followed by plotting the best route"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot navigation to Solar Array next estimate remaining suit oxygen and display it on visor",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " next estimate remaining suit oxygen and display it on visor"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Alpha Site and at the same time tell me time until my oxygen is gone",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time tell me time until my oxygen is gone"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Comm Beacon and then while you're plotting the route calculate my O2 minutes remaining",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then while you're plotting the route calculate my O2 minutes remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Med Bay, along with estimating how many minutes of oxygen remain in my suit",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", along with estimating how many minutes of oxygen remain in my suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LZ-3 as well as tell me the projected oxygen depletion time in addition show the map",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as tell me the projected oxygen depletion time in addition show the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination Rendezvous Point but first give oxygen time remaining, oh and display the holographic route",
+        "tool_calls": [
+            "vitals_oxy_time_left",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rendezvous Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first give oxygen time remaining, oh and display the holographic route"
+            }
+        ]
+    }
+]
+}

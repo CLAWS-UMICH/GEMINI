@@ -1,0 +1,1237 @@
+{
+  // intents: vitals_batt_time_left AND Complete_task
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Check battery and mark Connect Umbilical",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time then finish Antenna Check",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me power and complete Battery Check",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me power and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check charge and finish EVA Prep",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check charge and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA Prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Show remaining power and mark Airlock Seal",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show remaining power and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me battery time left and mark Tether Hookup?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me battery time left and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display remaining charge then finish Sample Container Secure",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display remaining charge then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Container Secure"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey pull up suit vitals and complete Camera Calibration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey pull up suit vitals and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "I need battery duration plus mark Comms Switch done",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need battery duration plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Switch"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Check my charge while marking Seal Diagnostics complete",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my charge while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Open biometrics along with finishing Thermal Reg Check",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open biometrics along with finishing "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up remaining power as well as finish Oxygen Flow Test",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up remaining power as well as finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Flow Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me charge and also mark Radiation Logger Reset complete",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me charge and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Logger Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery time and then complete Instrument Deploy",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery time and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Instrument Deploy"
+            }
+        ]
+    },
+    {
+        "prompt": "Next display power remaining and finish Solar Array Alignment",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next display power remaining and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array Alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey I need you to pull up my current battery time remaining and then mark Waste Stow as done",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey I need you to pull up my current battery time remaining and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display suit charge duration followed by completing Pressure Equalization on the checklist",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display suit charge duration followed by completing "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " on the checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open my biometrics panel and then mark Glove Integrity Test as complete for me",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open my biometrics panel and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Glove Integrity Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete for me"
+            }
+        ]
+    },
+    {
+        "prompt": "I'm short on time so show power remaining next and check off Suit Leak Scan",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I'm short on time so show power remaining next and check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Leak Scan"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, while you pull up battery status also mark Payload Bay Latch as done",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, while you pull up battery status also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload Bay Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "After you display remaining charge, please complete LIDAR Warmup and update the progress indicator",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you display remaining charge, please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "LIDAR Warmup"
+            },
+            {
+                "type": "TEXT",
+                "text": " and update the progress indicator"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up suit vitals at the same time and then close out Nav Beacon Sync",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up suit vitals at the same time and then close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Nav Beacon Sync"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my battery hours in addition and then finish Camera Lens Cover task",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my battery hours in addition and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Lens Cover"
+            },
+            {
+                "type": "TEXT",
+                "text": " task"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my biometrics meanwhile mark CO2 Scrubber Cycle as completed and notify mission",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my biometrics meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " as completed and notify mission"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up remaining power in addition to marking Mobility Joint Check complete before I proceed",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up remaining power in addition to marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mobility Joint Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete before I proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Visor De-ice then check battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Visor De-ice"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Sample Labeling and show power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Labeling"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show power"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Data Uplink and battery?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data Uplink"
+            },
+            {
+                "type": "TEXT",
+                "text": " and battery?"
+            }
+        ]
+    },
+    {
+        "prompt": "Check off Tool Bay Lock, then power?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check off "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Bay Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then power?"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Lighting Panel Reset complete and battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lighting Panel Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Please finish Microphone Check but first display remaining charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Microphone Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first display remaining charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Heart Rate Baseline as done and show battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Heart Rate Baseline"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and show battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Footpad Secure complete plus pull up suit power remaining",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Footpad Secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete plus pull up suit power remaining"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Relay Antenna Deploy and also display my remaining charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay Antenna Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display my remaining charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you complete Solar Tracker Reset then show battery hours please",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Tracker Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show battery hours please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey mark EVA Log Entry done and then open biometrics panel",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA Log Entry"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then open biometrics panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Coolant Pump Prime complete and show battery time",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Coolant Pump Prime"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and show battery time"
+            }
+        ]
+    },
+    {
+        "prompt": "In addition, mark Radiation Shield Stow complete and bring up charge",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "In addition, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Shield Stow"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and bring up charge"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally finish Docking Guide Align and then display remaining power",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking Guide Align"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then display remaining power"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and close out BioSensor Cal then check my battery",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "BioSensor Cal"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check my battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Field Recorder Start as complete and then pull up my remaining battery time for EVA",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Field Recorder Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then pull up my remaining battery time for EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Please finish Auxiliary Battery Engage now and afterwards show me the suit's power duration",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Auxiliary Battery Engage"
+            },
+            {
+                "type": "TEXT",
+                "text": " now and afterwards show me the suit's power duration"
+            }
+        ]
+    },
+    {
+        "prompt": "After you mark Handrail Fasten complete, could you display the current charge and vitals as well?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Handrail Fasten"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete, could you display the current charge and vitals as well?"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Exterior Hatch Test then in addition pull up remaining battery and biometrics for me",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Exterior Hatch Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " then in addition pull up remaining battery and biometrics for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete Sample Freezer Activate followed by showing battery time remaining and opening the vitals screen",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Freezer Activate"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing battery time remaining and opening the vitals screen"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you mark Beacon Transmit Test as done and additionally bring up suit charge and vitals simultaneously",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon Transmit Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and additionally bring up suit charge and vitals simultaneously"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete Antenna Dish Rotate and at the same time show remaining battery time and biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Dish Rotate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show remaining battery time and biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Comm Relay Reboot as done then in addition pull up my current power remaining before we move",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Relay Reboot"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done then in addition pull up my current power remaining before we move"
+            }
+        ]
+    },
+    {
+        "prompt": "Close out Suit GPS Sync and also display battery life remaining plus open the biometrics panel",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit GPS Sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also display battery life remaining plus open the biometrics panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Thermal Blanket Fold and then bring up my battery time as well as the vital signs readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Blanket Fold"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then bring up my battery time as well as the vital signs readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Antenna Check and pull up remaining power along with the vitals display",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up remaining power along with the vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Battery Check and then show my suit biometrics next",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my suit biometrics next"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete EVA Prep and in addition display remaining battery plus vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA Prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition display remaining battery plus vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Airlock Seal as done and then pull up remaining power while showing biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and then pull up remaining power while showing biometrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Close out Tether Hookup, and then display the battery duration and suit vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Close out "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then display the battery duration and suit vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Camera Calibration and meanwhile show remaining charge and the biometrics panel",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile show remaining charge and the biometrics panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Comms Switch complete then also pull up my battery status and vitals",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms Switch"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete then also pull up my battery status and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Log Seal Diagnostics and also show the remaining power, plus open the vitals readout",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Log "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show the remaining power, plus open the vitals readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Set Thermal Reg Check as complete and then display charge time and biometrics for EVA planning",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Reg Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then display charge time and biometrics for EVA planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Oxygen Flow Test and then show my remaining power as well as the vitals overlay",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Flow Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show my remaining power as well as the vitals overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Radiation Logger Reset done, and then pull up battery time along with biometrics",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Logger Reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, and then pull up battery time along with biometrics"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,974 @@
+{
+  // intents: close_menu AND Add_task
+  // description_1: The user wants to minimize or dismiss the currently active AR window to clear their field of view. The command would be "Close menu" or "Dismiss window."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "close menu and add task inspect antenna",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close menu and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "dismiss window, add task fix leak",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "dismiss window, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fix leak"
+            }
+        ]
+    },
+    {
+        "prompt": "close HUD and create task check seals",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close HUD and create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "add task collect soil sample; close menu",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect soil sample"
+            },
+            {
+                "type": "TEXT",
+                "text": "; close menu"
+            }
+        ]
+    },
+    {
+        "prompt": "close window then add task recharge battery",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close window then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recharge battery"
+            }
+        ]
+    },
+    {
+        "prompt": "add task check tether and dismiss window",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and dismiss window"
+            }
+        ]
+    },
+    {
+        "prompt": "minimize AR and add task check oxygen",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "minimize AR and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "add task stow tool and close menu",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow tool"
+            },
+            {
+                "type": "TEXT",
+                "text": " and close menu"
+            }
+        ]
+    },
+    {
+        "prompt": "close display plus add task sample retrieval",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close display plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample retrieval"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect comms and close overlay",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and close overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "please close the menu and add task inspect solar array",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please close the menu and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run suit diagnostics and then dismiss the AR window",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the AR window"
+            }
+        ]
+    },
+    {
+        "prompt": "close the HUD, then add task check power levels",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the HUD, then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check power levels"
+            }
+        ]
+    },
+    {
+        "prompt": "add task take radiation reading and close the display afterwards",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "take radiation reading"
+            },
+            {
+                "type": "TEXT",
+                "text": " and close the display afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "could you close the vitals overlay and add task calibrate sensors",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "could you close the vitals overlay and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "add task note micrometeoroid strike and after that dismiss the window",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "note micrometeoroid strike"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that dismiss the window"
+            }
+        ]
+    },
+    {
+        "prompt": "shut the menu, and add task inspect comms antenna",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "shut the menu, and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect comms antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "add task collect sample at site Bravo then close HUD",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample at site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then close HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "close overlay before you add task check coolant levels",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close overlay before you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant levels"
+            }
+        ]
+    },
+    {
+        "prompt": "add task replace battery pack plus dismiss the AR display",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace battery pack"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus dismiss the AR display"
+            }
+        ]
+    },
+    {
+        "prompt": "minimize the menu and also add task document solar flare traces",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "minimize the menu and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document solar flare traces"
+            }
+        ]
+    },
+    {
+        "prompt": "add task verify sample container seal and then close display",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify sample container seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close display"
+            }
+        ]
+    },
+    {
+        "prompt": "close the active window and add task retrieve spare O2 canister",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the active window and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "retrieve spare O2 canister"
+            }
+        ]
+    },
+    {
+        "prompt": "add task photograph surface feature and dismiss menu as well",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph surface feature"
+            },
+            {
+                "type": "TEXT",
+                "text": " and dismiss menu as well"
+            }
+        ]
+    },
+    {
+        "prompt": "please dismiss the window and add task inspect thermal blanket",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please dismiss the window and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thermal blanket"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run life support check before closing the HUD",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run life support check"
+            },
+            {
+                "type": "TEXT",
+                "text": " before closing the HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "close the menu and add task secure loose hardware",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the menu and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose hardware"
+            }
+        ]
+    },
+    {
+        "prompt": "add task analyze regolith sample and then close the overlay",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "analyze regolith sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the overlay"
+            }
+        ]
+    },
+    {
+        "prompt": "close that panel and add task inspect umbilical connectors",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close that panel and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect umbilical connectors"
+            }
+        ]
+    },
+    {
+        "prompt": "add task secure tooling along with closing the menu",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tooling"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with closing the menu"
+            }
+        ]
+    },
+    {
+        "prompt": "close the menu first, and then add task inspect the mounting bracket for damage along with photo documentation",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the menu first, and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect the mounting bracket for damage along with photo documentation"
+            }
+        ]
+    },
+    {
+        "prompt": "add task collect two regolith cores at grid nine, and then minimize the HUD to clear my view",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect two regolith cores at grid nine"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then minimize the HUD to clear my view"
+            }
+        ]
+    },
+    {
+        "prompt": "dismiss the AR window and add task run full EVA suit pressure check before re-entering the airlock",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "dismiss the AR window and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run full EVA suit pressure check before re-entering the airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "add task photograph crater rim as well as record compass heading, and then close the overlay to continue work",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph crater rim as well as record compass heading"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then close the overlay to continue work"
+            }
+        ]
+    },
+    {
+        "prompt": "close the vitals display next, and add task verify oxygen sensor calibration followed by logging results in the manifest",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the vitals display next, and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify oxygen sensor calibration followed by logging results in the manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run thermal blanket integrity assessment and then dismiss the menu, additionally capture thermal images with IR camera",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run thermal blanket integrity assessment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then dismiss the menu, additionally capture thermal images with IR camera"
+            }
+        ]
+    },
+    {
+        "prompt": "clear the HUD, but first add task secure the loose tether and then close the panel to restore view",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "clear the HUD, but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure the loose tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the panel to restore view"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect solar panel hinges while minimizing the display, and then report any anomalies to Mission Control",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel hinges"
+            },
+            {
+                "type": "TEXT",
+                "text": " while minimizing the display, and then report any anomalies to Mission Control"
+            }
+        ]
+    },
+    {
+        "prompt": "add task replace worn O-ring seals in pump assembly, then dismiss the overlay and log parts used",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace worn O-ring seals in pump assembly"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then dismiss the overlay and log parts used"
+            }
+        ]
+    },
+    {
+        "prompt": "close the current menu at the same time and add task inventory spare bolts, followed by tagging locations",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the current menu at the same time and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory spare bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by tagging locations"
+            }
+        ]
+    },
+    {
+        "prompt": "add task verify antenna alignment, meanwhile close the telemetry overlay and then continue with communication checks",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile close the telemetry overlay and then continue with communication checks"
+            }
+        ]
+    },
+    {
+        "prompt": "close the overlays, and add task run diagnostic on the temperature sensors while recording the output to the log",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the overlays, and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostic on the temperature sensors while recording the output to the log"
+            }
+        ]
+    },
+    {
+        "prompt": "add task collect filter sample and then close the menu, oh and take a timestamp and GPS fix for reference",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect filter sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then close the menu, oh and take a timestamp and GPS fix for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "dismiss the HUD and then add task conduct micrometeoroid impact survey, additionally take high-res imagery of affected area",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "dismiss the HUD and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "conduct micrometeoroid impact survey"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally take high-res imagery of affected area"
+            }
+        ]
+    },
+    {
+        "prompt": "add task secure the sample rack before you close the display, and then notify me when task is complete",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure the sample rack"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you close the display, and then notify me when task is complete"
+            }
+        ]
+    },
+    {
+        "prompt": "add task mark HV connector as inspected, and then minimize menu followed by uploading results to the EVA logbook",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mark HV connector as inspected"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then minimize menu followed by uploading results to the EVA logbook"
+            }
+        ]
+    },
+    {
+        "prompt": "close the main menu but first add task check coolant hose clamps and then take photos for engineering review",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the main menu but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant hose clamps"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then take photos for engineering review"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run secondary comms test at next interval, along with closing currently open overlays to reduce HUD clutter",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run secondary comms test at next interval"
+            },
+            {
+                "type": "TEXT",
+                "text": ", along with closing currently open overlays to reduce HUD clutter"
+            }
+        ]
+    },
+    {
+        "prompt": "close the window and add task cross-check attitude sensors in addition to validating star tracker alignment",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "close the window and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "cross-check attitude sensors in addition to validating star tracker alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "add task calibrate the spectrometer, and then dismiss the overlay while at the same time recording baseline readings",
+        "tool_calls": [
+            "close_menu",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate the spectrometer"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then dismiss the overlay while at the same time recording baseline readings"
+            }
+        ]
+    }
+]
+}

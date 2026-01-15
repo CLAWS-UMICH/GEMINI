@@ -1,0 +1,994 @@
+{
+  // intents: vitals_oxy_sec_storage AND Add_waypoint
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check backup oxygen then mark base",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "base"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary O2 status and add waypoint alpha",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary O2 status and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup oxygen check plus mark crater",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup oxygen check plus mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Need reserve oxygen and tag Sample1",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need reserve oxygen and tag "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample1"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm secondary oxygen then waypoint delta",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm secondary oxygen then waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary oxygen levels and then add waypoint Horizon Ridge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary oxygen levels and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Horizon Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "What's the backup oxygen and add waypoint Echo Point",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's the backup oxygen and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report reserve oxygen then add waypoint Sample Site Bravo",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report reserve oxygen then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check secondary O2 and then mark Ridge Line",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check secondary O2 and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Line"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the secondary oxygen readout and also drop a waypoint named Icefall Edge please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the secondary oxygen readout and also drop a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Icefall Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary oxygen levels displayed and then add waypoint Habitat Perimeter for reference",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary oxygen levels displayed and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check the reserve oxygen, add waypoint Solar Array next to the panel",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check the reserve oxygen, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " next to the panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Quickly check backup oxygen and also mark Crater Edge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Quickly check backup oxygen and also mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Show secondary oxygen readings and add waypoint North Ridge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show secondary oxygen readings and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please provide reserve oxygen percentage as well as drop a waypoint labeled Sample Site Alpha before we move",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please provide reserve oxygen percentage as well as drop a waypoint labeled "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " before we move"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, can you check the secondary O2 and then add waypoint Pipe Junction for mapping",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, can you check the secondary O2 and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pipe Junction"
+            },
+            {
+                "type": "TEXT",
+                "text": " for mapping"
+            }
+        ]
+    },
+    {
+        "prompt": "Status of secondary oxygen and then add waypoint Landing Zone",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of secondary oxygen and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Before we head out, confirm secondary oxygen reserves and additionally mark this location as Rock Shelf",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before we head out, confirm secondary oxygen reserves and additionally mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Shelf"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull secondary oxygen then mark sample trench A3",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull secondary oxygen then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "sample trench A3"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary oxygen level reported and then drop a waypoint called Water Ice Deposit for my log",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary oxygen level reported and then drop a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Ice Deposit"
+            },
+            {
+                "type": "TEXT",
+                "text": " for my log"
+            }
+        ]
+    },
+    {
+        "prompt": "Report reserve oxygen plus add waypoint South Crater Ridge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report reserve oxygen plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Crater Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "While monitoring secondary oxygen, also place a waypoint named Ridge Basecamp to mark the sample zone",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "While monitoring secondary oxygen, also place a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Basecamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " to mark the sample zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen check and then add waypoint East Tributary",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen check and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Tributary"
+            }
+        ]
+    },
+    {
+        "prompt": "After you confirm backup oxygen capacity, followed by adding waypoint Observation Point for EVA guidance",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you confirm backup oxygen capacity, followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " for EVA guidance"
+            }
+        ]
+    },
+    {
+        "prompt": "But first check the secondary oxygen tank level and then mark this spot as Sample Ridge for later",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first check the secondary oxygen tank level and then mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Basecamp then check secondary oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Basecamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark spot Alpha then check backup O2",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark spot "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check backup O2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Echo then check secondary oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Delta and check backup oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint SouthRidge and check O2 reserve",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthRidge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check O2 reserve"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Bravo then report secondary oxygen levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then report secondary oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Ridge Line and then pull the secondary oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Line"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull the secondary oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this as Landing Zone and also show backup oxygen quantity",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show backup oxygen quantity"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Icefall Edge and in addition display reserve oxygen percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Icefall Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition display reserve oxygen percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey add waypoint Solar Array and then check the backup oxygen tank",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check the backup oxygen tank"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add waypoint Rock Shelf and next provide secondary oxygen readout?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next provide secondary oxygen readout?"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Observation Point then meanwhile show reserve oxygen levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " then meanwhile show reserve oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Habitat Perimeter and then pull secondary oxygen stats please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull secondary oxygen stats please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Pipe Junction plus check secondary oxygen before departure",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pipe Junction"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check secondary oxygen before departure"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint North Ridge and then also show secondary O2 measurement",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also show secondary O2 measurement"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop a waypoint called Water Ice Deposit and then at the same time verify the secondary oxygen supply level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop a waypoint called "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Water Ice Deposit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time verify the secondary oxygen supply level"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint South Crater Ridge and then followed by reporting the backup oxygen percentage for redundancy checks",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Crater Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then followed by reporting the backup oxygen percentage for redundancy checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark this location as Sample Trench A3 and then also show me the secondary oxygen tank status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Trench A3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also show me the secondary oxygen tank status"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add waypoint Ridge Basecamp along with pulling up the reserve oxygen readout for mission logs",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Basecamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with pulling up the reserve oxygen readout for mission logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint East Tributary then at the same time verify secondary oxygen and record the reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Tributary"
+            },
+            {
+                "type": "TEXT",
+                "text": " then at the same time verify secondary oxygen and record the reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Alpha and also, while you're at it, confirm the backup oxygen capacity in percentage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also, while you're at it, confirm the backup oxygen capacity in percentage"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Observation Point and then, in addition, run the diagnostics on secondary oxygen storage",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then, in addition, run the diagnostics on secondary oxygen storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Ice Shelf next and then check the secondary oxygen tank levels before we continue EVA",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Shelf"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then check the secondary oxygen tank levels before we continue EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and add waypoint Habitat Perimeter followed by reporting reserve oxygen and log the timestamp",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reporting reserve oxygen and log the timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Pipe Junction and then concurrently check the secondary oxygen supply as well as record the value",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Pipe Junction"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then concurrently check the secondary oxygen supply as well as record the value"
+            }
+        ]
+    }
+]
+}

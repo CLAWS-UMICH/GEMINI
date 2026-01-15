@@ -1,0 +1,990 @@
+{
+  // intents: vitals_temperature AND Add_waypoint
+  // description_1: The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, "What is the suit temperature?"
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check suit temp and mark Site Alpha",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit temp and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Crater Edge and report temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report temp"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my core temp then add Beacon",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my core temp then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Rock Pile and show temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Pile"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit temp plus mark Ridge",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit temp plus mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Ice Pocket and report core",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Pocket"
+            },
+            {
+                "type": "TEXT",
+                "text": " and report core"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit temp and mark Vent",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit temp and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Vent"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Habitat and tell me temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Need body temp then add Cache",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need body temp then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Beta Cache and show temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show temp"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my suit temperature and add waypoint Alpha Ridge",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my suit temperature and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Rim then give me current core temperature please",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " then give me current core temperature please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up internal temp and then mark Sample Site Bravo",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up internal temp and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Gamma Outcrop and display my vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show my biometrics and add waypoint Landing Beacon",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show my biometrics and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Rock Pile Three and then check my suit temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Pile Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check my suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Open my thermal status and also drop waypoint Ice Pocket",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open my thermal status and also drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Pocket"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Vent A and also give me body temperature reading",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Vent A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also give me body temperature reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me suit temperature plus add a marker named Sample Cache",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me suit temperature plus add a marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Hab Perimeter then display internal temperature, please",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Perimeter"
+            },
+            {
+                "type": "TEXT",
+                "text": " then display internal temperature, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you bring up suit temp and add waypoint Crater Slope",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you bring up suit temp and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Slope"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Beta Cache but first show my core temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show my core temp"
+            }
+        ]
+    },
+    {
+        "prompt": "I need current internal temp and then mark this location Gamma Ridge",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need current internal temp and then mark this location "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Delta and then check my suit thermal",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then check my suit thermal"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display body temperature and add waypoint Rock Outcrop",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display body temperature and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark waypoint Gamma Outcrop and then pull up vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check my skin temperature and also add waypoint Observation Post",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check my skin temperature and also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Sample Site Echo and then open thermal readout",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open thermal readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Show suit thermal plus drop waypoint Navigation Beacon for reference",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show suit thermal plus drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Navigation Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Solar Panel Array and also tell me my suit temp",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Panel Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also tell me my suit temp"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking my suit temperature, please add a waypoint named Sample Site Alpha for collection",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking my suit temperature, please add a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " for collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Edge and then meanwhile show me a full readout of my core temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then meanwhile show me a full readout of my core temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my internal temperature reading and then mark this area as Ridge Station",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my internal temperature reading and then mark this area as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Station"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location as Landing Beacon and then additionally display my suit biometrics including temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally display my suit biometrics including temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Please open the thermal display and also drop waypoint Rock Pile Three for later sampling",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please open the thermal display and also drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Pile Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " for later sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Ice Pocket followed by showing my current body temperature and vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Pocket"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by showing my current body temperature and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my suit temperature readout and then mark Spot One as a waypoint",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my suit temperature readout and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Spot One"
+            },
+            {
+                "type": "TEXT",
+                "text": " as a waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint Vent A and then at the same time bring up my internal temperature status",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Vent A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time bring up my internal temperature status"
+            }
+        ]
+    },
+    {
+        "prompt": "After you check my core temperature, add waypoint Beta Cache and log it for mission control",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you check my core temperature, add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and log it for mission control"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Gamma Outcrop and then before moving show me the current suit thermal profile",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then before moving show me the current suit thermal profile"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my biometrics including temperature while also placing a waypoint named Hab Perimeter",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my biometrics including temperature while also placing a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Perimeter"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Sample Site Delta and then next display my body temp as well as other vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then next display my body temp as well as other vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, give me my suit temperature readout and then add waypoint Navigation Beacon for reference",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, give me my suit temperature readout and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Navigation Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " for reference"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Observation Post and additionally pull up the current internal temperature and vitals",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally pull up the current internal temperature and vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Please tell me my skin temperature and in addition mark this spot as Gamma Ridge for sample",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please tell me my skin temperature and in addition mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " for sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot as Sample Site Echo and then oh and also display suit temperature for safety",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then oh and also display suit temperature for safety"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you check my core temp, and then along with that add waypoint Solar Panel Array",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you check my core temp, and then along with that add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Panel Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Rock Outcrop followed by opening the thermal readout and reporting my temperature",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by opening the thermal readout and reporting my temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the suit temperature and then please place a waypoint named Sample Site Foxtrot on record",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the suit temperature and then please place a waypoint named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " on record"
+            }
+        ]
+    },
+    {
+        "prompt": "Place waypoint Landing Zone One and then before departure check my body's temperature reading",
+        "tool_calls": [
+            "vitals_temperature",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Place waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then before departure check my body's temperature reading"
+            }
+        ]
+    }
+]
+}

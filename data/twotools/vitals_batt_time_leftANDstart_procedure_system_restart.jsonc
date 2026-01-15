@@ -1,0 +1,658 @@
+{
+  // intents: vitals_batt_time_left AND start_procedure_system_restart
+  // description_1: The user needs to verify the remaining operational duration of the suit’s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like "How much battery time do I have left?" or "Check battery duration."
+  // description_2: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check battery time then restart nav.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check battery time then restart nav."
+            }
+        ]
+    },
+    {
+        "prompt": "Restart comms, check charge left.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart comms, check charge left."
+            }
+        ]
+    },
+    {
+        "prompt": "Battery time left and reboot nav.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Battery time left and reboot nav."
+            }
+        ]
+    },
+    {
+        "prompt": "Begin system restart and check power.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin system restart and check power."
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me charge then restart OPS.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me charge then restart OPS."
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate reboot first, show battery.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate reboot first, show battery."
+            }
+        ]
+    },
+    {
+        "prompt": "Show remaining power and restart.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show remaining power and restart."
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot nav then display battery and vitals.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot nav then display battery and vitals."
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit battery and restart.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit battery and restart."
+            }
+        ]
+    },
+    {
+        "prompt": "Reset LTV systems then report charge.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reset LTV systems then report charge."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me battery time and reboot nav?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me battery time and reboot nav?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start system restart and then show power.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start system restart and then show power."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, show remaining charge and restart navigation module.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, show remaining charge and restart navigation module."
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate restart of comms plus pull up battery status and vitals.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate restart of comms plus pull up battery status and vitals."
+            }
+        ]
+    },
+    {
+        "prompt": "Need battery time left as well as reboot LTV.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need battery time left as well as reboot LTV."
+            }
+        ]
+    },
+    {
+        "prompt": "Start the system restart then display suit biometrics.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the system restart then display suit biometrics."
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme battery duration and then begin restart procedure.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme battery duration and then begin restart procedure."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you restart navigation and also show my vitals?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you restart navigation and also show my vitals?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up power time remaining and then reboot.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up power time remaining and then reboot."
+            }
+        ]
+    },
+    {
+        "prompt": "Do a system restart first, then report battery.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Do a system restart first, then report battery."
+            }
+        ]
+    },
+    {
+        "prompt": "Yo check suit charge while you start the restart.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo check suit charge while you start the restart."
+            }
+        ]
+    },
+    {
+        "prompt": "Begin reboot of guidance followed by showing charge left.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin reboot of guidance followed by showing charge left."
+            }
+        ]
+    },
+    {
+        "prompt": "Open battery status and additionally initiate system restart.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open battery status and additionally initiate system restart."
+            }
+        ]
+    },
+    {
+        "prompt": "Start nav module restart and then bring up battery status and vitals.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start nav module restart and then bring up battery status and vitals."
+            }
+        ]
+    },
+    {
+        "prompt": "Check my power remaining, and then restart comms.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check my power remaining, and then restart comms."
+            }
+        ]
+    },
+    {
+        "prompt": "Restart life support systems next and show battery time.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart life support systems next and show battery time."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey check charge and then initiate the restart.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey check charge and then initiate the restart."
+            }
+        ]
+    },
+    {
+        "prompt": "Reboot sensor array and also pull up suit vitals plus battery time.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reboot sensor array and also pull up suit vitals plus battery time."
+            }
+        ]
+    },
+    {
+        "prompt": "Please display remaining charge and then begin reboot.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display remaining charge and then begin reboot."
+            }
+        ]
+    },
+    {
+        "prompt": "Start the restart procedure followed by showing charge status.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the restart procedure followed by showing charge status."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, pull up my current battery time remaining and then initiate a restart of the nav module.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, pull up my current battery time remaining and then initiate a restart of the nav module."
+            }
+        ]
+    },
+    {
+        "prompt": "Start the system restart for the guidance computer first, and then also display my suit vitals.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the system restart for the guidance computer first, and then also display my suit vitals."
+            }
+        ]
+    },
+    {
+        "prompt": "Please show me remaining charge on suit power and additionally kick off the comms restart.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show me remaining charge on suit power and additionally kick off the comms restart."
+            }
+        ]
+    },
+    {
+        "prompt": "Begin rebooting the sensor array along with performing a battery time check for mission planning.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin rebooting the sensor array along with performing a battery time check for mission planning."
+            }
+        ]
+    },
+    {
+        "prompt": "Can you tell me how much power remains and then start the life support restart sequence?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you tell me how much power remains and then start the life support restart sequence?"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the LTV navigation module restart, and then pull up my vitals and battery status for confirmation.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the LTV navigation module restart, and then pull up my vitals and battery status for confirmation."
+            }
+        ]
+    },
+    {
+        "prompt": "I need remaining battery duration plus a system restart of the comms subsystem to clear the fault.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need remaining battery duration plus a system restart of the comms subsystem to clear the fault."
+            }
+        ]
+    },
+    {
+        "prompt": "Please run the procedure to restart the propulsion controller before you display my suit charge and biometrics.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run the procedure to restart the propulsion controller before you display my suit charge and biometrics."
+            }
+        ]
+    },
+    {
+        "prompt": "Open the power remaining readout and then follow up by initiating a soft reboot of the environmental controls.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the power remaining readout and then follow up by initiating a soft reboot of the environmental controls."
+            }
+        ]
+    },
+    {
+        "prompt": "Restart the attitude control system, oh and while that's happening also display my suit's charge remaining and vitals.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Restart the attitude control system, oh and while that's happening also display my suit's charge remaining and vitals."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please pull up battery time left in addition to starting the thermal regulator restart sequence for diagnostics?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please pull up battery time left in addition to starting the thermal regulator restart sequence for diagnostics?"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the emergency reboot of the comms module next and at the same time provide my current power remaining.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the emergency reboot of the comms module next and at the same time provide my current power remaining."
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check the suit's remaining charge and then, if it's above thresholds, begin the navigation restart routine.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check the suit's remaining charge and then, if it's above thresholds, begin the navigation restart routine."
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin system restart for the guidance unit, followed by showing me the battery percentage and vitals overlay.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin system restart for the guidance unit, followed by showing me the battery percentage and vitals overlay."
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme have the estimated battery time remaining and then proceed to restart the LTV's navigation subsystem for testing.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme have the estimated battery time remaining and then proceed to restart the LTV's navigation subsystem for testing."
+            }
+        ]
+    },
+    {
+        "prompt": "Run the restart procedure for the power distribution unit, but first tell me how much charge I have left.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the restart procedure for the power distribution unit, but first tell me how much charge I have left."
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display the remaining battery time and along with that initiate an automated restart of the sensor suite?",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display the remaining battery time and along with that initiate an automated restart of the sensor suite?"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin the restart sequence for the docking control module, meanwhile also show my current power remaining and vitals.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin the restart sequence for the docking control module, meanwhile also show my current power remaining and vitals."
+            }
+        ]
+    },
+    {
+        "prompt": "Please check how many minutes of battery time remain and additionally perform a soft reboot of the comms array after.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please check how many minutes of battery time remain and additionally perform a soft reboot of the comms array after."
+            }
+        ]
+    },
+    {
+        "prompt": "Start restart on environmental control unit and then show battery minutes left as well as vitals.",
+        "tool_calls": [
+            "vitals_batt_time_left",
+            "start_procedure_system_restart"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start restart on environmental control unit and then show battery minutes left as well as vitals."
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,958 @@
+{
+  // intents: open_menu_navigation AND Add_task
+  // description_1: The user wants to access the mapping and pathfinding interface to see waypoints, routes, or the minimap. They might command, "Open navigation" or "Show the map."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Open map and add task inspect panel",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Show route then add task collect sample",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show route then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up the minimap and then add task check oxygen levels for the next EVA",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up the minimap and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen levels for the next EVA"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation and create task inspect solar array",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation and create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the waypoints also add task replace comms antenna",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the waypoints also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace comms antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Display map then add task retrieve rock sample from south ridge site immediately",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display map then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "retrieve rock sample from south ridge site immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the route planner plus add task secure tether",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the route planner plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Show navigation while also add task photograph landmark for documentation and note coordinates",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show navigation while also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph landmark for documentation and note coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up the map after add task recalibrate sensor array",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up the map after add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate sensor array"
+            }
+        ]
+    },
+    {
+        "prompt": "Open minimap before add task check radiation levels",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open minimap before add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check radiation levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open the map and add task inspect pressure seals on module two",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open the map and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect pressure seals on module two"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display navigation and then add task check battery levels",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display navigation and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey open the minimap and also add task replenish oxygen canisters",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey open the minimap and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replenish oxygen canisters"
+            }
+        ]
+    },
+    {
+        "prompt": "After you open the route planner, add task to secure loose debris near hatch",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you open the route planner, add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose debris near hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the map and then add task perform micrometeorite inspection on the antenna array",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the map and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform micrometeorite inspection on the antenna array"
+            }
+        ]
+    },
+    {
+        "prompt": "Show the waypoints and then add task replace sample container in bay three and label",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show the waypoints and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace sample container in bay three and label"
+            }
+        ]
+    },
+    {
+        "prompt": "Pull up navigation as well as add task calibrate arm sensors",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pull up navigation as well as add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate arm sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Open map along with add task check lens for debris",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open map along with add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check lens for debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Please bring up the minimap and in addition add task to evaluate solar array alignment",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please bring up the minimap and in addition add task to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "evaluate solar array alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Display routing and additionally add task confirm airlock seal integrity before repressurization now",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display routing and additionally add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "confirm airlock seal integrity before repressurization now"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation meanwhile add task inspect tether attachment points",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation meanwhile add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect tether attachment points"
+            }
+        ]
+    },
+    {
+        "prompt": "Show map oh and add task inventory spare bolts",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show map oh and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory spare bolts"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the minimap and then add task check suit temperature",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the minimap and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check suit temperature"
+            }
+        ]
+    },
+    {
+        "prompt": "Show map plus add task log anomaly",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show map plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log anomaly"
+            }
+        ]
+    },
+    {
+        "prompt": "Open navigation and add task secure sample",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open navigation and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect panel and open map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open map"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task collect sample then open navigation",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task check oxygen levels and report and then show the minimap",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen levels and report"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the minimap"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure tether and pull up the route planner",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pull up the route planner"
+            }
+        ]
+    },
+    {
+        "prompt": "Remind me to do suit diagnostics and while you're at it display my vitals",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remind me to do "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it display my vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph landmark and then show the waypoints so we can plan approach path",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph landmark so we can plan approach path"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show the waypoints"
+            }
+        ]
+    },
+    {
+        "prompt": "Please create task replace comms antenna plus pull up the map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace comms antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus pull up the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task retrieve rock sample and next open the minimap for navigation planning",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "retrieve rock sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next open the minimap for navigation planning"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task recalibrate sensor array along with display routing",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate sensor array"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with display routing"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you add task evaluate solar array alignment but first capture current telemetry and then bring up the route planner",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "evaluate solar array alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first capture current telemetry and then bring up the route planner"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task log anomaly then open map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log anomaly"
+            },
+            {
+                "type": "TEXT",
+                "text": " then open map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task confirm airlock seal integrity and display navigation",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "confirm airlock seal integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " and display navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task secure loose debris near hatch and in addition pull up the minimap",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose debris near hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition pull up the minimap"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task perform micrometeorite inspection and then show map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform micrometeorite inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inventory spare bolts and meanwhile open the waypoints overlay for me",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory spare bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile open the waypoints overlay for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check lens for debris and also bring up navigation",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check lens for debris"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also bring up navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to add task perform arm sensor calibration and at the same time display the route map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform arm sensor calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time display the route map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task replenish oxygen canisters and then open the vitals display",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replenish oxygen canisters"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open the vitals display"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check battery and show map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " and show map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task verify tether attachment points followed by display navigation",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify tether attachment points"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by display navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and add task recalibrate the comm link and then pull up the satellite overlay on the map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate the comm link"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pull up the satellite overlay on the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task sample container replacement and as well as open the route planner",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample container replacement"
+            },
+            {
+                "type": "TEXT",
+                "text": " and as well as open the route planner"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task grab bags and open map",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "grab bags"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open map"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check battery and open nav",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " and open nav"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task perform full EVA checklist and followed by pull up the tactical map overlay for route planning",
+        "tool_calls": [
+            "open_menu_navigation",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "perform full EVA checklist"
+            },
+            {
+                "type": "TEXT",
+                "text": " and followed by pull up the tactical map overlay for route planning"
+            }
+        ]
+    }
+]
+}

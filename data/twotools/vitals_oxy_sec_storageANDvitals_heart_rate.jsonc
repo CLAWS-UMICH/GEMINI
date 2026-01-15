@@ -1,0 +1,658 @@
+{
+  // intents: vitals_oxy_sec_storage AND vitals_heart_rate
+  // description_1: The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, "Status of secondary oxygen tank" or "How much oxygen is in the secondary storage?"
+  // description_2: The user wants to know their current physiological stress level, or the system may have flagged a high heart rate, prompting the user to query it. The prompt would be "What is my heart rate?" or "Check BPM."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Check backup oxygen and pulse",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen and pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my heart rate and backup?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my heart rate and backup?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show secondary O2 tank levels and my BPM",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show secondary O2 tank levels and my BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey tell me my pulse plus display backup oxygen status",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey tell me my pulse plus display backup oxygen status"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup oxygen then check heart-rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup oxygen then check heart-rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up my BPM and show reserve oxygen levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up my BPM and show reserve oxygen levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the secondary oxygen storage display and then bring up my current heart rate readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the secondary oxygen storage display and then bring up my current heart rate readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Show me my heart rate meanwhile also pull up the backup oxygen gauge",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show me my heart rate meanwhile also pull up the backup oxygen gauge"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary oxygen and check my pulse",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary oxygen and check my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Pulse and then show secondary oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pulse and then show secondary oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary O2 status and also my heart rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary O2 status and also my heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you check my beats per minute and in addition verify the auxiliary oxygen cylinder pressure and levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you check my beats per minute and in addition verify the auxiliary oxygen cylinder pressure and levels"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary tank and BPM?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary tank and BPM?"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey what's my BPM and also check the secondary oxygen supply",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey what's my BPM and also check the secondary oxygen supply"
+            }
+        ]
+    },
+    {
+        "prompt": "Please display secondary oxygen capacity followed by my current cardiac rate so I can assess redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please display secondary oxygen capacity followed by my current cardiac rate so I can assess redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Open heart rate and then show backup oxygen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open heart rate and then show backup oxygen"
+            }
+        ]
+    },
+    {
+        "prompt": "Check reserve oxygen along with my pulse readings and report any flags",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check reserve oxygen along with my pulse readings and report any flags"
+            }
+        ]
+    },
+    {
+        "prompt": "Heart rate then check backup",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Heart rate then check backup"
+            }
+        ]
+    },
+    {
+        "prompt": "After you verify secondary oxygen tank pressure and levels, also bring up my heart rate and stress indicators",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After you verify secondary oxygen tank pressure and levels, also bring up my heart rate and stress indicators"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you show my pulse and the secondary oxygen readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you show my pulse and the secondary oxygen readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Backup O2 status and what's my pulse",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Backup O2 status and what's my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my BPM displayed and then, following that, check the auxiliary oxygen storage for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my BPM displayed and then, following that, check the auxiliary oxygen storage for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Show backup oxygen plus reveal my current BPM",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show backup oxygen plus reveal my current BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Tell me my pulse rate as well as open the secondary oxygen panel",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Tell me my pulse rate as well as open the secondary oxygen panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary reserve and BPM now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary reserve and BPM now"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo gimme my heart rate and also the backup oxygen reading",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo gimme my heart rate and also the backup oxygen reading"
+            }
+        ]
+    },
+    {
+        "prompt": "Before you continue, pull up the secondary oxygen indicator and at the same time display heart rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Before you continue, pull up the secondary oxygen indicator and at the same time display heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Show BPM followed by the secondary oxygen gauge please",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Show BPM followed by the secondary oxygen gauge please"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary air tank levels and check my pulse",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary air tank levels and check my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "Pulse plus backup O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pulse plus backup O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "Please verify the secondary oxygen cylinder pressure and additionally monitor my cardiac rate for any dangerous elevation",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please verify the secondary oxygen cylinder pressure and additionally monitor my cardiac rate for any dangerous elevation"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display my heart rate and then open backup oxygen stats",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display my heart rate and then open backup oxygen stats"
+            }
+        ]
+    },
+    {
+        "prompt": "Secondary oxygen plus pulse check",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Secondary oxygen plus pulse check"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check my BPM and also confirm the reserve O2 level",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check my BPM and also confirm the reserve O2 level"
+            }
+        ]
+    },
+    {
+        "prompt": "After checking the auxiliary oxygen container, also show me my current pulse and any stress indicators on screen",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "After checking the auxiliary oxygen container, also show me my current pulse and any stress indicators on screen"
+            }
+        ]
+    },
+    {
+        "prompt": "Display heart-rate while checking the backup supply now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Display heart-rate while checking the backup supply now"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up secondary oxygen in addition to my pulse",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up secondary oxygen in addition to my pulse"
+            }
+        ]
+    },
+    {
+        "prompt": "I need my cardiac rate shown and then please verify secondary oxygen for redundancy",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need my cardiac rate shown and then please verify secondary oxygen for redundancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Check backup oxygen and my BPM now",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check backup oxygen and my BPM now"
+            }
+        ]
+    },
+    {
+        "prompt": "What's my pulse and then also pull up the secondary oxygen metrics",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "What's my pulse and then also pull up the secondary oxygen metrics"
+            }
+        ]
+    },
+    {
+        "prompt": "Open secondary oxygen readout as well as heart rate",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open secondary oxygen readout as well as heart rate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me my beats per minute and additionally bring up the backup oxygen indicators",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me my beats per minute and additionally bring up the backup oxygen indicators"
+            }
+        ]
+    },
+    {
+        "prompt": "Please show reserve oxygen status and then display my current BPM",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please show reserve oxygen status and then display my current BPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Heart rate and secondary O2?",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Heart rate and secondary O2?"
+            }
+        ]
+    },
+    {
+        "prompt": "But first verify the secondary oxygen levels and after that show my heart rate summary",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "But first verify the secondary oxygen levels and after that show my heart rate summary"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme see my heart rate and the backup oxygen readout",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme see my heart rate and the backup oxygen readout"
+            }
+        ]
+    },
+    {
+        "prompt": "Along with the secondary oxygen check, please display my pulse and trend",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Along with the secondary oxygen check, please display my pulse and trend"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and check my heart rate, then followed by a full status on the secondary oxygen supply and pressures",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and check my heart rate, then followed by a full status on the secondary oxygen supply and pressures"
+            }
+        ]
+    },
+    {
+        "prompt": "Auxiliary O2 and heart rate check",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Auxiliary O2 and heart rate check"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, display my cardiac rhythm and at the same time bring up the secondary oxygen tank telemetry and levels",
+        "tool_calls": [
+            "vitals_oxy_sec_storage",
+            "vitals_heart_rate"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, display my cardiac rhythm and at the same time bring up the secondary oxygen tank telemetry and levels"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,974 @@
+{
+  // intents: vitals_fan_sec_rpm AND delete_waypoint
+  // description_1: The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, "Status of secondary fan RPM."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Check secondary fan RPM, remove Alpha",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM, remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home then show fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Status of backup fan RPM, delete Base",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status of backup fan RPM, delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Camp then check fan rpm",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " then check fan rpm"
+            }
+        ]
+    },
+    {
+        "prompt": "Read secondary fan RPM and drop Beacon",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Read secondary fan RPM and drop "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha then read fan rpm",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then read fan rpm"
+            }
+        ]
+    },
+    {
+        "prompt": "Check sec fan RPM, delete waypoint Base",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check sec fan RPM, delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home marker and report fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker and report fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Fan RPM status plus remove waypoint Camp",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Fan RPM status plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete old camp and check fan",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "old camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and check fan"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up backup ventilation fan RPM and delete waypoint Echo",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up backup ventilation fan RPM and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Delta and then tell me secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you report secondary fan RPM and remove marker Storage",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you report secondary fan RPM and remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the waypoint LZ plus show backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus show backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Open vitals, and then delete waypoint Old Camp",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open vitals, and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Supply Depot while you check the secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you check the secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, check secondary fan RPM and remove waypoint Alpha Site",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, check secondary fan RPM and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete mapping pin L3 and also show sec fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete mapping pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "L3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also show sec fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Status check: secondary fan RPM and remove waypoint Forward Base",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Status check: secondary fan RPM and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove the marker Gamma as well as report fan rpm",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as report fan rpm"
+            }
+        ]
+    },
+    {
+        "prompt": "Report backup fan RPM, and then clear waypoint Home Base",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report backup fan RPM, and then clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the old waypoint Beacon plus pull up secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the old waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus pull up secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you display secondary fan RPM and delete waypoint Lander",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you display secondary fan RPM and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lander"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Cold Storage and then show fan RPM info",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cold Storage"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then show fan RPM info"
+            }
+        ]
+    },
+    {
+        "prompt": "I need secondary fan RPM status while removing waypoint Nest",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need secondary fan RPM status while removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nest"
+            }
+        ]
+    },
+    {
+        "prompt": "Check the backup ventilation fan RPM, please, and then delete waypoint Survey Point",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check the backup ventilation fan RPM, please, and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Ridge Station and afterwards report the secondary fan RPM for diagnostics",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and afterwards report the secondary fan RPM for diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Please pull up secondary fan RPM, and then remove the waypoint Cargo Bay",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please pull up secondary fan RPM, and then remove the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the marker Solar Array and next display the status of the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and next display the status of the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, bring up the secondary fan rpm while you delete waypoint Medical Hub",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, bring up the secondary fan rpm while you delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Medical Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha-2 and then also show me the backup fan RPM readings",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also show me the backup fan RPM readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you open vitals display plus remove waypoint Forward Camp from the map",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you open vitals display plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the waypoint Habitat A, and then followed by a readout of secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then followed by a readout of secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "I need the secondary ventilation fan RPM report and then clear marker Docking Port",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need the secondary ventilation fan RPM report and then clear marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete beacon Southwest as well as pull up the sec fan RPM for a quick check",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete beacon "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Southwest"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as pull up the sec fan RPM for a quick check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please report the RPM of the backup fan, additionally remove waypoint LZ Echo from my HUD",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please report the RPM of the backup fan, additionally remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the marker Old Site before you fetch the secondary fan RPM so I can compare readings",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you fetch the secondary fan RPM so I can compare readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Open the suit biometrics and while you're at it delete waypoint Cache 7 from navigation",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open the suit biometrics and while you're at it delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " from navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint South Ridge, and then meanwhile give me the secondary fan RPM display",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then meanwhile give me the secondary fan RPM display"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey gimme the backup ventilation fan rpm and then delete the marker Supply Point Bravo",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey gimme the backup ventilation fan rpm and then delete the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Point Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Observation Deck, in addition show the rpm for the secondary ventilation fan please",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Deck"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition show the rpm for the secondary ventilation fan please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you pull up the secondary fan RPM readings, and then remove the marker Cache Alpha",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you pull up the secondary fan RPM readings, and then remove the marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Home waypoint, oh and while you're at it report secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint, oh and while you're at it report secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Report the secondary fan RPM followed by deleting the waypoint L-Base for map cleanup",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Report the secondary fan RPM followed by deleting the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "L-Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " for map cleanup"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Cargo Staging and then additionally bring up the backup fan RPM logs",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then additionally bring up the backup fan RPM logs"
+            }
+        ]
+    },
+    {
+        "prompt": "Check secondary fan RPM after that delete waypoint Rockfall",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check secondary fan RPM after that delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rockfall"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha Ridge but first show secondary fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first show secondary fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Beacon Three along with reporting the backup fan RPM",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with reporting the backup fan RPM"
+            }
+        ]
+    },
+    {
+        "prompt": "Open suit vitals and then delete waypoint North Cache",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open suit vitals and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete marker Landing Zone and at the same time show fan rpm",
+        "tool_calls": [
+            "vitals_fan_sec_rpm",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time show fan rpm"
+            }
+        ]
+    }
+]
+}
