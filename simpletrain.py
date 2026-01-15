@@ -128,6 +128,16 @@ class PromptDataset(Dataset):
         for part in parts:
             char_labels.extend([part["type"]] * len(part["text"]))
 
+        # Validate: parts must cover the entire prompt
+        parts_text = "".join(p["text"] for p in parts)
+        if len(char_labels) != len(prompt):
+            raise ValueError(
+                f"Data mismatch at index {idx}!\n"
+                f"  Prompt ({len(prompt)} chars): {prompt!r}\n"
+                f"  Parts ({len(parts_text)} chars): {parts_text!r}\n"
+                f"  Tools: {tools}"
+            )
+
         # Tokenize
         enc = self.tokenizer(prompt, return_offsets_mapping=True, truncation=True, max_length=128)
         input_ids = enc["input_ids"]
