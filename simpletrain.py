@@ -15,6 +15,9 @@ from transformers import AutoModel, AutoTokenizer
 from simpledatacombine import get_data_and_labels
 
 
+# === CONFIGURATION ===
+USE_GPU = True  # Set to False to force CPU training
+
 # Labels - will be populated dynamically from the data
 TOOL_LABELS = []
 TOKEN_LABELS = [] 
@@ -201,7 +204,10 @@ def compute_class_weights(dataset):
 def train():
     global TOOL_LABELS, TOKEN_LABELS
     
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if USE_GPU and torch.cuda.is_available():
+        device = torch.device("cuda")
+    else:
+        device = torch.device("cpu")
     print(f"Using device: {device}")
 
     model_name = "distilbert-base-uncased"
