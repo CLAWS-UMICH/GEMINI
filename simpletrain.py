@@ -249,7 +249,7 @@ def train():
     best_acc = 0
     best_state = None
     best_val_loss = float("inf")
-    patience = 5  # Stop if val_loss doesn't improve for this many epochs
+    patience = 10  # Stop if val_loss doesn't improve for this many epochs
     patience_counter = 0
 
     for epoch in range(80):
