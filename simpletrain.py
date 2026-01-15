@@ -261,7 +261,7 @@ def train():
     
     optimizer = torch.optim.Muon(
         muon_params,
-        lr=0.02,  # Muon uses higher learning rates
+        lr=2e-4,  # Much lower for fine-tuning pretrained models
         momentum=0.95,
         nesterov=True,
         weight_decay=0.01,
@@ -270,11 +270,15 @@ def train():
     )
     
     # Separate AdamW for embeddings/bias/layernorm (non-2D params)
-    optimizer_embed = torch.optim.AdamW(embed_params, lr=3e-4, weight_decay=0.01)
+    optimizer_embed = torch.optim.AdamW(embed_params, lr=2e-5, weight_decay=0.01)
 
     # Learning rate schedulers with warmup
     num_epochs = 100
-    warmup_epochs = 5
+    warmup_epochs = 3
+    
+    # Base learning rates for schedule
+    base_lr_muon = 2e-4
+    base_lr_embed = 2e-5
     
     def get_lr_multiplier(epoch):
         if epoch < warmup_epochs:
@@ -297,9 +301,9 @@ def train():
         # Adjust learning rate based on schedule
         lr_mult = get_lr_multiplier(epoch)
         for param_group in optimizer.param_groups:
-            param_group['lr'] = 0.02 * lr_mult
+            param_group['lr'] = base_lr_muon * lr_mult
         for param_group in optimizer_embed.param_groups:
-            param_group['lr'] = 3e-4 * lr_mult
+            param_group['lr'] = base_lr_embed * lr_mult
         
         # Train
         model.train()
