@@ -32,7 +32,7 @@ class TwoHeadModel(nn.Module):
         return {"tag_logits": tag_logits, "token_logits": token_logits}
 
 
-def load_model(model_dir: str = "outputs/simple-model"):
+def load_model(model_dir: str = "trainedmodel/outputs/simple-model"):
     model_dir = Path(model_dir)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -145,7 +145,7 @@ def main():
             print("(none)")
 
         print("\033[95mThreshold:\033[0m", f"{threshold:.2f}")
-        print("\033[95mAll scores:\033[0m", ", ".join(f"{t}: {p}" for t, p in all_tags))
+        # print("\033[95mAll scores:\033[0m", ", ".join(f"{t}: {p}" for t, p in all_tags))
 
         print("\033[95mTokens:\033[0m", format_token_output(token_results))
 
