@@ -27,6 +27,58 @@ OUTPUT_DIR = SCRIPT_DIR
 # Number of parallel API calls to make at once
 PARALLEL_WORKERS = 50
 
+# ============================================================================
+# SPECIAL TOKEN CONFIGURATION
+# Maps intent name (lowercase) to its special token label and example text.
+# The examples include both single-param and MULTI-param variations.
+# ============================================================================
+SPECIAL_TOKEN_CONFIG = {
+    "get_coordinates": {
+        "token": "COORDINATE_TARGET_NAME",
+        "text": """- **Get_coordinates** uses COORDINATE_TARGET_NAME for the target being located:
+  Single: "where is the LTV" -> parts: [{{"type":"TEXT","text":"where is the "}},{{"type":"COORDINATE_TARGET_NAME","text":"LTV"}}]
+  Multi: "get coordinates for the rock and the crater" -> parts: [{{"type":"TEXT","text":"get coordinates for the "}},{{"type":"COORDINATE_TARGET_NAME","text":"rock"}},{{"type":"TEXT","text":" and the "}},{{"type":"COORDINATE_TARGET_NAME","text":"crater"}}]"""
+    },
+    "set_navigation_target": {
+        "token": "NAVIGATION_TARGET_NAME",
+        "text": """- **Set_navigation_target** uses NAVIGATION_TARGET_NAME for the destination:
+  Single: "navigate to the rover" -> parts: [{{"type":"TEXT","text":"navigate to the "}},{{"type":"NAVIGATION_TARGET_NAME","text":"rover"}}]
+  Multi: "navigate to the rover and then to base camp" -> parts: [{{"type":"TEXT","text":"navigate to the "}},{{"type":"NAVIGATION_TARGET_NAME","text":"rover"}},{{"type":"TEXT","text":" and then to "}},{{"type":"NAVIGATION_TARGET_NAME","text":"base camp"}}]"""
+    },
+    "add_waypoint": {
+        "token": "WAYPOINT_NAME",
+        "text": """- **Add_waypoint** uses WAYPOINT_NAME for the marker name:
+  Single: "mark this spot as crater edge" -> parts: [{{"type":"TEXT","text":"mark this spot as "}},{{"type":"WAYPOINT_NAME","text":"crater edge"}}]
+  Multi: "add waypoints Alpha and Bravo" -> parts: [{{"type":"TEXT","text":"add waypoints "}},{{"type":"WAYPOINT_NAME","text":"Alpha"}},{{"type":"TEXT","text":" and "}},{{"type":"WAYPOINT_NAME","text":"Bravo"}}]
+  Multi (3): "drop pins at Start, Middle, and End" -> parts: [{{"type":"TEXT","text":"drop pins at "}},{{"type":"WAYPOINT_NAME","text":"Start"}},{{"type":"TEXT","text":", "}},{{"type":"WAYPOINT_NAME","text":"Middle"}},{{"type":"TEXT","text":", and "}},{{"type":"WAYPOINT_NAME","text":"End"}}]"""
+    },
+    "delete_waypoint": {
+        "token": "WAYPOINT_NAME",
+        "text": """- **delete_waypoint** uses WAYPOINT_NAME for the marker to remove:
+  Single: "remove waypoint old camp" -> parts: [{{"type":"TEXT","text":"remove waypoint "}},{{"type":"WAYPOINT_NAME","text":"old camp"}}]
+  Multi: "delete waypoints X and Y" -> parts: [{{"type":"TEXT","text":"delete waypoints "}},{{"type":"WAYPOINT_NAME","text":"X"}},{{"type":"TEXT","text":" and "}},{{"type":"WAYPOINT_NAME","text":"Y"}}]"""
+    },
+    "add_task": {
+        "token": "TASK_NAME",
+        "text": """- **Add_task** uses TASK_NAME for the task content:
+  Single: "add task check oxygen levels" -> parts: [{{"type":"TEXT","text":"add task "}},{{"type":"TASK_NAME","text":"check oxygen levels"}}]
+  Multi: "add task A and task B" -> parts: [{{"type":"TEXT","text":"add task "}},{{"type":"TASK_NAME","text":"A"}},{{"type":"TEXT","text":" and task "}},{{"type":"TASK_NAME","text":"B"}}]
+  Multi (3): "create tasks: inspect hatch, test seal, log results" -> parts: [{{"type":"TEXT","text":"create tasks: "}},{{"type":"TASK_NAME","text":"inspect hatch"}},{{"type":"TEXT","text":", "}},{{"type":"TASK_NAME","text":"test seal"}},{{"type":"TEXT","text":", "}},{{"type":"TASK_NAME","text":"log results"}}]"""
+    },
+    "delete_task": {
+        "token": "TASK_NAME",
+        "text": """- **Delete_task** uses TASK_NAME for the task to remove:
+  Single: "remove task battery check" -> parts: [{{"type":"TEXT","text":"remove task "}},{{"type":"TASK_NAME","text":"battery check"}}]
+  Multi: "delete task X and task Y" -> parts: [{{"type":"TEXT","text":"delete task "}},{{"type":"TASK_NAME","text":"X"}},{{"type":"TEXT","text":" and task "}},{{"type":"TASK_NAME","text":"Y"}}]"""
+    },
+    "complete_task": {
+        "token": "TASK_NAME",
+        "text": """- **Complete_task** uses TASK_NAME for the task being completed:
+  Single: "mark antenna check as done" -> parts: [{{"type":"TEXT","text":"mark "}},{{"type":"TASK_NAME","text":"antenna check"}},{{"type":"TEXT","text":" as done"}}]
+  Multi: "finish task Alpha and task Beta" -> parts: [{{"type":"TEXT","text":"finish task "}},{{"type":"TASK_NAME","text":"Alpha"}},{{"type":"TEXT","text":" and task "}},{{"type":"TASK_NAME","text":"Beta"}}]"""
+    },
+}
+
 
 def parse_names_file(filepath: Path) -> dict:
     """
@@ -97,50 +149,20 @@ def build_prompt(intent1_info: dict, intent2_info: dict) -> str:
     tokens2 = set(t.strip() for t in intent2_info['tokens'].split(','))
     all_tokens = sorted(tokens1 | tokens2)
     
-    # Build special token instructions based on which intents we have
+    # Build special token instructions based on which intents we have (using config)
     special_token_examples = []
     
     intent1_name_lower = intent1_info['name'].lower()
     intent2_name_lower = intent2_info['name'].lower()
     
-    if 'get_coordinates' in intent1_name_lower or 'get_coordinates' in intent2_name_lower:
-        special_token_examples.append("""- **Get_coordinates** uses COORDINATE_TARGET_NAME for the target being located:
-  Example: "where is the LTV" -> parts: [{{"type":"TEXT","text":"where is the "}},{{"type":"COORDINATE_TARGET_NAME","text":"LTV"}}]
-  Example: "get coordinates for sample site alpha" -> parts: [{{"type":"TEXT","text":"get coordinates for "}},{{"type":"COORDINATE_TARGET_NAME","text":"sample site alpha"}}]""")
-    
-    if 'set_navigation_target' in intent1_name_lower or 'set_navigation_target' in intent2_name_lower:
-        special_token_examples.append("""- **Set_navigation_target** uses NAVIGATION_TARGET_NAME for the destination:
-  Example: "navigate to the rover" -> parts: [{{"type":"TEXT","text":"navigate to the "}},{{"type":"NAVIGATION_TARGET_NAME","text":"rover"}}]
-  Example: "set destination home base" -> parts: [{{"type":"TEXT","text":"set destination "}},{{"type":"NAVIGATION_TARGET_NAME","text":"home base"}}]""")
-    
-    if 'add_waypoint' in intent1_name_lower or 'add_waypoint' in intent2_name_lower:
-        special_token_examples.append("""- **Add_waypoint** uses WAYPOINT_NAME for the marker name:
-  Example: "mark this spot as crater edge" -> parts: [{{"type":"TEXT","text":"mark this spot as "}},{{"type":"WAYPOINT_NAME","text":"crater edge"}}]
-  Example: "add waypoint sample site bravo" -> parts: [{{"type":"TEXT","text":"add waypoint "}},{{"type":"WAYPOINT_NAME","text":"sample site bravo"}}]""")
-    
-    if 'delete_waypoint' in intent1_name_lower or 'delete_waypoint' in intent2_name_lower:
-        special_token_examples.append("""- **delete_waypoint** uses WAYPOINT_NAME for the marker to remove:
-  Example: "remove waypoint old camp" -> parts: [{{"type":"TEXT","text":"remove waypoint "}},{{"type":"WAYPOINT_NAME","text":"old camp"}}]
-  Example: "delete the marker called alpha site" -> parts: [{{"type":"TEXT","text":"delete the marker called "}},{{"type":"WAYPOINT_NAME","text":"alpha site"}}]""")
-    
-    if 'add_task' in intent1_name_lower or 'add_task' in intent2_name_lower:
-        special_token_examples.append("""- **Add_task** uses TASK_NAME for the task content:
-  Example: "add task check oxygen levels" -> parts: [{{"type":"TEXT","text":"add task "}},{{"type":"TASK_NAME","text":"check oxygen levels"}}]
-  Example: "remind me to do suit diagnostics" -> parts: [{{"type":"TEXT","text":"remind me to do "}},{{"type":"TASK_NAME","text":"suit diagnostics"}}]""")
-    
-    if 'delete_task' in intent1_name_lower or 'delete_task' in intent2_name_lower:
-        special_token_examples.append("""- **Delete_task** uses TASK_NAME for the task to remove:
-  Example: "remove task battery check" -> parts: [{{"type":"TEXT","text":"remove task "}},{{"type":"TASK_NAME","text":"battery check"}}]
-  Example: "delete the task called sample collection" -> parts: [{{"type":"TEXT","text":"delete the task called "}},{{"type":"TASK_NAME","text":"sample collection"}}]""")
-    
-    if 'complete_task' in intent1_name_lower or 'complete_task' in intent2_name_lower:
-        special_token_examples.append("""- **Complete_task** uses TASK_NAME for the task being completed:
-  Example: "mark antenna check as done" -> parts: [{{"type":"TEXT","text":"mark "}},{{"type":"TASK_NAME","text":"antenna check"}},{{"type":"TEXT","text":" as done"}}]
-  Example: "finish task EVA prep" -> parts: [{{"type":"TEXT","text":"finish task "}},{{"type":"TASK_NAME","text":"EVA prep"}}]""")
+    # Check each intent against the config
+    for intent_key, config in SPECIAL_TOKEN_CONFIG.items():
+        if intent_key in intent1_name_lower or intent_key in intent2_name_lower:
+            special_token_examples.append(config["text"])
     
     special_token_section = ""
     if special_token_examples:
-        special_token_section = "\n\n## CRITICAL: Token Label Examples for These Specific Intents\n" + "\n\n".join(special_token_examples)
+        special_token_section = "\n\n## CRITICAL: Token Label Examples (Including Multi-Parameter Patterns)\n" + "\n\n".join(special_token_examples)
     
     prompt = f"""Your job is to generate HIGH quality, EXTREMELY diverse training data for a model that needs to recognize prompts that combine TWO intents in a single user utterance.
 
@@ -160,12 +182,16 @@ Allowed token labels: {intent2_info['tokens']}
 - Approximately 25 prompts should mention Intent 2's action/query FIRST, then Intent 1
 - Mix up which intent comes first throughout the list - DO NOT group them
 
-### 2. SENTENCE LENGTH - MANDATORY VARIATION:
+### 2. MULTI-PARAMETER ACTIONS (When Applicable):
+- For intents that take parameters, include examples with 1, 2, or 3+ items in a single utterance.
+- See the Token Label Examples section above for specific patterns.
+
+### 3. SENTENCE LENGTH - MANDATORY VARIATION:
 - ~10 prompts should be SHORT (4-7 words): "check battery and open vitals"
 - ~20 prompts should be MEDIUM (8-12 words): "can you tell me my battery level and also show the vitals menu"
 - ~20 prompts should be LONG (13-20 words): "hey I need you to pull up my current battery time remaining and while you're at it open up the vitals display"
 
-### 3. SENTENCE STRUCTURE - MANDATORY VARIATION:
+### 4. SENTENCE STRUCTURE - MANDATORY VARIATION:
 - Direct commands: "check X and do Y"
 - Questions: "what's my X and can you show Y?"
 - Casual/conversational: "yo check X and also Y please"
@@ -173,10 +199,10 @@ Allowed token labels: {intent2_info['tokens']}
 - Implied commands: "need X and Y"
 - Compound with conditions: "after checking X, show me Y"
 
-### 4. CONNECTOR WORDS - USE ALL OF THESE ACROSS YOUR 50 PROMPTS:
+### 5. CONNECTOR WORDS - USE ALL OF THESE ACROSS YOUR 50 PROMPTS:
 and, then, also, plus, while, after, before, but first, as well as, along with, in addition, additionally, meanwhile, oh and, and then, followed by, next, at the same time
 
-### 5. VOCABULARY - MANDATORY VARIATION:
+### 6. VOCABULARY - MANDATORY VARIATION:
 - Mix formal and informal language
 - Use different verbs for the same action (show/display/pull up/open/bring up)
 - Use different ways to refer to the same thing (battery/power/charge, vitals/biometrics/suit data)
@@ -193,7 +219,7 @@ and, then, also, plus, while, after, before, but first, as well as, along with, 
 ## Output Format:
 Return a JSON array of 50 objects. Each object must have:
 - "prompt": the user's spoken command/question
-- "tool_calls": ["{intent1_info['name']}", "{intent2_info['name']}"]
+- "tool_calls": List of intent names matching the actions in the prompt. Example: ["{intent1_info['name']}", "{intent2_info['name']}"] OR ["{intent1_info['name']}", "{intent1_info['name']}", "{intent2_info['name']}"]
 - "parts": array of token parts, where each part has "type" (one of the allowed labels) and "text"
 
 For intents that ONLY use TEXT tokens, the entire prompt goes in one TEXT part.
@@ -220,7 +246,8 @@ def call_openai_api(prompt: str, api_key: str) -> str:
     }
     
     payload = {
-        "model": "gpt-5-mini-2025-08-07",
+        # "model": "gpt-5-mini-2025-08-07",
+        "model":"gpt-5.2-2025-12-11",
         "messages": [
             {
                 "role": "system",
