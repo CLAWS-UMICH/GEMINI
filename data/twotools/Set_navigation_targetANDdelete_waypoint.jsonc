@@ -1,0 +1,1893 @@
+{
+  // intents: Set_navigation_target AND delete_waypoint
+  // description_1: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Navigate to LTV and remove Alpha",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Beacon 1 then go to Rover",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to Home Base and delete waypoint Old Camp",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Red Marker then navigate to Docking Port",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Rover and delete Bravo",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Waystation while setting course to LTV",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waystation"
+            },
+            {
+                "type": "TEXT",
+                "text": " while setting course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you set destination to Science Module and remove the Green Marker",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Base Camp and delete Charlie",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Beacon 2 as well as navigate to Habitat",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Landing Pad and then remove the Blue Marker",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Please plot route to EVA Staging and additionally delete the Supply Depot waypoint from my map",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove South Beacon and then set navigation to Forward Airlock before proceeding",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " before proceeding"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Docking Port and delete North Marker",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Old Camp marker plus navigate to Observation Post",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " marker plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you navigate to the Science Module and at the same time remove the East Cache waypoint",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Rover and remove Beacon 3",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Site A and then set destination to Site B",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site B"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to the Habitat and then delete the Landing Pad waypoint from display",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint from display"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to LTV and remove Beacon 1",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Blue Marker and navigate to the Science Module next",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and navigate to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover and Base Camp and delete waypoints Alpha and Bravo",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Beacon 1 and Beacon 2 then set destination to LTV and Docking Port",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to Science Module and Observation Post and additionally remove waypoints Supply Depot and Old Camp",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints North Marker and South Beacon while setting route to Landing Pad and EVA Staging",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " while setting route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Habitat and Rover and delete Green Marker and Blue Marker",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Site A and Site B and then navigate to Site C and Observation Post",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Landing Pad and Docking Port then go to Science Module and Habitat",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Forward Airlock and Rear Airlock as well as remove waypoints Beacon 3 and Beacon 2",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rear Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Landing Pad and Docking Port then set navigation to EVA Staging and North Marker",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Site A and Site B and delete waypoints Waystation and Beacon 1",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waystation"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Old Camp and Blue Marker and then set navigation to Science Module and Docking Port",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Please plot route to Landing Pad and Forward Airlock while removing waypoints Red Marker and Green Marker afterward",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " while removing waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterward"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Beacon 2 and Beacon 3 and then navigate to Habitat and Rover",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Observation Post and Science Module and delete waypoints East Cache and West Cache",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints North Marker and South Beacon and then set destination to Base Camp and Landing Pad next",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Rover and Docking Port plus remove waypoints Alpha and Bravo",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Blue Marker and Supply Depot followed by navigating to EVA Staging and the Habitat module",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by navigating to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": " and the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " module"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Habitat and Science Module additionally delete waypoints Old Camp and Waystation",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waystation"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Green Marker and Red Marker in addition to setting course to Forward Airlock and LTV",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to setting course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Site A, Site B, and Site C and then remove waypoints Alpha, Bravo, and Charlie from the display",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " from the display"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Beacon 1, Beacon 2, and Beacon 3 then set course to LTV, Docking Port, and Landing Pad",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set destination to Science Module, Observation Post, and Habitat while deleting waypoints Supply Depot, Old Camp, and Waystation",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " while deleting waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waystation"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints North Marker, South Beacon, and East Cache and then navigate to Forward Airlock, Rear Airlock, and EVA Staging",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rear Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you navigate to Rover, Base Camp, and Landing Pad plus clear waypoints Green Marker, Blue Marker, and Red Marker",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus clear waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Site A, Site B, and Site C and then set destination to Habitat, Science Module, and Observation Post",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Forward Airlock, Docking Port, and LTV and then remove waypoints Beacon 1, Beacon 2, and Beacon 3",
+        "tool_calls": [
+            "Set_navigation_target",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Old Camp, Supply Depot, and Blue Marker followed by navigating to EVA Staging, Landing Pad, and Base Camp",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by navigating to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Staging"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Green Marker, Red Marker, and Orange Marker as well as set navigation to Science Module, Habitat, and Rover",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Green Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Orange Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as set navigation to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints East Cache, West Cache, and North Marker and then set course to Docking Port, Forward Airlock, and LTV",
+        "tool_calls": [
+            "delete_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    }
+]
+}

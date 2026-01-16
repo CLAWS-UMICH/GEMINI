@@ -1,0 +1,2211 @@
+{
+  // intents: Get_coordinates AND Delete_task
+  // description_1: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // description_2: The user wants to remove an erroneous or canceled item from their task list. The prompt specifies the task to remove, such as "Delete task Inspect Solar Panel."
+  // tokens: COORDINATE_TARGET_NAME, TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Where is the LTV and delete task Inspect Solar Panel",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for rover then remove task battery check",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the PR and delete task calibrate antenna",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the habitat, and remove task sample collection",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the airlock and delete task inspect life support",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect life support"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is EVA-B and remove task check tether",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the supply cache then delete task replace filter",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the ascent module and delete task clean lens",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ascent module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the beacon and delete task run diagnostics",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for comm relay and delete task inspect seals",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task check comms and where is the north marker",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "north marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task inspect thruster and find the south marker",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thruster"
+            },
+            {
+                "type": "TEXT",
+                "text": " and find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "south marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task close hatch and where is waypoint Alpha",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "close hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task secure cargo and locate waypoint Beta",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cargo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task recalibrate suit sensors and find waypoint Charlie",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate suit sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task swap CO2 scrubber and where's drone-3",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap CO2 scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": " and where's "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "drone-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task test comm relay and find rover-2",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and find "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the solar array and delete task check pressure",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the north ridge and remove task seal leak",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "north ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal leak"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the sampling site and delete task inspect LTV wheel",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sampling site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect LTV wheel"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for rock A and delete task inspect solar panel plus check battery",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus check battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the crater rim and delete task calibrate antenna",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "crater rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the south ridge and delete task sample collection",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "south ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task battery check and get coordinates for beacon",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task inspect life support and locate the ascent module",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect life support"
+            },
+            {
+                "type": "TEXT",
+                "text": " and locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ascent module"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task check tether and where is the supply cache",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "supply cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task replace filter and find the airlock",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task clean lens and get coordinates for LTV",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task run diagnostics and locate the rover",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the north beacon and delete task inspect seals",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "north beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the staging area and delete task check comms",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "staging area"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for waypoint Delta and remove task inspect thruster",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thruster"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for rock B and delete task close hatch",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "close hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the cargo bay and delete task secure cargo",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "cargo bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cargo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task recalibrate suit sensors then show me where Charlie is",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate suit sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show me where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " is"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for sample site A and delete task swap CO2 scrubber",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap CO2 scrubber"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task test comm relay and get coordinates for north marker",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "north marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for crater A and delete task test comm relay",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "crater A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task inspect LTV wheel and get coordinates for rover-2",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect LTV wheel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Alpha and delete task check pressure",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check pressure"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task seal leak then locate the south beacon",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal leak"
+            },
+            {
+                "type": "TEXT",
+                "text": " then locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "south beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for ridge 7 and delete task run diagnostics",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ridge 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate beacon 2 and delete task replace filter",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for rock C and delete task clean lens",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task inspect seals and get coordinates for staging area",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "staging area"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for waypoint Echo and delete task check comms",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task inspect thruster then show coordinates for crater B",
+        "tool_calls": [
+            "Delete_task",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thruster"
+            },
+            {
+                "type": "TEXT",
+                "text": " then show coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "crater B"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Alpha, Beta and delete task close hatch, secure cargo",
+        "tool_calls": [
+            "Get_coordinates",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "close hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cargo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task battery check and check comms and get coordinates for beacon and rover",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Get_coordinates",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the crater rim and the sample site then delete task Inspect Solar Panel and task calibrate antenna",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "crater rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample site"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task clean lens and replace filter plus get coordinates for beacon and comm relay",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Get_coordinates",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Alpha and Beta while deleting task sample collection and task inspect life support",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " while deleting task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect life support"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you get coordinates for waypoint Echo and waypoint Delta and also delete task check tether and task run diagnostics",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task swap CO2 scrubber and swap CO2 scrubber 2 and get coordinates for drone-3 and rover-2",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Get_coordinates",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap CO2 scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap CO2 scrubber 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "drone-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for rock A, rock B and delete task Inspect Solar Panel, calibrate antenna",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task close hatch and secure cargo plus get coordinates for Alpha and Beta",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Get_coordinates",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "close hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cargo"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for canyon edge, ridge 7 and delete task run diagnostics, inspect thruster",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "canyon edge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ridge 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thruster"
+            }
+        ]
+    },
+    {
+        "prompt": "Please get coordinates for beacon, comm relay and delete task replace filter, clean lens",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Alpha, Beta, Charlie and delete task Inspect Solar Panel, calibrate antenna, sample collection",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task check battery, check comms, and swap CO2 scrubber then get coordinates for rock A, rock B, rock C",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Delete_task",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap CO2 scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": " then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock C"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for beacon, rover, and comm relay plus delete task run diagnostics, inspect thruster, replace filter",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thruster"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task close hatch, secure cargo, recalibrate suit sensors and then get coordinates for waypoint Alpha, Beta, Charlie",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Delete_task",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "close hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cargo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate suit sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "waypoint Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for canyon rim, staging area, and sampling site while deleting task inspect life support, swap CO2 scrubber, run diagnostics",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "canyon rim"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "staging area"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sampling site"
+            },
+            {
+                "type": "TEXT",
+                "text": " while deleting task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect life support"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap CO2 scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, get coordinates for Alpha, Beta, Charlie and also delete task Inspect Solar Panel, calibrate antenna, sample collection",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please get coordinates for beacon, rover, and comm relay and then remove task check battery, check comms, swap CO2 scrubber",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap CO2 scrubber"
+            }
+        ]
+    },
+    {
+        "prompt": "I need coordinates for Alpha, Beta, Charlie followed by deleting task close hatch, secure cargo, recalibrate suit sensors",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by deleting task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "close hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cargo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate suit sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and get coordinates for rock A, rock B, rock C in addition delete task inspect thruster, replace filter, clean lens",
+        "tool_calls": [
+            "Get_coordinates",
+            "Get_coordinates",
+            "Get_coordinates",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock C"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thruster"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            }
+        ]
+    }
+]
+}

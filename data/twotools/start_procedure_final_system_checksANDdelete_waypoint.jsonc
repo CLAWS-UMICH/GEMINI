@@ -1,0 +1,1318 @@
+{
+  // intents: start_procedure_final_system_checks AND delete_waypoint
+  // description_1: The user wants to run the concluding verification steps after a repair to ensure the vehicle or system is fully operational. They might ask, "Run final system check" or "Start final verification."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Run final check and delete Alpha",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final check and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Home, then verify systems",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then verify systems"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final verification, delete Beacon",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final verification, delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Supply Cache before checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " before checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run final checks and remove Alpha",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run final checks and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Old Camp and then run checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final tests delete Bravo",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final tests delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Beacon 1 then verify",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then verify"
+            }
+        ]
+    },
+    {
+        "prompt": "hey finalize system checks and remove Dock",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "hey finalize system checks and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home marker but first run checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first run checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the final system check and then delete waypoint Site Bravo",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the final system check and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Rover Dock and then run final verification",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start final verification and also remove Beacon 2",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start final verification and also remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Storage-2 plus initiate final system checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus initiate final system checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final system checks and next delete Science Spot",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final system checks and next delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Spot"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Hab A before you run final checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab A"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you run final checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification, and then remove Supply Cache",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification, and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha and also start final tests now",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also start final tests now"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate final checks and along with that delete Marker One",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate final checks and along with that delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker One"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Backup Cache in addition, run final verification",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Backup Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition, run final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final system checks, and then delete waypoints Alpha and Bravo while I monitor telemetry",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final system checks, and then delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I monitor telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Beacon 1 and Beacon 2, followed by starting the final verification sequence",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by starting the final verification sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run the final verification and also remove waypoints Supply Cache and Backup Cache before EVA operations",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run the final verification and also remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Backup Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " before EVA operations"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Old Camp and Marker One and then commence the final system checks, please",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then commence the final system checks, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate final checks, additionally delete waypoints Hab A and Hab B as well as clear clutter",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate final checks, additionally delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab B"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as clear clutter"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Site Bravo and Science Spot while running the final verification sequence next",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Spot"
+            },
+            {
+                "type": "TEXT",
+                "text": " while running the final verification sequence next"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the final system check and then delete waypoints Rover Dock and Storage-2, meanwhile log outcomes",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the final system check and then delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage-2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", meanwhile log outcomes"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Alpha and Home marker and then kick off final system checks at the same time",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then kick off final system checks at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification then delete waypoints Beacon 3 and Beacon 4 plus confirm status lights",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification then delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus confirm status lights"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Marker Two and Marker Three, and then run final checks and report results",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Three"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then run final checks and report results"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform the final checks and then delete waypoints Cargo Bay and Science Cache followed by telemetry snapshot",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform the final checks and then delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by telemetry snapshot"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Landing Pad and LZ-1, additionally start final verification and monitor suit data",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally start final verification and monitor suit data"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin final checks and then remove waypoints Alpha Prime and Bravo Prime while I stabilize orientation",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin final checks and then remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Prime"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo Prime"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I stabilize orientation"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Gimme Spot and LZ-Alpha then run final verification, oh and log the time",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gimme Spot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run final verification, oh and log the time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the concluding verification, and then delete waypoints Science Site 1 and Science Site 2 after that",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the concluding verification, and then delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Site 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Site 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " after that"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Beacon Alpha and Beacon Beta, and then please perform final system checks and validate",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then please perform final system checks and validate"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification and then delete waypoints Habitat-East and Habitat-West in addition to clearing flags",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification and then delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat-East"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat-West"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to clearing flags"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Cache-Red and Cache-Blue, then initiate final checks and record any anomalies",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-Red"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-Blue"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then initiate final checks and record any anomalies"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final system checks now and delete waypoints Observation Point and Summit; meanwhile keep sensors active",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final system checks now and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Summit"
+            },
+            {
+                "type": "TEXT",
+                "text": "; meanwhile keep sensors active"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Supply-1 and Supply-2 and then run the final verification, additionally check comms",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run the final verification, additionally check comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final checks and delete waypoints Alpha, Bravo, Charlie",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final checks and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Home, Dock, Storage-2 then run final verification",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final checks and delete Supply Cache, Backup Cache, Old Camp",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final checks and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Backup Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Beacon 1, Beacon 2, Beacon 3 then start final checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start final checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification, delete Hab A, Hab B, Hab C",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification, delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab C"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Marker One, Marker Two, Marker Three and start final checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker One"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Two"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start final checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform final system checks and then delete waypoints LZ-1, LZ-2, LZ-3",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform final system checks and then delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Cargo Bay, Science Spot, Observation Point then run final verification",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Spot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final checks and delete waypoints Alpha Prime, Bravo Prime, Gamma Prime",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final checks and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha Prime"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo Prime"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Prime"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Supply-1, Supply-2, Supply-3 then initiate final system checks",
+        "tool_calls": [
+            "delete_waypoint",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply-2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate final system checks"
+            }
+        ]
+    }
+]
+}

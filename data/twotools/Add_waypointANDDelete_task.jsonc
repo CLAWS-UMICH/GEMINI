@@ -1,0 +1,1933 @@
+{
+  // intents: Add_waypoint AND Delete_task
+  // description_1: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // description_2: The user wants to remove an erroneous or canceled item from their task list. The prompt specifies the task to remove, such as "Delete task Inspect Solar Panel."
+  // tokens: TASK_NAME, TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Mark this spot as Crater Edge and delete task Inspect Solar Panel",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task battery check then add waypoint Sample Site Alpha",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Waypoint One then delete task collect sample",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint One"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task calibrate sensors and then mark this as Delta Ridge",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint Gamma Pit and delete task inspect tether",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task replace filter and add waypoint Landing Beacon",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Cache A and delete task record readings",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task seal hatch plus add waypoint Rock Outcrop",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Hab Dock and delete task deploy antenna",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task check comms and add waypoint Site B",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop pin at Start and delete task clean lens",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop pin at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task measure radiation then mark Middle waypoint",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure radiation"
+            },
+            {
+                "type": "TEXT",
+                "text": " then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": " waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint End and delete task log coordinates",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task pump coolant and then drop pin at Solar Array",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pump coolant"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then drop pin at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Antenna Tower then delete task run diagnostics",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Antenna Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task inspect suit and add waypoint North Rim",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect suit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark South Spur and delete task sample A",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Spur"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample A"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task sample B and add waypoint Loose Boulder",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Loose Boulder"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop pin at Regolith Patch and delete task measure core",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop pin at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Regolith Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure core"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task stow toolbox and then mark Thermal Vent",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow toolbox"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Beacon Charlie and delete task check seals",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoints Alpha and Bravo and delete task inspect solar panel plus delete task battery check",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task collect sample and calibrate sensors and then mark Delta Ridge and Gamma Pit",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Pit"
+            }
+        ]
+    },
+    {
+        "prompt": "Add pins at Landing Beacon and Cache A and delete task replace filter and delete task record readings",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add pins at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task seal hatch and deploy antenna and mark Rock Outcrop and Hab Dock",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Site B and Start and delete task check comms and clean lens",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task measure radiation and log coordinates and add waypoints Middle and End",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure radiation"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log coordinates"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Solar Array and Antenna Tower plus delete task pump coolant and run diagnostics",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Antenna Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pump coolant"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task inspect suit and sample A and mark North Rim and South Spur",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect suit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Spur"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Loose Boulder and Regolith Patch and delete task sample B and measure core",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Loose Boulder"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Regolith Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure core"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task stow toolbox and check seals and add Thermal Vent and Beacon Charlie",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow toolbox"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoints Start, Middle, and End and delete task Inspect Solar Panel, battery check, and collect sample",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect Solar Panel"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task calibrate sensors, inspect tether, and replace filter and then mark Delta Ridge, Gamma Pit, and Landing Beacon",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect tether"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Cache A, Rock Outcrop, and Hab Dock and delete task record readings, seal hatch, and deploy antenna",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record readings"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task check comms, clean lens, and measure radiation and add Site B, Start, and Middle waypoints",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure radiation"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Solar Array, Antenna Tower, and North Rim and delete pump coolant, run diagnostics, and inspect suit",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Antenna Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pump coolant"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete sample A, sample B, and measure core and then mark South Spur, Loose Boulder, and Regolith Patch",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure core"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Spur"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Loose Boulder"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Regolith Patch"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Thermal Vent, Beacon Charlie, and Landing Beacon and delete stow toolbox, check seals, and log coordinates",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow toolbox"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey mark this as Crater Edge and then remove task battery check please",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you delete task collect sample and also add waypoint Sample Site Alpha?",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": "?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo add waypoint Waypoint One and then delete task calibrate sensors",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete task inspect tether and additionally mark Delta Ridge",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Gamma Pit and also remove task replace filter",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma Pit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task record readings while adding waypoint Rock Outcrop",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record readings"
+            },
+            {
+                "type": "TEXT",
+                "text": " while adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Hab Dock and also delete task seal hatch, gimme that",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", gimme that"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task deploy antenna plus add waypoint Site B, please",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Start and Middle and then delete task check comms and clean lens",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task measure radiation and in addition add End and Solar Array",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure radiation"
+            },
+            {
+                "type": "TEXT",
+                "text": " and in addition add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please delete pump coolant and add Antenna Tower, thanks",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pump coolant"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Antenna Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": ", thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey delete run diagnostics and also drop North Rim and South Spur",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also drop "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Spur"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Loose Boulder and Regolith Patch and meanwhile delete inspect suit",
+        "tool_calls": [
+            "Add_waypoint",
+            "Add_waypoint",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Loose Boulder"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Regolith Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect suit"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete sample A and sample B and then add Thermal Vent and Beacon Charlie while en route",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Thermal Vent"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " while en route"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and mark Cache A and also delete task stow toolbox, then mark Rock Outcrop",
+        "tool_calls": [
+            "Add_waypoint",
+            "Delete_task",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow toolbox"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Outcrop"
+            }
+        ]
+    },
+    {
+        "prompt": "Next delete task check seals and then add Hab Dock as well as Site B",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site B"
+            }
+        ]
+    },
+    {
+        "prompt": "First delete task log coordinates and then add Start and meanwhile add Middle",
+        "tool_calls": [
+            "Delete_task",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log coordinates"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and meanwhile add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,1694 @@
+{
+  // intents: start_procedure_system_diagnosis AND Delete_task
+  // description_1: The user wants the AI to run a diagnostic scan on a connected system, such as the LTV, to identify faults. The prompt might be "Run system diagnosis" or "Diagnose rover faults."
+  // description_2: The user wants to remove an erroneous or canceled item from their task list. The prompt specifies the task to remove, such as "Delete task Inspect Solar Panel."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Run rover diagnostics and delete task Battery check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run rover diagnostics and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Inspect panel, then diagnose LTV",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inspect panel"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then diagnose LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run LTV system diagnostics and after that delete task Solar array inspection",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run LTV system diagnostics and after that delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar array inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop task Antenna check and run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "yo check the rover systems and delete task CO2 scrubber test",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo check the rover systems and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrubber test"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you delete task Battery cycle and then run a system diagnosis on the LTV",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run a system diagnosis on the LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics then delete task Thruster test",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thruster test"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove task Comms antenna alignment and run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey I need you to run a full system diagnosis on the rover but first delete task Sample pump maintenance",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey I need you to run a full system diagnosis on the rover but first delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample pump maintenance"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and delete task EVA tether check while you run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA tether check"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Please perform system diagnostic and in addition delete task Pressure calibration",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please perform system diagnostic and in addition delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Thermal sensor then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run a diagnostics sweep of suit systems and then delete task Oxygen valve check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run a diagnostics sweep of suit systems and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen valve check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Camera cleanup and then perform system diagnosis",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera cleanup"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform system diagnosis"
+            }
+        ]
+    },
+    {
+        "prompt": "Diagnose rover then delete task Relay test",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Diagnose rover then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay test"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task Battery health and also start system diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery health"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also start system diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to pull up diagnostics for the habitat LTV as well as remove task Radiation monitor inspection",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to pull up diagnostics for the habitat LTV as well as remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation monitor inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme delete task Waste pump check, then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste pump check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start full system diagnosis and then delete task Solar panel hinge check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start full system diagnosis and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar panel hinge check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete task Science sample log and then run diagnostics on the rover",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Science sample log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run diagnostics on the rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics and delete task Battery check and task Antenna alignment",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Solar Array and task Comms then run LTV diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run LTV diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, perform system diagnosis and remove task Sample collection plus task Pump calibration",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, perform system diagnosis and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Antenna and task Relay then diagnose LTV",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then diagnose LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run a complete system diagnostic and in addition delete task EVA tether check and task Suit pressure calibration",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run a complete system diagnostic and in addition delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA tether check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit pressure calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task Camera focus and task Lens cover then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera focus"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lens cover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start diagnostics on habitat and then delete task CO2 scrubber test along with task Filter replacement",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start diagnostics on habitat and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrubber test"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter replacement"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo delete task Thermal sensor and task Heat exchanger then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Heat exchanger"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to run diagnostics now and then delete task Radiation monitor and task Shield alignment",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to run diagnostics now and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Shield alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Science sample log and task Data backup before starting diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Science sample log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data backup"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run system check and delete task Valve test and task Pump flush",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run system check and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Valve test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump flush"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete task Pressure calibration and task Valve inspection and start diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Valve inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Perform diagnostics and then remove task Antenna calibration plus task Transmitter check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Perform diagnostics and then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Transmitter check"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you delete task Battery cycle and task Cooling purge and then run an LTV system diagnosis",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cooling purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run an LTV system diagnosis"
+            }
+        ]
+    },
+    {
+        "prompt": "Start full diagnostics while deleting task Camera cleanup and task Lens realignment",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start full diagnostics while deleting task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera cleanup"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lens realignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Waste pump check and task Filter swap and then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste pump check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, run diagnostics on the rover and then delete task Sample sorter and task Conveyor maintenance",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, run diagnostics on the rover and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample sorter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Conveyor maintenance"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and delete task Relay test and task Antenna tune, next run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna tune"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Bring up system diagnostics and then remove task Thruster test and task Fuel line check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Bring up system diagnostics and then remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thruster test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel line check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task CO2 scrubber test and task Oxygen valve check followed by a system diagnostic",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrubber test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen valve check"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by a system diagnostic"
+            }
+        ]
+    },
+    {
+        "prompt": "Run rover diagnostics and delete task Battery check, task Antenna alignment, and task Solar hinge inspection",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run rover diagnostics and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar hinge inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Sample collection, task Pump maintenance, and task Filter swap then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample collection"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump maintenance"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Please perform full system diagnosis and additionally remove task CO2 scrubber check, task Pressure calibration, and task Valve inspection",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please perform full system diagnosis and additionally remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrubber check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Valve inspection"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task Camera cleanup, task Lens realignment, and task Sensor recalibration while you start diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera cleanup"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lens realignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor recalibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you start diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start diagnostics, then delete task Radiation monitor, task Shield alignment, and task Thermal sensor",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start diagnostics, then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Shield alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal sensor"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo delete task Relay test, task Antenna tune, and task Transmitter check, then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna tune"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Transmitter check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you run system diagnostics first and then delete task Science sample log, task Data backup, and task Sample sorter",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you run system diagnostics first and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Science sample log"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Data backup"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample sorter"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Battery cycle, task Cooling purge, and task Fan replacement and then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cooling purge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fan replacement"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics at the same time and delete task EVA tether check, task Suit pressure calibration, and task Oxygen valve check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics at the same time and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA tether check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit pressure calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen valve check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Thermal sensor, task Heat exchanger, and task Filter replacement before starting a system diagnosis",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Heat exchanger"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter replacement"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting a system diagnosis"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run a diagnostic sweep and remove task Sample collection",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run a diagnostic sweep and remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample collection"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove task Antenna alignment then start diagnostics on the rover",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start diagnostics on the rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Run system diagnostics and then delete task Camera cleanup",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run system diagnostics and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera cleanup"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Fuel line check and then run diagnostics in addition",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel line check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run diagnostics in addition"
+            }
+        ]
+    },
+    {
+        "prompt": "Check suit biometrics and delete task Pressure calibration",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Check suit biometrics and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Thruster test and then perform diagnostics, followed by a systems report",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thruster test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then perform diagnostics, followed by a systems report"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics and then delete task Camera focus",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera focus"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Lens realignment and task Sensor recalibration and then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lens realignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor recalibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start a diagnostics run and delete task CO2 scrubber test and task Filter replacement",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start a diagnostics run and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrubber test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter replacement"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Sample sorter and task Conveyor maintenance as well as start diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample sorter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Conveyor maintenance"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as start diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics and then delete task Relay test and task Transmitter check",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Transmitter check"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Battery check, task Antenna alignment, and task Solar hinge inspection, next run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar hinge inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics and delete task Sample collection, task Pump maintenance, and task Filter swap",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample collection"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump maintenance"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter swap"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task CO2 scrubber check, task Pressure calibration, and task Valve inspection and then run diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrubber check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Valve inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Run diagnostics at the same time and delete task Camera cleanup, task Lens realignment, and task Sensor recalibration",
+        "tool_calls": [
+            "start_procedure_system_diagnosis",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run diagnostics at the same time and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera cleanup"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lens realignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor recalibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete task Radiation monitor, task Shield alignment, and task Thermal sensor, followed by diagnostics",
+        "tool_calls": [
+            "Delete_task",
+            "start_procedure_system_diagnosis"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation monitor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Shield alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by diagnostics"
+            }
+        ]
+    }
+]
+}

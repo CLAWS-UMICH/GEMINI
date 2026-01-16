@@ -1,0 +1,1836 @@
+{
+  // intents: Add_task AND Delete_task
+  // description_1: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // description_2: The user wants to remove an erroneous or canceled item from their task list. The prompt specifies the task to remove, such as "Delete task Inspect Solar Panel."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "add task inspect solar panel and delete task battery calibration",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task sample container check then add task collect basalt core",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample container check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect basalt core"
+            }
+        ]
+    },
+    {
+        "prompt": "please add task check oxygen levels plus delete task test seal",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen levels"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test seal"
+            }
+        ]
+    },
+    {
+        "prompt": "remove task redundant telemetry and then create new task log instrument status",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "redundant telemetry"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then create new task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log instrument status"
+            }
+        ]
+    },
+    {
+        "prompt": "add task align antenna while delete task old alignment log",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "align antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " while delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old alignment log"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task checklist redundancy and add task verify hatch seals",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "checklist redundancy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify hatch seals"
+            }
+        ]
+    },
+    {
+        "prompt": "add task collect soil sample then delete task calibration run",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect soil sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibration run"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task power cycling before add task check battery output",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power cycling"
+            },
+            {
+                "type": "TEXT",
+                "text": " before add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery output"
+            }
+        ]
+    },
+    {
+        "prompt": "add task photograph landing site and delete task duplicate imaging",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph landing site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "duplicate imaging"
+            }
+        ]
+    },
+    {
+        "prompt": "remove task stale oxygen sample, then add task run new sample analysis",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stale oxygen sample"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run new sample analysis"
+            }
+        ]
+    },
+    {
+        "prompt": "add task check comms link and delete task preflight comms test",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms link"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "preflight comms test"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task EVA dry run and then add task suit leak check",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA dry run"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit leak check"
+            }
+        ]
+    },
+    {
+        "prompt": "yo add task secure loose panel and delete task irrelevant note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "yo add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure loose panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "irrelevant note"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task duplicate sample plus add task label new samples",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "duplicate sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label new samples"
+            }
+        ]
+    },
+    {
+        "prompt": "please add task update NAV map as well as delete task old waypoint",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "update NAV map"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old waypoint"
+            }
+        ]
+    },
+    {
+        "prompt": "remove task test burn meanwhile add task check thruster valves",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test burn"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check thruster valves"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run suit diagnostics oh and delete task old diagnostics log",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run suit diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old diagnostics log"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task noisy sensor and then add task initiate quiet mode",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "noisy sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "initiate quiet mode"
+            }
+        ]
+    },
+    {
+        "prompt": "add task verify sample integrity plus delete task damaged sample log",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify sample integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "damaged sample log"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task old comm window, and add task schedule new comm window",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old comm window"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "schedule new comm window"
+            }
+        ]
+    },
+    {
+        "prompt": "add task secure tether then delete task temporary tether note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temporary tether note"
+            }
+        ]
+    },
+    {
+        "prompt": "remove task outdated nav fix and then add task calibrate inertial unit",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "outdated nav fix"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate inertial unit"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect EVA suits as well as delete task test suits yesterday",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect EVA suits"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test suits yesterday"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task old maintenance checklist followed by add task new maintenance checklist",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old maintenance checklist"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "new maintenance checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "add task mount instrument plus delete task staging placeholder",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mount instrument"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "staging placeholder"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task extra camera feed and then add task enable wide angle cam",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "extra camera feed"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "enable wide angle cam"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run microbial assay and delete task placeholder assay note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run microbial assay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "placeholder assay note"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task outdated sensor config and also add task upload new sensor config",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "outdated sensor config"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "upload new sensor config"
+            }
+        ]
+    },
+    {
+        "prompt": "add task document rock strata next delete task draft note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document rock strata"
+            },
+            {
+                "type": "TEXT",
+                "text": " next delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "draft note"
+            }
+        ]
+    },
+    {
+        "prompt": "remove task temporary power mode and then add task restore nominal power",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "remove task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temporary power mode"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "restore nominal power"
+            }
+        ]
+    },
+    {
+        "prompt": "add task sample transfer along with delete task sample duplicates",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample duplicates"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task incorrect timestamp and then add task correct timestamp",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "incorrect timestamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "correct timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "add task secure sample bag then delete task temp storage instruction",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample bag"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temp storage instruction"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task outdated experiment log plus add task start new experiment",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "outdated experiment log"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "start new experiment"
+            }
+        ]
+    },
+    {
+        "prompt": "add task check radiation shield and then delete task provisional shield note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check radiation shield"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "provisional shield note"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task fuel estimate, and add task re-evaluate fuel budget",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel estimate"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "re-evaluate fuel budget"
+            }
+        ]
+    },
+    {
+        "prompt": "add task secure antenna cable as well as delete task temporary cable test",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure antenna cable"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temporary cable test"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task redundant temperature read meanwhile add task start cooling protocol",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "redundant temperature read"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "start cooling protocol"
+            }
+        ]
+    },
+    {
+        "prompt": "add task open sample locker and delete task placeholder locker note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "open sample locker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "placeholder locker note"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task temporary routing, and then add task finalize routing table",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temporary routing"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "finalize routing table"
+            }
+        ]
+    },
+    {
+        "prompt": "add task document tool inventory and then delete task draft inventory",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document tool inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "draft inventory"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task test echo plus add task run comms echo test",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run comms echo test"
+            }
+        ]
+    },
+    {
+        "prompt": "add task verify solar deploy and delete task predeploy checklist",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify solar deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "predeploy checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task old EVA schedule and then add task updated EVA timeline",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old EVA schedule"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "updated EVA timeline"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run environmental sensors and delete task placeholder env note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run environmental sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "placeholder env note"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task temporary telemetry along with add task enable continuous telemetry",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temporary telemetry"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "enable continuous telemetry"
+            }
+        ]
+    },
+    {
+        "prompt": "add task rotate solar array and then delete task array test note",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "rotate solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "array test note"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task obsolete nav data and then add task upload fresh nav data",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "obsolete nav data"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "upload fresh nav data"
+            }
+        ]
+    },
+    {
+        "prompt": "add task log EVA footage then delete task raw footage placeholder",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log EVA footage"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "raw footage placeholder"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task tentative science slot and add task confirmed science slot",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tentative science slot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "confirmed science slot"
+            }
+        ]
+    },
+    {
+        "prompt": "add tasks: collect regolith, tag samples and delete tasks: temp note, old sample",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect regolith"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag samples"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temp note"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old sample"
+            }
+        ]
+    },
+    {
+        "prompt": "delete tasks: test point A and test point B then add tasks: inspect target A and inspect target B",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test point A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test point B"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect target A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect target B"
+            }
+        ]
+    },
+    {
+        "prompt": "add task A: calibrate camera and delete task B: old camera calibration",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task A: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate camera"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task B: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old camera calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task sample A and sample B plus add task label A and label B",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label B"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect panel A and inspect panel B while delete task panel placeholder",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel B"
+            },
+            {
+                "type": "TEXT",
+                "text": " while delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "panel placeholder"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task log A and log B and then add task archive A and archive B",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "archive A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "archive B"
+            }
+        ]
+    },
+    {
+        "prompt": "add tasks: sample A and sample B then delete tasks: temp A and temp B",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temp A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temp B"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task old log plus delete task old note and add task file logs and add task tag notes",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old log"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old note"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "file logs"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag notes"
+            }
+        ]
+    },
+    {
+        "prompt": "add tasks: inspect arm, check joint and lubricate joints while delete tasks: temp arm note, old joint log",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect arm"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check joint"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "lubricate joints"
+            },
+            {
+                "type": "TEXT",
+                "text": " while delete tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temp arm note"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old joint log"
+            }
+        ]
+    },
+    {
+        "prompt": "delete tasks: sample1, sample2 and sample3 then add tasks: label1, label2 and label3",
+        "tool_calls": [
+            "Delete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label3"
+            }
+        ]
+    },
+    {
+        "prompt": "add task collect cores, sample sediments and tag locations and delete task temp core note, temp sediment note and old tag",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect cores"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample sediments"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag locations"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temp core note"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "temp sediment note"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old tag"
+            }
+        ]
+    },
+    {
+        "prompt": "delete task old experiment log and delete task outdated notes and add task new experiment plan, add task schedule sensors and add task notify team",
+        "tool_calls": [
+            "Delete_task",
+            "Delete_task",
+            "Add_task",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "old experiment log"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "outdated notes"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "new experiment plan"
+            },
+            {
+                "type": "TEXT",
+                "text": ", add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "schedule sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "notify team"
+            }
+        ]
+    },
+    {
+        "prompt": "please add task collect atmosphere samples, process samples and tag data, then delete task placeholders A, B and C",
+        "tool_calls": [
+            "Add_task",
+            "Delete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect atmosphere samples"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "process samples"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag data"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then delete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "placeholders A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "C"
+            }
+        ]
+    }
+]
+}

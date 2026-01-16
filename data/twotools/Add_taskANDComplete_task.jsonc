@@ -1,0 +1,1973 @@
+{
+  // intents: Add_task AND Complete_task
+  // description_1: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "add task repair clamp and finish vent",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "repair clamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "vent"
+            }
+        ]
+    },
+    {
+        "prompt": "finish battery check then add task log power readings",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log power readings"
+            }
+        ]
+    },
+    {
+        "prompt": "please add task inspect solar panel and mark thermal sensor check complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thermal sensor check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark comms alignment as done and add task recalibrate antenna",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "add task seal leak and finish oxygen test",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal leak"
+            },
+            {
+                "type": "TEXT",
+                "text": " and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen test"
+            }
+        ]
+    },
+    {
+        "prompt": "complete sample collection then add task tag sample",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag sample"
+            }
+        ]
+    },
+    {
+        "prompt": "add task test seal as well as mark antenna check done",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "finish EVA comms then create task collect regolith",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " then create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect regolith"
+            }
+        ]
+    },
+    {
+        "prompt": "add task check tether plus mark suit pressure check complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "mark coolant flush done and add task replace filter",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect micrometeoroid shield while finish vent purge",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect micrometeoroid shield"
+            },
+            {
+                "type": "TEXT",
+                "text": " while finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "vent purge"
+            }
+        ]
+    },
+    {
+        "prompt": "complete coolant sample after add task log thermal trace",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " after add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log thermal trace"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect hatch before finish battery swap",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " before finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery swap"
+            }
+        ]
+    },
+    {
+        "prompt": "finish pressure equalization but first add task log event",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure equalization"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log event"
+            }
+        ]
+    },
+    {
+        "prompt": "add task calibrate spectrometer as well as finish drill check",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate spectrometer"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "drill check"
+            }
+        ]
+    },
+    {
+        "prompt": "mark suit leak test complete and then add task swap gloves",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap gloves"
+            }
+        ]
+    },
+    {
+        "prompt": "add task verify seal along with finish antenna deployment",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna deployment"
+            }
+        ]
+    },
+    {
+        "prompt": "finish thermal panel check in addition add task photograph site",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thermal panel check"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph site"
+            }
+        ]
+    },
+    {
+        "prompt": "add task log sample metadata additionally mark sample bagging complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log sample metadata"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample bagging"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "followed by finish tool inventory and add task stow ladder",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "followed by finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tool inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow ladder"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect joint next mark lubrication complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect joint"
+            },
+            {
+                "type": "TEXT",
+                "text": " next mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "lubrication"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and finish comms relay then add task document anomaly",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document anomaly"
+            }
+        ]
+    },
+    {
+        "prompt": "add task retrieve bolt and then mark external inspection done",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "retrieve bolt"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "external inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "meanwhile mark gyro calibration complete and add task secure panel",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "gyro calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure panel"
+            }
+        ]
+    },
+    {
+        "prompt": "add task swap battery pack and complete coolant bleed",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap battery pack"
+            },
+            {
+                "type": "TEXT",
+                "text": " and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant bleed"
+            }
+        ]
+    },
+    {
+        "prompt": "finish payload secure then add task photograph payload bay",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "payload secure"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph payload bay"
+            }
+        ]
+    },
+    {
+        "prompt": "add task measure radiation levels and complete data dump",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure radiation levels"
+            },
+            {
+                "type": "TEXT",
+                "text": " and complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "data dump"
+            }
+        ]
+    },
+    {
+        "prompt": "complete dock alignment and add task log crew vitals",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "dock alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log crew vitals"
+            }
+        ]
+    },
+    {
+        "prompt": "add task check umbilical plus finish external camera check",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "external camera check"
+            }
+        ]
+    },
+    {
+        "prompt": "finish connector seating and then add task secure cable",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "connector seating"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cable"
+            }
+        ]
+    },
+    {
+        "prompt": "add task clean lens and then mark camera calibration done",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "mark sample transfer complete and add task secure container",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure container"
+            }
+        ]
+    },
+    {
+        "prompt": "add task align reflector and then finish mirror cleaning",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "align reflector"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "mirror cleaning"
+            }
+        ]
+    },
+    {
+        "prompt": "complete antenna deployment and add task verify telemetry link",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna deployment"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify telemetry link"
+            }
+        ]
+    },
+    {
+        "prompt": "add task swap O2 filter along with finish scrubber test",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap O2 filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "scrubber test"
+            }
+        ]
+    },
+    {
+        "prompt": "finish sample sealing in addition add task label specimens",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample sealing"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label specimens"
+            }
+        ]
+    },
+    {
+        "prompt": "add task run diagnostics additionally mark system reboot complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "system reboot"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect solar array then finish array alignment",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "array alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "finish vent purge followed by add task record timestamp",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "vent purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "add task retrieve sample next mark lab transfer complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "retrieve sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " next mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "lab transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and add task tie down cable then finish tether check",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tie down cable"
+            },
+            {
+                "type": "TEXT",
+                "text": " then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether check"
+            }
+        ]
+    },
+    {
+        "prompt": "meanwhile add task verify seals and then finish hatch latching",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "meanwhile add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch latching"
+            }
+        ]
+    },
+    {
+        "prompt": "add task stow rover at the same time mark camera ping complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera ping"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "create tasks: inspect hatch, test seal and log results plus mark battery test done",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log results"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Alpha task complete and add task Beta and task Gamma",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Alpha task"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "add task A and task B and then finish task C and task D",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "D"
+            }
+        ]
+    },
+    {
+        "prompt": "finish task docking and task unlatch, followed by add task secure cargo and task stow tools",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "docking"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "unlatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cargo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow tools"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect panel and task clean connector while finish shield check and task realign sensor",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean connector"
+            },
+            {
+                "type": "TEXT",
+                "text": " while finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "shield check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "realign sensor"
+            }
+        ]
+    },
+    {
+        "prompt": "finish sample prep and sample seal then add task label A and task label B",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label B"
+            }
+        ]
+    },
+    {
+        "prompt": "add task calibrate sensor and task verify output and then mark test1 and test2 complete",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify output"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test2"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "finish telemetry sync and task log then add task archive logs and task notify MCC",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "telemetry sync"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "archive logs"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "notify MCC"
+            }
+        ]
+    },
+    {
+        "prompt": "add task secure antenna and task torque bolts plus finish comms check and task signal test",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "torque bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "signal test"
+            }
+        ]
+    },
+    {
+        "prompt": "finish power reroute and task confirm load then add task update manifest and task secure badge",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power reroute"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "confirm load"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "update manifest"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure badge"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect thermal blanket, task replace fastener, and task photograph damage then finish insulation repair",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect thermal blanket"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace fastener"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph damage"
+            },
+            {
+                "type": "TEXT",
+                "text": " then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "insulation repair"
+            }
+        ]
+    },
+    {
+        "prompt": "finish sample prep, sample catalog, and sample seal while add task ship container, task tag manifest, and task notify lab",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample prep"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample catalog"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " while add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "ship container"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag manifest"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "notify lab"
+            }
+        ]
+    },
+    {
+        "prompt": "add task A, B, and C and then finish tasks X, Y, and Z",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then finish tasks "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "X"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Y"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Z"
+            }
+        ]
+    },
+    {
+        "prompt": "finish data sync, log checksum, and verify integrity then add task notify ground, archive packet, and clear buffer",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "data sync"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log checksum"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "notify ground"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "archive packet"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clear buffer"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect A, inspect B, and inspect C while finish check1, check2, and check3",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect C"
+            },
+            {
+                "type": "TEXT",
+                "text": " while finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check3"
+            }
+        ]
+    },
+    {
+        "prompt": "finish valve test, pressure verify, and leak scan, then add task document, tag, and report",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "valve test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure verify"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "leak scan"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "report"
+            }
+        ]
+    },
+    {
+        "prompt": "add task inspect A, B, and C and then finish tasks alpha, beta, and gamma",
+        "tool_calls": [
+            "Add_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then finish tasks "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "finish engine purge, ignition test, and throttle check and add task log run, tag data, and notify crew",
+        "tool_calls": [
+            "Complete_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "engine purge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "ignition test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "throttle check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log run"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag data"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "notify crew"
+            }
+        ]
+    }
+]
+}

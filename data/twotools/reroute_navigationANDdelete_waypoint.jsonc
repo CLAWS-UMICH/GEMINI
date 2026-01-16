@@ -1,0 +1,1298 @@
+{
+  // intents: reroute_navigation AND delete_waypoint
+  // description_1: The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, "Find a new route" or "Reroute."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Reroute now and delete waypoint Alpha",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute now and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home then reroute",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot alternate route and remove Beacon-3",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot alternate route and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon-3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Supply Cache then reroute",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute and delete waypoint Old Camp",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Beacon 3 and find detour",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and find detour"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute, then remove waypoint Alpha-2",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute, then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete EV1 then re-route to target",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EV1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then re-route to target"
+            }
+        ]
+    },
+    {
+        "prompt": "Find new route and drop waypoint Charlie",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new route and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Site-B and calculate detour",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and calculate detour"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reroute my path and delete waypoints Landing Pad plus Storage Bay",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reroute my path and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Rock Ridge and then recalculate route",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then recalculate route"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to safe corridor and remove waypoint Beacon 7",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to safe corridor and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon 7"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you reroute me and delete waypoint Alpha and Beta",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you reroute me and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Redirect navigation now and delete waypoint Cargo Bay and Supply Cache",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Redirect navigation now and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Base Camp and then re-route to alternate",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then re-route to alternate"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you find a new route and delete waypoint Outpost A",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you find a new route and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost A"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha-1 and Alpha-2 then replanning route",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " then replanning route"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute around hazard please and remove waypoint Supply-2",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute around hazard please and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Storage A and Storage B and reroute me",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and reroute me"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey reroute my course and also delete Beacon Alpha",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey reroute my course and also delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Please delete waypoint LZ1 and LZ2 then find alternate path",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ2"
+            },
+            {
+                "type": "TEXT",
+                "text": " then find alternate path"
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate route now and remove waypoint Old Base",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate route now and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Charlie and Delta and then calculate detour",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then calculate detour"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to corridor B and delete waypoint Beacon South",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to corridor B and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon South"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Nest-1 then redirect navigation to safe path",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nest-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " then redirect navigation to safe path"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me and delete waypoint Site C and Site D",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site D"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to reroute and remove waypoint Cache-7",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to reroute and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint A1 and A2 plus reroute around debris",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A2"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus reroute around debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reroute then delete Beacon East and Beacon West",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reroute then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon East"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon West"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute around the crater now and delete waypoints Beacon Red plus Beacon Blue",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute around the crater now and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Red"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Blue"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Alpha, Beta, and Gamma before you calculate a new route for me",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you calculate a new route for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Supply Cache and Supply Cache 2, then plot an alternate course",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Cache 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then plot an alternate course"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reroute to the safe corridor and also delete waypoints Rock Ridge, Site-B, and LZ3",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reroute to the safe corridor and also delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site-B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ3"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Old Camp, Cache-1, and Cache-2 and then provide a new navigation plan",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then provide a new navigation plan"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Beacon North as well as Beacon South before you reroute our path",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon South"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you reroute our path"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Alpha-2, Alpha-3, and Alpha-4 but first calculate a safe detour",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-4"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first calculate a safe detour"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me along a different corridor meanwhile delete waypoints Nest-A and Nest-B to declutter",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me along a different corridor meanwhile delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nest-A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Nest-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " to declutter"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Beacon X along with Beacon Y and Beacon Z and then compute alternate route",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon X"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Y"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Z"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then compute alternate route"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to corridor C and in addition delete waypoints Cargo-1 and Cargo-2",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to corridor C and in addition delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint A, B, and C, additionally recalculate the route to avoid micrometeorite field",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "C"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally recalculate the route to avoid micrometeorite field"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Landing North oh and Landing South then reroute me away from the dust plume",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing North"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing South"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute me away from the dust plume"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to avoid slope and then remove waypoints Ridge-1 and Ridge-2 while clearing map clutter",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to avoid slope and then remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " while clearing map clutter"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints W1, W2, and W3 followed by recalculating an alternate trajectory around the debris",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "W1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "W2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "W3"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by recalculating an alternate trajectory around the debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute along the northern arc next and delete waypoints Alpha, Beta, and Gamma from HUD",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute along the northern arc next and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " from HUD"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Storage Alpha and Storage Beta at the same time and then compute a new route",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time and then compute a new route"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Beacon1, Beacon2, and Beacon3, and then reroute via safe corridor D",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then reroute via safe corridor D"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reroute around the crater and then delete waypoint Outpost-1 and Outpost-2 from my map",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reroute around the crater and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my map"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Camp-A, Camp-B, and Camp-C in addition update my course to the west ridge",
+        "tool_calls": [
+            "delete_waypoint",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp-A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp-B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp-C"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition update my course to the west ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute around the unstable ridge and delete waypoints Cache-A and Cache-B from my HUD",
+        "tool_calls": [
+            "reroute_navigation",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute around the unstable ridge and delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " from my HUD"
+            }
+        ]
+    }
+]
+}

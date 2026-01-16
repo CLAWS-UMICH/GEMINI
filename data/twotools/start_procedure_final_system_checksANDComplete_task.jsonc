@@ -1,0 +1,1282 @@
+{
+  // intents: start_procedure_final_system_checks AND Complete_task
+  // description_1: The user wants to run the concluding verification steps after a repair to ensure the vehicle or system is fully operational. They might ask, "Run final system check" or "Start final verification."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Run final check and mark comms test",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final check and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms test"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final system check then finish task battery check and task venting",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final system check then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "venting"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final verification then mark task antenna alignment, task battery check and task oxygen recirculation complete",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final verification then mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen recirculation"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Finalize then mark O2 scrubber",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finalize then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "O2 scrubber"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin final system checks also finish task umbilical and task tether tension",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin final system checks also finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether tension"
+            }
+        ]
+    },
+    {
+        "prompt": "Please run the final system diagnostics plus mark task coolant loop, task power bus, and task avionics reboot",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please run the final system diagnostics plus mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant loop"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power bus"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "avionics reboot"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final check while you mark task payload bay",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final check while you mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "payload bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final check and then mark valve check",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final check and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "valve check"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final checks before finishing task solar array and task comms",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final checks before finishing task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Run the final system check, but first mark task connector seals, task coolant valves, and task external harness secure",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run the final system check, but first mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "connector seals"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant valves"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "external harness secure"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final procedures as well as mark task comm port",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final procedures as well as mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm port"
+            }
+        ]
+    },
+    {
+        "prompt": "Finalize then mark suit and glove",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finalize then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "glove"
+            }
+        ]
+    },
+    {
+        "prompt": "Please execute the final checks along with marking task bio sensor array and task pressure regulator",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please execute the final checks along with marking task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "bio sensor array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure regulator"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the concluding checks in addition mark task radiator",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the concluding checks in addition mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "radiator"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final tests additionally finish task sample lock and task airlock bolts",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final tests additionally finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "airlock bolts"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final checks meanwhile mark filter",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final checks meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final systems oh and mark task nav CPU and task tracker",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final systems oh and mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "nav CPU"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tracker"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate the final procedure and then complete task leak check, task thermal sensor calibration, and task comms loop test",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate the final procedure and then complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "leak check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thermal sensor calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms loop test"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final check followed by mark task fuel valve",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final check followed by mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final verification next mark task battery integrity and task solar tracking alignment",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final verification next mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar tracking alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Finalize then mark harness",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finalize then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "harness"
+            }
+        ]
+    },
+    {
+        "prompt": "Start final checks after mark task docking latches and task umbilical locks",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start final checks after mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "docking latches"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "umbilical locks"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete the final verification and then mark task gyro alignment, task comms antenna, and task cabin pressure sensors",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete the final verification and then mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "gyro alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "cabin pressure sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Run final diagnostics as well as mark task coolant pump",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Run final diagnostics as well as mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant pump"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate end-of-repair checks and in addition mark task external lights and task EVA tether anchors",
+        "tool_calls": [
+            "start_procedure_final_system_checks",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate end-of-repair checks and in addition mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "external lights"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA tether anchors"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark battery check then run final check",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run final check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task antenna and task thermal relay then start final systems check",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thermal relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start final systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task fuel pump, task coolant loop, and task power regulator also begin final verification",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel pump"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant loop"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power regulator"
+            },
+            {
+                "type": "TEXT",
+                "text": " also begin final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark umbilical as complete plus run the final check",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete plus run the final check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task comms array and task star tracker while initiating the final system verification",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "star tracker"
+            },
+            {
+                "type": "TEXT",
+                "text": " while initiating the final system verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark seals then run final",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run final"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task EVA tether and task airlock bolts before starting final checks",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "airlock bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting final checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task vent seals, task oxygen sensors and task comms array but first initiate the final procedure",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "vent seals"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms array"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first initiate the final procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark battery as complete as well as start final verification",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete as well as start final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark nav and ops then run final",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "nav"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "ops"
+            },
+            {
+                "type": "TEXT",
+                "text": " then run final"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task docking sensors and task latch motors then commence the final system check",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "docking sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "latch motors"
+            },
+            {
+                "type": "TEXT",
+                "text": " then commence the final system check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark pressure regulator next start final systems check",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure regulator"
+            },
+            {
+                "type": "TEXT",
+                "text": " next start final systems check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task thermal pad and task gasket seals then commence the final verification sequence",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thermal pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "gasket seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " then commence the final verification sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task cooling fans and task vent motors then start final checks",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "cooling fans"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "vent motors"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start final checks"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task gyro calibration and task IMU offsets followed by start the final system check at the same time",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "gyro calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "IMU offsets"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by start the final system check at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task solar array, task battery pack, and task comms module in addition begin final systems verification",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery pack"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms module"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition begin final systems verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark comms dish complete additionally run final verification",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms dish"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete additionally run final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark the airlock bolts as complete and additionally run the final diagnostic procedures",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark the "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "airlock bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and additionally run the final diagnostic procedures"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark filter meanwhile start final",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile start final"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task pump and task valve oh and run final check",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pump"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " oh and run final check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark external lights as complete and then initiate final verification",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "external lights"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then initiate final verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task antenna feed, task tracking motor, and task beacon plus begin final verification and then notify Mission Control",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna feed"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tracking motor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus begin final verification and then notify Mission Control"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task fuel manifold and task valve controller meanwhile initiate final system checks and then report status",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel manifold"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "valve controller"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile initiate final system checks and then report status"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark task antenna feed, task tracking motor, and task beacon plus begin final verification and then notify Mission Control",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna feed"
+            },
+            {
+                "type": "TEXT",
+                "text": ", task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tracking motor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus begin final verification and then notify Mission Control"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark hull inspection complete and at the same time start the final system check and then update mission timeline",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_final_system_checks"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hull inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and at the same time start the final system check and then update mission timeline"
+            }
+        ]
+    }
+]
+}

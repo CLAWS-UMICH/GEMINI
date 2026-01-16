@@ -1,0 +1,1290 @@
+{
+  // intents: reroute_navigation AND Complete_task
+  // description_1: The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, "Find a new route" or "Reroute."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Reroute to base and mark antenna check",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to base and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            }
+        ]
+    },
+    {
+        "prompt": "Divert course then finish battery check",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Divert course then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Find new route plus complete tether inspect",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new route plus complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspect"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute then mark sample secured",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample secured"
+            }
+        ]
+    },
+    {
+        "prompt": "Divert then mark helmet seal as complete",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Divert then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to safer path and then finish solar panel deploy",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to safer path and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar panel deploy"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate alternate route and then mark comm link test",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate alternate route and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot another course and then complete suit pressure test",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot another course and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure test"
+            }
+        ]
+    },
+    {
+        "prompt": "Find new path while also finish glove integrity check",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new path while also finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "glove integrity check"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to avoid debris and then mark transponder reset as done",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to avoid debris and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute then finish battery check and antenna check",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            }
+        ]
+    },
+    {
+        "prompt": "Find new route plus complete suit pressure test and helmet seal",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new route plus complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate alternate path and then complete comm link test along with tether inspect before rerouting",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate alternate path and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " before rerouting"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to safer route and mark battery check as well as glove integrity",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to safer route and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "glove integrity"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot another course after that finish solar panel deploy and transponder reset",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot another course after that finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar panel deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            }
+        ]
+    },
+    {
+        "prompt": "Divert course and then complete oxygen valve check in addition to antenna check",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Divert course and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen valve check"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute while you meanwhile mark sample secured and waste management",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute while you meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample secured"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "waste management"
+            }
+        ]
+    },
+    {
+        "prompt": "Find alternate route and then complete thruster calibration followed by helmet seal",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find alternate route and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to new trajectory and then mark comm link test and then tether inspect",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to new trajectory and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspect"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate new path next complete battery check and oxygen valve check",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate new path next complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen valve check"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to avoid hazard and then finish battery check, antenna check, and sample secured",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to avoid hazard and then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample secured"
+            }
+        ]
+    },
+    {
+        "prompt": "Find new route plus complete glove integrity, helmet seal, and suit pressure test",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new route plus complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "glove integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure test"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot alternate course and then mark thruster calibration along with transponder reset and waste management",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot alternate course and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "waste management"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute now but first finish solar panel deploy, antenna check as well as battery check",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute now but first finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar panel deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Divert course and then complete comm link test and then transponder reset in addition to helmet seal",
+        "tool_calls": [
+            "reroute_navigation",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Divert course and then complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish battery check and reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark sample secured then find new route, oh and monitor radiation",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample secured"
+            },
+            {
+                "type": "TEXT",
+                "text": " then find new route, oh and monitor radiation"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete tether inspect and divert course now",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " and divert course now"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish helmet seal plus reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark comm link test then reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark oxygen valve check complete and then reroute to bypass",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen valve check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then reroute to bypass"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you finish solar panel deploy and also find a new path",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar panel deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also find a new path"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to mark glove integrity check and then calculate alternate route",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "glove integrity check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then calculate alternate route"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish transponder reset and then reroute around debris",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reroute around debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete thruster calibration then reroute to safe corridor",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute to safe corridor"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark battery check and antenna check then reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Please finish comm link test plus tether inspect and reroute accordingly",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": " and reroute accordingly"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish suit pressure test and helmet seal and at the same time find an alternate route",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time find an alternate route"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you mark sample secured as well as waste management then reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample secured"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "waste management"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark oxygen valve check and battery check and then reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen valve check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to finish solar panel deploy and transponder reset followed by reroute, additionally confirm suit status",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar panel deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by reroute, additionally confirm suit status"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete glove integrity and helmet seal then reroute me",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "glove integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute me"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark comm link test and antenna check in addition, reroute to safer path",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition, reroute to safer path"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish thruster calibration and transponder reset meanwhile reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Please complete battery check and suit pressure test then reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure test"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark battery check, antenna check, and sample secured and then reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample secured"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish comm link test, tether inspect, and helmet seal then find alternate route",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comm link test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether inspect"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "helmet seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " then find alternate route"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete solar panel deploy, transponder reset, and thruster calibration then reroute around obstacle",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "solar panel deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute around obstacle"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark glove integrity, suit pressure test, and waste management then reroute",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "glove integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit pressure test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "waste management"
+            },
+            {
+                "type": "TEXT",
+                "text": " then reroute"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish oxygen valve check, battery check, and antenna check and then calculate new course",
+        "tool_calls": [
+            "Complete_task",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen valve check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then calculate new course"
+            }
+        ]
+    }
+]
+}

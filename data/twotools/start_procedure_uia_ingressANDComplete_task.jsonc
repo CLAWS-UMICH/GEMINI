@@ -1,0 +1,1314 @@
+{
+  // intents: start_procedure_uia_ingress AND Complete_task
+  // description_1: The user is beginning the process of entering the airlock and needs the AR system to guide them through connecting umbilicals and repressurization. They would say, "Start UIA ingress procedure."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Begin UIA ingress and mark Connect Umbilical",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA ingress and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start UIA ingress procedure and then finish task Battery Check",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start UIA ingress procedure and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and mark Seal Verification",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate UIA ingress procedure and additionally mark Pressure Equalization",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate UIA ingress procedure and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure Equalization"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress procedure while also mark Antenna Check as complete before repressurization",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress procedure while also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete before repressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo start UIA ingress, plus mark Comm Check done",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo start UIA ingress, plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Need UIA ingress and mark Tether Hookup",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need UIA ingress and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you begin UIA ingress and then finish task Helmet Seal",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you begin UIA ingress and then finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress after you mark Oxygen Flow Test as complete and then proceed with umbilical hookup",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress after you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Flow Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete and then proceed with umbilical hookup"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate UIA ingress but first mark Primary Valve Cycle",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate UIA ingress but first mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Primary Valve Cycle"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Suit Pressure Readout then start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Pressure Readout"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Secondary Pump Test in addition initiate UIA ingress procedure",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secondary Pump Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition initiate UIA ingress procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and mark CO2 Scrubber Inspection then start ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme mark Radiation Sensor Calibration and then begin UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Sensor Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal Regulator Check as complete, after which start UIA ingress and connect umbilicals",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Regulator Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete, after which start UIA ingress and connect umbilicals"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo mark Tool Inventory as done as well as start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done as well as start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Mobility Joint Lubrication and start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mobility Joint Lubrication"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Camera Alignment then start the UIA ingress procedure",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start the UIA ingress procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Sample Container Lock, start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Container Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Gloves Integrity Check next and then begin UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gloves Integrity Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then begin UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and mark Battery Check and Seal Verification",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Verification"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start UIA ingress as well as finish task Antenna Check and Comm Check",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start UIA ingress as well as finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Check"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress after you mark Tether Hookup and Helmet Seal, then proceed with repressurization",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress after you mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then proceed with repressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo start UIA ingress and also mark Oxygen Flow Test and Primary Valve Cycle",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo start UIA ingress and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Flow Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Primary Valve Cycle"
+            }
+        ]
+    },
+    {
+        "prompt": "Need UIA ingress and then mark Suit Pressure Readout and Secondary Pump Test",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Need UIA ingress and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Pressure Readout"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secondary Pump Test"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate UIA ingress, in addition mark CO2 Scrubber Inspection and Radiation Sensor Calibration",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate UIA ingress, in addition mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Sensor Calibration"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress meanwhile mark Thermal Regulator Check and then follow with Tool Inventory next",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Regulator Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then follow with "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate UIA ingress as well as mark Mobility Joint Lubrication and Camera Alignment",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate UIA ingress as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mobility Joint Lubrication"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress while at the same time mark Sample Container Lock and Gloves Integrity Check before hatch closure",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress while at the same time mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Container Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gloves Integrity Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " before hatch closure"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress oh and mark Backup Battery Swap and Cooling Loop Purge, and then proceed",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cooling Loop Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then proceed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Airlock Door Latch and Inner Hatch Seal then start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Door Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inner Hatch Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Outer Hatch Brake and Umbilical Disconnect, in addition begin UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Outer Hatch Brake"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Disconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition begin UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo mark Cabin Lighting Set and Comm Antenna Deploy and then start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cabin Lighting Set"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Antenna Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Inner Hatch Seal and Outer Hatch Brake, after that start UIA ingress followed by umbilical connection",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inner Hatch Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Outer Hatch Brake"
+            },
+            {
+                "type": "TEXT",
+                "text": ", after that start UIA ingress followed by umbilical connection"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Umbilical Disconnect and Airlock Door Latch next, then begin UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Disconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Door Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " next, then begin UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Backup Battery Swap along with Cooling Loop Purge before you start UIA ingress and then close the inner hatch",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cooling Loop Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you start UIA ingress and then close the inner hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme mark Tool Inventory and Camera Alignment next and then start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and finish task Mobility Joint Lubrication and Sample Container Lock then commence UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mobility Joint Lubrication"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Container Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " then commence UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Additionally mark Thermal Regulator Check and CO2 Scrubber Inspection, followed by initiating UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Regulator Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by initiating UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Radiation Sensor Calibration and Antenna Check as well as start UIA ingress meanwhile prep the repressurization",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation Sensor Calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as start UIA ingress meanwhile prep the repressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and then mark Connect Umbilical, Battery Check, and Seal Verification before repressurization",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Connect Umbilical"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery Check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Seal Verification"
+            },
+            {
+                "type": "TEXT",
+                "text": " before repressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate UIA ingress, in addition finish task Antenna Check, Comm Check, and Tether Hookup",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate UIA ingress, in addition finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna Check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether Hookup"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo start UIA ingress also mark Helmet Seal, Oxygen Flow Test and Primary Valve Cycle",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo start UIA ingress also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Helmet Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Oxygen Flow Test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Primary Valve Cycle"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress while marking Suit Pressure Readout, Secondary Pump Test, and CO2 Scrubber Inspection followed by hatch check",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Suit Pressure Readout"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Secondary Pump Test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 Scrubber Inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by hatch check"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start UIA ingress and then mark Thermal Regulator Check, Tool Inventory and Mobility Joint Lubrication",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start UIA ingress and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal Regulator Check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Mobility Joint Lubrication"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Camera Alignment, Sample Container Lock, and Gloves Integrity Check before you begin UIA ingress and close the hatch",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Container Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gloves Integrity Check"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you begin UIA ingress and close the hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and mark Backup Battery Swap, Cooling Loop Purge and Airlock Door Latch, and then start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cooling Loop Purge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Airlock Door Latch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Umbilical Disconnect, Inner Hatch Seal, and Outer Hatch Brake, after that begin UIA ingress next",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Umbilical Disconnect"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Inner Hatch Seal"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Outer Hatch Brake"
+            },
+            {
+                "type": "TEXT",
+                "text": ", after that begin UIA ingress next"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Comm Antenna Deploy, Cabin Lighting Set and Backup Battery Swap in addition then start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Comm Antenna Deploy"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cabin Lighting Set"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Backup Battery Swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Gimme mark Tool Inventory, Camera Alignment, and Sample Container Lock next then start UIA ingress",
+        "tool_calls": [
+            "Complete_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Gimme mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tool Inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera Alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample Container Lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " next then start UIA ingress"
+            }
+        ]
+    }
+]
+}

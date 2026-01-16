@@ -1,0 +1,1982 @@
+{
+  // intents: Set_navigation_target AND Add_task
+  // description_1: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: NAVIGATION_TARGET_NAME, TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Navigate to LZ and add task inspect antenna",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check seals and then navigate to Habitat",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Airlock and add task close hatch",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "close hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task log radiation then set destination to Observation Post",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log radiation"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Rover and add task collect sample",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task test comms plus navigate to Comms Array",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comms Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to LTV and add task secure tarp",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tarp"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task inspect suit then navigate to Medical Bay",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect suit"
+            },
+            {
+                "type": "TEXT",
+                "text": " then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Medical Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Base Camp and add task check solar panels",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check solar panels"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task repair antenna and then navigate to Relay Tower",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "repair antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Supply Depot and add task inventory check",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory check"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task measure soil and then navigate to Science Module",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure soil"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot route to Landing Zone and add task deploy beacon",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph crater then set destination to Ridge",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Airlock and add task verify seal",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check O2 and then navigate to Control after docking",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check O2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Control"
+            },
+            {
+                "type": "TEXT",
+                "text": " after docking"
+            }
+        ]
+    },
+    {
+        "prompt": "Move to Dock and add task run diagnostics",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Move to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Create task sample collection then navigate to Sampling Site",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample collection"
+            },
+            {
+                "type": "TEXT",
+                "text": " then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sampling Site"
+            }
+        ]
+    },
+    {
+        "prompt": "Proceed to Gamma Bay and add task calibrate sensors",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Proceed to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Gamma Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate sensors"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task clear debris and then set destination to Runway",
+        "tool_calls": [
+            "Add_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clear debris"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Runway"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Ridge and then to Base and add task inspect antenna and task check seal",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seal"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure hatch and task test valve then navigate to Airlock and to Dock",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Observation Post and then to Science Dome, and add task collect sample and task log coordinates",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Dome"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Create tasks: sterilize sample and record timestamp while navigating to Lab and then to Storage",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sterilize sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record timestamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " while navigating to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Proceed to Hab and then to Med Bay and add task inspect suit and task swap filter",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Proceed to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect suit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check power and task recalibrate sensors before navigating to Power Node and to Solar Array",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check power"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate sensors"
+            },
+            {
+                "type": "TEXT",
+                "text": " before navigating to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Power Node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to LZ-1 and then to LZ-2, along with add task deploy beacon and task run battery test",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", along with add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "deploy beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run battery test"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add tasks: photograph anomaly and sample substrate and then set destination to Anomaly Site and to Analysis Tent",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph anomaly"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "sample substrate"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Anomaly Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Analysis Tent"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Relay Tower and then to Antenna Field and add task tighten bolts and task report status",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Antenna Field"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tighten bolts"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "report status"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task clear ice and task secure cables and then plot route to Hangar and to Supply Pod",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clear ice"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure cables"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hangar"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Pod"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Forward Camp and then to Rear Camp as well as add task inspect generator and task replace fuse",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rear Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect generator"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace fuse"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task log pressure and task photograph panel plus navigate to Compressor Unit and then to Ventilation Shaft",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log pressure"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Compressor Unit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ventilation Shaft"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Science Module and then to Greenhouse and add task water plants and task check humidity",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "water plants"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check humidity"
+            }
+        ]
+    },
+    {
+        "prompt": "Create tasks: secure sample and label container and then navigate to Quarantine and to Storage Bay",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label container"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Quarantine"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Move to Docking Ring and then to Cargo Bay and add task stow crates and task verify manifest",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Move to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Ring"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow crates"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify manifest"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect tether and task measure length followed by plot course to Cliffs and to Beacon",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure length"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by plot course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cliffs"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Outer Rim and then to Observation Ridge and add task recalibrate scope and task upload log",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outer Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate scope"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "upload log"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add tasks: test comms and reboot transponder, additionally navigate to Relay Hub and to Signal Mast",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test comms"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "reboot transponder"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Signal Mast"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Maintenance and then to Engineering and add task replace filter and task run diagnostics",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Engineering"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check coolant and task inspect seals in addition navigate to Reactor and to Control Tower",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Reactor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Control Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Alpha, then to Bravo, and then to Charlie and add task inspect panel, test sensor, and log readings",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect panel"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Add tasks: collect sample, seal container, and tag specimen then set destination to Sample Site, Lab Bay, and Quarantine",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "seal container"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag specimen"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sample Site"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Quarantine"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Landing Pad, Base Camp, and Supply Depot but first add task check landing lights, check fuel, and clear debris",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check landing lights"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check fuel"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clear debris"
+            }
+        ]
+    },
+    {
+        "prompt": "Create tasks: inspect hull, measure radiation, and test beacon followed by navigate to Outer Ring, Observation Post, and Relay",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect hull"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure radiation"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outer Ring"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to North Ridge, Mid Plateau, and South Basin meanwhile add task secure markers, capture panorama, and note coordinates",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Mid Plateau"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Basin"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure markers"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "capture panorama"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "note coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task prime sample container, label vial, and log chain of custody and then plot route to Lab, Cold Storage, and Analysis Node",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "prime sample container"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label vial"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log chain of custody"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cold Storage"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Analysis Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Greenhouse, Hydroponics, and Seed Vault and also add task water seedlings, test pH, and record growth",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Greenhouse"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hydroponics"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Seed Vault"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "water seedlings"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test pH"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record growth"
+            }
+        ]
+    },
+    {
+        "prompt": "Add tasks: reboot sensor, recalibrate array, and clear cache, next set destination to Sensor Field, Array Hub, and Relay",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "reboot sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "recalibrate array"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clear cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", next set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sensor Field"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Array Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Dock, Cargo Hold, and Forward Locker at the same time add task inventory, secure payload, and scan manifests",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Add_task",
+            "Add_task",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Dock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Locker"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure payload"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "scan manifests"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add tasks: check oxygen, swap filter, and note flow rates, oh and navigate to Life Support, Valve Room, and Control",
+        "tool_calls": [
+            "Add_task",
+            "Add_task",
+            "Add_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap filter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "note flow rates"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Life Support"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Valve Room"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Control"
+            }
+        ]
+    }
+]
+}

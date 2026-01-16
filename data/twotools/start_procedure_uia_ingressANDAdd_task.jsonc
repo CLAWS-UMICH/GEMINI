@@ -1,0 +1,1278 @@
+{
+  // intents: start_procedure_uia_ingress AND Add_task
+  // description_1: The user is beginning the process of entering the airlock and needs the AR system to guide them through connecting umbilicals and repressurization. They would say, "Start UIA ingress procedure."
+  // description_2: The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like "Add task: Inspect solar panel" or "Create new task: Collect soil sample."
+  // tokens: TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Start UIA ingress, add task inspect valve",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress, add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect valve"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the UIA ingress then add task check oxygen levels and task log CO2",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the UIA ingress then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen levels"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log CO2"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA ingress procedure and then add task collect surface sample and task stow container",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA ingress procedure and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect surface sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow container"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and add task replace filter",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "replace filter"
+            }
+        ]
+    },
+    {
+        "prompt": "Kick off UIA ingress and add task inspect tether and task log readings",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Kick off UIA ingress and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect tether"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log readings"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the UIA ingress procedure, then create tasks: inspect hatch, test seal, and log results",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the UIA ingress procedure, then create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect hatch"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test seal"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log results"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin UIA ingress and also add task check comms",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin UIA ingress and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress, and then add task calibrate arm and task verify camera alignment",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress, and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate arm"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify camera alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress then add task swap battery",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap battery"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate UIA ingress before adding task secure handrail and task inspect bracket",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate UIA ingress before adding task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure handrail"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect bracket"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress but first create tasks: inspect EVA suit, log oxygen readings, and verify comms",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress but first create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect EVA suit"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log oxygen readings"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify comms"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA ingress meanwhile add task check umbilical",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA ingress meanwhile add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check umbilical"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and then create tasks: collect debris sample, test storage, and tag item",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and then create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect debris sample"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test storage"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag item"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA ingress plus add task check seals",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA ingress plus add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and also add task inspect solar panel and task document damage",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and also add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "document damage"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start UIA ingress, and after that add task calibrate arm and task record timestamp",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start UIA ingress, and after that add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate arm"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "record timestamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and then add task photograph anomaly",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph anomaly"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress followed by create tasks: verify hatch alignment, confirm latch torque, and log notes",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress followed by create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify hatch alignment"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "confirm latch torque"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log notes"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress oh and add task check radiation",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress oh and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check radiation"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and then add task test pump and task inspect tubing",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test pump"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect tubing"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and then add task open service panel and task run diagnostics",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "open service panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress at the same time add task secure tool tether",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress at the same time add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tool tether"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and then create tasks: check power bus, inspect inverter, and log anomaly",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and then create tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check power bus"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect inverter"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log anomaly"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and then add task swap O2 scrubber and task check seals",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and then add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap O2 scrubber"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA ingress and add task check lock",
+        "tool_calls": [
+            "start_procedure_uia_ingress",
+            "Add_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA ingress and add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check lock"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect antenna then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check oxygen and then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check oxygen"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task install sensor and task test link then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "install sensor"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test link"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add tasks: collect sample, measure radiation, and tag specimen before starting UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sample"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure radiation"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tag specimen"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task swap battery then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "swap battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check seals plus start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check seals"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task stow debris and task secure latch before I start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow debris"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure latch"
+            },
+            {
+                "type": "TEXT",
+                "text": " before I start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task photograph panel and task verify focus and then start UIA ingress meanwhile confirm camera settings",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph panel"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify focus"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA ingress meanwhile confirm camera settings"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task calibrate arm and task run self-check then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "calibrate arm"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run self-check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check tether, then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check tether"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task log anomaly and task timestamp event as well as start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log anomaly"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "timestamp event"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect seal and task test valve and then initiate UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect seal"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test valve"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add tasks: verify suit, check helmet, and log fit issues then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify suit"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check helmet"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log fit issues"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo add task clear debris and start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clear debris"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add task collect sensor data and task stow probe next start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "collect sensor data"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow probe"
+            },
+            {
+                "type": "TEXT",
+                "text": " next start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure sample and task label container, additionally start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure sample"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "label container"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add tasks: verify comms, cycle power, and reset modem, followed by start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "verify comms"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "cycle power"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "reset modem"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add tasks: measure pressure, log temperature, and photograph connectors followed by start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "measure pressure"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log temperature"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph connectors"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check coolant along with start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check coolant"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task test pump then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "test pump"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task secure tools and task stow toolkit, then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "secure tools"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "stow toolkit"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task inspect solar array and task photograph hotspots in addition to start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "inspect solar array"
+            },
+            {
+                "type": "TEXT",
+                "text": " and task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "photograph hotspots"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition to start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add tasks: clean lens, align mirror, and log status, then start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add tasks: "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "clean lens"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "align mirror"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "log status"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task check battery and start UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "check battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start UIA ingress"
+            }
+        ]
+    },
+    {
+        "prompt": "Add task run diagnostics while starting UIA ingress",
+        "tool_calls": [
+            "Add_task",
+            "start_procedure_uia_ingress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "run diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " while starting UIA ingress"
+            }
+        ]
+    }
+]
+}

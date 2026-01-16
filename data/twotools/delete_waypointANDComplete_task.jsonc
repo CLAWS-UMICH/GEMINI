@@ -1,0 +1,2061 @@
+{
+  // intents: delete_waypoint AND Complete_task
+  // description_1: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: TASK_NAME, TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Delete waypoint Alpha then mark battery done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker Beta and finish EVA prep",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete BeaconA and mark hatch check as complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BeaconA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home and then mark suit warmup complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit warmup"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Gamma and mark antenna check done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete LZ plus finish power diagnostics",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Depot and also mark oxygen readout complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen readout"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Outpost while marking suit leak test done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cache then finish comms test",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " then finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms test"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete NorthCamp and finish camera calibration please",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthCamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove SouthRidge and then mark tether audit done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthRidge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether audit"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Relay and mark thruster check as complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Marker7 plus finish pressure check",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker7"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure check"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Tent2 and mark CO2 scrub done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tent2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrub"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Camp1 and then mark coolant cycle complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Echo as well as mark fuel gauge done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel gauge"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Foxtrot and mark system reboot now",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "system reboot"
+            },
+            {
+                "type": "TEXT",
+                "text": " now"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Alpha and Beta then mark battery check and hatch check done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete markers Gamma and Delta plus finish EVA prep and suit warmup",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete markers "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit warmup"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Echo and Foxtrot while marking antenna check and umbilical connect complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "umbilical connect"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Home and Depot and then mark power diagnostics and oxygen readout done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen readout"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Outpost and Cache plus finish suit leak test and comms test",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms test"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete NorthCamp and SouthRidge and then mark camera calibration and tether audit complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthCamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthRidge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether audit"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Relay and Marker7 and then mark thruster check and pressure check done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Tent2 and Camp1 and then mark CO2 scrub and coolant cycle complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tent2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Alpha, Beta and Gamma then mark battery check, hatch check, and antenna check done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints Delta, Echo, Foxtrot and mark EVA prep, suit warmup, and umbilical connect complete",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit warmup"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "umbilical connect"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark battery check and then delete waypoint BeaconA",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BeaconA"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish hatch check and remove Home please",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark umbilical connect done and then delete LZ",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "umbilical connect"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish power diagnostics and remove Depot as well",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark suit leak test and then delete Outpost next",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish comms test and remove Cache at the same time",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time"
+            }
+        ]
+    },
+    {
+        "prompt": "Please finish camera calibration then delete NorthCamp",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthCamp"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark tether audit done and remove SouthRidge afterwards",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether audit"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthRidge"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark thruster check and pressure check then delete Relay and Marker7",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker7"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish CO2 scrub and coolant cycle and then remove Tent2 and Camp1",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tent2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp1"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark fuel gauge and system reboot, then delete Echo and Foxtrot please",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel gauge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "system reboot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you finish battery check and hatch check and then remove Alpha and Beta",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish antenna check and umbilical connect and then delete Gamma and Delta",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "umbilical connect"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish power diagnostics, oxygen readout, and suit leak test then remove Outpost, Cache, and Depot",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen readout"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": " then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark comms test and camera calibration and tether audit, then delete NorthCamp, SouthRidge, and Relay",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms test"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether audit"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthCamp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthRidge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish thruster check, pressure check, and CO2 scrub then remove Marker7, Tent2, and Camp1",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrub"
+            },
+            {
+                "type": "TEXT",
+                "text": " then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker7"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tent2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp1"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark coolant cycle, fuel gauge, and system reboot then delete Echo, Foxtrot, and BeaconA",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel gauge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "system reboot"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BeaconA"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme a quick favor: delete Alpha and Beta and while you're at it mark battery check and hatch check as done",
+        "tool_calls": [
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme a quick favor: delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and while you're at it mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as done"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and finish antenna check then remove Gamma and Delta and then also mark EVA prep done",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Lemme mark suit warmup, antenna check, and power diagnostics complete and then delete Outpost, Cache, and Depot afterwards",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Lemme mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit warmup"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "power diagnostics"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " afterwards"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please mark oxygen readout, suit leak test, and comms test done, and then delete NorthCamp, SouthRidge, and Relay in addition",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "oxygen readout"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit leak test"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "comms test"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, and then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthCamp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthRidge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition"
+            }
+        ]
+    },
+    {
+        "prompt": "Meanwhile, mark camera calibration, tether audit, and thruster check as complete then delete Marker7, Tent2, and Camp1",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Meanwhile, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "camera calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "tether audit"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "thruster check"
+            },
+            {
+                "type": "TEXT",
+                "text": " as complete then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker7"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Tent2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp1"
+            }
+        ]
+    },
+    {
+        "prompt": "Next, mark pressure check, CO2 scrub, and coolant cycle complete and then remove Echo, Foxtrot, and BeaconA as well",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Next, mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "pressure check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "CO2 scrub"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "coolant cycle"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BeaconA"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Followed by marking fuel gauge, system reboot, and battery check done, then delete Alpha, Beta, and Gamma",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "fuel gauge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "system reboot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done, then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "At the same time, please mark hatch check, EVA prep, and suit warmup done and delete Delta, Echo, and Foxtrot",
+        "tool_calls": [
+            "Complete_task",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "At the same time, please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "hatch check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA prep"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "suit warmup"
+            },
+            {
+                "type": "TEXT",
+                "text": " done and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            }
+        ]
+    }
+]
+}

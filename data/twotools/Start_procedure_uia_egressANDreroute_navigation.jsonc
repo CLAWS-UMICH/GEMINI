@@ -1,0 +1,658 @@
+{
+  // intents: Start_procedure_uia_egress AND reroute_navigation
+  // description_1: The user is starting the airlock exit sequence and needs AI guidance for depressurization and switch configurations. They might command, "Begin UIA egress sequence."
+  // description_2: The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, "Find a new route" or "Reroute."
+  // tokens: TEXT
+  "data": [
+    {
+        "prompt": "Begin UIA egress and reroute course",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress and reroute course"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to safe path then start egress",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to safe path then start egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start egress, then calculate new route",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start egress, then calculate new route"
+            }
+        ]
+    },
+    {
+        "prompt": "Find new route and begin depressurization",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find new route and begin depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate airlock egress plus reroute navigation",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate airlock egress plus reroute navigation"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute now then open UIA hatch",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute now then open UIA hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin depressurization and find alternate path",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin depressurization and find alternate path"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate new path before starting egress",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate new path before starting egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress and reroute me",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress and reroute me"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute route, then configure hatch vent",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute route, then configure hatch vent"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the UIA egress and then calculate a new route",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the UIA egress and then calculate a new route"
+            }
+        ]
+    },
+    {
+        "prompt": "Can you reroute to avoid debris and then start egress?",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Can you reroute to avoid debris and then start egress?"
+            }
+        ]
+    },
+    {
+        "prompt": "Yo kick off airlock egress and also find alternate path",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Yo kick off airlock egress and also find alternate path"
+            }
+        ]
+    },
+    {
+        "prompt": "Compute a new navigation path while I prepare for egress",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Compute a new navigation path while I prepare for egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Open hatch controls, start depressurization and reroute my trajectory",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Open hatch controls, start depressurization and reroute my trajectory"
+            }
+        ]
+    },
+    {
+        "prompt": "Find alternative route plus begin UIA egress sequence immediately",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find alternative route plus begin UIA egress sequence immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate egress, then show me the new route options",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate egress, then show me the new route options"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute me to waypoint Alpha and then trigger egress procedures",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute me to waypoint Alpha and then trigger egress procedures"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin venting, configure switches and also recalculate navigation path",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin venting, configure switches and also recalculate navigation path"
+            }
+        ]
+    },
+    {
+        "prompt": "Update my path before starting UIA egress, please",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Update my path before starting UIA egress, please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress followed by a safe-route calculation immediately",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress followed by a safe-route calculation immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Find a new route and then open the airlock controls",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find a new route and then open the airlock controls"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate egress sequence, plus compute alternate navigation options next",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate egress sequence, plus compute alternate navigation options next"
+            }
+        ]
+    },
+    {
+        "prompt": "Alter course to avoid hazard, and then commence UIA egress",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Alter course to avoid hazard, and then commence UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start depressurization and also plan a new route, thanks",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start depressurization and also plan a new route, thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate navigation as well as start airlock venting procedure now",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate navigation as well as start airlock venting procedure now"
+            }
+        ]
+    },
+    {
+        "prompt": "Commence UIA egress and then show reroute proposals for me",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Commence UIA egress and then show reroute proposals for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Route around the obstruction, followed by initiating the egress",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route around the obstruction, followed by initiating the egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start depressurization first and then recalc my navigation route",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start depressurization first and then recalc my navigation route"
+            }
+        ]
+    },
+    {
+        "prompt": "Please reroute to safer corridor and then set up UIA egress",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please reroute to safer corridor and then set up UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, start the UIA egress sequence now, configure venting and then compute an alternate navigation plan",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, start the UIA egress sequence now, configure venting and then compute an alternate navigation plan"
+            }
+        ]
+    },
+    {
+        "prompt": "Compute a new route that avoids the debris field, and meanwhile initiate the airlock depressurization",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Compute a new route that avoids the debris field, and meanwhile initiate the airlock depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate egress, set interior valves, and then, at the same time, calculate alternate navigation paths",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate egress, set interior valves, and then, at the same time, calculate alternate navigation paths"
+            }
+        ]
+    },
+    {
+        "prompt": "Reroute to the nearest safe waypoint, and then run the UIA egress checklist plus configure switches",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Reroute to the nearest safe waypoint, and then run the UIA egress checklist plus configure switches"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin vacuum purge, open vents in sequence, and additionally provide three alternative routes to destination",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin vacuum purge, open vents in sequence, and additionally provide three alternative routes to destination"
+            }
+        ]
+    },
+    {
+        "prompt": "Calculate two new routes around the hazard, then commence UIA egress procedure while I suit up",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Calculate two new routes around the hazard, then commence UIA egress procedure while I suit up"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the egress sequence but first verify suit integrity and then plot an alternate course to rendezvous",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the egress sequence but first verify suit integrity and then plot an alternate course to rendezvous"
+            }
+        ]
+    },
+    {
+        "prompt": "Please find an alternate pathway that bypasses the crater, and then trigger the UIA hatch controls as well",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please find an alternate pathway that bypasses the crater, and then trigger the UIA hatch controls as well"
+            }
+        ]
+    },
+    {
+        "prompt": "Commence depressurization, adjust circuit breakers, and then also identify a shorter, safer navigation vector",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Commence depressurization, adjust circuit breakers, and then also identify a shorter, safer navigation vector"
+            }
+        ]
+    },
+    {
+        "prompt": "Replan navigation along two waypoints, followed by executing the UIA egress checklist and opening vents",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Replan navigation along two waypoints, followed by executing the UIA egress checklist and opening vents"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, open the hatch sequence, bleed the air slowly, and in addition map alternative trajectories for me",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, open the hatch sequence, bleed the air slowly, and in addition map alternative trajectories for me"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and reroute my path to avoid solar glare, then commence the UIA vent sequence plus close inner hatch",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and reroute my path to avoid solar glare, then commence the UIA vent sequence plus close inner hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "Please begin UIA egress, follow the vent schedule, and then simultaneously provide three corridor alternatives",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please begin UIA egress, follow the vent schedule, and then simultaneously provide three corridor alternatives"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate around the fallen antenna, and then before I open the airlock run an emergency egress checklist",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate around the fallen antenna, and then before I open the airlock run an emergency egress checklist"
+            }
+        ]
+    },
+    {
+        "prompt": "Start depressurization while I verify seals, and then after that show me alternate waypoints to approach",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start depressurization while I verify seals, and then after that show me alternate waypoints to approach"
+            }
+        ]
+    },
+    {
+        "prompt": "Recalculate route to rendezvous point and then, along with that, run the UIA egress initiation",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Recalculate route to rendezvous point and then, along with that, run the UIA egress initiation"
+            }
+        ]
+    },
+    {
+        "prompt": "Commence egress procedures, check pressure differentials, and then additionally provide the safest three-route options",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Commence egress procedures, check pressure differentials, and then additionally provide the safest three-route options"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot an immediate bypass plus plan a secondary route, and then prepare the UIA hatch sequence",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot an immediate bypass plus plan a secondary route, and then prepare the UIA hatch sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start the egress sequence but first compute alternate navigation corridors and present them to me",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "reroute_navigation"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start the egress sequence but first compute alternate navigation corridors and present them to me"
+            }
+        ]
+    },
+    {
+        "prompt": "Compute three possible reroutes, and then at the same time begin UIA depressurization checks before hatch open",
+        "tool_calls": [
+            "reroute_navigation",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Compute three possible reroutes, and then at the same time begin UIA depressurization checks before hatch open"
+            }
+        ]
+    }
+]
+}

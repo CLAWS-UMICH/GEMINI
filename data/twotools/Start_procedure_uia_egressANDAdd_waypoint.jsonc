@@ -1,0 +1,1257 @@
+{
+  // intents: Start_procedure_uia_egress AND Add_waypoint
+  // description_1: The user is starting the airlock exit sequence and needs AI guidance for depressurization and switch configurations. They might command, "Begin UIA egress sequence."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Begin UIA egress sequence and mark this location as Sample Site Alpha",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress sequence and mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Crater Edge then start UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the airlock exit, and drop pin named Alpha",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the airlock exit, and drop pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this spot as Bravo and then initiate UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin depressurization and add waypoint Landing Beacon",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin depressurization and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "drop pins at Start and Middle then begin UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop pins at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": " then begin UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "please start UIA egress sequence and add waypoint Rover Cache",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please start UIA egress sequence and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rover Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoints Alpha and Bravo before starting UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "initiate egress and drop pin Sample A",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "initiate egress and drop pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample A"
+            }
+        ]
+    },
+    {
+        "prompt": "mark Site One, Site Two, and Site Three then begin UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site One"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Two"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " then begin UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress, and add waypoint Solar Array",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress, and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Sample B meanwhile start depressurization",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile start depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "please commence UIA egress and put a pin at Crater Rim",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please commence UIA egress and put a pin at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "drop pins at Alpha, Bravo, and Charlie then initiate egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop pins at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " then initiate egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA egress and add waypoint Forward Hatch",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Forward Hatch"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Beacon and then start the airlock exit",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start the airlock exit"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress plus mark this spot as Sample Site Delta",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress plus mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this location as Crater Lip as well as initiate UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Lip"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as initiate UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "please start depressurization then add waypoint EVA Cache",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please start depressurization then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoints North Ridge and South Ridge while starting egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " while starting egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress and then drop a pin named Cache A",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress and then drop a pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            }
+        ]
+    },
+    {
+        "prompt": "oh and add waypoint Supply Drop before you start UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "oh and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply Drop"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you start UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Commence airlock exit, and then mark this as Science Node",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Commence airlock exit, and then mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science Node"
+            }
+        ]
+    },
+    {
+        "prompt": "drop pins at Alpha and Bravo, and then start depressurization",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop pins at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then start depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin UIA egress followed by adding waypoint East Cache",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin UIA egress followed by adding waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint West Cache and then commence UIA egress please",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "West Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then commence UIA egress please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress and mark this position as Exploration Point One",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress and mark this position as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Exploration Point One"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoints Beacon1, Beacon2, and Beacon3 then start egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start egress"
+            }
+        ]
+    },
+    {
+        "prompt": "please initiate UIA egress and also drop pin named Fuel Cache",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please initiate UIA egress and also drop pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Sample Site One and then start depressurization",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress first, then mark this as Geology Spot",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress first, then mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geology Spot"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this point as Ridge A plus Ridge B before you begin egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this point as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge A"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge B"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you begin egress"
+            }
+        ]
+    },
+    {
+        "prompt": "commence UIA egress and put down pin named Alpha-1",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "commence UIA egress and put down pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-1"
+            }
+        ]
+    },
+    {
+        "prompt": "drop pin named Beta-2 meanwhile please start depressurization",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "drop pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile please start depressurization"
+            }
+        ]
+    },
+    {
+        "prompt": "Start the egress procedure and then add waypoint Cache North",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start the egress procedure and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache North"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Cache South and then open UIA egress sequence",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache South"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open UIA egress sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start depressurization, and then drop pins at StnA and StnB",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start depressurization, and then drop pins at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "StnA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "StnB"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this spot as Observation Point and then start UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this spot as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Observation Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "start UIA egress and also drop pin named Cache-1, Cache-2, and Cache-3",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "start UIA egress and also drop pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-3"
+            }
+        ]
+    },
+    {
+        "prompt": "add marker LZ and then commence the UIA exit",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then commence the UIA exit"
+            }
+        ]
+    },
+    {
+        "prompt": "please begin UIA egress in addition mark this as Medical Cache",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please begin UIA egress in addition mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Medical Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoints Alpha, Beta and then start UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then start UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress, and then add waypoint EVA Start",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress, and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "EVA Start"
+            }
+        ]
+    },
+    {
+        "prompt": "gimme UIA egress setup and mark this as SamplePoint",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "gimme UIA egress setup and mark this as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SamplePoint"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Depot A and then open egress procedure please",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open egress procedure please"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress first, then drop pins at Alpha, Bravo, and Charlie",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress first, then drop pins at "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "add a pin named North Marker as well as initiate airlock exit",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add a pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as initiate airlock exit"
+            }
+        ]
+    },
+    {
+        "prompt": "please commence UIA egress and additionally add waypoint Cargo Bay",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please commence UIA egress and additionally add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Lab Site next then begin UIA egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab Site"
+            },
+            {
+                "type": "TEXT",
+                "text": " next then begin UIA egress"
+            }
+        ]
+    },
+    {
+        "prompt": "start UIA egress and then place marker named Sample-1",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "start UIA egress and then place marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample-1"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoints CacheEast and CacheWest meanwhile start the egress sequence",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CacheEast"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CacheWest"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile start the egress sequence"
+            }
+        ]
+    },
+    {
+        "prompt": "Start UIA egress, and then add marker named Geocache A",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start UIA egress, and then add marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Geocache A"
+            }
+        ]
+    },
+    {
+        "prompt": "mark this location as Transect1 and Transect2 and then begin egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Transect1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Transect2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then begin egress"
+            }
+        ]
+    },
+    {
+        "prompt": "begin UIA egress and also drop pin named Habitat-01",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "begin UIA egress and also drop pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Habitat-01"
+            }
+        ]
+    },
+    {
+        "prompt": "add waypoint Alpha-Base, Beta-Base, and Gamma-Base followed by starting egress",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-Base"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta-Base"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma-Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by starting egress"
+            }
+        ]
+    },
+    {
+        "prompt": "please start depressurization and then add waypoint Science A",
+        "tool_calls": [
+            "Start_procedure_uia_egress",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "please start depressurization and then add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Science A"
+            }
+        ]
+    },
+    {
+        "prompt": "add marker Supply1 and then open UIA egress sequence now",
+        "tool_calls": [
+            "Add_waypoint",
+            "Start_procedure_uia_egress"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then open UIA egress sequence now"
+            }
+        ]
+    }
+]
+}

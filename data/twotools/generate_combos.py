@@ -27,7 +27,7 @@ INTENT_COMBOS_FILE = SCRIPT_DIR / "intentcombos.txt"
 OUTPUT_DIR = SCRIPT_DIR
 
 # Number of parallel API calls to make at once
-PARALLEL_WORKERS = 1
+PARALLEL_WORKERS = 50
 
 # =========================
 # LLM PROVIDER SWITCH
@@ -178,6 +178,14 @@ def build_prompt(intent1_info: dict, intent2_info: dict) -> str:
     special_token_section = ""
     if special_token_examples:
         special_token_section = "\n\n## CRITICAL: Token Label Examples (Including Multi-Parameter Patterns)\n" + "\n\n".join(special_token_examples)
+        special_token_section += """
+
+## CRITICAL PARAMETER DISTRIBUTION:
+For the intents that take parameters (shown above), you MUST follow this exact distribution:
+- 20 prompts: 1 parameter per intent instance (e.g. 'add task A')
+- 20 prompts: 2 parameters per intent instance (e.g. 'add task A and B')
+- 10 prompts: 3 parameters per intent instance (e.g. 'add task A, B, and C')
+"""
     
     prompt = f"""Your job is to generate HIGH quality, EXTREMELY diverse training data for a model that needs to recognize prompts that combine TWO intents in a single user utterance.
 
@@ -230,6 +238,7 @@ and, then, also, plus, while, after, before, but first, as well as, along with, 
 3. NO TWO PROMPTS should look alike - if they're too similar, regenerate
 4. Both intents MUST be clearly present in each prompt
 5. You MUST only use these token labels: {', '.join(all_tokens)}
+6. The text in the parts array must combine EXACTLY to the prompt text. be VERY Careful with this.
 
 ## Output Format:
 Return a JSON array of 50 objects. Each object must have:
@@ -417,7 +426,11 @@ def process_combo(combo_info: tuple) -> str:
         return f"[{idx}/{total}] Saved {output_filename}{count_warning}"
         
     except json.JSONDecodeError as e:
-        return f"[{idx}/{total}] JSON ERROR {output_filename}: {e}"
+        # Save raw response anyway so user can fix it
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(f"// RAW RESPONSE (JSON ERROR: {e})\n")
+            f.write(response)
+        return f"[{idx}/{total}] JSON ERROR {output_filename} (SAVED RAW): {e}"
     except Exception as e:
         return f"[{idx}/{total}] ERROR {output_filename}: {e}"
 

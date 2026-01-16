@@ -1,0 +1,1911 @@
+{
+  // intents: Set_navigation_target AND Add_waypoint
+  // description_1: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // description_2: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Navigate to LTV and mark site Alpha",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark site "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark spot Bravo and go Rover",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark spot "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Home Base but first pin Alpha",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Crater Edge then navigate to Base Camp",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Relay Tower and drop waypoint Rock 17",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock 17"
+            }
+        ]
+    },
+    {
+        "prompt": "Pin this location Ice Patch and then head to Rover",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pin this location "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Hab Alpha and pin Start",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            }
+        ]
+    },
+    {
+        "prompt": "Leave marker named Cache A and after that route me to Fuel Cache",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Leave marker named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and after that route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Chart a course to Science Lab and add waypoint Survey 1",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Chart a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop pin Alpha then go Docking Port",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Landing Zone and add waypoint North Marker",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            }
+        ]
+    },
+    {
+        "prompt": "Create waypoint South Saddle and then take me to Beacon One",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Saddle"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Observation Post and mark Charlie",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Survey 2 and then navigate to Docking Port meanwhile pin Alpha",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Cargo Bay and drop waypoint Cache A",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Drill Hole 3 and then route to Med Bay",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Drill Hole 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to East Ridge and pin Ridge Point",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this spot Beacon Pin then go Hab Bravo",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this spot "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Pin"
+            },
+            {
+                "type": "TEXT",
+                "text": " then go "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to West Crater and add waypoint Crater Edge",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Pin Survey 3 and then head to Landing Zone",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover and Beacon One and add waypoints Alpha and Bravo",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoints Alpha and Bravo and then navigate to Base Camp and LTV",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Base Camp and Hab Alpha then drop waypoints Crater Edge and Ice Patch",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then drop waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Crater Edge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Patch"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop pins Start and Middle then route me to East Ridge and West Crater",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop pins "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": " then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Chart course to Science Lab and Cargo Bay and pin Survey 1 and Survey 2",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Chart course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Rock 17 and Drill Hole 3 then guide me to Relay Tower and Beacon Two",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock 17"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Drill Hole 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Two"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Med Bay and Docking Port plus mark Cache A and Cache B",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache B"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Beacon Pin and Ridge Point then take me to Landing Zone and Observation Post",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Pin"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Point"
+            },
+            {
+                "type": "TEXT",
+                "text": " then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Cargo Bay and Landing Zone followed by dropping waypoints North Marker and South Saddle",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by dropping waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Saddle"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoints Survey 3 and Survey 4 then head to Hab Bravo and Hab Alpha",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 4"
+            },
+            {
+                "type": "TEXT",
+                "text": " then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Docking Port and Med Bay and at the same time add waypoints Alpha and Bravo",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Pin Seam 7 and Ice Patch and then set my destination to Fuel Cache and Relay Tower next",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Seam 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set my destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon One and Beacon Two along with drop waypoints Survey 1 and Survey 2",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with drop waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Start and End then guide me to West Crater and East Ridge",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Hab Bravo and Hab Alpha in addition add waypoints Charlie and Delta",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Create waypoint Rock 17 and Rock 18 then navigate to Science Lab and Cargo Bay",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Create waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock 17"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock 18"
+            },
+            {
+                "type": "TEXT",
+                "text": " then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Landing Zone and Base Camp and pin Alpha and Charlie",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop pins Cache A and Cache B followed by routing to Relay Tower and Beacon One",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop pins "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache B"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by routing to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Chart a route to Observation Post and Docking Port and add waypoints North Marker and South Saddle",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Chart a route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Saddle"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Survey 5 and Survey 6 and then set destination to East Ridge and West Crater",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 5"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 6"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Rover, Beacon One, and Relay Tower while also dropping waypoints Alpha, Bravo, and Charlie",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also dropping waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoints Start, Middle, and End then route me to Base Camp, Landing Zone, and Cargo Bay",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Chart course to Science Lab, Med Bay, and Docking Port and then pin Survey 1, Survey 2, and Survey 3",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Chart course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop pins Rock 17, Drill Hole 3, and Ice Patch before navigating to Hab Alpha, Hab Bravo, and Hab Charlie",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop pins "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock 17"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Drill Hole 3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ice Patch"
+            },
+            {
+                "type": "TEXT",
+                "text": " before navigating to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to East Ridge, West Crater, and Observation Post followed by adding waypoints North Marker, South Saddle, and Beacon Pin",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by adding waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Marker"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Saddle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Pin"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark this location Beacon Pin, Ridge Point, and Seam 7 and then set course to Relay Tower, Beacon Two, and Fuel Cache",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Pin"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge Point"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Seam 7"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Two"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Cache"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Cargo Bay, Science Lab, and Medical Bay and additionally drop waypoints Cache A, Cache B, and Cache C",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Lab"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Medical Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally drop waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache C"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoints Survey A, Survey B, and Survey C and then guide me to Landing Zone, Docking Port, and Observation Post",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Survey C"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Docking Port"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observation Post"
+            }
+        ]
+    },
+    {
+        "prompt": "Route me to Beacon One, Beacon Two, and Beacon Three as well as pin Alpha, Bravo, and Charlie",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Two"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Three"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as pin "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoints Alpha, Bravo, Charlie at this location and then navigate to Home Base, LTV, and Rover",
+        "tool_calls": [
+            "Add_waypoint",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " at this location and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    }
+]
+}

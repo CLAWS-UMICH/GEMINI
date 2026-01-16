@@ -1,0 +1,1822 @@
+{
+  // intents: Add_waypoint AND delete_waypoint
+  // description_1: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Mark this location as LZ then remove Old Camp",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark this location as "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Beacon North and add waypoint Sample Site Alpha",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Site Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoint Ramp and delete Hatch Bay",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ramp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hatch Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Depot then drop pin named Research Site Gamma",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " then drop pin named "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Site Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Cache 1 and remove Cache 2 please",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 2"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Home marker and then mark Solar Array",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the Home marker and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Beacon South and delete Beacon North next",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon South"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Waypoint-7 then add Waypoint42 please",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint-7"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint42"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey mark the Ridge and remove Rock Pile, thanks",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey mark the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Rock Pile"
+            },
+            {
+                "type": "TEXT",
+                "text": ", thanks"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Old Beacon while you add New Beacon",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " while you add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "New Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add marker Hab and remove marker Airlock",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hab"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Camp Beta and also mark Emergency Stash",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Stash"
+            }
+        ]
+    },
+    {
+        "prompt": "Please add waypoint South Rim and delete North Rim",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please add waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Rim"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Depot as well as add Comm Relay",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Waypoint Alpha but first delete Waypoint Bravo",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " but first delete Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Marker A and then mark Marker B",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker B"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Start and delete End",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Old Camp and also mark Cache-A",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-A"
+            }
+        ]
+    },
+    {
+        "prompt": "Add the Ramp then remove the Ramp Old",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ramp"
+            },
+            {
+                "type": "TEXT",
+                "text": " then remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ramp Old"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Airlock and add Hatch Bay",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Hatch Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Add marker Depot and also remove marker Old Beacon",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Comm Relay and then add Solar Array",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Comm Relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Solar Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Sample Point 1 and remove Sample Point 2",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cache-B and add Cache-C while I survey",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-C"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I survey"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Emergency Stash then remove Waypoint42",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Stash"
+            },
+            {
+                "type": "TEXT",
+                "text": " then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint42"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Research Site Gamma and add Cache-A next",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Site Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-A"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Beacon North and also remove the old Beacon South",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also remove the old "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon South"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Ramp Old plus mark Ramp New",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ramp Old"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ramp New"
+            }
+        ]
+    },
+    {
+        "prompt": "Add marker Foxtrot and remove marker Echo, oh and mark Delta",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Add waypoints Alpha and Bravo then delete Marker A and Marker B",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker B"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Old Camp and then add new marker LZ-1",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add new marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ-1"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Sample Point 3 and delete Sample Point 1 immediately",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Sample Point 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " immediately"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Waypoint42 as well as add Emergency Stash next",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Waypoint42"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Emergency Stash"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Research Site Gamma while removing Depot",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Research Site Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " while removing "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cache 1 and also add Cache 2",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 2"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Waypoint Charlie before you delete Waypoint Delta",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you delete Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Waypoint Echo and then add Waypoint Foxtrot please",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add Waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Foxtrot"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Start and Mid and delete Old Start and Old Mid",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mid"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Start"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Mid"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the South Rim then add the North Bore",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South Rim"
+            },
+            {
+                "type": "TEXT",
+                "text": " then add the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North Bore"
+            }
+        ]
+    },
+    {
+        "prompt": "Add marker Cache 3 and remove marker Cache 1",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache 1"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Old Beacon along with add New Beacon",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "New Beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Landing Zone as well as delete Temporary LZ",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Landing Zone"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Temporary LZ"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete the Ridge and then add Valley Point, additionally mark Regolith Pit",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete the "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Valley Point"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Regolith Pit"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Start, Middle, and End then delete Old Start, Old Middle, and Old End",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old End"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Depot and then add Depot Backup at the same time mark Depot Tertiary",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot Backup"
+            },
+            {
+                "type": "TEXT",
+                "text": " at the same time mark "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot Tertiary"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Alpha, Bravo and Charlie, then delete X, Y and Z",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "X"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Y"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Z"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Old Markers A, B, and C followed by adding New A, New B, and New C",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete Old Markers "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "C"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by adding New "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "New B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "New C"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Start, Middle, and End and then remove Start-old, Middle-old, and End-old",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start-old"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Middle-old"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End-old"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Alpha, Bravo, and Charlie, additionally add Marker A, Marker B, and Marker C",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": ", additionally add Marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker C"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Beacon East, Beacon West, and Beacon Center and then remove Old East, Old West, and Old Center",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon East"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon West"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beacon Center"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old East"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old West"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Center"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Start, Mid, and End followed by add Start-new, Mid-new, and End-new",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mid"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Start-new"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mid-new"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "End-new"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Depot A, Depot B, and Depot C in addition remove Old Depot A, Old Depot B, Old Depot C",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot C"
+            },
+            {
+                "type": "TEXT",
+                "text": " in addition remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Depot A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Depot B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Depot C"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove Cache-A, Cache-B, and Cache-C meanwhile add Cache-D, Cache-E, and Cache-F",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-C"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-D"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-E"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache-F"
+            }
+        ]
+    },
+    {
+        "prompt": "Add Alpha, Bravo, and Charlie followed by deleting Alpha-old, Bravo-old, and Charlie-old",
+        "tool_calls": [
+            "Add_waypoint",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by deleting "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha-old"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Bravo-old"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Charlie-old"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete Old LZ, Old Cache, and Old Beacon followed by add New LZ, New Cache, and New Beacon",
+        "tool_calls": [
+            "delete_waypoint",
+            "Add_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by add "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "New LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "New Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "New Beacon"
+            }
+        ]
+    }
+]
+}

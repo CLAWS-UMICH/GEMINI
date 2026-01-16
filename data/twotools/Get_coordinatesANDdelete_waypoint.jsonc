@@ -1,0 +1,2224 @@
+{
+  // intents: Get_coordinates AND delete_waypoint
+  // description_1: The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like "Where is the LTV?" or "Get coordinates for the PR."
+  // description_2: The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as "Delete waypoint Alpha" or "Remove the Home marker."
+  // tokens: COORDINATE_TARGET_NAME, TEXT, WAYPOINT_NAME
+  "data": [
+    {
+        "prompt": "Where is LTV, remove Alpha",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": ", remove "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Home then where is Rover",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Home"
+            },
+            {
+                "type": "TEXT",
+                "text": " then where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the PR and delete waypoint Beta",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "PR"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint OldCamp and then locate the crater",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "OldCamp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "crater"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate EVA-2 and clear marker SupplyPoint",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and clear marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SupplyPoint"
+            }
+        ]
+    },
+    {
+        "prompt": "Erase waypoint Cache before you find coordinates for the rock",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Erase waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you find coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the beacon and remove waypoint Gamma",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear marker Base then get coordinates for the sample",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Base"
+            },
+            {
+                "type": "TEXT",
+                "text": " then get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sample"
+            }
+        ]
+    },
+    {
+        "prompt": "Find location of Carmen while deleting waypoint Delta",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find location of "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Carmen"
+            },
+            {
+                "type": "TEXT",
+                "text": " while deleting waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Delta"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint LZ as well as tell me where the ridge is",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as tell me where the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the rover and delete marker Site1 please",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Site1"
+            },
+            {
+                "type": "TEXT",
+                "text": " please"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint BeaconPoint and then where is the sensor array",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "BeaconPoint"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sensor array"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coords for the summit and delete waypoint CampA",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coords for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "summit"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CampA"
+            }
+        ]
+    },
+    {
+        "prompt": "Drop waypoint East and then tell me where sampleSite is",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Drop waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "East"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then tell me where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sampleSite"
+            },
+            {
+                "type": "TEXT",
+                "text": " is"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you get coordinates for the antenna plus remove waypoint Zed",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "antenna"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Zed"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove marker PointB and then find the emergency stash coordinates",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove marker "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "PointB"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then find the emergency stash coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the comms buoy as well as delete waypoint NorthPad",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comms buoy"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthPad"
+            }
+        ]
+    },
+    {
+        "prompt": "Please remove waypoint Supply1 and then give me coords for the debris field",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Supply1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then give me coords for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "debris field"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for RockA and remove waypoint Flag1",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "RockA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Flag1"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint SouthBeacon while I get coordinates for the trench",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthBeacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "trench"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the probe and then remove waypoint Marker9",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "probe"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Marker9"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Alpha and Beta then where are the two rovers",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " then where are the two "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rovers"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for rock and crater and delete waypoint X",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "X"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoints X and Y and then get coordinates for the ridge and valley",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "X"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Y"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "valley"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Rover1 and Rover2 and remove waypoint Camp1 and Camp2",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Rover2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Camp2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint A and B while I locate beacon and antenna",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "B"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "antenna"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for AlphaRock and BetaCrater plus delete waypoint North and South",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "AlphaRock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "BetaCrater"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "North"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "South"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Depot and Outpost then find coordinates for Buoy1 and Buoy2",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " then find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Buoy1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Buoy2"
+            }
+        ]
+    },
+    {
+        "prompt": "Find coordinates for sampleA and sampleB and sampleC and remove waypoint Mark1, Mark2 and Mark3",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sampleA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sampleB"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sampleC"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mark1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mark2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Mark3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoints Alpha, Beta, and Gamma and then get coordinates for BeaconA, BeaconB, and BeaconC",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "BeaconA"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "BeaconB"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "BeaconC"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is the shuttle plus delete waypoint Red and Blue",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "shuttle"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Red"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Blue"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete markers NorthStar and SouthStar and find coordinates for Lander1 and Lander2",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete markers "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "NorthStar"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "SouthStar"
+            },
+            {
+                "type": "TEXT",
+                "text": " and find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Lander2"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for beaconA and beaconB then delete waypoint Dock1 and Dock2",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beaconA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beaconB"
+            },
+            {
+                "type": "TEXT",
+                "text": " then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Dock1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Dock2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Grid1 plus Grid2 while I get coords for SensorA and SensorB",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Grid1"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Grid2"
+            },
+            {
+                "type": "TEXT",
+                "text": " while I get coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "SensorA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "SensorB"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for SiteA, SiteB and remove waypoint FlagA, FlagB",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "SiteA"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "SiteB"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "FlagA"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "FlagB"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Team1, Team2 and Team3 and tell me where ProbeA, ProbeB, ProbeC are",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Team1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Team2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Team3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and tell me where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ProbeA"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ProbeB"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ProbeC"
+            }
+        ]
+    },
+    {
+        "prompt": "Where is Instrument1, Instrument2, Instrument3 and remove waypoint A1, A2, A3",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Instrument1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Instrument2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Instrument3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "A3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Storage and Storage2 and give coords for Beacon1, Beacon2, Beacon3",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and give coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon3"
+            }
+        ]
+    },
+    {
+        "prompt": "Find coordinates for LZ1, LZ2 and LZ3 and delete waypoint W1, W2, W3",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "LZ3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "W1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "W2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "W3"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you tell me where RoverA and RoverB and RoverC are while removing waypoints One, Two, Three",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you tell me where "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "RoverA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "RoverB"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "RoverC"
+            },
+            {
+                "type": "TEXT",
+                "text": " are while removing waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "One"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Two"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Three"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha and then get coordinates for the rover and the beacon",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coords for beacon while removing waypoint Trash, and then show me rover",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " while removing waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Trash"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then show me "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Hey, gimme coordinates for the lander and then clear waypoint MarkerOne",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Hey, gimme coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "lander"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "MarkerOne"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the Home marker and then where is EVA-1 plus EVA-2",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the Home marker and then where is "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "EVA-2"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate the cache, and then delete waypoint CacheA and CacheB",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "cache"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CacheA"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CacheB"
+            }
+        ]
+    },
+    {
+        "prompt": "Clear waypoint Storage1 followed by get coordinates for the sensor mast",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Storage1"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "sensor mast"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the science rover and also delete waypoint Lab",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "science rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Delete waypoint Alpha, and then give me coords for the solar panel array",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then give me coords for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "solar panel array"
+            }
+        ]
+    },
+    {
+        "prompt": "Where's the backup transmitter meanwhile remove waypoint OldFlag",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Where's the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "backup transmitter"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "OldFlag"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and find coordinates for the depot and then clear waypoint DepotOld",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and find coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then clear waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "DepotOld"
+            }
+        ]
+    },
+    {
+        "prompt": "First get coordinates for the comms pod and then delete waypoint CommMark",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "First get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "comms pod"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "CommMark"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you locate the recovery beacon and additionally remove waypoint Recovery1",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you locate the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "recovery beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Recovery1"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove the waypoint Alpha and then at the same time give me rover coordinates",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove the waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then at the same time give me "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rover coordinates"
+            }
+        ]
+    },
+    {
+        "prompt": "Please give me coordinates for the lab module and along with that delete waypoint LabOld",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please give me coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "lab module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and along with that delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "LabOld"
+            }
+        ]
+    },
+    {
+        "prompt": "Could you please locate SiteX and SiteY and at the same time remove waypoint Z1 and Z2",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Could you please locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "SiteX"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "SiteY"
+            },
+            {
+                "type": "TEXT",
+                "text": " and at the same time remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Z1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Z2"
+            }
+        ]
+    },
+    {
+        "prompt": "Locate BeaconX, BeaconY, BeaconZ and also delete waypoint Old1, Old2, Old3",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "BeaconX"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "BeaconY"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "BeaconZ"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Old3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Alpha and Beta and Gamma, then find coordinates for Crater1, Crater2, Crater3",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Gamma"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then find coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Crater1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Crater2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Crater3"
+            }
+        ]
+    },
+    {
+        "prompt": "Find the two rovers and three beacons and remove waypoints One and Two and Three",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find the two "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "rovers"
+            },
+            {
+                "type": "TEXT",
+                "text": " and three "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "beacons"
+            },
+            {
+                "type": "TEXT",
+                "text": " and remove waypoints "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "One"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Two"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Three"
+            }
+        ]
+    },
+    {
+        "prompt": "Please locate ModuleA, ModuleB and ModuleC while deleting waypoint X1, X2 and X3",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ModuleA"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ModuleB"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "ModuleC"
+            },
+            {
+                "type": "TEXT",
+                "text": " while deleting waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "X1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "X2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "X3"
+            }
+        ]
+    },
+    {
+        "prompt": "Find coords for Target1, Target2, Target3 and then remove markers M1, M2, M3",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Find coords for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Target1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Target2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Target3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then remove markers "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "M1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "M2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "M3"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint Alpha then locate RoverA, RoverB and RoverC next",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": " then locate "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "RoverA"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "RoverB"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "RoverC"
+            },
+            {
+                "type": "TEXT",
+                "text": " next"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for Beacon1 and Beacon2 followed by delete waypoint OldBeacon1 and OldBeacon2",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "Beacon2"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "OldBeacon1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "OldBeacon2"
+            }
+        ]
+    },
+    {
+        "prompt": "Remove waypoint FuelDepot and then fetch coordinates for the three probes",
+        "tool_calls": [
+            "delete_waypoint",
+            "Get_coordinates"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Remove waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "FuelDepot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then fetch coordinates for the three "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "probes"
+            }
+        ]
+    },
+    {
+        "prompt": "Get coordinates for the habitat and also delete waypoint HabOld",
+        "tool_calls": [
+            "Get_coordinates",
+            "delete_waypoint"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Get coordinates for the "
+            },
+            {
+                "type": "COORDINATE_TARGET_NAME",
+                "text": "habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also delete waypoint "
+            },
+            {
+                "type": "WAYPOINT_NAME",
+                "text": "HabOld"
+            }
+        ]
+    }
+]
+}

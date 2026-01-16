@@ -1,0 +1,2432 @@
+{
+  // intents: Set_navigation_target AND Complete_task
+  // description_1: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
+  // tokens: NAVIGATION_TARGET_NAME, TASK_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Go to LZ-1 and mark Leak check",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-1"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Leak check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Sealant check then navigate to Alpha Base",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sealant check"
+            },
+            {
+                "type": "TEXT",
+                "text": " then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to Rover-3 and mark Antenna check complete",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rover-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna check"
+            },
+            {
+                "type": "TEXT",
+                "text": " complete"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark EVA checklist item Suit integrity and then route me to Backup Hut",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "EVA checklist item Suit integrity"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Backup Hut"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Supply Cache as well as mark Battery check",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Supply Cache"
+            },
+            {
+                "type": "TEXT",
+                "text": " as well as mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery check"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery check and then set destination to Habitat Node",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Habitat Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Landing Pad plus mark Docking prep",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Landing Pad"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Docking prep"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete task Sample bagging before you guide me to Crater Edge",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample bagging"
+            },
+            {
+                "type": "TEXT",
+                "text": " before you guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Crater Edge"
+            }
+        ]
+    },
+    {
+        "prompt": "Set course to Solar Array while marking Power diagnostics",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Solar Array"
+            },
+            {
+                "type": "TEXT",
+                "text": " while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Power diagnostics"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark O2 sensor calibration and then navigate to Airlock Two",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "O2 sensor calibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock Two"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Science Platform and mark Sample transfer done",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Science Platform"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample transfer"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to mark Communications check and then plot a course to Relay Tower",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Communications check"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then plot a course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Relay Tower"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Fuel depot and then mark Fuel line purge",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Fuel line purge"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal blanket install and then set destination to EVA staging area",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal blanket install"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA staging area"
+            }
+        ]
+    },
+    {
+        "prompt": "Please take me to Observatory along with marking Optics alignment",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Optics alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Confirm and mark Radiator flush then guide to Thermal Control Rack",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Confirm and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiator flush"
+            },
+            {
+                "type": "TEXT",
+                "text": " then guide to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Control Rack"
+            }
+        ]
+    },
+    {
+        "prompt": "Set route to Geology trench and also mark Sample label applied",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Geology trench"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample label applied"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Camera swap plus navigate to Comm Array",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera swap"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Comm Array"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Med Bay and mark First aid kit restock",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Med Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "First aid kit restock"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Hab Dome and then mark Water sampling",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hab Dome"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Water sampling"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Gyro recalibration and then route to Engineering Bay",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Gyro recalibration"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Engineering Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Head to Forward Beacon followed by marking Antenna deploy",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Forward Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna deploy"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'Hull inspection' as complete and then take me to Shadow Ridge",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark 'Hull inspection' as complete and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Shadow Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon Charlie and mark Sample freezer loaded",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Charlie"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample freezer loaded"
+            }
+        ]
+    },
+    {
+        "prompt": "Complete task Sensor sweep then set course to Ridge Camp",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Complete task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sensor sweep"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridge Camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to North Crater and mark Rock sample logged",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Rock sample logged"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Toolkit inventory and then route me to Workshop",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Toolkit inventory"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Workshop"
+            }
+        ]
+    },
+    {
+        "prompt": "Set nav to Ice Cavern and also mark Drill bit replaced",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ice Cavern"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill bit replaced"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample prep and then set destination to Bio Lab",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample prep"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bio Lab"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to South Ridge while marking Radiation check",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "South Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Radiation check"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish Compressor inspection and then guide me to Fuel Farm",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Compressor inspection"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Fuel Farm"
+            }
+        ]
+    },
+    {
+        "prompt": "Set waypoint to Western Outpost and mark Solar panel cleaned",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set waypoint to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Western Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar panel cleaned"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Pressure valve test then head to Compressor Bay",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure valve test"
+            },
+            {
+                "type": "TEXT",
+                "text": " then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Compressor Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to East Ridge followed by marking Payload secured",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "East Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " followed by marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Payload secured"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample cataloged and then route to Depot-7",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample cataloged"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Depot-7"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to North Beacon and also mark Camera firmware updated",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "North Beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Camera firmware updated"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Emergency beacon tested and then navigate to Rescue Point",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Emergency beacon tested"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Rescue Point"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set course to Observatory Ridge and mark Telescope cooled",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Observatory Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Telescope cooled"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Hull patch applied first then guide to Storage Vault",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Hull patch applied"
+            },
+            {
+                "type": "TEXT",
+                "text": " first then guide to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Vault"
+            }
+        ]
+    },
+    {
+        "prompt": "Plot route to Cargo Bay and mark Crate secured",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Plot route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Crate secured"
+            }
+        ]
+    },
+    {
+        "prompt": "Finish task Valve replacement then set destination to Main Airlock",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Finish task "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Valve replacement"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Main Airlock"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to West Outcrop and mark Core sample sealed",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Outcrop"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Core sample sealed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Calibration done and then take me to Thermal Hub",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Calibration done"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Thermal Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Set nav to Sector Five plus mark Dock seal inspected",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sector Five"
+            },
+            {
+                "type": "TEXT",
+                "text": " plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Dock seal inspected"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample frozen and then route to Cold Storage",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample frozen"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cold Storage"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon Echo and mark Relay paired",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Echo"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Relay paired"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Pressure seal confirmed then guide me to Filter station",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pressure seal confirmed"
+            },
+            {
+                "type": "TEXT",
+                "text": " then guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Filter station"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Admin Hub and mark Logbook updated",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Admin Hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Logbook updated"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Latching sequence run and then navigate to Cargo Hold",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Latching sequence run"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cargo Hold"
+            }
+        ]
+    },
+    {
+        "prompt": "Go to Field Camp and also mark Tether attached",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Field Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Tether attached"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Thermal run complete and then head to Power Node",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Thermal run complete"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then head to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Power Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LTV-2 and mark Dock clamp torqued",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV-2"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Dock clamp torqued"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sampling run saved then route me to Eclipse Ridge",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sampling run saved"
+            },
+            {
+                "type": "TEXT",
+                "text": " then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Eclipse Ridge"
+            }
+        ]
+    },
+    {
+        "prompt": "Please mark Waste containment sealed and then navigate to Recycler",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Waste containment sealed"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Recycler"
+            }
+        ]
+    },
+    {
+        "prompt": "Set heading to Ridge Outpost and mark Lens cleaned",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set heading to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridge Outpost"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Lens cleaned"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Transponder tuned and then take me to Beacon One",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Transponder tuned"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon One"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to West Hollow and also mark Power relay swapped",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "West Hollow"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Power relay swapped"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample logged, then take me to Research Bay",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample logged"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Research Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to Beacon Zeta while marking Antenna stowed",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon Zeta"
+            },
+            {
+                "type": "TEXT",
+                "text": " while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Antenna stowed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark 'Soil sample bagged', and then set destination to Lab Module",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark 'Soil sample bagged', and then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Lab Module"
+            }
+        ]
+    },
+    {
+        "prompt": "Set nav to Storage Annex and additionally mark Crate manifest updated",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set nav to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Storage Annex"
+            },
+            {
+                "type": "TEXT",
+                "text": " and additionally mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Crate manifest updated"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Filter replaced and then navigate to Airlock Alpha",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Filter replaced"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Airlock Alpha"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LZ-3 and mark Beacon deployed",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LZ-3"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon deployed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Sample sealed and then route to Quarantine Bay",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample sealed"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Quarantine Bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to Ridge Camp meanwhile mark Solar alignment",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Ridge Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " meanwhile mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Solar alignment"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Harness clipped and then guide to EVA Prep Zone",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Harness clipped"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then guide to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA Prep Zone"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Base Camp and mark Beacon check completed",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Base Camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon check completed"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Transponder reset then set course to Deep Field Relay",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Transponder reset"
+            },
+            {
+                "type": "TEXT",
+                "text": " then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Deep Field Relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to Control Tower and also mark Log synced",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Control Tower"
+            },
+            {
+                "type": "TEXT",
+                "text": " and also mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Log synced"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Emergency kit checked and then navigate to Safety Node",
+        "tool_calls": [
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Emergency kit checked"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Safety Node"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Hydroponics next and mark Nutrient mix adjusted",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Hydroponics"
+            },
+            {
+                "type": "TEXT",
+                "text": " next and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Nutrient mix adjusted"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Beacon A, Beacon B, and Beacon C as deployed then route to Command Hub",
+        "tool_calls": [
+            "Complete_task",
+            "Complete_task",
+            "Complete_task",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon C"
+            },
+            {
+                "type": "TEXT",
+                "text": " as deployed then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Command Hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Site A, Site B, and Site C while marking Sample A, Sample B, and Sample C logged",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Complete_task",
+            "Complete_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Site C"
+            },
+            {
+                "type": "TEXT",
+                "text": " while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Sample C"
+            }
+        ]
+    },
+    {
+        "prompt": "Please set waypoint to Alpha Ridge, Bravo Crater, and Charlie Spur and then mark Drill 1, Drill 2, and Drill 3 complete",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Complete_task",
+            "Complete_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please set waypoint to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Alpha Ridge"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Bravo Crater"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Charlie Spur"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Drill 3"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Battery A, Battery B, and Battery C as swapped and then navigate to Charger Bay Alpha, Charger Bay Beta, and Charger Bay Gamma",
+        "tool_calls": [
+            "Complete_task",
+            "Complete_task",
+            "Complete_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Battery C"
+            },
+            {
+                "type": "TEXT",
+                "text": " as swapped and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Charger Bay Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Charger Bay Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Charger Bay Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Trial Site 1, Trial Site 2, and Trial Site 3, plus mark Test A, Test B, and Test C completed",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Complete_task",
+            "Complete_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Trial Site 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Trial Site 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Trial Site 3"
+            },
+            {
+                "type": "TEXT",
+                "text": ", plus mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Test C"
+            }
+        ]
+    },
+    {
+        "prompt": "Please navigate to Sampling Point A, Sampling Point B and Sampling Point C while marking Prep A, Prep B and Prep C as done",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Complete_task",
+            "Complete_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sampling Point A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sampling Point B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Sampling Point C"
+            },
+            {
+                "type": "TEXT",
+                "text": " while marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Prep A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Prep B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Prep C"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Field Kit 1, Field Kit 2, Field Kit 3 as inventoried and then set course to Outpost Alpha, Outpost Beta, Outpost Gamma",
+        "tool_calls": [
+            "Complete_task",
+            "Complete_task",
+            "Complete_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Field Kit 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Field Kit 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Field Kit 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " as inventoried and then set course to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost Alpha"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost Beta"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Outpost Gamma"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Beacon North, Beacon East and Beacon South and mark Beacon North check, Beacon East check, Beacon South check done",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Complete_task",
+            "Complete_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon North"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon East"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Beacon South"
+            },
+            {
+                "type": "TEXT",
+                "text": " and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon North check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon East check"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Beacon South check"
+            },
+            {
+                "type": "TEXT",
+                "text": " done"
+            }
+        ]
+    },
+    {
+        "prompt": "Mark Pump A, Pump B and Pump C serviced then navigate to Pump House A, Pump House B and Pump House C",
+        "tool_calls": [
+            "Complete_task",
+            "Complete_task",
+            "Complete_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Pump C"
+            },
+            {
+                "type": "TEXT",
+                "text": " serviced then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Pump House A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Pump House B"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Pump House C"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to Cache 1, Cache 2, Cache 3 while also marking Cache 1 stocked, Cache 2 stocked, Cache 3 stocked",
+        "tool_calls": [
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Complete_task",
+            "Complete_task",
+            "Complete_task"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Cache 3"
+            },
+            {
+                "type": "TEXT",
+                "text": " while also marking "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cache 1 stocked"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cache 2 stocked"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Cache 3 stocked"
+            }
+        ]
+    },
+    {
+        "prompt": "Oh and mark Toolset A, Toolset B, and Toolset C inventoried then guide to Maintenance Row 1, Row 2, Row 3",
+        "tool_calls": [
+            "Complete_task",
+            "Complete_task",
+            "Complete_task",
+            "Set_navigation_target",
+            "Set_navigation_target",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Oh and mark "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Toolset A"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Toolset B"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "TASK_NAME",
+                "text": "Toolset C"
+            },
+            {
+                "type": "TEXT",
+                "text": " inventoried then guide to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Row 1"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Row 2"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Maintenance Row 3"
+            }
+        ]
+    }
+]
+}

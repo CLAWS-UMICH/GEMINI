@@ -1,0 +1,1278 @@
+{
+  // intents: start_procedure_erm AND Set_navigation_target
+  // description_1: The user initiates the "Exit Recovery Mode" workflow to wake the LTV from its dormant state. They would likely say, "Start ERM procedure" or "Begin Exit Recovery Mode."
+  // description_2: The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as "Set destination to LTV" or "Navigate to Home Base."
+  // tokens: NAVIGATION_TARGET_NAME, TEXT
+  "data": [
+    {
+        "prompt": "Start ERM and navigate to LTV",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to rover then start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode, but first set destination to Home Base",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode, but first set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "Home Base"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to airlock and begin ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start exit recovery mode plus navigate to cargo bay",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start exit recovery mode plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Guide me to comm relay and then initiate ERM procedure",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Guide me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate ERM procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start ERM and set destination to habitat",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start ERM and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to power node, then begin Exit Recovery Mode",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "power node"
+            },
+            {
+                "type": "TEXT",
+                "text": ", then begin Exit Recovery Mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and go to science station",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "science station"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to landing site and start ERM please",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "landing site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start ERM please"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM procedure while navigating to alpha beacon",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM procedure while navigating to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "alpha beacon"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to secondary habitat then wake LTV from dormancy",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "secondary habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " then wake LTV from dormancy"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM first and then take me to main habitat",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM first and then take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "main habitat"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to EVA lock and begin ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "I need you to start exit recovery mode and navigate to med bay",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "I need you to start exit recovery mode and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "med bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to storage module and then initiate ERM procedure",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "storage module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate ERM procedure"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate ERM, plus route me to the control hub",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate ERM, plus route me to the "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "control hub"
+            }
+        ]
+    },
+    {
+        "prompt": "Take me to maintenance dock and start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Take me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "maintenance dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and navigate to depot",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "depot"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to nav beacon and then initiate exit recovery mode",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "nav beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then initiate exit recovery mode"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and go to rover and base camp",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "base camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to LTV and then go to comm relay, and start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            },
+            {
+                "type": "TEXT",
+                "text": " and then go to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM then set destination to rover and base camp",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM then set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "base camp"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate ERM and route me to power node and storage module",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate ERM and route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "power node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "storage module"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to airlock and cargo bay before starting ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode and then navigate to science station and landing site",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode and then navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "science station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "landing site"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to habitat and secondary habitat first, then start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "secondary habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " first, then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM, followed by routing to control hub and maintenance dock",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM, followed by routing to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "control hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "maintenance dock"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to comm relay and alpha beacon and start ERM next",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "alpha beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and start ERM next"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM while setting route to main habitat and med bay",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM while setting route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "main habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "med bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Route to cargo depot and nav beacon, after that begin ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "nav beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": ", after that begin ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM plus navigate to EVA lock and storage module",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM plus navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA lock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "storage module"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to depot and control hub, as well as start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "control hub"
+            },
+            {
+                "type": "TEXT",
+                "text": ", as well as start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please start exit recovery mode and also set destination to habitat and rover",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please start exit recovery mode and also set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to power node and cargo bay, in addition start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "power node"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", in addition start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin ERM, meanwhile route to landing site and science station",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin ERM, meanwhile route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "landing site"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "science station"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to nav beacon and depot, oh and start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "nav beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "depot"
+            },
+            {
+                "type": "TEXT",
+                "text": ", oh and start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and then set course for alpha beacon and comm relay",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and then set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "alpha beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to maintenance dock and main habitat, followed by initiating ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "maintenance dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "main habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", followed by initiating ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM and then at the same time route me to storage module and power node",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM and then at the same time route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "storage module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "power node"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM and navigate to rover, base camp and LTV",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM and navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "base camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "LTV"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to habitat, science station and landing site then start ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "science station"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "landing site"
+            },
+            {
+                "type": "TEXT",
+                "text": " then start ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Please initiate ERM and set destination to airlock, cargo bay, and med bay",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Please initiate ERM and set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "airlock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo bay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "med bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to comm relay, nav beacon and alpha beacon before starting ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "nav beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "alpha beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " before starting ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Begin Exit Recovery Mode then route me to control hub, maintenance dock and storage module",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Begin Exit Recovery Mode then route me to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "control hub"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "maintenance dock"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "storage module"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to power node, cargo depot and main habitat, and then initiate ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "power node"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo depot"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "main habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and then initiate ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Start ERM plus set course for EVA lock, storage module and med bay",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Start ERM plus set course for "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "EVA lock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "storage module"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "med bay"
+            }
+        ]
+    },
+    {
+        "prompt": "Set destination to rover, base camp and alpha beacon along with initiating ERM",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Set destination to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "rover"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "base camp"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "alpha beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " along with initiating ERM"
+            }
+        ]
+    },
+    {
+        "prompt": "Initiate ERM, and then route to comm relay, nav beacon and cargo bay additionally",
+        "tool_calls": [
+            "start_procedure_erm",
+            "Set_navigation_target"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Initiate ERM, and then route to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "comm relay"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "nav beacon"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "cargo bay"
+            },
+            {
+                "type": "TEXT",
+                "text": " additionally"
+            }
+        ]
+    },
+    {
+        "prompt": "Navigate to main habitat, control hub and maintenance dock, and start ERM next",
+        "tool_calls": [
+            "Set_navigation_target",
+            "start_procedure_erm"
+        ],
+        "parts": [
+            {
+                "type": "TEXT",
+                "text": "Navigate to "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "main habitat"
+            },
+            {
+                "type": "TEXT",
+                "text": ", "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "control hub"
+            },
+            {
+                "type": "TEXT",
+                "text": " and "
+            },
+            {
+                "type": "NAVIGATION_TARGET_NAME",
+                "text": "maintenance dock"
+            },
+            {
+                "type": "TEXT",
+                "text": ", and start ERM next"
+            }
+        ]
+    }
+]
+}
