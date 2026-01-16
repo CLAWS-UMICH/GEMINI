@@ -1,4 +1,4 @@
-TODO: CHECK THE MULTI PARAM TOOL GENERATION BEFOER MASS RUNNING
+# TODO: CHECK THE MULTI PARAM TOOL GENERATION BEFOER MASS RUNNING
 
 """
 Two-Tool Combo Data Generator
@@ -27,7 +27,20 @@ INTENT_COMBOS_FILE = SCRIPT_DIR / "intentcombos.txt"
 OUTPUT_DIR = SCRIPT_DIR
 
 # Number of parallel API calls to make at once
-PARALLEL_WORKERS = 50
+PARALLEL_WORKERS = 1
+
+# =========================
+# LLM PROVIDER SWITCH
+# =========================
+USE_PRIME_INTELLECT = True   # True => Prime Intellect Inference, False => OpenAI
+if USE_PRIME_INTELLECT:
+    MODEL_ID = "openai/gpt-5-mini"
+else:
+    MODEL_ID = "gpt-5-mini-2025-08-07"
+MAX_OUTPUT_TOKENS = 16000
+
+# Optional: Prime team billing (only used if USE_PRIME_INTELLECT=True)
+PRIME_TEAM_ID = os.getenv("PRIME_TEAM_ID")  # put in .env if you want
 
 # ============================================================================
 # SPECIAL TOKEN CONFIGURATION
@@ -232,48 +245,70 @@ IMPORTANT: Return ONLY the JSON array, no markdown code blocks or additional tex
     return prompt
 
 
-def call_openai_api(prompt: str, api_key: str) -> str:
+def call_chat_completions(prompt: str) -> str:
     """
-    Call OpenAI API using raw HTTP (no library).
+    Call either OpenAI or Prime Intellect Inference (OpenAI-compatible) using raw HTTP.
+    Controlled by USE_PRIME_INTELLECT.
     """
-    # Create SSL context
     context = ssl.create_default_context()
-    
-    # Connect to OpenAI API
-    conn = http.client.HTTPSConnection("api.openai.com", context=context)
-    
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}"
-    }
-    
+
+    if USE_PRIME_INTELLECT:
+        host = "api.pinference.ai"
+        path = "/api/v1/chat/completions"
+        api_key = os.getenv("PI_KEY")
+        if not api_key:
+            raise Exception("PI_KEY not found (set it in .env)")
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        }
+        if PRIME_TEAM_ID:
+            headers["X-Prime-Team-ID"] = PRIME_TEAM_ID  # optional
+    else:
+        host = "api.openai.com"
+        path = "/v1/chat/completions"
+        api_key = os.getenv("OPENAI_KEY")
+        if not api_key:
+            raise Exception("OPENAI_KEY not found (set it in .env)")
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        }
+
+    conn = http.client.HTTPSConnection(host, context=context)
+
     payload = {
-        # "model": "gpt-5-mini-2025-08-07",
-        "model":"gpt-5.2-2025-12-11",
+        "model": MODEL_ID,
         "messages": [
             {
                 "role": "system",
                 "content": "You are a training data generator for an AI assistant that helps astronauts during EVA missions. Generate high-quality, diverse training examples."
             },
-            {
-                "role": "user",
-                "content": prompt
-            }
+            {"role": "user", "content": prompt},
         ],
-        "max_completion_tokens": 16000
     }
-    
-    conn.request("POST", "/v1/chat/completions", json.dumps(payload), headers)
+
+    # Parameter name mismatch:
+    # - OpenAI prefers max_completion_tokens
+    # - Prime docs show max_tokens
+    if USE_PRIME_INTELLECT:
+        payload["max_tokens"] = MAX_OUTPUT_TOKENS
+    else:
+        payload["max_completion_tokens"] = MAX_OUTPUT_TOKENS
+
+    conn.request("POST", path, body=json.dumps(payload), headers=headers)
     response = conn.getresponse()
-    
-    if response.status != 200:
-        error_body = response.read().decode('utf-8')
-        raise Exception(f"OpenAI API error: {response.status} - {error_body}")
-    
-    response_data = json.loads(response.read().decode('utf-8'))
+
+    raw = response.read().decode("utf-8")
     conn.close()
-    
-    return response_data['choices'][0]['message']['content']
+
+    if response.status != 200:
+        raise Exception(f"API error ({response.status}): {raw}")
+
+    response_data = json.loads(raw)
+    return response_data["choices"][0]["message"]["content"]
 
 
 def validate_data(data: list, intent1_info: dict, intent2_info: dict) -> tuple:
@@ -344,15 +379,15 @@ def process_combo(combo_info: tuple) -> str:
     """
     Process a single intent combo. Returns a status message.
     """
-    idx, total, intent1, intent2, intent1_info, intent2_info, output_path, api_key = combo_info
+    idx, total, intent1, intent2, intent1_info, intent2_info, output_path = combo_info
     output_filename = output_path.name
     
     try:
         # Build prompt
         prompt = build_prompt(intent1_info, intent2_info)
         
-        # Call OpenAI API
-        response = call_openai_api(prompt, api_key)
+        # Call API (provider agnostic)
+        response = call_chat_completions(prompt)
         
         # Parse response as JSON
         # Handle potential markdown code blocks
@@ -388,11 +423,9 @@ def process_combo(combo_info: tuple) -> str:
 
 
 def main():
-    # Get API key
-    api_key = os.getenv('OPENAI_KEY')
-    if not api_key:
-        print("Error: OPENAI_KEY not found in environment variables or .env file")
-        return
+    # Get API key - moved to call_chat_completions, just generic env check here if you want
+    # but strictly speaking we don't need to fail here if we don't check keys until inside the worker.
+    pass
     
     # Parse names.txt
     print("Parsing names.txt...")
@@ -439,8 +472,7 @@ def main():
             intent2,
             intent1_info,
             intent2_info,
-            output_path,
-            api_key
+            output_path
         ))
     
     print(f"Skipped {skipped} already existing files")
