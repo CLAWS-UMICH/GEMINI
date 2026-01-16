@@ -361,7 +361,42 @@ def train():
     }, out_dir / "model.pt")
     tokenizer.save_pretrained(out_dir)
 
-    print(f"\nSaved to {out_dir}")
+    print(f"\nSaved PyTorch model to {out_dir}")
+
+    # Export to ONNX
+    print("Exporting to ONNX...")
+    model.eval()
+    
+    # Create dummy input for tracing
+    dummy_input_ids = torch.zeros(1, 32, dtype=torch.long, device=device)
+    dummy_attention_mask = torch.ones(1, 32, dtype=torch.long, device=device)
+    
+    # Export with dynamic axes for variable batch size and sequence length
+    torch.onnx.export(
+        model,
+        (dummy_input_ids, dummy_attention_mask),
+        out_dir / "model.onnx",
+        input_names=["input_ids", "attention_mask"],
+        output_names=["tag_logits", "threshold_logit", "token_logits"],
+        dynamic_axes={
+            "input_ids": {0: "batch_size", 1: "sequence_length"},
+            "attention_mask": {0: "batch_size", 1: "sequence_length"},
+            "tag_logits": {0: "batch_size"},
+            "threshold_logit": {0: "batch_size"},
+            "token_logits": {0: "batch_size", 1: "sequence_length"},
+        },
+        opset_version=14,
+    )
+    
+    # Save labels metadata as JSON for inference
+    with open(out_dir / "labels.json", "w") as f:
+        json.dump({
+            "tool_labels": TOOL_LABELS,
+            "token_labels": TOKEN_LABELS,
+        }, f, indent=2)
+    
+    print(f"Saved ONNX model to {out_dir / 'model.onnx'}")
+    print(f"Saved labels to {out_dir / 'labels.json'}")
 
     # Demo
     demo(model, tokenizer, device)
