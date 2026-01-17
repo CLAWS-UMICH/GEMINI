@@ -859,6 +859,202 @@
                 "text": " verification and then start ERM, in addition notify EVA lead"
             }
         ]
+    },
+    {
+        "prompt": "yo start ERM and the seal inspection is wrapped up",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "yo start ERM and the " },
+            { "type": "TASK_NAME", "text": "seal inspection" },
+            { "type": "TEXT", "text": " is wrapped up" }
+        ]
+    },
+    {
+        "prompt": "the antenna check is in the bag so begin exit recovery mode",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "the " },
+            { "type": "TASK_NAME", "text": "antenna check" },
+            { "type": "TEXT", "text": " is in the bag so begin exit recovery mode" }
+        ]
+    },
+    {
+        "prompt": "start ERM btw the battery check and comms test are both done",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "start ERM btw the " },
+            { "type": "TASK_NAME", "text": "battery check" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "comms test" },
+            { "type": "TEXT", "text": " are both done" }
+        ]
+    },
+    {
+        "prompt": "crushed the sample collection and rock cataloging so kick off ERM",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "crushed the " },
+            { "type": "TASK_NAME", "text": "sample collection" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "rock cataloging" },
+            { "type": "TEXT", "text": " so kick off ERM" }
+        ]
+    },
+    {
+        "prompt": "initiate ERM also the EVA prep is squared away",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "initiate ERM also the " },
+            { "type": "TASK_NAME", "text": "EVA prep" },
+            { "type": "TEXT", "text": " is squared away" }
+        ]
+    },
+    {
+        "prompt": "nailed the drill calibration so start exit recovery",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "nailed the " },
+            { "type": "TASK_NAME", "text": "drill calibration" },
+            { "type": "TEXT", "text": " so start exit recovery" }
+        ]
+    },
+    {
+        "prompt": "begin ERM and the helmet seal and visor check are good to go",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "begin ERM and the " },
+            { "type": "TASK_NAME", "text": "helmet seal" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "visor check" },
+            { "type": "TEXT", "text": " are good to go" }
+        ]
+    },
+    {
+        "prompt": "got through the pressure test and airlock cycle so start ERM",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "got through the " },
+            { "type": "TASK_NAME", "text": "pressure test" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "airlock cycle" },
+            { "type": "TEXT", "text": " so start ERM" }
+        ]
+    },
+    {
+        "prompt": "start exit recovery meanwhile the comms relay alignment is settled",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "start exit recovery meanwhile the " },
+            { "type": "TASK_NAME", "text": "comms relay alignment" },
+            { "type": "TEXT", "text": " is settled" }
+        ]
+    },
+    {
+        "prompt": "the hab ventilation and air filter swap are buttoned up now begin ERM",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "the " },
+            { "type": "TASK_NAME", "text": "hab ventilation" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "air filter swap" },
+            { "type": "TEXT", "text": " are buttoned up now begin ERM" }
+        ]
+    },
+    {
+        "prompt": "initiate ERM and fyi the star tracker alignment is handled",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "initiate ERM and fyi the " },
+            { "type": "TASK_NAME", "text": "star tracker alignment" },
+            { "type": "TEXT", "text": " is handled" }
+        ]
+    },
+    {
+        "prompt": "polished off the navigation calibration so start ERM procedure",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "polished off the " },
+            { "type": "TASK_NAME", "text": "navigation calibration" },
+            { "type": "TEXT", "text": " so start ERM procedure" }
+        ]
+    },
+    {
+        "prompt": "begin ERM and the thermal sensor calibration and pressure gauge check are done",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "begin ERM and the " },
+            { "type": "TASK_NAME", "text": "thermal sensor calibration" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "pressure gauge check" },
+            { "type": "TEXT", "text": " are done" }
+        ]
+    },
+    {
+        "prompt": "the data upload and telemetry sync are in the books so kick off exit recovery",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "the " },
+            { "type": "TASK_NAME", "text": "data upload" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "telemetry sync" },
+            { "type": "TEXT", "text": " are in the books so kick off exit recovery" }
+        ]
+    },
+    {
+        "prompt": "hey start ERM also the fuel check and battery swap are resolved",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "hey start ERM also the " },
+            { "type": "TASK_NAME", "text": "fuel check" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "battery swap" },
+            { "type": "TEXT", "text": " are resolved" }
+        ]
+    },
+    {
+        "prompt": "wrapped up the sample sorting and labeling now start ERM",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "wrapped up the " },
+            { "type": "TASK_NAME", "text": "sample sorting" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "labeling" },
+            { "type": "TEXT", "text": " now start ERM" }
+        ]
+    },
+    {
+        "prompt": "begin exit recovery and btw the suit leak test and glove fit check are sorted",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "begin exit recovery and btw the " },
+            { "type": "TASK_NAME", "text": "suit leak test" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "glove fit check" },
+            { "type": "TEXT", "text": " are sorted" }
+        ]
+    },
+    {
+        "prompt": "alright the rover diagnostics is a done deal so start ERM",
+        "tool_calls": ["Complete_task", "start_procedure_erm"],
+        "parts": [
+            { "type": "TEXT", "text": "alright the " },
+            { "type": "TASK_NAME", "text": "rover diagnostics" },
+            { "type": "TEXT", "text": " is a done deal so start ERM" }
+        ]
+    },
+    {
+        "prompt": "start ERM fyi the hull inspection the seal verification and thermal scan are all finished",
+        "tool_calls": ["start_procedure_erm", "Complete_task"],
+        "parts": [
+            { "type": "TEXT", "text": "start ERM fyi the " },
+            { "type": "TASK_NAME", "text": "hull inspection" },
+            { "type": "TEXT", "text": " the " },
+            { "type": "TASK_NAME", "text": "seal verification" },
+            { "type": "TEXT", "text": " and " },
+            { "type": "TASK_NAME", "text": "thermal scan" },
+            { "type": "TEXT", "text": " are all finished" }
+        ]
     }
 ]
 }
+
