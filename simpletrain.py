@@ -23,25 +23,14 @@ USE_GPU = True  # Set to False to force CPU training
 TOOL_LABELS = []
 TOKEN_LABELS = [] 
 
-THRESHOLD_LOSS_WEIGHT = 0.5
+THRESHOLD_LOSS_WEIGHT = 0.5 # Deprecated, kept for variable cleaning if needed
 TAG_LOSS_WEIGHT = 10.0  # Prioritize tool classification over token labeling
 
 
-def compute_threshold_loss(tool_logits, threshold_logit, tag_labels):
-    """Encourage threshold to sit between positive and negative tool probs."""
-    tool_probs = torch.sigmoid(tool_logits)
-    threshold = torch.sigmoid(threshold_logit).unsqueeze(1)
 
-    pos_mask = tag_labels > 0.5
-    neg_mask = ~pos_mask
-
-    loss = tool_logits.new_tensor(0.0)
-    if pos_mask.any().item():
-        loss = loss + nn.functional.softplus(threshold - tool_probs)[pos_mask].mean()
-    if neg_mask.any().item():
-        loss = loss + nn.functional.softplus(tool_probs - threshold)[neg_mask].mean()
-
-    return loss
+def compute_count_loss(count_pred, count_labels):
+    """MSE loss for the number of tools."""
+    return nn.functional.mse_loss(count_pred.squeeze(-1), count_labels.float())
 
 class TwoHeadModel(nn.Module):
     """Embedding model with two linear heads."""
@@ -53,7 +42,10 @@ class TwoHeadModel(nn.Module):
         self.num_tools = num_tools
 
         # Head 1: Overall tags from [CLS] token
-        self.tag_head = nn.Linear(hidden, num_tools + 1)
+        self.tag_head = nn.Linear(hidden, num_tools)
+        
+        # Head 3: Predicting the number of tools (regression)
+        self.count_head = nn.Linear(hidden, 1)
 
         # Head 2: Token-level classification
         self.token_head = nn.Linear(hidden, num_token_labels)
@@ -64,21 +56,20 @@ class TwoHeadModel(nn.Module):
         else:
             self.token_weights = None
 
-    def forward(self, input_ids, attention_mask, tag_labels=None, token_labels=None):
+    def forward(self, input_ids, attention_mask, tag_labels=None, token_labels=None, count_labels=None):
         out = self.encoder(input_ids=input_ids, attention_mask=attention_mask)
         hidden_states = out.last_hidden_state  # (batch, seq, hidden)
 
         # CLS token for overall tags
         cls = hidden_states[:, 0, :]
-        tag_logits = self.tag_head(cls)  # (batch, num_tools + 1)
-        tool_logits = tag_logits[:, : self.num_tools]
-        threshold_logit = tag_logits[:, self.num_tools]
+        tool_logits = self.tag_head(cls)  # (batch, num_tools)
+        count_pred = self.count_head(cls) # (batch, 1)
 
         # All tokens for token-level
         token_logits = self.token_head(hidden_states)  # (batch, seq, num_token_labels)
 
         loss = None
-        if tag_labels is not None and token_labels is not None:
+        if tag_labels is not None and token_labels is not None and count_labels is not None:
             # Multi-label BCE for tags
             tag_loss = nn.functional.binary_cross_entropy_with_logits(
                 tool_logits, tag_labels.float()
@@ -92,13 +83,13 @@ class TwoHeadModel(nn.Module):
                 ignore_index=-100,
             )
 
-            threshold_loss = compute_threshold_loss(tool_logits, threshold_logit, tag_labels)
-            loss = (TAG_LOSS_WEIGHT * tag_loss) + token_loss + (THRESHOLD_LOSS_WEIGHT * threshold_loss)
+            count_loss_val = compute_count_loss(count_pred, count_labels)
+            loss = (TAG_LOSS_WEIGHT * tag_loss) + token_loss + count_loss_val
 
         return {
             "loss": loss,
             "tag_logits": tool_logits,
-            "threshold_logit": threshold_logit,
+            "count_pred": count_pred,
             "token_logits": token_logits,
         }
 
@@ -120,7 +111,7 @@ class PromptDataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.data[idx]
-        prompt = item["prompt"]
+        prompt = item["prompt"].lower()
         parts = item["parts"]
         tools = item.get("tool_calls", [])
 
@@ -156,12 +147,17 @@ class PromptDataset(Dataset):
 
         # Tool labels (multi-hot)
         tag_labels = [1 if t in tools else 0 for t in self.tool_labels]
+        
+        # Count label (unique tools)
+        unique_tools = set(tools)
+        count_label = len(unique_tools)
 
         return {
             "input_ids": torch.tensor(input_ids),
             "attention_mask": torch.tensor(attention_mask),
             "token_labels": torch.tensor(token_labels),
             "tag_labels": torch.tensor(tag_labels),
+            "count_labels": torch.tensor(count_label, dtype=torch.float32),
         }
 
 
@@ -173,6 +169,7 @@ def collate(batch):
     attention_mask = []
     token_labels = []
     tag_labels = []
+    count_labels = []
 
     for b in batch:
         pad_len = max_len - b["input_ids"].size(0)
@@ -180,12 +177,14 @@ def collate(batch):
         attention_mask.append(nn.functional.pad(b["attention_mask"], (0, pad_len), value=0))
         token_labels.append(nn.functional.pad(b["token_labels"], (0, pad_len), value=-100))
         tag_labels.append(b["tag_labels"])
+        count_labels.append(b["count_labels"])
 
     return {
         "input_ids": torch.stack(input_ids),
         "attention_mask": torch.stack(attention_mask),
         "token_labels": torch.stack(token_labels),
         "tag_labels": torch.stack(tag_labels),
+        "count_labels": torch.stack(count_labels),
     }
 
 
@@ -314,10 +313,30 @@ def train():
                 val_loss += out["loss"].item()
 
                 # Tag accuracy (exact match)
+                # Tag accuracy (top k based on count)
                 tag_probs = torch.sigmoid(out["tag_logits"])
-                thresholds = torch.sigmoid(out["threshold_logit"]).unsqueeze(1)
-                tag_preds = (tag_probs > thresholds).int()
-                tag_correct += (tag_preds == batch["tag_labels"]).all(dim=1).sum().item()
+                count_preds = out["count_pred"].squeeze(1)
+                
+                # Inference logic: k = floor(count_pred)
+                k_list = torch.floor(count_preds).int()
+                k_list = torch.clamp(k_list, min=0)
+                
+                # Check for exact match of set of tools
+                for i in range(len(batch["tag_labels"])):
+                    # Get predicted indices
+                    k = k_list[i].item()
+                    if k > 0:
+                        _, top_indices = torch.topk(tag_probs[i], k)
+                        pred_indices = set(top_indices.tolist())
+                    else:
+                        pred_indices = set()
+                    
+                    # Get true indices
+                    true_indices = set((batch["tag_labels"][i] == 1).nonzero(as_tuple=True)[0].tolist())
+                    
+                    if pred_indices == true_indices:
+                        tag_correct += 1
+                        
                 tag_total += batch["tag_labels"].size(0)
 
                 # Token accuracy
@@ -377,12 +396,12 @@ def train():
         (dummy_input_ids, dummy_attention_mask),
         out_dir / "model.onnx",
         input_names=["input_ids", "attention_mask"],
-        output_names=["tag_logits", "threshold_logit", "token_logits"],
+        output_names=["tag_logits", "count_pred", "token_logits"],
         dynamic_axes={
             "input_ids": {0: "batch_size", 1: "sequence_length"},
             "attention_mask": {0: "batch_size", 1: "sequence_length"},
             "tag_logits": {0: "batch_size"},
-            "threshold_logit": {0: "batch_size"},
+            "count_pred": {0: "batch_size"},
             "token_logits": {0: "batch_size", 1: "sequence_length"},
         },
         opset_version=14,
@@ -427,15 +446,23 @@ def demo(model, tokenizer, device):
 
         # Tags
         tag_probs = torch.sigmoid(out["tag_logits"][0])
-        threshold = torch.sigmoid(out["threshold_logit"][0]).item()
-        pred_tags = [TOOL_LABELS[i] for i, p in enumerate(tag_probs) if p > threshold]
+        count_pred = out["count_pred"][0].item()
+        
+        k = int(math.floor(count_pred))
+        k = max(0, k)
+        
+        if k > 0:
+             _, top_indices = torch.topk(tag_probs, k)
+             pred_tags = [TOOL_LABELS[i] for i in top_indices.tolist()]
+        else:
+             pred_tags = []
 
         # Tokens
         token_preds = out["token_logits"].argmax(dim=-1)[0]
 
         print(f"\nPrompt: {prompt}")
         print(f"Tags: {pred_tags}")
-        print(f"Threshold: {threshold:.2f}")
+        print(f"Count Pred: {count_pred:.2f} (k={k})")
         print("Tokens:")
         for tok, pred in zip(tokens, token_preds):
             if tok not in ["[CLS]", "[SEP]", "[PAD]"]:

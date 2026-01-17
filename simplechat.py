@@ -16,6 +16,7 @@ class TwoHeadModel(nn.Module):
         self.encoder = AutoModel.from_pretrained(base_model)
         hidden = self.encoder.config.hidden_size
         self.tag_head = nn.Linear(hidden, num_tag_outputs)
+        self.count_head = nn.Linear(hidden, 1)
         self.token_head = nn.Linear(hidden, num_token_labels)
         # Placeholder for class weights (loaded from state dict)
         if token_weights is not None:
@@ -28,8 +29,9 @@ class TwoHeadModel(nn.Module):
         hidden_states = out.last_hidden_state
         cls = hidden_states[:, 0, :]
         tag_logits = self.tag_head(cls)
+        count_pred = self.count_head(cls)
         token_logits = self.token_head(hidden_states)
-        return {"tag_logits": tag_logits, "token_logits": token_logits}
+        return {"tag_logits": tag_logits, "count_pred": count_pred, "token_logits": token_logits}
 
 
 def load_model(model_dir: str = "trainedmodel/outputs/simple-model"):
@@ -40,8 +42,10 @@ def load_model(model_dir: str = "trainedmodel/outputs/simple-model"):
     ckpt = torch.load(model_dir / "model.pt", map_location=device)
     tool_labels = ckpt["tool_labels"]
     token_labels = ckpt["token_labels"]
-    num_tag_outputs = ckpt["model_state_dict"]["tag_head.weight"].shape[0]
-    has_threshold = num_tag_outputs == (len(tool_labels) + 1)
+    tool_labels = ckpt["tool_labels"]
+    token_labels = ckpt["token_labels"]
+    num_tag_outputs = len(tool_labels)
+    # has_threshold check removed as usage changed
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
@@ -52,11 +56,14 @@ def load_model(model_dir: str = "trainedmodel/outputs/simple-model"):
     model.to(device)
     model.eval()
 
-    return model, tokenizer, tool_labels, token_labels, device, has_threshold
+    return model, tokenizer, tool_labels, token_labels, device
 
 
-def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device, has_threshold):
+def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device):
     """Classify a prompt and return results."""
+    # Normalize prompt
+    prompt = prompt.lower()
+    
     enc = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=128)
     enc = {k: v.to(device) for k, v in enc.items()}
     tokens = tokenizer.convert_ids_to_tokens(enc["input_ids"][0])
@@ -65,15 +72,21 @@ def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device, h
         out = model(**enc)
 
     # Tags
+    # Tags
     tag_logits = out["tag_logits"][0]
-    if has_threshold:
-        tool_logits = tag_logits[: len(tool_labels)]
-        threshold = torch.sigmoid(tag_logits[len(tool_labels)]).item()
-    else:
-        tool_logits = tag_logits
-        threshold = 0.5
-    tag_probs = torch.sigmoid(tool_logits)
-    pred_tags = [(tool_labels[i], f"{p:.2f}") for i, p in enumerate(tag_probs) if p > threshold]
+    count_pred = out["count_pred"][0].item()
+    
+    import math
+    k = int(math.floor(count_pred))
+    k = max(0, k)
+    
+    tag_probs = torch.sigmoid(tag_logits)
+    
+    pred_tags = []
+    if k > 0:
+        _, top_indices = torch.topk(tag_probs, k)
+        pred_tags = [(tool_labels[i], f"{tag_probs[i]:.2f}") for i in top_indices.tolist()]
+        
     all_tags = [(tool_labels[i], f"{p:.2f}") for i, p in enumerate(tag_probs)]
 
     # Tokens
@@ -83,7 +96,7 @@ def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device, h
         if tok not in ["[CLS]", "[SEP]", "[PAD]"]:
             token_results.append((tok, token_labels[pred.item()]))
 
-    return pred_tags, all_tags, token_results, threshold
+    return pred_tags, all_tags, token_results, count_pred, k
 
 
 def format_token_output(token_results):
@@ -108,7 +121,7 @@ def format_token_output(token_results):
 def main():
     print("Loading model...")
     try:
-        model, tokenizer, tool_labels, token_labels, device, has_threshold = load_model()
+        model, tokenizer, tool_labels, token_labels, device = load_model()
     except FileNotFoundError:
         print("Model not found! Run simpletrain.py first.")
         return
@@ -133,8 +146,8 @@ def main():
             print("Bye!")
             break
 
-        pred_tags, all_tags, token_results, threshold = classify(
-            prompt, model, tokenizer, tool_labels, token_labels, device, has_threshold
+        pred_tags, all_tags, token_results, count_pred, k = classify(
+            prompt, model, tokenizer, tool_labels, token_labels, device
         )
 
         print()
@@ -144,7 +157,9 @@ def main():
         else:
             print("(none)")
 
-        print("\033[95mThreshold:\033[0m", f"{threshold:.2f}")
+            print("(none)")
+
+        print("\033[95mCount Pred:\033[0m", f"{count_pred:.2f} (k={k})")
         # print("\033[95mAll scores:\033[0m", ", ".join(f"{t}: {p}" for t, p in all_tags))
 
         print("\033[95mTokens:\033[0m", format_token_output(token_results))
