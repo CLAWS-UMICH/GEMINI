@@ -17,7 +17,15 @@ class TwoHeadModel(nn.Module):
         hidden = self.encoder.config.hidden_size
         self.tag_head = nn.Linear(hidden, num_tag_outputs)
         self.count_head = nn.Linear(hidden, 1)
-        self.token_head = nn.Linear(hidden, num_token_labels)
+        self.token_head = nn.Sequential(
+            nn.Linear(hidden, hidden * 2),
+            nn.GELU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden * 2, hidden),
+            nn.GELU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden, num_token_labels)
+        )
         # Placeholder for class weights (loaded from state dict)
         if token_weights is not None:
             self.register_buffer("token_weights", token_weights)
@@ -34,7 +42,7 @@ class TwoHeadModel(nn.Module):
         return {"tag_logits": tag_logits, "count_pred": count_pred, "token_logits": token_logits}
 
 
-def load_model(model_dir: str = "anotherfixeddatamodel/outputs/simple-model"):
+def load_model(model_dir: str = "modeout/outputs/simple-model"):
     model_dir = Path(model_dir)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
