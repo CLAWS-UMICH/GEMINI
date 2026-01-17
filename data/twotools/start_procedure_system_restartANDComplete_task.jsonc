@@ -2,7 +2,7 @@
   // intents: start_procedure_system_restart AND Complete_task
   // description_1: The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, "Begin system restart procedure."
   // description_2: The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like "Mark 'Connect Umbilical' as complete" or "Finish task Battery Check."
-  // tokens: TASK_NAME, TEXT
+  // tokens: COMPLETE_TASK_NAME, TEXT
   "data": [
     {
         "prompt": "Restart nav then mark antenna check",
@@ -13,7 +13,7 @@
                 "text": "Restart nav then mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             }
         ]
@@ -27,7 +27,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -45,7 +45,7 @@
                 "text": "Restart suit then mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             }
         ]
@@ -59,7 +59,7 @@
                 "text": "Finish task "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 check"
             },
             {
@@ -77,7 +77,7 @@
                 "text": "Please restart the comms module and mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             },
             {
@@ -95,7 +95,7 @@
                 "text": "Can you mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "connect umbilical"
             },
             {
@@ -113,7 +113,7 @@
                 "text": "Restart guidance computer and also mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             }
         ]
@@ -127,7 +127,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -145,7 +145,7 @@
                 "text": "Restart the power subsystem while marking "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 valve inspection"
             }
         ]
@@ -159,7 +159,7 @@
                 "text": "Complete "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery health"
             },
             {
@@ -177,7 +177,7 @@
                 "text": "Initiate a full system restart of the navigation computer and as well as mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             },
             {
@@ -195,7 +195,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "connect umbilical"
             },
             {
@@ -213,7 +213,7 @@
                 "text": "Perform system restart on the antenna controller followed by marking "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -231,7 +231,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             },
             {
@@ -249,7 +249,7 @@
                 "text": "Restart the environmental control now meanwhile mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 valve inspection"
             },
             {
@@ -267,7 +267,7 @@
                 "text": "Finish task "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -285,7 +285,7 @@
                 "text": "But first restart the guidance unit and mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -303,7 +303,7 @@
                 "text": "Oh and mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             },
             {
@@ -321,7 +321,7 @@
                 "text": "Restart flight computer next and mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -339,7 +339,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 valve inspection"
             },
             {
@@ -357,7 +357,7 @@
                 "text": "Restart LTV then mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Alpha"
             },
             {
@@ -365,7 +365,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Beta"
             }
         ]
@@ -379,7 +379,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Alpha"
             },
             {
@@ -387,7 +387,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Beta"
             },
             {
@@ -405,7 +405,7 @@
                 "text": "Restart LTV then mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Alpha"
             },
             {
@@ -413,7 +413,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Beta"
             }
         ]
@@ -427,7 +427,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "umbilical"
             },
             {
@@ -435,7 +435,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 check"
             },
             {
@@ -453,7 +453,7 @@
                 "text": "Restart the guidance system and also mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -461,7 +461,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             }
         ]
@@ -475,7 +475,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             },
             {
@@ -483,7 +483,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -501,7 +501,7 @@
                 "text": "Restart power unit plus mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 valve inspection"
             },
             {
@@ -509,7 +509,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             }
         ]
@@ -523,7 +523,7 @@
                 "text": "Finish "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             },
             {
@@ -531,7 +531,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery health"
             },
             {
@@ -549,7 +549,7 @@
                 "text": "Initiate a restart of the comms array in addition to marking "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             },
             {
@@ -557,7 +557,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             },
             {
@@ -575,7 +575,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "connect umbilical"
             },
             {
@@ -583,7 +583,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 valve inspection"
             },
             {
@@ -601,7 +601,7 @@
                 "text": "Restart the thermal control meanwhile as well as mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -609,7 +609,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -627,7 +627,7 @@
                 "text": "Complete "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -635,7 +635,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -653,7 +653,7 @@
                 "text": "Restart the avionics along with marking "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             },
             {
@@ -661,7 +661,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             }
         ]
@@ -675,7 +675,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -683,7 +683,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -701,7 +701,7 @@
                 "text": "Restart sensors then mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Alpha"
             },
             {
@@ -709,7 +709,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Beta"
             }
         ]
@@ -723,7 +723,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 check"
             },
             {
@@ -731,7 +731,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "umbilical"
             },
             {
@@ -749,7 +749,7 @@
                 "text": "Begin restart sequence for the propulsion controller in addition to logging "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery health"
             },
             {
@@ -757,7 +757,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             }
         ]
@@ -771,7 +771,7 @@
                 "text": "Log "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery health"
             },
             {
@@ -779,7 +779,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             },
             {
@@ -797,7 +797,7 @@
                 "text": "Finish "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             },
             {
@@ -805,7 +805,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery health"
             },
             {
@@ -823,7 +823,7 @@
                 "text": "Restart flight computer at same time mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             },
             {
@@ -831,7 +831,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             }
         ]
@@ -845,7 +845,7 @@
                 "text": "Restart nav then mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Alpha"
             },
             {
@@ -853,7 +853,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Beta"
             },
             {
@@ -861,7 +861,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Gamma"
             }
         ]
@@ -875,7 +875,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Alpha"
             },
             {
@@ -883,7 +883,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Beta"
             },
             {
@@ -891,7 +891,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "Gamma"
             },
             {
@@ -909,7 +909,7 @@
                 "text": "Restart thermal then mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -917,7 +917,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -925,7 +925,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             }
         ]
@@ -939,7 +939,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -947,7 +947,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -955,7 +955,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             },
             {
@@ -973,7 +973,7 @@
                 "text": "Restart comms and mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 check"
             },
             {
@@ -981,7 +981,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "umbilical"
             },
             {
@@ -989,7 +989,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             }
         ]
@@ -1003,7 +1003,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 check"
             },
             {
@@ -1011,7 +1011,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "umbilical"
             },
             {
@@ -1019,7 +1019,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             },
             {
@@ -1037,7 +1037,7 @@
                 "text": "Finish "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna check"
             },
             {
@@ -1045,7 +1045,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -1053,7 +1053,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             },
             {
@@ -1071,7 +1071,7 @@
                 "text": "Initiate restart of life support followed by additionally marking "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -1079,7 +1079,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -1087,7 +1087,7 @@
                 "text": ", and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "O2 valve inspection"
             }
         ]
@@ -1101,7 +1101,7 @@
                 "text": "Mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "connect umbilical"
             },
             {
@@ -1109,7 +1109,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             },
             {
@@ -1117,7 +1117,7 @@
                 "text": ", and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "suit leak test"
             },
             {
@@ -1135,7 +1135,7 @@
                 "text": "Restart avionics and mark "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "battery check"
             },
             {
@@ -1143,7 +1143,7 @@
                 "text": ", "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "antenna alignment"
             },
             {
@@ -1151,7 +1151,7 @@
                 "text": " and "
             },
             {
-                "type": "TASK_NAME",
+                "type": "COMPLETE_TASK_NAME",
                 "text": "deploy sensor array"
             }
         ]
@@ -1161,7 +1161,7 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "yo restart nav and the " },
-            { "type": "TASK_NAME", "text": "seal inspection" },
+            { "type": "COMPLETE_TASK_NAME", "text": "seal inspection" },
             { "type": "TEXT", "text": " is wrapped up" }
         ]
     },
@@ -1170,7 +1170,7 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "the " },
-            { "type": "TASK_NAME", "text": "antenna check" },
+            { "type": "COMPLETE_TASK_NAME", "text": "antenna check" },
             { "type": "TEXT", "text": " is in the bag so restart comms" }
         ]
     },
@@ -1179,9 +1179,9 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "reboot LTV btw the " },
-            { "type": "TASK_NAME", "text": "battery check" },
+            { "type": "COMPLETE_TASK_NAME", "text": "battery check" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "comms test" },
+            { "type": "COMPLETE_TASK_NAME", "text": "comms test" },
             { "type": "TEXT", "text": " are both done" }
         ]
     },
@@ -1190,9 +1190,9 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "crushed the " },
-            { "type": "TASK_NAME", "text": "sample collection" },
+            { "type": "COMPLETE_TASK_NAME", "text": "sample collection" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "rock cataloging" },
+            { "type": "COMPLETE_TASK_NAME", "text": "rock cataloging" },
             { "type": "TEXT", "text": " so restart systems" }
         ]
     },
@@ -1201,7 +1201,7 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "restart power also the " },
-            { "type": "TASK_NAME", "text": "EVA prep" },
+            { "type": "COMPLETE_TASK_NAME", "text": "EVA prep" },
             { "type": "TEXT", "text": " is squared away" }
         ]
     },
@@ -1210,7 +1210,7 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "nailed the " },
-            { "type": "TASK_NAME", "text": "drill calibration" },
+            { "type": "COMPLETE_TASK_NAME", "text": "drill calibration" },
             { "type": "TEXT", "text": " so reboot nav" }
         ]
     },
@@ -1219,9 +1219,9 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "restart guidance and the " },
-            { "type": "TASK_NAME", "text": "helmet seal" },
+            { "type": "COMPLETE_TASK_NAME", "text": "helmet seal" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "visor check" },
+            { "type": "COMPLETE_TASK_NAME", "text": "visor check" },
             { "type": "TEXT", "text": " are good to go" }
         ]
     },
@@ -1230,9 +1230,9 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "got through the " },
-            { "type": "TASK_NAME", "text": "pressure test" },
+            { "type": "COMPLETE_TASK_NAME", "text": "pressure test" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "airlock cycle" },
+            { "type": "COMPLETE_TASK_NAME", "text": "airlock cycle" },
             { "type": "TEXT", "text": " so restart thermal" }
         ]
     },
@@ -1241,7 +1241,7 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "reboot comms meanwhile the " },
-            { "type": "TASK_NAME", "text": "comms relay alignment" },
+            { "type": "COMPLETE_TASK_NAME", "text": "comms relay alignment" },
             { "type": "TEXT", "text": " is settled" }
         ]
     },
@@ -1250,9 +1250,9 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "the " },
-            { "type": "TASK_NAME", "text": "hab ventilation" },
+            { "type": "COMPLETE_TASK_NAME", "text": "hab ventilation" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "air filter swap" },
+            { "type": "COMPLETE_TASK_NAME", "text": "air filter swap" },
             { "type": "TEXT", "text": " are buttoned up now restart LTV" }
         ]
     },
@@ -1261,7 +1261,7 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "restart power and fyi the " },
-            { "type": "TASK_NAME", "text": "star tracker alignment" },
+            { "type": "COMPLETE_TASK_NAME", "text": "star tracker alignment" },
             { "type": "TEXT", "text": " is handled" }
         ]
     },
@@ -1270,7 +1270,7 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "polished off the " },
-            { "type": "TASK_NAME", "text": "navigation calibration" },
+            { "type": "COMPLETE_TASK_NAME", "text": "navigation calibration" },
             { "type": "TEXT", "text": " so reboot systems" }
         ]
     },
@@ -1279,9 +1279,9 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "restart nav and the " },
-            { "type": "TASK_NAME", "text": "thermal sensor calibration" },
+            { "type": "COMPLETE_TASK_NAME", "text": "thermal sensor calibration" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "pressure gauge check" },
+            { "type": "COMPLETE_TASK_NAME", "text": "pressure gauge check" },
             { "type": "TEXT", "text": " are done" }
         ]
     },
@@ -1290,9 +1290,9 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "the " },
-            { "type": "TASK_NAME", "text": "data upload" },
+            { "type": "COMPLETE_TASK_NAME", "text": "data upload" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "telemetry sync" },
+            { "type": "COMPLETE_TASK_NAME", "text": "telemetry sync" },
             { "type": "TEXT", "text": " are in the books so reboot guidance" }
         ]
     },
@@ -1301,9 +1301,9 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "hey restart thermal also the " },
-            { "type": "TASK_NAME", "text": "fuel check" },
+            { "type": "COMPLETE_TASK_NAME", "text": "fuel check" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "battery swap" },
+            { "type": "COMPLETE_TASK_NAME", "text": "battery swap" },
             { "type": "TEXT", "text": " are resolved" }
         ]
     },
@@ -1312,9 +1312,9 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "wrapped up the " },
-            { "type": "TASK_NAME", "text": "sample sorting" },
+            { "type": "COMPLETE_TASK_NAME", "text": "sample sorting" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "labeling" },
+            { "type": "COMPLETE_TASK_NAME", "text": "labeling" },
             { "type": "TEXT", "text": " now restart systems" }
         ]
     },
@@ -1323,9 +1323,9 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "reboot LTV and btw the " },
-            { "type": "TASK_NAME", "text": "suit leak test" },
+            { "type": "COMPLETE_TASK_NAME", "text": "suit leak test" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "glove fit check" },
+            { "type": "COMPLETE_TASK_NAME", "text": "glove fit check" },
             { "type": "TEXT", "text": " are sorted" }
         ]
     },
@@ -1334,7 +1334,7 @@
         "tool_calls": ["Complete_task", "start_procedure_system_restart"],
         "parts": [
             { "type": "TEXT", "text": "alright the " },
-            { "type": "TASK_NAME", "text": "rover diagnostics" },
+            { "type": "COMPLETE_TASK_NAME", "text": "rover diagnostics" },
             { "type": "TEXT", "text": " is a done deal so restart nav" }
         ]
     },
@@ -1343,11 +1343,11 @@
         "tool_calls": ["start_procedure_system_restart", "Complete_task"],
         "parts": [
             { "type": "TEXT", "text": "restart systems fyi the " },
-            { "type": "TASK_NAME", "text": "hull inspection" },
+            { "type": "COMPLETE_TASK_NAME", "text": "hull inspection" },
             { "type": "TEXT", "text": " the " },
-            { "type": "TASK_NAME", "text": "seal verification" },
+            { "type": "COMPLETE_TASK_NAME", "text": "seal verification" },
             { "type": "TEXT", "text": " and " },
-            { "type": "TASK_NAME", "text": "thermal scan" },
+            { "type": "COMPLETE_TASK_NAME", "text": "thermal scan" },
             { "type": "TEXT", "text": " are all finished" }
         ]
     }
