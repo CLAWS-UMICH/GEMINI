@@ -36,7 +36,7 @@ class TwoHeadModel(nn.Module):
         return {"tag_logits": tag_logits, "token_logits": token_logits}
 
 
-def load_model(model_dir="outputs/simple-model"):
+def load_model(model_dir="model/outputs/simple-model"):
     global TOOL_LABELS, TOKEN_LABELS
     
     model_dir = Path(model_dir)
