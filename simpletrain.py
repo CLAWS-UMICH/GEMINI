@@ -48,7 +48,15 @@ class TwoHeadModel(nn.Module):
         self.count_head = nn.Linear(hidden, 1)
 
         # Head 2: Token-level classification
-        self.token_head = nn.Linear(hidden, num_token_labels)
+        self.token_head = nn.Sequential(
+            nn.Linear(hidden, hidden * 2),
+            nn.GELU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden * 2, hidden),
+            nn.GELU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden, num_token_labels)
+        )
 
         # Class weights for imbalanced token labels
         if token_weights is not None:
