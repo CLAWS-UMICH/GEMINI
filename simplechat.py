@@ -77,7 +77,7 @@ def classify(prompt: str, model, tokenizer, tool_labels, token_labels, device):
     count_pred = out["count_pred"][0].item()
     
     import math
-    k = int(math.floor(count_pred))
+    k = int(round(count_pred))
     k = max(0, k)
     
     tag_probs = torch.sigmoid(tag_logits)

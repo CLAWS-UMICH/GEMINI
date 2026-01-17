@@ -317,8 +317,8 @@ def train():
                 tag_probs = torch.sigmoid(out["tag_logits"])
                 count_preds = out["count_pred"].squeeze(1)
                 
-                # Inference logic: k = floor(count_pred)
-                k_list = torch.floor(count_preds).int()
+                # Inference logic: k = round(count_pred)
+                k_list = torch.round(count_preds).int()
                 k_list = torch.clamp(k_list, min=0)
                 
                 # Check for exact match of set of tools
