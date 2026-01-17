@@ -12,6 +12,7 @@ import torch.nn as nn
 from pathlib import Path
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModel, AutoTokenizer
+from sklearn.metrics import f1_score
 
 from simpledatacombine import get_data_and_labels
 
@@ -219,6 +220,79 @@ def compute_class_weights(dataset):
     return torch.tensor(weights, dtype=torch.float32)
 
 
+def log_failures(model, val_loader, tokenizer, device, out_path, tool_labels, token_labels):
+    """
+    Runs a pass on validation set and logs incorrect predictions to a file.
+    """
+    model.eval()
+    all_failures = []
+    
+    # Inverse mappings for readability
+    idx_to_tool = {i: t for i, t in enumerate(tool_labels)}
+    idx_to_token = {i: t for i, t in enumerate(token_labels)}
+
+    with torch.no_grad():
+        for batch in val_loader:
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            tag_labels = batch["tag_labels"].to(device)
+            token_labels_gt = batch["token_labels"].to(device) # Ground Truth
+            
+            # Forward pass
+            outputs = model(input_ids, attention_mask)
+            tag_logits = outputs["tag_logits"]
+            token_logits = outputs["token_logits"]
+
+            # Predictions
+            # Tags: sigmoid > 0.5
+            pred_tags = (torch.sigmoid(tag_logits) > 0.5).int()
+            
+            # Tokens: argmax
+            pred_tokens = torch.argmax(token_logits, dim=-1)
+
+            # Iterate over batch
+            batch_size = input_ids.size(0)
+            for i in range(batch_size):
+                # Check for mismatch
+                tags_match = torch.equal(pred_tags[i], tag_labels[i].int())
+                
+                # For tokens, ignore padding (-100) in ground truth
+                mask = token_labels_gt[i] != -100
+                tokens_match = torch.equal(pred_tokens[i][mask], token_labels_gt[i][mask])
+
+                if not tags_match or not tokens_match:
+                    # Decode inputs
+                    prompt = tokenizer.decode(input_ids[i], skip_special_tokens=True)
+                    
+                    # Get readable lists for tags
+                    expected_tags_list = [idx_to_tool[j] for j, val in enumerate(tag_labels[i]) if val == 1]
+                    predicted_tags_list = [idx_to_tool[j] for j, val in enumerate(pred_tags[i]) if val == 1]
+                    
+                    # Get readable lists for tokens (masked)
+                    gt_tok_indices = token_labels_gt[i][mask].cpu().tolist()
+                    pred_tok_indices = pred_tokens[i][mask].cpu().tolist()
+                    
+                    expected_tokens_list = [idx_to_token.get(idx, "UNK") for idx in gt_tok_indices]
+                    predicted_tokens_list = [idx_to_token.get(idx, "UNK") for idx in pred_tok_indices]
+
+                    all_failures.append(
+                        f"PROMPT: {prompt}\n"
+                        f"EXPECTED TAGS: {expected_tags_list}\n"
+                        f"PREDICTED TAGS: {predicted_tags_list}\n"
+                        f"EXPECTED TOKENS: {expected_tokens_list}\n"
+                        f"PREDICTED TOKENS: {predicted_tokens_list}\n"
+                        f"{'-'*40}\n"
+                    )
+
+    if all_failures:
+        with open(out_path, 'w', encoding='utf-8') as f:
+            f.writelines(all_failures)
+        print(f"Logged {len(all_failures)} incorrect predictions to {out_path}")
+    else:
+        with open(out_path, 'w', encoding='utf-8') as f:
+            f.write("No incorrect predictions found on validation set!\n")
+        print("Perfect validation score! No errors logged.")
+
 def train():
     global TOOL_LABELS, TOKEN_LABELS
     
@@ -312,6 +386,12 @@ def train():
         token_total = 0
         val_loss = 0
 
+        # Storage for F1 calculation
+        all_pred_tags = []
+        all_true_tags = []
+        all_pred_tokens = []
+        all_true_tokens = []
+
         with torch.no_grad():
             for batch in val_loader:
                 batch = {k: v.to(device) for k, v in batch.items()}
@@ -333,6 +413,13 @@ def train():
                 for i in range(len(batch["tag_labels"])):
                     # Get predicted indices
                     k = k_list[i].item()
+
+                    # F1 storage
+                    pred_vec = (tag_probs[i] > 0.5).int().cpu().numpy()
+                    true_vec = batch["tag_labels"][i].cpu().numpy()
+                    all_pred_tags.append(pred_vec)
+                    all_true_tags.append(true_vec)
+
                     if k > 0:
                         _, top_indices = torch.topk(tag_probs[i], k)
                         pred_indices = set(top_indices.tolist())
@@ -353,12 +440,24 @@ def train():
                 token_correct += ((token_preds == batch["token_labels"]) & mask).sum().item()
                 token_total += mask.sum().item()
 
+                # Collect for F1
+                valid_preds = token_preds[mask].cpu().numpy()
+                valid_true = batch["token_labels"][mask].cpu().numpy()
+                all_pred_tokens.extend(valid_preds)
+                all_true_tokens.extend(valid_true)
+
         avg_val_loss = val_loss / len(val_loader)
         tag_acc = tag_correct / tag_total if tag_total > 0 else 0
         token_acc = token_correct / token_total if token_total > 0 else 0
+        
+        # Calculate F1
+        tag_f1 = f1_score(all_true_tags, all_pred_tags, average='macro')
+        token_f1 = f1_score(all_true_tokens, all_pred_tokens, average='macro')
+
         combined = (tag_acc + token_acc) / 2
 
         print(f"Epoch {epoch+1}: train_loss={avg_loss:.4f} val_loss={avg_val_loss:.4f} tag_acc={tag_acc:.4f} token_acc={token_acc:.4f}")
+        print(f"Metrics: Tag F1={tag_f1:.4f} | Token F1={token_f1:.4f}")
 
         # Early stopping check based on validation loss
         if avg_val_loss < best_val_loss:
@@ -390,39 +489,17 @@ def train():
 
     print(f"\nSaved PyTorch model to {out_dir}")
 
-    # Export to ONNX
-    print("Exporting to ONNX...")
-    model.eval()
-    
-    # Create dummy input for tracing
-    dummy_input_ids = torch.zeros(1, 32, dtype=torch.long, device=device)
-    dummy_attention_mask = torch.ones(1, 32, dtype=torch.long, device=device)
-    
-    # Export with dynamic axes for variable batch size and sequence length
-    torch.onnx.export(
-        model,
-        (dummy_input_ids, dummy_attention_mask),
-        out_dir / "model.onnx",
-        input_names=["input_ids", "attention_mask"],
-        output_names=["tag_logits", "count_pred", "token_logits"],
-        dynamic_axes={
-            "input_ids": {0: "batch_size", 1: "sequence_length"},
-            "attention_mask": {0: "batch_size", 1: "sequence_length"},
-            "tag_logits": {0: "batch_size"},
-            "count_pred": {0: "batch_size"},
-            "token_logits": {0: "batch_size", 1: "sequence_length"},
-        },
-        opset_version=14,
-    )
-    
+    # Log failures and incorrect predictions
+    print("Generating failure log...")
+    log_failures(model, val_loader, tokenizer, device, "incorrect_predictions.txt", TOOL_LABELS, TOKEN_LABELS)
+
     # Save labels metadata as JSON for inference
     with open(out_dir / "labels.json", "w") as f:
         json.dump({
             "tool_labels": TOOL_LABELS,
             "token_labels": TOKEN_LABELS,
         }, f, indent=2)
-    
-    print(f"Saved ONNX model to {out_dir / 'model.onnx'}")
+
     print(f"Saved labels to {out_dir / 'labels.json'}")
 
     # Demo
