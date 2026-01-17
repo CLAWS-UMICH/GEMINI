@@ -21,7 +21,16 @@ class TwoHeadModel(nn.Module):
         self.encoder = AutoModel.from_pretrained(base_model)
         hidden = self.encoder.config.hidden_size
         self.tag_head = nn.Linear(hidden, num_tag_outputs)
-        self.token_head = nn.Linear(hidden, num_token_labels)
+        self.count_head = nn.Linear(hidden, 1)
+        self.token_head = nn.Sequential(
+            nn.Linear(hidden, hidden * 2),
+            nn.GELU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden * 2, hidden),
+            nn.GELU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden, num_token_labels)
+        )
         if token_weights is not None:
             self.register_buffer("token_weights", token_weights)
         else:
@@ -32,8 +41,9 @@ class TwoHeadModel(nn.Module):
         hidden_states = out.last_hidden_state
         cls = hidden_states[:, 0, :]
         tag_logits = self.tag_head(cls)
+        count_pred = self.count_head(cls)
         token_logits = self.token_head(hidden_states)
-        return {"tag_logits": tag_logits, "token_logits": token_logits}
+        return {"tag_logits": tag_logits, "count_pred": count_pred, "token_logits": token_logits}
 
 
 def load_model(model_dir="model/outputs/simple-model"):
