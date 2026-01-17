@@ -42,7 +42,7 @@ class TwoHeadModel(nn.Module):
         return {"tag_logits": tag_logits, "count_pred": count_pred, "token_logits": token_logits}
 
 
-def load_model(model_dir: str = "modeout/outputs/simple-model"):
+def load_model(model_dir: str = "model/outputs/simple-model"):
     model_dir = Path(model_dir)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
