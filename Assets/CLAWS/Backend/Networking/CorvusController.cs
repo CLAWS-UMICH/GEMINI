@@ -10,6 +10,18 @@ namespace CLAWS.Networking
     {
         public string command;
     }
+    [System.Serializable]
+    public class IntentResponse
+    {
+        public string status;
+        public string intent;
+        public float confidence;
+        public string[] matched_keywords;
+        public string request_id;
+        public float latency_ms;
+        public string timestamp; 
+    }
+
     public class CorvusController : MonoBehaviour
     {
         // WebSocket connection to Python server
@@ -55,17 +67,13 @@ namespace CLAWS.Networking
             {
                 Debug.Log($"Processing message: {message}");
 
-                // TODO: Parse JSON message
-
-                // Temporary: Extract values manually
-                string intent = "check_vitals";
-                float confidence = 0.95f;
-                float latency = 250f;
+                // Parse JSON message
+                var response = JsonUtility.FromJson<IntentResponse>(message);
 
                 // Event to notify UI
-                OnIntentReceived?.Invoke(intent, confidence, latency);
+                OnIntentReceived?.Invoke(response.intent, response.confidence, response.latency_ms);
 
-                Debug.Log($"Intent: {intent}, Confidence: {confidence}, Latency: {latency}ms");
+                Debug.Log($"Intent: {response.intent}, Confidence: {response.confidence}, Latency: {response.latency_ms}ms");
 
             }
             catch (Exception ex)
@@ -86,7 +94,7 @@ namespace CLAWS.Networking
             {
                 Debug.Log($"Sending command: {command}");
 
-                // TODO: Format as JSON later
+                // Format as JSON later
                 var request = new CommandRequest { command = command };
                 string json = JsonUtility.ToJson(request);
 

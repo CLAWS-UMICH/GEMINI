@@ -14,11 +14,11 @@ namespace CLAWS.Testing
         // Test commands
         private readonly string[] _testCommands = new string[]
         {
-            "check my vitals",
-            "navigate to airlock",
-            "check oxygen level",
-            "show battery status",
-            "emergency abort"
+            "check my vitals",          // 1
+            "navigate to airlock",      // 2
+            "check oxygen level",       // 3
+            "show battery status",      // 4
+            "emergency abort"           // 5
         };
 
         private void Update()

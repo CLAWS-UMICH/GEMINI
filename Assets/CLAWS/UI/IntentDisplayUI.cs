@@ -37,7 +37,7 @@ namespace CLAWS.UI
             // Update the text displays
             _intentText.text = $"Intent: {intent}";
             _confidenceText.text = $"Confidence: {confidence:P0}";
-            _latencyText.text = $"Latency: {latency:F0}ms";
+            _latencyText.text = $"Latency: {latency:F2}ms";
 
             // Color based on confidence level
             if(confidence >= 0.8f)
