@@ -89,10 +89,7 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 **Unity → Python (Command Request)**
 ```json
 {
-  "command": "check my vitals",
-  "request_id": "unique-id-12345",
-  "timestamp": "2026-01-11T14:30:00Z",
-  "user_id": "astronaut_1"
+  "command": "check my vitals"
 }
 ```
 
@@ -101,10 +98,12 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 {
   "status": "success",
   "intent": "check_vitals",
-  "confidence": 0.95,
+  "confidence": 0.87,
+  "matched_keywords": ["vitals", "check"],
   "parameters": {},
-  "request_id": "unique-id-12345",
-  "latency_ms": 250
+  "request_id": "abc-123",
+  "latency_ms": 2.35,
+  "timestamp": "2026-01-18T10:30:00Z"
 }
 ```
 
@@ -207,12 +206,48 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 - [x] Create `models/` folder
 - [x] Install dependencies with uv
 
-### ⏸️ Phase 5: Install Piper.unity (TTS) (SKIPPED - TO REVISIT)
-- [ ] Install Piper.unity via Package Manager
-- [ ] Verify installation
-- [ ] Test basic TTS functionality
+### 🔄 Phase 5: Piper.unity TTS Integration (IN PROGRESS)
 
-**Note:** Skipping TTS for now to focus on core WebSocket functionality. Will revisit after testing Unity-Python communication.
+**Goal**: Add text-to-speech feedback using Piper.unity (<50ms generation time)
+
+#### Step 5.1: Install Unity Sentis ✅
+- [x] Window → Package Manager → Add by name: `com.unity.ai.inference`
+- [x] Verified Sentis 2.4.1 installed (Unity 6 uses "Inference Engine")
+
+#### Step 5.2: Install Piper.unity ✅
+- [x] Download from: https://github.com/Macoron/piper.unity
+- [x] Copy `Assets/Piper/` folder to project
+- [x] Copy `Assets/StreamingAssets/espeak-ng-data/` to project
+- [x] Unity API Updater applied to update deprecated calls
+
+#### Step 5.3: Download Voice Model ✅
+- [x] Go to: https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0/en/en_US/lessac/medium
+- [x] Download `en_US-lessac-medium.onnx` (39MB)
+- [x] Download `en_US-lessac-medium.onnx.json`
+- [x] Create `Assets/PiperModels/` folder
+- [x] Place both files in `Assets/PiperModels/`
+
+#### Step 5.4: Create CorvusTTS.cs
+- [x] Create `Assets/CLAWS/Backend/Networking/CorvusTTS.cs`
+- [x] Implement Piper initialization
+- [ ] Implement `Speak(string text)` method
+- [ ] Implement `Stop()` and `IsSpeaking()` methods
+- [ ] Add latency logging
+
+#### Step 5.5: Test TTS Standalone
+- [ ] Add CorvusTTS to CORVUS GameObject
+- [x] Assign voice model in Inspector
+- [x] Add keyboard shortcut to test (e.g., T key)
+- [x] Verify audio plays
+- [ ] Verify <50ms generation time
+
+#### Step 5.6: Integrate with CorvusController
+- [ ] Add CorvusTTS reference to CorvusController
+- [ ] Call TTS after receiving intent response
+- [ ] Create response phrases for each intent
+- [ ] Test end-to-end flow
+
+**Target**: TTS generation <50ms, clear audio output
 
 ### ✅ Phase 6: Create Unity Scripts (COMPLETED)
 - [x] Create `WebSocketClient.cs` (Backend/Networking/)
@@ -229,20 +264,20 @@ CORVUS_PythonServer/                   # Python AI server (separate)
   - CorvusTest: CorvusController
 - [x] Save scene
 
-### 📋 Phase 8: Implement Python Server
-- [ ] Code WebSocket server logic
-- [ ] Add basic intent classification (mock/simple)
-- [ ] Implement message parsing
-- [ ] Add error handling
-- [ ] Test server runs locally
+### ✅ Phase 8: Implement Python Server (COMPLETED)
+- [x] Code WebSocket server logic
+- [x] Add basic intent classification (mock/simple)
+- [x] Implement message parsing
+- [x] Add error handling
+- [x] Test server runs locally
 
-### 📋 Phase 9: Testing & Integration
-- [ ] Test WebSocket connection (Unity ↔ Python)
-- [ ] Test intent classification with sample commands
-- [ ] Test TTS responses
-- [ ] Test UI updates correctly
-- [ ] Measure end-to-end latency
-- [ ] Fix bugs and issues
+### ✅ Phase 9: Testing & Integration (COMPLETED)
+- [x] Test WebSocket connection (Unity ↔ Python)
+- [x] Test intent classification with sample commands
+- [ ] Test TTS responses (skipped - TTS not implemented yet)
+- [x] Test UI updates correctly
+- [x] Measure end-to-end latency
+- [x] Fix bugs and issues
 
 ### 📋 Phase 10: Optimization & Documentation
 - [ ] Optimize latency if needed
