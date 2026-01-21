@@ -533,7 +533,7 @@ def demo(model, tokenizer, device):
         tag_probs = torch.sigmoid(out["tag_logits"][0])
         count_pred = out["count_pred"][0].item()
         
-        k = int(math.floor(count_pred))
+        k = int(round(count_pred))
         k = max(0, k)
         
         if k > 0:
