@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Piper;
+using CLAWS.Networking;
 
 namespace CLAWS.Testing
 {
     public class PiperTest : MonoBehaviour
     {
-        [SerializeField] private PiperManager _piperManager;
-        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private CorvusTTS _corvusTTS;
 
         // Test phrase
         private string _testPhrase = "Hello, this is a test of the Piper text to speech system.";
@@ -28,28 +28,15 @@ namespace CLAWS.Testing
 
         private async System.Threading.Tasks.Task TestTTS()
         {
-            if (_piperManager == null || _audioSource == null)
+            if (_corvusTTS == null)
             {
-                Debug.LogError("[PiperTest] Components not assigned!");
+                Debug.LogError("[PiperTest] CorvusTTS not assigned!");
                 return;
             }
             
             try {
-                Debug.Log($"[PiperTest] Generating: {_testPhrase}");
-
-                var sw = System.Diagnostics.Stopwatch.StartNew();
-                var audioClip = await _piperManager.TextToSpeech(_testPhrase);
-                sw.Stop();
-
-                Debug.Log($"[PiperTest] Generated in {sw.ElapsedMilliseconds}ms");
-
-                // Clean up old clip
-                if(_audioSource.clip != null)
-                    Destroy(_audioSource.clip);
-
-                // Play new clip
-                _audioSource.clip = audioClip;
-                _audioSource.Play();
+                await _corvusTTS.Speak(_testPhrase);
+                Debug.Log("[PiperTest] Speech complete");
             }
             catch (Exception ex)
             {
