@@ -29,6 +29,7 @@ namespace CLAWS.Networking
 
         // Server URL
         [SerializeField] private string _serverUrl = "ws://localhost:8765";
+        [SerializeField] private CorvusTTS _corvusTTS;
 
         // Check CORVUS connection
         public bool IsConnected => _webSocketClient?.IsConnected ?? false;
@@ -61,6 +62,27 @@ namespace CLAWS.Networking
             }
         }
 
+        private string GetResponseForIntent(string intent, float confidence)
+        {
+            switch(intent)
+            {
+                case "check_vitals":
+                    return "Checking your vitals now.";
+                case "navigate_to_airlock":
+                    return "Navigating to airlock.";
+                case "check_oxygen_level":
+                    return "Checking oxygen level.";
+                case "check_battery":
+                    return "Checking battery status.";
+                case "emergency_abort":
+                    return "Emergency abort initiated!";
+                default:
+                    if (confidence < 0.5f)
+                        return "Sorry, I didn't understand. Please repeat.";
+                    return $"Processing {intent.Replace("_", " ")}.";
+            }
+        }
+
         private void HandleMessageReceived(string message)
         {
             try
@@ -74,6 +96,13 @@ namespace CLAWS.Networking
                 OnIntentReceived?.Invoke(response.intent, response.confidence, response.latency_ms);
 
                 Debug.Log($"Intent: {response.intent}, Confidence: {response.confidence}, Latency: {response.latency_ms}ms");
+
+                // Speak the response
+                if (_corvusTTS != null)
+                {
+                    string spokenText = GetResponseForIntent(response.intent, response.confidence);
+                    _ = _corvusTTS.Speak(spokenText);
+                }
 
             }
             catch (Exception ex)

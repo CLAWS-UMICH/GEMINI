@@ -206,7 +206,7 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 - [x] Create `models/` folder
 - [x] Install dependencies with uv
 
-### 🔄 Phase 5: Piper.unity TTS Integration (IN PROGRESS)
+### ✅ Phase 5: Piper.unity TTS Integration (COMPLETED)
 
 **Goal**: Add text-to-speech feedback using Piper.unity (<50ms generation time)
 
@@ -242,11 +242,11 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 - [x] Verify audio plays
 - [x] Verify generation time (~70ms achieved after warmup)
 
-#### Step 5.6: Integrate with CorvusController
-- [ ] Add CorvusTTS reference to CorvusController
-- [ ] Call TTS after receiving intent response
-- [ ] Create response phrases for each intent
-- [ ] Test end-to-end flow
+#### Step 5.6: Integrate with CorvusController ✅
+- [x] Add CorvusTTS reference to CorvusController
+- [x] Call TTS after receiving intent response
+- [x] Create response phrases for each intent
+- [x] Test end-to-end flow
 
 **Target**: TTS generation <50ms, clear audio output
 **Achieved**: ~70ms after warmup (first run ~300-500ms)

@@ -11,7 +11,10 @@ namespace CLAWS.Networking
         [SerializeField] private PiperManager _piperManager;
         [SerializeField] private AudioSource _audioSource;
 
-        private bool _isSpeaking = false;
+        private async void Start()
+        {
+            await Warmup();
+        }
 
         public async Task Speak(string text)
         {
@@ -23,7 +26,6 @@ namespace CLAWS.Networking
 
             try
             {
-                _isSpeaking = true;
 
                 var sw = System.Diagnostics.Stopwatch.StartNew();
                 var audioClip = await _piperManager.TextToSpeech(text);
@@ -42,13 +44,12 @@ namespace CLAWS.Networking
             } catch (Exception ex)
             {
                 Debug.LogError($"[CorvusTTS] Error: {ex.Message}");
-                _isSpeaking = false;
             }
         }
 
         public async Task Warmup()
         {
-            await _piperManager.TextToSpeech("warmup");
+            var clip = await _piperManager.TextToSpeech("warmup");
             Destroy(clip);
             Debug.Log("[CorvusTTS] Warmup complete");
         }
@@ -64,7 +65,6 @@ namespace CLAWS.Networking
             {
                 _audioSource.Stop();
             }
-            _isSpeaking = false;
         }
 
         private void OnDestroy()
