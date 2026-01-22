@@ -1,0 +1,189 @@
+Combined total: 59812 training examples
+
+Discovered 48 tool labels: ['Add_task', 'Add_waypoint', 'Complete_task', 'Delete_task', 'Delete_waypoint', 'Get_coordinates', 'Set_navigation_target', 'close_menu', 'get_warnings', 'open_menu_geosamples', 'open_menu_messaging', 'open_menu_navigation', 'open_menu_rover', 'open_menu_tasks', 'open_menu_uia', 'open_menu_vitals', 'open_menu_voice_assistant', 'reroute_navigation', 'start_procedure_erm', 'start_procedure_final_system_checks', 'start_procedure_physical_repair_task', 'start_procedure_system_diagnosis', 'start_procedure_system_restart', 'start_procedure_uia_egress', 'start_procedure_uia_ingress', 'undo', 'vitals_batt_time_left', 'vitals_co2_production', 'vitals_coolant_gas_pressure', 'vitals_coolant_liquid_pressure', 'vitals_coolant_storage', 'vitals_fan_pri_rpm', 'vitals_fan_sec_rpm', 'vitals_heart_rate', 'vitals_helmet_pressure_co2', 'vitals_oxy_consumption', 'vitals_oxy_pri_pressure', 'vitals_oxy_pri_storage', 'vitals_oxy_sec_pressure', 'vitals_oxy_sec_storage', 'vitals_oxy_time_left', 'vitals_scrubber_a_co2_storage', 'vitals_scrubber_b_co2_storage', 'vitals_suit_pressure_co2', 'vitals_suit_pressure_other', 'vitals_suit_pressure_oxy', 'vitals_suit_pressure_total', 'vitals_temperature']
+Discovered 8 token labels: ['COMPLETE_TASK_NAME', 'COORDINATE_TARGET_NAME', 'DELETE_TASK_NAME', 'DELETE_WAYPOINT_NAME', 'NAVIGATION_TARGET_NAME', 'TASK_NAME', 'TEXT', 'WAYPOINT_NAME']
+Loaded 59812 examples
+^FuToken class weights: {'COMPLETE_TASK_NAME': 7.893367767333984, 'COORDINATE_TARGET_NAME': 16.19431495666504, 'DELETE_TASK_NAME': 11.010438919067383, 'DELETE_WAYPOINT_NAME': 17.529552459716797, 'NAVIGATION_TARGET_NAME': 17.508277893066406, 'TASK_NAME': 9.80368423461914, 'TEXT': 0.134397491812706, 'WAYPOINT_NAME': 15.635198593139648}
+2026-01-21 22:27:38.558455: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-01-21 22:27:38.575944: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1769034458.598191    5407 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1769034458.605009    5407 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1769034458.622070    5407 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769034458.622105    5407 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769034458.622109    5407 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769034458.622113    5407 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-01-21 22:27:38.627212: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+model.safetensors: 100%|████████████████████████████████████████████| 268M/268M [00:00<00:00, 273MB/s]
+Epoch 1: train_loss=2.5939 val_loss=1.2396 tag_acc=0.4129 token_acc=0.9714
+Metrics: Tag F1=0.1226 | Token F1=0.8507
+Epoch 2: train_loss=0.7423 val_loss=0.3799 tag_acc=0.8940 token_acc=0.9906
+Metrics: Tag F1=0.9171 | Token F1=0.9374
+Epoch 3: train_loss=0.2820 val_loss=0.2068 tag_acc=0.9102 token_acc=0.9941
+Metrics: Tag F1=0.9471 | Token F1=0.9560
+Epoch 4: train_loss=0.1544 val_loss=0.1622 tag_acc=0.9198 token_acc=0.9966
+Metrics: Tag F1=0.9556 | Token F1=0.9739
+Epoch 5: train_loss=0.1103 val_loss=0.1866 tag_acc=0.9203 token_acc=0.9974
+Metrics: Tag F1=0.9573 | Token F1=0.9772
+Epoch 6: train_loss=0.0865 val_loss=0.1710 tag_acc=0.9219 token_acc=0.9980
+Metrics: Tag F1=0.9590 | Token F1=0.9857
+Epoch 7: train_loss=0.0705 val_loss=0.1642 tag_acc=0.9254 token_acc=0.9978
+Metrics: Tag F1=0.9595 | Token F1=0.9828
+Epoch 8: train_loss=0.0601 val_loss=0.1755 tag_acc=0.9233 token_acc=0.9979
+Metrics: Tag F1=0.9593 | Token F1=0.9835
+Epoch 9: train_loss=0.0474 val_loss=0.1944 tag_acc=0.9271 token_acc=0.9982
+Metrics: Tag F1=0.9591 | Token F1=0.9860
+Epoch 10: train_loss=0.0391 val_loss=0.1987 tag_acc=0.9249 token_acc=0.9980
+Metrics: Tag F1=0.9602 | Token F1=0.9847
+Epoch 11: train_loss=0.0321 val_loss=0.1813 tag_acc=0.9273 token_acc=0.9979
+Metrics: Tag F1=0.9613 | Token F1=0.9847
+Epoch 12: train_loss=0.0257 val_loss=0.2089 tag_acc=0.9221 token_acc=0.9981
+Metrics: Tag F1=0.9570 | Token F1=0.9851
+Epoch 13: train_loss=0.0206 val_loss=0.2275 tag_acc=0.9243 token_acc=0.9984
+Metrics: Tag F1=0.9592 | Token F1=0.9873
+Epoch 14: train_loss=0.0178 val_loss=0.2196 tag_acc=0.9254 token_acc=0.9982
+Metrics: Tag F1=0.9599 | Token F1=0.9865
+Early stopping triggered! Val loss hasn't improved for 10 epochs.
+
+Saved PyTorch model to outputs/simple-model
+Generating failure log...
+Logged 567 incorrect predictions to incorrect_predictions.txt
+Saved labels to outputs/simple-model/labels.json
+
+============================================================
+Demo predictions:
+
+Prompt: show me my vitals
+Tags: []
+Count Pred: 0.96 (k=0)
+Tokens:
+  show                 -> TEXT
+  me                   -> TEXT
+  my                   -> TEXT
+  vital                -> TEXT
+  ##s                  -> TEXT
+
+Prompt: create a task called fix the engine
+Tags: []
+Count Pred: 1.00 (k=0)
+Tokens:
+  create               -> TEXT
+  a                    -> TEXT
+  task                 -> TEXT
+  called               -> TEXT
+  fix                  -> TASK_NAME
+  the                  -> TASK_NAME
+  engine               -> TASK_NAME
+
+Prompt: add a task for checking inventory then show vitals
+Tags: ['Add_task', 'open_menu_vitals']
+Count Pred: 2.08 (k=2)
+Tokens:
+  add                  -> TEXT
+  a                    -> TEXT
+  task                 -> TEXT
+  for                  -> TEXT
+  checking             -> TASK_NAME
+  inventory            -> TASK_NAME
+  then                 -> TEXT
+  show                 -> TEXT
+  vital                -> TEXT
+  ##s                  -> TEXT
+/content/GEMINI# zip -r model outputs/simple-model/
+  adding: outputs/simple-model/ (stored 0%)
+  adding: outputs/simple-model/labels.json (deflated 69%)
+  adding: outputs/simple-model/special_tokens_map.json (deflated 42%)
+  adding: outputs/simple-model/tokenizer_config.json (deflated 75%)
+  adding: outputs/simple-model/model.pt (deflated 8%)
+  adding: outputs/simple-model/vocab.txt (deflated 53%)
+  adding: outputs/simple-model/tokenizer.json (deflated 71%)
+/content/GEMINI# python simplechat.py 
+Loading model...
+  my                   -> TEXT
+  vital                -> TEXT
+  ##s                  -> TEXT
+
+Prompt: create a task called fix the engine
+Tags: []
+Count Pred: 1.00 (k=0)
+Tokens:
+  create               -> TEXT
+  a                    -> TEXT
+  task                 -> TEXT
+  called               -> TEXT
+  fix                  -> TASK_NAME
+  the                  -> TASK_NAME
+  engine               -> TASK_NAME
+
+Prompt: add a task for checking inventory then show vitals
+Tags: ['Add_task', 'open_menu_vitals']
+Count Pred: 2.08 (k=2)
+Tokens:
+  add                  -> TEXT
+  a                    -> TEXT
+  task                 -> TEXT
+  for                  -> TEXT
+  checking             -> TASK_NAME
+  inventory            -> TASK_NAME
+  then                 -> TEXT
+  show                 -> TEXT
+  vital                -> TEXT
+  ##s                  -> TEXT
+/content/GEMINI# zip -r model outputs/simple-model/
+  adding: outputs/simple-model/ (stored 0%)
+  adding: outputs/simple-model/labels.json (deflated 69%)
+  adding: outputs/simple-model/special_tokens_map.json (deflated 42%)
+  adding: outputs/simple-model/tokenizer_config.json (deflated 75%)
+  adding: outputs/simple-model/model.pt (deflated 8%)
+  adding: outputs/simple-model/vocab.txt (deflated 53%)
+  adding: outputs/simple-model/tokenizer.json (deflated 71%)
+/content/GEMINI# python simplechat.py 
+Loading model...
+Model not found! Run simpletrain.py first.
+/content/G
+/content/GEMINI# python simplechat.py 
+Loading model...
+2026-01-21 22:56:49.519770: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-01-21 22:56:49.536547: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1769036209.554813   12820 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1769036209.560163   12820 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1769036209.574320   12820 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769036209.574344   12820 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769036209.574348   12820 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769036209.574350   12820 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-01-21 22:56:49.578531: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model loaded on cuda
+Tool labels: ['Add_task', 'Add_waypoint', 'Complete_task', 'Delete_task', 'Delete_waypoint', 'Get_coordinates', 'Set_navigation_target', 'close_menu', 'get_warnings', 'open_menu_geosamples', 'open_menu_messaging', 'open_menu_navigation', 'open_menu_rover', 'open_menu_tasks', 'open_menu_uia', 'open_menu_vitals', 'open_menu_voice_assistant', 'reroute_navigation', 'start_procedure_erm', 'start_procedure_final_system_checks', 'start_procedure_physical_repair_task', 'start_procedure_system_diagnosis', 'start_procedure_system_restart', 'start_procedure_uia_egress', 'start_procedure_uia_ingress', 'undo', 'vitals_batt_time_left', 'vitals_co2_production', 'vitals_coolant_gas_pressure', 'vitals_coolant_liquid_pressure', 'vitals_coolant_storage', 'vitals_fan_pri_rpm', 'vitals_fan_sec_rpm', 'vitals_heart_rate', 'vitals_helmet_pressure_co2', 'vitals_oxy_consumption', 'vitals_oxy_pri_pressure', 'vitals_oxy_pri_storage', 'vitals_oxy_sec_pressure', 'vitals_oxy_sec_storage', 'vitals_oxy_time_left', 'vitals_scrubber_a_co2_storage', 'vitals_scrubber_b_co2_storage', 'vitals_suit_pressure_co2', 'vitals_suit_pressure_other', 'vitals_suit_pressure_oxy', 'vitals_suit_pressure_total', 'vitals_temperature']
+Token labels: ['COMPLETE_TASK_NAME', 'COORDINATE_TARGET_NAME', 'DELETE_TASK_NAME', 'DELETE_WAYPOINT_NAME', 'NAVIGATION_TARGET_NAME', 'TASK_NAME', 'TEXT', 'WAYPOINT_NAME']
+
+============================================================
+Type a prompt to classify. Type 'quit' to exit.
+============================================================
+
+You: yo can you add a task for walking the dog and undo the last thing
+
+Tags: Add_task (0.98), undo (0.08)
+Count Pred: 1.56 (k=2)
+Tokens: yo can you add a task for walking the dog and undo the last thing
+Breakdown:
+  yo                   TEXT
+  can                  TEXT
+  you                  TEXT
+  add                  TEXT
+  a                    TEXT
+  task                 TEXT
+  for                  TEXT
+  walking              TASK_NAME
+  the                  TASK_NAME
+  dog                  TASK_NAME
+  and                  TEXT
+  undo                 TEXT
+  the                  TEXT
+  last                 TEXT
+  thing                TEXT
+
+You: ^C
+Bye!

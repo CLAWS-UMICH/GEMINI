@@ -13,8 +13,13 @@ class TwoHeadModel(nn.Module):
 
     def __init__(self, base_model: str, num_tag_outputs: int, num_token_labels: int, token_weights=None):
         super().__init__()
-        self.encoder = AutoModel.from_pretrained(base_model)
+        self.encoder = AutoModel.from_pretrained(base_model, output_hidden_states=True)
         hidden = self.encoder.config.hidden_size
+        
+        # Learnable weights for each layer
+        n_layers = self.encoder.config.num_hidden_layers + 1
+        self.layer_weights = nn.Parameter(torch.ones(n_layers))
+        
         self.tag_head = nn.Linear(hidden, num_tag_outputs)
         self.count_head = nn.Linear(hidden, 1)
         self.token_head = nn.Sequential(
@@ -34,11 +39,19 @@ class TwoHeadModel(nn.Module):
 
     def forward(self, input_ids, attention_mask, **kwargs):
         out = self.encoder(input_ids=input_ids, attention_mask=attention_mask)
-        hidden_states = out.last_hidden_state
-        cls = hidden_states[:, 0, :]
-        tag_logits = self.tag_head(cls)
-        count_pred = self.count_head(cls)
-        token_logits = self.token_head(hidden_states)
+        
+        # Weighted sum of CLS tokens
+        all_hidden_states = torch.stack(out.hidden_states)
+        all_cls_tokens = all_hidden_states[:, :, 0, :]
+        norm_weights = nn.functional.softmax(self.layer_weights, dim=0)
+        weighted_cls = torch.sum(all_cls_tokens * norm_weights.view(-1, 1, 1), dim=0)
+        
+        tag_logits = self.tag_head(weighted_cls)
+        count_pred = self.count_head(weighted_cls)
+        
+        # Token head uses last hidden state
+        token_logits = self.token_head(out.last_hidden_state)
+        
         return {"tag_logits": tag_logits, "count_pred": count_pred, "token_logits": token_logits}
 
 

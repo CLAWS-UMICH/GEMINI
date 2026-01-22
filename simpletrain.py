@@ -38,17 +38,26 @@ class TwoHeadModel(nn.Module):
 
     def __init__(self, base_model: str, num_tools: int, num_token_labels: int, token_weights=None):
         super().__init__()
-        self.encoder = AutoModel.from_pretrained(base_model)
+        # Enable output_hidden_states to access all layers
+        self.encoder = AutoModel.from_pretrained(base_model, output_hidden_states=True)
         hidden = self.encoder.config.hidden_size
         self.num_tools = num_tools
 
-        # Head 1: Overall tags from [CLS] token
+        # Learnable weights for each layer (num_hidden_layers + 1 for embedding layer)
+        # Initialize to favor the last layer slightly or keep uniform, but letting it learn is key.
+        n_layers = self.encoder.config.num_hidden_layers + 1
+        self.layer_weights = nn.Parameter(torch.ones(n_layers))
+
+        # Head 1: Overall tags from weighted [CLS] token
         self.tag_head = nn.Linear(hidden, num_tools)
         
         # Head 3: Predicting the number of tools (regression)
         self.count_head = nn.Linear(hidden, 1)
 
-        # Head 2: Token-level classification
+        # Head 2: Token-level classification usually benefits most from the last layer
+        # giving it access to all layers might be overkill or good, but user asked for 
+        # "head that predicts the tags and the # of labels" to have this access.
+        # We'll keep token head on the last hidden state for now to keep it simple as requested.
         self.token_head = nn.Sequential(
             nn.Linear(hidden, hidden * 2),
             nn.GELU(),
@@ -67,15 +76,26 @@ class TwoHeadModel(nn.Module):
 
     def forward(self, input_ids, attention_mask, tag_labels=None, token_labels=None, count_labels=None):
         out = self.encoder(input_ids=input_ids, attention_mask=attention_mask)
-        hidden_states = out.last_hidden_state  # (batch, seq, hidden)
+        
+        # Stack all hidden states: (n_layers, batch, seq, hidden)
+        all_hidden_states = torch.stack(out.hidden_states)
+        
+        # We only want the [CLS] token from each layer: (n_layers, batch, hidden)
+        all_cls_tokens = all_hidden_states[:, :, 0, :]
+        
+        # Compute normalized weights: (n_layers,)
+        norm_weights = nn.functional.softmax(self.layer_weights, dim=0)
+        
+        # Weighted sum: (batch, hidden)
+        # Broadcast weights across batch and hidden dims
+        weighted_cls = torch.sum(all_cls_tokens * norm_weights.view(-1, 1, 1), dim=0)
 
-        # CLS token for overall tags
-        cls = hidden_states[:, 0, :]
-        tool_logits = self.tag_head(cls)  # (batch, num_tools)
-        count_pred = self.count_head(cls) # (batch, 1)
+        tool_logits = self.tag_head(weighted_cls)  # (batch, num_tools)
+        count_pred = self.count_head(weighted_cls) # (batch, 1)
 
-        # All tokens for token-level
-        token_logits = self.token_head(hidden_states)  # (batch, seq, num_token_labels)
+        # All tokens for token-level (using last hidden state)
+        last_hidden_state = out.last_hidden_state
+        token_logits = self.token_head(last_hidden_state)  # (batch, seq, num_token_labels)
 
         loss = None
         if tag_labels is not None and token_labels is not None and count_labels is not None:
