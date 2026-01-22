@@ -187,3 +187,109 @@ Breakdown:
 
 You: ^C
 Bye!
+
+
+
+-------- BELOW IS THE ARCH THAT CAN SEE ALL INTERNAL CLS States
+e_uia_egress', 'start_procedure_uia_ingress', 'undo', 'vitals_batt_time_left', 'vitals_co2_production', 'vitals_coolant_gas_pressure', 'vitals_coolant_liquid_pressure', 'vitals_coolant_storage', 'vitals_fan_pri_rpm', 'vitals_fan_sec_rpm', 'vitals_heart_rate', 'vitals_helmet_pressure_co2', 'vitals_oxy_consumption', 'vitals_oxy_pri_pressure', 'vitals_oxy_pri_storage', 'vitals_oxy_sec_pressure', 'vitals_oxy_sec_storage', 'vitals_oxy_time_left', 'vitals_scrubber_a_co2_storage', 'vitals_scrubber_b_co2_storage', 'vitals_suit_pressure_co2', 'vitals_suit_pressure_other', 'vitals_suit_pressure_oxy', 'vitals_suit_pressure_total', 'vitals_temperature']
+Discovered 8 token labels: ['COMPLETE_TASK_NAME', 'COORDINATE_TARGET_NAME', 'DELETE_TASK_NAME', 'DELETE_WAYPOINT_NAME', 'NAVIGATION_TARGET_NAME', 'TASK_NAME', 'TEXT', 'WAYPOINT_NAME']
+Loaded 59812 examples
+Token class weights: {'COMPLETE_TASK_NAME': 7.893367767333984, 'COORDINATE_TARGET_NAME': 16.19431495666504, 'DELETE_TASK_NAME': 11.010438919067383, 'DELETE_WAYPOINT_NAME': 17.529552459716797, 'NAVIGATION_TARGET_NAME': 17.508277893066406, 'TASK_NAME': 9.80368423461914, 'TEXT': 0.134397491812706, 'WAYPOINT_NAME': 15.635198593139648}
+2026-01-22 00:11:00.232300: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-01-22 00:11:00.249493: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1769040660.270920    5542 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1769040660.277483    5542 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1769040660.294037    5542 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769040660.294079    5542 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769040660.294082    5542 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769040660.294085    5542 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-01-22 00:11:00.299116: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+model.safetensors: 100%|█████████████████████████████████████████████| 268M/268M [00:01<00:00, 268MB/s]
+
+Epoch 1: train_loss=2.6746 val_loss=1.6371 tag_acc=0.0588 token_acc=0.9871
+Metrics: Tag F1=0.0000 | Token F1=0.9151
+Epoch 2: train_loss=1.1720 val_loss=0.7231 tag_acc=0.7531 token_acc=0.9937
+Metrics: Tag F1=0.6406 | Token F1=0.9574
+Epoch 3: train_loss=0.4970 val_loss=0.3167 tag_acc=0.8820 token_acc=0.9959
+Metrics: Tag F1=0.9130 | Token F1=0.9712
+Epoch 4: train_loss=0.2441 val_loss=0.2140 tag_acc=0.9074 token_acc=0.9965
+Metrics: Tag F1=0.9452 | Token F1=0.9748
+Epoch 5: train_loss=0.1599 val_loss=0.1934 tag_acc=0.9164 token_acc=0.9974
+Metrics: Tag F1=0.9532 | Token F1=0.9817
+Epoch 6: train_loss=0.1160 val_loss=0.1768 tag_acc=0.9209 token_acc=0.9974
+Metrics: Tag F1=0.9560 | Token F1=0.9787
+Epoch 7: train_loss=0.0944 val_loss=0.1574 tag_acc=0.9249 token_acc=0.9981
+Metrics: Tag F1=0.9595 | Token F1=0.9847
+Epoch 8: train_loss=0.0784 val_loss=0.1592 tag_acc=0.9295 token_acc=0.9981
+Metrics: Tag F1=0.9610 | Token F1=0.9847
+Epoch 9: train_loss=0.0660 val_loss=0.1415 tag_acc=0.9280 token_acc=0.9981
+Metrics: Tag F1=0.9617 | Token F1=0.9866
+Epoch 10: train_loss=0.0555 val_loss=0.1590 tag_acc=0.9303 token_acc=0.9984
+Metrics: Tag F1=0.9634 | Token F1=0.9881
+Epoch 11: train_loss=0.0482 val_loss=0.1683 tag_acc=0.9268 token_acc=0.9985
+Metrics: Tag F1=0.9605 | Token F1=0.9884
+Epoch 12: train_loss=0.0409 val_loss=0.1715 tag_acc=0.9286 token_acc=0.9983
+Metrics: Tag F1=0.9611 | Token F1=0.9867
+Epoch 13: train_loss=0.0336 val_loss=0.2164 tag_acc=0.9241 token_acc=0.9984
+Metrics: Tag F1=0.9599 | Token F1=0.9874
+Epoch 14: train_loss=0.0288 val_loss=0.2174 tag_acc=0.9283 token_acc=0.9986
+Metrics: Tag F1=0.9612 | Token F1=0.9887
+Epoch 15: train_loss=0.0233 val_loss=0.1836 tag_acc=0.9276 token_acc=0.9984
+Metrics: Tag F1=0.9606 | Token F1=0.9876
+Epoch 16: train_loss=0.0206 val_loss=0.1954 tag_acc=0.9290 token_acc=0.9984
+Metrics: Tag F1=0.9620 | Token F1=0.9873
+Epoch 17: train_loss=0.0162 val_loss=0.2423 tag_acc=0.9273 token_acc=0.9985
+Metrics: Tag F1=0.9605 | Token F1=0.9885
+Epoch 18: train_loss=0.0151 val_loss=0.2346 tag_acc=0.9278 token_acc=0.9985
+Metrics: Tag F1=0.9611 | Token F1=0.9876
+Epoch 19: train_loss=0.0144 val_loss=0.2367 tag_acc=0.9264 token_acc=0.9985
+Metrics: Tag F1=0.9605 | Token F1=0.9883
+Early stopping triggered! Val loss hasn't improved for 10 epochs.
+
+Saved PyTorch model to outputs/simple-model
+Generating failure log...
+Logged 566 incorrect predictions to incorrect_predictions.txt
+Saved labels to outputs/simple-model/labels.json
+
+============================================================
+Demo predictions:
+
+Prompt: show me my vitals
+Tags: ['open_menu_vitals']
+Count Pred: 0.96 (k=1)
+Tokens:
+  show                 -> TEXT
+  me                   -> TEXT
+  my                   -> TEXT
+  vital                -> TEXT
+  ##s                  -> TEXT
+
+Prompt: create a task called fix the engine
+Tags: ['Add_task']
+Count Pred: 0.99 (k=1)
+Tokens:
+  create               -> TEXT
+  a                    -> TEXT
+  task                 -> TEXT
+  called               -> TEXT
+  fix                  -> TASK_NAME
+  the                  -> TASK_NAME
+  engine               -> TASK_NAME
+
+Prompt: add a task for checking inventory then show vitals
+Tags: ['Add_task', 'open_menu_vitals']
+Count Pred: 2.00 (k=2)
+Tokens:
+  add                  -> TEXT
+  a                    -> TEXT
+  task                 -> TEXT
+  for                  -> TEXT
+  checking             -> TASK_NAME
+  inventory            -> TASK_NAME
+  then                 -> TEXT
+  show                 -> TEXT
+  vital                -> TEXT
+  ##s                  -> TEXT
+/content/GEMINI# 
