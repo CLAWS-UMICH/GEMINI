@@ -9,7 +9,7 @@ load_dotenv()
 
 # Best speed/memory on Apple Silicon:
 # (bf16 also exists: mlx-community/functiongemma-270m-it-bf16)
-model_id = "mlx-community/functiongemma-270m-it-4bit"
+model_id = "mlx-community/functiongemma-270m-it-bf16"
 
 # If the repo is gated, make sure HF_TOKEN is set
 # (mlx-lm uses HF Hub under the hood)
