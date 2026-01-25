@@ -1,3 +1,4 @@
+/*
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,11 +15,12 @@ public class VoiceAssistant : MonoBehaviour
 {
     public LMCC lmcc;
     private KeywordRecognizer wakeRecognizer;
-    private string[] wakeWords = new string[] { "hey corvus", "corvus" }; // you can add variants
+    private string[] wakeWords = new string[] { "corvus", "hello" }; // you can add variants
     private DictationRecognizer dictationRecognizer;
     private bool isListening = false;
     private float maxListenSeconds = 10f;
     private float dictationStartTime;
+
 
     void Start()
     {
@@ -30,7 +32,7 @@ public class VoiceAssistant : MonoBehaviour
     {
         try
         {
-            wakeRecognizer = new KeywordRecognizer(wakeWords, ConfidenceLevel.Medium);
+            wakeRecognizer = new KeywordRecognizer(wakeWords);
             wakeRecognizer.OnPhraseRecognized += OnWakePhrase;
             wakeRecognizer.Start();
             Debug.Log("Wake recognizer started");
@@ -67,13 +69,14 @@ public class VoiceAssistant : MonoBehaviour
 
     private void OnWakePhrase(PhraseRecognizedEventArgs args)
     {
-        Debug.Log($"Wake phrase recognized: {args.text} (confidence {args.confidence})");
+        Debug.Log($"Wake phrase recognized: {args.text})");
         // Optionally check confidence or require double-wake
         StartListening();
     }
 
     private void StartListening()
     {
+
         if (isListening) return;
         try
         {
@@ -92,6 +95,7 @@ public class VoiceAssistant : MonoBehaviour
 
     private void StopListening()
     {
+
         if (!isListening) return;
         try
         {
@@ -114,6 +118,8 @@ public class VoiceAssistant : MonoBehaviour
 
     private void OnFinalTranscript(string transcript, float confidence)
     {
+        Debug.Log($"DICTATION FINAL: {transcript}");
+
         // here is where to decide if further processing is needed before sending to LMCC
 
         // --- Build message object to send to LMCC ---
@@ -147,3 +153,153 @@ public class VoiceAssistant : MonoBehaviour
     }
 }
 
+*/
+using Stopwatch = System.Diagnostics.Stopwatch;
+using UnityEngine;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
+using Toggle = UnityEngine.UI.Toggle;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using UnityEngine.Serialization;
+using Whisper.Utils;
+using Whisper;
+using TMPro;
+using Microsoft.MixedReality.GraphicsTools.Editor;
+
+
+
+/// <summary>
+/// Record audio clip from microphone and make a transcription.
+/// </summary>
+public class CorvusController : MonoBehaviour
+    {
+        public WhisperManager whisper;
+        public MicrophoneRecord microphoneRecord;
+        public bool streamSegments = true;
+        public bool printLanguage = true;
+
+        [Header("UI")] 
+        public Button button;
+        public TextMeshProUGUI outputText;
+        public Text timeText;
+        public Dropdown languageDropdown;
+        public Toggle translateToggle;
+        public Toggle vadToggle;
+        public ScrollRect scroll;
+        
+        private string _buffer;
+        /*
+        private async void Start()
+        {
+            bool loaded = await whisper.IsLoaded;
+
+            if (!loaded)
+            {
+                Debug.Log("Loading Whisper model...");
+                await whisper.InitModel();   // <-- this is the key line for this package
+            }
+
+            Debug.Log("Whisper model ready!");
+        }
+        */
+        private async void Start()
+        {
+            // Wait until Whisper model finishes loading
+            while (!whisper.IsLoaded)
+            {
+                Debug.Log("Waiting for Whisper model to load...");
+                await Task.Delay(100);
+            }
+
+            Debug.Log("Whisper model loaded!");
+        }
+
+        private void Awake()
+        {
+            whisper.OnNewSegment += OnNewSegment;
+            whisper.OnProgress += OnProgressHandler;
+            
+            microphoneRecord.OnRecordStop += OnRecordStop;
+            
+            button.onClick.AddListener(OnButtonPressed);
+            languageDropdown.value = languageDropdown.options
+                .FindIndex(op => op.text == whisper.language);
+            languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
+
+            translateToggle.isOn = whisper.translateToEnglish;
+            translateToggle.onValueChanged.AddListener(OnTranslateChanged);
+
+            vadToggle.isOn = microphoneRecord.vadStop;
+            vadToggle.onValueChanged.AddListener(OnVadChanged);
+        }
+
+        private void OnVadChanged(bool vadStop)
+        {
+            microphoneRecord.vadStop = vadStop;
+        }
+
+        private void OnButtonPressed()
+        {
+            if (!microphoneRecord.IsRecording)
+            {
+                microphoneRecord.StartRecord();
+            }
+            else
+            {
+                microphoneRecord.StopRecord();
+            }
+        }
+        
+        private async void OnRecordStop(AudioChunk recordedAudio)
+        {
+            _buffer = "";
+
+            var sw = new Stopwatch();
+            sw.Start();
+            
+            var res = await whisper.GetTextAsync(recordedAudio.Data, recordedAudio.Frequency, recordedAudio.Channels);
+            if (res == null || !outputText) 
+                return;
+
+            var time = sw.ElapsedMilliseconds;
+            var rate = recordedAudio.Length / (time * 0.001f);
+            timeText.text = $"Time: {time} ms\nRate: {rate:F1}x";
+
+            var text = res.Result;
+            if (printLanguage)
+                text += $"\n\nLanguage: {res.Language}";
+            
+            outputText.text = text;
+            UiUtils.ScrollDown(scroll);
+        }
+        
+        private void OnLanguageChanged(int ind)
+        {
+            var opt = languageDropdown.options[ind];
+            whisper.language = opt.text;
+        }
+        
+        private void OnTranslateChanged(bool translate)
+        {
+            whisper.translateToEnglish = translate;
+        }
+
+        private void OnProgressHandler(int progress)
+        {
+            if (!timeText)
+                return;
+            timeText.text = $"Progress: {progress}%";
+        }
+        
+        private void OnNewSegment(WhisperSegment segment)
+        {
+            if (!streamSegments || !outputText)
+                return;
+
+            _buffer += segment.Text;
+            outputText.text = _buffer + "...";
+            UiUtils.ScrollDown(scroll);
+        }
+    }
