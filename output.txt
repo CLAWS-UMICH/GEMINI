@@ -1,0 +1,13 @@
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Using Transformers CPU fallback. Loading: google/functiongemma-270m-it
+
+=== QUERY 2: user-visible response (given tool calls + outputs) ===
+[{'role': 'system', 'content': "Answer in EXACTLY ONE SHORT PLAIN TEXT SENTENCE. No markdown. No bolding. No JSON.\nIf the temperature label is 'fever-range', say the user is unhealthy or has a fever."}, {'role': 'user', 'content': "Can you get my temperature and tell me if I'm healthy? Also make a task to inspect the rock. BE SURE TO TELL ME IF IM HEALTHY"}, {'role': 'assistant', 'tool_calls': [{'type': 'function', 'function': {'name': 'get_temperature', 'arguments': '{}'}}, {'type': 'function', 'function': {'name': 'add_task', 'arguments': '{"title": "Inspect the rock", "due": "tomorrow 3pm", "notes": "Inspect for cracks or movement.", "priority": "medium"}'}}]}, {'role': 'tool', 'name': 'get_temperature', 'content': '{"temperature": "101.3 F", "health": "UNHEALTHY (fever detected)"}'}, {'role': 'tool', 'name': 'add_task', 'content': '{"result": "task created", "id": "TASK-001"}'}]
+===
+Final response: Okay, here's a summary of what happened: 1. **Temperature:** The user's body temperature was 101.3 degrees Fahrenheit. 2. **Health:** The user is currently **UNHEALTHY (fever detected)**. 3. **Task:** A task has been created to inspect the rock.
+
+
+=== Metrics ===
+Backend: Transformers-CPU
+Query1 time: 0.00s | tokens: 1 | TPS: 0.00
+Query2 time: 14.32s | tokens: 70 | TPS: 4.89
