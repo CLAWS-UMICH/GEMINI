@@ -1,5 +1,14 @@
-using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
+
+[System.Serializable]
+public class Data
+{
+    public string client; // Target client (e.g., "hololens_1", "hololens_2", "pr_client")
+    public string type;   // case type (e.g., "VITALS", "WAYPOINTS", "MESSAGES")
+    public Dictionary<string, object> data; // The message to send, dependent on what the room is
+}
 
 public class Location /// UNITY LOCATION ///
 {
@@ -58,7 +67,7 @@ public class TelemetryDetails
 [System.Serializable]
 public class VitalsDetails
 {
-    public int batt_time_left; // ORA
+    public double batt_time_left; // ORA
     public double oxy_pri_storage; // ORA
     public double oxy_sec_storage; // ORA
     public double oxy_pri_pressure;

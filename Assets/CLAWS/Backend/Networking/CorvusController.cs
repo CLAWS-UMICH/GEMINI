@@ -1,166 +1,149 @@
 using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
-using CLAWS.Networking;
+using UnityEngine.Windows.Speech;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
-namespace CLAWS.Networking
+// Last Updated:
+//     Molly M. -- 11/9/2025
+
+// add in cases for menu navigation, etc. that does not require LLM processing before sending to LMCC
+
+public class VoiceAssistant : MonoBehaviour
 {
-    [System.Serializable]
-    public class CommandRequest
+    public LMCC lmcc;
+    private KeywordRecognizer wakeRecognizer;
+    private string[] wakeWords = new string[] { "hey corvus", "corvus" }; // you can add variants
+    private DictationRecognizer dictationRecognizer;
+    private bool isListening = false;
+    private float maxListenSeconds = 10f;
+    private float dictationStartTime;
+
+    void Start()
     {
-        public string command;
-    }
-    [System.Serializable]
-    public class IntentResponse
-    {
-        public string status;
-        public string intent;
-        public float confidence;
-        public string[] matched_keywords;
-        public string request_id;
-        public float latency_ms;
-        public string timestamp; 
+        SetupWakeRecognizer();
+        SetupDictation();
     }
 
-    public class CorvusController : MonoBehaviour
+    void SetupWakeRecognizer()
     {
-        // WebSocket connection to Python server
-        private WebSocketClient _webSocketClient;
-
-        // Server URL
-        [SerializeField] private string _serverUrl = "ws://localhost:8765";
-        [SerializeField] private CorvusTTS _corvusTTS;
-
-        // Check CORVUS connection
-        public bool IsConnected => _webSocketClient?.IsConnected ?? false;
-
-        // Fire event (received from Python)
-        public event Action<string, float, float> OnIntentReceived;
-
-        private async void Start()
+        try
         {
-            try
-            {
-                // Create WebSocket client
-                _webSocketClient = new WebSocketClient(_serverUrl);
-
-                // Subscribe to incoming messages
-                _webSocketClient.OnMessageReceived += HandleMessageReceived;
-
-                // Connect to Python server
-                await _webSocketClient.ConnectAsync();
-
-                // Start listening for messages
-                _ = _webSocketClient.StartListeningAsync();
-
-                Debug.Log("CORVUS initialized successfully");
-
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Failed to initialize CORVUS: {ex.Message}");
-            }
+            wakeRecognizer = new KeywordRecognizer(wakeWords, ConfidenceLevel.Medium);
+            wakeRecognizer.OnPhraseRecognized += OnWakePhrase;
+            wakeRecognizer.Start();
+            Debug.Log("Wake recognizer started");
         }
-
-        private string GetResponseForIntent(string intent, float confidence)
+        catch (Exception ex)
         {
-            switch(intent)
-            {
-                case "check_vitals":
-                    return "Checking your vitals now.";
-                case "navigate_to_airlock":
-                    return "Navigating to airlock.";
-                case "check_oxygen_level":
-                    return "Checking oxygen level.";
-                case "check_battery":
-                    return "Checking battery status.";
-                case "emergency_abort":
-                    return "Emergency abort initiated!";
-                default:
-                    if (confidence < 0.5f)
-                        return "Sorry, I didn't understand. Please repeat.";
-                    return $"Processing {intent.Replace("_", " ")}.";
-            }
+            Debug.LogError("Failed to start KeywordRecognizer: " + ex);
         }
+    }
 
-        private void HandleMessageReceived(string message)
+    void SetupDictation()
+    {
+        dictationRecognizer = new DictationRecognizer();
+        dictationRecognizer.DictationResult += (text, confidence) =>
         {
-            try
-            {
-                Debug.Log($"Processing message: {message}");
-
-                // Parse JSON message
-                var response = JsonUtility.FromJson<IntentResponse>(message);
-
-                // Event to notify UI
-                OnIntentReceived?.Invoke(response.intent, response.confidence, response.latency_ms);
-
-                Debug.Log($"Intent: {response.intent}, Confidence: {response.confidence}, Latency: {response.latency_ms}ms");
-
-                // Speak the response
-                if (_corvusTTS != null)
-                {
-                    string spokenText = GetResponseForIntent(response.intent, response.confidence);
-                    _ = _corvusTTS.Speak(spokenText);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error processing message: {ex.Message}");
-            }
-        }
-
-        public async Task SendCommandAsync(string command)
+            Debug.Log($"Dictation result: {text} (confidence {confidence})");
+            OnFinalTranscript(text, (float)confidence);
+        };
+        dictationRecognizer.DictationHypothesis += (text) =>
         {
-            if (!IsConnected)
-            {
-                Debug.LogError("Cannot send command: Not connected to server");
-                return;
-            }
-
-            try
-            {
-                Debug.Log($"Sending command: {command}");
-
-                // Format as JSON later
-                var request = new CommandRequest { command = command };
-                string json = JsonUtility.ToJson(request);
-
-                Debug.Log($"Sending: {json}");
-                await _webSocketClient.SendAsync(json);
-                
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Failed to send command: {ex.Message}");
-            }
-        }
-
-        private async void OnDestroy()
+            Debug.Log($"Hypothesis: {text}");
+        };
+        dictationRecognizer.DictationComplete += (completionCause) =>
         {
-            try
-            {
-                // Unsubscribe from event to prevent memory leaks
-                if (_webSocketClient != null)
-                {
-                    _webSocketClient.OnMessageReceived -= HandleMessageReceived;
-                }
+            Debug.Log("Dictation complete: " + completionCause);
+            StopListening();
+        };
+        dictationRecognizer.DictationError += (error, hresult) =>
+        {
+            Debug.LogError($"Dictation error: {error} (hr:{hresult})");
+            StopListening();
+        };
+    }
 
-                // Disconnect gracefully
-                if (IsConnected)
-                {
-                    await _webSocketClient.DisconnectAsync();
-                }
+    private void OnWakePhrase(PhraseRecognizedEventArgs args)
+    {
+        Debug.Log($"Wake phrase recognized: {args.text} (confidence {args.confidence})");
+        // Optionally check confidence or require double-wake
+        StartListening();
+    }
 
-                Debug.Log("CORVUS cleaned up successfully");
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error during cleanup: {ex.Message}");
-            }
+    private void StartListening()
+    {
+        if (isListening) return;
+        try
+        {
+            dictationRecognizer.Start();
+            isListening = true;
+            dictationStartTime = Time.time;
+            Debug.Log("Dictation started");
+            // optional: show UI indicator
         }
- 
-     }
+        catch (Exception ex)
+        {
+            Debug.LogError("Failed to start dictation: " + ex);
+            isListening = false;
+        }
+    }
 
+    private void StopListening()
+    {
+        if (!isListening) return;
+        try
+        {
+            dictationRecognizer.Stop();
+        }
+        catch (Exception) { }
+        isListening = false;
+        Debug.Log("Stopped listening");
+    }
+
+    void Update()
+    {
+        // safety: stop if exceeds max listen seconds
+        if (isListening && Time.time - dictationStartTime > maxListenSeconds)
+        {
+            Debug.Log("Max listen time reached, stopping");
+            StopListening();
+        }
+    }
+
+    private void OnFinalTranscript(string transcript, float confidence)
+    {
+        // here is where to decide if further processing is needed before sending to LMCC
+
+        // --- Build message object to send to LMCC ---
+        var payload = new Dictionary<string, object>()
+        {
+            { "transcript", transcript },
+            { "confidence", confidence },
+            { "timestamp", DateTime.UtcNow.ToString("o") },
+            { "context", GetContextSnapshot() }
+        };
+
+        // Send to LMCC as "CORVUS_TEXT" in case type "CORVUS" (clientId 4 -> LMCC)
+        lmcc.SendJsonData(payload, "voice_text", 4);
+    }
+
+    private Dictionary<string, object> GetContextSnapshot()
+    {
+        // return relevant context data as needed
+        // brainstorm with team on what context is useful
+        // Vitals, location, current task, etc.
+        return new Dictionary<string, object>()
+        {
+            { "example_key", "example_value" }
+        };
+    }
+
+    private void OnDestroy()
+    {
+        if (wakeRecognizer != null && wakeRecognizer.IsRunning) wakeRecognizer.Stop();
+        if (dictationRecognizer != null && dictationRecognizer.Status == SpeechSystemStatus.Running) dictationRecognizer.Stop();
+    }
 }
+
