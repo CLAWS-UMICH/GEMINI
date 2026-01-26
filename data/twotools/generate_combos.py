@@ -22,7 +22,7 @@ load_dotenv()
 # Paths
 SCRIPT_DIR = Path(__file__).parent
 DATA_DIR = SCRIPT_DIR.parent
-NAMES_FILE = DATA_DIR / "names.txt"
+NAMES_FILE = DATA_DIR / "names.json"
 INTENT_COMBOS_FILE = SCRIPT_DIR / "intentcombos.txt"
 OUTPUT_DIR = SCRIPT_DIR
 
@@ -95,48 +95,22 @@ SPECIAL_TOKEN_CONFIG = {
 }
 
 
-def parse_names_file(filepath: Path) -> dict:
+def load_names_file(filepath: Path) -> dict:
     """
-    Parse names.txt to extract intent definitions.
+    Parse names.json to extract intent definitions.
     
-    Returns a dict mapping intent_name -> {description: str, tokens: str}
+    Returns a dict mapping intent_name -> {description: str, tokens: list[str]}
     """
-    intents = {}
-    current_intent = None
-    current_description = None
-    
     with open(filepath, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+        data = json.load(f)
     
-    i = 0
-    while i < len(lines):
-        line = lines[i].strip()
+    intents = {}
+    for item in data:
+        name = item['name']
+        # flexible mapping to support lookups
+        intents[name] = item
+        intents[name.lower()] = item
         
-        # Check for intent name (wrapped in **)
-        match = re.match(r'\*\*(\w+)\*\*', line)
-        if match:
-            current_intent = match.group(1)
-            i += 1
-            
-            # Next line is the description
-            if i < len(lines):
-                current_description = lines[i].strip()
-                i += 1
-            
-            # Next line is the tokens
-            if i < len(lines):
-                tokens = lines[i].strip()
-                intents[current_intent.lower()] = {
-                    'name': current_intent,
-                    'description': current_description,
-                    'tokens': tokens
-                }
-                # Also store with original case for lookups
-                intents[current_intent] = intents[current_intent.lower()]
-                i += 1
-        else:
-            i += 1
-    
     return intents
 
 
@@ -160,8 +134,8 @@ def build_prompt(intent1_info: dict, intent2_info: dict) -> str:
     Build the prompt for OpenAI API to generate combined intent training data.
     """
     # Combine token types from both intents (unique set)
-    tokens1 = set(t.strip() for t in intent1_info['tokens'].split(','))
-    tokens2 = set(t.strip() for t in intent2_info['tokens'].split(','))
+    tokens1 = set(intent1_info['tokens'])
+    tokens2 = set(intent2_info['tokens'])
     all_tokens = sorted(tokens1 | tokens2)
     
     # Build special token instructions based on which intents we have (using config)
@@ -191,11 +165,11 @@ For the intents that take parameters (shown above), you MUST follow this exact d
 
 ## Intent 1: {intent1_info['name']}
 Description: {intent1_info['description']}
-Allowed token labels: {intent1_info['tokens']}
+Allowed token labels: {', '.join(intent1_info['tokens'])}
 
 ## Intent 2: {intent2_info['name']}
 Description: {intent2_info['description']}
-Allowed token labels: {intent2_info['tokens']}
+Allowed token labels: {', '.join(intent2_info['tokens'])}
 {special_token_section}
 
 ## CRITICAL DIVERSITY REQUIREMENTS (FOLLOW THESE EXACTLY):
@@ -329,8 +303,8 @@ def validate_data(data: list, intent1_info: dict, intent2_info: dict) -> tuple:
     # Build allowed sets
     allowed_intents = {intent1_info['name'].lower(), intent2_info['name'].lower()}
     
-    tokens1 = set(t.strip() for t in intent1_info['tokens'].split(','))
-    tokens2 = set(t.strip() for t in intent2_info['tokens'].split(','))
+    tokens1 = set(intent1_info['tokens'])
+    tokens2 = set(intent2_info['tokens'])
     allowed_tokens = tokens1 | tokens2
     
     errors = []
@@ -367,8 +341,8 @@ def save_jsonc_file(filepath: Path, intent1_info: dict, intent2_info: dict, data
     Save the generated data as a JSONC file with comments at the top.
     """
     # Combine token types
-    tokens1 = set(t.strip() for t in intent1_info['tokens'].split(','))
-    tokens2 = set(t.strip() for t in intent2_info['tokens'].split(','))
+    tokens1 = set(intent1_info['tokens'])
+    tokens2 = set(intent2_info['tokens'])
     all_tokens = sorted(tokens1 | tokens2)
     
     content = f"""{{
@@ -440,9 +414,9 @@ def main():
     # but strictly speaking we don't need to fail here if we don't check keys until inside the worker.
     pass
     
-    # Parse names.txt
-    print("Parsing names.txt...")
-    intents = parse_names_file(NAMES_FILE)
+    # Parse names.json
+    print("Parsing names.json...")
+    intents = load_names_file(NAMES_FILE)
     print(f"Found {len(intents) // 2} intents")  # Divided by 2 because we store both cases
     
     # Read intent combos
@@ -469,10 +443,10 @@ def main():
         intent2_lower = intent2.lower()
         
         if intent1_lower not in intents:
-            print(f"Warning: Intent '{intent1}' not found in names.txt, skipping")
+            print(f"Warning: Intent '{intent1}' not found in names.json, skipping")
             continue
         if intent2_lower not in intents:
-            print(f"Warning: Intent '{intent2}' not found in names.txt, skipping")
+            print(f"Warning: Intent '{intent2}' not found in names.json, skipping")
             continue
         
         intent1_info = intents[intent1_lower]

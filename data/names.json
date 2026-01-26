@@ -1,0 +1,401 @@
+[
+    {
+        "name": "vitals_batt_time_left",
+        "description": "The user needs to verify the remaining operational duration of the suit\u2019s power supply to ensure they have enough energy to complete the current objective or return to the rover. They might ask questions like \"How much battery time do I have left?\" or \"Check battery duration.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "00:00 - 10:00 (H:M)"
+    },
+    {
+        "name": "vitals_oxy_pri_storage",
+        "description": "The user wants to check the fill level or capacity of the primary oxygen tank, which is critical for life support during the EVA. The prompt would likely be a request such as \"What is my primary oxygen level?\" or \"Check primary O2 storage.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 100%"
+    },
+    {
+        "name": "vitals_oxy_sec_storage",
+        "description": "The user needs to confirm the status of the backup oxygen supply, ensuring redundancy in case of a primary system failure. They might ask, \"Status of secondary oxygen tank\" or \"How much oxygen is in the secondary storage?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 100%"
+    },
+    {
+        "name": "vitals_oxy_pri_pressure",
+        "description": "The user wants to know the specific pressure reading of the primary oxygen tank to verify it is within nominal operating ranges, particularly during UIA ingress/egress procedures. The prompt might be \"Read primary oxygen pressure\" or \"Is primary O2 pressure nominal?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 3000 psi"
+    },
+    {
+        "name": "vitals_oxy_sec_pressure",
+        "description": "The user needs to verify the pressure of the secondary oxygen tank, often as part of a safety check or pre-egress checklist. They might ask, \"What is the pressure in the secondary O2 tank?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 3000 psi"
+    },
+    {
+        "name": "vitals_oxy_time_left",
+        "description": "The user requests a calculation of how much longer their current oxygen supply will last based on current consumption rates. This is a critical safety query, often phrased as \"How much oxygen time remains?\" or \"Time to oxygen depletion?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "00:00 - 10:00 (H:M)"
+    },
+    {
+        "name": "vitals_coolant_storage",
+        "description": "The user wants to check the remaining volume of water or coolant available for the suit's thermal regulation system. They might ask, \"Check coolant levels\" or \"How much coolant storage is left?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 100%"
+    },
+    {
+        "name": "vitals_heart_rate",
+        "description": "The user wants to know their current physiological stress level, or the system may have flagged a high heart rate, prompting the user to query it. The prompt would be \"What is my heart rate?\" or \"Check BPM.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "40 - 180 BPM"
+    },
+    {
+        "name": "vitals_oxy_consumption",
+        "description": "The user is interested in the rate at which they are using oxygen, which helps in planning strenuous activities or return trips. They might ask, \"What is my current oxygen consumption rate?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0.5 - 3.5 L/min"
+    },
+    {
+        "name": "vitals_co2_production",
+        "description": "The user needs to monitor the rate at which they are generating carbon dioxide, which can indicate physical exertion or scrubber efficiency. The prompt might be \"Check CO2 production levels.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0.5 - 3.5 L/min"
+    },
+    {
+        "name": "vitals_suit_pressure_oxy",
+        "description": "The user wants to know the partial pressure of oxygen contributing to the total suit pressure, ensuring a breathable atmosphere. They might ask, \"What is the oxygen pressure inside the suit?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "3.0 - 5.0 psid"
+    },
+    {
+        "name": "vitals_suit_pressure_co2",
+        "description": "The user needs to check the partial pressure of CO2 within the suit to prevent hypercapnia, especially if a warning has been triggered. They might ask, \"Read suit CO2 pressure.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0.0 - 0.1 psid"
+    },
+    {
+        "name": "vitals_suit_pressure_other",
+        "description": "The user requests data on other gas partial pressures within the suit environment that are not oxygen or CO2. The prompt might be \"Check other gas pressures in the suit.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0.0 - 0.5 psid"
+    },
+    {
+        "name": "vitals_suit_pressure_total",
+        "description": "The user wants to know the total internal pressure of the spacesuit relative to the vacuum outside, critical for maintaining structural integrity and life support. They might ask, \"What is the total suit pressure?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "3.5 - 5.0 psid"
+    },
+    {
+        "name": "vitals_helmet_pressure_co2",
+        "description": "The user specifically wants to know the CO2 concentration within the helmet/headspace area, which is the most immediate indicator of air quality. They might ask, \"What is the CO2 level in the helmet?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0.0 - 0.15 psid"
+    },
+    {
+        "name": "vitals_fan_pri_rpm",
+        "description": "The user needs to verify that the primary ventilation fan is spinning at the correct speed to circulate air and scrub CO2. The prompt might be \"Check primary fan RPM\" or \"Is the primary fan working?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 30000 RPM"
+    },
+    {
+        "name": "vitals_fan_sec_rpm",
+        "description": "The user checks the status of the backup ventilation fan, usually during a failure simulation or system check. They might ask, \"Status of secondary fan RPM.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 30000 RPM"
+    },
+    {
+        "name": "vitals_scrubber_a_co2_storage",
+        "description": "The user wants to know the saturation level of the first CO2 scrubbing bed to determine if it is nearing capacity. They might ask, \"Check Scrubber A status\" or \"How full is Scrubber A?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 100%"
+    },
+    {
+        "name": "vitals_scrubber_b_co2_storage",
+        "description": "The user needs to check the saturation level of the second CO2 scrubbing bed. The prompt might be \"How much capacity is left in Scrubber B?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "0 - 100%"
+    },
+    {
+        "name": "vitals_temperature",
+        "description": "The user wants to know the internal temperature of the suit or their core body temperature to ensure thermal comfort and safety. They might ask, \"What is the suit temperature?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "50 - 100 \u00b0F"
+    },
+    {
+        "name": "vitals_coolant_liquid_pressure",
+        "description": "The user needs to verify the pressure of the liquid loop in the thermal control system to ensure coolant is circulating correctly. They might ask, \"Check liquid coolant pressure.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "10 - 50 psi"
+    },
+    {
+        "name": "vitals_coolant_gas_pressure",
+        "description": "The user checks the pressure of the gas loop associated with the cooling system. The prompt might be \"What is the coolant gas pressure?\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": "10 - 30 psi"
+    },
+    {
+        "name": "get_warnings",
+        "description": "The user wants a verbal summary of any active alerts or anomalies currently detected by the HALO system, such as high heart rate or low battery. They might ask, \"What are the current warnings?\" or \"Read out active alerts.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_vitals",
+        "description": "The user wants to bring up the detailed biometrics and consumables display on the AR HUD. The prompt would be \"Open vitals menu\" or \"Show me my suit data.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_navigation",
+        "description": "The user wants to access the mapping and pathfinding interface to see waypoints, routes, or the minimap. They might command, \"Open navigation\" or \"Show the map.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_tasks",
+        "description": "The user needs to see the current checklist, procedure steps, or to-do list for the mission. The prompt would be \"Open task list\" or \"Show mission objectives.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_geosamples",
+        "description": "The user wants to access the interface for logging or managing geological samples collected during the EVA. They might ask, \"Open geology menu\" or \"Go to sampling tools.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_uia",
+        "description": "The user needs to bring up the specific interface controls and status displays for the User Interface Assembly (UIA) during airlock operations. The prompt would be \"Open UIA controls\" or \"Show UIA panel.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_messaging",
+        "description": "The user wants to access text-based communication logs or send messages to Mission Control or other astronauts. They might ask, \"Open messages\" or \"Show comms log.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_voice_assistant",
+        "description": "The user wants to bring up the visual interface for CORVUS to see transcription or active listening status. The prompt would be \"Open voice assistant\" or \"Show CORVUS.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "open_menu_rover",
+        "description": "The user wants to access telemetry and control interfaces specific to the Pressurized Rover (PR) or Lunar Terrain Vehicle (LTV). They might ask, \"Open rover dashboard\" or \"Show LTV status.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "close_menu",
+        "description": "The user wants to minimize or dismiss the currently active AR window to clear their field of view. The command would be \"Close menu\" or \"Dismiss window.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "start_procedure_erm",
+        "description": "The user initiates the \"Exit Recovery Mode\" workflow to wake the LTV from its dormant state. They would likely say, \"Start ERM procedure\" or \"Begin Exit Recovery Mode.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "start_procedure_system_diagnosis",
+        "description": "The user wants the AI to run a diagnostic scan on a connected system, such as the LTV, to identify faults. The prompt might be \"Run system diagnosis\" or \"Diagnose rover faults.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "start_procedure_system_restart",
+        "description": "The user initiates the procedure to reboot a specific failing subsystem, such as the navigation module on the LTV. They might command, \"Begin system restart procedure.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "start_procedure_physical_repair_task",
+        "description": "The user is ready to perform hands-on mechanical repairs and needs the step-by-step AR guidance and checklists. They might say, \"Start physical repair instructions\" or \"Open repair checklist.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "start_procedure_final_system_checks",
+        "description": "The user wants to run the concluding verification steps after a repair to ensure the vehicle or system is fully operational. They might ask, \"Run final system check\" or \"Start final verification.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "start_procedure_uia_ingress",
+        "description": "The user is beginning the process of entering the airlock and needs the AR system to guide them through connecting umbilicals and repressurization. They would say, \"Start UIA ingress procedure.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "start_procedure_uia_egress",
+        "description": "The user is starting the airlock exit sequence and needs AI guidance for depressurization and switch configurations. They might command, \"Begin UIA egress sequence.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "Get_coordinates",
+        "description": "The user wants to know the specific location data of a named target, such as the rover, another astronaut, or a base station. The prompt will include the name of the object they are locating, like \"Where is the LTV?\" or \"Get coordinates for the PR.\"",
+        "tokens": [
+            "TEXT",
+            "COORDINATE_TARGET_NAME"
+        ],
+        "range": "+/- 10000.0 (m)"
+    },
+    {
+        "name": "Set_navigation_target",
+        "description": "The user wants to designate a specific named location as their destination, prompting the AR system to calculate a route and display holographic guides. The prompt includes the destination name, such as \"Set destination to LTV\" or \"Navigate to Home Base.\"",
+        "tokens": [
+            "TEXT",
+            "NAVIGATION_TARGET_NAME"
+        ],
+        "range": null
+    },
+    {
+        "name": "reroute_navigation",
+        "description": "The user wants the system to calculate a new path to the current destination, likely because the current path is blocked or hazardous. They might command, \"Find a new route\" or \"Reroute.\"",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "Add_waypoint",
+        "description": "The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as \"Mark this location as Sample Site Alpha\" or \"Add waypoint Crater Edge.\"",
+        "tokens": [
+            "TEXT",
+            "WAYPOINT_NAME"
+        ],
+        "range": null
+    },
+    {
+        "name": "Delete_waypoint",
+        "description": "The user wants to remove a previously set marker from their map to declutter the display. The prompt specifies which waypoint to remove, such as \"Delete waypoint Alpha\" or \"Remove the Home marker.\"",
+        "tokens": [
+            "TEXT",
+            "WAYPOINT_NAME"
+        ],
+        "range": null
+    },
+    {
+        "name": "Add_task",
+        "description": "The user wants to create a new entry in their mission to-do list, often based on an ad-hoc observation or command from Mission Control. The prompt includes the content of the task, like \"Add task: Inspect solar panel\" or \"Create new task: Collect soil sample.\"",
+        "tokens": [
+            "TEXT",
+            "TASK_NAME"
+        ],
+        "range": null
+    },
+    {
+        "name": "Delete_task",
+        "description": "The user wants to remove an erroneous or canceled item from their task list. The prompt specifies the task to remove, such as \"Delete task Inspect Solar Panel.\"",
+        "tokens": [
+            "TEXT",
+            "TASK_NAME"
+        ],
+        "range": null
+    },
+    {
+        "name": "Complete_task",
+        "description": "The user wants to mark a specific checklist item as finished to update their progress bar and inform Mission Control. The prompt identifies the completed task, like \"Mark 'Connect Umbilical' as complete\" or \"Finish task Battery Check.\"",
+        "tokens": [
+            "TEXT",
+            "TASK_NAME"
+        ],
+        "range": null
+    },
+    {
+        "name": "undo",
+        "description": "The user wants to revert the last action performed, such as deleting a waypoint, creating a task, or opening a menu. The command is usually short and direct.",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    },
+    {
+        "name": "unhandled",
+        "description": "The user makes a request that is outside the capabilities of the system (e.g., flight, weapons, external communications, food, entertainment, physical control). The model should recognize these as invalid requests and take no action or indicate inability to comply.",
+        "tokens": [
+            "TEXT"
+        ],
+        "range": null
+    }
+]
