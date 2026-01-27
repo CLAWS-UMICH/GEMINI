@@ -327,8 +327,20 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
 # =============================================================================
 
 if __name__ == "__main__":
-    # Train the model
-    model, tokenizer = train()
+    import sys
+    
+    # Check for --demo flag to skip training
+    DEMO_ONLY = "--demo" in sys.argv
+    
+    if DEMO_ONLY:
+        # Load saved model instead of training
+        print(f"Loading saved model from: {OUTPUT_DIR}")
+        tokenizer = AutoTokenizer.from_pretrained(OUTPUT_DIR)
+        model = AutoModelForSeq2SeqLM.from_pretrained(OUTPUT_DIR)
+        model.to(DEVICE)
+    else:
+        # Train the model
+        model, tokenizer = train()
     
     # If we have a model (either from training or dry-run), run demo inference
     if model is not None and tokenizer is not None:
