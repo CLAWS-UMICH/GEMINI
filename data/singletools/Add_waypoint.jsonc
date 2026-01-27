@@ -1,182 +1,4571 @@
 {
-  // intent: Add_waypoint
-  // description: The user wants to drop a virtual marker at their current location or a specific spot to reference later, naming it for clarity. The prompt includes the desired name for the marker, such as "Mark this location as Sample Site Alpha" or "Add waypoint Crater Edge."
-  // tokens: TEXT, WAYPOINT_NAME
   "data": [
-    {"prompt": "add waypoint Sample Site Alpha", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Sample Site Alpha"}]},
-    {"prompt": "mark this location as Crater Edge", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark this location as "}, {"type": "WAYPOINT_NAME", "text": "Crater Edge"}]},
-    {"prompt": "create waypoint Base Camp", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create waypoint "}, {"type": "WAYPOINT_NAME", "text": "Base Camp"}]},
-    {"prompt": "drop a marker here called Observation Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "drop a marker here called "}, {"type": "WAYPOINT_NAME", "text": "Observation Point"}]},
-    {"prompt": "set waypoint Rock Formation A", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "set waypoint "}, {"type": "WAYPOINT_NAME", "text": "Rock Formation A"}]},
-    {"prompt": "save this spot as Drill Site 1", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "save this spot as "}, {"type": "WAYPOINT_NAME", "text": "Drill Site 1"}]},
-    {"prompt": "new waypoint named Landing Zone", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "new waypoint named "}, {"type": "WAYPOINT_NAME", "text": "Landing Zone"}]},
-    {"prompt": "mark waypoint Equipment Cache", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Equipment Cache"}]},
-    {"prompt": "add waypoints Sample Site Alpha and Base Camp", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add waypoints "}, {"type": "WAYPOINT_NAME", "text": "Sample Site Alpha"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Base Camp"}]},
-    {"prompt": "create waypoints Observation Point and Landing Zone and Drill Site 1", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create waypoints "}, {"type": "WAYPOINT_NAME", "text": "Observation Point"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Landing Zone"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Drill Site 1"}]},
-    {"prompt": "I want to add a waypoint called Geological Survey", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "I want to add a waypoint called "}, {"type": "WAYPOINT_NAME", "text": "Geological Survey"}]},
-    {"prompt": "place marker Solar Panel Array", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "place marker "}, {"type": "WAYPOINT_NAME", "text": "Solar Panel Array"}]},
-    {"prompt": "add new waypoint Emergency Shelter", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add new waypoint "}, {"type": "WAYPOINT_NAME", "text": "Emergency Shelter"}]},
-    {"prompt": "tag this location as Water Ice Deposit", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "tag this location as "}, {"type": "WAYPOINT_NAME", "text": "Water Ice Deposit"}]},
-    {"prompt": "mark waypoints Communication Relay and Power Station", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark waypoints "}, {"type": "WAYPOINT_NAME", "text": "Communication Relay"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Power Station"}]},
-    {"prompt": "name this waypoint Rover Parking", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "name this waypoint "}, {"type": "WAYPOINT_NAME", "text": "Rover Parking"}]},
-    {"prompt": "please add waypoint Science Station", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "please add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Science Station"}]},
-    {"prompt": "add waypoints Hazard Zone and Restricted Area and Warning Marker", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add waypoints "}, {"type": "WAYPOINT_NAME", "text": "Hazard Zone"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Restricted Area"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Warning Marker"}]},
-    {"prompt": "waypoint this as Mineral Deposit", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "waypoint this as "}, {"type": "WAYPOINT_NAME", "text": "Mineral Deposit"}]},
-    {"prompt": "record location as Antenna Site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "record location as "}, {"type": "WAYPOINT_NAME", "text": "Antenna Site"}]},
-    {"prompt": "set this spot as Seismic Sensor", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "set this spot as "}, {"type": "WAYPOINT_NAME", "text": "Seismic Sensor"}]},
-    {"prompt": "pin location Dust Devil Alley", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "pin location "}, {"type": "WAYPOINT_NAME", "text": "Dust Devil Alley"}]},
-    {"prompt": "add a waypoint for EVA Return Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add a waypoint for "}, {"type": "WAYPOINT_NAME", "text": "EVA Return Point"}]},
-    {"prompt": "mark here as Sample Collection B", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark here as "}, {"type": "WAYPOINT_NAME", "text": "Sample Collection B"}]},
-    {"prompt": "create markers for Research Station and Medical Bay", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create markers for "}, {"type": "WAYPOINT_NAME", "text": "Research Station"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Medical Bay"}]},
-    {"prompt": "I need to mark this as Lava Tube Entrance", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "I need to mark this as "}, {"type": "WAYPOINT_NAME", "text": "Lava Tube Entrance"}]},
-    {"prompt": "create location marker Habitat Module", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create location marker "}, {"type": "WAYPOINT_NAME", "text": "Habitat Module"}]},
-    {"prompt": "drop waypoint Research Outpost", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "drop waypoint "}, {"type": "WAYPOINT_NAME", "text": "Research Outpost"}]},
-    {"prompt": "put a marker here named Supply Drop", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "put a marker here named "}, {"type": "WAYPOINT_NAME", "text": "Supply Drop"}]},
-    {"prompt": "add waypoints Ridge Line and Navigation Beacon and Greenhouse", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add waypoints "}, {"type": "WAYPOINT_NAME", "text": "Ridge Line"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Navigation Beacon"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Greenhouse"}]},
-    {"prompt": "log this position as Navigation Beacon", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "log this position as "}, {"type": "WAYPOINT_NAME", "text": "Navigation Beacon"}]},
-    {"prompt": "set marker Ridge Line", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "set marker "}, {"type": "WAYPOINT_NAME", "text": "Ridge Line"}]},
-    {"prompt": "add points Oxygen Refill and Tool Storage", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add points "}, {"type": "WAYPOINT_NAME", "text": "Oxygen Refill"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Tool Storage"}]},
-    {"prompt": "bookmark location as Terrain Study Area", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "bookmark location as "}, {"type": "WAYPOINT_NAME", "text": "Terrain Study Area"}]},
-    {"prompt": "please mark waypoint Oxygen Refill", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "please mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Oxygen Refill"}]},
-    {"prompt": "label this spot Tool Storage", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "label this spot "}, {"type": "WAYPOINT_NAME", "text": "Tool Storage"}]},
-    {"prompt": "new marker at current location called Inspection Site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "new marker at current location called "}, {"type": "WAYPOINT_NAME", "text": "Inspection Site"}]},
-    {"prompt": "create waypoints Lab Entrance and Weather Station", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create waypoints "}, {"type": "WAYPOINT_NAME", "text": "Lab Entrance"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Weather Station"}]},
-    {"prompt": "store location Lab Entrance", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "store location "}, {"type": "WAYPOINT_NAME", "text": "Lab Entrance"}]},
-    {"prompt": "add this as waypoint Weather Station", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add this as waypoint "}, {"type": "WAYPOINT_NAME", "text": "Weather Station"}]},
-    {"prompt": "designate waypoint Airlock", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "designate waypoint "}, {"type": "WAYPOINT_NAME", "text": "Airlock"}]},
-    {"prompt": "make waypoint called Reference Point Alpha", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "make waypoint called "}, {"type": "WAYPOINT_NAME", "text": "Reference Point Alpha"}]},
-    {"prompt": "save current position as Battery Swap Station", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "save current position as "}, {"type": "WAYPOINT_NAME", "text": "Battery Swap Station"}]},
-    {"prompt": "mark Terrain Feature X and Panorama Ridge and EVA Boundary", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark "}, {"type": "WAYPOINT_NAME", "text": "Terrain Feature X"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Panorama Ridge"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "EVA Boundary"}]},
-    {"prompt": "create new waypoint Panorama Ridge", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create new waypoint "}, {"type": "WAYPOINT_NAME", "text": "Panorama Ridge"}]},
-    {"prompt": "I want to save this location as EVA Boundary", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "I want to save this location as "}, {"type": "WAYPOINT_NAME", "text": "EVA Boundary"}]},
-    {"prompt": "add marker for Regolith Sample Site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add marker for "}, {"type": "WAYPOINT_NAME", "text": "Regolith Sample Site"}]},
-    {"prompt": "note down this waypoint as Safe Haven", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "note down this waypoint as "}, {"type": "WAYPOINT_NAME", "text": "Safe Haven"}]},
-    {"prompt": "set location as Charging Station", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "set location as "}, {"type": "WAYPOINT_NAME", "text": "Charging Station"}]},
-    {"prompt": "add waypoints Experiment Alpha and Dust Storm Shelter", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add waypoints "}, {"type": "WAYPOINT_NAME", "text": "Experiment Alpha"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Dust Storm Shelter"}]},
-    {"prompt": "hey mark this spot as Sample Return Site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "hey mark this spot as "}, {"type": "WAYPOINT_NAME", "text": "Sample Return Site"}]},
-    {"prompt": "gonna drop a waypoint Seismic Study Zone", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "gonna drop a waypoint "}, {"type": "WAYPOINT_NAME", "text": "Seismic Study Zone"}]},
-    {"prompt": "lemme set up a marker for Backup Shelter", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "lemme set up a marker for "}, {"type": "WAYPOINT_NAME", "text": "Backup Shelter"}]},
-    {"prompt": "flag this location as Antenna Array Site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "flag this location as "}, {"type": "WAYPOINT_NAME", "text": "Antenna Array Site"}]},
-    {"prompt": "yo put a waypoint here called Rock Shelf", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "yo put a waypoint here called "}, {"type": "WAYPOINT_NAME", "text": "Rock Shelf"}]},
-    {"prompt": "can we mark this as Secondary Landing", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "can we mark this as "}, {"type": "WAYPOINT_NAME", "text": "Secondary Landing"}]},
-    {"prompt": "pinpoint this as Mineral Survey Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "pinpoint this as "}, {"type": "WAYPOINT_NAME", "text": "Mineral Survey Point"}]},
-    {"prompt": "register this spot Mobile Lab Position", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "register this spot "}, {"type": "WAYPOINT_NAME", "text": "Mobile Lab Position"}]},
-    {"prompt": "stamp location as Equipment Drop", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "stamp location as "}, {"type": "WAYPOINT_NAME", "text": "Equipment Drop"}]},
-    {"prompt": "quick waypoint here called Shade Zone", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "quick waypoint here called "}, {"type": "WAYPOINT_NAME", "text": "Shade Zone"}]},
-    {"prompt": "would you add a point named Solar Collection A", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "would you add a point named "}, {"type": "WAYPOINT_NAME", "text": "Solar Collection A"}]},
-    {"prompt": "tag current position as Radio Relay", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "tag current position as "}, {"type": "WAYPOINT_NAME", "text": "Radio Relay"}]},
-    {"prompt": "pls add marker Observation Deck", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "pls add marker "}, {"type": "WAYPOINT_NAME", "text": "Observation Deck"}]},
-    {"prompt": "establish waypoint at Crater Rim North", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "establish waypoint at "}, {"type": "WAYPOINT_NAME", "text": "Crater Rim North"}]},
-    {"prompt": "this is a good spot call it Rest Station", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "this is a good spot call it "}, {"type": "WAYPOINT_NAME", "text": "Rest Station"}]},
-    {"prompt": "lock in waypoint Geological Sample Alpha", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "lock in waypoint "}, {"type": "WAYPOINT_NAME", "text": "Geological Sample Alpha"}]},
-    {"prompt": "plant a marker here Dusty Crossing", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "plant a marker here "}, {"type": "WAYPOINT_NAME", "text": "Dusty Crossing"}]},
-    {"prompt": "insert waypoint Water Ice Discovery", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "insert waypoint "}, {"type": "WAYPOINT_NAME", "text": "Water Ice Discovery"}]},
-    {"prompt": "okay add waypoint Thermal Vent", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "okay add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Thermal Vent"}]},
-    {"prompt": "place a point called Emergency Rally", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "place a point called "}, {"type": "WAYPOINT_NAME", "text": "Emergency Rally"}]},
-    {"prompt": "call this waypoint Experiment Delta", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "call this waypoint "}, {"type": "WAYPOINT_NAME", "text": "Experiment Delta"}]},
-    {"prompt": "houston said add waypoint Mission Control Link", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "houston said add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Mission Control Link"}]},
-    {"prompt": "note this location as Debris Field Edge", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "note this location as "}, {"type": "WAYPOINT_NAME", "text": "Debris Field Edge"}]},
-    {"prompt": "christen this waypoint Sunset Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "christen this waypoint "}, {"type": "WAYPOINT_NAME", "text": "Sunset Point"}]},
-    {"prompt": "assign waypoint name Battery Station Bravo", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "assign waypoint name "}, {"type": "WAYPOINT_NAME", "text": "Battery Station Bravo"}]},
-    {"prompt": "secure location as Data Relay Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "secure location as "}, {"type": "WAYPOINT_NAME", "text": "Data Relay Point"}]},
-    {"prompt": "waypoint needed call it Sensor Grid Alpha", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "waypoint needed call it "}, {"type": "WAYPOINT_NAME", "text": "Sensor Grid Alpha"}]},
-    {"prompt": "anchor this location Perimeter Marker", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "anchor this location "}, {"type": "WAYPOINT_NAME", "text": "Perimeter Marker"}]},
-    {"prompt": "quick save location as Cave Entrance", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "quick save location as "}, {"type": "WAYPOINT_NAME", "text": "Cave Entrance"}]},
-    {"prompt": "put down marker called Ridge Observation", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "put down marker called "}, {"type": "WAYPOINT_NAME", "text": "Ridge Observation"}]},
-    {"prompt": "wanna mark this Outpost Gamma", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "wanna mark this "}, {"type": "WAYPOINT_NAME", "text": "Outpost Gamma"}]},
-    {"prompt": "catalog this position Traverse Starting Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "catalog this position "}, {"type": "WAYPOINT_NAME", "text": "Traverse Starting Point"}]},
-    {"prompt": "point here should be called Dust Sample Zone", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "point here should be called "}, {"type": "WAYPOINT_NAME", "text": "Dust Sample Zone"}]},
-    {"prompt": "register marker Communications Hub", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "register marker "}, {"type": "WAYPOINT_NAME", "text": "Communications Hub"}]},
-    {"prompt": "identify this spot as Collection Site Beta", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "identify this spot as "}, {"type": "WAYPOINT_NAME", "text": "Collection Site Beta"}]},
-    {"prompt": "ayo mark waypoint Radiation Survey Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "ayo mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Radiation Survey Point"}]},
-    {"prompt": "waypoint drop at Magnetic Anomaly", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "waypoint drop at "}, {"type": "WAYPOINT_NAME", "text": "Magnetic Anomaly"}]},
-    {"prompt": "memorize location as Halfway Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "memorize location as "}, {"type": "WAYPOINT_NAME", "text": "Halfway Point"}]},
-    {"prompt": "fix waypoint here called Storm Shelter South", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "fix waypoint here called "}, {"type": "WAYPOINT_NAME", "text": "Storm Shelter South"}]},
-    {"prompt": "target this as Fuel Cache Alpha", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "target this as "}, {"type": "WAYPOINT_NAME", "text": "Fuel Cache Alpha"}]},
-    {"prompt": "enter waypoint Sample Container Drop", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "enter waypoint "}, {"type": "WAYPOINT_NAME", "text": "Sample Container Drop"}]},
-    {"prompt": "scratch in location Maintenance Bay Exterior", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "scratch in location "}, {"type": "WAYPOINT_NAME", "text": "Maintenance Bay Exterior"}]},
-    {"prompt": "alright add waypoint Rover Turnaround", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "alright add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Rover Turnaround"}]},
-    {"prompt": "record this as waypoint Power Conduit Junction", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "record this as waypoint "}, {"type": "WAYPOINT_NAME", "text": "Power Conduit Junction"}]},
-    {"prompt": "define waypoint Geological Feature Seven", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "define waypoint "}, {"type": "WAYPOINT_NAME", "text": "Geological Feature Seven"}]},
-    {"prompt": "file this location Comm Tower Base", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "file this location "}, {"type": "WAYPOINT_NAME", "text": "Comm Tower Base"}]},
-    {"prompt": "dub this waypoint Instrument Deployment Site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "dub this waypoint "}, {"type": "WAYPOINT_NAME", "text": "Instrument Deployment Site"}]},
-    {"prompt": "chalk up a marker Backup EVA Return", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "chalk up a marker "}, {"type": "WAYPOINT_NAME", "text": "Backup EVA Return"}]},
-    {"prompt": "log here as Horizon Survey Point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "log here as "}, {"type": "WAYPOINT_NAME", "text": "Horizon Survey Point"}]},
-    {"prompt": "position marker Experiment Gamma Site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "position marker "}, {"type": "WAYPOINT_NAME", "text": "Experiment Gamma Site"}]},
-    {"prompt": "stake out waypoint Outflow Channel", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "stake out waypoint "}, {"type": "WAYPOINT_NAME", "text": "Outflow Channel"}]},
-    {"prompt": "confirm waypoint named Rock Layer Exposure", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "confirm waypoint named "}, {"type": "WAYPOINT_NAME", "text": "Rock Layer Exposure"}]},
-    {"prompt": "carve out waypoint Ice Deposit Survey", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "carve out waypoint "}, {"type": "WAYPOINT_NAME", "text": "Ice Deposit Survey"}]},
-    {"prompt": "Add waypoint Alpha and add waypoint Beta", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Alpha"}, {"type": "TEXT", "text": " and add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Beta"}]},
-    {"prompt": "Mark this spot as Entry and that spot as Exit", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark this spot as "}, {"type": "WAYPOINT_NAME", "text": "Entry"}, {"type": "TEXT", "text": " and that spot as "}, {"type": "WAYPOINT_NAME", "text": "Exit"}]},
-    {"prompt": "Create two waypoints: Home Base and Landing Site", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Create two waypoints: "}, {"type": "WAYPOINT_NAME", "text": "Home Base"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "Landing Site"}]},
-    {"prompt": "Drop pin here for Sample 1 and drop pin there for Sample 2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Drop pin here for "}, {"type": "WAYPOINT_NAME", "text": "Sample 1"}, {"type": "TEXT", "text": " and drop pin there for "}, {"type": "WAYPOINT_NAME", "text": "Sample 2"}]},
-    {"prompt": "Log location Site A, also log location Site B", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Log location "}, {"type": "WAYPOINT_NAME", "text": "Site A"}, {"type": "TEXT", "text": ", also log location "}, {"type": "WAYPOINT_NAME", "text": "Site B"}]},
-    {"prompt": "Label current pos as Apex and label target pos as Base", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Label current pos as "}, {"type": "WAYPOINT_NAME", "text": "Apex"}, {"type": "TEXT", "text": " and label target pos as "}, {"type": "WAYPOINT_NAME", "text": "Base"}]},
-    {"prompt": "Start waypoint sequence: Alpha, then Beta", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Start waypoint sequence: "}, {"type": "WAYPOINT_NAME", "text": "Alpha"}, {"type": "TEXT", "text": ", then "}, {"type": "WAYPOINT_NAME", "text": "Beta"}]},
-    {"prompt": "Add waypoint Gamma, wait, also add waypoint Delta", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Gamma"}, {"type": "TEXT", "text": ", wait, also add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Delta"}]},
-    {"prompt": "Save position as Crater Rim and another as Valley Floor", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Save position as "}, {"type": "WAYPOINT_NAME", "text": "Crater Rim"}, {"type": "TEXT", "text": " and another as "}, {"type": "WAYPOINT_NAME", "text": "Valley Floor"}]},
-    {"prompt": "Mark waypoint Entry Point and Mark waypoint Exit Point", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Entry Point"}, {"type": "TEXT", "text": " and Mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Exit Point"}]},
-    {"prompt": "Mark waypoint Alpha and Mark waypoint Beta", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Alpha"}, {"type": "TEXT", "text": " and Mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Beta"}]},
-    {"prompt": "Add waypoint Sample 1 and add waypoint Sample 2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Sample 1"}, {"type": "TEXT", "text": " and add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Sample 2"}]},
-    {"prompt": "Drop a pin at Crater Edge and drop a pin at Valley Floor", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Drop a pin at "}, {"type": "WAYPOINT_NAME", "text": "Crater Edge"}, {"type": "TEXT", "text": " and drop a pin at "}, {"type": "WAYPOINT_NAME", "text": "Valley Floor"}]},
-    {"prompt": "Please record location Base Camp and please record location Outpost", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Please record location "}, {"type": "WAYPOINT_NAME", "text": "Base Camp"}, {"type": "TEXT", "text": " and please record location "}, {"type": "WAYPOINT_NAME", "text": "Outpost"}]},
-    {"prompt": "Log coordinates for Site A, also log coordinates for Site B", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Log coordinates for "}, {"type": "WAYPOINT_NAME", "text": "Site A"}, {"type": "TEXT", "text": ", also log coordinates for "}, {"type": "WAYPOINT_NAME", "text": "Site B"}]},
-    {"prompt": "Save waypoint Entry, save waypoint Exit", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Save waypoint "}, {"type": "WAYPOINT_NAME", "text": "Entry"}, {"type": "TEXT", "text": ", save waypoint "}, {"type": "WAYPOINT_NAME", "text": "Exit"}]},
-    {"prompt": "Create marker Target 1 and Create marker Target 2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Create marker "}, {"type": "WAYPOINT_NAME", "text": "Target 1"}, {"type": "TEXT", "text": " and Create marker "}, {"type": "WAYPOINT_NAME", "text": "Target 2"}]},
-    {"prompt": "Add location Checkpoint 1 then add location Checkpoint 2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add location "}, {"type": "WAYPOINT_NAME", "text": "Checkpoint 1"}, {"type": "TEXT", "text": " then add location "}, {"type": "WAYPOINT_NAME", "text": "Checkpoint 2"}]},
-    {"prompt": "Can you mark Rock A and mark Rock B", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Can you mark "}, {"type": "WAYPOINT_NAME", "text": "Rock A"}, {"type": "TEXT", "text": " and mark "}, {"type": "WAYPOINT_NAME", "text": "Rock B"}]},
-    {"prompt": "Flag this spot as Start and flag that spot as Finish", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Flag this spot as "}, {"type": "WAYPOINT_NAME", "text": "Start"}, {"type": "TEXT", "text": " and flag that spot as "}, {"type": "WAYPOINT_NAME", "text": "Finish"}]},
-    {"prompt": "New waypoint: North. New waypoint: South.", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "New waypoint: "}, {"type": "WAYPOINT_NAME", "text": "North"}, {"type": "TEXT", "text": ". New waypoint: "}, {"type": "WAYPOINT_NAME", "text": "South"}, {"type": "TEXT", "text": "."}]},
-    {"prompt": "Define waypoint Delta and define waypoint Echo", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Define waypoint "}, {"type": "WAYPOINT_NAME", "text": "Delta"}, {"type": "TEXT", "text": " and define waypoint "}, {"type": "WAYPOINT_NAME", "text": "Echo"}]},
-    {"prompt": "Set marker for Rover, set marker for Lander", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Set marker for "}, {"type": "WAYPOINT_NAME", "text": "Rover"}, {"type": "TEXT", "text": ", set marker for "}, {"type": "WAYPOINT_NAME", "text": "Lander"}]},
-    {"prompt": "Add waypoint Red and Add waypoint Blue", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Red"}, {"type": "TEXT", "text": " and Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Blue"}]},
-    {"prompt": "I want two pins: One at Hilltop and one at Riverbed", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "I want two pins: One at "}, {"type": "WAYPOINT_NAME", "text": "Hilltop"}, {"type": "TEXT", "text": " and one at "}, {"type": "WAYPOINT_NAME", "text": "Riverbed"}]},
-    {"prompt": "Log pos 1 as Alpha, log pos 2 as Beta", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Log pos 1 as "}, {"type": "WAYPOINT_NAME", "text": "Alpha"}, {"type": "TEXT", "text": ", log pos 2 as "}, {"type": "WAYPOINT_NAME", "text": "Beta"}]},
-    {"prompt": "Mark waypoint P1 and P2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "P1"}, {"type": "TEXT", "text": " and "}, {"type": "WAYPOINT_NAME", "text": "P2"}]},
-    {"prompt": "Add nav point Charlie, add nav point Delta", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add nav point "}, {"type": "WAYPOINT_NAME", "text": "Charlie"}, {"type": "TEXT", "text": ", add nav point "}, {"type": "WAYPOINT_NAME", "text": "Delta"}]},
-    {"prompt": "Create waypoint for Solar Array and create waypoint for Comm Dish", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Create waypoint for "}, {"type": "WAYPOINT_NAME", "text": "Solar Array"}, {"type": "TEXT", "text": " and create waypoint for "}, {"type": "WAYPOINT_NAME", "text": "Comm Dish"}]},
-    {"prompt": "Mark location 1 and mark location 2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark location "}, {"type": "WAYPOINT_NAME", "text": "1"}, {"type": "TEXT", "text": " and mark location "}, {"type": "WAYPOINT_NAME", "text": "2"}]},
-    {"prompt": "Add waypoint Here and Add waypoint There", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Here"}, {"type": "TEXT", "text": " and Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "There"}]},
-    {"prompt": "Label point A as Start and label point B as End", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Label point A as "}, {"type": "WAYPOINT_NAME", "text": "Start"}, {"type": "TEXT", "text": " and label point B as "}, {"type": "WAYPOINT_NAME", "text": "End"}]},
-    {"prompt": "Record waypoint Gamma Ray and Record waypoint X Ray", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Record waypoint "}, {"type": "WAYPOINT_NAME", "text": "Gamma Ray"}, {"type": "TEXT", "text": " and Record waypoint "}, {"type": "WAYPOINT_NAME", "text": "X Ray"}]},
-    {"prompt": "Place marker at Site 1 and Place marker at Site 2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Place marker at "}, {"type": "WAYPOINT_NAME", "text": "Site 1"}, {"type": "TEXT", "text": " and Place marker at "}, {"type": "WAYPOINT_NAME", "text": "Site 2"}]},
-    {"prompt": "Add waypoint: Ridge. Add waypoint: Trench.", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint: "}, {"type": "WAYPOINT_NAME", "text": "Ridge"}, {"type": "TEXT", "text": ". Add waypoint: "}, {"type": "WAYPOINT_NAME", "text": "Trench"}, {"type": "TEXT", "text": "."}]},
-    {"prompt": "Mark spot X, mark spot Y", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark spot "}, {"type": "WAYPOINT_NAME", "text": "X"}, {"type": "TEXT", "text": ", mark spot "}, {"type": "WAYPOINT_NAME", "text": "Y"}]},
-    {"prompt": "Add waypoints: Alpha, Bravo", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoints: "}, {"type": "WAYPOINT_NAME", "text": "Alpha"}, {"type": "TEXT", "text": ", "}, {"type": "WAYPOINT_NAME", "text": "Bravo"}]},
-    {"prompt": "Create new marker P1 and create new marker P2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Create new marker "}, {"type": "WAYPOINT_NAME", "text": "P1"}, {"type": "TEXT", "text": " and create new marker "}, {"type": "WAYPOINT_NAME", "text": "P2"}]},
-    {"prompt": "Save current loc as Camp and Save target loc as Lab", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Save current loc as "}, {"type": "WAYPOINT_NAME", "text": "Camp"}, {"type": "TEXT", "text": " and Save target loc as "}, {"type": "WAYPOINT_NAME", "text": "Lab"}]},
-    {"prompt": "Add waypoint: A. Add waypoint: B.", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint: "}, {"type": "WAYPOINT_NAME", "text": "A"}, {"type": "TEXT", "text": ". Add waypoint: "}, {"type": "WAYPOINT_NAME", "text": "B"}, {"type": "TEXT", "text": "."}]},
-    {"prompt": "Mark waypoint Origin and Mark waypoint Destination", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Origin"}, {"type": "TEXT", "text": " and Mark waypoint "}, {"type": "WAYPOINT_NAME", "text": "Destination"}]},
-    {"prompt": "Log waypoint 1 and Log waypoint 2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Log waypoint "}, {"type": "WAYPOINT_NAME", "text": "1"}, {"type": "TEXT", "text": " and Log waypoint "}, {"type": "WAYPOINT_NAME", "text": "2"}]},
-    {"prompt": "Add marker Red Zone and Add marker Green Zone", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add marker "}, {"type": "WAYPOINT_NAME", "text": "Red Zone"}, {"type": "TEXT", "text": " and Add marker "}, {"type": "WAYPOINT_NAME", "text": "Green Zone"}]},
-    {"prompt": "Define spot X as Alpha, define spot Y as Beta", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Define spot X as "}, {"type": "WAYPOINT_NAME", "text": "Alpha"}, {"type": "TEXT", "text": ", define spot Y as "}, {"type": "WAYPOINT_NAME", "text": "Beta"}]},
-    {"prompt": "Add waypoint Home and Add waypoint Work", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Home"}, {"type": "TEXT", "text": " and Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Work"}]},
-    {"prompt": "Mark path start as P1 and mark path end as P2", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Mark path start as "}, {"type": "WAYPOINT_NAME", "text": "P1"}, {"type": "TEXT", "text": " and mark path end as "}, {"type": "WAYPOINT_NAME", "text": "P2"}]},
-    {"prompt": "Add a waypoint called North and another called South", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add a waypoint called "}, {"type": "WAYPOINT_NAME", "text": "North"}, {"type": "TEXT", "text": " and another called "}, {"type": "WAYPOINT_NAME", "text": "South"}]},
-    {"prompt": "Create waypoint for A and create waypoint for B", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Create waypoint for "}, {"type": "WAYPOINT_NAME", "text": "A"}, {"type": "TEXT", "text": " and create waypoint for "}, {"type": "WAYPOINT_NAME", "text": "B"}]},
-    {"prompt": "Add waypoint X, Add waypoint Y", "tool_calls": ["Add_waypoint", "Add_waypoint"], "parts": [{"type": "TEXT", "text": "Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "X"}, {"type": "TEXT", "text": ", Add waypoint "}, {"type": "WAYPOINT_NAME", "text": "Y"}]},
-    {"prompt": "make a waypoint", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "make a waypoint"}]},
-    {"prompt": "create a waypoint", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create a waypoint"}]},
-    {"prompt": "add a waypoint", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add a waypoint"}]},
-    {"prompt": "drop a pin", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "drop a pin"}]},
-    {"prompt": "make a marker", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "make a marker"}]},
-    {"prompt": "place a pin", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "place a pin"}]},
-    {"prompt": "drop a marker", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "drop a marker"}]},
-    {"prompt": "mark this spot", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark this spot"}]},
-    {"prompt": "save this location", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "save this location"}]},
-    {"prompt": "waypoint", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "waypoint"}]},
-    {"prompt": "make a waypoint named rock", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "make a waypoint named "}, {"type": "WAYPOINT_NAME", "text": "rock"}]},
-    {"prompt": "create waypoint for the stone", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create waypoint for "}, {"type": "WAYPOINT_NAME", "text": "the stone"}]},
-    {"prompt": "add a map point", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add a map point"}]},
-    {"prompt": "add a waypoint for the big crater", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add a waypoint for "}, {"type": "WAYPOINT_NAME", "text": "the big crater"}]},
-    {"prompt": "mark the location of the weird rock", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark "}, {"type": "WAYPOINT_NAME", "text": "the location of the weird rock"}]},
-    {"prompt": "drop a pin at the landing site", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "drop a pin at "}, {"type": "WAYPOINT_NAME", "text": "the landing site"}]},
-    {"prompt": "create a waypoint for the blue soil", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "create a waypoint for "}, {"type": "WAYPOINT_NAME", "text": "the blue soil"}]},
-    {"prompt": "add a marker for the north ridge", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add a marker for "}, {"type": "WAYPOINT_NAME", "text": "the north ridge"}]},
-    {"prompt": "set a waypoint at the cave entrance", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "set a waypoint at "}, {"type": "WAYPOINT_NAME", "text": "the cave entrance"}]},
-    {"prompt": "mark the spot with the ice", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark "}, {"type": "WAYPOINT_NAME", "text": "the spot with the ice"}]},
-    {"prompt": "waypoint for the old rover", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "waypoint for "}, {"type": "WAYPOINT_NAME", "text": "the old rover"}]},
-    {"prompt": "add a point for the safe zone", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "add a point for "}, {"type": "WAYPOINT_NAME", "text": "the safe zone"}]},
-    {"prompt": "mark the hazardous area", "tool_calls": ["Add_waypoint"], "parts": [{"type": "TEXT", "text": "mark "}, {"type": "WAYPOINT_NAME", "text": "the hazardous area"}]}
+    {
+      "prompt": "add waypoint Sample Site Alpha",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample Site Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark this location as Crater Edge",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark this location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Crater Edge"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "create waypoint Base Camp",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Base Camp"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "drop a marker here called Observation Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "drop a marker here called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Observation Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "set waypoint Rock Formation A",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "set waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rock Formation A"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "save this spot as Drill Site 1",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "save this spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Drill Site 1"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "new waypoint named Landing Zone",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "new waypoint named "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Landing Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark waypoint Equipment Cache",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Equipment Cache"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add waypoints Sample Site Alpha and Base Camp",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add waypoints "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample Site Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Base Camp"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "create waypoints Observation Point and Landing Zone and Drill Site 1",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create waypoints "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Observation Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Landing Zone"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Drill Site 1"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "I want to add a waypoint called Geological Survey",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "I want to add a waypoint called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Geological Survey"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "place marker Solar Panel Array",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "place marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Solar Panel Array"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add new waypoint Emergency Shelter",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add new waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Emergency Shelter"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "tag this location as Water Ice Deposit",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "tag this location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Water Ice Deposit"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark waypoints Communication Relay and Power Station",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark waypoints "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Communication Relay"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Power Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "name this waypoint Rover Parking",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "name this waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rover Parking"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "please add waypoint Science Station",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "please add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Science Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add waypoints Hazard Zone and Restricted Area and Warning Marker",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add waypoints "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Hazard Zone"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Restricted Area"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Warning Marker"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "waypoint this as Mineral Deposit",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "waypoint this as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Mineral Deposit"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "record location as Antenna Site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "record location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Antenna Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "set this spot as Seismic Sensor",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "set this spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Seismic Sensor"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "pin location Dust Devil Alley",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "pin location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Dust Devil Alley"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add a waypoint for EVA Return Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add a waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "EVA Return Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark here as Sample Collection B",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark here as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample Collection B"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "create markers for Research Station and Medical Bay",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create markers for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Research Station"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Medical Bay"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "I need to mark this as Lava Tube Entrance",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "I need to mark this as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Lava Tube Entrance"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "create location marker Habitat Module",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create location marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Habitat Module"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "drop waypoint Research Outpost",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "drop waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Research Outpost"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "put a marker here named Supply Drop",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "put a marker here named "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Supply Drop"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add waypoints Ridge Line and Navigation Beacon and Greenhouse",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add waypoints "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Ridge Line"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Navigation Beacon"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Greenhouse"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "log this position as Navigation Beacon",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "log this position as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Navigation Beacon"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "set marker Ridge Line",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "set marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Ridge Line"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add points Oxygen Refill and Tool Storage",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add points "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Oxygen Refill"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Tool Storage"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "bookmark location as Terrain Study Area",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "bookmark location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Terrain Study Area"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "please mark waypoint Oxygen Refill",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "please mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Oxygen Refill"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "label this spot Tool Storage",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "label this spot "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Tool Storage"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "new marker at current location called Inspection Site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "new marker at current location called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Inspection Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "create waypoints Lab Entrance and Weather Station",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create waypoints "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Lab Entrance"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Weather Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "store location Lab Entrance",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "store location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Lab Entrance"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add this as waypoint Weather Station",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add this as waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Weather Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "designate waypoint Airlock",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "designate waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Airlock"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "make waypoint called Reference Point Alpha",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "make waypoint called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Reference Point Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "save current position as Battery Swap Station",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "save current position as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Battery Swap Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark Terrain Feature X and Panorama Ridge and EVA Boundary",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Terrain Feature X"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Panorama Ridge"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "EVA Boundary"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "create new waypoint Panorama Ridge",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create new waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Panorama Ridge"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "I want to save this location as EVA Boundary",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "I want to save this location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "EVA Boundary"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add marker for Regolith Sample Site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add marker for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Regolith Sample Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "note down this waypoint as Safe Haven",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "note down this waypoint as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Safe Haven"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "set location as Charging Station",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "set location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Charging Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add waypoints Experiment Alpha and Dust Storm Shelter",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add waypoints "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Experiment Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Dust Storm Shelter"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "hey mark this spot as Sample Return Site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "hey mark this spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample Return Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "gonna drop a waypoint Seismic Study Zone",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "gonna drop a waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Seismic Study Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "lemme set up a marker for Backup Shelter",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "lemme set up a marker for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Backup Shelter"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "flag this location as Antenna Array Site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "flag this location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Antenna Array Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "yo put a waypoint here called Rock Shelf",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "yo put a waypoint here called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rock Shelf"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "can we mark this as Secondary Landing",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "can we mark this as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Secondary Landing"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "pinpoint this as Mineral Survey Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "pinpoint this as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Mineral Survey Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "register this spot Mobile Lab Position",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "register this spot "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Mobile Lab Position"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "stamp location as Equipment Drop",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "stamp location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Equipment Drop"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "quick waypoint here called Shade Zone",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "quick waypoint here called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Shade Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "would you add a point named Solar Collection A",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "would you add a point named "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Solar Collection A"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "tag current position as Radio Relay",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "tag current position as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Radio Relay"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "pls add marker Observation Deck",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "pls add marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Observation Deck"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "establish waypoint at Crater Rim North",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "establish waypoint at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Crater Rim North"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "this is a good spot call it Rest Station",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "this is a good spot call it "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rest Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "lock in waypoint Geological Sample Alpha",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "lock in waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Geological Sample Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "plant a marker here Dusty Crossing",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "plant a marker here "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Dusty Crossing"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "insert waypoint Water Ice Discovery",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "insert waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Water Ice Discovery"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "okay add waypoint Thermal Vent",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "okay add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Thermal Vent"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "place a point called Emergency Rally",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "place a point called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Emergency Rally"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "call this waypoint Experiment Delta",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "call this waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Experiment Delta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "houston said add waypoint Mission Control Link",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "houston said add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Mission Control Link"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "note this location as Debris Field Edge",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "note this location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Debris Field Edge"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "christen this waypoint Sunset Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "christen this waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sunset Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "assign waypoint name Battery Station Bravo",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "assign waypoint name "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Battery Station Bravo"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "secure location as Data Relay Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "secure location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Data Relay Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "waypoint needed call it Sensor Grid Alpha",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "waypoint needed call it "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sensor Grid Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "anchor this location Perimeter Marker",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "anchor this location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Perimeter Marker"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "quick save location as Cave Entrance",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "quick save location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Cave Entrance"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "put down marker called Ridge Observation",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "put down marker called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Ridge Observation"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "wanna mark this Outpost Gamma",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "wanna mark this "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Outpost Gamma"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "catalog this position Traverse Starting Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "catalog this position "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Traverse Starting Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "point here should be called Dust Sample Zone",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "point here should be called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Dust Sample Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "register marker Communications Hub",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "register marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Communications Hub"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "identify this spot as Collection Site Beta",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "identify this spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Collection Site Beta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "ayo mark waypoint Radiation Survey Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "ayo mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Radiation Survey Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "waypoint drop at Magnetic Anomaly",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "waypoint drop at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Magnetic Anomaly"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "memorize location as Halfway Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "memorize location as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Halfway Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "fix waypoint here called Storm Shelter South",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "fix waypoint here called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Storm Shelter South"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "target this as Fuel Cache Alpha",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "target this as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Fuel Cache Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "enter waypoint Sample Container Drop",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "enter waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample Container Drop"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "scratch in location Maintenance Bay Exterior",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "scratch in location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Maintenance Bay Exterior"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "alright add waypoint Rover Turnaround",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "alright add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rover Turnaround"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "record this as waypoint Power Conduit Junction",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "record this as waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Power Conduit Junction"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "define waypoint Geological Feature Seven",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "define waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Geological Feature Seven"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "file this location Comm Tower Base",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "file this location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Comm Tower Base"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "dub this waypoint Instrument Deployment Site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "dub this waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Instrument Deployment Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "chalk up a marker Backup EVA Return",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "chalk up a marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Backup EVA Return"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "log here as Horizon Survey Point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "log here as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Horizon Survey Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "position marker Experiment Gamma Site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "position marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Experiment Gamma Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "stake out waypoint Outflow Channel",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "stake out waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Outflow Channel"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "confirm waypoint named Rock Layer Exposure",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "confirm waypoint named "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rock Layer Exposure"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "carve out waypoint Ice Deposit Survey",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "carve out waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Ice Deposit Survey"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint Alpha and add waypoint Beta",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " and add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Beta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark this spot as Entry and that spot as Exit",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark this spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Entry"
+        },
+        {
+          "type": "TEXT",
+          "text": " and that spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Exit"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Create two waypoints: Home Base and Landing Site",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Create two waypoints: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Home Base"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Landing Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Drop pin here for Sample 1 and drop pin there for Sample 2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Drop pin here for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample 1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and drop pin there for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample 2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "Log location Site A, also log location Site B",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Log location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Site A"
+        },
+        {
+          "type": "TEXT",
+          "text": ", also log location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Site B"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Label current pos as Apex and label target pos as Base",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Label current pos as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Apex"
+        },
+        {
+          "type": "TEXT",
+          "text": " and label target pos as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Base"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Start waypoint sequence: Alpha, then Beta",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Start waypoint sequence: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": ", then "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Beta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint Gamma, wait, also add waypoint Delta",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Gamma"
+        },
+        {
+          "type": "TEXT",
+          "text": ", wait, also add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Delta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Save position as Crater Rim and another as Valley Floor",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Save position as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Crater Rim"
+        },
+        {
+          "type": "TEXT",
+          "text": " and another as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Valley Floor"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark waypoint Entry Point and Mark waypoint Exit Point",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Entry Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Exit Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark waypoint Alpha and Mark waypoint Beta",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Beta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint Sample 1 and add waypoint Sample 2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample 1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Sample 2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Drop a pin at Crater Edge and drop a pin at Valley Floor",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Drop a pin at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Crater Edge"
+        },
+        {
+          "type": "TEXT",
+          "text": " and drop a pin at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Valley Floor"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Please record location Base Camp and please record location Outpost",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Please record location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Base Camp"
+        },
+        {
+          "type": "TEXT",
+          "text": " and please record location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Outpost"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Log coordinates for Site A, also log coordinates for Site B",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Log coordinates for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Site A"
+        },
+        {
+          "type": "TEXT",
+          "text": ", also log coordinates for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Site B"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Save waypoint Entry, save waypoint Exit",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Save waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Entry"
+        },
+        {
+          "type": "TEXT",
+          "text": ", save waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Exit"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Create marker Target 1 and Create marker Target 2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Create marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Target 1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Create marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Target 2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add location Checkpoint 1 then add location Checkpoint 2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Checkpoint 1"
+        },
+        {
+          "type": "TEXT",
+          "text": " then add location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Checkpoint 2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "Can you mark Rock A and mark Rock B",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Can you mark "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rock A"
+        },
+        {
+          "type": "TEXT",
+          "text": " and mark "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rock B"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Flag this spot as Start and flag that spot as Finish",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Flag this spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Start"
+        },
+        {
+          "type": "TEXT",
+          "text": " and flag that spot as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Finish"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "New waypoint: North. New waypoint: South.",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "New waypoint: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "North"
+        },
+        {
+          "type": "TEXT",
+          "text": ". New waypoint: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "South"
+        },
+        {
+          "type": "TEXT",
+          "text": "."
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Define waypoint Delta and define waypoint Echo",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Define waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Delta"
+        },
+        {
+          "type": "TEXT",
+          "text": " and define waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Echo"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Set marker for Rover, set marker for Lander",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Set marker for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Rover"
+        },
+        {
+          "type": "TEXT",
+          "text": ", set marker for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Lander"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint Red and Add waypoint Blue",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Red"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Blue"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "I want two pins: One at Hilltop and one at Riverbed",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "I want two pins: One at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Hilltop"
+        },
+        {
+          "type": "TEXT",
+          "text": " and one at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Riverbed"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Log pos 1 as Alpha, log pos 2 as Beta",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Log pos 1 as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": ", log pos 2 as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Beta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark waypoint P1 and P2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "P1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "P2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "Add nav point Charlie, add nav point Delta",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add nav point "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Charlie"
+        },
+        {
+          "type": "TEXT",
+          "text": ", add nav point "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Delta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Create waypoint for Solar Array and create waypoint for Comm Dish",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Create waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Solar Array"
+        },
+        {
+          "type": "TEXT",
+          "text": " and create waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Comm Dish"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark location 1 and mark location 2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and mark location "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint Here and Add waypoint There",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Here"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "There"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "Label point A as Start and label point B as End",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Label point A as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Start"
+        },
+        {
+          "type": "TEXT",
+          "text": " and label point B as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "End"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Record waypoint Gamma Ray and Record waypoint X Ray",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Record waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Gamma Ray"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Record waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "X Ray"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Place marker at Site 1 and Place marker at Site 2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Place marker at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Site 1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Place marker at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Site 2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint: Ridge. Add waypoint: Trench.",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Ridge"
+        },
+        {
+          "type": "TEXT",
+          "text": ". Add waypoint: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Trench"
+        },
+        {
+          "type": "TEXT",
+          "text": "."
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark spot X, mark spot Y",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark spot "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "X"
+        },
+        {
+          "type": "TEXT",
+          "text": ", mark spot "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Y"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoints: Alpha, Bravo",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoints: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": ", "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Bravo"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "Create new marker P1 and create new marker P2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Create new marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "P1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and create new marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "P2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Save current loc as Camp and Save target loc as Lab",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Save current loc as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Camp"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Save target loc as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Lab"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint: A. Add waypoint: B.",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "A"
+        },
+        {
+          "type": "TEXT",
+          "text": ". Add waypoint: "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "B"
+        },
+        {
+          "type": "TEXT",
+          "text": "."
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark waypoint Origin and Mark waypoint Destination",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Origin"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Mark waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Destination"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Log waypoint 1 and Log waypoint 2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Log waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Log waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add marker Red Zone and Add marker Green Zone",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Red Zone"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Add marker "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Green Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Define spot X as Alpha, define spot Y as Beta",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Define spot X as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": ", define spot Y as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Beta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint Home and Add waypoint Work",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Home"
+        },
+        {
+          "type": "TEXT",
+          "text": " and Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Work"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Mark path start as P1 and mark path end as P2",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Mark path start as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "P1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and mark path end as "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "P2"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add a waypoint called North and another called South",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add a waypoint called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "North"
+        },
+        {
+          "type": "TEXT",
+          "text": " and another called "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "South"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Create waypoint for A and create waypoint for B",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Create waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "A"
+        },
+        {
+          "type": "TEXT",
+          "text": " and create waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "B"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "Add waypoint X, Add waypoint Y",
+      "tool_calls": [
+        "Add_waypoint",
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "X"
+        },
+        {
+          "type": "TEXT",
+          "text": ", Add waypoint "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "Y"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        },
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "make a waypoint",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "make a waypoint"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "create a waypoint",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create a waypoint"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add a waypoint",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add a waypoint"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "drop a pin",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "drop a pin"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "make a marker",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "make a marker"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "place a pin",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "place a pin"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "drop a marker",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "drop a marker"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark this spot",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark this spot"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "save this location",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "save this location"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "waypoint",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "waypoint"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "make a waypoint named rock",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "make a waypoint named "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "rock"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "create waypoint for the stone",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the stone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add a map point",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add a map point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add a waypoint for the big crater",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add a waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the big crater"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark the location of the weird rock",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the location of the weird rock"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "drop a pin at the landing site",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "drop a pin at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the landing site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "create a waypoint for the blue soil",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "create a waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the blue soil"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add a marker for the north ridge",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add a marker for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the north ridge"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    },
+    {
+      "prompt": "set a waypoint at the cave entrance",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "set a waypoint at "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the cave entrance"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark the spot with the ice",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the spot with the ice"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "waypoint for the old rover",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "waypoint for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the old rover"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "add a point for the safe zone",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "add a point for "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the safe zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": true
+        }
+      ]
+    },
+    {
+      "prompt": "mark the hazardous area",
+      "tool_calls": [
+        "Add_waypoint"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "mark "
+        },
+        {
+          "type": "WAYPOINT_NAME",
+          "text": "the hazardous area"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Add_waypoint",
+          "return": false
+        }
+      ]
+    }
   ]
 }

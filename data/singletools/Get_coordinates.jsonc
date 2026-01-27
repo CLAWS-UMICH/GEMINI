@@ -1,110 +1,3025 @@
 {
-  // intent: Get_coordinates
-  // description: The user wants to retrieve the GPS coordinates of a saved waypoint for reference or to share with Mission Control. The prompt specifies the waypoint name, like "What are the coordinates for Base Camp?" or "Get coordinates of Sample Site Alpha."
-  // tokens: TEXT, COORDINATE_TARGET_NAME
   "data": [
-    {"prompt": "what are the coordinates for Base Camp", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what are the coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Base Camp"}]},
-    {"prompt": "get coordinates of Sample Site Alpha", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Sample Site Alpha"}]},
-    {"prompt": "show me the coordinates for Landing Zone", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "show me the coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Landing Zone"}]},
-    {"prompt": "coordinates for Observation Point", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Observation Point"}]},
-    {"prompt": "get coordinates of Base Camp and Landing Zone", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Base Camp"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Landing Zone"}]},
-    {"prompt": "what are the coordinates for Drill Site 1 and Equipment Cache and Research Outpost", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what are the coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Drill Site 1"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Equipment Cache"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Research Outpost"}]},
-    {"prompt": "fetch coordinates of Crater Edge", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "fetch coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Crater Edge"}]},
-    {"prompt": "what is the position of Research Outpost", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what is the position of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Research Outpost"}]},
-    {"prompt": "look up coordinates for Emergency Shelter and Solar Panel Array", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "look up coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Emergency Shelter"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Solar Panel Array"}]},
-    {"prompt": "I need the coordinates of Solar Panel Array", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "I need the coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Solar Panel Array"}]},
-    {"prompt": "get location of Communication Relay", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get location of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Communication Relay"}]},
-    {"prompt": "display coordinates for Science Station and Rover Parking and Medical Bay", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "display coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Science Station"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Rover Parking"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Medical Bay"}]},
-    {"prompt": "where is Rock Formation A located", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "where is "}, {"type": "COORDINATE_TARGET_NAME", "text": "Rock Formation A"}, {"type": "TEXT", "text": " located"}]},
-    {"prompt": "tell me the coordinates for Water Ice Deposit", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "tell me the coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Water Ice Deposit"}]},
-    {"prompt": "coordinates of Seismic Sensor please", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Seismic Sensor"}, {"type": "TEXT", "text": " please"}]},
-    {"prompt": "get coordinates of Mineral Deposit and Antenna Site", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Mineral Deposit"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Antenna Site"}]},
-    {"prompt": "what are the GPS coordinates of Habitat Module", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what are the GPS coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Habitat Module"}]},
-    {"prompt": "can you get coordinates for Rover Parking", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "can you get coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Rover Parking"}]},
-    {"prompt": "show coordinates for Power Station and EVA Return Point and Navigation Beacon", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "show coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Power Station"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "EVA Return Point"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Navigation Beacon"}]},
-    {"prompt": "what's the coordinates of EVA Return Point", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what's the coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "EVA Return Point"}]},
-    {"prompt": "pull up coordinates for Navigation Beacon", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "pull up coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Navigation Beacon"}]},
-    {"prompt": "get waypoint coordinates for Antenna Site and Supply Drop", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get waypoint coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Antenna Site"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Supply Drop"}]},
-    {"prompt": "location data for Supply Drop", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "location data for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Supply Drop"}]},
-    {"prompt": "coordinates for Medical Bay please", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Medical Bay"}, {"type": "TEXT", "text": " please"}]},
-    {"prompt": "I want the coordinates of Ridge Line", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "I want the coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Ridge Line"}]},
-    {"prompt": "find coordinates for Lava Tube Entrance and Greenhouse and Oxygen Refill", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "find coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Lava Tube Entrance"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Greenhouse"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Oxygen Refill"}]},
-    {"prompt": "what are the coordinates of Greenhouse", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what are the coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Greenhouse"}]},
-    {"prompt": "get me the location of Oxygen Refill", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get me the location of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Oxygen Refill"}]},
-    {"prompt": "where is Tool Storage exactly", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "where is "}, {"type": "COORDINATE_TARGET_NAME", "text": "Tool Storage"}, {"type": "TEXT", "text": " exactly"}]},
-    {"prompt": "check coordinates of Restricted Zone and Inspection Site", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "check coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Restricted Zone"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Inspection Site"}]},
-    {"prompt": "give coordinates for Inspection Site", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "give coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Inspection Site"}]},
-    {"prompt": "coordinates of Lab Entrance", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Lab Entrance"}]},
-    {"prompt": "where's the Weather Station located", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "where's the "}, {"type": "COORDINATE_TARGET_NAME", "text": "Weather Station"}, {"type": "TEXT", "text": " located"}]},
-    {"prompt": "get position of Reference Point Alpha and Battery Swap Station and Terrain Feature X", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get position of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Reference Point Alpha"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Battery Swap Station"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Terrain Feature X"}]},
-    {"prompt": "coordinates for Battery Swap Station", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Battery Swap Station"}]},
-    {"prompt": "what's the position of Terrain Feature X", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what's the position of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Terrain Feature X"}]},
-    {"prompt": "look up the coordinates of Panorama Ridge and EVA Boundary", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "look up the coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Panorama Ridge"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "EVA Boundary"}]},
-    {"prompt": "I need location for EVA Boundary", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "I need location for "}, {"type": "COORDINATE_TARGET_NAME", "text": "EVA Boundary"}]},
-    {"prompt": "get coordinates for Regolith Sample Site", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Regolith Sample Site"}]},
-    {"prompt": "what are coordinates of Safe Haven and Charging Station and Experiment Alpha", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what are coordinates of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Safe Haven"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Charging Station"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Experiment Alpha"}]},
-    {"prompt": "display position for Charging Station", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "display position for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Charging Station"}]},
-    {"prompt": "tell me where Experiment Alpha is", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "tell me where "}, {"type": "COORDINATE_TARGET_NAME", "text": "Experiment Alpha"}, {"type": "TEXT", "text": " is"}]},
-    {"prompt": "location of Dust Storm Shelter", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "location of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Dust Storm Shelter"}]},
-    {"prompt": "get coordinates for Traverse Start and Geological Survey", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Traverse Start"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Geological Survey"}]},
-    {"prompt": "can I get the coordinates for Geological Survey", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "can I get the coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Geological Survey"}]},
-    {"prompt": "check the location of Hazard Zone", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "check the location of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Hazard Zone"}]},
-    {"prompt": "where exactly is Sample Collection B", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "where exactly is "}, {"type": "COORDINATE_TARGET_NAME", "text": "Sample Collection B"}]},
-    {"prompt": "get the GPS position of Terrain Study Area and Dust Devil Alley", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get the GPS position of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Terrain Study Area"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Dust Devil Alley"}]},
-    {"prompt": "what are the coordinates for Dust Devil Alley", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "what are the coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Dust Devil Alley"}]},
-    {"prompt": "show me locations for North Ridge and South Canyon and Central Hub", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "show me locations for "}, {"type": "COORDINATE_TARGET_NAME", "text": "North Ridge"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "South Canyon"}, {"type": "TEXT", "text": " and "}, {"type": "COORDINATE_TARGET_NAME", "text": "Central Hub"}]},
-    {"prompt": "hey whats the position of Sample Return Site", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "hey whats the position of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Sample Return Site"}]},
-    {"prompt": "gimme coords for Seismic Study Zone", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "gimme coords for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Seismic Study Zone"}]},
-    {"prompt": "need the location data for Backup Shelter", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "need the location data for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Backup Shelter"}]},
-    {"prompt": "hit me with coordinates for Antenna Array", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "hit me with coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Antenna Array"}]},
-    {"prompt": "where did we mark Rock Shelf", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "where did we mark "}, {"type": "COORDINATE_TARGET_NAME", "text": "Rock Shelf"}]},
-    {"prompt": "position info on Secondary Landing please", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "position info on "}, {"type": "COORDINATE_TARGET_NAME", "text": "Secondary Landing"}, {"type": "TEXT", "text": " please"}]},
-    {"prompt": "coordinates please for Mineral Survey Point", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates please for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Mineral Survey Point"}]},
-    {"prompt": "locate Mobile Lab Position for me", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "locate "}, {"type": "COORDINATE_TARGET_NAME", "text": "Mobile Lab Position"}, {"type": "TEXT", "text": " for me"}]},
-    {"prompt": "get gps for Equipment Drop", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get gps for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Equipment Drop"}]},
-    {"prompt": "tell me exactly where Shade Zone is", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "tell me exactly where "}, {"type": "COORDINATE_TARGET_NAME", "text": "Shade Zone"}, {"type": "TEXT", "text": " is"}]},
-    {"prompt": "quick coord check on Solar Collection A", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "quick coord check on "}, {"type": "COORDINATE_TARGET_NAME", "text": "Solar Collection A"}]},
-    {"prompt": "Radio Relay where is that again", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Radio Relay"}, {"type": "TEXT", "text": " where is that again"}]},
-    {"prompt": "pls find Observation Deck coordinates", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "pls find "}, {"type": "COORDINATE_TARGET_NAME", "text": "Observation Deck"}, {"type": "TEXT", "text": " coordinates"}]},
-    {"prompt": "Crater Rim North position data", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Crater Rim North"}, {"type": "TEXT", "text": " position data"}]},
-    {"prompt": "yo coordinates for Rest Station", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "yo coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Rest Station"}]},
-    {"prompt": "look up where Geological Sample Alpha is", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "look up where "}, {"type": "COORDINATE_TARGET_NAME", "text": "Geological Sample Alpha"}, {"type": "TEXT", "text": " is"}]},
-    {"prompt": "Dusty Crossing what are those coords", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Dusty Crossing"}, {"type": "TEXT", "text": " what are those coords"}]},
-    {"prompt": "Water Ice Discovery location needed", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Water Ice Discovery"}, {"type": "TEXT", "text": " location needed"}]},
-    {"prompt": "retrieve position of Thermal Vent", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "retrieve position of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Thermal Vent"}]},
-    {"prompt": "show location Emergency Rally", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "show location "}, {"type": "COORDINATE_TARGET_NAME", "text": "Emergency Rally"}]},
-    {"prompt": "Experiment Delta coordinates check", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Experiment Delta"}, {"type": "TEXT", "text": " coordinates check"}]},
-    {"prompt": "pull Mission Control Link gps data", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "pull "}, {"type": "COORDINATE_TARGET_NAME", "text": "Mission Control Link"}, {"type": "TEXT", "text": " gps data"}]},
-    {"prompt": "wheres Debris Field Edge at", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "wheres "}, {"type": "COORDINATE_TARGET_NAME", "text": "Debris Field Edge"}, {"type": "TEXT", "text": " at"}]},
-    {"prompt": "Sunset Point can you look that up", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Sunset Point"}, {"type": "TEXT", "text": " can you look that up"}]},
-    {"prompt": "check Battery Station Bravo coordinates", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "check "}, {"type": "COORDINATE_TARGET_NAME", "text": "Battery Station Bravo"}, {"type": "TEXT", "text": " coordinates"}]},
-    {"prompt": "Data Relay Point position please", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Data Relay Point"}, {"type": "TEXT", "text": " position please"}]},
-    {"prompt": "Sensor Grid Alpha where is it", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Sensor Grid Alpha"}, {"type": "TEXT", "text": " where is it"}]},
-    {"prompt": "find Perimeter Marker for me", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "find "}, {"type": "COORDINATE_TARGET_NAME", "text": "Perimeter Marker"}, {"type": "TEXT", "text": " for me"}]},
-    {"prompt": "Cave Entrance exact coordinates", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Cave Entrance"}, {"type": "TEXT", "text": " exact coordinates"}]},
-    {"prompt": "coordinates lookup Ridge Observation", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates lookup "}, {"type": "COORDINATE_TARGET_NAME", "text": "Ridge Observation"}]},
-    {"prompt": "Outpost Gamma how far and where", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Outpost Gamma"}, {"type": "TEXT", "text": " how far and where"}]},
-    {"prompt": "get me coords of Traverse Starting Point", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get me coords of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Traverse Starting Point"}]},
-    {"prompt": "Dust Sample Zone show position", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Dust Sample Zone"}, {"type": "TEXT", "text": " show position"}]},
-    {"prompt": "Communications Hub location info", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Communications Hub"}, {"type": "TEXT", "text": " location info"}]},
-    {"prompt": "query coordinates for Collection Site Beta", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "query coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Collection Site Beta"}]},
-    {"prompt": "Radiation Survey Point where at", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Radiation Survey Point"}, {"type": "TEXT", "text": " where at"}]},
-    {"prompt": "grab location of Magnetic Anomaly", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "grab location of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Magnetic Anomaly"}]},
-    {"prompt": "Halfway Point show me coords", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Halfway Point"}, {"type": "TEXT", "text": " show me coords"}]},
-    {"prompt": "Storm Shelter South gps coordinates", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Storm Shelter South"}, {"type": "TEXT", "text": " gps coordinates"}]},
-    {"prompt": "coordinates request for Fuel Cache Alpha", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "coordinates request for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Fuel Cache Alpha"}]},
-    {"prompt": "Sample Container Drop whats the location", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Sample Container Drop"}, {"type": "TEXT", "text": " whats the location"}]},
-    {"prompt": "Maintenance Bay Exterior position check", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Maintenance Bay Exterior"}, {"type": "TEXT", "text": " position check"}]},
-    {"prompt": "log coordinates Rover Turnaround", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "log coordinates "}, {"type": "COORDINATE_TARGET_NAME", "text": "Rover Turnaround"}]},
-    {"prompt": "Power Conduit Junction location", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Power Conduit Junction"}, {"type": "TEXT", "text": " location"}]},
-    {"prompt": "get waypoint coordinates Geological Feature Seven", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "get waypoint coordinates "}, {"type": "COORDINATE_TARGET_NAME", "text": "Geological Feature Seven"}]},
-    {"prompt": "Comm Tower Base where did we put it", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Comm Tower Base"}, {"type": "TEXT", "text": " where did we put it"}]},
-    {"prompt": "position of Instrument Deployment Site needed", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "position of "}, {"type": "COORDINATE_TARGET_NAME", "text": "Instrument Deployment Site"}, {"type": "TEXT", "text": " needed"}]},
-    {"prompt": "Backup EVA Return coords from nav", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Backup EVA Return"}, {"type": "TEXT", "text": " coords from nav"}]},
-    {"prompt": "Horizon Survey Point give me location", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Horizon Survey Point"}, {"type": "TEXT", "text": " give me location"}]},
-    {"prompt": "Experiment Gamma Site pull up coords", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Experiment Gamma Site"}, {"type": "TEXT", "text": " pull up coords"}]},
-    {"prompt": "find coordinates for Outflow Channel", "tool_calls": ["Get_coordinates"], "parts": [{"type": "TEXT", "text": "find coordinates for "}, {"type": "COORDINATE_TARGET_NAME", "text": "Outflow Channel"}]},
-    {"prompt": "Rock Layer Exposure exact position", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Rock Layer Exposure"}, {"type": "TEXT", "text": " exact position"}]},
-    {"prompt": "Ice Deposit Survey coordinates status", "tool_calls": ["Get_coordinates"], "parts": [{"type": "COORDINATE_TARGET_NAME", "text": "Ice Deposit Survey"}, {"type": "TEXT", "text": " coordinates status"}]}
+    {
+      "prompt": "what are the coordinates for Base Camp",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what are the coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Base Camp"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8989.8,
+            "y": -7711.7,
+            "name": "Base Camp"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get coordinates of Sample Site Alpha",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Sample Site Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8112.2,
+            "y": 8957.0,
+            "name": "Sample Site Alpha"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "show me the coordinates for Landing Zone",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "show me the coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Landing Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 538.6,
+            "y": 2750.5,
+            "name": "Landing Zone"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates for Observation Point",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Observation Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -1148.1,
+            "y": -8788.9,
+            "name": "Observation Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get coordinates of Base Camp and Landing Zone",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Base Camp"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Landing Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 4686.4,
+            "y": -9603.3,
+            "name": "Base Camp"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what are the coordinates for Drill Site 1 and Equipment Cache and Research Outpost",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what are the coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Drill Site 1"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Equipment Cache"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Research Outpost"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2820.1,
+            "y": -5143.3,
+            "name": "Drill Site 1"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "fetch coordinates of Crater Edge",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "fetch coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Crater Edge"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8139.4,
+            "y": 8751.8,
+            "name": "Crater Edge"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what is the position of Research Outpost",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what is the position of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Research Outpost"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "look up coordinates for Emergency Shelter and Solar Panel Array",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "look up coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Emergency Shelter"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Solar Panel Array"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 3581.6,
+            "y": 2882.7,
+            "name": "Emergency Shelter"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "I need the coordinates of Solar Panel Array",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "I need the coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Solar Panel Array"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 3876.2,
+            "y": -2381.9,
+            "name": "Solar Panel Array"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get location of Communication Relay",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get location of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Communication Relay"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 5980.1,
+            "y": -655.1,
+            "name": "Communication Relay"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "display coordinates for Science Station and Rover Parking and Medical Bay",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "display coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Science Station"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Rover Parking"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Medical Bay"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1609.9,
+            "y": 2814.7,
+            "name": "Science Station"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "where is Rock Formation A located",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "where is "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Rock Formation A"
+        },
+        {
+          "type": "TEXT",
+          "text": " located"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "tell me the coordinates for Water Ice Deposit",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "tell me the coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Water Ice Deposit"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2645.3,
+            "y": -164.7,
+            "name": "Water Ice Deposit"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates of Seismic Sensor please",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Seismic Sensor"
+        },
+        {
+          "type": "TEXT",
+          "text": " please"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8422.1,
+            "y": 8403.2,
+            "name": "Seismic Sensor"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get coordinates of Mineral Deposit and Antenna Site",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Mineral Deposit"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Antenna Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -8808.8,
+            "y": -5131.2,
+            "name": "Mineral Deposit"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what are the GPS coordinates of Habitat Module",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what are the GPS coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Habitat Module"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -1101.2,
+            "y": -4695.3,
+            "name": "Habitat Module"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "can you get coordinates for Rover Parking",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "can you get coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Rover Parking"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7610.8,
+            "y": -1040.4,
+            "name": "Rover Parking"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "show coordinates for Power Station and EVA Return Point and Navigation Beacon",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "show coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Power Station"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "EVA Return Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Navigation Beacon"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 7854.9,
+            "y": 3907.7,
+            "name": "Power Station"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what's the coordinates of EVA Return Point",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what's the coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "EVA Return Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 7442.5,
+            "y": 7916.2,
+            "name": "EVA Return Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "pull up coordinates for Navigation Beacon",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "pull up coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Navigation Beacon"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get waypoint coordinates for Antenna Site and Supply Drop",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get waypoint coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Antenna Site"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Supply Drop"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "location data for Supply Drop",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "location data for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Supply Drop"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -5731.9,
+            "y": -6314.0,
+            "name": "Supply Drop"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates for Medical Bay please",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Medical Bay"
+        },
+        {
+          "type": "TEXT",
+          "text": " please"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 6093.2,
+            "y": 8628.2,
+            "name": "Medical Bay"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "I want the coordinates of Ridge Line",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "I want the coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Ridge Line"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7557.4,
+            "y": -2265.1,
+            "name": "Ridge Line"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "find coordinates for Lava Tube Entrance and Greenhouse and Oxygen Refill",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "find coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Lava Tube Entrance"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Greenhouse"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Oxygen Refill"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -6262.4,
+            "y": 516.3,
+            "name": "Lava Tube Entrance"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what are the coordinates of Greenhouse",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what are the coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Greenhouse"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2106.7,
+            "y": -4894.5,
+            "name": "Greenhouse"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get me the location of Oxygen Refill",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get me the location of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Oxygen Refill"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8835.2,
+            "y": 8327.6,
+            "name": "Oxygen Refill"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "where is Tool Storage exactly",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "where is "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Tool Storage"
+        },
+        {
+          "type": "TEXT",
+          "text": " exactly"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7755.3,
+            "y": -7992.5,
+            "name": "Tool Storage"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "check coordinates of Restricted Zone and Inspection Site",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "check coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Restricted Zone"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Inspection Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 9566.1,
+            "y": -3080.4,
+            "name": "Restricted Zone"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "give coordinates for Inspection Site",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "give coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Inspection Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7158.9,
+            "y": 2601.0,
+            "name": "Inspection Site"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates of Lab Entrance",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Lab Entrance"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -8490.5,
+            "y": -596.8,
+            "name": "Lab Entrance"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "where's the Weather Station located",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "where's the "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Weather Station"
+        },
+        {
+          "type": "TEXT",
+          "text": " located"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 3608.6,
+            "y": -5485.9,
+            "name": "Weather Station"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get position of Reference Point Alpha and Battery Swap Station and Terrain Feature X",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get position of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Reference Point Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Battery Swap Station"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Terrain Feature X"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -884.6,
+            "y": -7882.6,
+            "name": "Reference Point Alpha"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates for Battery Swap Station",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Battery Swap Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7085.2,
+            "y": -339.7,
+            "name": "Battery Swap Station"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what's the position of Terrain Feature X",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what's the position of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Terrain Feature X"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1135.4,
+            "y": -4890.0,
+            "name": "Terrain Feature X"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "look up the coordinates of Panorama Ridge and EVA Boundary",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "look up the coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Panorama Ridge"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "EVA Boundary"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -6431.2,
+            "y": -6770.4,
+            "name": "Panorama Ridge"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "I need location for EVA Boundary",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "I need location for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "EVA Boundary"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 301.6,
+            "y": 1824.5,
+            "name": "EVA Boundary"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get coordinates for Regolith Sample Site",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Regolith Sample Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what are coordinates of Safe Haven and Charging Station and Experiment Alpha",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what are coordinates of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Safe Haven"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Charging Station"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Experiment Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -6864.7,
+            "y": 3111.3,
+            "name": "Safe Haven"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "display position for Charging Station",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "display position for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Charging Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2032.6,
+            "y": 1060.1,
+            "name": "Charging Station"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "tell me where Experiment Alpha is",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "tell me where "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Experiment Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " is"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1940.0,
+            "y": 1979.7,
+            "name": "Experiment Alpha"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "location of Dust Storm Shelter",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "location of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Dust Storm Shelter"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -9684.0,
+            "y": -1308.2,
+            "name": "Dust Storm Shelter"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get coordinates for Traverse Start and Geological Survey",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Traverse Start"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Geological Survey"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2804.9,
+            "y": 4669.6,
+            "name": "Traverse Start"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "can I get the coordinates for Geological Survey",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "can I get the coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Geological Survey"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -4469.9,
+            "y": -2276.5,
+            "name": "Geological Survey"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "check the location of Hazard Zone",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "check the location of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Hazard Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -8636.4,
+            "y": -2257.0,
+            "name": "Hazard Zone"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "where exactly is Sample Collection B",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "where exactly is "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Sample Collection B"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8124.4,
+            "y": -6445.7,
+            "name": "Sample Collection B"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get the GPS position of Terrain Study Area and Dust Devil Alley",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get the GPS position of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Terrain Study Area"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Dust Devil Alley"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 5898.8,
+            "y": 9421.7,
+            "name": "Terrain Study Area"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "what are the coordinates for Dust Devil Alley",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "what are the coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Dust Devil Alley"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -9730.8,
+            "y": -157.5,
+            "name": "Dust Devil Alley"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "show me locations for North Ridge and South Canyon and Central Hub",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "show me locations for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "North Ridge"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "South Canyon"
+        },
+        {
+          "type": "TEXT",
+          "text": " and "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Central Hub"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 331.7,
+            "y": -3474.6,
+            "name": "North Ridge"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "hey whats the position of Sample Return Site",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "hey whats the position of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Sample Return Site"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8621.6,
+            "y": -9502.8,
+            "name": "Sample Return Site"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "gimme coords for Seismic Study Zone",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "gimme coords for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Seismic Study Zone"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1696.6,
+            "y": 9328.7,
+            "name": "Seismic Study Zone"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "need the location data for Backup Shelter",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "need the location data for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Backup Shelter"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1735.4,
+            "y": 4326.3,
+            "name": "Backup Shelter"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "hit me with coordinates for Antenna Array",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "hit me with coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Antenna Array"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 6474.1,
+            "y": 3638.1,
+            "name": "Antenna Array"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "where did we mark Rock Shelf",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "where did we mark "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Rock Shelf"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "position info on Secondary Landing please",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "position info on "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Secondary Landing"
+        },
+        {
+          "type": "TEXT",
+          "text": " please"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 672.0,
+            "y": 2455.0,
+            "name": "Secondary Landing"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates please for Mineral Survey Point",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates please for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Mineral Survey Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "locate Mobile Lab Position for me",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "locate "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Mobile Lab Position"
+        },
+        {
+          "type": "TEXT",
+          "text": " for me"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -3234.0,
+            "y": 3411.3,
+            "name": "Mobile Lab Position"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get gps for Equipment Drop",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get gps for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Equipment Drop"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -5942.4,
+            "y": -1563.6,
+            "name": "Equipment Drop"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "tell me exactly where Shade Zone is",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "tell me exactly where "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Shade Zone"
+        },
+        {
+          "type": "TEXT",
+          "text": " is"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 9213.4,
+            "y": 9259.6,
+            "name": "Shade Zone"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "quick coord check on Solar Collection A",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "quick coord check on "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Solar Collection A"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 5460.4,
+            "y": -8907.6,
+            "name": "Solar Collection A"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Radio Relay where is that again",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Radio Relay"
+        },
+        {
+          "type": "TEXT",
+          "text": " where is that again"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 9562.2,
+            "y": 7804.9,
+            "name": "Radio Relay"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "pls find Observation Deck coordinates",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "pls find "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Observation Deck"
+        },
+        {
+          "type": "TEXT",
+          "text": " coordinates"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2904.6,
+            "y": -1285.6,
+            "name": "Observation Deck"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Crater Rim North position data",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Crater Rim North"
+        },
+        {
+          "type": "TEXT",
+          "text": " position data"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2438.3,
+            "y": 9221.3,
+            "name": "Crater Rim North"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "yo coordinates for Rest Station",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "yo coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Rest Station"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "look up where Geological Sample Alpha is",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "look up where "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Geological Sample Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " is"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 7525.2,
+            "y": 2951.5,
+            "name": "Geological Sample Alpha"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Dusty Crossing what are those coords",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Dusty Crossing"
+        },
+        {
+          "type": "TEXT",
+          "text": " what are those coords"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 5723.5,
+            "y": 5639.1,
+            "name": "Dusty Crossing"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Water Ice Discovery location needed",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Water Ice Discovery"
+        },
+        {
+          "type": "TEXT",
+          "text": " location needed"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7484.2,
+            "y": -5546.7,
+            "name": "Water Ice Discovery"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "retrieve position of Thermal Vent",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "retrieve position of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Thermal Vent"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "show location Emergency Rally",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "show location "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Emergency Rally"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1553.1,
+            "y": -8895.3,
+            "name": "Emergency Rally"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Experiment Delta coordinates check",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Experiment Delta"
+        },
+        {
+          "type": "TEXT",
+          "text": " coordinates check"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 7596.6,
+            "y": -2169.6,
+            "name": "Experiment Delta"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "pull Mission Control Link gps data",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "pull "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Mission Control Link"
+        },
+        {
+          "type": "TEXT",
+          "text": " gps data"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -1158.8,
+            "y": -8955.0,
+            "name": "Mission Control Link"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "wheres Debris Field Edge at",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "wheres "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Debris Field Edge"
+        },
+        {
+          "type": "TEXT",
+          "text": " at"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8226.2,
+            "y": -5805.2,
+            "name": "Debris Field Edge"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Sunset Point can you look that up",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Sunset Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " can you look that up"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 6486.0,
+            "y": 2324.1,
+            "name": "Sunset Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "check Battery Station Bravo coordinates",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "check "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Battery Station Bravo"
+        },
+        {
+          "type": "TEXT",
+          "text": " coordinates"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 7755.0,
+            "y": 9402.7,
+            "name": "Battery Station Bravo"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Data Relay Point position please",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Data Relay Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " position please"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 2534.3,
+            "y": -8108.8,
+            "name": "Data Relay Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Sensor Grid Alpha where is it",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Sensor Grid Alpha"
+        },
+        {
+          "type": "TEXT",
+          "text": " where is it"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 7426.5,
+            "y": 6438.4,
+            "name": "Sensor Grid Alpha"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "find Perimeter Marker for me",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "find "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Perimeter Marker"
+        },
+        {
+          "type": "TEXT",
+          "text": " for me"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Cave Entrance exact coordinates",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Cave Entrance"
+        },
+        {
+          "type": "TEXT",
+          "text": " exact coordinates"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -198.0,
+            "y": 5646.6,
+            "name": "Cave Entrance"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates lookup Ridge Observation",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates lookup "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Ridge Observation"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -6690.9,
+            "y": -9812.8,
+            "name": "Ridge Observation"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Outpost Gamma how far and where",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Outpost Gamma"
+        },
+        {
+          "type": "TEXT",
+          "text": " how far and where"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -2548.0,
+            "y": 4578.7,
+            "name": "Outpost Gamma"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get me coords of Traverse Starting Point",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get me coords of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Traverse Starting Point"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -8349.5,
+            "y": -7202.1,
+            "name": "Traverse Starting Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Dust Sample Zone show position",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Dust Sample Zone"
+        },
+        {
+          "type": "TEXT",
+          "text": " show position"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Communications Hub location info",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Communications Hub"
+        },
+        {
+          "type": "TEXT",
+          "text": " location info"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -6709.9,
+            "y": -1455.7,
+            "name": "Communications Hub"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "query coordinates for Collection Site Beta",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "query coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Collection Site Beta"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -3635.6,
+            "y": 920.6,
+            "name": "Collection Site Beta"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Radiation Survey Point where at",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Radiation Survey Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " where at"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -8222.3,
+            "y": 9929.7,
+            "name": "Radiation Survey Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "grab location of Magnetic Anomaly",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "grab location of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Magnetic Anomaly"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8435.3,
+            "y": -6753.1,
+            "name": "Magnetic Anomaly"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Halfway Point show me coords",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Halfway Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " show me coords"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7448.3,
+            "y": 9450.7,
+            "name": "Halfway Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Storm Shelter South gps coordinates",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Storm Shelter South"
+        },
+        {
+          "type": "TEXT",
+          "text": " gps coordinates"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -5338.0,
+            "y": -3042.7,
+            "name": "Storm Shelter South"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "coordinates request for Fuel Cache Alpha",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "coordinates request for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Fuel Cache Alpha"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Sample Container Drop whats the location",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Sample Container Drop"
+        },
+        {
+          "type": "TEXT",
+          "text": " whats the location"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 8100.7,
+            "y": 5052.0,
+            "name": "Sample Container Drop"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Maintenance Bay Exterior position check",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Maintenance Bay Exterior"
+        },
+        {
+          "type": "TEXT",
+          "text": " position check"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 9785.6,
+            "y": 78.5,
+            "name": "Maintenance Bay Exterior"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "log coordinates Rover Turnaround",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "log coordinates "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Rover Turnaround"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -1900.2,
+            "y": 8151.7,
+            "name": "Rover Turnaround"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Power Conduit Junction location",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Power Conduit Junction"
+        },
+        {
+          "type": "TEXT",
+          "text": " location"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "get waypoint coordinates Geological Feature Seven",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "get waypoint coordinates "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Geological Feature Seven"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -2894.4,
+            "y": 718.1,
+            "name": "Geological Feature Seven"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Comm Tower Base where did we put it",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Comm Tower Base"
+        },
+        {
+          "type": "TEXT",
+          "text": " where did we put it"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1683.7,
+            "y": -571.9,
+            "name": "Comm Tower Base"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "position of Instrument Deployment Site needed",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "position of "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Instrument Deployment Site"
+        },
+        {
+          "type": "TEXT",
+          "text": " needed"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -7786.8,
+            "y": -8431.3,
+            "name": "Instrument Deployment Site"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Backup EVA Return coords from nav",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Backup EVA Return"
+        },
+        {
+          "type": "TEXT",
+          "text": " coords from nav"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 5559.7,
+            "y": -2892.1,
+            "name": "Backup EVA Return"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Horizon Survey Point give me location",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Horizon Survey Point"
+        },
+        {
+          "type": "TEXT",
+          "text": " give me location"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -5365.5,
+            "y": 8549.2,
+            "name": "Horizon Survey Point"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Experiment Gamma Site pull up coords",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Experiment Gamma Site"
+        },
+        {
+          "type": "TEXT",
+          "text": " pull up coords"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": -8187.1,
+            "y": -8135.2,
+            "name": "Experiment Gamma Site"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "find coordinates for Outflow Channel",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "TEXT",
+          "text": "find coordinates for "
+        },
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Outflow Channel"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Rock Layer Exposure exact position",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Rock Layer Exposure"
+        },
+        {
+          "type": "TEXT",
+          "text": " exact position"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": true,
+            "x": 1618.4,
+            "y": -4936.9,
+            "name": "Rock Layer Exposure"
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Ice Deposit Survey coordinates status",
+      "tool_calls": [
+        "Get_coordinates"
+      ],
+      "parts": [
+        {
+          "type": "COORDINATE_TARGET_NAME",
+          "text": "Ice Deposit Survey"
+        },
+        {
+          "type": "TEXT",
+          "text": " coordinates status"
+        }
+      ],
+      "responses": [
+        {
+          "intent": "Get_coordinates",
+          "return": {
+            "success": false,
+            "x": 0,
+            "y": 0,
+            "name": ""
+          }
+        }
+      ]
+    }
   ]
 }
