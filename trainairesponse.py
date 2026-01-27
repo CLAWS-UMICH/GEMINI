@@ -1,0 +1,387 @@
+"""
+AI Response Training Script for Flan-T5 (or other seq2seq models).
+
+Trains a model to generate natural language responses given:
+- User's original query
+- Tool calls that were made
+- Results from those tool calls
+
+Uses the functiongemma-style format for input structuring.
+"""
+
+import json
+from pathlib import Path
+
+import torch
+from torch.utils.data import Dataset, DataLoader, random_split
+from transformers import (
+    AutoTokenizer,
+    AutoModelForSeq2SeqLM,
+    get_linear_schedule_with_warmup,
+)
+
+# Import data loader from existing module
+from simpledatacombine import load_all_training_data
+
+
+# =============================================================================
+# Configuration - Edit these to change behavior
+# =============================================================================
+
+MODEL_NAME = "google/flan-t5-small"  # Try: google/flan-t5-base, google/flan-t5-large
+OUTPUT_DIR = "ai_response_model"
+MAX_INPUT_LENGTH = 512
+MAX_TARGET_LENGTH = 128
+BATCH_SIZE = 8
+EPOCHS = 3
+LEARNING_RATE = 5e-5
+WARMUP_RATIO = 0.1
+
+# Set to True to just show sample data without training
+DRY_RUN = False
+
+
+# =============================================================================
+# Dataset
+# =============================================================================
+
+class AIResponseDataset(Dataset):
+    """
+    Dataset for training AI response generation.
+    
+    Filters to only include datapoints that have a non-empty ai_response field.
+    Formats input following the functiongemma template.
+    """
+    
+    def __init__(self, data: list, tokenizer, max_input_len: int = MAX_INPUT_LENGTH, 
+                 max_target_len: int = MAX_TARGET_LENGTH):
+        self.tokenizer = tokenizer
+        self.max_input_len = max_input_len
+        self.max_target_len = max_target_len
+        
+        # Filter to only items with ai_response
+        self.data = [
+            item for item in data 
+            if item.get("ai_response") and item["ai_response"].strip()
+        ]
+        
+        print(f"Filtered to {len(self.data)} items with ai_response (from {len(data)} total)")
+    
+    def __len__(self):
+        return len(self.data)
+    
+    def _format_input(self, item: dict) -> str:
+        """
+        Format input following the functiongemma template:
+        
+        User: <prompt>
+        Function calls: [<tool1>, <tool2>, ...]
+        Results: <JSON of responses>
+        """
+        prompt = item.get("prompt", "")
+        tool_calls = item.get("tool_calls", [])
+        responses = item.get("responses", [])
+        
+        # Format tool calls as list
+        tools_str = ", ".join(tool_calls) if tool_calls else "none"
+        
+        # Format responses as compact JSON
+        if responses:
+            results_str = json.dumps(responses, separators=(",", ":"))
+        else:
+            results_str = "[]"
+        
+        input_text = f"User: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}"
+        return input_text
+    
+    def __getitem__(self, idx):
+        item = self.data[idx]
+        
+        input_text = self._format_input(item)
+        target_text = item["ai_response"]
+        
+        # Tokenize input
+        input_encoding = self.tokenizer(
+            input_text,
+            max_length=self.max_input_len,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt"
+        )
+        
+        # Tokenize target
+        target_encoding = self.tokenizer(
+            target_text,
+            max_length=self.max_target_len,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt"
+        )
+        
+        # Get labels (replace padding token id with -100 for loss calculation)
+        labels = target_encoding["input_ids"].squeeze()
+        labels[labels == self.tokenizer.pad_token_id] = -100
+        
+        return {
+            "input_ids": input_encoding["input_ids"].squeeze(),
+            "attention_mask": input_encoding["attention_mask"].squeeze(),
+            "labels": labels,
+        }
+
+
+# =============================================================================
+# Training
+# =============================================================================
+
+def train():
+    """Main training function."""
+    
+    # Device setup
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+        print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+    else:
+        device = torch.device("cpu")
+        print("Using CPU (no GPU available)")
+    
+    # Load tokenizer and model
+    print(f"\nLoading model: {MODEL_NAME}")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+    model.to(device)
+    
+    # Load data
+    print("\nLoading training data...")
+    all_data = load_all_training_data()
+    
+    # Create dataset
+    dataset = AIResponseDataset(all_data, tokenizer)
+    
+    if len(dataset) == 0:
+        print("ERROR: No training data with ai_response found!")
+        return None, None
+    
+    # Dry run mode - just show samples
+    if DRY_RUN:
+        print("\n" + "=" * 60)
+        print("DRY RUN MODE - Showing sample data")
+        print("=" * 60)
+        
+        for i in range(min(3, len(dataset))):
+            item = dataset.data[i]
+            input_text = dataset._format_input(item)
+            print(f"\n--- Sample {i+1} ---")
+            print(f"INPUT:\n{input_text}")
+            print(f"\nTARGET:\n{item['ai_response']}")
+        
+        print(f"\n\nTotal samples with ai_response: {len(dataset)}")
+        return model, tokenizer
+    
+    # Train/val split
+    val_size = max(1, int(len(dataset) * 0.1))
+    train_size = len(dataset) - val_size
+    train_dataset, val_dataset = random_split(
+        dataset, [train_size, val_size],
+        generator=torch.Generator().manual_seed(42)
+    )
+    
+    print(f"Train: {len(train_dataset)}, Val: {len(val_dataset)}")
+    
+    # DataLoaders
+    train_loader = DataLoader(
+        train_dataset, 
+        batch_size=BATCH_SIZE, 
+        shuffle=True,
+        num_workers=0  # Windows compatibility
+    )
+    val_loader = DataLoader(
+        val_dataset, 
+        batch_size=BATCH_SIZE, 
+        shuffle=False,
+        num_workers=0
+    )
+    
+    # Optimizer and scheduler
+    optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
+    total_steps = len(train_loader) * EPOCHS
+    warmup_steps = int(total_steps * WARMUP_RATIO)
+    scheduler = get_linear_schedule_with_warmup(
+        optimizer, 
+        num_warmup_steps=warmup_steps, 
+        num_training_steps=total_steps
+    )
+    
+    # Mixed precision scaler for GPU
+    scaler = torch.cuda.amp.GradScaler() if device.type == "cuda" else None
+    
+    # Training loop
+    print(f"\nStarting training for {EPOCHS} epochs...")
+    best_val_loss = float("inf")
+    
+    for epoch in range(EPOCHS):
+        model.train()
+        total_train_loss = 0
+        
+        for batch_idx, batch in enumerate(train_loader):
+            # Move to device
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["labels"].to(device)
+            
+            optimizer.zero_grad()
+            
+            # Forward pass with mixed precision
+            if scaler:
+                with torch.cuda.amp.autocast():
+                    outputs = model(
+                        input_ids=input_ids,
+                        attention_mask=attention_mask,
+                        labels=labels
+                    )
+                    loss = outputs.loss
+                
+                scaler.scale(loss).backward()
+                scaler.step(optimizer)
+                scaler.update()
+            else:
+                outputs = model(
+                    input_ids=input_ids,
+                    attention_mask=attention_mask,
+                    labels=labels
+                )
+                loss = outputs.loss
+                loss.backward()
+                optimizer.step()
+            
+            scheduler.step()
+            total_train_loss += loss.item()
+            
+            if (batch_idx + 1) % 50 == 0:
+                avg_loss = total_train_loss / (batch_idx + 1)
+                print(f"  Epoch {epoch+1}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {avg_loss:.4f}")
+        
+        avg_train_loss = total_train_loss / len(train_loader)
+        
+        # Validation
+        model.eval()
+        total_val_loss = 0
+        with torch.no_grad():
+            for batch in val_loader:
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                labels = batch["labels"].to(device)
+                
+                outputs = model(
+                    input_ids=input_ids,
+                    attention_mask=attention_mask,
+                    labels=labels
+                )
+                total_val_loss += outputs.loss.item()
+        
+        avg_val_loss = total_val_loss / len(val_loader)
+        
+        print(f"Epoch {epoch+1}/{EPOCHS} - Train Loss: {avg_train_loss:.4f}, Val Loss: {avg_val_loss:.4f}")
+        
+        # Save best model
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            save_path = Path(OUTPUT_DIR)
+            save_path.mkdir(parents=True, exist_ok=True)
+            model.save_pretrained(save_path)
+            tokenizer.save_pretrained(save_path)
+            print(f"  Saved best model to {save_path}")
+    
+    print("\nTraining complete!")
+    print(f"Best validation loss: {best_val_loss:.4f}")
+    print(f"Model saved to: {OUTPUT_DIR}")
+    
+    return model, tokenizer
+
+
+# =============================================================================
+# Demo / Inference
+# =============================================================================
+
+def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: list) -> str:
+    """Generate a response given user prompt, tool calls, and results."""
+    
+    device = next(model.parameters()).device
+    model.eval()
+    
+    # Build input
+    tools_str = ", ".join(tool_calls) if tool_calls else "none"
+    results_str = json.dumps(results, separators=(",", ":")) if results else "[]"
+    input_text = f"User: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}"
+    
+    print(f"\nInput:\n{input_text}")
+    
+    # Tokenize
+    inputs = tokenizer(
+        input_text,
+        max_length=MAX_INPUT_LENGTH,
+        truncation=True,
+        return_tensors="pt"
+    ).to(device)
+    
+    # Generate
+    with torch.no_grad():
+        outputs = model.generate(
+            **inputs,
+            max_length=MAX_TARGET_LENGTH,
+            num_beams=4,
+            early_stopping=True
+        )
+    
+    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    return response
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+if __name__ == "__main__":
+    # Train the model
+    model, tokenizer = train()
+    
+    # If we have a model (either from training or dry-run), run demo inference
+    if model is not None and tokenizer is not None:
+        print("\n" + "=" * 60)
+        print("DEMO INFERENCE")
+        print("=" * 60)
+        
+        # Demo 1: Battery check
+        response = generate_response(
+            model, tokenizer,
+            prompt="how much battery do I have left",
+            tool_calls=["vitals_batt_time_left"],
+            results=[{"intent": "vitals_batt_time_left", "return": 7.5}]
+        )
+        print(f"\nGenerated: {response}")
+        
+        # Demo 2: Task creation
+        response = generate_response(
+            model, tokenizer,
+            prompt="add a task to check the solar panels",
+            tool_calls=["Add_task"],
+            results=[{"intent": "Add_task", "return": True}]
+        )
+        print(f"\nGenerated: {response}")
+        
+        # Demo 3: Oxygen with secondary storage
+        response = generate_response(
+            model, tokenizer,
+            prompt="what's my secondary oxygen looking like",
+            tool_calls=["vitals_oxy_sec_storage"],
+            results=[{"intent": "vitals_oxy_sec_storage", "return": 82.5}]
+        )
+        print(f"\nGenerated: {response}")
+        
+        # Demo 4: Get warnings
+        response = generate_response(
+            model, tokenizer,
+            prompt="are there any warnings I should know about",
+            tool_calls=["get_warnings"],
+            results=[{"intent": "get_warnings", "return": ["Battery below 20%", "Heart rate elevated"]}]
+        )
+        print(f"\nGenerated: {response}")
