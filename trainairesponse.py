@@ -363,8 +363,8 @@ def train():
     print(f"Using GPU: {torch.cuda.get_device_name(0)}")
 
     print(f"\nLoading model: {MODEL_NAME}")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME,token=userdata.get(HF_TOKEN))
-    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME,token=userdata.get(HF_TOKEN))
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME,token=userdata.get("HF_TOKEN"))
+    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME,token=userdata.get("HF_TOKEN"))
     model.to(DEVICE)
 
     # Ensure pad token exists for batching
