@@ -40,6 +40,9 @@ WARMUP_RATIO = 0.1
 # Set to True to just show sample data without training
 DRY_RUN = False
 
+# Device - just use cuda
+DEVICE = torch.device("cuda")
+
 
 # =============================================================================
 # Dataset
@@ -136,19 +139,13 @@ class AIResponseDataset(Dataset):
 def train():
     """Main training function."""
     
-    # Device setup
-    if torch.cuda.is_available():
-        device = torch.device("cuda")
-        print(f"Using GPU: {torch.cuda.get_device_name(0)}")
-    else:
-        device = torch.device("cpu")
-        print("Using CPU (no GPU available)")
+    print(f"Using GPU: {torch.cuda.get_device_name(0)}")
     
     # Load tokenizer and model
     print(f"\nLoading model: {MODEL_NAME}")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
-    model.to(device)
+    model.to(DEVICE)
     
     # Load data
     print("\nLoading training data...")
@@ -192,7 +189,7 @@ def train():
         train_dataset, 
         batch_size=BATCH_SIZE, 
         shuffle=True,
-        num_workers=0  # Windows compatibility
+        num_workers=0
     )
     val_loader = DataLoader(
         val_dataset, 
@@ -211,8 +208,8 @@ def train():
         num_training_steps=total_steps
     )
     
-    # Mixed precision scaler for GPU
-    scaler = torch.cuda.amp.GradScaler() if device.type == "cuda" else None
+    # Mixed precision - use bfloat16 which is more stable than fp16
+    scaler = torch.amp.GradScaler('cuda')
     
     # Training loop
     print(f"\nStarting training for {EPOCHS} epochs...")
@@ -224,34 +221,24 @@ def train():
         
         for batch_idx, batch in enumerate(train_loader):
             # Move to device
-            input_ids = batch["input_ids"].to(device)
-            attention_mask = batch["attention_mask"].to(device)
-            labels = batch["labels"].to(device)
+            input_ids = batch["input_ids"].to(DEVICE)
+            attention_mask = batch["attention_mask"].to(DEVICE)
+            labels = batch["labels"].to(DEVICE)
             
             optimizer.zero_grad()
             
-            # Forward pass with mixed precision
-            if scaler:
-                with torch.cuda.amp.autocast():
-                    outputs = model(
-                        input_ids=input_ids,
-                        attention_mask=attention_mask,
-                        labels=labels
-                    )
-                    loss = outputs.loss
-                
-                scaler.scale(loss).backward()
-                scaler.step(optimizer)
-                scaler.update()
-            else:
+            # Forward pass with mixed precision (bfloat16 is more stable)
+            with torch.amp.autocast('cuda', dtype=torch.bfloat16):
                 outputs = model(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
                     labels=labels
                 )
                 loss = outputs.loss
-                loss.backward()
-                optimizer.step()
+            
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
             
             scheduler.step()
             total_train_loss += loss.item()
@@ -267,9 +254,9 @@ def train():
         total_val_loss = 0
         with torch.no_grad():
             for batch in val_loader:
-                input_ids = batch["input_ids"].to(device)
-                attention_mask = batch["attention_mask"].to(device)
-                labels = batch["labels"].to(device)
+                input_ids = batch["input_ids"].to(DEVICE)
+                attention_mask = batch["attention_mask"].to(DEVICE)
+                labels = batch["labels"].to(DEVICE)
                 
                 outputs = model(
                     input_ids=input_ids,
@@ -305,7 +292,6 @@ def train():
 def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: list) -> str:
     """Generate a response given user prompt, tool calls, and results."""
     
-    device = next(model.parameters()).device
     model.eval()
     
     # Build input
@@ -321,7 +307,7 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
         max_length=MAX_INPUT_LENGTH,
         truncation=True,
         return_tensors="pt"
-    ).to(device)
+    ).to(DEVICE)
     
     # Generate
     with torch.no_grad():
