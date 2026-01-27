@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d472043e3ae3527468f0edaa08eab9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.UI.IntentDisplayUI
-  _corvusController: {fileID: 1588965058}
+  _corvusController: {fileID: 0}
   _intentText: {fileID: 334319503}
   _confidenceText: {fileID: 716024775}
   _latencyText: {fileID: 940141772}
@@ -975,11 +975,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1588965056}
   - component: {fileID: 1588965055}
-  - component: {fileID: 1588965058}
   - component: {fileID: 1588965057}
   - component: {fileID: 1588965059}
   - component: {fileID: 1588965060}
   - component: {fileID: 1588965061}
+  - component: {fileID: 1588965062}
   m_Layer: 0
   m_Name: CORVUS
   m_TagString: Untagged
@@ -1112,21 +1112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48c732a56eb7674fae8d423a1a74229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Testing.CorvusTest
-  _corvusController: {fileID: 1588965058}
---- !u!114 &1588965058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588965054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397db298232e63a47a7d19fe1f5f88a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusController
-  _serverUrl: ws://localhost:8765
-  _corvusTTS: {fileID: 1588965061}
+  _corvusController: {fileID: 0}
 --- !u!114 &1588965059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1170,6 +1156,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusTTS
   _piperManager: {fileID: 1588965059}
   _audioSource: {fileID: 1588965055}
+--- !u!114 &1588965062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588965054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f28ed96f6494a458f11106099d3daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusController
+  _serverUrl: ws://localhost:8765
+  _corvusTTS: {fileID: 1588965061}
 --- !u!1 &2085924559
 GameObject:
   m_ObjectHideFlags: 0
