@@ -35,7 +35,7 @@ MAX_TARGET_LENGTH = 128
 BATCH_SIZE = 8
 
 # Training settings (inspired by simpletrain)
-EPOCHS = 10
+EPOCHS = 30
 BASE_LR = 2e-5
 WEIGHT_DECAY = 0.01
 WARMUP_EPOCHS = 2
