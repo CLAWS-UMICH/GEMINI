@@ -31,7 +31,7 @@ if not HF_TOKEN:
 
 MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
-MAX_LENGTH = 512
+MAX_LENGTH = 5120
 BATCH_SIZE = 8  # Can use larger batch with LoRA (fewer trainable params)
 
 # LoRA settings - smaller to prevent overfitting
@@ -51,8 +51,15 @@ PATIENCE = 10
 # Set to True to just show sample data without training
 DRY_RUN = False
 
-# Device
+# Device + dtype selection
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+if DEVICE.type == "cuda":
+    if torch.cuda.is_bf16_supported():
+        MODEL_DTYPE = torch.bfloat16
+    else:
+        MODEL_DTYPE = torch.float16
+else:
+    MODEL_DTYPE = torch.float32
 
 # FunctionGemma requires a developer prompt for tool use
 SYSTEM_PROMPT = (
@@ -227,31 +234,37 @@ class AIResponseDataset(Dataset):
             tokenize=False,
         )
 
-        # Tokenize the full sequence
-        full_encoding = self.tokenizer(
-            full_text,
-            max_length=self.max_length,
-            padding="max_length",
-            truncation=True,
-            return_tensors="pt",
-        )
+        # Tokenize without truncation so we can left-truncate to keep the response
+        prefix_ids = self.tokenizer(prefix_text, add_special_tokens=False)["input_ids"]
+        full_ids = self.tokenizer(full_text, add_special_tokens=False)["input_ids"]
 
-        # Tokenize the prefix to know where to start labels
-        prefix_encoding = self.tokenizer(
-            prefix_text,
-            max_length=self.max_length,
-            truncation=True,
-            return_tensors="pt",
-        )
-        prefix_len = prefix_encoding["input_ids"].shape[1]
+        if not full_ids:
+            # Safety fallback to avoid empty sequences
+            full_ids = [self.tokenizer.eos_token_id]
 
-        input_ids = full_encoding["input_ids"].squeeze()
-        attention_mask = full_encoding["attention_mask"].squeeze()
+        orig_full_len = len(full_ids)
+        overflow = max(0, orig_full_len - self.max_length)
+        if overflow > 0:
+            # Left-truncate to keep the end of the sequence (assistant response)
+            full_ids = full_ids[overflow:]
 
-        # Labels: -100 for prompt tokens (don't compute loss), actual ids for response
+        prefix_len = max(0, len(prefix_ids) - overflow)
+        if prefix_len >= len(full_ids):
+            # Ensure at least one response token remains for loss
+            prefix_len = max(0, len(full_ids) - 1)
+
+        pad_len = self.max_length - len(full_ids)
+        if pad_len < 0:
+            pad_len = 0
+
+        pad_id = self.tokenizer.pad_token_id
+        input_ids = torch.tensor(full_ids + [pad_id] * pad_len, dtype=torch.long)
+        attention_mask = torch.tensor([1] * len(full_ids) + [0] * pad_len, dtype=torch.long)
+
         labels = input_ids.clone()
         labels[:prefix_len] = -100  # Mask prefix
-        labels[labels == self.tokenizer.pad_token_id] = -100  # Mask padding
+        if pad_len > 0:
+            labels[-pad_len:] = -100  # Mask padding
 
         return {
             "input_ids": input_ids,
@@ -282,9 +295,13 @@ def train():
     
     # Load processor/tokenizer and base model
     print(f"\nLoading base model: {MODEL_NAME}")
-    processor = AutoProcessor.from_pretrained(MODEL_NAME,token=HF_TOKEN)
+    processor = AutoProcessor.from_pretrained(MODEL_NAME, token=HF_TOKEN)
     tokenizer = getattr(processor, "tokenizer", processor)
-    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16,token=HF_TOKEN)
+    base_model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME,
+        torch_dtype=MODEL_DTYPE,
+        token=HF_TOKEN,
+    )
     
     # Ensure pad token
     if tokenizer.pad_token is None:
@@ -407,12 +424,19 @@ def train():
             
             optimizer.zero_grad()
             
-            # Forward pass with bfloat16
-            with torch.amp.autocast('cuda', dtype=torch.bfloat16):
+            if DEVICE.type == "cuda":
+                with torch.amp.autocast(device_type="cuda", dtype=MODEL_DTYPE):
+                    outputs = model(
+                        input_ids=input_ids,
+                        attention_mask=attention_mask,
+                        labels=labels,
+                    )
+                    loss = outputs.loss
+            else:
                 outputs = model(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
-                    labels=labels
+                    labels=labels,
                 )
                 loss = outputs.loss
             
@@ -524,7 +548,7 @@ def load_lora_model():
     processor_source = OUTPUT_DIR if Path(OUTPUT_DIR).exists() else MODEL_NAME
     processor = AutoProcessor.from_pretrained(processor_source)
     tokenizer = getattr(processor, "tokenizer", processor)
-    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
+    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=MODEL_DTYPE)
     
     print(f"Loading LoRA adapter from: {OUTPUT_DIR}")
     model = PeftModel.from_pretrained(base_model, OUTPUT_DIR)
