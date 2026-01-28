@@ -1,12 +1,12 @@
 """
-AI Response Training Script for Flan-T5 (or other seq2seq models).
+AI Response Training Script for Causal LMs (SmolLM2, etc).
 
 Trains a model to generate natural language responses given:
 - User's original query
 - Tool calls that were made
 - Results from those tool calls
 
-Uses the functiongemma-style format for input structuring.
+Uses chat template format for causal LMs.
 """
 
 import json
@@ -17,7 +17,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader, random_split
 from transformers import (
     AutoTokenizer,
-    AutoModelForSeq2SeqLM,
+    AutoModelForCausalLM,
 )
 
 # Import data loader from existing module
@@ -28,44 +28,45 @@ from simpledatacombine import load_all_training_data
 # Configuration - Edit these to change behavior
 # =============================================================================
 
-MODEL_NAME = "HuggingFaceTB/SmolLM2-360M-Instruct"  # Try: google/flan-t5-base, google/flan-t5-large
+MODEL_NAME = "HuggingFaceTB/SmolLM2-360M-Instruct"  # Causal LM model
 OUTPUT_DIR = "ai_response_model"
-MAX_INPUT_LENGTH = 512
-MAX_TARGET_LENGTH = 128
-BATCH_SIZE = 8
+MAX_LENGTH = 512  # Total sequence length (input + output)
+BATCH_SIZE = 4    # Smaller batch for causal LMs
 
-# Training settings (inspired by simpletrain)
+# Training settings
 EPOCHS = 30
 BASE_LR = 2e-5
 WEIGHT_DECAY = 0.01
 WARMUP_EPOCHS = 2
-MAX_GRAD_NORM = 1.0  # Gradient clipping
-PATIENCE = 5  # Early stopping patience
+MAX_GRAD_NORM = 1.0
+PATIENCE = 5
 
 # Set to True to just show sample data without training
 DRY_RUN = False
 
-# Device - just use cuda
-DEVICE = torch.device("cuda")
+# Device
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 # =============================================================================
-# Dataset
+# Dataset for Causal LM
 # =============================================================================
 
 class AIResponseDataset(Dataset):
     """
-    Dataset for training AI response generation.
+    Dataset for training AI response generation with Causal LMs.
     
-    Filters to only include datapoints that have a non-empty ai_response field.
-    Formats input following the functiongemma template.
+    For causal LMs, we concatenate input + output and mask the input portion
+    in labels so the model only learns to predict the response.
     """
     
-    def __init__(self, data: list, tokenizer, max_input_len: int = MAX_INPUT_LENGTH, 
-                 max_target_len: int = MAX_TARGET_LENGTH):
+    def __init__(self, data: list, tokenizer, max_length: int = MAX_LENGTH):
         self.tokenizer = tokenizer
-        self.max_input_len = max_input_len
-        self.max_target_len = max_target_len
+        self.max_length = max_length
+        
+        # Ensure pad token exists
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
         
         # Filter to only items with ai_response
         self.data = [
@@ -78,61 +79,57 @@ class AIResponseDataset(Dataset):
     def __len__(self):
         return len(self.data)
     
-    def _format_input(self, item: dict) -> str:
-        """
-        Format input following the functiongemma template:
-        
-        User: <prompt>
-        Function calls: [<tool1>, <tool2>, ...]
-        Results: <JSON of responses>
-        """
+    def _format_prompt(self, item: dict) -> str:
+        """Format input as a chat-style prompt."""
         prompt = item.get("prompt", "")
         tool_calls = item.get("tool_calls", [])
         responses = item.get("responses", [])
         
-        # Format tool calls as list
         tools_str = ", ".join(tool_calls) if tool_calls else "none"
+        results_str = json.dumps(responses, separators=(",", ":")) if responses else "[]"
         
-        # Format responses as compact JSON
-        if responses:
-            results_str = json.dumps(responses, separators=(",", ":"))
-        else:
-            results_str = "[]"
-        
-        input_text = f"User: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}"
-        return input_text
+        # Format as instruction for the model
+        system_context = f"User query: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}\nGenerate a natural response:"
+        return system_context
     
     def __getitem__(self, idx):
         item = self.data[idx]
         
-        input_text = self._format_input(item)
-        target_text = item["ai_response"]
+        prompt = self._format_prompt(item)
+        response = item["ai_response"]
         
-        # Tokenize input
-        input_encoding = self.tokenizer(
-            input_text,
-            max_length=self.max_input_len,
+        # Full text: prompt + response
+        full_text = f"{prompt} {response}{self.tokenizer.eos_token}"
+        
+        # Tokenize the full sequence
+        full_encoding = self.tokenizer(
+            full_text,
+            max_length=self.max_length,
             padding="max_length",
             truncation=True,
             return_tensors="pt"
         )
         
-        # Tokenize target
-        target_encoding = self.tokenizer(
-            target_text,
-            max_length=self.max_target_len,
-            padding="max_length",
+        # Tokenize just the prompt to know where to start labels
+        prompt_encoding = self.tokenizer(
+            prompt + " ",  # Include the space separator
+            max_length=self.max_length,
             truncation=True,
             return_tensors="pt"
         )
+        prompt_len = prompt_encoding["input_ids"].shape[1]
         
-        # Get labels (replace padding token id with -100 for loss calculation)
-        labels = target_encoding["input_ids"].squeeze()
-        labels[labels == self.tokenizer.pad_token_id] = -100
+        input_ids = full_encoding["input_ids"].squeeze()
+        attention_mask = full_encoding["attention_mask"].squeeze()
+        
+        # Labels: -100 for prompt tokens (don't compute loss), actual ids for response
+        labels = input_ids.clone()
+        labels[:prompt_len] = -100  # Mask prompt
+        labels[labels == self.tokenizer.pad_token_id] = -100  # Mask padding
         
         return {
-            "input_ids": input_encoding["input_ids"].squeeze(),
-            "attention_mask": input_encoding["attention_mask"].squeeze(),
+            "input_ids": input_ids,
+            "attention_mask": attention_mask,
             "labels": labels,
         }
 
@@ -153,13 +150,20 @@ def get_lr_multiplier(epoch: int, warmup_epochs: int, total_epochs: int) -> floa
 def train():
     """Main training function."""
     
-    print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+    print(f"Using device: {DEVICE}")
+    if DEVICE.type == "cuda":
+        print(f"GPU: {torch.cuda.get_device_name(0)}")
     
     # Load tokenizer and model
     print(f"\nLoading model: {MODEL_NAME}")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
     model.to(DEVICE)
+    
+    # Ensure pad token
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+        model.config.pad_token_id = tokenizer.pad_token_id
     
     # Load data
     print("\nLoading training data...")
@@ -180,10 +184,10 @@ def train():
         
         for i in range(min(3, len(dataset))):
             item = dataset.data[i]
-            input_text = dataset._format_input(item)
+            prompt = dataset._format_prompt(item)
             print(f"\n--- Sample {i+1} ---")
-            print(f"INPUT:\n{input_text}")
-            print(f"\nTARGET:\n{item['ai_response']}")
+            print(f"PROMPT:\n{prompt}")
+            print(f"\nRESPONSE:\n{item['ai_response']}")
         
         print(f"\n\nTotal samples with ai_response: {len(dataset)}")
         return model, tokenizer
@@ -215,9 +219,6 @@ def train():
     # AdamW optimizer with weight decay
     optimizer = torch.optim.AdamW(model.parameters(), lr=BASE_LR, weight_decay=WEIGHT_DECAY)
     
-    # Mixed precision - use bfloat16 which is more stable than fp16
-    scaler = torch.amp.GradScaler('cuda')
-    
     # Training state
     best_val_loss = float("inf")
     patience_counter = 0
@@ -243,7 +244,7 @@ def train():
             
             optimizer.zero_grad()
             
-            # Forward pass with mixed precision (bfloat16 is more stable)
+            # Forward pass with bfloat16
             with torch.amp.autocast('cuda', dtype=torch.bfloat16):
                 outputs = model(
                     input_ids=input_ids,
@@ -252,14 +253,12 @@ def train():
                 )
                 loss = outputs.loss
             
-            scaler.scale(loss).backward()
+            loss.backward()
             
             # Gradient clipping for stability
-            scaler.unscale_(optimizer)
             torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
             
-            scaler.step(optimizer)
-            scaler.update()
+            optimizer.step()
             
             total_train_loss += loss.item()
             
@@ -322,32 +321,35 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
     
     model.eval()
     
-    # Build input
+    # Build input prompt
     tools_str = ", ".join(tool_calls) if tool_calls else "none"
     results_str = json.dumps(results, separators=(",", ":")) if results else "[]"
-    input_text = f"User: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}"
+    input_text = f"User query: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}\nGenerate a natural response:"
     
     print(f"\nInput:\n{input_text}")
     
     # Tokenize
     inputs = tokenizer(
         input_text,
-        max_length=MAX_INPUT_LENGTH,
-        truncation=True,
         return_tensors="pt"
     ).to(DEVICE)
     
-    # Generate
+    # Generate (causal LM continues from input)
     with torch.no_grad():
         outputs = model.generate(
             **inputs,
-            max_length=MAX_TARGET_LENGTH,
-            num_beams=4,
-            early_stopping=True
+            max_new_tokens=100,
+            do_sample=True,
+            temperature=0.7,
+            top_p=0.9,
+            pad_token_id=tokenizer.pad_token_id,
+            eos_token_id=tokenizer.eos_token_id
         )
     
-    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    return response
+    # Decode only the new tokens (skip input)
+    generated_ids = outputs[0][inputs["input_ids"].shape[1]:]
+    response = tokenizer.decode(generated_ids, skip_special_tokens=True)
+    return response.strip()
 
 
 # =============================================================================
@@ -357,20 +359,23 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
 if __name__ == "__main__":
     import sys
     
-    # Check for --demo flag to skip training
+    # Check for flags
+    DRY_RUN = "--dry-run" in sys.argv
     DEMO_ONLY = "--demo" in sys.argv
     
     if DEMO_ONLY:
         # Load saved model instead of training
         print(f"Loading saved model from: {OUTPUT_DIR}")
         tokenizer = AutoTokenizer.from_pretrained(OUTPUT_DIR)
-        model = AutoModelForSeq2SeqLM.from_pretrained(OUTPUT_DIR)
+        model = AutoModelForCausalLM.from_pretrained(OUTPUT_DIR, torch_dtype=torch.bfloat16)
         model.to(DEVICE)
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
     else:
         # Train the model
         model, tokenizer = train()
     
-    # If we have a model (either from training or dry-run), run demo inference
+    # If we have a model, run demo inference
     if model is not None and tokenizer is not None:
         print("\n" + "=" * 60)
         print("DEMO INFERENCE")
