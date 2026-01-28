@@ -31,7 +31,7 @@ if not HF_TOKEN:
 
 MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
-MAX_LENGTH = 5120
+MAX_LENGTH = 1024
 BATCH_SIZE = 8  # Can use larger batch with LoRA (fewer trainable params)
 
 # LoRA settings - smaller to prevent overfitting
@@ -192,11 +192,28 @@ class AIResponseDataset(Dataset):
             item for item in data
             if item.get("ai_response") and item["ai_response"].strip()
         ]
+        self.reset_truncation_stats()
 
         print(f"Filtered to {len(self.data)} items with ai_response (from {len(data)} total)")
 
     def __len__(self):
         return len(self.data)
+
+    def reset_truncation_stats(self):
+        self.truncation_count = 0
+        self.truncation_total_overflow = 0
+        self.truncation_max_overflow = 0
+
+    def get_truncation_stats(self):
+        if self.truncation_count == 0:
+            avg_overflow = 0
+        else:
+            avg_overflow = self.truncation_total_overflow / self.truncation_count
+        return {
+            "count": self.truncation_count,
+            "avg_overflow": avg_overflow,
+            "max_overflow": self.truncation_max_overflow,
+        }
 
     def __getitem__(self, idx):
         item = self.data[idx]
@@ -247,6 +264,10 @@ class AIResponseDataset(Dataset):
         if overflow > 0:
             # Left-truncate to keep the end of the sequence (assistant response)
             full_ids = full_ids[overflow:]
+            self.truncation_count += 1
+            self.truncation_total_overflow += overflow
+            if overflow > self.truncation_max_overflow:
+                self.truncation_max_overflow = overflow
 
         prefix_len = max(0, len(prefix_ids) - overflow)
         if prefix_len >= len(full_ids):
@@ -407,6 +428,8 @@ def train():
     print(f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}")
     
     for epoch in range(EPOCHS):
+        dataset.reset_truncation_stats()
+        total_samples = len(train_dataset) + len(val_dataset)
         # Adjust learning rate with warmup + cosine decay
         lr_mult = get_lr_multiplier(epoch, WARMUP_EPOCHS, EPOCHS)
         current_lr = BASE_LR * lr_mult
@@ -475,6 +498,15 @@ def train():
         
         # Log epoch stats
         print(f"Epoch {epoch+1}/{EPOCHS} | Train: {avg_train_loss:.4f} | Val: {avg_val_loss:.4f} | LR: {current_lr:.2e}")
+
+        trunc_stats = dataset.get_truncation_stats()
+        if trunc_stats["count"] > 0:
+            pct = (trunc_stats["count"] / max(1, total_samples)) * 100
+            print(
+                f"  Truncation: {trunc_stats['count']}/{total_samples} "
+                f"({pct:.2f}%) | avg overflow: {trunc_stats['avg_overflow']:.1f} "
+                f"| max overflow: {trunc_stats['max_overflow']}"
+            )
         
         # Save best LoRA adapter + early stopping
         if avg_val_loss < best_val_loss:
