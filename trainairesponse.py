@@ -32,8 +32,7 @@ if not HF_TOKEN:
 MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
 MAX_LENGTH = 1024
-MICRO_BATCH_SIZE = 2  # Per-step batch size (fit in VRAM)
-GRADIENT_ACCUMULATION_STEPS = 4  # Effective batch = micro * grad_accum
+BATCH_SIZE = 8  # Per-step batch size
 
 # LoRA settings - smaller to prevent overfitting
 LORA_R = 4            # Rank of the low-rank matrices (was 16)
@@ -74,6 +73,7 @@ SYSTEM_PROMPT = (
 SCRIPT_DIR = Path(__file__).parent
 NAMES_FILE = SCRIPT_DIR / "data" / "names.json"
 TOOLS_CACHE = None
+TOOLS_MAP_CACHE = None
 
 
 # =============================================================================
@@ -123,13 +123,29 @@ def build_tool_schemas(intents: list) -> list:
     return tools
 
 
+def build_tool_map(tools: list) -> dict:
+    """Build a name -> tool schema map."""
+    return {tool["function"]["name"]: tool for tool in tools}
+
+
 def get_tools() -> list:
     """Load and cache tool schemas."""
-    global TOOLS_CACHE
+    global TOOLS_CACHE, TOOLS_MAP_CACHE
     if TOOLS_CACHE is None:
         intents = load_intents_file(NAMES_FILE)
         TOOLS_CACHE = build_tool_schemas(intents)
+        TOOLS_MAP_CACHE = build_tool_map(TOOLS_CACHE)
     return TOOLS_CACHE
+
+
+def get_tools_map() -> dict:
+    """Load and cache tool schema map."""
+    global TOOLS_CACHE, TOOLS_MAP_CACHE
+    if TOOLS_MAP_CACHE is None:
+        intents = load_intents_file(NAMES_FILE)
+        TOOLS_CACHE = build_tool_schemas(intents)
+        TOOLS_MAP_CACHE = build_tool_map(TOOLS_CACHE)
+    return TOOLS_MAP_CACHE
 
 
 def build_messages(
@@ -180,10 +196,11 @@ class AIResponseDataset(Dataset):
     in labels so the model only learns to predict the response.
     """
 
-    def __init__(self, data: list, processor, tools: list, max_length: int = MAX_LENGTH):
+    def __init__(self, data: list, processor, tools: list, tool_map: dict, max_length: int = MAX_LENGTH):
         self.processor = processor
         self.tokenizer = getattr(processor, "tokenizer", processor)
         self.tools = tools
+        self.tool_map = tool_map
         self.max_length = max_length
 
         # Ensure pad token exists
@@ -233,9 +250,13 @@ class AIResponseDataset(Dataset):
             responses=responses,
             ai_response=None,
         )
+        tools_subset = None
+        if tool_calls:
+            tools_subset = [self.tool_map[name] for name in tool_calls if name in self.tool_map]
+
         prefix_text = self.processor.apply_chat_template(
             prefix_messages,
-            tools=self.tools,
+            tools=tools_subset,
             add_generation_prompt=True,
             tokenize=False,
         )
@@ -249,7 +270,7 @@ class AIResponseDataset(Dataset):
         )
         full_text = self.processor.apply_chat_template(
             full_messages,
-            tools=self.tools,
+            tools=tools_subset,
             add_generation_prompt=False,
             tokenize=False,
         )
@@ -345,10 +366,6 @@ def train():
     
     # Wrap model with LoRA
     model = get_peft_model(base_model, lora_config)
-    # Reduce activation memory
-    model.gradient_checkpointing_enable()
-    model.enable_input_require_grads()
-    model.config.use_cache = False
     model.to(DEVICE)
     
     # Print trainable parameters
@@ -358,13 +375,14 @@ def train():
     print("\nLoading tool schemas...")
     intents = load_intents_file(NAMES_FILE)
     tools = build_tool_schemas(intents)
+    tools_map = build_tool_map(tools)
 
     # Load data
     print("\nLoading training data...")
     all_data = load_all_training_data()
     
     # Create dataset
-    dataset = AIResponseDataset(all_data, processor, tools)
+    dataset = AIResponseDataset(all_data, processor, tools, tools_map)
     
     if len(dataset) == 0:
         print("ERROR: No training data with ai_response found!")
@@ -378,6 +396,9 @@ def train():
         
         for i in range(min(3, len(dataset))):
             item = dataset.data[i]
+            tools_subset = None
+            if item.get("tool_calls"):
+                tools_subset = [tools_map[name] for name in item["tool_calls"] if name in tools_map]
             prompt_text = processor.apply_chat_template(
                 build_messages(
                     prompt=item.get("prompt", ""),
@@ -385,7 +406,7 @@ def train():
                     responses=item.get("responses", []),
                     ai_response=None,
                 ),
-                tools=tools,
+                tools=tools_subset,
                 add_generation_prompt=True,
                 tokenize=False,
             )
@@ -409,13 +430,13 @@ def train():
     # DataLoaders
     train_loader = DataLoader(
         train_dataset,
-        batch_size=MICRO_BATCH_SIZE,
+        batch_size=BATCH_SIZE,
         shuffle=True,
         num_workers=0
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=MICRO_BATCH_SIZE,
+        batch_size=BATCH_SIZE,
         shuffle=False,
         num_workers=0
     )
@@ -432,10 +453,7 @@ def train():
     patience_counter = 0
     
     print(f"\nStarting LoRA training for {EPOCHS} epochs...")
-    print(
-        f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}, "
-        f"Micro-batch: {MICRO_BATCH_SIZE}, Grad Accum: {GRADIENT_ACCUMULATION_STEPS}"
-    )
+    print(f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}, Batch: {BATCH_SIZE}")
     
     for epoch in range(EPOCHS):
         dataset.reset_truncation_stats()
@@ -454,6 +472,8 @@ def train():
             input_ids = batch["input_ids"].to(DEVICE)
             attention_mask = batch["attention_mask"].to(DEVICE)
             labels = batch["labels"].to(DEVICE)
+            
+            optimizer.zero_grad()
 
             if DEVICE.type == "cuda":
                 with torch.amp.autocast(device_type="cuda", dtype=MODEL_DTYPE):
@@ -470,29 +490,19 @@ def train():
                     labels=labels,
                 )
                 loss = outputs.loss
-            
-            # Normalize for gradient accumulation
-            loss = loss / GRADIENT_ACCUMULATION_STEPS
+
             loss.backward()
+
+            # Gradient clipping for stability
+            torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
+            optimizer.step()
             
-            if (batch_idx + 1) % GRADIENT_ACCUMULATION_STEPS == 0:
-                # Gradient clipping for stability
-                torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
-                optimizer.step()
-                optimizer.zero_grad()
-            
-            total_train_loss += loss.item() * GRADIENT_ACCUMULATION_STEPS
+            total_train_loss += loss.item()
             
             if (batch_idx + 1) % 50 == 0:
                 avg_loss = total_train_loss / (batch_idx + 1)
                 print(f"  Epoch {epoch+1}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {avg_loss:.4f}, LR: {current_lr:.2e}")
         
-        # If the epoch ends mid-accumulation, still step once
-        if len(train_loader) % GRADIENT_ACCUMULATION_STEPS != 0:
-            torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
-            optimizer.step()
-            optimizer.zero_grad()
-
         avg_train_loss = total_train_loss / len(train_loader)
         
         # ==================== VALIDATION ====================
@@ -557,7 +567,7 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
     
     model.eval()
 
-    tools = get_tools()
+    tools_map = get_tools_map()
     messages = build_messages(
         prompt=prompt,
         tool_calls=tool_calls,
@@ -565,9 +575,13 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
         ai_response=None,
     )
 
+    tools_subset = None
+    if tool_calls:
+        tools_subset = [tools_map[name] for name in tool_calls if name in tools_map]
+
     input_text = processor.apply_chat_template(
         messages,
-        tools=tools,
+        tools=tools_subset,
         add_generation_prompt=True,
         tokenize=False,
     )
