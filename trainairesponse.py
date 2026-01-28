@@ -1,12 +1,12 @@
 """
-AI Response Training Script for Causal LMs (SmolLM2, etc).
+AI Response Training Script with LoRA for Causal LMs (SmolLM2, etc).
 
-Trains a model to generate natural language responses given:
+Trains a LoRA adapter to generate natural language responses given:
 - User's original query
 - Tool calls that were made
 - Results from those tool calls
 
-Uses chat template format for causal LMs.
+Uses PEFT LoRA for efficient fine-tuning.
 """
 
 import json
@@ -15,10 +15,8 @@ from pathlib import Path
 
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
-from transformers import (
-    AutoTokenizer,
-    AutoModelForCausalLM,
-)
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import LoraConfig, get_peft_model, TaskType, PeftModel
 
 # Import data loader from existing module
 from simpledatacombine import load_all_training_data
@@ -28,14 +26,20 @@ from simpledatacombine import load_all_training_data
 # Configuration - Edit these to change behavior
 # =============================================================================
 
-MODEL_NAME = "HuggingFaceTB/SmolLM2-360M-Instruct"  # Causal LM model
-OUTPUT_DIR = "ai_response_model"
-MAX_LENGTH = 512  # Total sequence length (input + output)
-BATCH_SIZE = 4    # Smaller batch for causal LMs
+MODEL_NAME = "HuggingFaceTB/SmolLM2-360M-Instruct"  # Base model
+OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
+MAX_LENGTH = 512
+BATCH_SIZE = 8  # Can use larger batch with LoRA (fewer trainable params)
+
+# LoRA settings
+LORA_R = 16           # Rank of the low-rank matrices
+LORA_ALPHA = 32       # Scaling factor
+LORA_DROPOUT = 0.05   # Dropout for LoRA layers
+LORA_TARGET_MODULES = ["q_proj", "v_proj", "k_proj", "o_proj"]  # Which layers to adapt
 
 # Training settings
 EPOCHS = 30
-BASE_LR = 2e-5
+BASE_LR = 1e-4  # Higher LR works well with LoRA
 WEIGHT_DECAY = 0.01
 WARMUP_EPOCHS = 2
 MAX_GRAD_NORM = 1.0
@@ -148,22 +152,39 @@ def get_lr_multiplier(epoch: int, warmup_epochs: int, total_epochs: int) -> floa
 
 
 def train():
-    """Main training function."""
+    """Main training function with LoRA."""
     
     print(f"Using device: {DEVICE}")
     if DEVICE.type == "cuda":
         print(f"GPU: {torch.cuda.get_device_name(0)}")
     
-    # Load tokenizer and model
-    print(f"\nLoading model: {MODEL_NAME}")
+    # Load tokenizer and base model
+    print(f"\nLoading base model: {MODEL_NAME}")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
-    model.to(DEVICE)
+    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
     
     # Ensure pad token
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-        model.config.pad_token_id = tokenizer.pad_token_id
+        base_model.config.pad_token_id = tokenizer.pad_token_id
+    
+    # Configure LoRA
+    print(f"\nConfiguring LoRA (r={LORA_R}, alpha={LORA_ALPHA})")
+    lora_config = LoraConfig(
+        task_type=TaskType.CAUSAL_LM,
+        r=LORA_R,
+        lora_alpha=LORA_ALPHA,
+        lora_dropout=LORA_DROPOUT,
+        target_modules=LORA_TARGET_MODULES,
+        bias="none",
+    )
+    
+    # Wrap model with LoRA
+    model = get_peft_model(base_model, lora_config)
+    model.to(DEVICE)
+    
+    # Print trainable parameters
+    model.print_trainable_parameters()
     
     # Load data
     print("\nLoading training data...")
@@ -216,14 +237,18 @@ def train():
         num_workers=0
     )
     
-    # AdamW optimizer with weight decay
-    optimizer = torch.optim.AdamW(model.parameters(), lr=BASE_LR, weight_decay=WEIGHT_DECAY)
+    # AdamW optimizer - only LoRA params are trained
+    optimizer = torch.optim.AdamW(
+        filter(lambda p: p.requires_grad, model.parameters()), 
+        lr=BASE_LR, 
+        weight_decay=WEIGHT_DECAY
+    )
     
     # Training state
     best_val_loss = float("inf")
     patience_counter = 0
     
-    print(f"\nStarting training for {EPOCHS} epochs...")
+    print(f"\nStarting LoRA training for {EPOCHS} epochs...")
     print(f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}")
     
     for epoch in range(EPOCHS):
@@ -289,15 +314,15 @@ def train():
         # Log epoch stats
         print(f"Epoch {epoch+1}/{EPOCHS} | Train: {avg_train_loss:.4f} | Val: {avg_val_loss:.4f} | LR: {current_lr:.2e}")
         
-        # Save best model + early stopping
+        # Save best LoRA adapter + early stopping
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
             patience_counter = 0
             save_path = Path(OUTPUT_DIR)
             save_path.mkdir(parents=True, exist_ok=True)
-            model.save_pretrained(save_path)
+            model.save_pretrained(save_path)  # Saves only LoRA weights
             tokenizer.save_pretrained(save_path)
-            print(f"  ✓ New best! Saved to {save_path}")
+            print(f"  ✓ New best! LoRA adapter saved to {save_path}")
         else:
             patience_counter += 1
             print(f"  No improvement ({patience_counter}/{PATIENCE})")
@@ -307,7 +332,7 @@ def train():
     
     print("\n" + "=" * 60)
     print(f"Training complete! Best val loss: {best_val_loss:.4f}")
-    print(f"Model saved to: {OUTPUT_DIR}")
+    print(f"LoRA adapter saved to: {OUTPUT_DIR}")
     
     return model, tokenizer
 
@@ -352,6 +377,22 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
     return response.strip()
 
 
+def load_lora_model():
+    """Load base model with LoRA adapter for inference."""
+    print(f"Loading base model: {MODEL_NAME}")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
+    
+    print(f"Loading LoRA adapter from: {OUTPUT_DIR}")
+    model = PeftModel.from_pretrained(base_model, OUTPUT_DIR)
+    model.to(DEVICE)
+    
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    
+    return model, tokenizer
+
+
 # =============================================================================
 # Main
 # =============================================================================
@@ -364,15 +405,10 @@ if __name__ == "__main__":
     DEMO_ONLY = "--demo" in sys.argv
     
     if DEMO_ONLY:
-        # Load saved model instead of training
-        print(f"Loading saved model from: {OUTPUT_DIR}")
-        tokenizer = AutoTokenizer.from_pretrained(OUTPUT_DIR)
-        model = AutoModelForCausalLM.from_pretrained(OUTPUT_DIR, torch_dtype=torch.bfloat16)
-        model.to(DEVICE)
-        if tokenizer.pad_token is None:
-            tokenizer.pad_token = tokenizer.eos_token
+        # Load base model + LoRA adapter
+        model, tokenizer = load_lora_model()
     else:
-        # Train the model
+        # Train the LoRA adapter
         model, tokenizer = train()
     
     # If we have a model, run demo inference
