@@ -17,7 +17,6 @@ import torch
 from torch.utils.data import Dataset, DataLoader, random_split
 from transformers import AutoProcessor, AutoModelForCausalLM
 from peft import LoraConfig, get_peft_model, TaskType, PeftModel
-from google.colab import userdata
 # Import data loader from existing module
 from simpledatacombine import load_all_training_data
 
@@ -25,8 +24,10 @@ from simpledatacombine import load_all_training_data
 # =============================================================================
 # Configuration - Edit these to change behavior
 # =============================================================================
-
-HF_TOKEN = userdata.get("HF_TOKEN")
+import os
+HF_TOKEN = os.getenv("HF_TOKEN")
+if not HF_TOKEN:
+    raise RuntimeError("HF_TOKEN not set. Export it before running.")
 
 MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
