@@ -32,7 +32,8 @@ if not HF_TOKEN:
 MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
 MAX_LENGTH = 1024
-BATCH_SIZE = 8  # Can use larger batch with LoRA (fewer trainable params)
+MICRO_BATCH_SIZE = 2  # Per-step batch size (fit in VRAM)
+GRADIENT_ACCUMULATION_STEPS = 4  # Effective batch = micro * grad_accum
 
 # LoRA settings - smaller to prevent overfitting
 LORA_R = 4            # Rank of the low-rank matrices (was 16)
@@ -58,6 +59,8 @@ if DEVICE.type == "cuda":
         MODEL_DTYPE = torch.bfloat16
     else:
         MODEL_DTYPE = torch.float16
+    # Faster matmul on Ampere+ without extra memory
+    torch.backends.cuda.matmul.allow_tf32 = True
 else:
     MODEL_DTYPE = torch.float32
 
@@ -342,6 +345,10 @@ def train():
     
     # Wrap model with LoRA
     model = get_peft_model(base_model, lora_config)
+    # Reduce activation memory
+    model.gradient_checkpointing_enable()
+    model.enable_input_require_grads()
+    model.config.use_cache = False
     model.to(DEVICE)
     
     # Print trainable parameters
@@ -401,14 +408,14 @@ def train():
     
     # DataLoaders
     train_loader = DataLoader(
-        train_dataset, 
-        batch_size=BATCH_SIZE, 
+        train_dataset,
+        batch_size=MICRO_BATCH_SIZE,
         shuffle=True,
         num_workers=0
     )
     val_loader = DataLoader(
-        val_dataset, 
-        batch_size=BATCH_SIZE, 
+        val_dataset,
+        batch_size=MICRO_BATCH_SIZE,
         shuffle=False,
         num_workers=0
     )
@@ -425,7 +432,10 @@ def train():
     patience_counter = 0
     
     print(f"\nStarting LoRA training for {EPOCHS} epochs...")
-    print(f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}")
+    print(
+        f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}, "
+        f"Micro-batch: {MICRO_BATCH_SIZE}, Grad Accum: {GRADIENT_ACCUMULATION_STEPS}"
+    )
     
     for epoch in range(EPOCHS):
         dataset.reset_truncation_stats()
@@ -444,9 +454,7 @@ def train():
             input_ids = batch["input_ids"].to(DEVICE)
             attention_mask = batch["attention_mask"].to(DEVICE)
             labels = batch["labels"].to(DEVICE)
-            
-            optimizer.zero_grad()
-            
+
             if DEVICE.type == "cuda":
                 with torch.amp.autocast(device_type="cuda", dtype=MODEL_DTYPE):
                     outputs = model(
@@ -463,19 +471,28 @@ def train():
                 )
                 loss = outputs.loss
             
+            # Normalize for gradient accumulation
+            loss = loss / GRADIENT_ACCUMULATION_STEPS
             loss.backward()
             
-            # Gradient clipping for stability
-            torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
+            if (batch_idx + 1) % GRADIENT_ACCUMULATION_STEPS == 0:
+                # Gradient clipping for stability
+                torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
+                optimizer.step()
+                optimizer.zero_grad()
             
-            optimizer.step()
-            
-            total_train_loss += loss.item()
+            total_train_loss += loss.item() * GRADIENT_ACCUMULATION_STEPS
             
             if (batch_idx + 1) % 50 == 0:
                 avg_loss = total_train_loss / (batch_idx + 1)
                 print(f"  Epoch {epoch+1}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {avg_loss:.4f}, LR: {current_lr:.2e}")
         
+        # If the epoch ends mid-accumulation, still step once
+        if len(train_loader) % GRADIENT_ACCUMULATION_STEPS != 0:
+            torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
+            optimizer.step()
+            optimizer.zero_grad()
+
         avg_train_loss = total_train_loss / len(train_loader)
         
         # ==================== VALIDATION ====================
