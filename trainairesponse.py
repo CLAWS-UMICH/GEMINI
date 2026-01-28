@@ -361,12 +361,19 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
     
     # Generate (causal LM continues from input)
     with torch.no_grad():
+        # outputs = model.generate(
+        #     **inputs,
+        #     max_new_tokens=100,
+        #     do_sample=True,
+        #     temperature=0.7,
+        #     top_p=0.9,
+        #     pad_token_id=tokenizer.pad_token_id,
+        #     eos_token_id=tokenizer.eos_token_id
+        # )
         outputs = model.generate(
             **inputs,
             max_new_tokens=100,
-            do_sample=True,
-            temperature=0.7,
-            top_p=0.9,
+            do_sample=False,
             pad_token_id=tokenizer.pad_token_id,
             eos_token_id=tokenizer.eos_token_id
         )
