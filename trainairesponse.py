@@ -34,16 +34,16 @@ BATCH_SIZE = 8  # Can use larger batch with LoRA (fewer trainable params)
 # LoRA settings - smaller to prevent overfitting
 LORA_R = 4            # Rank of the low-rank matrices (was 16)
 LORA_ALPHA = 8        # Scaling factor (was 32)
-LORA_DROPOUT = 0.15   # Dropout for LoRA layers (was 0.05)
+LORA_DROPOUT = 0.2   # Dropout for LoRA layers (was 0.05)
 LORA_TARGET_MODULES = ["q_proj", "v_proj"]  # Fewer layers to adapt (was q,v,k,o)
 
 # Training settings
-EPOCHS = 30
-BASE_LR = 1e-4  # Higher LR works well with LoRA
-WEIGHT_DECAY = 0.01
+EPOCHS = 300
+BASE_LR = 5e-5  # Higher LR works well with LoRA
+WEIGHT_DECAY = 0.05
 WARMUP_EPOCHS = 2
 MAX_GRAD_NORM = 1.0
-PATIENCE = 5
+PATIENCE = 10
 
 # Set to True to just show sample data without training
 DRY_RUN = False
