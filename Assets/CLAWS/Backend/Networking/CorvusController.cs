@@ -1,6 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
+using Whisper;
+using Whisper.Utils;
 using CLAWS.Networking;
 
 namespace CLAWS.Networking
@@ -26,10 +30,17 @@ namespace CLAWS.Networking
     {
         // WebSocket connection to Python server
         private WebSocketClient _webSocketClient;
+        private string _lastCommand;
+
+        private KeywordRecognizer _wakeRecognizer;
+        private string[] _wakeWords = new string[] {"hey corvus", "corvus"};
 
         // Server URL
         [SerializeField] private string _serverUrl = "ws://localhost:8765";
         [SerializeField] private CorvusTTS _corvusTTS;
+        [SerializeField] private LMCC _lmcc;
+        [SerializeField] private WhisperManager _whisper;
+        [SerializeField] private MicrophoneRecord _microphoneRecord;
 
         // Check CORVUS connection
         public bool IsConnected => _webSocketClient?.IsConnected ?? false;
@@ -54,6 +65,14 @@ namespace CLAWS.Networking
                 _ = _webSocketClient.StartListeningAsync();
 
                 Debug.Log("CORVUS initialized successfully");
+
+                if(_microphoneRecord != null)
+                {
+                    await _whisper.InitModel();
+                    _microphoneRecord.OnRecordStop += OnRecordStop;
+                }
+
+                SetupWakeWord();
 
             }
             catch (Exception ex)
@@ -83,6 +102,27 @@ namespace CLAWS.Networking
             }
         }
 
+        private void SetupWakeWord()
+        {
+            try
+            {
+                _wakeRecognizer = new KeywordRecognizer(_wakeWords, ConfidenceLevel.Medium);
+                _wakeRecognizer.OnPhraseRecognized += OnWakeWordDetected;
+                _wakeRecognizer.Start();
+                Debug.Log("CORVUS wake word listening: 'hey corvus");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Failed to start wake word recognition: {ex}");
+            }
+        }
+
+        private void OnWakeWordDetected(PhraseRecognizedEventArgs args)
+        {
+            Debug.Log($"Wake word detected: {args.text}");
+            StartRecording();
+        }
+
         private void HandleMessageReceived(string message)
         {
             try
@@ -97,12 +137,16 @@ namespace CLAWS.Networking
 
                 Debug.Log($"Intent: {response.intent}, Confidence: {response.confidence}, Latency: {response.latency_ms}ms");
 
+                // Log to LMCC for mission coordination
+                LogToLMCC(_lastCommand, response.intent, response.confidence);
+
                 // Speak the response
                 if (_corvusTTS != null)
                 {
                     string spokenText = GetResponseForIntent(response.intent, response.confidence);
                     _ = _corvusTTS.Speak(spokenText);
                 }
+                 
 
             }
             catch (Exception ex)
@@ -123,7 +167,7 @@ namespace CLAWS.Networking
             {
                 Debug.Log($"Sending command: {command}");
 
-                // Format as JSON later
+                _lastCommand = command;
                 var request = new CommandRequest { command = command };
                 string json = JsonUtility.ToJson(request);
 
@@ -136,6 +180,55 @@ namespace CLAWS.Networking
                 Debug.LogError($"Failed to send command: {ex.Message}");
             }
         }
+
+        private void LogToLMCC(string transcript, string intent, float confidence)
+        {
+            if (_lmcc == null)
+            {
+                Debug.LogWarning("LMCC not assigned - skipping log");
+                return;
+            }
+
+            var payload = new Dictionary<string, object>()
+            {
+                {"transcript", transcript},
+                {"intent", intent},
+                {"confidence", confidence},
+                {"timestamp", DateTime.UtcNow.ToString("o")}
+            };
+
+            _lmcc.SendJsonData(payload, "CORVUS", 4);
+            Debug.Log($"Logged to LMCC: {intent} ({confidence})");
+        }
+
+        public void StartRecording()
+        {
+            if(_microphoneRecord != null && !_microphoneRecord.IsRecording)
+            {
+                _microphoneRecord.StartRecord();
+                Debug.Log("CORVUS: Recording started");
+            }
+        }
+
+        public void StopRecording()
+        {
+            if(_microphoneRecord != null && _microphoneRecord.IsRecording)
+            {
+                _microphoneRecord.StopRecord();
+                Debug.Log("CORVUS: Recording stopped");
+            }
+        }
+
+        // Whisper finishes recording -> transcribe -> send to Python
+        private async void OnRecordStop(AudioChunk recordedAudio)
+        {
+            var result = await _whisper.GetTextAsync(recordedAudio.Data, recordedAudio.Frequency, recordedAudio.Channels);
+            if(result == null) return;
+
+            Debug.Log($"CORVUS Transcription: {result.Result}");
+            await SendCommandAsync(result.Result);
+        }
+
 
         private async void OnDestroy()
         {
@@ -151,6 +244,18 @@ namespace CLAWS.Networking
                 if (IsConnected)
                 {
                     await _webSocketClient.DisconnectAsync();
+                }
+
+                // Unsubscribe from Whisper
+                if (_microphoneRecord != null) {
+                    _microphoneRecord.OnRecordStop -= OnRecordStop;
+                }
+
+                // Stop wake word recognition
+                if (_wakeRecognizer != null && _wakeRecognizer.IsRunning)
+                {
+                    _wakeRecognizer.Stop();
+                    _wakeRecognizer.Dispose();
                 }
 
                 Debug.Log("CORVUS cleaned up successfully");

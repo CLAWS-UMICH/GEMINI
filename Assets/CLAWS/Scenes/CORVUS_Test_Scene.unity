@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d472043e3ae3527468f0edaa08eab9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.UI.IntentDisplayUI
-  _corvusController: {fileID: 0}
+  _corvusController: {fileID: 1588965062}
   _intentText: {fileID: 334319503}
   _confidenceText: {fileID: 716024775}
   _latencyText: {fileID: 940141772}
@@ -980,6 +980,8 @@ GameObject:
   - component: {fileID: 1588965060}
   - component: {fileID: 1588965061}
   - component: {fileID: 1588965062}
+  - component: {fileID: 1588965064}
+  - component: {fileID: 1588965063}
   m_Layer: 0
   m_Name: CORVUS
   m_TagString: Untagged
@@ -1112,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48c732a56eb7674fae8d423a1a74229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Testing.CorvusTest
-  _corvusController: {fileID: 0}
+  _corvusController: {fileID: 1588965062}
 --- !u!114 &1588965059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1170,6 +1172,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusController
   _serverUrl: ws://localhost:8765
   _corvusTTS: {fileID: 1588965061}
+  _lmcc: {fileID: 0}
+  _whisper: {fileID: 1588965064}
+  _microphoneRecord: {fileID: 1588965063}
+--- !u!114 &1588965063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588965054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc03a4c19604ea394e364f8fc632928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: com.whisper.unity::Whisper.Utils.MicrophoneRecord
+  maxLengthSec: 60
+  loop: 0
+  frequency: 16000
+  chunksLengthSec: 0.5
+  echo: 0
+  useVad: 1
+  vadUpdateRateSec: 0.1
+  vadContextSec: 30
+  vadLastSec: 1.25
+  vadThd: 1
+  vadFreqThd: 100
+  vadIndicatorImage: {fileID: 0}
+  vadStop: 1
+  dropVadPart: 1
+  vadStopTime: 1
+  microphoneDropdown: {fileID: 0}
+  microphoneDefaultLabel: Default microphone
+--- !u!114 &1588965064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588965054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9370225a2ca94276b870d5f87b0db55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: com.whisper.unity::Whisper.WhisperManager
+  logLevel: 1
+  modelPath: Whisper/ggml-tiny.en.bin
+  isModelPathInStreamingAssets: 1
+  initOnAwake: 1
+  useGpu: 0
+  flashAttention: 0
+  language: en
+  translateToEnglish: 0
+  strategy: 0
+  noContext: 1
+  singleSegment: 0
+  enableTokens: 0
+  initialPrompt: 
+  stepSec: 3
+  keepSec: 0.2
+  lengthSec: 10
+  updatePrompt: 1
+  dropOldBuffer: 0
+  useVad: 1
+  tokensTimestamps: 0
+  audioCtx: 0
 --- !u!1 &2085924559
 GameObject:
   m_ObjectHideFlags: 0
