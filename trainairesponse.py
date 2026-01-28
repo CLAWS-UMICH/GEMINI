@@ -17,7 +17,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader, random_split
 from transformers import AutoProcessor, AutoModelForCausalLM
 from peft import LoraConfig, get_peft_model, TaskType, PeftModel
-
+from google.colab import userdata
 # Import data loader from existing module
 from simpledatacombine import load_all_training_data
 
@@ -25,6 +25,8 @@ from simpledatacombine import load_all_training_data
 # =============================================================================
 # Configuration - Edit these to change behavior
 # =============================================================================
+
+HF_TOKEN = userdata.get("HF_TOKEN")
 
 MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
@@ -277,9 +279,9 @@ def train():
     
     # Load processor/tokenizer and base model
     print(f"\nLoading base model: {MODEL_NAME}")
-    processor = AutoProcessor.from_pretrained(MODEL_NAME)
+    processor = AutoProcessor.from_pretrained(MODEL_NAME,token=HF_TOKEN)
     tokenizer = getattr(processor, "tokenizer", processor)
-    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
+    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16,token=HF_TOKEN)
     
     # Ensure pad token
     if tokenizer.pad_token is None:
