@@ -31,11 +31,11 @@ OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
 MAX_LENGTH = 512
 BATCH_SIZE = 8  # Can use larger batch with LoRA (fewer trainable params)
 
-# LoRA settings
-LORA_R = 16           # Rank of the low-rank matrices
-LORA_ALPHA = 32       # Scaling factor
-LORA_DROPOUT = 0.05   # Dropout for LoRA layers
-LORA_TARGET_MODULES = ["q_proj", "v_proj", "k_proj", "o_proj"]  # Which layers to adapt
+# LoRA settings - smaller to prevent overfitting
+LORA_R = 4            # Rank of the low-rank matrices (was 16)
+LORA_ALPHA = 8        # Scaling factor (was 32)
+LORA_DROPOUT = 0.15   # Dropout for LoRA layers (was 0.05)
+LORA_TARGET_MODULES = ["q_proj", "v_proj"]  # Fewer layers to adapt (was q,v,k,o)
 
 # Training settings
 EPOCHS = 30
