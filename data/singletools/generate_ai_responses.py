@@ -35,6 +35,7 @@ SCRIPT_DIR = Path(__file__).parent
 DATA_DIR = SCRIPT_DIR.parent
 NAMES_FILE = DATA_DIR / "names.json"
 SINGLETOOLS_DIR = SCRIPT_DIR
+TWOTOOLS_DIR = DATA_DIR / "twotools"
 
 # =========================
 # CONFIGURATION
@@ -199,19 +200,28 @@ RESULTS:
 {responses_str}"""
 
 
-def build_single_prompt(entry: dict, intent_info: dict) -> str:
+def build_single_prompt(entry: dict, intent_info: dict | list) -> str:
     """
     Build a prompt to generate an ai_response for a single entry.
+    intent_info can be a dict (single intent) or list of dicts (multi-intent).
     """
-    intent_name = intent_info.get('name', 'unknown')
-    intent_desc = intent_info.get('description', '')
+    # Handle multi-intent case
+    if isinstance(intent_info, list):
+        intent_header = "## Intents Being Used (Multi-Intent)\n"
+        for info in intent_info:
+            name = info.get('name', 'unknown')
+            desc = info.get('description', '')
+            intent_header += f"- **{name}**: {desc}\n"
+    else:
+        intent_name = intent_info.get('name', 'unknown')
+        intent_desc = intent_info.get('description', '')
+        intent_header = f"## Intent Being Used\n**{intent_name}**: {intent_desc}"
     
     entry_text = format_entry_for_prompt(entry, intent_info)
     
     prompt = f"""You are an AI assistant helping astronauts during EVA (spacewalk) missions. Generate a natural, contextually appropriate spoken response for a voice assistant.
 
-## Intent Being Used
-**{intent_name}**: {intent_desc}
+{intent_header}
 
 ## Your Task
 Generate a short, natural ai_response that:
@@ -220,12 +230,14 @@ Generate a short, natural ai_response that:
 3. **References specific entities** when present (task names, waypoint names, coordinates, etc.)
 4. **Feels human** - use contractions, be conversational
 5. **Is concise** - these are voice responses, keep them brief (1-2 sentences max)
+6. **For multi-intent**: Combine results naturally in ONE response (e.g. "Your heart rate is 82 bpm and I've added that task.")
 
 ## Response Style Examples
 - Casual prompt "yo add task check the rover" + SUCCESS -> "Got it! 'Check the rover' is on your list."
 - Formal prompt "Please create waypoint Alpha" + FAILED -> "I wasn't able to create waypoint 'Alpha'. Please try again."
 - Question "what's my battery?" + SUCCESS with data -> "Your battery is at 85%."
-- Multi-action with partial failure -> "Added 'Task A' but 'Task B' failed."
+- Multi-action: "What's my heart rate and add task check oxygen" -> "Your heart rate is 82 bpm, and I've added 'check oxygen' to your list."
+- Multi-action with partial failure -> "Added 'Task A' but couldn't complete 'Task B'."
 
 ## Entry to Process
 {entry_text}
@@ -371,11 +383,24 @@ def process_file(filepath: Path, intents: dict, dry_run: bool = False) -> str:
             return f"SKIP {filename}: All entries already have ai_response"
         
         # Get intent info from filename (remove .jsonc extension)
+        # For multi-intent files, filename looks like "Intent1ANDIntent2.jsonc"
         intent_name = filepath.stem
-        intent_info = intents.get(intent_name.lower(), {
-            'name': intent_name,
-            'description': f'Intent: {intent_name}'
-        })
+        if 'AND' in intent_name:
+            # Multi-intent file - split and get info for each
+            intent_names = intent_name.split('AND')
+            intent_info = []
+            for name in intent_names:
+                info = intents.get(name.lower(), {
+                    'name': name,
+                    'description': f'Intent: {name}'
+                })
+                intent_info.append(info)
+        else:
+            # Single intent file
+            intent_info = intents.get(intent_name.lower(), {
+                'name': intent_name,
+                'description': f'Intent: {intent_name}'
+            })
         
         if dry_run:
             return f"DRY RUN {filename}: Would process {len(entries_to_process)}/{len(entries)} entries"
@@ -430,9 +455,10 @@ def process_file(filepath: Path, intents: dict, dry_run: bool = False) -> str:
 def main():
     import argparse
     
-    parser = argparse.ArgumentParser(description='Generate ai_response fields for single-intent JSONC files')
+    parser = argparse.ArgumentParser(description='Generate ai_response fields for JSONC files')
     parser.add_argument('--dry-run', action='store_true', help='Show what would be processed without making changes')
     parser.add_argument('--file', type=str, help='Process only a specific file (basename)')
+    parser.add_argument('--twotools', action='store_true', help='Process two-tool combo files instead of single-tool files')
     args = parser.parse_args()
     
     # Load intent definitions
@@ -440,9 +466,16 @@ def main():
     intents = load_names_file(NAMES_FILE)
     print(f"Loaded {len(intents) // 2} intent definitions")
     
-    # Find all JSONC files in singletools directory
-    jsonc_files = list(SINGLETOOLS_DIR.glob("*.jsonc"))
-    print(f"Found {len(jsonc_files)} JSONC files")
+    # Choose directory based on mode
+    if args.twotools:
+        target_dir = TWOTOOLS_DIR
+        # For twotools, look for files with "AND" in the name
+        jsonc_files = list(target_dir.glob("*AND*.jsonc"))
+        print(f"Found {len(jsonc_files)} two-tool combo files in {target_dir}")
+    else:
+        target_dir = SINGLETOOLS_DIR
+        jsonc_files = list(target_dir.glob("*.jsonc"))
+        print(f"Found {len(jsonc_files)} single-tool files in {target_dir}")
     
     if args.file:
         # Filter to specific file

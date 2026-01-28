@@ -1,12 +1,12 @@
 """
-AI Response Training Script with LoRA for Causal LMs (SmolLM2, etc).
+AI Response Training Script with LoRA for FunctionGemma.
 
 Trains a LoRA adapter to generate natural language responses given:
 - User's original query
 - Tool calls that were made
 - Results from those tool calls
 
-Uses PEFT LoRA for efficient fine-tuning.
+Uses FunctionGemma's chat template for exact tool-call/tool-response formatting.
 """
 
 import json
@@ -15,7 +15,7 @@ from pathlib import Path
 
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoProcessor, AutoModelForCausalLM
 from peft import LoraConfig, get_peft_model, TaskType, PeftModel
 
 # Import data loader from existing module
@@ -26,7 +26,7 @@ from simpledatacombine import load_all_training_data
 # Configuration - Edit these to change behavior
 # =============================================================================
 
-MODEL_NAME = "HuggingFaceTB/SmolLM2-360M-Instruct"  # Base model
+MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
 MAX_LENGTH = 512
 BATCH_SIZE = 8  # Can use larger batch with LoRA (fewer trainable params)
@@ -51,6 +51,107 @@ DRY_RUN = False
 # Device
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# FunctionGemma requires a developer prompt for tool use
+SYSTEM_PROMPT = (
+    "You are an EVA assistant. Use tool outputs to answer the user's request. "
+    "Respond in a concise, natural sentence."
+)
+
+# Paths
+SCRIPT_DIR = Path(__file__).parent
+NAMES_FILE = SCRIPT_DIR / "data" / "names.json"
+TOOLS_CACHE = None
+
+
+# =============================================================================
+# Tool schema helpers (FunctionGemma tools format)
+# =============================================================================
+
+def load_intents_file(filepath: Path) -> list:
+    """Load names.json and return the list of intent definitions."""
+    with open(filepath, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def build_tool_schemas(intents: list) -> list:
+    """
+    Build FunctionGemma tool schemas from names.json.
+
+    We keep parameters optional so empty args remain valid for this dataset.
+    """
+    tools = []
+    for intent in intents:
+        tokens = set(intent.get("tokens", []))
+        properties = {}
+
+        if "TASK_NAME" in tokens:
+            properties["task"] = {"type": "string", "description": "Task name or title."}
+        if "WAYPOINT_NAME" in tokens:
+            properties["waypoint"] = {"type": "string", "description": "Waypoint name."}
+        if "NAVIGATION_TARGET_NAME" in tokens:
+            properties["destination"] = {"type": "string", "description": "Navigation target."}
+        if "COORDINATE_TARGET_NAME" in tokens:
+            properties["target"] = {"type": "string", "description": "Coordinate target."}
+
+        tool = {
+            "type": "function",
+            "function": {
+                "name": intent["name"],
+                "description": intent["description"],
+                "parameters": {
+                    "type": "object",
+                    "properties": properties,
+                    "required": [],
+                },
+            },
+        }
+        tools.append(tool)
+
+    return tools
+
+
+def get_tools() -> list:
+    """Load and cache tool schemas."""
+    global TOOLS_CACHE
+    if TOOLS_CACHE is None:
+        intents = load_intents_file(NAMES_FILE)
+        TOOLS_CACHE = build_tool_schemas(intents)
+    return TOOLS_CACHE
+
+
+def build_messages(
+    prompt: str,
+    tool_calls: list,
+    responses: list,
+    ai_response: str | None,
+) -> list:
+    """
+    Build a FunctionGemma-compatible message list.
+
+    Tool responses must be passed as role="tool" with content containing
+    {name, response} or a list of those objects.
+    """
+    messages = [
+        {"role": "developer", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": prompt},
+    ]
+
+    if tool_calls:
+        calls_payload = [
+            {"type": "function", "function": {"name": name, "arguments": "{}"}}
+            for name in tool_calls
+        ]
+        messages.append({"role": "assistant", "tool_calls": calls_payload})
+
+    if responses:
+        tool_payload = [{"name": r.get("intent", ""), "response": r.get("return")} for r in responses]
+        messages.append({"role": "tool", "content": tool_payload[0] if len(tool_payload) == 1 else tool_payload})
+
+    if ai_response is not None:
+        messages.append({"role": "assistant", "content": ai_response})
+
+    return messages
+
 
 # =============================================================================
 # Dataset for Causal LM
@@ -58,79 +159,95 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class AIResponseDataset(Dataset):
     """
-    Dataset for training AI response generation with Causal LMs.
-    
+    Dataset for training AI response generation with FunctionGemma.
+
     For causal LMs, we concatenate input + output and mask the input portion
     in labels so the model only learns to predict the response.
     """
-    
-    def __init__(self, data: list, tokenizer, max_length: int = MAX_LENGTH):
-        self.tokenizer = tokenizer
+
+    def __init__(self, data: list, processor, tools: list, max_length: int = MAX_LENGTH):
+        self.processor = processor
+        self.tokenizer = getattr(processor, "tokenizer", processor)
+        self.tools = tools
         self.max_length = max_length
-        
+
         # Ensure pad token exists
-        if tokenizer.pad_token is None:
-            tokenizer.pad_token = tokenizer.eos_token
-        
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+
         # Filter to only items with ai_response
         self.data = [
-            item for item in data 
+            item for item in data
             if item.get("ai_response") and item["ai_response"].strip()
         ]
-        
+
         print(f"Filtered to {len(self.data)} items with ai_response (from {len(data)} total)")
-    
+
     def __len__(self):
         return len(self.data)
-    
-    def _format_prompt(self, item: dict) -> str:
-        """Format input as a chat-style prompt."""
+
+    def __getitem__(self, idx):
+        item = self.data[idx]
+
         prompt = item.get("prompt", "")
         tool_calls = item.get("tool_calls", [])
         responses = item.get("responses", [])
-        
-        tools_str = ", ".join(tool_calls) if tool_calls else "none"
-        results_str = json.dumps(responses, separators=(",", ":")) if responses else "[]"
-        
-        # Format as instruction for the model
-        system_context = f"User query: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}\nGenerate a natural response:"
-        return system_context
-    
-    def __getitem__(self, idx):
-        item = self.data[idx]
-        
-        prompt = self._format_prompt(item)
-        response = item["ai_response"]
-        
-        # Full text: prompt + response
-        full_text = f"{prompt} {response}{self.tokenizer.eos_token}"
-        
+        response_text = item["ai_response"].strip()
+
+        # Build messages for prefix (no final assistant response)
+        prefix_messages = build_messages(
+            prompt=prompt,
+            tool_calls=tool_calls,
+            responses=responses,
+            ai_response=None,
+        )
+        prefix_text = self.processor.apply_chat_template(
+            prefix_messages,
+            tools=self.tools,
+            add_generation_prompt=True,
+            tokenize=False,
+        )
+
+        # Build messages with the target response
+        full_messages = build_messages(
+            prompt=prompt,
+            tool_calls=tool_calls,
+            responses=responses,
+            ai_response=response_text,
+        )
+        full_text = self.processor.apply_chat_template(
+            full_messages,
+            tools=self.tools,
+            add_generation_prompt=False,
+            tokenize=False,
+        )
+
         # Tokenize the full sequence
         full_encoding = self.tokenizer(
             full_text,
             max_length=self.max_length,
             padding="max_length",
             truncation=True,
-            return_tensors="pt"
+            return_tensors="pt",
         )
-        
-        # Tokenize just the prompt to know where to start labels
-        prompt_encoding = self.tokenizer(
-            prompt + " ",  # Include the space separator
+
+        # Tokenize the prefix to know where to start labels
+        prefix_encoding = self.tokenizer(
+            prefix_text,
             max_length=self.max_length,
             truncation=True,
-            return_tensors="pt"
+            return_tensors="pt",
         )
-        prompt_len = prompt_encoding["input_ids"].shape[1]
-        
+        prefix_len = prefix_encoding["input_ids"].shape[1]
+
         input_ids = full_encoding["input_ids"].squeeze()
         attention_mask = full_encoding["attention_mask"].squeeze()
-        
+
         # Labels: -100 for prompt tokens (don't compute loss), actual ids for response
         labels = input_ids.clone()
-        labels[:prompt_len] = -100  # Mask prompt
+        labels[:prefix_len] = -100  # Mask prefix
         labels[labels == self.tokenizer.pad_token_id] = -100  # Mask padding
-        
+
         return {
             "input_ids": input_ids,
             "attention_mask": attention_mask,
@@ -158,9 +275,10 @@ def train():
     if DEVICE.type == "cuda":
         print(f"GPU: {torch.cuda.get_device_name(0)}")
     
-    # Load tokenizer and base model
+    # Load processor/tokenizer and base model
     print(f"\nLoading base model: {MODEL_NAME}")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    processor = AutoProcessor.from_pretrained(MODEL_NAME)
+    tokenizer = getattr(processor, "tokenizer", processor)
     base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
     
     # Ensure pad token
@@ -186,12 +304,17 @@ def train():
     # Print trainable parameters
     model.print_trainable_parameters()
     
+    # Load tool schemas
+    print("\nLoading tool schemas...")
+    intents = load_intents_file(NAMES_FILE)
+    tools = build_tool_schemas(intents)
+
     # Load data
     print("\nLoading training data...")
     all_data = load_all_training_data()
     
     # Create dataset
-    dataset = AIResponseDataset(all_data, tokenizer)
+    dataset = AIResponseDataset(all_data, processor, tools)
     
     if len(dataset) == 0:
         print("ERROR: No training data with ai_response found!")
@@ -205,13 +328,23 @@ def train():
         
         for i in range(min(3, len(dataset))):
             item = dataset.data[i]
-            prompt = dataset._format_prompt(item)
+            prompt_text = processor.apply_chat_template(
+                build_messages(
+                    prompt=item.get("prompt", ""),
+                    tool_calls=item.get("tool_calls", []),
+                    responses=item.get("responses", []),
+                    ai_response=None,
+                ),
+                tools=tools,
+                add_generation_prompt=True,
+                tokenize=False,
+            )
             print(f"\n--- Sample {i+1} ---")
-            print(f"PROMPT:\n{prompt}")
+            print(f"PROMPT:\n{prompt_text}")
             print(f"\nRESPONSE:\n{item['ai_response']}")
         
         print(f"\n\nTotal samples with ai_response: {len(dataset)}")
-        return model, tokenizer
+        return model, processor
     
     # Train/val split
     val_size = max(1, int(len(dataset) * 0.1))
@@ -321,7 +454,7 @@ def train():
             save_path = Path(OUTPUT_DIR)
             save_path.mkdir(parents=True, exist_ok=True)
             model.save_pretrained(save_path)  # Saves only LoRA weights
-            tokenizer.save_pretrained(save_path)
+            processor.save_pretrained(save_path)
             print(f"  ✓ New best! LoRA adapter saved to {save_path}")
         else:
             patience_counter += 1
@@ -334,51 +467,47 @@ def train():
     print(f"Training complete! Best val loss: {best_val_loss:.4f}")
     print(f"LoRA adapter saved to: {OUTPUT_DIR}")
     
-    return model, tokenizer
+    return model, processor
 
 
 # =============================================================================
 # Demo / Inference
 # =============================================================================
 
-def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: list) -> str:
+def generate_response(model, processor, prompt: str, tool_calls: list, results: list) -> str:
     """Generate a response given user prompt, tool calls, and results."""
     
     model.eval()
-    
-    # Build input prompt
-    tools_str = ", ".join(tool_calls) if tool_calls else "none"
-    results_str = json.dumps(results, separators=(",", ":")) if results else "[]"
-    input_text = f"User query: {prompt}\nFunction calls: [{tools_str}]\nResults: {results_str}\nGenerate a natural response:"
-    
+
+    tools = get_tools()
+    messages = build_messages(
+        prompt=prompt,
+        tool_calls=tool_calls,
+        responses=results,
+        ai_response=None,
+    )
+
+    input_text = processor.apply_chat_template(
+        messages,
+        tools=tools,
+        add_generation_prompt=True,
+        tokenize=False,
+    )
+
     print(f"\nInput:\n{input_text}")
-    
-    # Tokenize
-    inputs = tokenizer(
-        input_text,
-        return_tensors="pt"
-    ).to(DEVICE)
-    
-    # Generate (causal LM continues from input)
+
+    tokenizer = getattr(processor, "tokenizer", processor)
+    inputs = tokenizer(input_text, return_tensors="pt").to(DEVICE)
+
     with torch.no_grad():
-        # outputs = model.generate(
-        #     **inputs,
-        #     max_new_tokens=100,
-        #     do_sample=True,
-        #     temperature=0.7,
-        #     top_p=0.9,
-        #     pad_token_id=tokenizer.pad_token_id,
-        #     eos_token_id=tokenizer.eos_token_id
-        # )
         outputs = model.generate(
             **inputs,
             max_new_tokens=100,
             do_sample=False,
             pad_token_id=tokenizer.pad_token_id,
-            eos_token_id=tokenizer.eos_token_id
+            eos_token_id=tokenizer.eos_token_id,
         )
-    
-    # Decode only the new tokens (skip input)
+
     generated_ids = outputs[0][inputs["input_ids"].shape[1]:]
     response = tokenizer.decode(generated_ids, skip_special_tokens=True)
     return response.strip()
@@ -387,7 +516,9 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
 def load_lora_model():
     """Load base model with LoRA adapter for inference."""
     print(f"Loading base model: {MODEL_NAME}")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    processor_source = OUTPUT_DIR if Path(OUTPUT_DIR).exists() else MODEL_NAME
+    processor = AutoProcessor.from_pretrained(processor_source)
+    tokenizer = getattr(processor, "tokenizer", processor)
     base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.bfloat16)
     
     print(f"Loading LoRA adapter from: {OUTPUT_DIR}")
@@ -397,7 +528,7 @@ def load_lora_model():
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     
-    return model, tokenizer
+    return model, processor
 
 
 # =============================================================================
@@ -413,20 +544,20 @@ if __name__ == "__main__":
     
     if DEMO_ONLY:
         # Load base model + LoRA adapter
-        model, tokenizer = load_lora_model()
+        model, processor = load_lora_model()
     else:
         # Train the LoRA adapter
-        model, tokenizer = train()
+        model, processor = train()
     
     # If we have a model, run demo inference
-    if model is not None and tokenizer is not None:
+    if model is not None and processor is not None:
         print("\n" + "=" * 60)
         print("DEMO INFERENCE")
         print("=" * 60)
         
         # Demo 1: Battery check
         response = generate_response(
-            model, tokenizer,
+            model, processor,
             prompt="Do I have less than 5 hours of battery left?",
             tool_calls=["vitals_batt_time_left"],
             results=[{"intent": "vitals_batt_time_left", "return": 7.5}]
@@ -435,7 +566,7 @@ if __name__ == "__main__":
 
         # Demo 2: Multi-intent test - heart rate + add task (tests generalization)
         response = generate_response(
-            model, tokenizer,
+            model, processor,
             prompt="What's my heart rate and add a task to check the oxygen tank",
             tool_calls=["vitals_heart_rate", "Add_task"],
             results=[
@@ -447,7 +578,7 @@ if __name__ == "__main__":
 
         # Demo 3: Another multi-intent - warnings + navigation  
         response = generate_response(
-            model, tokenizer,
+            model, processor,
             prompt="Are there any warnings and reroute me around the crater",
             tool_calls=["get_warnings", "reroute_navigation"],
             results=[
