@@ -949,6 +949,349 @@
             }
         ],
         "ai_response": "You’ve got about 2 hours of oxygen left at your current consumption rate."
+    },
+    {
+        "prompt": "is my oxygen above 4 hours",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen above 4 hours"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.5}],
+        "ai_response": "Yes! You've got about 5.5 hours of oxygen, which is above 4 hours."
+    },
+    {
+        "prompt": "do I have more than 2 hours of air left",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I have more than 2 hours of air left"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 1.5}],
+        "ai_response": "No, you've got about 1.5 hours left, which is under 2 hours. Start heading back."
+    },
+    {
+        "prompt": "is my oxygen less than an hour",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen less than an hour"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.4}],
+        "ai_response": "Yes, you only have about 24 minutes left. Head back immediately!"
+    },
+    {
+        "prompt": "will my oxygen last another 3 hours",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "will my oxygen last another 3 hours"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.0}],
+        "ai_response": "Yes, you've got about 5 hours remaining—plenty for 3 more hours."
+    },
+    {
+        "prompt": "can I stay out for 5 more hours on this oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "can I stay out for 5 more hours on this oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.0}],
+        "ai_response": "No, you've only got about 3 hours left. 5 hours isn't possible."
+    },
+    {
+        "prompt": "am I running low on oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I running low on oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.7}],
+        "ai_response": "Yes, you're at about 42 minutes—that's getting critical. Return to base now."
+    },
+    {
+        "prompt": "is my oxygen critically low",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen critically low"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.0}],
+        "ai_response": "No, you've got about 6 hours left. You're in good shape."
+    },
+    {
+        "prompt": "should I be worried about my oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "should I be worried about my oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 1.0}],
+        "ai_response": "You've got about 1 hour left—not critical yet, but you should start wrapping up."
+    },
+    {
+        "prompt": "how's my oxygen looking",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "how's my oxygen looking"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.5}],
+        "ai_response": "Looking good! You've got about 4.5 hours of oxygen left."
+    },
+    {
+        "prompt": "is the oxygen situation okay",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is the oxygen situation okay"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.0}],
+        "ai_response": "Yep, you've got about 6 hours left. No worries there."
+    },
+    {
+        "prompt": "oxygen status critical or fine",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "oxygen status critical or fine"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.25}],
+        "ai_response": "Critical—you've only got about 15 minutes left. Get back to the airlock NOW!"
+    },
+    {
+        "prompt": "enough air for a 3 hour EVA",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "enough air for a 3 hour EVA"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.0}],
+        "ai_response": "Yes! You've got about 4 hours, so a 3-hour EVA is doable."
+    },
+    {
+        "prompt": "do I need to worry about air supply",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I need to worry about air supply"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 7.0}],
+        "ai_response": "Nope, you've got about 7 hours of oxygen left. You're all set."
+    },
+    {
+        "prompt": "will I have enough oxygen to finish this task",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "will I have enough oxygen to finish this task"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.5}],
+        "ai_response": "You've got about 2.5 hours left, which should be enough to wrap things up."
+    },
+    {
+        "prompt": "will I run out of oxygen before getting back",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "will I run out of oxygen before getting back"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.5}],
+        "ai_response": "With 3.5 hours left, you should make it back with time to spare."
+    },
+    {
+        "prompt": "am I good on air",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I good on air"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.5}],
+        "ai_response": "Yep, you're good! About 5.5 hours of oxygen remaining."
+    },
+    {
+        "prompt": "oxygen holding up alright",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "oxygen holding up alright"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.0}],
+        "ai_response": "Holding up fine—about 4 hours left."
+    },
+    {
+        "prompt": "quick oxygen check",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "quick oxygen check"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.0}],
+        "ai_response": "5 hours remaining. You're in good shape."
+    },
+    {
+        "prompt": "what's the oxygen looking like out here",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "what's the oxygen looking like out here"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.0}],
+        "ai_response": "You've got about 2 hours left. Might want to start wrapping up soon."
+    },
+    {
+        "prompt": "how much air have I burned through",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "how much air have I burned through"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 1.5}],
+        "ai_response": "You've got about 1.5 hours left, so you've used a fair amount."
+    },
+    {
+        "prompt": "is my oxygen in the danger zone",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen in the danger zone"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.3}],
+        "ai_response": "Yes—only about 18 minutes left. Get back to the airlock immediately!"
+    },
+    {
+        "prompt": "got enough oxygen for another rock sample",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "got enough oxygen for another rock sample"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.0}],
+        "ai_response": "With about 3 hours left, you should have enough for another sample."
+    },
+    {
+        "prompt": "is oxygen going to be an issue",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen going to be an issue"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.5}],
+        "ai_response": "Not at all—you've got about 6.5 hours remaining."
+    },
+    {
+        "prompt": "how tight is my oxygen margin",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "how tight is my oxygen margin"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.8}],
+        "ai_response": "Pretty tight—only about 48 minutes left. Plan accordingly."
+    },
+    {
+        "prompt": "compare my oxygen to what I need for the walk back",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "compare my oxygen to what I need for the walk back"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.5}],
+        "ai_response": "You've got about 2.5 hours left, which should cover your walk back."
+    },
+    {
+        "prompt": "can my oxygen handle 45 more minutes",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "can my oxygen handle 45 more minutes"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 1.5}],
+        "ai_response": "Yes, you've got about 1.5 hours left—45 more minutes is fine."
+    },
+    {
+        "prompt": "am I safe oxygen-wise",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I safe oxygen-wise"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.5}],
+        "ai_response": "Yes, you're safe with about 4.5 hours of oxygen left."
+    },
+    {
+        "prompt": "oxygen gonna last or should I head back",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "oxygen gonna last or should I head back"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.5}],
+        "ai_response": "Only about 30 minutes left—I'd strongly recommend heading back now."
+    },
+    {
+        "prompt": "tell me honestly is the oxygen situation bad",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "tell me honestly is the oxygen situation bad"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.0}],
+        "ai_response": "Honestly? You're fine—about 5 hours left."
+    },
+    {
+        "prompt": "do I have at least 3 hours of oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I have at least 3 hours of oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.5}],
+        "ai_response": "Yes! You've got about 3.5 hours, so you're above that threshold."
+    },
+    {
+        "prompt": "am I under 1 hour on oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I under 1 hour on oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.8}],
+        "ai_response": "Yes, you're at about 48 minutes—under an hour. Time to head back."
+    },
+    {
+        "prompt": "is my air below the safety threshold",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my air below the safety threshold"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.4}],
+        "ai_response": "Yes, you're at about 24 minutes which is below safe levels. Return to base immediately."
+    },
+    {
+        "prompt": "still have oxygen to spare",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "still have oxygen to spare"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.5}],
+        "ai_response": "Plenty to spare—about 5.5 hours remaining."
+    },
+    {
+        "prompt": "is oxygen depleting faster than expected",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen depleting faster than expected"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.0}],
+        "ai_response": "You've got about 2 hours left. Keep monitoring your consumption rate."
+    },
+    {
+        "prompt": "enough air to explore the ridge",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "enough air to explore the ridge"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.5}],
+        "ai_response": "With 4.5 hours left, you should have plenty for ridge exploration."
+    },
+    {
+        "prompt": "can I push it for 2 more hours on this air",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "can I push it for 2 more hours on this air"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.2}],
+        "ai_response": "Just barely—you've got about 2.2 hours. Cutting it close."
+    },
+    {
+        "prompt": "is oxygen a concern right now",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen a concern right now"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.6}],
+        "ai_response": "Yes, you're at about 36 minutes. That's a concern—head back."
+    },
+    {
+        "prompt": "should I conserve air or am I fine",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "should I conserve air or am I fine"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.5}],
+        "ai_response": "You're fine with about 3.5 hours left, but conserving never hurts."
+    },
+    {
+        "prompt": "is the oxygen situation manageable",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is the oxygen situation manageable"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.5}],
+        "ai_response": "Yes, 2.5 hours is manageable. Just stay aware of your timeline."
+    },
+    {
+        "prompt": "how urgent is my oxygen situation",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "how urgent is my oxygen situation"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.2}],
+        "ai_response": "Extremely urgent—only about 12 minutes left! Get back immediately!"
+    },
+    {
+        "prompt": "oxygen check before I start the next task",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "oxygen check before I start the next task"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.5}],
+        "ai_response": "4.5 hours remaining—you're cleared to start the next task."
+    },
+    {
+        "prompt": "do I have buffer on my oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I have buffer on my oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.0}],
+        "ai_response": "Yes, you've got about 5 hours—plenty of buffer."
+    },
+    {
+        "prompt": "am I cutting it close on air",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I cutting it close on air"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 1.0}],
+        "ai_response": "A bit—you've got about 1 hour. Don't push it too much further."
+    },
+    {
+        "prompt": "what's my oxygen reserve looking like",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "what's my oxygen reserve looking like"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.0}],
+        "ai_response": "Your oxygen reserve is solid—about 4 hours remaining."
+    },
+    {
+        "prompt": "am I going to make it on this oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I going to make it on this oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.5}],
+        "ai_response": "With 2.5 hours left, you should make it if you don't delay."
+    },
+    {
+        "prompt": "air supply good enough for the mission",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "air supply good enough for the mission"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.0}],
+        "ai_response": "Yes! With 6 hours left, you've got plenty for the mission."
+    },
+    {
+        "prompt": "is my oxygen at a safe level",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen at a safe level"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.0}],
+        "ai_response": "Yes, 4 hours is a safe level. You're good to continue."
+    },
+    {
+        "prompt": "can I breathe easy about my air supply",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "can I breathe easy about my air supply"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.5}],
+        "ai_response": "Absolutely! You've got about 5.5 hours of oxygen left."
+    },
+    {
+        "prompt": "how worried should I be about oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "how worried should I be about oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 0.9}],
+        "ai_response": "You should be concerned—only about 54 minutes left. Start heading back."
     }
 ]
 }

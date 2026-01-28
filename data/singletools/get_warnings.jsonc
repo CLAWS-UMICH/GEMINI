@@ -1050,6 +1050,349 @@
             }
         ],
         "ai_response": "Heads up, your CO2 scrubber efficiency is low, there's a coolant pump failure warning, and suit pressure is dropping. Stay alert and let me know if you need assistance."
+    },
+    {
+        "prompt": "am I in any danger right now",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "am I in any danger right now"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "No active warnings or dangers detected. You're safe to proceed with your current activities."
+    },
+    {
+        "prompt": "should I be worried about anything",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "should I be worried about anything"}],
+        "responses": [{"intent": "get_warnings", "return": ["battery below 20%"]}],
+        "ai_response": "Your battery is below 20%—might want to keep an eye on that and consider heading back soon."
+    },
+    {
+        "prompt": "is everything okay with my suit",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "is everything okay with my suit"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "All systems are nominal. Your suit is functioning perfectly."
+    },
+    {
+        "prompt": "quick safety check",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "quick safety check"}],
+        "responses": [{"intent": "get_warnings", "return": ["oxygen consumption elevated"]}],
+        "ai_response": "One thing to note: your oxygen consumption is running a bit high. Otherwise, you're all good."
+    },
+    {
+        "prompt": "are there any red flags I should know about",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "are there any red flags I should know about"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "No red flags to report. Everything is running smoothly."
+    },
+    {
+        "prompt": "anything critical I need to address",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "anything critical I need to address"}],
+        "responses": [{"intent": "get_warnings", "return": ["primary fan RPM fluctuating"]}],
+        "ai_response": "Your primary fan RPM is fluctuating—keep an eye on cooling. Nothing else critical at the moment."
+    },
+    {
+        "prompt": "give me a heads up if something's wrong",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "give me a heads up if something's wrong"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "All clear! No issues to report right now."
+    },
+    {
+        "prompt": "what's the situation looking like",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "what's the situation looking like"}],
+        "responses": [{"intent": "get_warnings", "return": ["temperature approaching upper limit"]}],
+        "ai_response": "Temperature is creeping up toward the limit. Consider slowing down or finding shade."
+    },
+    {
+        "prompt": "is my EVA still safe to continue",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "is my EVA still safe to continue"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Your EVA is safe to continue—no warnings detected. Keep up the good work!"
+    },
+    {
+        "prompt": "do I need to abort the mission",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "do I need to abort the mission"}],
+        "responses": [{"intent": "get_warnings", "return": ["suit pressure critical"]}],
+        "ai_response": "Warning: suit pressure is critical. You should consider returning to the habitat immediately."
+    },
+    {
+        "prompt": "any alarms going off that I missed",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "any alarms going off that I missed"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "No alarms have triggered. You haven't missed anything."
+    },
+    {
+        "prompt": "tell me if I'm in trouble",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "tell me if I'm in trouble"}],
+        "responses": [{"intent": "get_warnings", "return": ["co2 levels rising"]}],
+        "ai_response": "CO2 levels are rising—your scrubber might be struggling. Not critical yet, but worth monitoring."
+    },
+    {
+        "prompt": "how's my system health",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "how's my system health"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "System health is excellent. All components are operating within normal parameters."
+    },
+    {
+        "prompt": "HALO are there problems",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "HALO are there problems"}],
+        "responses": [{"intent": "get_warnings", "return": ["secondary oxygen pressure low"]}],
+        "ai_response": "Your secondary oxygen pressure is running low. You might want to check your backup tank."
+    },
+    {
+        "prompt": "status report on warnings",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "status report on warnings"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "No active warnings to report. All systems nominal."
+    },
+    {
+        "prompt": "can I keep working or should I stop",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "can I keep working or should I stop"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "You're good to keep working! No warnings or concerns at this time."
+    },
+    {
+        "prompt": "is there anything flashing red",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "is there anything flashing red"}],
+        "responses": [{"intent": "get_warnings", "return": ["heart rate elevated"]}],
+        "ai_response": "Your heart rate is elevated. Take it easy and catch your breath if you can."
+    },
+    {
+        "prompt": "what issues are active",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "what issues are active"}],
+        "responses": [{"intent": "get_warnings", "return": ["coolant liquid pressure dropping", "battery draining fast"]}],
+        "ai_response": "Two active issues: coolant liquid pressure is dropping and your battery is draining faster than normal."
+    },
+    {
+        "prompt": "anything I should be concerned about",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "anything I should be concerned about"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Nothing to be concerned about. Everything is looking great!"
+    },
+    {
+        "prompt": "run a warning check",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "run a warning check"}],
+        "responses": [{"intent": "get_warnings", "return": ["scrubber A saturation high"]}],
+        "ai_response": "Scrubber A saturation is getting high. Consider switching to Scrubber B soon."
+    },
+    {
+        "prompt": "are we still in the green",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "are we still in the green"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "We're still in the green! All systems are go."
+    },
+    {
+        "prompt": "what's the worst thing happening right now",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "what's the worst thing happening right now"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Nothing bad happening—everything is running perfectly."
+    },
+    {
+        "prompt": "do I have time to finish this task",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "do I have time to finish this task"}],
+        "responses": [{"intent": "get_warnings", "return": ["oxygen time remaining low"]}],
+        "ai_response": "Your oxygen time is running low. You might want to wrap up soon and head back."
+    },
+    {
+        "prompt": "am I good to go further from base",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "am I good to go further from base"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "All systems are nominal. You're good to venture further from base."
+    },
+    {
+        "prompt": "should I turn back",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "should I turn back"}],
+        "responses": [{"intent": "get_warnings", "return": ["water storage depleted"]}],
+        "ai_response": "Your water storage is depleted. Yes, I'd recommend heading back."
+    },
+    {
+        "prompt": "is my life support okay",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "is my life support okay"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Life support is fully operational. No issues detected."
+    },
+    {
+        "prompt": "check for anomalies",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "check for anomalies"}],
+        "responses": [{"intent": "get_warnings", "return": ["suit pressure fluctuating"]}],
+        "ai_response": "One anomaly detected: suit pressure is fluctuating slightly. Keep monitoring it."
+    },
+    {
+        "prompt": "give me the bad news",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "give me the bad news"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "No bad news! Everything is running smoothly."
+    },
+    {
+        "prompt": "anything need immediate attention",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "anything need immediate attention"}],
+        "responses": [{"intent": "get_warnings", "return": ["primary fan failure imminent"]}],
+        "ai_response": "Primary fan failure is imminent—this needs immediate attention. Consider activating the secondary fan."
+    },
+    {
+        "prompt": "can you scan for problems",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "can you scan for problems"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Scan complete. No problems detected—you're all clear."
+    },
+    {
+        "prompt": "let me know if anything's off",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "let me know if anything's off"}],
+        "responses": [{"intent": "get_warnings", "return": ["helmet CO2 slightly elevated"]}],
+        "ai_response": "Your helmet CO2 is slightly elevated. The scrubber should handle it, but I'll keep you posted."
+    },
+    {
+        "prompt": "is the suit holding up",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "is the suit holding up"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "The suit is holding up great! All systems are nominal."
+    },
+    {
+        "prompt": "any reason to panic",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "any reason to panic"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "No reason to panic at all. Everything is under control."
+    },
+    {
+        "prompt": "what's the most urgent issue",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "what's the most urgent issue"}],
+        "responses": [{"intent": "get_warnings", "return": ["oxygen leak detected", "battery critical"]}],
+        "ai_response": "Most urgent: oxygen leak detected and battery is critical. Take immediate action."
+    },
+    {
+        "prompt": "are all systems green",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "are all systems green"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "All systems are green. You're in great shape!"
+    },
+    {
+        "prompt": "is it safe to rest for a bit",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "is it safe to rest for a bit"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "All clear—it's safe to take a short rest. No warnings active."
+    },
+    {
+        "prompt": "how many active warnings do I have",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "how many active warnings do I have"}],
+        "responses": [{"intent": "get_warnings", "return": ["coolant issue", "temp high", "fan slow"]}],
+        "ai_response": "You have 3 active warnings: coolant issue, high temperature, and fan running slow."
+    },
+    {
+        "prompt": "anything wrong I should fix",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "anything wrong I should fix"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Nothing wrong to fix! Everything is operating perfectly."
+    },
+    {
+        "prompt": "hazard assessment please",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "hazard assessment please"}],
+        "responses": [{"intent": "get_warnings", "return": ["navigation signal weak"]}],
+        "ai_response": "One hazard: your navigation signal is weak. You might lose positioning if you go further."
+    },
+    {
+        "prompt": "condition report",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "condition report"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Condition report: all systems nominal. No warnings or concerns."
+    },
+    {
+        "prompt": "any cautions or warnings active",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "any cautions or warnings active"}],
+        "responses": [{"intent": "get_warnings", "return": ["suit temp rising"]}],
+        "ai_response": "One caution: suit temperature is rising. Try to find some shade or slow your pace."
+    },
+    {
+        "prompt": "mission status check",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "mission status check"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Mission status is go! No warnings detected. Proceed as planned."
+    },
+    {
+        "prompt": "anything that could kill me right now",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "anything that could kill me right now"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Nothing life-threatening detected. You're safe to continue."
+    },
+    {
+        "prompt": "suit integrity check",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "suit integrity check"}],
+        "responses": [{"intent": "get_warnings", "return": ["minor seal degradation"]}],
+        "ai_response": "Minor seal degradation detected. Not critical yet, but monitor closely on longer EVAs."
+    },
+    {
+        "prompt": "I'm feeling weird is something wrong",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "I'm feeling weird is something wrong"}],
+        "responses": [{"intent": "get_warnings", "return": ["CO2 scrubber efficiency degraded"]}],
+        "ai_response": "Your CO2 scrubber efficiency is degraded—that might explain how you're feeling. Consider heading back."
+    },
+    {
+        "prompt": "preflight warning check",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "preflight warning check"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "Preflight check complete. No warnings—you're cleared for EVA."
+    },
+    {
+        "prompt": "are sensors picking up any issues",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "are sensors picking up any issues"}],
+        "responses": [{"intent": "get_warnings", "return": ["temperature sensor intermittent"]}],
+        "ai_response": "Temperature sensor is showing intermittent readings. The sensor itself might need attention."
+    },
+    {
+        "prompt": "what's my biggest concern right now",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "what's my biggest concern right now"}],
+        "responses": [{"intent": "get_warnings", "return": []}],
+        "ai_response": "No concerns at the moment! Everything is running smoothly."
+    },
+    {
+        "prompt": "threat assessment",
+        "tool_calls": ["get_warnings"],
+        "parts": [{"type": "TEXT", "text": "threat assessment"}],
+        "responses": [{"intent": "get_warnings", "return": ["radiation levels elevated"]}],
+        "ai_response": "Radiation levels are elevated. Consider limiting your exposure time outside."
     }
 ]
 }
