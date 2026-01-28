@@ -28,7 +28,7 @@ from simpledatacombine import load_all_training_data
 # Configuration - Edit these to change behavior
 # =============================================================================
 
-MODEL_NAME = "google/flan-t5-base"  # Try: google/flan-t5-base, google/flan-t5-large
+MODEL_NAME = "HuggingFaceTB/SmolLM2-360M-Instruct"  # Try: google/flan-t5-base, google/flan-t5-large
 OUTPUT_DIR = "ai_response_model"
 MAX_INPUT_LENGTH = 512
 MAX_TARGET_LENGTH = 128
@@ -379,8 +379,32 @@ if __name__ == "__main__":
         # Demo 1: Battery check
         response = generate_response(
             model, tokenizer,
-            prompt="Do I have more than 5 hours of battery left?",
+            prompt="Do I have less than 5 hours of battery left?",
             tool_calls=["vitals_batt_time_left"],
             results=[{"intent": "vitals_batt_time_left", "return": 7.5}]
         )
         print(f"\nGenerated: {response}")
+
+        # Demo 2: Multi-intent test - heart rate + add task (tests generalization)
+        response = generate_response(
+            model, tokenizer,
+            prompt="What's my heart rate and add a task to check the oxygen tank",
+            tool_calls=["vitals_heart_rate", "Add_task"],
+            results=[
+                {"intent": "vitals_heart_rate", "return": 82},
+                {"intent": "Add_task", "return": True}
+            ]
+        )
+        print(f"\nGenerated (multi-intent): {response}")
+
+        # Demo 3: Another multi-intent - warnings + navigation  
+        response = generate_response(
+            model, tokenizer,
+            prompt="Are there any warnings and reroute me around the crater",
+            tool_calls=["get_warnings", "reroute_navigation"],
+            results=[
+                {"intent": "get_warnings", "return": []},
+                {"intent": "reroute_navigation", "return": True}
+            ]
+        )
+        print(f"\nGenerated (warnings + reroute): {response}")
