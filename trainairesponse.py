@@ -135,20 +135,22 @@ def build_messages(
     {name, response} or a list of those objects.
     """
     messages = [
-        {"role": "developer", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": prompt},
     ]
 
     if tool_calls:
         calls_payload = [
-            {"type": "function", "function": {"name": name, "arguments": "{}"}}
+            {"type": "function", "function": {"name": name, "arguments": json.dumps({})}}
             for name in tool_calls
         ]
         messages.append({"role": "assistant", "tool_calls": calls_payload})
 
     if responses:
-        tool_payload = [{"name": r.get("intent", ""), "response": r.get("return")} for r in responses]
-        messages.append({"role": "tool", "content": tool_payload[0] if len(tool_payload) == 1 else tool_payload})
+        for r in responses:
+            tool_name = r.get("intent", "")
+            tool_content = json.dumps(r.get("return"))
+            messages.append({"role": "tool", "name": tool_name, "content": tool_content})
 
     if ai_response is not None:
         messages.append({"role": "assistant", "content": ai_response})
