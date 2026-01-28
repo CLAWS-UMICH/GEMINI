@@ -31,7 +31,7 @@ if not HF_TOKEN:
 
 MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
-MAX_LENGTH = 1024
+MAX_LENGTH = 512
 BATCH_SIZE = 8  # Per-step batch size
 
 # LoRA settings - smaller to prevent overfitting
