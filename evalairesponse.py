@@ -148,6 +148,10 @@ def build_messages(prompt: str, tool_calls: list, responses: list) -> list:
         {"role": "user", "content": prompt},
     ]
 
+    if tool_calls:
+        call_parts = []
+        for name in tool_calls:
+            call_parts.append(f"<start_function_call>call:{name}{{}}<end_function_call>")
         messages.append({"role": "assistant", "content": "".join(call_parts)})
 
     if responses:
