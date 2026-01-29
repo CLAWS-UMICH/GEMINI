@@ -43,7 +43,7 @@ LORA_TARGET_MODULES = ["q_proj", "v_proj"]  # Fewer layers to adapt (was q,v,k,o
 
 # Training settings
 EPOCHS = 300
-BASE_LR = 5e-5  # Higher LR works well with LoRA
+BASE_LR = 1e-4  # Higher LR works well with LoRA
 WEIGHT_DECAY = 0.05
 WARMUP_EPOCHS = 2
 MAX_GRAD_NORM = 1.0
