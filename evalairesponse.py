@@ -141,7 +141,7 @@ def build_tool_schemas(intents: list) -> list:
 def build_tool_map(tools: list) -> dict:
     return {tool["function"]["name"]: tool for tool in tools}
 
-def build_messages(prompt: str, tool_calls: list, responses: list) -> list:
+def build_messages(prompt: str, tool_calls: list, responses: list, ai_response: str | None = None) -> list:
     system_prompt = "You are an EVA assistant. Use tool outputs to answer the user's request. Respond in a concise, natural sentence."
     messages = [
         {"role": "system", "content": system_prompt},
@@ -149,20 +149,28 @@ def build_messages(prompt: str, tool_calls: list, responses: list) -> list:
     ]
 
     if tool_calls:
+        # Manually build function call content since chat template doesn't add <end_of_turn>
+        # Format: <start_function_call>call:name{args}<end_function_call>
         call_parts = []
         for name in tool_calls:
             call_parts.append(f"<start_function_call>call:{name}{{}}<end_function_call>")
+        # Add the calls as assistant content (chat template will wrap with turn markers)
         messages.append({"role": "assistant", "content": "".join(call_parts)})
 
     if responses:
+        # FunctionGemma expects tool responses in a "developer" turn, not "tool" role
+        # Format: <start_function_response>response:name{value:<escape>...<escape>}<end_function_response>
         response_parts = []
         for r in responses:
             tool_name = r.get("intent", "")
             tool_value = json.dumps(r.get("return"))
+            # Build the function response format that FunctionGemma expects
             response_parts.append(f"<start_function_response>response:{tool_name}{{value:<escape>{tool_value}<escape>}}<end_function_response>")
-        # FunctionGemma chat template often treats 'tool' role correctly for function outputs
-        messages.append({"role": "tool", "content": "".join(response_parts)})
+        messages.append({"role": "developer", "content": "".join(response_parts)})
     
+    if ai_response is not None:
+        messages.append({"role": "assistant", "content": ai_response})
+
     return messages
 
 def generate_response(model, processor, prompt: str, tool_calls: list, results: list, tools_map: dict) -> str:
@@ -180,10 +188,6 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
         tokenize=False,
     )
     
-    # DEBUG: Print the formatted input for the first case to see what's wrong
-    if "Is the battery going to die soon?" in prompt:
-         print(f"\n[DEBUG] Input Text:\n{input_text}\n[DEBUG] End Input Text")
-
     tokenizer = getattr(processor, "tokenizer", processor)
     
     # Ensure pad token exists
