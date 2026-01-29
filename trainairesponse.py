@@ -19,7 +19,8 @@ from transformers import AutoProcessor, AutoModelForCausalLM
 from peft import LoraConfig, get_peft_model, TaskType, PeftModel
 # Import data loader from existing module
 from simpledatacombine import load_all_training_data
-
+from dotenv import load_dotenv
+load_dotenv()
 
 # =============================================================================
 # Configuration - Edit these to change behavior
@@ -166,17 +167,24 @@ def build_messages(
     ]
 
     if tool_calls:
-        calls_payload = [
-            {"type": "function", "function": {"name": name, "arguments": json.dumps({})}}
-            for name in tool_calls
-        ]
-        messages.append({"role": "assistant", "tool_calls": calls_payload})
+        # Manually build function call content since chat template doesn't add <end_of_turn>
+        # Format: <start_function_call>call:name{args}<end_function_call>
+        call_parts = []
+        for name in tool_calls:
+            call_parts.append(f"<start_function_call>call:{name}{{}}<end_function_call>")
+        # Add the calls as assistant content (chat template will wrap with turn markers)
+        messages.append({"role": "assistant", "content": "".join(call_parts)})
 
     if responses:
+        # FunctionGemma expects tool responses in a "developer" turn, not "tool" role
+        # Format: <start_function_response>response:name{value:<escape>...<escape>}<end_function_response>
+        response_parts = []
         for r in responses:
             tool_name = r.get("intent", "")
-            tool_content = json.dumps(r.get("return"))
-            messages.append({"role": "tool", "name": tool_name, "content": tool_content})
+            tool_value = json.dumps(r.get("return"))
+            # Build the function response format that FunctionGemma expects
+            response_parts.append(f"<start_function_response>response:{tool_name}{{value:<escape>{tool_value}<escape>}}<end_function_response>")
+        messages.append({"role": "developer", "content": "".join(response_parts)})
 
     if ai_response is not None:
         messages.append({"role": "assistant", "content": ai_response})
@@ -591,13 +599,22 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
     tokenizer = getattr(processor, "tokenizer", processor)
     inputs = tokenizer(input_text, return_tensors="pt").to(DEVICE)
 
+    # FunctionGemma stop tokens - <start_function_response> prevents hallucinated results
+    stop_token_ids = [
+        tokenizer.eos_token_id,
+        tokenizer.convert_tokens_to_ids("<end_of_turn>"),
+        tokenizer.convert_tokens_to_ids("<start_function_response>"),
+    ]
+    # Filter out any None/unknown tokens
+    stop_token_ids = [t for t in stop_token_ids if t is not None and t != tokenizer.unk_token_id]
+
     with torch.no_grad():
         outputs = model.generate(
             **inputs,
             max_new_tokens=100,
             do_sample=False,
             pad_token_id=tokenizer.pad_token_id,
-            eos_token_id=tokenizer.eos_token_id,
+            eos_token_id=stop_token_ids,
         )
 
     generated_ids = outputs[0][inputs["input_ids"].shape[1]:]
@@ -633,6 +650,47 @@ if __name__ == "__main__":
     # Check for flags
     DRY_RUN = "--dry-run" in sys.argv
     DEMO_ONLY = "--demo" in sys.argv
+    SHOW_INPUT = "--show-input" in sys.argv
+    
+    if SHOW_INPUT:
+        # Just show example formatted input without loading models
+        print("Loading processor only (no model)...")
+        processor = AutoProcessor.from_pretrained(MODEL_NAME, token=HF_TOKEN)
+        tools_map = get_tools_map()
+        
+        # Example with tool calls and results
+        example_prompt = "What's my heart rate and add a task to check the oxygen tank"
+        example_tool_calls = ["vitals_heart_rate", "Add_task"]
+        example_results = [
+            {"intent": "vitals_heart_rate", "return": 82},
+            {"intent": "Add_task", "return": True}
+        ]
+        
+        messages = build_messages(
+            prompt=example_prompt,
+            tool_calls=example_tool_calls,
+            responses=example_results,
+            ai_response=None,
+        )
+        tools_subset = [tools_map[name] for name in example_tool_calls if name in tools_map]
+        
+        input_text = processor.apply_chat_template(
+            messages,
+            tools=tools_subset,
+            add_generation_prompt=True,
+            tokenize=False,
+        )
+        
+        print("\n" + "=" * 60)
+        print("EXAMPLE FORMATTED INPUT")
+        print("=" * 60)
+        print(f"Prompt: {example_prompt}")
+        print(f"Tool calls: {example_tool_calls}")
+        print(f"Results: {example_results}")
+        print("=" * 60)
+        print(input_text)
+        print("=" * 60)
+        sys.exit(0)
     
     if DEMO_ONLY:
         # Load base model + LoRA adapter
