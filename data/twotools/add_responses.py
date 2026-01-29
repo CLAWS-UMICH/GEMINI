@@ -38,16 +38,25 @@ INTENT_TO_TYPE = {
     'Set_navigation_target': 'waypoint',
 }
 
-# Map intent (lowercase) -> list of part types to extract name from
-# The actual JSONC files use more specific names like COMPLETE_TASK_NAME
-INTENT_TO_PART_TYPES = {
-    'complete_task': ['COMPLETE_TASK_NAME', 'TASK_NAME'],
-    'delete_task': ['DELETE_TASK_NAME', 'TASK_NAME'],
-    'add_task': ['ADD_TASK_NAME', 'TASK_NAME'],
-    'delete_waypoint': ['DELETE_WAYPOINT_NAME', 'WAYPOINT_NAME'],
-    'add_waypoint': ['ADD_WAYPOINT_NAME', 'WAYPOINT_NAME'],
-    'get_coordinates': ['COORDINATE_TARGET_NAME'],
-    'set_navigation_target': ['NAVIGATION_TARGET_NAME'],
+# Map intent (lowercase) -> the EXACT part type used in data files
+# Each intent has its OWN specific part type:
+# - Add_task uses TASK_NAME
+# - Complete_task uses COMPLETE_TASK_NAME (NOT TASK_NAME!)
+# - Delete_task uses DELETE_TASK_NAME (NOT TASK_NAME!)
+# - Add_waypoint uses WAYPOINT_NAME
+# - Delete_waypoint uses DELETE_WAYPOINT_NAME (NOT WAYPOINT_NAME!)
+# - Get_coordinates uses COORDINATE_TARGET_NAME
+# - Set_navigation_target uses NAVIGATION_TARGET_NAME
+#
+# NO FALLBACKS - each intent must match its exact part type
+INTENT_TO_PART_TYPE = {
+    'add_task': 'TASK_NAME',
+    'complete_task': 'COMPLETE_TASK_NAME',
+    'delete_task': 'DELETE_TASK_NAME',
+    'add_waypoint': 'WAYPOINT_NAME',
+    'delete_waypoint': 'DELETE_WAYPOINT_NAME',
+    'get_coordinates': 'COORDINATE_TARGET_NAME',
+    'set_navigation_target': 'NAVIGATION_TARGET_NAME',
 }
 
 
@@ -123,13 +132,22 @@ def extract_header_comments(filepath: Path) -> str:
 
 
 def extract_name_from_parts(parts: list, intent: str) -> str:
-    """Extract the relevant name from parts based on intent."""
-    target_types = INTENT_TO_PART_TYPES.get(intent.lower(), [])
-    if not target_types:
+    """Extract the relevant name from parts based on intent.
+    
+    CRITICAL: Each intent has its OWN specific part type.
+    When processing 'add task X and complete Y':
+    - Add_task looks for TASK_NAME -> finds 'X'
+    - Complete_task looks for COMPLETE_TASK_NAME -> finds 'Y'
+    
+    We do NOT fall back from COMPLETE_TASK_NAME to TASK_NAME!
+    Each intent must match its exact part type.
+    """
+    target_type = INTENT_TO_PART_TYPE.get(intent.lower())
+    if not target_type:
         return None
     
     for part in parts:
-        if part.get('type') in target_types:
+        if part.get('type') == target_type:
             return part.get('text')
     return None
 

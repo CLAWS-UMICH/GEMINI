@@ -1047,6 +1047,195 @@
         "parts": [{"type": "TEXT", "text": "oxygen partial pressure sufficient"}],
         "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.5}],
         "ai_response": "Yes, 3.5 psi is sufficient."
+    },
+    {
+        "prompt": "am I at risk of hypoxia",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "am I at risk of hypoxia"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 1.8}],
+        "ai_response": "1.8 psi is low—hypoxia risk is elevated. Monitor closely and consider abort."
+    },
+    {
+        "prompt": "is oxygen pressure dangerously low",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is oxygen pressure dangerously low"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 1.5}],
+        "ai_response": "1.5 psi is dangerously low—abort immediately to prevent hypoxia."
+    },
+    {
+        "prompt": "can I continue EVA at this oxygen pressure",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "can I continue EVA at this oxygen pressure"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.8}],
+        "ai_response": "3.8 psi is adequate—EVA can continue safely."
+    },
+    {
+        "prompt": "is my suit atmosphere losing oxygen",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is my suit atmosphere losing oxygen"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 2.3}],
+        "ai_response": "2.3 psi is below optimal—monitor for leaks or regulator issues."
+    },
+    {
+        "prompt": "should I abort due to oxygen pressure",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "should I abort due to oxygen pressure"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 1.6}],
+        "ai_response": "1.6 psi is critical—abort recommended to prevent hypoxia."
+    },
+    {
+        "prompt": "is oxygen adequate for cognitive function",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is oxygen adequate for cognitive function"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.2}],
+        "ai_response": "3.2 psi supports normal cognitive function—you're good."
+    },
+    {
+        "prompt": "oxygen level concerning",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "oxygen level concerning"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 2.0}],
+        "ai_response": "2.0 psi is concerning—below safe operating levels. Consider return."
+    },
+    {
+        "prompt": "is there enough oxygen in my suit",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is there enough oxygen in my suit"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 4.5}],
+        "ai_response": "4.5 psi is excellent—plenty of oxygen for safe breathing."
+    },
+    {
+        "prompt": "suit oxygen safe for extended work",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "suit oxygen safe for extended work"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.9}],
+        "ai_response": "3.9 psi is safe for extended operations."
+    },
+    {
+        "prompt": "is O2 pressure dropping too fast",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is O2 pressure dropping too fast"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 2.8}],
+        "ai_response": "2.8 psi—check for leaks if this is lower than expected."
+    },
+    {
+        "prompt": "oxygen pressure within safety margin",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "oxygen pressure within safety margin"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.4}],
+        "ai_response": "3.4 psi is within safety margins for normal operations."
+    },
+    {
+        "prompt": "am I getting enough oxygen to breathe",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "am I getting enough oxygen to breathe"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 4.1}],
+        "ai_response": "4.1 psi provides adequate oxygen—breathing conditions are excellent."
+    },
+    {
+        "prompt": "is suit O2 supporting physical exertion",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is suit O2 supporting physical exertion"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 4.0}],
+        "ai_response": "4.0 psi supports physical exertion without oxygen deficit."
+    },
+    {
+        "prompt": "could low oxygen explain why I'm lightheaded",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "could low oxygen explain why I'm lightheaded"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 2.2}],
+        "ai_response": "2.2 psi is low—yes, this could cause lightheadedness. Consider return."
+    },
+    {
+        "prompt": "is oxygen pressure causing my shortness of breath",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is oxygen pressure causing my shortness of breath"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 2.5}],
+        "ai_response": "2.5 psi is below optimal—may contribute to breathing difficulty."
+    },
+    {
+        "prompt": "do I have enough O2 for heavy lifting",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "do I have enough O2 for heavy lifting"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 4.3}],
+        "ai_response": "4.3 psi is excellent—adequate for heavy physical work."
+    },
+    {
+        "prompt": "is my oxygen regulator working properly",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen regulator working properly"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.8}],
+        "ai_response": "3.8 psi is within normal range—regulator appears to be working."
+    },
+    {
+        "prompt": "will this O2 level cause problems",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "will this O2 level cause problems"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 1.9}],
+        "ai_response": "1.9 psi is dangerous—hypoxia imminent. Abort now."
+    },
+    {
+        "prompt": "oxygen pressure safe for mental clarity",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "oxygen pressure safe for mental clarity"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.5}],
+        "ai_response": "3.5 psi is adequate for clear thinking."
+    },
+    {
+        "prompt": "can I complete the task with current O2",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "can I complete the task with current O2"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.7}],
+        "ai_response": "3.7 psi is solid—you can complete the task."
+    },
+    {
+        "prompt": "should I notify mission control about oxygen",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "should I notify mission control about oxygen"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 2.4}],
+        "ai_response": "2.4 psi is low—yes, alert mission control immediately."
+    },
+    {
+        "prompt": "is O2 pressure stable or dropping",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is O2 pressure stable or dropping"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.6}],
+        "ai_response": "3.6 psi currently—monitor to determine if stable or dropping."
+    },
+    {
+        "prompt": "oxygen adequate for emergency egress",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "oxygen adequate for emergency egress"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.3}],
+        "ai_response": "3.3 psi is adequate for emergency egress procedures."
+    },
+    {
+        "prompt": "is there a leak affecting my oxygen",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is there a leak affecting my oxygen"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 2.6}],
+        "ai_response": "2.6 psi is below normal—possible leak. Check suit integrity."
+    },
+    {
+        "prompt": "will I pass out from low oxygen",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "will I pass out from low oxygen"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 1.7}],
+        "ai_response": "1.7 psi is critical—loss of consciousness imminent. Emergency return NOW."
+    },
+    {
+        "prompt": "is O2 within normal operational range",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "is O2 within normal operational range"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 3.9}],
+        "ai_response": "3.9 psi is within normal operational range."
+    },
+    {
+        "prompt": "oxygen enough for 45 more minutes",
+        "tool_calls": ["vitals_suit_pressure_oxy"],
+        "parts": [{"type": "TEXT", "text": "oxygen enough for 45 more minutes"}],
+        "responses": [{"intent": "vitals_suit_pressure_oxy", "return": 4.2}],
+        "ai_response": "4.2 psi should support 45+ more minutes of work."
     }
 ]
 }
