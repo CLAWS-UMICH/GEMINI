@@ -354,6 +354,22 @@ EPOCH_DEMO_SAMPLES = [
             {"intent": "Add_task", "return": True}
         ],
     },
+    {
+        "prompt": "Which tank has more oxygen, primary or secondary?",
+        "tool_calls": ["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
+        "results": [
+            {"intent": "vitals_oxy_pri_storage", "return": 45},
+            {"intent": "vitals_oxy_sec_storage", "return": 88}
+        ]
+    },
+    {
+        "prompt": "Which tank has more oxygen, primary or secondary?",
+        "tool_calls": ["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
+        "results": [
+            {"intent": "vitals_oxy_pri_storage", "return": 92},
+            {"intent": "vitals_oxy_sec_storage", "return": 34}
+        ]
+    }
 ]
 
 
