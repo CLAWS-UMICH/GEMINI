@@ -813,11 +813,11 @@ if __name__ == "__main__":
         # Demo 5: Oxygen Comparison (Values Flipped)
         response = generate_response(
             model, processor,
-            prompt="Which tank has more oxygen, primary or secondary?",
+            prompt="Should I switch to the secondary tank?",
             tool_calls=["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
             results=[
-                {"intent": "vitals_oxy_pri_storage", "return": 92},
-                {"intent": "vitals_oxy_sec_storage", "return": 34}
+                {"intent": "vitals_oxy_pri_storage", "return": 85},
+                {"intent": "vitals_oxy_sec_storage", "return": 95}
             ]
         )
         print(f"\nGenerated (O2 calc flipped): {response}")
