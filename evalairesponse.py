@@ -175,7 +175,12 @@ def build_messages(prompt: str, tool_calls: list, responses: list, ai_response: 
 
 def generate_response(model, processor, prompt: str, tool_calls: list, results: list, tools_map: dict) -> str:
     model.eval()
-    messages = build_messages(prompt, tool_calls, results)
+    messages = build_messages(
+        prompt=prompt,
+        tool_calls=tool_calls,
+        responses=results,
+        ai_response=None,
+    )
     
     tools_subset = None
     if tool_calls:
@@ -196,12 +201,14 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
 
     inputs = tokenizer(input_text, return_tensors="pt").to(DEVICE)
     
+    # FunctionGemma stop tokens - <start_function_response> prevents hallucinated results
     stop_token_ids = [
         tokenizer.eos_token_id,
         tokenizer.convert_tokens_to_ids("<end_of_turn>"),
         tokenizer.convert_tokens_to_ids("<start_function_response>"),
     ]
-    stop_token_ids = [t for t in stop_token_ids if t is not None]
+    # Filter out any None/unknown tokens
+    stop_token_ids = [t for t in stop_token_ids if t is not None and t != tokenizer.unk_token_id]
 
     with torch.no_grad():
         outputs = model.generate(
