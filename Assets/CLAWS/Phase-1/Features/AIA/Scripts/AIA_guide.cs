@@ -3,8 +3,7 @@ using UnityEngine;
 public class AIA_guide : MonoBehaviour
 {
 
-    public Animator myAnimator;
-    public transform myAnimator;
+    [SerializeField] private Animator AIA_Animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,15 +14,15 @@ public class AIA_guide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             // This line communicates with the Animator's parameter
-            myAnimator.on(true);
+            AIA_Animator.SetBool("isAwake", true);
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             // This line communicates with the Animator's parameter
-            myAnimator.on(true);
+            AIA_Animator.SetBool("isAwake", false);
         }
     }
 }
