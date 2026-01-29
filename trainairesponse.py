@@ -801,11 +801,11 @@ if __name__ == "__main__":
         # Demo 4: Oxygen Comparison (Requested Test)
         response = generate_response(
             model, processor,
-            prompt="Which tank has more oxygen, primary or secondary?",
+            prompt="Should I switch to the secondary tank?",
             tool_calls=["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
             results=[
-                {"intent": "vitals_oxy_pri_storage", "return": 45},
-                {"intent": "vitals_oxy_sec_storage", "return": 88}
+                {"intent": "vitals_oxy_pri_storage", "return": 5},
+                {"intent": "vitals_oxy_sec_storage", "return": 95}
             ]
         )
         print(f"\nGenerated (O2 calc): {response}")
