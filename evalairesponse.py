@@ -193,6 +193,14 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
         tokenize=False,
     )
     
+    # DEBUG: Print the formatted input for the first case to see what's wrong
+    if "Is the battery going to die soon?" in prompt:
+         print(f"\n[DEBUG] Input Text:\n{input_text}\n[DEBUG] End Input Text")
+         if tools_subset:
+             print(f"[DEBUG] Tools Subset count: {len(tools_subset)}")
+         else:
+             print("[DEBUG] Tools Subset is EMPTY/None")
+
     tokenizer = getattr(processor, "tokenizer", processor)
     
     # Ensure pad token exists
@@ -242,7 +250,12 @@ def main():
     
     # 2. Load Model + LoRA
     print(f"Loading Base Model: {MODEL_NAME}")
-    processor = AutoProcessor.from_pretrained(MODEL_NAME, token=HF_TOKEN)
+    
+    # Prefer loading processor from LoRA adapter if it exists (contains correct chat template/config)
+    processor_source = LORA_PATH if os.path.exists(LORA_PATH) else MODEL_NAME
+    print(f"Loading processor from: {processor_source}")
+    processor = AutoProcessor.from_pretrained(processor_source, token=HF_TOKEN)
+    
     base_model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME, 
         torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32, 
