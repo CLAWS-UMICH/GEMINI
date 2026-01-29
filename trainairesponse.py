@@ -781,3 +781,27 @@ if __name__ == "__main__":
             ]
         )
         print(f"\nGenerated (warnings + reroute): {response}")
+
+        # Demo 4: Oxygen Comparison (Requested Test)
+        response = generate_response(
+            model, processor,
+            prompt="Which tank has more oxygen, primary or secondary?",
+            tool_calls=["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
+            results=[
+                {"intent": "vitals_oxy_pri_storage", "return": 45},
+                {"intent": "vitals_oxy_sec_storage", "return": 88}
+            ]
+        )
+        print(f"\nGenerated (O2 calc): {response}")
+
+        # Demo 5: Oxygen Comparison (Values Flipped)
+        response = generate_response(
+            model, processor,
+            prompt="Which tank has more oxygen, primary or secondary?",
+            tool_calls=["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
+            results=[
+                {"intent": "vitals_oxy_pri_storage", "return": 92},
+                {"intent": "vitals_oxy_sec_storage", "return": 34}
+            ]
+        )
+        print(f"\nGenerated (O2 calc flipped): {response}")
