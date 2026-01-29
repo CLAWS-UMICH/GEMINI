@@ -1236,6 +1236,244 @@
         "parts": [{"type": "TEXT", "text": "suit airflow active"}],
         "responses": [{"intent": "vitals_fan_pri_rpm", "return": 29000}],
         "ai_response": "Yes, suit airflow is active—fan at 29,000 RPM."
+    },
+    {
+        "prompt": "is primary fan broken",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is primary fan broken"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 25000}],
+        "ai_response": "No, primary fan is spinning normally at 25,000 RPM."
+    },
+    {
+        "prompt": "is fan speed too low",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan speed too low"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 22000}],
+        "ai_response": "No, 22,000 RPM is a healthy speed."
+    },
+    {
+        "prompt": "do I have a fan failure",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "do I have a fan failure"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 19000}],
+        "ai_response": "No failure detected—fan at 19,000 RPM."
+    },
+    {
+        "prompt": "is the intake stalled",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the intake stalled"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 28000}],
+        "ai_response": "No, intake is flowing freely—fan at 28,000 RPM."
+    },
+    {
+        "prompt": "is primary fan offline",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is primary fan offline"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 15000}],
+        "ai_response": "No, primary fan is online and spinning."
+    },
+    {
+        "prompt": "should I switch to backup fan",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "should I switch to backup fan"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 21000}],
+        "ai_response": "No, primary fan is working fine."
+    },
+    {
+        "prompt": "is airflow critical",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is airflow critical"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 24000}],
+        "ai_response": "No, airflow is normal at 24,000 RPM."
+    },
+    {
+        "prompt": "is fan overspeeding",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan overspeeding"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 26000}],
+        "ai_response": "No, 26,000 RPM is within normal limits."
+    },
+    {
+        "prompt": "is cooling insufficient",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is cooling insufficient"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 23000}],
+        "ai_response": "No, fan at 23,000 RPM provides sufficient cooling."
+    },
+    {
+        "prompt": "is my fan speed dangerous",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is my fan speed dangerous"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 20000}],
+        "ai_response": "No, 20,000 RPM is a safe operating speed."
+    },
+    {
+        "prompt": "is the fan stopped",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the fan stopped"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 18000}],
+        "ai_response": "No, fan is running at 18,000 RPM."
+    },
+    {
+        "prompt": "do I need to restart the fan",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "do I need to restart the fan"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 27000}],
+        "ai_response": "No, fan is running smoothly—no restart needed."
+    },
+    {
+        "prompt": "is primary fan clogged",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is primary fan clogged"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 29500}],
+        "ai_response": "No, high RPM suggests clear airway."
+    },
+    {
+        "prompt": "is fan below 10k",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan below 10k"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 12000}],
+        "ai_response": "No, it's at 12,000 RPM."
+    },
+    {
+        "prompt": "is ventilation off",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is ventilation off"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 16000}],
+        "ai_response": "No, ventilation is on—16,000 RPM."
+    },
+    {
+        "prompt": "is the fan stuck",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the fan stuck"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 22500}],
+        "ai_response": "No, fan is spinning freely at 22,500 RPM."
+    },
+    {
+        "prompt": "is airflow blocked",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is airflow blocked"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 25500}],
+        "ai_response": "No, airflow looks good—fan at 25,500 RPM."
+    },
+    {
+        "prompt": "is primary fan barely moving",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is primary fan barely moving"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 19500}],
+        "ai_response": "No, it's moving fast—19,500 RPM."
+    },
+    {
+        "prompt": "do I have 0 rpm",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "do I have 0 rpm"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 14000}],
+        "ai_response": "No, you have 14,000 RPM."
+    },
+    {
+        "prompt": "is fan performance poor",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan performance poor"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 23500}],
+        "ai_response": "No, performance is excellent—23,500 RPM."
+    },
+    {
+        "prompt": "is the fan noisy / vibrating",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the fan noisy / vibrating"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 21500}],
+        "ai_response": "No anomalous vibrations detected at 21,500 RPM."
+    },
+    {
+        "prompt": "is primary fan fluctuating",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is primary fan fluctuating"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 26500}],
+        "ai_response": "No, speed is stable at 26,500 RPM."
+    },
+    {
+        "prompt": "is air circulation zero",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is air circulation zero"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 17000}],
+        "ai_response": "No, ample circulation—fan at 17,000 RPM."
+    },
+    {
+        "prompt": "is the blower motor dead",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the blower motor dead"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 24500}],
+        "ai_response": "No, motor is running strong at 24,500 RPM."
+    },
+    {
+        "prompt": "is fan speed dangerously high",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan speed dangerously high"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 28500}],
+        "ai_response": "No, 28,500 RPM is within the safe high-speed range."
+    },
+    {
+        "prompt": "is primary fan overheating",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is primary fan overheating"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 20500}],
+        "ai_response": "No, fan temp is normal."
+    },
+    {
+        "prompt": "is fan operation intermittent",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan operation intermittent"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 22500}],
+        "ai_response": "No, operation is continuous and steady."
+    },
+    {
+        "prompt": "is primary fan disabled",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is primary fan disabled"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 18500}],
+        "ai_response": "No, it is enabled and running."
+    },
+    {
+        "prompt": "is airflow weak",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is airflow weak"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 27500}],
+        "ai_response": "No, airflow is strong—27,500 RPM."
+    },
+    {
+        "prompt": "am I suffocating",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "am I suffocating"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 23000}],
+        "ai_response": "No, fan is working fine—you have air."
+    },
+    {
+        "prompt": "is the fan unresponsive",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the fan unresponsive"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 20000}],
+        "ai_response": "No, fan is responding correctly to controls."
+    },
+    {
+        "prompt": "is fan speed unstable",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan speed unstable"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 25000}],
+        "ai_response": "No, speed is perfectly stable."
+    },
+    {
+        "prompt": "is fan efficiency low",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan efficiency low"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 29000}],
+        "ai_response": "No, efficiency is high."
+    },
+    {
+        "prompt": "should I abort due to fan",
+        "tool_calls": ["vitals_fan_pri_rpm"],
+        "parts": [{"type": "TEXT", "text": "should I abort due to fan"}],
+        "responses": [{"intent": "vitals_fan_pri_rpm", "return": 21000}],
+        "ai_response": "No, fan health is good—continue."
     }
 ]
 }

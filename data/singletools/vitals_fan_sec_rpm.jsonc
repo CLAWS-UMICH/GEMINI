@@ -1231,11 +1231,249 @@
         "ai_response": "At 5,500 RPM it's on the lower side—worth watching."
     },
     {
-        "prompt": "secondary airflow active",
+        "prompt": "secondary airflow check",
         "tool_calls": ["vitals_fan_sec_rpm"],
-        "parts": [{"type": "TEXT", "text": "secondary airflow active"}],
-        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 30000}],
-        "ai_response": "Yes, secondary airflow is active—fan at 30,000 RPM."
+        "parts": [{"type": "TEXT", "text": "secondary airflow check"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 29000}],
+        "ai_response": "Secondary airflow active—fan at 29,000 RPM."
+    },
+    {
+        "prompt": "is secondary fan broken",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan broken"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 25000}],
+        "ai_response": "No, secondary fan is spinning normally at 25,000 RPM."
+    },
+    {
+        "prompt": "is backup fan speed too low",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup fan speed too low"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 22000}],
+        "ai_response": "No, 22,000 RPM is a healthy speed for the backup."
+    },
+    {
+        "prompt": "do I have a secondary fan failure",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "do I have a secondary fan failure"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 19000}],
+        "ai_response": "No failure detected—secondary fan at 19,000 RPM."
+    },
+    {
+        "prompt": "is the backup intake stalled",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the backup intake stalled"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 28000}],
+        "ai_response": "No, backup intake is flowing freely."
+    },
+    {
+        "prompt": "is secondary fan offline",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan offline"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 15000}],
+        "ai_response": "No, secondary fan is online and spinning."
+    },
+    {
+        "prompt": "should I worry about secondary fan",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "should I worry about secondary fan"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 21000}],
+        "ai_response": "No, secondary fan is working fine."
+    },
+    {
+        "prompt": "is backup airflow critical",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup airflow critical"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 24000}],
+        "ai_response": "No, airflow is normal at 24,000 RPM."
+    },
+    {
+        "prompt": "is fan 2 overspeeding",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is fan 2 overspeeding"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 26000}],
+        "ai_response": "No, 26,000 RPM is within normal limits."
+    },
+    {
+        "prompt": "is secondary cooling insufficient",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary cooling insufficient"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 23000}],
+        "ai_response": "No, fan at 23,000 RPM provides sufficient cooling."
+    },
+    {
+        "prompt": "is my backup fan speed dangerous",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is my backup fan speed dangerous"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 20000}],
+        "ai_response": "No, 20,000 RPM is a safe operating speed."
+    },
+    {
+        "prompt": "is the secondary fan stopped",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the secondary fan stopped"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 18000}],
+        "ai_response": "No, fan is running at 18,000 RPM."
+    },
+    {
+        "prompt": "do I need to restart the backup fan",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "do I need to restart the backup fan"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 27000}],
+        "ai_response": "No, fan is running smoothly—no restart needed."
+    },
+    {
+        "prompt": "is secondary fan clogged",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan clogged"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 29500}],
+        "ai_response": "No, high RPM suggests clear airway."
+    },
+    {
+        "prompt": "is secondary fan below 10k",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan below 10k"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 12000}],
+        "ai_response": "No, it's at 12,000 RPM."
+    },
+    {
+        "prompt": "is backup ventilation off",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup ventilation off"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 16000}],
+        "ai_response": "No, ventilation is on—16,000 RPM."
+    },
+    {
+        "prompt": "is the backup fan stuck",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the backup fan stuck"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 22500}],
+        "ai_response": "No, fan is spinning freely at 22,500 RPM."
+    },
+    {
+        "prompt": "is secondary airflow blocked",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary airflow blocked"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 25500}],
+        "ai_response": "No, airflow looks good—fan at 25,500 RPM."
+    },
+    {
+        "prompt": "is secondary fan barely moving",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan barely moving"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 19500}],
+        "ai_response": "No, it's moving fast—19,500 RPM."
+    },
+    {
+        "prompt": "do I have 0 rpm on secondary",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "do I have 0 rpm on secondary"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 14000}],
+        "ai_response": "No, you have 14,000 RPM."
+    },
+    {
+        "prompt": "is secondary fan performance poor",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan performance poor"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 23500}],
+        "ai_response": "No, performance is excellent—23,500 RPM."
+    },
+    {
+        "prompt": "is the fan 2 noisy / vibrating",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the fan 2 noisy / vibrating"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 21500}],
+        "ai_response": "No anomalous vibrations detected at 21,500 RPM."
+    },
+    {
+        "prompt": "is secondary fan fluctuating",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan fluctuating"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 26500}],
+        "ai_response": "No, speed is stable at 26,500 RPM."
+    },
+    {
+        "prompt": "is backup air circulation zero",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup air circulation zero"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 17000}],
+        "ai_response": "No, ample circulation—fan at 17,000 RPM."
+    },
+    {
+        "prompt": "is the secondary blower motor dead",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the secondary blower motor dead"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 24500}],
+        "ai_response": "No, motor is running strong at 24,500 RPM."
+    },
+    {
+        "prompt": "is backup fan speed dangerously high",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup fan speed dangerously high"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 28500}],
+        "ai_response": "No, 28,500 RPM is within the safe high-speed range."
+    },
+    {
+        "prompt": "is secondary fan overheating",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan overheating"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 20500}],
+        "ai_response": "No, fan temp is normal."
+    },
+    {
+        "prompt": "is backup operation intermittent",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup operation intermittent"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 22500}],
+        "ai_response": "No, operation is continuous and steady."
+    },
+    {
+        "prompt": "is secondary fan disabled",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan disabled"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 18500}],
+        "ai_response": "No, it is enabled and running."
+    },
+    {
+        "prompt": "is backup airflow weak",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup airflow weak"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 27500}],
+        "ai_response": "No, airflow is strong—27,500 RPM."
+    },
+    {
+        "prompt": "is secondary fan dead",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan dead"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 23000}],
+        "ai_response": "No, it's alive and spinning."
+    },
+    {
+        "prompt": "is the backup fan unresponsive",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is the backup fan unresponsive"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 20000}],
+        "ai_response": "No, fan is responding correctly to controls."
+    },
+    {
+        "prompt": "is secondary fan speed unstable",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is secondary fan speed unstable"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 25000}],
+        "ai_response": "No, speed is perfectly stable."
+    },
+    {
+        "prompt": "is backup fan efficiency low",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "is backup fan efficiency low"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 29000}],
+        "ai_response": "No, efficiency is high."
+    },
+    {
+        "prompt": "do I have redundant fan failure",
+        "tool_calls": ["vitals_fan_sec_rpm"],
+        "parts": [{"type": "TEXT", "text": "do I have redundant fan failure"}],
+        "responses": [{"intent": "vitals_fan_sec_rpm", "return": 21000}],
+        "ai_response": "No, redundant fan is operational."
     }
 ]
 }

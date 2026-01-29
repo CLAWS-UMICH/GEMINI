@@ -1336,11 +1336,256 @@
         "ai_response": "2.6 L/min is maintainable—your work rate is reasonable."
     },
     {
-        "prompt": "is my CO2 production stable",
+        "prompt": "O2 consumption stable",
+        "tool_calls": ["vitals_oxy_consumption"],
+        "parts": [{"type": "TEXT", "text": "O2 consumption stable"}],
+        "responses": [{"intent": "vitals_oxy_consumption", "return": 1.6}],
+        "ai_response": "Yes, 1.6 L/min is stable and sustainable."
+    },
+    {
+        "prompt": "is my CO2 production dangerous",
         "tool_calls": ["vitals_co2_production"],
-        "parts": [{"type": "TEXT", "text": "is my CO2 production stable"}],
+        "parts": [{"type": "TEXT", "text": "is my CO2 production dangerous"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.5}],
+        "ai_response": "No, 1.5 L/min is a safe production rate."
+    },
+    {
+        "prompt": "am I breathing too much CO2",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "am I breathing too much CO2"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.8}],
+        "ai_response": "No, CO2 production is normal at 1.8 L/min."
+    },
+    {
+        "prompt": "is CO2 output critical",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 output critical"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.2}],
+        "ai_response": "No, 2.2 L/min is well below critical levels."
+    },
+    {
+        "prompt": "is my metabolic rate unsafe",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my metabolic rate unsafe"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.5}],
+        "ai_response": "No, metabolic rate is safe—CO2 at 2.5 L/min."
+    },
+    {
+        "prompt": "should I stop working due to CO2",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "should I stop working due to CO2"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 3.0}],
+        "ai_response": "No, 3.0 L/min is elevated but you can continue."
+    },
+    {
+        "prompt": "is CO2 buildup rapid",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 buildup rapid"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.2}],
+        "ai_response": "No, production is low at 1.2 L/min."
+    },
+    {
+        "prompt": "am I hyperventilating",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "am I hyperventilating"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.6}],
+        "ai_response": "No signs of hyperventilation—CO2 at 1.6 L/min."
+    },
+    {
+        "prompt": "is CO2 overwhelming the suit",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 overwhelming the suit"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.8}],
+        "ai_response": "No, suit can handle 2.8 L/min easily."
+    },
+    {
+        "prompt": "is my exertion dangerous",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my exertion dangerous"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.0}],
+        "ai_response": "No, exertion is moderate—CO2 at 2.0 L/min."
+    },
+    {
+        "prompt": "is CO2 above 4 liters",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 above 4 liters"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 3.5}],
+        "ai_response": "No, it's at 3.5 L/min."
+    },
+    {
+        "prompt": "do I need to lower my heart rate",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "do I need to lower my heart rate"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.4}],
+        "ai_response": "No, CO2 suggests your heart rate is appropriate."
+    },
+    {
+        "prompt": "is CO2 production spiking",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 production spiking"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.7}],
+        "ai_response": "No, it's steady at 1.7 L/min."
+    },
+    {
+        "prompt": "is my breathing irregular",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my breathing irregular"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.4}],
+        "ai_response": "No, breathing seems regular—CO_2 1.4 L/min."
+    },
+    {
+        "prompt": "is CO2 output zero",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 output zero"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 0.5}],
+        "ai_response": "No, you are producing 0.5 L/min."
+    },
+    {
+        "prompt": "is CO2 production failing",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 production failing"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.9}],
+        "ai_response": "No, metabolic processes are normal."
+    },
+    {
+        "prompt": "is my work rate too high",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my work rate too high"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.6}],
+        "ai_response": "No, work rate is sustainable at 2.6 L/min."
+    },
+    {
+        "prompt": "is output excessively high",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is output excessively high"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.9}],
+        "ai_response": "No, 2.9 L/min is high but not excessive."
+    },
+    {
+        "prompt": "am I suffocating",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "am I suffocating"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.3}],
+        "ai_response": "No, CO2 levels are low—air quality is good."
+    },
+    {
+        "prompt": "is CO2 abnormally low",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 abnormally low"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.0}],
+        "ai_response": "No, 1.0 L/min is normal for rest."
+    },
+    {
+        "prompt": "should I panic about CO2",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "should I panic about CO2"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 3.2}],
+        "ai_response": "No, 3.2 L/min is manageable—stay calm."
+    },
+    {
+        "prompt": "is CO2 sensor broken",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 sensor broken"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.5}],
+        "ai_response": "No, sensor is reading normally: 1.5 L/min."
+    },
+    {
+        "prompt": "is my CO2 output concerning",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my CO2 output concerning"}],
         "responses": [{"intent": "vitals_co2_production", "return": 2.1}],
-        "ai_response": "Yes, 2.1 L/min is stable and healthy."
+        "ai_response": "No, 2.1 L/min is nothing to be concerned about."
+    },
+    {
+        "prompt": "is carbon dioxide critical",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is carbon dioxide critical"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.7}],
+        "ai_response": "No, 2.7 L/min is within safe limits."
+    },
+    {
+        "prompt": "is my breathing stopped",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my breathing stopped"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 0.4}],
+        "ai_response": "No, you are producing 0.4 L/min CO2."
+    },
+    {
+        "prompt": "is CO2 flooding the helmet",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 flooding the helmet"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.3}],
+        "ai_response": "No, production is normal—suit is scrubbing it fine."
+    },
+    {
+        "prompt": "do I have high CO2 alarm",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "do I have high CO2 alarm"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 3.1}],
+        "ai_response": "No alarm active—CO2 at 3.1 L/min."
+    },
+    {
+        "prompt": "is output above 5",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is output above 5"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 3.8}],
+        "ai_response": "No, it's 3.8 L/min."
+    },
+    {
+        "prompt": "is my physiology failing",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my physiology failing"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.0}],
+        "ai_response": "No, normal CO2 output indicates healthy physiology."
+    },
+    {
+        "prompt": "is CO2 rate unstable",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 rate unstable"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.8}],
+        "ai_response": "No, rate is stable at 1.8 L/min."
+    },
+    {
+        "prompt": "is my exercise intensity too high",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my exercise intensity too high"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 2.5}],
+        "ai_response": "No, intensity is appropriate—CO2 2.5 L/min."
+    },
+    {
+        "prompt": "am I breathing properly",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "am I breathing properly"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.6}],
+        "ai_response": "Yes, breathing metrics look good."
+    },
+    {
+        "prompt": "is CO2 generation halted",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is CO2 generation halted"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 0.8}],
+        "ai_response": "No, generation continues at 0.8 L/min."
+    },
+    {
+        "prompt": "is my CO2 output hazardous",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is my CO2 output hazardous"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 3.3}],
+        "ai_response": "No, 3.3 L/min is not hazardous."
+    },
+    {
+        "prompt": "should I be worried about high CO2",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "should I be worried about high CO2"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 1.8}],
+        "ai_response": "No, CO2 levels are perfect."
+    },
+    {
+        "prompt": "is metabolic activity critical",
+        "tool_calls": ["vitals_co2_production"],
+        "parts": [{"type": "TEXT", "text": "is metabolic activity critical"}],
+        "responses": [{"intent": "vitals_co2_production", "return": 3.6}],
+        "ai_response": "No, elevated but not critical."
     }
 ]
 }

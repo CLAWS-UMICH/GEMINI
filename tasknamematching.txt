@@ -1,25 +1,79 @@
+===============================================================================
+                    UNIFIED SEMANTIC ENTITY MATCHING
+===============================================================================
+
+OVERVIEW: THE "ONE ENTITY" PROBLEM
+----------------------------------
+Whether the user refers to a "Task Name", "Waypoint Name", or "Target Name", we are fundamentally solving the same problem: taking a messy, human utterance and mapping it to a specific, structured item in the system's state.
+
+There is no "Task Matching Algorithm" distinct from a "Waypoint Matching Algorithm". They are instances of the same challenge:
+
+    User Reference (Imprecise)  --->  System Entity (Precise)
+
+THE CORE CHALLENGE
+------------------
+The user will rarely use the exact ID or full string of an item.
+- System State: "Geological Survey Site Alpha"
+- User Says: "that rock place", "the survey site", "alpha point"
+
+We need a flexible way to bridge this gap. There is no single "right" way to do this—regex, strict string matching, and fuzzy search are all valid tools—but they often fail on natural language variations.
+
+PROPOSED SOLUTION: SEMANTIC MATCHING
+------------------------------------
+A robust approach to solve this unified problem is semantic similarity.
+
+Concept:
+Instead of matching character-by-character, we match *meaning*.
+
+1. Convert the user's phrase (e.g., "big stone") into a numerical vector (embedding) representing its meaning.
+2. Convert all available entities (Tasks, Waypoints, Locations) into vectors.
+3. Compare the vectors to find the closest match in "meaning space".
+
+Why this works:
+- "Stone" and "Rock" are semantically close, even if they share no letters.
+- "Fix" and "Repair" are close.
+- "Near the crater" matches "Crater Edge" contextually.
+
+APPLICATION ACROSS DOMAINS
+--------------------------
+This single concept solves the problem for all entity types:
+
+A. TASKS
+   - "Remove the big stone task" -> Matches "Check out the rock"
+   - Algorithm: Extract "big stone" -> Semantic Match against Task List.
+
+B. WAYPOINTS
+   - "Delete the crater point" -> Matches "Rocky Crater Edge"
+   - Algorithm: Extract "crater point" -> Semantic Match against Waypoint List.
+
+C. NAVIGATION TARGETS
+   - "Set course for the lander" -> Matches "Lunar Lander"
+   - Algorithm: Extract "lander" -> Semantic Match against POI List.
 
 
-Prompt: Remove the task about the big stone
-Task extracted name: "big stone"
+CRITICAL: HANDLING "NO MATCH"
+-----------------------------
+The matching logic is an isolated component. It does not handle user interaction or clarification. Its only job is to return a Match or No Match.
+- **Thresholding**: If the best semantic match has a low confidence score (e.g., < 0.6), the system MUST return **NO MATCH**.
+- **Result**: The output is binary in nature: either a valid entity ID with high confidence, or null/None. There is no conversational fallback within this logic.
 
-Existing Task list:
-- Check out the rock
-- Clean the house
-- Do smthn
+SYNTHETIC DATA FOR THRESHOLD TRAINING
+-------------------------------------
+To ensure the thresholding logic is robust (and not just a hardcoded guess), we should train a model or calibrator.
 
-You gotta match "big stone" to "Check out the rock"
+**Strategy:**
+1.  **Generate Synthetic Entities**: Create thousands of plausible entity names (Tasks, Waypoints) using LLMs.
+    -   *Examples:* "Inspect Solar Array", "Navigate to Crater Rim", "Base Alpha Storage".
+2.  **Generate Synthetic Queries**: For each entity, generate user-style loose references.
+    -   *Entity:* "Inspect Solar Array" -> *Queries:* "check the panels", "look at the sun power thing".
+3.  **Train/Calibrate**:
+    -   Run embeddings on both sets.
+    -   Measure cosine similarities for True Matches vs. False Matches.
+    -   Use this data to pick an optimal threshold (e.g., maximizing F1 score) or train a small classifier to output "Top N Similarities".
 
-I would recommend passing the entire prompt through an embedding model and doing some semantic similarity between the "big stones" tokens and all the existing task items
-If the match similarities to the existing task list is
-- .85%
-- .53%
-- .21%
-Then you neeed some way to say that 85 is high enough to count as a match but if the list was just 
-- Clean the house
-- Do smthn
- and the percents were 
-- .53%
-- .21%
-then we need to return "no match" because 53% is not high enough to count as a match
-
+SUMMARY
+-------
+- **One Problem**: Mapping loose language to strict state.
+- **One Model**: We don't need separate systems. The same logic applies everywhere.
+- **Binary Outcome**: The matcher finds a high-confidence entity or it returns nothing.
+- **Goal**: The system feels "smart" because it understands what the user *meant*, not just what they *typed*.

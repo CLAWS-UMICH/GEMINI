@@ -1460,6 +1460,279 @@
         "parts": [{"type": "TEXT", "text": "is my oxygen holding up well"}],
         "responses": [{"intent": "vitals_oxy_time_left", "return": 5.5}],
         "ai_response": "5.5 hours—oxygen is holding up well. You're in good shape."
+    },
+    {
+        "prompt": "is my oxygen less than 5 hours",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen less than 5 hours"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 7.2}],
+        "ai_response": "No, you have 7.2 hours of oxygen—that's more than 5."
+    },
+    {
+        "prompt": "do I have less than 3 hours of air",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I have less than 3 hours of air"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.8}],
+        "ai_response": "No, you have 5.8 hours—well above 3 hours."
+    },
+    {
+        "prompt": "is oxygen under 2 hours",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen under 2 hours"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.5}],
+        "ai_response": "No, oxygen is at 4.5 hours—more than double that."
+    },
+    {
+        "prompt": "am I below 1 hour of oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I below 1 hour of oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.6}],
+        "ai_response": "No, you have 3.6 hours of oxygen remaining."
+    },
+    {
+        "prompt": "is my air less than 4 hours",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my air less than 4 hours"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.1}],
+        "ai_response": "No, you've got 6.1 hours—well above 4."
+    },
+    {
+        "prompt": "oxygen below critical level",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "oxygen below critical level"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.0}],
+        "ai_response": "No, 5 hours is well above critical levels."
+    },
+    {
+        "prompt": "do I have less than 6 hours of oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I have less than 6 hours of oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 8.0}],
+        "ai_response": "No, you have 8 hours—more than 6."
+    },
+    {
+        "prompt": "is oxygen running low",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen running low"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.8}],
+        "ai_response": "No, 6.8 hours is far from low—you're in great shape."
+    },
+    {
+        "prompt": "am I running out of air",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I running out of air"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.5}],
+        "ai_response": "No, you have 5.5 hours left—plenty of air."
+    },
+    {
+        "prompt": "is oxygen critically low",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen critically low"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.2}],
+        "ai_response": "No, 4.2 hours is not critically low."
+    },
+    {
+        "prompt": "should I be concerned about oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "should I be concerned about oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.9}],
+        "ai_response": "No, 5.9 hours is healthy—no concern needed."
+    },
+    {
+        "prompt": "is my oxygen dangerously low",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen dangerously low"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.8}],
+        "ai_response": "No, 4.8 hours is not dangerous—you're fine."
+    },
+    {
+        "prompt": "do I need to head back for oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I need to head back for oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.5}],
+        "ai_response": "No, with 6.5 hours you don't need to return yet."
+    },
+    {
+        "prompt": "is my oxygen supply failing",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen supply failing"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.3}],
+        "ai_response": "No, 5.3 hours remaining—oxygen supply is fine."
+    },
+    {
+        "prompt": "am I in an oxygen emergency",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I in an oxygen emergency"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 7.0}],
+        "ai_response": "No, 7 hours is far from an emergency."
+    },
+    {
+        "prompt": "is oxygen below safe levels",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen below safe levels"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.6}],
+        "ai_response": "No, 4.6 hours is within safe levels."
+    },
+    {
+        "prompt": "do I have an air problem",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I have an air problem"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.7}],
+        "ai_response": "No, 5.7 hours is good—no air problem."
+    },
+    {
+        "prompt": "is oxygen time critical",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen time critical"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.2}],
+        "ai_response": "No, 6.2 hours is not critical—you're good."
+    },
+    {
+        "prompt": "should I abort due to oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "should I abort due to oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.1}],
+        "ai_response": "No, 5.1 hours gives you plenty of time—no need to abort."
+    },
+    {
+        "prompt": "am I low on oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I low on oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.9}],
+        "ai_response": "No, 4.9 hours is not low."
+    },
+    {
+        "prompt": "is my oxygen under 30 minutes",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen under 30 minutes"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.5}],
+        "ai_response": "No, you have 3.5 hours—way more than 30 minutes."
+    },
+    {
+        "prompt": "is air below 45 minutes",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is air below 45 minutes"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 2.8}],
+        "ai_response": "No, 2.8 hours is well above 45 minutes."
+    },
+    {
+        "prompt": "oxygen less than an hour left",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "oxygen less than an hour left"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.0}],
+        "ai_response": "No, you have 4 hours—much more than an hour."
+    },
+    {
+        "prompt": "is my oxygen depleted",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen depleted"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.0}],
+        "ai_response": "No, 6 hours remaining—oxygen is far from depleted."
+    },
+    {
+        "prompt": "do I need to conserve oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I need to conserve oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 7.5}],
+        "ai_response": "No, with 7.5 hours you don't need to conserve oxygen."
+    },
+    {
+        "prompt": "is oxygen in the red zone",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen in the red zone"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.4}],
+        "ai_response": "No, 5.4 hours is safely in the green."
+    },
+    {
+        "prompt": "am I about to run out of oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I about to run out of oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.4}],
+        "ai_response": "No, 4.4 hours means you're not about to run out."
+    },
+    {
+        "prompt": "is air getting dangerously low",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is air getting dangerously low"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.3}],
+        "ai_response": "No, 6.3 hours is not dangerously low."
+    },
+    {
+        "prompt": "should I worry about running out of air",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "should I worry about running out of air"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.2}],
+        "ai_response": "No, 5.2 hours gives you ample margin—don't worry."
+    },
+    {
+        "prompt": "is oxygen at emergency levels",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen at emergency levels"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.1}],
+        "ai_response": "No, 4.1 hours is not an emergency level."
+    },
+    {
+        "prompt": "is my air supply critical",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my air supply critical"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.6}],
+        "ai_response": "No, 6.6 hours—air supply is healthy."
+    },
+    {
+        "prompt": "do I have an oxygen issue",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "do I have an oxygen issue"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.0}],
+        "ai_response": "No, 5 hours is normal—no oxygen issue."
+    },
+    {
+        "prompt": "is oxygen too low to continue",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen too low to continue"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 3.8}],
+        "ai_response": "No, 3.8 hours allows you to continue operations."
+    },
+    {
+        "prompt": "am I in trouble with oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I in trouble with oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.9}],
+        "ai_response": "No, 6.9 hours—you're not in any trouble."
+    },
+    {
+        "prompt": "is air below mission requirements",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is air below mission requirements"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.3}],
+        "ai_response": "No, 4.3 hours meets mission requirements."
+    },
+    {
+        "prompt": "should I return due to low oxygen",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "should I return due to low oxygen"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.6}],
+        "ai_response": "No, 5.6 hours is fine—no need to return."
+    },
+    {
+        "prompt": "is my oxygen in danger zone",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is my oxygen in danger zone"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 6.7}],
+        "ai_response": "No, 6.7 hours is safely outside the danger zone."
+    },
+    {
+        "prompt": "am I close to running out of air",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "am I close to running out of air"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 4.5}],
+        "ai_response": "No, 4.5 hours means you're not close to running out."
+    },
+    {
+        "prompt": "is oxygen insufficient",
+        "tool_calls": ["vitals_oxy_time_left"],
+        "parts": [{"type": "TEXT", "text": "is oxygen insufficient"}],
+        "responses": [{"intent": "vitals_oxy_time_left", "return": 5.1}],
+        "ai_response": "No, 5.1 hours is sufficient for continued operations."
     }
 ]
 }

@@ -1397,6 +1397,244 @@
         "parts": [{"type": "TEXT", "text": "is my temperature rising too fast"}],
         "responses": [{"intent": "vitals_temperature", "return": 101}],
         "ai_response": "At 101°F, monitor closely. If it continues rising, take action to cool down."
+    },
+    {
+        "prompt": "is my temperature above 100",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my temperature above 100"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.2}],
+        "ai_response": "No, your temperature is 98.2°F—below 100."
+    },
+    {
+        "prompt": "do I have a fever",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "do I have a fever"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.6}],
+        "ai_response": "No, 98.6°F is normal body temperature—no fever present."
+    },
+    {
+        "prompt": "is my body temperature too high",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my body temperature too high"}],
+        "responses": [{"intent": "vitals_temperature", "return": 97.8}],
+        "ai_response": "No, 97.8°F is perfectly normal—not too high."
+    },
+    {
+        "prompt": "am I overheating",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "am I overheating"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.4}],
+        "ai_response": "No, 98.4°F is normal—you're not overheating."
+    },
+    {
+        "prompt": "is suit temperature too hot",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is suit temperature too hot"}],
+        "responses": [{"intent": "vitals_temperature", "return": 78}],
+        "ai_response": "No, 78°F is comfortable—not too hot."
+    },
+    {
+        "prompt": "is my temp dangerously high",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my temp dangerously high"}],
+        "responses": [{"intent": "vitals_temperature", "return": 99.1}],
+        "ai_response": "No, 99.1°F is slightly elevated but not dangerous."
+    },
+    {
+        "prompt": "should I cool down",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "should I cool down"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.0}],
+        "ai_response": "No, 98°F is normal—no need to cool down."
+    },
+    {
+        "prompt": "am I experiencing hyperthermia",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "am I experiencing hyperthermia"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.8}],
+        "ai_response": "No, 98.8°F is normal—no hyperthermia."
+    },
+    {
+        "prompt": "is my temperature above normal",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my temperature above normal"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.2}],
+        "ai_response": "No, 98.2°F is within normal range."
+    },
+    {
+        "prompt": "do I need to worry about my temperature",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "do I need to worry about my temperature"}],
+        "responses": [{"intent": "vitals_temperature", "return": 97.6}],
+        "ai_response": "No, 97.6°F is healthy—nothing to worry about."
+    },
+    {
+        "prompt": "is suit environment too hot",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is suit environment too hot"}],
+        "responses": [{"intent": "vitals_temperature", "return": 72}],
+        "ai_response": "No, 72°F is comfortable—suit environment is fine."
+    },
+    {
+        "prompt": "temperature above danger zone",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "temperature above danger zone"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.6}],
+        "ai_response": "No, 98.6°F is normal—well outside the danger zone."
+    },
+    {
+        "prompt": "am I running a fever",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "am I running a fever"}],
+        "responses": [{"intent": "vitals_temperature", "return": 97.9}],
+        "ai_response": "No, 97.9°F is normal—no fever present."
+    },
+    {
+        "prompt": "is my body temp elevated",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my body temp elevated"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.4}],
+        "ai_response": "No, 98.4°F is within normal bounds—not elevated."
+    },
+    {
+        "prompt": "should I be concerned about temperature",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "should I be concerned about temperature"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.1}],
+        "ai_response": "No, 98.1°F is healthy—no concern needed."
+    },
+    {
+        "prompt": "is thermal regulation failing",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is thermal regulation failing"}],
+        "responses": [{"intent": "vitals_temperature", "return": 75}],
+        "ai_response": "No, suit at 75°F—thermal regulation is working fine."
+    },
+    {
+        "prompt": "am I at risk of heat stroke",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "am I at risk of heat stroke"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.5}],
+        "ai_response": "No, 98.5°F is normal—no heat stroke risk."
+    },
+    {
+        "prompt": "is my temperature abnormal",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my temperature abnormal"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.3}],
+        "ai_response": "No, 98.3°F is perfectly normal."
+    },
+    {
+        "prompt": "is suit cooling system failing",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is suit cooling system failing"}],
+        "responses": [{"intent": "vitals_temperature", "return": 74}],
+        "ai_response": "No, 74°F is comfortable—cooling system is working."
+    },
+    {
+        "prompt": "temperature problem detected",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "temperature problem detected"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.0}],
+        "ai_response": "No temperature problem—98°F is normal."
+    },
+    {
+        "prompt": "is my core temp too high",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my core temp too high"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.7}],
+        "ai_response": "No, 98.7°F is normal core temperature."
+    },
+    {
+        "prompt": "am I hypothermic",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "am I hypothermic"}],
+        "responses": [{"intent": "vitals_temperature", "return": 97.5}],
+        "ai_response": "No, 97.5°F is within normal range—not hypothermic."
+    },
+    {
+        "prompt": "is body temperature critical",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is body temperature critical"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.6}],
+        "ai_response": "No, 98.6°F is not critical—perfectly normal."
+    },
+    {
+        "prompt": "should I abort due to temperature",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "should I abort due to temperature"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.2}],
+        "ai_response": "No, 98.2°F is fine—no need to abort."
+    },
+    {
+        "prompt": "is my suit overheating",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my suit overheating"}],
+        "responses": [{"intent": "vitals_temperature", "return": 76}],
+        "ai_response": "No, 76°F is comfortable—suit is not overheating."
+    },
+    {
+        "prompt": "is temperature in dangerous range",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is temperature in dangerous range"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.4}],
+        "ai_response": "No, 98.4°F is safely in normal range."
+    },
+    {
+        "prompt": "do I have thermal issues",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "do I have thermal issues"}],
+        "responses": [{"intent": "vitals_temperature", "return": 73}],
+        "ai_response": "No, 73°F—no thermal issues detected."
+    },
+    {
+        "prompt": "is my body temp concerning",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my body temp concerning"}],
+        "responses": [{"intent": "vitals_temperature", "return": 97.8}],
+        "ai_response": "No, 97.8°F isn't concerning—perfectly healthy."
+    },
+    {
+        "prompt": "am I too hot",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "am I too hot"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.5}],
+        "ai_response": "No, 98.5°F is normal—you're not too hot."
+    },
+    {
+        "prompt": "is my temperature a problem",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is my temperature a problem"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.1}],
+        "ai_response": "No, 98.1°F is normal—no problem."
+    },
+    {
+        "prompt": "temp above safe levels",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "temp above safe levels"}],
+        "responses": [{"intent": "vitals_temperature", "return": 99.0}],
+        "ai_response": "No, 99°F is slightly warm but within safe levels."
+    },
+    {
+        "prompt": "is suit temperature uncomfortable",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is suit temperature uncomfortable"}],
+        "responses": [{"intent": "vitals_temperature", "return": 72}],
+        "ai_response": "No, 72°F is very comfortable."
+    },
+    {
+        "prompt": "am I experiencing heat stress",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "am I experiencing heat stress"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.6}],
+        "ai_response": "No, 98.6°F is normal—no heat stress."
+    },
+    {
+        "prompt": "is thermal emergency imminent",
+        "tool_calls": ["vitals_temperature"],
+        "parts": [{"type": "TEXT", "text": "is thermal emergency imminent"}],
+        "responses": [{"intent": "vitals_temperature", "return": 98.3}],
+        "ai_response": "No, 98.3°F is healthy—no thermal emergency."
     }
 ]
 }
