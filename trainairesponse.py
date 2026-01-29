@@ -339,6 +339,46 @@ def get_lr_multiplier(epoch: int, warmup_epochs: int, total_epochs: int) -> floa
         return 0.5 * (1 + math.cos(math.pi * progress))
 
 
+# Demo samples to track training progress
+EPOCH_DEMO_SAMPLES = [
+    {
+        "prompt": "Do I have less than 5 hours of battery left?",
+        "tool_calls": ["vitals_batt_time_left"],
+        "results": [{"intent": "vitals_batt_time_left", "return": 7.5}],
+    },
+    {
+        "prompt": "What's my heart rate and add a task to check the oxygen tank",
+        "tool_calls": ["vitals_heart_rate", "Add_task"],
+        "results": [
+            {"intent": "vitals_heart_rate", "return": 82},
+            {"intent": "Add_task", "return": True}
+        ],
+    },
+]
+
+
+def run_epoch_demo(model, processor, epoch: int):
+    """Run demo samples and log outputs to track training progress."""
+    print(f"\n  --- Demo (Epoch {epoch}) ---")
+    model.eval()
+    for i, sample in enumerate(EPOCH_DEMO_SAMPLES):
+        try:
+            response = generate_response(
+                model, processor,
+                prompt=sample["prompt"],
+                tool_calls=sample["tool_calls"],
+                results=sample["results"],
+                verbose=False
+            )
+            # Truncate long responses for readability
+            if len(response) > 100:
+                response = response[:100] + "..."
+            print(f"    [{i+1}] {response}")
+        except Exception as e:
+            print(f"    [{i+1}] ERROR: {e}")
+    model.train()
+
+
 def train():
     """Main training function with LoRA."""
     
@@ -558,6 +598,9 @@ def train():
             if patience_counter >= PATIENCE:
                 print(f"\nEarly stopping triggered after {epoch+1} epochs")
                 break
+        
+        # Run demo samples every epoch to track progress
+        run_epoch_demo(model, processor, epoch + 1)
     
     print("\n" + "=" * 60)
     print(f"Training complete! Best val loss: {best_val_loss:.4f}")
@@ -570,7 +613,7 @@ def train():
 # Demo / Inference
 # =============================================================================
 
-def generate_response(model, processor, prompt: str, tool_calls: list, results: list) -> str:
+def generate_response(model, processor, prompt: str, tool_calls: list, results: list, verbose: bool = True) -> str:
     """Generate a response given user prompt, tool calls, and results."""
     
     model.eval()
@@ -594,7 +637,8 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
         tokenize=False,
     )
 
-    print(f"\nInput:\n{input_text}")
+    if verbose:
+        print(f"\nInput:\n{input_text}")
 
     tokenizer = getattr(processor, "tokenizer", processor)
     inputs = tokenizer(input_text, return_tensors="pt").to(DEVICE)
