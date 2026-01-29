@@ -1,0 +1,25 @@
+
+
+Prompt: Remove the task about the big stone
+Task extracted name: "big stone"
+
+Existing Task list:
+- Check out the rock
+- Clean the house
+- Do smthn
+
+You gotta match "big stone" to "Check out the rock"
+
+I would recommend passing the entire prompt through an embedding model and doing some semantic similarity between the "big stones" tokens and all the existing task items
+If the match similarities to the existing task list is
+- .85%
+- .53%
+- .21%
+Then you neeed some way to say that 85 is high enough to count as a match but if the list was just 
+- Clean the house
+- Do smthn
+ and the percents were 
+- .53%
+- .21%
+then we need to return "no match" because 53% is not high enough to count as a match
+
