@@ -148,10 +148,6 @@ def build_messages(prompt: str, tool_calls: list, responses: list) -> list:
         {"role": "user", "content": prompt},
     ]
 
-    if tool_calls:
-        call_parts = []
-        for name in tool_calls:
-            call_parts.append(f"<start_function_call>call:{name}{{}}<end_function_call>")
         messages.append({"role": "assistant", "content": "".join(call_parts)})
 
     if responses:
@@ -160,7 +156,8 @@ def build_messages(prompt: str, tool_calls: list, responses: list) -> list:
             tool_name = r.get("intent", "")
             tool_value = json.dumps(r.get("return"))
             response_parts.append(f"<start_function_response>response:{tool_name}{{value:<escape>{tool_value}<escape>}}<end_function_response>")
-        messages.append({"role": "developer", "content": "".join(response_parts)})
+        # FunctionGemma chat template often treats 'tool' role correctly for function outputs
+        messages.append({"role": "tool", "content": "".join(response_parts)})
     
     return messages
 
@@ -179,6 +176,10 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
         tokenize=False,
     )
     
+    # DEBUG: Print the formatted input for the first case to see what's wrong
+    if "Is the battery going to die soon?" in prompt:
+         print(f"\n[DEBUG] Input Text:\n{input_text}\n[DEBUG] End Input Text")
+
     tokenizer = getattr(processor, "tokenizer", processor)
     
     # Ensure pad token exists
