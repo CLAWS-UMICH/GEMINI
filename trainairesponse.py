@@ -32,7 +32,7 @@ if not HF_TOKEN:
 
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"  # Base model (Qwen2.5 Instruct)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
-MAX_LENGTH = 256
+MAX_LENGTH = 512
 BATCH_SIZE = 8  # Per-step batch size
 
 # LoRA settings - smaller to prevent overfitting
@@ -64,11 +64,8 @@ if DEVICE.type == "cuda":
 else:
     MODEL_DTYPE = torch.float32
 
-# System prompt used for Qwen2.5
-SYSTEM_PROMPT = (
-    "You are an EVA assistant. Use tool outputs to answer the user's request. "
-    "Respond in a concise, natural sentence."
-)
+# System prompt used for Qwen2.5 (kept short to save tokens)
+SYSTEM_PROMPT = "You are an EVA assistant. Answer using tool outputs."
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -160,14 +157,17 @@ def build_messages(
     """
     messages = [{"role": "user", "content": prompt}]
     if tool_calls:
-        calls = [{"name": name, "arguments": {}} for name in tool_calls]
+        # Just names, no empty arguments dict to save tokens
+        calls = [{"name": name} for name in tool_calls]
         messages.append({"role": "assistant", "tool_calls": calls})
 
     if responses:
         for r in responses:
-            messages.append(
-                {"role": "tool", "content": json.dumps(r, ensure_ascii=False)}
-            )
+            # Compact format: {tool_name: return_value}
+            tool_name = r.get("intent", "")
+            tool_value = r.get("return")
+            compact_response = json.dumps({tool_name: tool_value}, separators=(",", ":"))
+            messages.append({"role": "tool", "content": compact_response})
 
     if ai_response is not None:
         messages.append({"role": "assistant", "content": ai_response})
@@ -182,40 +182,30 @@ def render_qwen25_chat(
 ) -> str:
     """
     Render messages using the Qwen2.5 chat template (Ollama-compatible).
+    
+    Optimized for shorter prompts while maintaining template structure.
     """
     if not messages:
         return ""
 
     parts: list[str] = []
 
+    # System message with optional tools (compact format)
     if system_prompt or tools:
         parts.append("<|im_start|>system\n")
         if system_prompt:
             parts.append(system_prompt)
         if tools:
-            parts.append(
-                "\n\n# Tools\n\n"
-                "You may call one or more functions to assist with the user query.\n\n"
-                "You are provided with function signatures within <tools></tools> XML tags:\n"
-                "<tools>\n"
-            )
+            # Minimal tools block - just names, no boilerplate instructions
+            parts.append("\n<tools>\n")
             for tool in tools:
                 function_def = tool.get("function", tool)
+                # Minimal: just name (no description/parameters to save tokens)
                 parts.append(
-                    json.dumps(
-                        {"type": "function", "function": function_def},
-                        ensure_ascii=False,
-                    )
+                    json.dumps({"name": function_def.get("name", "")}, separators=(",", ":"))
                 )
                 parts.append("\n")
-            parts.append(
-                "</tools>\n\n"
-                "For each function call, return a json object with function name and "
-                "arguments within <tool_call></tool_call> XML tags:\n"
-                "<tool_call>\n"
-                "{\"name\": <function-name>, \"arguments\": <args-json-object>}\n"
-                "</tool_call>"
-            )
+            parts.append("</tools>")
         parts.append("<|im_end|>\n")
 
     for i, message in enumerate(messages):
@@ -233,26 +223,20 @@ def render_qwen25_chat(
             if content:
                 parts.append(content)
             elif tool_calls:
+                # Compact tool calls - just names
                 parts.append("<tool_call>\n")
                 for call in tool_calls:
                     parts.append(
-                        json.dumps(
-                            {
-                                "name": call.get("name", ""),
-                                "arguments": call.get("arguments", {}),
-                            },
-                            ensure_ascii=False,
-                        )
+                        json.dumps({"name": call.get("name", "")}, separators=(",", ":"))
                     )
                     parts.append("\n")
                 parts.append("</tool_call>")
             if not last:
                 parts.append("<|im_end|>\n")
         elif role == "tool":
-            parts.append("<|im_start|>user\n")
-            parts.append("<tool_response>\n")
+            parts.append("<|im_start|>user\n<tool_response>")
             parts.append(message.get("content", ""))
-            parts.append("\n</tool_response><|im_end|>\n")
+            parts.append("</tool_response><|im_end|>\n")
 
     if messages and messages[-1].get("role") != "assistant":
         parts.append("<|im_start|>assistant\n")
