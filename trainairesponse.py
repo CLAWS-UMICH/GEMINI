@@ -33,8 +33,8 @@ if not HF_TOKEN:
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"  # Base model (Qwen2.5 Instruct)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
 MAX_LENGTH = 512
-BATCH_SIZE = 2  # Per-step batch size (small for memory)
-GRAD_ACCUM_STEPS = 4  # Effective batch = BATCH_SIZE * GRAD_ACCUM_STEPS = 8
+BATCH_SIZE = 4  # Per-step batch size (small for memory)
+GRAD_ACCUM_STEPS = 2  # Effective batch = BATCH_SIZE * GRAD_ACCUM_STEPS = 8
 
 # LoRA settings - smaller to prevent overfitting
 LORA_R = 4            # Rank of the low-rank matrices (was 16)
