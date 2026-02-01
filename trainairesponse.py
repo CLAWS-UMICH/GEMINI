@@ -1,12 +1,12 @@
 """
-AI Response Training Script with LoRA for FunctionGemma.
+AI Response Training Script with LoRA for Qwen2.5.
 
 Trains a LoRA adapter to generate natural language responses given:
 - User's original query
 - Tool calls that were made
 - Results from those tool calls
 
-Uses FunctionGemma's chat template for exact tool-call/tool-response formatting.
+Uses the Qwen2.5 chat template for exact tool-call/tool-response formatting.
 """
 
 import json
@@ -15,7 +15,7 @@ from pathlib import Path
 
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
-from transformers import AutoProcessor, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import LoraConfig, get_peft_model, TaskType, PeftModel
 # Import data loader from existing module
 from simpledatacombine import load_all_training_data
@@ -30,7 +30,7 @@ HF_TOKEN = os.getenv("HF_TOKEN")
 if not HF_TOKEN:
     raise RuntimeError("HF_TOKEN not set. Export it before running.")
 
-MODEL_NAME = "google/functiongemma-270m-it"  # Base model (FunctionGemma)
+MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"  # Base model (Qwen2.5 Instruct)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
 MAX_LENGTH = 512
 BATCH_SIZE = 8  # Per-step batch size
@@ -39,12 +39,12 @@ BATCH_SIZE = 8  # Per-step batch size
 LORA_R = 4            # Rank of the low-rank matrices (was 16)
 LORA_ALPHA = 8        # Scaling factor (was 32)
 LORA_DROPOUT = 0.2   # Dropout for LoRA layers (was 0.05)
-LORA_TARGET_MODULES = ["q_proj", "v_proj"]  # Fewer layers to adapt (was q,v,k,o)
+LORA_TARGET_MODULES = ["q_proj", "v_proj"]  # Conservative default for Qwen2.5
 
 # Training settings
 EPOCHS = 300
 BASE_LR = 1e-4  # Higher LR works well with LoRA
-WEIGHT_DECAY = 0.05
+WEIGHT_DECAY = 0.01
 WARMUP_EPOCHS = 2
 MAX_GRAD_NORM = 1.0
 PATIENCE = 10
@@ -64,7 +64,7 @@ if DEVICE.type == "cuda":
 else:
     MODEL_DTYPE = torch.float32
 
-# FunctionGemma requires a developer prompt for tool use
+# System prompt used for Qwen2.5
 SYSTEM_PROMPT = (
     "You are an EVA assistant. Use tool outputs to answer the user's request. "
     "Respond in a concise, natural sentence."
@@ -78,7 +78,7 @@ TOOLS_MAP_CACHE = None
 
 
 # =============================================================================
-# Tool schema helpers (FunctionGemma tools format)
+# Tool schema helpers (Qwen2.5 tools format)
 # =============================================================================
 
 def load_intents_file(filepath: Path) -> list:
@@ -89,7 +89,7 @@ def load_intents_file(filepath: Path) -> list:
 
 def build_tool_schemas(intents: list) -> list:
     """
-    Build FunctionGemma tool schemas from names.json.
+    Build tool schemas from names.json.
 
     We keep parameters optional so empty args remain valid for this dataset.
     """
@@ -156,40 +156,108 @@ def build_messages(
     ai_response: str | None,
 ) -> list:
     """
-    Build a FunctionGemma-compatible message list.
-
-    Tool responses must be passed as role="tool" with content containing
-    {name, response} or a list of those objects.
+    Build a Qwen2.5-compatible message list.
     """
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": prompt},
-    ]
-
+    messages = [{"role": "user", "content": prompt}]
     if tool_calls:
-        # Manually build function call content since chat template doesn't add <end_of_turn>
-        # Format: <start_function_call>call:name{args}<end_function_call>
-        call_parts = []
-        for name in tool_calls:
-            call_parts.append(f"<start_function_call>call:{name}{{}}<end_function_call>")
-        # Add the calls as assistant content (chat template will wrap with turn markers)
-        messages.append({"role": "assistant", "content": "".join(call_parts)})
+        calls = [{"name": name, "arguments": {}} for name in tool_calls]
+        messages.append({"role": "assistant", "tool_calls": calls})
 
     if responses:
-        # FunctionGemma expects tool responses in a "developer" turn, not "tool" role
-        # Format: <start_function_response>response:name{value:<escape>...<escape>}<end_function_response>
-        response_parts = []
         for r in responses:
-            tool_name = r.get("intent", "")
-            tool_value = json.dumps(r.get("return"))
-            # Build the function response format that FunctionGemma expects
-            response_parts.append(f"<start_function_response>response:{tool_name}{{value:<escape>{tool_value}<escape>}}<end_function_response>")
-        messages.append({"role": "developer", "content": "".join(response_parts)})
+            messages.append(
+                {"role": "tool", "content": json.dumps(r, ensure_ascii=False)}
+            )
 
     if ai_response is not None:
         messages.append({"role": "assistant", "content": ai_response})
 
     return messages
+
+
+def render_qwen25_chat(
+    messages: list,
+    tools: list | None = None,
+    system_prompt: str | None = None,
+) -> str:
+    """
+    Render messages using the Qwen2.5 chat template (Ollama-compatible).
+    """
+    if not messages:
+        return ""
+
+    parts: list[str] = []
+
+    if system_prompt or tools:
+        parts.append("<|im_start|>system\n")
+        if system_prompt:
+            parts.append(system_prompt)
+        if tools:
+            parts.append(
+                "\n\n# Tools\n\n"
+                "You may call one or more functions to assist with the user query.\n\n"
+                "You are provided with function signatures within <tools></tools> XML tags:\n"
+                "<tools>\n"
+            )
+            for tool in tools:
+                function_def = tool.get("function", tool)
+                parts.append(
+                    json.dumps(
+                        {"type": "function", "function": function_def},
+                        ensure_ascii=False,
+                    )
+                )
+                parts.append("\n")
+            parts.append(
+                "</tools>\n\n"
+                "For each function call, return a json object with function name and "
+                "arguments within <tool_call></tool_call> XML tags:\n"
+                "<tool_call>\n"
+                "{\"name\": <function-name>, \"arguments\": <args-json-object>}\n"
+                "</tool_call>"
+            )
+        parts.append("<|im_end|>\n")
+
+    for i, message in enumerate(messages):
+        last = i == (len(messages) - 1)
+        role = message.get("role")
+
+        if role == "user":
+            parts.append("<|im_start|>user\n")
+            parts.append(message.get("content", ""))
+            parts.append("<|im_end|>\n")
+        elif role == "assistant":
+            parts.append("<|im_start|>assistant\n")
+            content = message.get("content")
+            tool_calls = message.get("tool_calls")
+            if content:
+                parts.append(content)
+            elif tool_calls:
+                parts.append("<tool_call>\n")
+                for call in tool_calls:
+                    parts.append(
+                        json.dumps(
+                            {
+                                "name": call.get("name", ""),
+                                "arguments": call.get("arguments", {}),
+                            },
+                            ensure_ascii=False,
+                        )
+                    )
+                    parts.append("\n")
+                parts.append("</tool_call>")
+            if not last:
+                parts.append("<|im_end|>\n")
+        elif role == "tool":
+            parts.append("<|im_start|>user\n")
+            parts.append("<tool_response>\n")
+            parts.append(message.get("content", ""))
+            parts.append("\n</tool_response><|im_end|>\n")
+
+    if messages and messages[-1].get("role") != "assistant":
+        parts.append("<|im_start|>assistant\n")
+
+    return "".join(parts)
 
 
 # =============================================================================
@@ -198,15 +266,14 @@ def build_messages(
 
 class AIResponseDataset(Dataset):
     """
-    Dataset for training AI response generation with FunctionGemma.
+    Dataset for training AI response generation with Qwen2.5.
 
     For causal LMs, we concatenate input + output and mask the input portion
     in labels so the model only learns to predict the response.
     """
 
-    def __init__(self, data: list, processor, tools: list, tool_map: dict, max_length: int = MAX_LENGTH):
-        self.processor = processor
-        self.tokenizer = getattr(processor, "tokenizer", processor)
+    def __init__(self, data: list, tokenizer, tools: list, tool_map: dict, max_length: int = MAX_LENGTH):
+        self.tokenizer = tokenizer
         self.tools = tools
         self.tool_map = tool_map
         self.max_length = max_length
@@ -262,11 +329,10 @@ class AIResponseDataset(Dataset):
         if tool_calls:
             tools_subset = [self.tool_map[name] for name in tool_calls if name in self.tool_map]
 
-        prefix_text = self.processor.apply_chat_template(
+        prefix_text = render_qwen25_chat(
             prefix_messages,
             tools=tools_subset,
-            add_generation_prompt=True,
-            tokenize=False,
+            system_prompt=SYSTEM_PROMPT,
         )
 
         # Build messages with the target response
@@ -276,11 +342,10 @@ class AIResponseDataset(Dataset):
             responses=responses,
             ai_response=response_text,
         )
-        full_text = self.processor.apply_chat_template(
+        full_text = render_qwen25_chat(
             full_messages,
             tools=tools_subset,
-            add_generation_prompt=False,
-            tokenize=False,
+            system_prompt=SYSTEM_PROMPT,
         )
 
         # Tokenize without truncation so we can left-truncate to keep the response
@@ -373,14 +438,14 @@ EPOCH_DEMO_SAMPLES = [
 ]
 
 
-def run_epoch_demo(model, processor, epoch: int):
+def run_epoch_demo(model, tokenizer, epoch: int):
     """Run demo samples and log outputs to track training progress."""
     print(f"\n  --- Demo (Epoch {epoch}) ---")
     model.eval()
     for i, sample in enumerate(EPOCH_DEMO_SAMPLES):
         try:
             response = generate_response(
-                model, processor,
+                model, tokenizer,
                 prompt=sample["prompt"],
                 tool_calls=sample["tool_calls"],
                 results=sample["results"],
@@ -402,10 +467,9 @@ def train():
     if DEVICE.type == "cuda":
         print(f"GPU: {torch.cuda.get_device_name(0)}")
     
-    # Load processor/tokenizer and base model
+    # Load tokenizer and base model
     print(f"\nLoading base model: {MODEL_NAME}")
-    processor = AutoProcessor.from_pretrained(MODEL_NAME, token=HF_TOKEN)
-    tokenizer = getattr(processor, "tokenizer", processor)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, token=HF_TOKEN)
     base_model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME,
         torch_dtype=MODEL_DTYPE,
@@ -446,7 +510,7 @@ def train():
     all_data = load_all_training_data()
     
     # Create dataset
-    dataset = AIResponseDataset(all_data, processor, tools, tools_map)
+    dataset = AIResponseDataset(all_data, tokenizer, tools, tools_map)
     
     if len(dataset) == 0:
         print("ERROR: No training data with ai_response found!")
@@ -463,7 +527,7 @@ def train():
             tools_subset = None
             if item.get("tool_calls"):
                 tools_subset = [tools_map[name] for name in item["tool_calls"] if name in tools_map]
-            prompt_text = processor.apply_chat_template(
+            prompt_text = render_qwen25_chat(
                 build_messages(
                     prompt=item.get("prompt", ""),
                     tool_calls=item.get("tool_calls", []),
@@ -471,15 +535,14 @@ def train():
                     ai_response=None,
                 ),
                 tools=tools_subset,
-                add_generation_prompt=True,
-                tokenize=False,
+                system_prompt=SYSTEM_PROMPT,
             )
             print(f"\n--- Sample {i+1} ---")
             print(f"PROMPT:\n{prompt_text}")
             print(f"\nRESPONSE:\n{item['ai_response']}")
         
         print(f"\n\nTotal samples with ai_response: {len(dataset)}")
-        return model, processor
+        return model, tokenizer
     
     # Train/val split
     val_size = max(1, int(len(dataset) * 0.1))
@@ -606,7 +669,7 @@ def train():
             save_path = Path(OUTPUT_DIR)
             save_path.mkdir(parents=True, exist_ok=True)
             model.save_pretrained(save_path)  # Saves only LoRA weights
-            processor.save_pretrained(save_path)
+            tokenizer.save_pretrained(save_path)
             print(f"  ✓ New best! LoRA adapter saved to {save_path}")
         else:
             patience_counter += 1
@@ -616,20 +679,20 @@ def train():
                 break
         
         # Run demo samples every epoch to track progress
-        run_epoch_demo(model, processor, epoch + 1)
+        run_epoch_demo(model, tokenizer, epoch + 1)
     
     print("\n" + "=" * 60)
     print(f"Training complete! Best val loss: {best_val_loss:.4f}")
     print(f"LoRA adapter saved to: {OUTPUT_DIR}")
     
-    return model, processor
+    return model, tokenizer
 
 
 # =============================================================================
 # Demo / Inference
 # =============================================================================
 
-def generate_response(model, processor, prompt: str, tool_calls: list, results: list, verbose: bool = True) -> str:
+def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: list, verbose: bool = True) -> str:
     """Generate a response given user prompt, tool calls, and results."""
     
     model.eval()
@@ -646,24 +709,21 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
     if tool_calls:
         tools_subset = [tools_map[name] for name in tool_calls if name in tools_map]
 
-    input_text = processor.apply_chat_template(
+    input_text = render_qwen25_chat(
         messages,
         tools=tools_subset,
-        add_generation_prompt=True,
-        tokenize=False,
+        system_prompt=SYSTEM_PROMPT,
     )
 
     if verbose:
         print(f"\nInput:\n{input_text}")
 
-    tokenizer = getattr(processor, "tokenizer", processor)
     inputs = tokenizer(input_text, return_tensors="pt").to(DEVICE)
 
-    # FunctionGemma stop tokens - <start_function_response> prevents hallucinated results
+    # Stop at end-of-turn tokens
     stop_token_ids = [
         tokenizer.eos_token_id,
-        tokenizer.convert_tokens_to_ids("<end_of_turn>"),
-        tokenizer.convert_tokens_to_ids("<start_function_response>"),
+        tokenizer.convert_tokens_to_ids("<|im_end|>"),
     ]
     # Filter out any None/unknown tokens
     stop_token_ids = [t for t in stop_token_ids if t is not None and t != tokenizer.unk_token_id]
@@ -685,10 +745,13 @@ def generate_response(model, processor, prompt: str, tool_calls: list, results: 
 def load_lora_model():
     """Load base model with LoRA adapter for inference."""
     print(f"Loading base model: {MODEL_NAME}")
-    processor_source = OUTPUT_DIR if Path(OUTPUT_DIR).exists() else MODEL_NAME
-    processor = AutoProcessor.from_pretrained(processor_source)
-    tokenizer = getattr(processor, "tokenizer", processor)
-    base_model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=MODEL_DTYPE)
+    tokenizer_source = OUTPUT_DIR if Path(OUTPUT_DIR).exists() else MODEL_NAME
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_source, token=HF_TOKEN)
+    base_model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME,
+        torch_dtype=MODEL_DTYPE,
+        token=HF_TOKEN,
+    )
     
     print(f"Loading LoRA adapter from: {OUTPUT_DIR}")
     model = PeftModel.from_pretrained(base_model, OUTPUT_DIR)
@@ -697,7 +760,7 @@ def load_lora_model():
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     
-    return model, processor
+    return model, tokenizer
 
 
 # =============================================================================
@@ -714,8 +777,8 @@ if __name__ == "__main__":
     
     if SHOW_INPUT:
         # Just show example formatted input without loading models
-        print("Loading processor only (no model)...")
-        processor = AutoProcessor.from_pretrained(MODEL_NAME, token=HF_TOKEN)
+        print("Loading tokenizer only (no model)...")
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, token=HF_TOKEN)
         tools_map = get_tools_map()
         
         # Example with tool calls and results
@@ -734,11 +797,10 @@ if __name__ == "__main__":
         )
         tools_subset = [tools_map[name] for name in example_tool_calls if name in tools_map]
         
-        input_text = processor.apply_chat_template(
+        input_text = render_qwen25_chat(
             messages,
             tools=tools_subset,
-            add_generation_prompt=True,
-            tokenize=False,
+            system_prompt=SYSTEM_PROMPT,
         )
         
         print("\n" + "=" * 60)
@@ -754,20 +816,20 @@ if __name__ == "__main__":
     
     if DEMO_ONLY:
         # Load base model + LoRA adapter
-        model, processor = load_lora_model()
+        model, tokenizer = load_lora_model()
     else:
         # Train the LoRA adapter
-        model, processor = train()
+        model, tokenizer = train()
     
     # If we have a model, run demo inference
-    if model is not None and processor is not None:
+    if model is not None and tokenizer is not None:
         print("\n" + "=" * 60)
         print("DEMO INFERENCE")
         print("=" * 60)
         
         # Demo 1: Battery check
         response = generate_response(
-            model, processor,
+            model, tokenizer,
             prompt="Do I have less than 5 hours of battery left?",
             tool_calls=["vitals_batt_time_left"],
             results=[{"intent": "vitals_batt_time_left", "return": 7.5}]
@@ -776,7 +838,7 @@ if __name__ == "__main__":
 
         # Demo 2: Multi-intent test - heart rate + add task (tests generalization)
         response = generate_response(
-            model, processor,
+            model, tokenizer,
             prompt="What's my heart rate and add a task to check the oxygen tank",
             tool_calls=["vitals_heart_rate", "Add_task"],
             results=[
@@ -788,7 +850,7 @@ if __name__ == "__main__":
 
         # Demo 3: Another multi-intent - warnings + navigation  
         response = generate_response(
-            model, processor,
+            model, tokenizer,
             prompt="Are there any warnings and reroute me around the crater",
             tool_calls=["get_warnings", "reroute_navigation"],
             results=[
@@ -800,7 +862,7 @@ if __name__ == "__main__":
 
         # Demo 4: Oxygen Comparison (Requested Test)
         response = generate_response(
-            model, processor,
+            model, tokenizer,
             prompt="Should I switch to the secondary tank?",
             tool_calls=["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
             results=[
@@ -812,7 +874,7 @@ if __name__ == "__main__":
 
         # Demo 5: Oxygen Comparison (Values Flipped)
         response = generate_response(
-            model, processor,
+            model, tokenizer,
             prompt="Should I switch to the secondary tank?",
             tool_calls=["vitals_oxy_pri_storage", "vitals_oxy_sec_storage"],
             results=[
