@@ -33,7 +33,8 @@ if not HF_TOKEN:
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"  # Base model (Qwen2.5 Instruct)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
 MAX_LENGTH = 512
-BATCH_SIZE = 8  # Per-step batch size
+BATCH_SIZE = 2  # Per-step batch size (small for memory)
+GRAD_ACCUM_STEPS = 4  # Effective batch = BATCH_SIZE * GRAD_ACCUM_STEPS = 8
 
 # LoRA settings - smaller to prevent overfitting
 LORA_R = 4            # Rank of the low-rank matrices (was 16)
@@ -563,8 +564,10 @@ def train():
     best_val_loss = float("inf")
     patience_counter = 0
     
+    effective_batch = BATCH_SIZE * GRAD_ACCUM_STEPS
     print(f"\nStarting LoRA training for {EPOCHS} epochs...")
-    print(f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}, Batch: {BATCH_SIZE}")
+    print(f"  Warmup: {WARMUP_EPOCHS} epochs, LR: {BASE_LR}, Patience: {PATIENCE}")
+    print(f"  Batch: {BATCH_SIZE} x {GRAD_ACCUM_STEPS} accum = {effective_batch} effective")
     
     for epoch in range(EPOCHS):
         dataset.reset_truncation_stats()
@@ -578,13 +581,12 @@ def train():
         # ==================== TRAIN ====================
         model.train()
         total_train_loss = 0
+        optimizer.zero_grad()  # Zero once at start
         
         for batch_idx, batch in enumerate(train_loader):
             input_ids = batch["input_ids"].to(DEVICE)
             attention_mask = batch["attention_mask"].to(DEVICE)
             labels = batch["labels"].to(DEVICE)
-            
-            optimizer.zero_grad()
 
             if DEVICE.type == "cuda":
                 with torch.amp.autocast(device_type="cuda", dtype=MODEL_DTYPE):
@@ -593,22 +595,25 @@ def train():
                         attention_mask=attention_mask,
                         labels=labels,
                     )
-                    loss = outputs.loss
+                    loss = outputs.loss / GRAD_ACCUM_STEPS  # Scale for accumulation
             else:
                 outputs = model(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
                     labels=labels,
                 )
-                loss = outputs.loss
+                loss = outputs.loss / GRAD_ACCUM_STEPS  # Scale for accumulation
 
             loss.backward()
-
-            # Gradient clipping for stability
-            torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
-            optimizer.step()
             
-            total_train_loss += loss.item()
+            # Track unscaled loss for logging
+            total_train_loss += loss.item() * GRAD_ACCUM_STEPS
+
+            # Optimizer step every GRAD_ACCUM_STEPS batches (or at end of epoch)
+            if (batch_idx + 1) % GRAD_ACCUM_STEPS == 0 or (batch_idx + 1) == len(train_loader):
+                torch.nn.utils.clip_grad_norm_(model.parameters(), MAX_GRAD_NORM)
+                optimizer.step()
+                optimizer.zero_grad()
             
             if (batch_idx + 1) % 50 == 0:
                 avg_loss = total_train_loss / (batch_idx + 1)
