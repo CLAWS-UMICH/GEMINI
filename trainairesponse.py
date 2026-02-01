@@ -180,11 +180,16 @@ def render_qwen25_chat(
     messages: list,
     tools: list | None = None,
     system_prompt: str | None = None,
+    add_generation_prompt: bool = False,
 ) -> str:
     """
     Render messages using the Qwen2.5 chat template (Ollama-compatible).
     
     Optimized for shorter prompts while maintaining template structure.
+    
+    Args:
+        add_generation_prompt: If True (inference), adds "<|im_start|>assistant\n" at end.
+                              If False (training), closes the last assistant turn with <|im_end|>.
     """
     if not messages:
         return ""
@@ -232,14 +237,17 @@ def render_qwen25_chat(
                     )
                     parts.append("\n")
                 parts.append("</tool_call>")
-            if not last:
+            # For training (not add_generation_prompt): always close with <|im_end|>
+            # For inference (add_generation_prompt): don't close last assistant turn
+            if not last or not add_generation_prompt:
                 parts.append("<|im_end|>\n")
         elif role == "tool":
             parts.append("<|im_start|>user\n<tool_response>")
             parts.append(message.get("content", ""))
             parts.append("</tool_response><|im_end|>\n")
 
-    if messages and messages[-1].get("role") != "assistant":
+    # For inference: add generation prompt if last message isn't assistant
+    if add_generation_prompt and messages and messages[-1].get("role") != "assistant":
         parts.append("<|im_start|>assistant\n")
 
     return "".join(parts)
@@ -318,6 +326,7 @@ class AIResponseDataset(Dataset):
             prefix_messages,
             tools=tools_subset,
             system_prompt=SYSTEM_PROMPT,
+            add_generation_prompt=True,  # Ends with <|im_start|>assistant\n
         )
 
         # Build messages with the target response
@@ -331,6 +340,7 @@ class AIResponseDataset(Dataset):
             full_messages,
             tools=tools_subset,
             system_prompt=SYSTEM_PROMPT,
+            add_generation_prompt=False,  # Ends with <|im_end|> for training
         )
 
         # Tokenize without truncation so we can left-truncate to keep the response
@@ -436,9 +446,6 @@ def run_epoch_demo(model, tokenizer, epoch: int):
                 results=sample["results"],
                 verbose=False
             )
-            # Truncate long responses for readability
-            if len(response) > 100:
-                response = response[:100] + "..."
             print(f"    [{i+1}] {response}")
         except Exception as e:
             print(f"    [{i+1}] ERROR: {e}")
@@ -521,6 +528,7 @@ def train():
                 ),
                 tools=tools_subset,
                 system_prompt=SYSTEM_PROMPT,
+                add_generation_prompt=True,
             )
             print(f"\n--- Sample {i+1} ---")
             print(f"PROMPT:\n{prompt_text}")
@@ -702,6 +710,7 @@ def generate_response(model, tokenizer, prompt: str, tool_calls: list, results: 
         messages,
         tools=tools_subset,
         system_prompt=SYSTEM_PROMPT,
+        add_generation_prompt=True,
     )
 
     if verbose:
@@ -790,6 +799,7 @@ if __name__ == "__main__":
             messages,
             tools=tools_subset,
             system_prompt=SYSTEM_PROMPT,
+            add_generation_prompt=True,
         )
         
         print("\n" + "=" * 60)
