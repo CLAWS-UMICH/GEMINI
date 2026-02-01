@@ -32,7 +32,7 @@ if not HF_TOKEN:
 
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"  # Base model (Qwen2.5 Instruct)
 OUTPUT_DIR = "ai_response_lora"  # LoRA adapter output
-MAX_LENGTH = 512
+MAX_LENGTH = 256
 BATCH_SIZE = 8  # Per-step batch size
 
 # LoRA settings - smaller to prevent overfitting
