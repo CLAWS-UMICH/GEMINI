@@ -44,7 +44,7 @@ LORA_TARGET_MODULES = ["q_proj", "v_proj"]  # Conservative default for Qwen2.5
 # Training settings
 EPOCHS = 300
 BASE_LR = 1e-4  # Higher LR works well with LoRA
-WEIGHT_DECAY = 0.01
+WEIGHT_DECAY = 0.05
 WARMUP_EPOCHS = 2
 MAX_GRAD_NORM = 1.0
 PATIENCE = 10
