@@ -14,15 +14,6 @@ public class AIA_guide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            // This line communicates with the Animator's parameter
-            AIA_Animator.SetBool("isAwake", true);
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            // This line communicates with the Animator's parameter
-            AIA_Animator.SetBool("isAwake", false);
-        }
+        
     }
 }
