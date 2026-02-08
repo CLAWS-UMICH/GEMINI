@@ -1,4 +1,4 @@
-using UnityEngine;
+   using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
    private Queue<string> sentences;
    public TMP_Text dialogueText;
+   public float typingSpeed = 0.1f;
    
    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +37,18 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence (string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {   
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
     }
 
     void EndDialogue()
