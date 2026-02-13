@@ -1,4 +1,3 @@
-
 import asyncio
 import websockets
 import json
@@ -6,8 +5,11 @@ import time
 from datetime import datetime, timezone
 
 # Import our modules
-from config import HOST, PORT, INTENT_MAPPINGS, LATENCY_WARNING_MS
-from ai_model import IntentClassifier
+from src.config import (
+      HOST, PORT, INTENT_MAPPINGS, LATENCY_WARNING_MS,
+      USE_ONNX_MODEL, ONNX_MODEL_PATH, LABELS_PATH
+)
+from src.classifier.ai_model import IntentClassifier, DistilBertClassifier
 
 class Colors:
       HEADER = '\033[95m'
@@ -34,7 +36,7 @@ def log_error(message):
     """Log error message in red."""
     print(f"{Colors.FAIL}[ERROR]{Colors.ENDC} {message}")
 
-def handle_message(message_text: str, classifier: IntentClassifier) -> str:
+def handle_message(message_text: str, classifier) -> str:
     """Process a message from Unity and return a response"""
 
     start_time = time.time()
@@ -74,9 +76,10 @@ def handle_message(message_text: str, classifier: IntentClassifier) -> str:
         response = {
             "status": "success",
             "intent": classification["intent"],
+            "all_intents": classification["all_intents"],
             "confidence": classification["confidence"],
             "matched_keywords": classification.get("matched_keywords", []),
-            "parameters": {},
+            "parameters": classification.get("parameters", {}),
             "request_id": request_id,
             "latency_ms": latency_ms,
             "timestamp": datetime.now(timezone.utc).isoformat()
@@ -112,7 +115,12 @@ async def handle_client(websocket):
 
     # Create classifier instance for this client
     # Each client gets their own classifier (thread-safe)
-    classifier = IntentClassifier(INTENT_MAPPINGS)
+    if USE_ONNX_MODEL:
+        classifier = DistilBertClassifier(ONNX_MODEL_PATH, LABELS_PATH)
+        log_info("Using ONNX model for classification")
+    else:
+        classifier = IntentClassifier(INTENT_MAPPINGS)
+        log_info("Using keyword matching for clasification")
 
     try:
         async for message in websocket:
@@ -129,28 +137,17 @@ async def handle_client(websocket):
     finally:
         log_info(f"Connection closed: {client_address}")
 
-async def start_server():
+async def start_websocket():
     """Start the WebSocket server."""
     log_info(f"Starting CORVUS WebSocket Server...")
     log_info(f"Host: {HOST}")
     log_info(f"Port: {PORT}")
     log_info(f"Intent mappings loaded: {len(INTENT_MAPPINGS)} intents")
+    if USE_ONNX_MODEL:
+        log_info(f"ONNX Model Loaded")
 
     async with websockets.serve(handle_client, HOST, PORT):
         log_success(f"Server running on ws://{HOST}:{PORT}")
         log_info("Waiting for Unity connection...")
         log_info("Press Ctrl+C to stop the server")
-
         await asyncio.Future()
-
-def main():
-    try:
-        asyncio.run(start_server())
-    except KeyboardInterrupt:
-        log_info("\nServer stopped by user (Ctrl+C)")
-    except Exception as e:
-        log_error(f"Server crashed: {e}")
-        raise
-
-if __name__ == "__main__":
-    main()

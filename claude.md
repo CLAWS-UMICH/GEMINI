@@ -1,98 +1,126 @@
 # CORVUS AI Assistant - Project Context
 
 ## Project Overview
-CORVUS is an AI voice assistant for NASA's Project GEMINI EVA operations, running on HoloLens 2. This system provides real-time intent classification, text-to-speech feedback, and AR display for astronaut commands during spacewalks.
+CORVUS is an AI voice assistant for NASA's Project GEMINI EVA operations, running on HoloLens 2. Provides real-time intent classification, text-to-speech feedback, and AR display for astronaut commands during spacewalks. Integrates with LMCC (Local Mission Control Center) for telemetry data and mission coordination.
 
 ## Architecture
 
-### High-Level Flow
+### Unified Pipeline (Working)
 ```
-User Voice Input → HoloLens Microphone → Unity (STT)
-→ WebSocket → Python Server (AI Model) → Intent Classification
-→ WebSocket Response → Unity → Execute Action + TTS Response
+Wake Word ("hey corvus") → KeywordRecognizer
+    ↓
+Astronaut Voice → Whisper STT → transcript text
+    ↓
+CorvusController.SendCommandAsync(transcript)
+    ↓
+WebSocket → Python Server → AI Classifier (keyword-based, real model pending)
+    ↓
+{intent: "check_vitals", confidence: 0.92}
+    ↓
+GetResponseForIntent() builds response (hardcoded, telemetry pending)
+    ↓
+Piper TTS speaks response (~70ms)
+    ↓
+LogToLMCC() for mission coordination (optional, not wired yet)
 ```
-
-### Dual-Inference Architecture
-1. **Local Inference (Jetson Orin Nano)**: Lightweight models (TinyBERT, MiniLM), <350ms latency, handles time-critical/safety commands
-2. **Cloud Inference**: Commercial APIs (OpenAI, Azure, Groq) for complex queries when bandwidth permits
 
 ### Component Communication
-- **Unity ↔ Python**: WebSocket (persistent connection)
-- **Unity ↔ LMCC**: WebSocket
-- **Unity ↔ TSS**: WebSocket
-- **Unity ↔ MongoDB**: WebSocket (telemetry/navigation)
-- **DSPy**: Orchestration framework for multi-step reasoning
-- **Instructor**: Type-safe output validation via Pydantic
+- **Unity ↔ Python AI**: WebSocket (ws://localhost:8765) - intent classification
+- **Unity ↔ LMCC**: Socket.IO (SocketIOClient) - telemetry, mission data, logging
+- **STT**: whisper.unity (local Whisper ONNX model)
+- **TTS**: Piper.unity (local, ~70ms after warmup)
+- **AI**: Transformer classifier model (Python server)
+
+### System Diagram
+```
+[NASA TSS] ──→ [LMCC Server] ←── [PR Client]
+                  ↕       ↕
+               [EV1]    [EV2]
+              HoloLens  HoloLens
+                 ↕
+          [Python AI Server]
+           (ws://localhost:8765)
+```
 
 ## System Requirements
 
 ### Unity
-- Version: 2022.3.62f3+
-- Platform: Windows (testing), HoloLens 2 (deployment)
-- Required: Sentis (AI inference), TextMeshPro, WebSocket support (.NET Standard 2.1)
+- Version: **Unity 6 (6000.2.7f2)**
+- AI Framework: **Inference Engine 2.4.1** (formerly Sentis)
+- Required Packages: TextMeshPro, Input System, com.unity.ai.inference
+- Additional: Newtonsoft.Json (via NuGet), SocketIOClient, whisper.unity
+- Player Settings: "Allow unsafe code" enabled, Active Input Handling set to "Both"
 
 ### Python
-- Version: 3.9+
-- Package Manager: **uv** (fast Rust-based package installer)
-- Libraries: FastAPI, uvicorn, websockets, torch/transformers, onnxruntime
+- Version: 3.13+
+- Package Manager: **uv**
+- Libraries: FastAPI, uvicorn, websockets, torch, transformers, onnxruntime
 
 ### Hardware
 - Development: Windows PC with GPU
 - Target: HoloLens 2
-- Edge Compute: NVIDIA Jetson Orin Nano (recommended for AI inference)
-
-## Hardware Limitations (HoloLens 2)
-
-### Critical Constraints
-- **CPU**: Qualcomm Snapdragon 850 (ARM, 8 cores @ 2.96 GHz) - significantly weaker than desktop
-- **RAM**: 4GB total (~2-3GB available to apps)
-- **GPU**: Adreno 630 (graphics-focused, no ML accelerators)
-- **Battery**: 2-3 hours normal use, drains faster with continuous inference
-
-### Model Performance Expectations (On-Device)
-| Model | Parameters | Expected Latency | Feasible? |
-|-------|-----------|------------------|-----------|
-| TinyBERT | 14M | 200-400ms | ✅ Yes |
-| MiniLM-L6 | 22M | 300-500ms | ✅ Marginal |
-| DistilBERT | 66M | 800-1500ms | ⚠️ Too slow |
-
-**Recommendation**: Run AI inference on Jetson Orin Nano, use HoloLens as thin client for AR rendering and audio I/O.
+- Edge Compute: NVIDIA Jetson Orin Nano (recommended)
 
 ## Project Structure
 
 ```
-CORVUS_Integration/                    # Unity project
-├── Assets/CLAWS/
-│   ├── Backend/
-│   │   ├── Networking/                # WebSocket + CORVUS controller
-│   │   ├── AstronautController/       # Existing systems
-│   │   ├── EventSystem/
-│   │   ├── StateMachine/
-│   │   └── ThreadFix/
-│   ├── UI/                            # Intent Display UI
-│   ├── Testing/                       # Test utilities
-│   ├── Prefabs/                       # UI components
-│   └── MyProgress/                    # Saved ORA work
+CORVUS_Integration/                         # Unity project
+├── Assets/
+│   ├── CLAWS/
+│   │   ├── Backend/
+│   │   │   ├── Networking/
+│   │   │   │   ├── CorvusController.cs     # Unified controller (WebSocket + Whisper + LMCC + TTS)
+│   │   │   │   ├── WebSocketClient.cs      # WebSocket connection to Python
+│   │   │   │   ├── CorvusTTS.cs            # TTS wrapper for Piper
+│   │   │   │   └── LMCC.cs                 # Socket.IO client to Mission Control
+│   │   │   ├── AstronautController/
+│   │   │   │   ├── Astronaut.cs            # Astronaut data model
+│   │   │   │   ├── AstronautInstance.cs    # Singleton for global astronaut access
+│   │   │   │   ├── AstronautTypes.cs       # Location, Telemetry, VitalsDetails, Data
+│   │   │   │   └── FellowAstronaut.cs      # Buddy astronaut reference
+│   │   │   ├── EventSystem/
+│   │   │   │   ├── EventBus.cs             # Publish-subscribe event system
+│   │   │   │   └── EventTypes.cs           # Event definitions (placeholder)
+│   │   │   ├── StateMachine/
+│   │   │   │   └── ScreenFlow.cs           # UI state machine (placeholder)
+│   │   │   └── ThreadFix/
+│   │   │       └── UnityMainThreadDispatcher.cs  # Background thread → main thread
+│   │   ├── UI/
+│   │   │   └── IntentDisplayUI.cs          # HUD display (intent, confidence, latency)
+│   │   ├── Prefabs/
+│   │   │   ├── KeyboardInput.cs            # HoloLens virtual keyboard
+│   │   │   └── Buttons/
+│   │   │       ├── EyeGazeHighlight.cs     # Eye-tracking button feedback
+│   │   │       └── ButtonGroup/            # Prefab assets
+│   │   └── Testing/
+│   │       ├── CorvusTest.cs               # Keyboard test (1-5 keys)
+│   │       └── PiperTest.cs                # TTS test (T key)
+│   ├── Piper/                              # Piper.unity (modified for Unity 6)
+│   │   ├── Scripts/PiperManager.cs         # Updated for Inference Engine 2.4+
+│   │   ├── Plugins/Windows/               # espeak-ng.dll, piper_phonemize.dll
+│   │   └── Samples/
+│   ├── PiperModels/                        # Piper TTS model files
+│   │   ├── en_US-lessac-medium.onnx
+│   │   └── en_US-lessac-medium.onnx.json
+│   └── StreamingAssets/
+│       ├── espeak-ng-data/                 # Piper phoneme data
+│       └── Whisper/
+│           └── ggml-tiny.bin               # Whisper STT model (~75MB)
 │
-CORVUS_PythonServer/                   # Python AI server (separate)
-├── server.py                          # WebSocket server
-├── ai_model.py                        # AI inference
-├── config.py
-├── pyproject.toml                     # uv project configuration
-└── models/                            # AI model files (.onnx)
+CORVUS_PythonServer/                        # Python AI server
+├── server.py                               # WebSocket server
+├── ai_model.py                             # AI inference (keyword placeholder → real model)
+├── config.py                               # Intent mappings, thresholds, server config
+├── pyproject.toml
+└── models/                                 # Classifier model files (empty, awaiting teammate)
 ```
 
-## Key Implementation Details
-
-### WebSocket Message Format
+## WebSocket Protocol
 
 **Unity → Python (Command Request)**
 ```json
 {
-  "command": "check my vitals",
-  "request_id": "unique-id-12345",
-  "timestamp": "2026-01-11T14:30:00Z",
-  "user_id": "astronaut_1"
+  "command": "check my vitals"
 }
 ```
 
@@ -101,299 +129,277 @@ CORVUS_PythonServer/                   # Python AI server (separate)
 {
   "status": "success",
   "intent": "check_vitals",
-  "confidence": 0.95,
+  "confidence": 0.87,
+  "matched_keywords": ["vitals", "check"],
   "parameters": {},
-  "request_id": "unique-id-12345",
-  "latency_ms": 250
+  "request_id": "abc-123",
+  "latency_ms": 2.35,
+  "timestamp": "2026-01-18T10:30:00Z"
 }
 ```
 
-### Intent Classification System
+**C# Classes (CorvusController.cs):**
+```csharp
+[System.Serializable]
+public class CommandRequest { public string command; }
 
-**Constrained to 200-500 predefined intents** to prevent hallucination:
-- Navigation commands (50-80 intents)
-- Suit system queries (80-100 intents)
-- Telemetry requests (40-60 intents)
-- Emergency protocols (20-30 intents)
-- Procedural assistance (30-50 intents)
+[System.Serializable]
+public class IntentResponse
+{
+    public string status;
+    public string intent;
+    public float confidence;
+    public string[] matched_keywords;
+    public string request_id;
+    public float latency_ms;
+    public string timestamp;
+}
+```
 
-**Example Intents**: `check_vitals`, `navigate_to_airlock`, `check_oxygen_level`, `emergency_abort`, `show_battery_level`
+## Telemetry Data Model
 
-**Confidence Thresholds**:
-- High (≥0.8): Execute immediately
+Access path: `AstronautInstance.User.telemetry.telemetry.eva1` (or `eva2`)
+
+```csharp
+// AstronautInstance.User → Astronaut
+Astronaut {
+    id, name, color
+    telemetry → Telemetry → TelemetryDetails {
+        eva_time: int
+        eva1: VitalsDetails    // This astronaut
+        eva2: VitalsDetails    // Fellow astronaut
+    }
+}
+
+// VitalsDetails - key fields for CORVUS responses
+VitalsDetails {
+    heart_rate: double
+    temperature: double
+    batt_time_left: double
+    oxy_pri_storage: double
+    oxy_sec_storage: double
+    oxy_time_left: int
+    suit_pressure_total: double
+    fan_pri_rpm: double
+    coolant_m: double
+    // ... and more
+}
+```
+
+## LMCC Integration
+
+**LMCC** = Local Mission Control Center. Central server connecting all GEMINI clients.
+
+**Sending data to LMCC:**
+```csharp
+// clientId: 1=EV1, 2=EV2, 3=PR, 4=LMCC
+lmcc.SendJsonData(payload, "voice_text", 4);
+```
+
+**LMCC message types:** VITALS, WAYPOINTS, MESSAGING, ASTRONAUT, PR_TELEMETRY, PR_LOCATION, LTV_LOCATION, ALERTS, CORVUS
+
+**Note:** The CORVUS case in LMCC.cs HandleJsonMessage() is stubbed but empty — ready for implementation.
+
+## Intent Classification
+
+**Confidence Thresholds:**
+- High (>=0.8): Execute immediately
 - Medium (0.5-0.8): Execute with confirmation
-- Low (<0.5): Trigger retry or fallback
+- Low (<0.5): Retry or fallback
 
-### Text-to-Speech (Piper.unity)
-- Generation time: 20-30ms on CPU
-- Local, high-quality speech (no internet required)
-- Multiple voices and languages
-
-### Latency Measurement
-
-**Pipeline Stages**:
-1. T0: User finishes speaking
-2. T1: Unity sends WebSocket message
-3. T2-T3: Python receives + AI inference
-4. T4-T5: Python sends + Unity receives
-5. T6: Unity executes action + displays
-
-**Target Breakdown** (Total: <1000ms):
-- Speech-to-Text: 300-500ms
-- WebSocket send/receive: 5-10ms each
-- AI Inference: 100-350ms
-- Action execution: 50-100ms
-- TTS generation: 20-50ms
-
-## AI Model Recommendations
-
-### Recommended Models
-1. **TinyBERT-4**: 14M params, 200-400ms on HoloLens (if on-device needed)
-2. **MiniLM-L6**: 22M params, better accuracy, best for Jetson Orin Nano
-3. **DistilBERT**: 66M params, 50-100ms on Jetson (too heavy for HoloLens)
-
-### Optimization Strategies
-- Quantization: INT8 (4x smaller, 2-4x faster)
-- Pruning: Remove 30-50% of weights
-- ONNX Runtime: Optimized inference engine
-- Knowledge Distillation: Train smaller custom model
-
-## Performance Targets
-
-| Metric | Target | Critical? |
-|--------|--------|-----------|
-| Round-trip latency | <1000ms | Yes |
-| Local inference | <350ms | Yes |
-| Intent accuracy | >95% | Yes |
-| TTS generation | <50ms | No |
-| Battery impact | <15%/hour | Yes |
-| Memory footprint | <500MB | Yes |
-
-## Safety Considerations
-
-1. **Confirmation for Critical Commands**: All safety-critical intents require verbal confirmation
-2. **Hallucination Prevention**: Constrained to predefined intents, factual outputs grounded in live telemetry
-3. **Network Reliability**: Local inference for safety-critical commands, graceful degradation during network loss
-
-## Implementation Phases & Progress
-
-### ✅ Phase 1: Project Cleanup (COMPLETED)
-- [x] Remove onboarding folders (ORA, Phase-1/2/3)
-- [x] Save progress work to MyProgress folder
-- [x] Organize clean project structure
-
-### ✅ Phase 2: Unity Folder Structure (COMPLETED)
-- [x] Create `Backend/Networking/` folder
-- [x] Create `UI/` folder
-- [x] Create `Testing/` folder
-- [x] Create `Scenes/` folder
-
-### ✅ Phase 3: CORVUS Scene Setup (COMPLETED)
-- [x] Create CORVUS_Test_Scene
-- [x] Add CORVUS GameObject with Audio Source
-- [x] Add UIBackplate prefab (3D floating display)
-- [x] Add 3D TextMeshPro elements (IntentText, ConfidenceText, LatencyText)
-- [x] Add TestCommandButton
-- [x] Add scene to Build Profiles
-- [x] Position UI in front of camera
-
-### ✅ Phase 4: Python Server Structure (COMPLETED)
-- [x] Create `CORVUS_PythonServer/` folder
-- [x] Initialize uv project (uv init)
-- [x] Create `pyproject.toml`
-- [x] Create `config.py`
-- [x] Create `server.py` (basic structure)
-- [x] Create `ai_model.py` (placeholder)
-- [x] Create `models/` folder
-- [x] Install dependencies with uv
-
-### ⏸️ Phase 5: Install Piper.unity (TTS) (SKIPPED - TO REVISIT)
-- [ ] Install Piper.unity via Package Manager
-- [ ] Verify installation
-- [ ] Test basic TTS functionality
-
-**Note:** Skipping TTS for now to focus on core WebSocket functionality. Will revisit after testing Unity-Python communication.
-
-### ✅ Phase 6: Create Unity Scripts (COMPLETED)
-- [x] Create `WebSocketClient.cs` (Backend/Networking/)
-- [x] Create `CorvusController.cs` (Backend/Networking/)
-- [x] Create `IntentDisplayUI.cs` (UI/)
-- [x] Create `CorvusTest.cs` (Testing/)
-
-### ✅ Phase 7: Wire Up Unity Scene (COMPLETED)
-- [x] Attach CorvusController script to CORVUS GameObject
-- [x] Attach IntentDisplayUI script to UIBackplate GameObject
-- [x] Attach CorvusTest script to CORVUS GameObject
-- [x] Connect all SerializeField references in Inspector:
-  - IntentDisplayUI: CorvusController, IntentText, ConfidenceText, LatencyText
-  - CorvusTest: CorvusController
-- [x] Save scene
-
-### 📋 Phase 8: Implement Python Server
-- [ ] Code WebSocket server logic
-- [ ] Add basic intent classification (mock/simple)
-- [ ] Implement message parsing
-- [ ] Add error handling
-- [ ] Test server runs locally
-
-### 📋 Phase 9: Testing & Integration
-- [ ] Test WebSocket connection (Unity ↔ Python)
-- [ ] Test intent classification with sample commands
-- [ ] Test TTS responses
-- [ ] Test UI updates correctly
-- [ ] Measure end-to-end latency
-- [ ] Fix bugs and issues
-
-### 📋 Phase 10: Optimization & Documentation
-- [ ] Optimize latency if needed
-- [ ] Add real AI model (TinyBERT/MiniLM)
-- [ ] Document test results
-- [ ] Create comprehensive test suite
-- [ ] Final testing on all components
-
-## Key Scripts to Implement
-
-1. **CorvusController.cs** (`Backend/Networking/`)
-   - Main controller for CORVUS functionality
-   - Handles voice input activation
-   - Manages TTS responses
-   - Coordinates WebSocket and UI
-
-2. **WebSocketClient.cs** (`Backend/Networking/`)
-   - WebSocket connection to Python server
-   - Send/receive messages
-   - Latency measurement
-
-3. **IntentDisplayUI.cs** (`UI/`)
-   - Update HUD with intent information
-   - Display confidence and latency
-   - Color-coded confidence bars
-
-4. **CorvusTest.cs** (`Testing/`)
-   - Testing utilities and keyboard shortcuts
-   - Sample command testing
-   - Latency measurement and logging
-
-## Sample Test Commands
-
+**Sample Commands:**
 1. "Check my vitals" → `check_vitals`
 2. "Navigate to airlock" → `navigate_to_airlock`
 3. "What is my oxygen level" → `check_oxygen_level`
 4. "Show battery status" → `check_battery`
 5. "Emergency abort" → `emergency_abort`
 
+## Performance Targets
+
+| Metric | Target | Achieved |
+|--------|--------|----------|
+| Round-trip latency | <1000ms | TBD |
+| AI Inference | <350ms | TBD |
+| TTS generation | <50ms | ~70ms |
+| Whisper STT | <2000ms | TBD |
+| Intent accuracy | >95% | TBD |
+
+---
+
+## Implementation Phases & Progress
+
+### ✅ Phase 1-4: Project Setup (COMPLETED)
+- [x] Project cleanup and folder structure
+- [x] CORVUS scene setup (GameObject, UIBackplate, TextMeshPro, TestCommandButton)
+- [x] Python server structure (uv project, server.py, ai_model.py, config.py)
+
+### ✅ Phase 5: Piper.unity TTS Integration (COMPLETED)
+
+**Goal**: Local TTS feedback using Piper.unity | **Achieved**: ~70ms after warmup
+
+#### Step 5.1: Install Unity Sentis ✅
+- [x] Installed `com.unity.ai.inference` (Sentis 2.4.1 / Inference Engine)
+
+#### Step 5.2: Install Piper.unity ✅
+- [x] Downloaded from https://github.com/Macoron/piper.unity
+- [x] Copied `Assets/Piper/` and `Assets/StreamingAssets/espeak-ng-data/`
+- [x] Unity API Updater applied for deprecated calls
+- [x] **Manually migrated PiperManager.cs for Unity 6 compatibility:**
+  - Namespace: `Unity.Sentis` → `Unity.InferenceEngine`
+  - Worker: `IWorker` → `Worker`, `WorkerFactory.CreateWorker()` → `new Worker()`
+  - Tensors: `TensorFloat`/`TensorInt` → `Tensor<float>`/`Tensor<int>`
+  - Execution: `Execute(dict)` → `SetInput()` + `Schedule()`
+  - Readback: `MakeReadableAsync()` → `ReadbackAndCloneAsync()`
+  - Data: `ToReadOnlyArray()` → `AsReadOnlyNativeArray().ToArray()`
+
+#### Step 5.3: Download Voice Model ✅
+- [x] Downloaded `en_US-lessac-medium.onnx` (39MB) + `.onnx.json` config
+- [x] Placed in `Assets/PiperModels/`
+- [x] Config: sample_rate=22050, voice=en-us
+
+#### Step 5.4: Create CorvusTTS.cs ✅
+- [x] Wrapper with `Speak(text)`, `Stop()`, `IsSpeaking()`, `Warmup()`
+- [x] Auto-warmup on Start()
+- [x] Latency logging via Stopwatch
+
+#### Step 5.5: Test TTS Standalone ✅
+- [x] PiperTest.cs: Press T key to test
+- [x] First run ~2800ms → warmed up ~70ms
+
+#### Step 5.6: Integrate with CorvusController ✅
+- [x] Added CorvusTTS SerializeField to CorvusController
+- [x] `GetResponseForIntent()` maps intents to spoken phrases
+- [x] TTS called in `HandleMessageReceived()` after intent parsing
+
+### ✅ Phase 6-7: Unity Scripts & Scene Wiring (COMPLETED)
+- [x] Created: WebSocketClient.cs, CorvusController.cs, IntentDisplayUI.cs, CorvusTest.cs
+- [x] All scripts attached and SerializeField references connected in Inspector
+- [x] New Input System: `Keyboard.current.digitXKey.wasPressedThisFrame`
+
+### ✅ Phase 8-9: Python Server & Integration (COMPLETED)
+- [x] WebSocket server running on port 8765
+- [x] JSON message parsing (Unity sends `{"command":"..."}`, Python responds with intent)
+- [x] End-to-end tested: Unity → Python → Intent → UI Update + TTS
+
+### ✅ Phase 9.5: Merge Main into Branch (COMPLETED)
+- [x] Merged `origin/main` into `AI-integration-piper-tts` (--allow-unrelated-histories)
+- [x] Unity files (scenes, prefabs, .meta, ProjectSettings): kept main's version
+- [x] Shared team code (AstronautController, EventSystem, StateMachine, etc.): kept main's version
+- [x] CorvusController.cs conflict: main had Molly's VoiceAssistant at same path
+- [x] Re-added `com.unity.ai.inference` to manifest.json (was removed by main's version)
+- [x] Re-enabled "Allow unsafe code" in Player Settings (was reset by main's version)
+- [x] Resolved all compilation errors in Safe Mode
+
+**Files gained from main:**
+- LMCC.cs (Socket.IO client to mission control)
+- Astronaut.cs, AstronautInstance.cs, AstronautTypes.cs, FellowAstronaut.cs
+- EventBus.cs, EventTypes.cs
+- UnityMainThreadDispatcher.cs
+- ScreenFlow.cs, EyeGazeHighlight.cs, KeyboardInput.cs
+
+**Merge notes:**
+- Molly's `VoiceAssistant` class (in main's CorvusController.cs) uses Windows `KeywordRecognizer` + `DictationRecognizer` — different approach from ours
+- Her approach sends transcripts to LMCC via Socket.IO; ours sends to Python via WebSocket
+- Decision: Unify both approaches into one CorvusController (Phase 10)
+- Teammate has Whisper implementation on `origin/Whisper` branch (Jan 25, 2026 commit)
+
+### 🔄 Phase 10: Unified Controller + Real Classifier (IN PROGRESS)
+
+**Goal**: Combine all approaches into one CorvusController with real telemetry responses
+
+#### Step 10.1: Integrate Classifier into Python Server
+- [ ] Receive classifier model from teammates (have `referencemodel.pth` — DistilBERT, 6 classes)
+- [ ] Integrate model into `ai_model.py`
+- [ ] Update `server.py` to use real classifier
+- [ ] Test classification accuracy with sample commands
+- [ ] Verify response format matches IntentResponse class
+
+#### Step 10.2: Rewrite CorvusController.cs (Unified) ✅
+- [x] Combine: WebSocket/Python pipeline + Whisper STT + LMCC logging + telemetry responses
+- [x] Add SerializeFields: WhisperManager, MicrophoneRecord, LMCC
+- [x] Add Whisper callbacks (OnRecordStop → transcribe → SendCommandAsync)
+- [x] Add LogToLMCC() for mission coordination (graceful null handling)
+- [x] Add StartRecording()/StopRecording() public methods
+- [x] Add wake word detection ("hey corvus", "corvus") via KeywordRecognizer
+- [x] Add 200ms delay after wake word to prevent first-word cutoff
+- [ ] Update GetResponseForIntent() to use AstronautInstance.User.telemetry (pending LMCC data)
+
+#### Step 10.3: Install whisper.unity Package ✅
+- [x] Install whisper.unity from GitHub (`com.whisper.unity`)
+- [x] Downloaded `ggml-tiny.bin` model (~75MB) to `Assets/StreamingAssets/Whisper/`
+- [x] Verified package works with Unity 6 — no migration needed (unlike Piper)
+
+#### Step 10.4: Scene Wiring ✅
+- [x] Add WhisperManager + MicrophoneRecord components to CORVUS GameObject
+- [x] Configure WhisperManager model path
+- [x] Wire WhisperManager and MicrophoneRecord SerializeField references
+- [x] Enable VAD (Voice Activity Detection) for auto-stop on silence
+- [ ] Wire LMCC reference to CorvusController (optional, skipped for now)
+
+#### Step 10.5: End-to-End Testing ✅
+- [x] Test wake word ("corvus") → recording starts
+- [x] Test Whisper mic → transcription → Python classification → TTS response
+- [x] Test keyboard input (1-5 keys via CorvusTest) — needs verification
+- [ ] Test telemetry responses with LMCC data (pending)
+- [ ] Measure end-to-end latency
+
+### 📋 Phase 11: Text Input UI + Polish (NEXT)
+- [ ] Add TMP_InputField for typed commands (fallback input method)
+- [ ] Wire InputField submit to CorvusController.SendCommandAsync()
+- [ ] Add recording indicator UI for Whisper
+- [ ] Test all input methods: keyboard shortcuts, text field, voice
+
+### 📋 Phase 12: Optimization & Deployment (FUTURE)
+- [ ] Optimize latency across full pipeline
+- [ ] Test on HoloLens 2
+- [ ] Jetson Orin Nano deployment
+- [ ] Final performance benchmarks
+
+---
+
+## CORVUS GameObject Components
+
+The CORVUS GameObject in the scene has:
+- **CorvusController** - Unified controller (WebSocket + Whisper + Wake Word + LMCC + TTS)
+- **CorvusTTS** - TTS wrapper (references PiperManager + AudioSource)
+- **PiperManager** - Neural TTS model inference (Backend: GPUCompute)
+- **WhisperManager** - Whisper STT model inference (ggml-tiny.bin)
+- **MicrophoneRecord** - Audio recording for Whisper (VAD enabled)
+- **CorvusTest** - Keyboard shortcuts (1-5 keys for test commands)
+- **PiperTest** - TTS test (T key)
+- **AudioSource** - Audio playback
+
+**Other Scene Objects:**
+- **AstronautInstance** - Singleton providing global astronaut telemetry access
+- **LMCC** - Socket.IO client (on separate GameObject, not yet wired to CorvusController)
+- **UnityMainThreadDispatcher** - Thread safety for Socket.IO callbacks
+
 ## Known Issues
 
-1. **CorvusController Multiple-Run Issue**: First voice command works, second fails. Need to add proper cleanup in `OnDestroy()` and reset state between commands.
-
-2. **Piper.unity Installation**: Install via Package Manager with git URL: `https://github.com/SCRN-VRC/Piper.Unity.git`
-
-## Resources
-
-- Unity Sentis: https://docs.unity3d.com/Packages/com.unity.sentis@latest
-- Piper.unity: https://github.com/SCRN-VRC/Piper.Unity
-- FastAPI: https://fastapi.tiangolo.com/
-- WebSocket Tutorial: https://youtu.be/8ARodQ4Wlf4
-- Hugging Face Models: https://huggingface.co/models
+1. **Piper.unity + Unity 6**: Required manual API migration (documented in Step 5.2)
+2. **First TTS Call Slow**: ~2800ms on first run due to GPU shader compilation. Mitigated by `Warmup()` on Start
+3. **Input System**: Project uses new Input System. Use `Keyboard.current` not `Input.GetKeyDown()`
+4. **Whisper first-word cutoff**: Fixed with 200ms delay after wake word detection in `OnWakeWordDetected()`
+5. **LMCC.cs switch warning**: CS8509 warning about exhaustive switch — safe to ignore, only uses clientIds 1-4
+6. **Classifier model not integrated**: Have `referencemodel.pth` (DistilBERT) but not yet loaded — using keyword classifier
 
 ## Development Notes
 
-- Always test locally first (Unity Editor on PC)
-- Python server must run before Unity
-- Use **uv** for Python package management (faster than pip)
-- Version control before major changes
-- Log everything during testing
-- Measure latency for every change
+- Python server must run before Unity Play
+- Use **uv** for Python package management
+- Unity 6 renamed Sentis to "Inference Engine" (`com.unity.ai.inference`)
+- Always test with Console window open for debug logs
+- TTS warmup curve: ~2800ms → ~600ms → ~350ms → ~70ms (stabilizes after ~10 runs)
+- Windows file system is case-insensitive (learned during merge)
+- LMCC uses Newtonsoft.Json (not Unity's JsonUtility) for complex JSON
+- Whisper model location: `Assets/StreamingAssets/Whisper/ggml-tiny.bin`
+- Wake words: "hey corvus", "corvus" — triggers recording via KeywordRecognizer
+- VAD (Voice Activity Detection) auto-stops recording when user stops speaking
+- Deleted: `CorvusController_OLD.cs` (Molly's VoiceAssistant — replaced by unified controller)
 
-## Learning Approach & Best Practices
+## Teaching Preferences
 
-### Teaching Style
-1. **Step-by-Step Implementation**: Break down complex tasks into single, manageable steps. Wait for completion confirmation before moving to the next step.
-2. **Concept Explanations**: When introducing new syntax or patterns, explain:
-   - What it does
-   - Why we use it
-   - When to use it
-   - Analogies to familiar concepts (C++, Python, etc.)
-3. **Answer Questions First**: Address all clarifying questions before proceeding to the next step
-4. **Examples**: Provide concrete examples and use cases for abstract concepts
-
-### Bug Hunting Practice
-When reviewing code for bugs:
-1. **Don't reveal locations immediately** - State the number and type of bugs found
-2. **Let the developer hunt** - Encourage manual searching to build debugging skills
-3. **Provide hints if stuck** - Guide with line numbers or specific areas if needed
-4. **Explain the bug** - After finding it, explain why it's wrong and how to fix it
-
-**Example Bug Types to Watch For:**
-- Case sensitivity errors (Debug.log → Debug.Log, MonoBehavior → MonoBehaviour)
-- Missing property accessors (_text vs _text.text)
-- Wrong variable references (ClassName vs _instanceName)
-- Array index mismatches
-- Missing using statements
-- Typos in method names
-
-### Concepts Explained This Session
-
-**C# Fundamentals:**
-- **MonoBehaviour**: Unity base class providing lifecycle methods (Start, Update, OnDestroy)
-- **async/await**: Non-blocking operations, Task vs Task<T>, async void vs async Task
-- **Events & Delegates**: Action<T>, subscribing with +=, unsubscribing with -=
-- **Properties**: Expression-bodied members with `=>`, get/set accessors
-- **SerializeField**: Makes private fields visible in Unity Inspector
-- **Null operators**: `?.` (null-conditional), `??` (null-coalescing), `!` (logical NOT)
-- **ArraySegment<T>**: Lightweight array slice without copying data
-- **CancellationTokenSource**: Gracefully cancel async operations
-
-**Unity Patterns:**
-- **FindObjectOfType vs SerializeField**: Runtime search vs Inspector assignment (prefer SerializeField for clarity and performance)
-- **Event subscription patterns**: Subscribe in Start(), unsubscribe in OnDestroy() to prevent memory leaks
-- **3D TextMeshPro vs Canvas UI**: World-space 3D text for AR/VR vs 2D screen overlay
-- **Prefabs**: Reusable GameObject templates/blueprints
-- **Scenes**: Different levels/pages in your application
-
-**Architecture:**
-- **WebSocket Communication**: Persistent bidirectional connection (ws://)
-- **Event-Driven Design**: Loose coupling via events (WebSocketClient → CorvusController → IntentDisplayUI)
-- **Separation of Concerns**: Networking, Controller, UI, Testing in separate scripts
-- **SerializeField Pattern**: Inspector-assignable references instead of hardcoded dependencies
-
-### Git Best Practices (CRITICAL)
-
-**Golden Rule: ONE git init per project**
-- ✅ Run `git init` ONLY at the project root folder
-- ❌ NEVER run `git init` in subfolders (creates nested repositories/submodules)
-- ✅ Run `git add .` and `git commit -m "message"` anywhere in the project
-- The `.` in `git add .` means "current directory and all subdirectories"
-
-**If you accidentally create a nested repository:**
-```bash
-# Remove the submodule reference
-git rm --cached path/to/subfolder
-
-# Delete the nested .git folder
-rm -rf path/to/subfolder/.git
-
-# Remove .gitmodules if it exists
-rm -f .gitmodules
-
-# Re-add the files to main repository
-git add .
-git commit -m "Fix: Remove nested repository"
-```
-
-### Testing Philosophy
-1. **Test incrementally**: Test each component as you build it
-2. **Use keyboard shortcuts**: Create testing utilities (like CorvusTest.cs) for rapid iteration
-3. **Log everything**: Use Debug.Log liberally during development
-4. **Expect failures**: When testing without server, connection failures are normal and expected
-
-### Code Review Checklist
-Before moving to next phase, verify:
-- [ ] All using statements present
-- [ ] Case sensitivity correct (Unity API is case-sensitive)
-- [ ] Property accessors used correctly (.text, .color, etc.)
-- [ ] Null checks for optional references
-- [ ] Event subscriptions have matching unsubscriptions
-- [ ] SerializeField variables will be assigned in Inspector
-- [ ] Array indices match array length
-- [ ] Async methods properly awaited or fire-and-forget with `_`
+- **Step-by-step**: Break tasks into small steps, explain as we go
+- **Bug hunting**: State number of bugs found, let developer search first
+- **Concepts over code**: Explain what/why/when, not just how
+- **Code review**: Always check for case sensitivity, null checks, missing usings, disposal patterns
