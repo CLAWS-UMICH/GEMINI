@@ -16,7 +16,7 @@ CONFIDENCE_THRESH_MEDIUM = 0.5      # Execute with confirmation
 
 # Paths Config
 BASE_DIR = Path(__file__).parent.parent
-DB_MODEL_DIR = BASE_DIR / "models" / "distilbert-model"
+DB_MODEL_DIR = BASE_DIR / "models" / "classifier" / "distilbert"
 ONNX_MODEL_PATH = DB_MODEL_DIR / "model.onnx"
 LABELS_PATH = DB_MODEL_DIR / "labels.json"
 

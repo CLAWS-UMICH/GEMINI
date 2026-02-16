@@ -20,3 +20,10 @@ dependencies = [
 [project.scripts]
 corvus     = "src.server.main:main"
 model-test = "src.classifier.test_classifier:main"
+
+[build-system]                                                                                    
+  requires = ["setuptools>=75.0"]
+  build-backend = "setuptools.build_meta"
+
+  [tool.setuptools.packages.find]
+  include = ["src", "src.*"]
