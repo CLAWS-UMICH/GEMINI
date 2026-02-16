@@ -16,12 +16,12 @@ namespace CLAWS.Networking
             await Warmup();
         }
 
-        public async Task Speak(string text)
+        public async Task<long> Speak(string text)
         {
             if (_piperManager == null || _audioSource == null)
             {
                 Debug.LogError("[CorvusTTS] Components not assigned!");
-                return;
+                return -1;
             }
 
             try
@@ -31,7 +31,7 @@ namespace CLAWS.Networking
                 var audioClip = await _piperManager.TextToSpeech(text);
                 sw.Stop();
 
-                Debug.Log($"[CorvusTTS] Generated in {sw.ElapsedMilliseconds}ms \"{text}\"");
+                //Debug.Log($"[CorvusTTS] Generated in {sw.ElapsedMilliseconds}ms \"{text}\"");
 
                 // Clean up old clip
                 if (_audioSource.clip != null)
@@ -41,9 +41,12 @@ namespace CLAWS.Networking
                 _audioSource.clip = audioClip;
                 _audioSource.Play();
 
+                return sw.ElapsedMilliseconds;
+
             } catch (Exception ex)
             {
                 Debug.LogError($"[CorvusTTS] Error: {ex.Message}");
+                return -1;
             }
         }
 

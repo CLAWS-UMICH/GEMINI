@@ -6,6 +6,7 @@ using UnityEngine.Windows.Speech;
 using Whisper;
 using Whisper.Utils;
 using CLAWS.Networking;
+using PimDeWitte.UnityMainThreadDispatcher;
 
 namespace CLAWS.Networking
 {
@@ -25,9 +26,26 @@ namespace CLAWS.Networking
         public float latency_ms;
         public string timestamp; 
     }
+    public class CorvusLatency 
+    {
+        public long STT;
+        public long classification;
+        public long network;
+        public long roundTrip;
+        public long TTS;
+        public long total;
+    }
 
     public class CorvusController : MonoBehaviour
     {
+        // Latency
+        private System.Diagnostics.Stopwatch _stopWatch = new System.Diagnostics.Stopwatch();
+        private long _ttsLatency;
+        private long _sttLatency;
+        private long _roundTripLatency;
+        private long _networkOnlyLatency;
+        
+
         // WebSocket connection to Python server
         private WebSocketClient _webSocketClient;
         private string _lastCommand;
@@ -46,7 +64,7 @@ namespace CLAWS.Networking
         public bool IsConnected => _webSocketClient?.IsConnected ?? false;
 
         // Fire event (received from Python)
-        public event Action<string, float, float> OnIntentReceived;
+        public event Action<string, float, CorvusLatency> OnIntentReceived;
 
         private async void Start()
         {
@@ -123,31 +141,51 @@ namespace CLAWS.Networking
             StartRecording();
         }
 
-        private void HandleMessageReceived(string message)
+        private async void HandleMessageReceived(string message)
         {
             try
             {
+                // Null Checker
+                if (string.IsNullOrEmpty(message)) return;
+
+                _stopWatch.Stop();
+                _roundTripLatency = _stopWatch.ElapsedMilliseconds;
+                
                 Debug.Log($"Processing message: {message}");
 
                 // Parse JSON message
                 var response = JsonUtility.FromJson<IntentResponse>(message);
+                Debug.Log($"Parsed - intent: {response?.intent}, confidence: {response?.confidence}"); 
+                _networkOnlyLatency = (long)(_roundTripLatency - response.latency_ms);
+
+                // Speak the response
+                if (_corvusTTS != null)
+                {
+                    string spokenText = GetResponseForIntent(response.intent, response.confidence);
+                    _ttsLatency = await _corvusTTS.Speak(spokenText);
+                }
+
+                // Latency
+                CorvusLatency clatency = new CorvusLatency();
+                clatency.STT = _sttLatency;
+                clatency.classification = (long)(response.latency_ms);
+                clatency.network = _networkOnlyLatency;
+                clatency.roundTrip = _roundTripLatency;
+                clatency.TTS = _ttsLatency;
+                clatency.total = _sttLatency + _roundTripLatency + _ttsLatency;
 
                 // Event to notify UI
-                OnIntentReceived?.Invoke(response.intent, response.confidence, response.latency_ms);
+                OnIntentReceived?.Invoke(response.intent, response.confidence, clatency);
 
                 Debug.Log($"Intent: {response.intent}, Confidence: {response.confidence}, Latency: {response.latency_ms}ms");
 
                 // Log to LMCC for mission coordination
                 LogToLMCC(_lastCommand, response.intent, response.confidence);
 
-                // Speak the response
-                if (_corvusTTS != null)
-                {
-                    string spokenText = GetResponseForIntent(response.intent, response.confidence);
-                    _ = _corvusTTS.Speak(spokenText);
-                }
-                 
-
+                // UnityMainThreadDispatcher.Instance().Enqueue(() => {                                                                               
+                //     _wakeRecognizer.Stop();
+                //     _wakeRecognizer.Start();
+                // });
             }
             catch (Exception ex)
             {
@@ -172,6 +210,7 @@ namespace CLAWS.Networking
                 string json = JsonUtility.ToJson(request);
 
                 Debug.Log($"Sending: {json}");
+                _stopWatch.Restart();
                 await _webSocketClient.SendAsync(json);
                 
             }
@@ -222,11 +261,16 @@ namespace CLAWS.Networking
         // Whisper finishes recording -> transcribe -> send to Python
         private async void OnRecordStop(AudioChunk recordedAudio)
         {
+            var sw = System.Diagnostics.Stopwatch.StartNew();
             var result = await _whisper.GetTextAsync(recordedAudio.Data, recordedAudio.Frequency, recordedAudio.Channels);
+            sw.Stop();
+            _sttLatency = sw.ElapsedMilliseconds;
             if(result == null) return;
 
             Debug.Log($"CORVUS Transcription: {result.Result}");
+            
             await SendCommandAsync(result.Result);
+            
         }
 
 
