@@ -46,6 +46,7 @@ Piper TTS ← Speaker ←──────────────────�
 - Keyword-based classifier (placeholder for real model)
 - Piper TTS (~70ms after warmup)
 - LMCC integration structure (Socket.IO)
+- Full latency tracking UI (STT, classification, network, round-trip, TTS, total) via CorvusLatency class
 
 ## Dual-Inference Pipeline
 
@@ -118,16 +119,19 @@ MiniLM is ~3x smaller and ~5-10x faster.
 CORVUS_PythonServer/
 ├── models/
 │   ├── embeddings/minilm/
-│   ├── classifier/intent_nn.pt, routing_nn.pt
-│   └── whisper/base.en/
+│   ├── classifier/
+│   │   ├── distilbert/              # Current working model (ONNX)
+│   │   └── minilm-nn/              # Future MiniLM + NN weights
+│   └── whisper/tiny.en/, base.en/
 ├── data/
 │   ├── intents/training_data.json, shortcuts.json
 │   ├── rag/eva_procedures/, faiss_index/
 │   └── logs/
 ├── src/
-│   ├── server/main.py, websocket_handler.py
+│   ├── config.py
+│   ├── server/main.py, websocket_handler.py, socket_handler.py (future LMCC)
 │   ├── stt/whisper_transcriber.py
-│   ├── classifier/embedder.py, intent_classifier.py, routing_classifier.py
+│   ├── classifier/ai_model.py, embedder.py, intent_classifier.py, routing_classifier.py
 │   ├── rag/vector_store.py, knowledge_graph.py, retriever.py
 │   ├── cloud/api_client.py, prompt_builder.py
 │   ├── context/context_window.py, anaphora_detector.py
@@ -193,18 +197,78 @@ CORVUS_Integration/Assets/CLAWS/
 - WebSocket communication
 - Wake word detection
 - Basic keyword classifier
+- DistilBERT ONNX classifier integrated and tested end-to-end
+- Python server folder structure set up
 
 ### 🔄 In Progress
-- Integrate DistilBERT classifier from teammates
-- Real telemetry responses via LMCC
+- Replace DistilBERT with MiniLM + NN classifier (using SetFit for training)
 
 ### 📋 Next
-- Replace DistilBERT with MiniLM + NN classifier (using SetFit for training)
 - Implement routing logic (local vs cloud)
 - Build FAISS index for EVA procedures
 - Integrate Claude API for complex queries
-- Move Whisper from HoloLens to Jetson
+- Context management (conversation history, anaphora detection)
+- Move Whisper from HoloLens to Jetson (see STT Migration Plan below)
 - End-to-end testing on hardware
+
+### 🧊 Shelved (waiting on other teams)
+- Real telemetry responses via LMCC (waiting on infra team)
+
+## STT Migration Plan: HoloLens → Jetson
+
+### Current State
+- Whisper runs on HoloLens CPU via whisper.unity (ggml-tiny.en)
+- STT latency: ~600-700ms (biggest bottleneck)
+- VAD enabled in whisper.unity (vadStopTime=1.0s, Silero-style energy-based)
+- Pipeline: Wake word → Record → VAD stops recording → Whisper transcribes → Send text over WebSocket
+
+### Target State
+- Unity becomes thin audio capture + playback layer
+- Jetson handles VAD + STT + classification in one pipeline
+- Pipeline: Wake word → Stream raw audio over WebSocket → Jetson VAD + faster-whisper (streaming) → Classify → Respond
+
+### Estimated Latency Improvement
+
+| Component | Current (HoloLens) | Target (Jetson) |
+|-----------|-------------------|-----------------|
+| VAD silence wait | ~1000ms | ~300-500ms (Silero VAD, tuned) |
+| Whisper STT | ~600-700ms (CPU) | ~50-100ms (GPU, faster-whisper) |
+| STT overlap | None (batch) | Streaming — transcribes during speech |
+| **After-speech → response** | **~650ms** | **~100-150ms** |
+
+### Responsibility Split After Migration
+
+| Component | Unity (HoloLens) | Jetson |
+|-----------|-----------------|--------|
+| Wake word detection | Yes (KeywordRecognizer) | — |
+| Mic capture | Yes | — |
+| Audio streaming | Yes (raw PCM over WebSocket) | — |
+| VAD | — | Yes (Silero VAD via faster-whisper) |
+| STT | — | Yes (faster-whisper, GPU, streaming) |
+| Classification | — | Yes |
+| TTS | Yes (Piper, ~70ms) | — |
+
+### WebSocket Protocol Change
+
+Current: Unity sends text after local STT
+```json
+{"command": "check my vitals"}
+```
+
+After migration: Unity streams raw PCM audio bytes after wake word, Jetson returns intent response when speech ends.
+
+### Key Libraries (Jetson)
+- **faster-whisper** (CTranslate2 backend) — optimized Whisper for GPU
+- **Silero VAD** — built into faster-whisper, ~2ms per frame
+- Streaming transcription support — chunked inference while user speaks
+
+### Migration Phases
+1. Tune current VAD (reduce vadStopTime to 0.3-0.5s) — quick win, no architecture change
+2. Add faster-whisper + Silero VAD to Python server
+3. Update WebSocket protocol to accept audio streams
+4. Update Unity to stream raw mic audio instead of running local Whisper
+5. Enable streaming transcription (overlap recording + inference)
+6. Evaluate upgrading to base.en or small.en on Jetson GPU
 
 ## Key Decisions
 

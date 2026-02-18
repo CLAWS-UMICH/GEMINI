@@ -21,6 +21,7 @@ ONNX_MODEL_PATH = DB_MODEL_DIR / "model.onnx"
 LABELS_PATH = DB_MODEL_DIR / "labels.json"
 
 NN_MODEL_DIR = BASE_DIR / "models" / "nn-model"
+MINILM_MODEL_DIR = BASE_DIR / "models" / "embeddings" / "minilm"
 USE_ONNX_MODEL = True
 
 # Sample intent mappings, will upgrade to AI later
