@@ -10,7 +10,7 @@ HOST = "0.0.0.0"
 PORT = 8765 # Port Unity will connect to
 
 # Confidence thresholds for intent classification
-CONFIDENCE_THRESH_HIGH = 0.8        # Execute immediately
+CONFIDENCE_THRESH_HIGH = 0.75        # Execute immediately
 CONFIDENCE_THRESH_MEDIUM = 0.5      # Execute with confirmation
 # Anything below MEDIUM is considered low confidence
 
