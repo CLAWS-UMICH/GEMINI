@@ -199,12 +199,17 @@ CORVUS_Integration/Assets/CLAWS/
 - Basic keyword classifier
 - DistilBERT ONNX classifier integrated and tested end-to-end
 - Python server folder structure set up
+- MiniLM embedder (embedder.py)
+- Intent NN architecture + inference wrapper (intent_classifier.py)
+- Rule-based routing classifier (routing_classifier.py)
 
 ### 🔄 In Progress
 - Replace DistilBERT with MiniLM + NN classifier (using SetFit for training)
 
 ### 📋 Next
-- Implement routing logic (local vs cloud)
+- Write training data (data/intents/training_data.json) — 8-16 examples per intent
+- Train MiniLM + NN with SetFit (scripts/train_intent_nn.ipynb)
+- Wire MiniLM classifier + router into websocket_handler.py
 - Build FAISS index for EVA procedures
 - Integrate Claude API for complex queries
 - Context management (conversation history, anaphora detection)
