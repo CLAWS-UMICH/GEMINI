@@ -168,3 +168,15 @@
 | `get_errors_electronic_heater` | 🟠 High | Queries whether the LTV electronic heater is reporting an error |
 | `get_errors_comms` | 🔴 Critical | Queries whether the LTV communications system has an error |
 | `get_errors_fuse` | 🟠 High | Queries whether the LTV fuse has blown or is reporting an error |
+
+
+### CORVUS Training Data — Final Audit
+Total intents                  87
+Total training examples     1,246
+
+Priority         Intents Examples Avg per intent
+🔴 Critical      37      592          16.0
+🟠 High          33      462          14.0
+🟡 Medium        14      168          12.0
+🟢 Low           3       24           8.0
+Total             87     1,246
