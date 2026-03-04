@@ -204,17 +204,18 @@ CORVUS_Integration/Assets/CLAWS/
 - Intent NN architecture + inference wrapper (intent_classifier.py) — Linear(384→256→num_intents)
 - Rule-based routing classifier (routing_classifier.py)
 - TSS 2026 intent audit + design decisions (CORVUS_Intents.md, CORVUS_Intent_Design.md)
-- Training data written and audited (87 intents, 1,246 examples — models/classifier/minilm-nn/training_data.json)
+- Training data written and audited (87 intents, 1,246 examples — data/intents/training_data.json)
 - MiniLM fine-tuned with SetFit (96.8% validation accuracy, 600 epochs) — saved to models/embeddings/minilm/
 - IntentNN trained and saved (intent_nn.pt — models/classifier/minilm-nn/)
 - Training notebook complete (scripts/train_intent_nn.ipynb)
+- config.py updated: fixed NN_MODEL_DIR, added NN_MODEL_PATH, USE_NN_MODEL, FAISS_INDEX_DIR, EVA_PROCEDURES_DIR, TRAINING_DATA_PATH
+- embedder.py updated: loads fine-tuned MiniLM from local path, falls back to HuggingFace with warning
+- MiniLM classifier + router wired into websocket_handler.py — tested end-to-end, pipeline confirmed working
 
 ### 🔄 In Progress
-- Wire MiniLM classifier + router into websocket_handler.py
+- (nothing — tasks 1-3 complete)
 
 ### 📋 Next
-- Update embedder.py to load fine-tuned MiniLM from models/embeddings/minilm/ (local path, not HuggingFace)
-- Wire IntentClassifier + RoutingClassifier into websocket_handler.py
 - Build FAISS index for EVA procedures
 - Integrate Claude API for complex queries
 - Context management (conversation history, anaphora detection)

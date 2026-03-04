@@ -10,7 +10,7 @@ HOST = "0.0.0.0"
 PORT = 8765 # Port Unity will connect to
 
 # Confidence thresholds for intent classification
-CONFIDENCE_THRESH_HIGH = 0.75        # Execute immediately
+CONFIDENCE_THRESH_HIGH = 0.65       # Execute immediately
 CONFIDENCE_THRESH_MEDIUM = 0.5      # Execute with confirmation
 # Anything below MEDIUM is considered low confidence
 
@@ -20,9 +20,17 @@ DB_MODEL_DIR = BASE_DIR / "models" / "classifier" / "distilbert"
 ONNX_MODEL_PATH = DB_MODEL_DIR / "model.onnx"
 LABELS_PATH = DB_MODEL_DIR / "labels.json"
 
-NN_MODEL_DIR = BASE_DIR / "models" / "nn-model"
+NN_MODEL_DIR = BASE_DIR / "models" / "classifier" / "minilm-nn"
 MINILM_MODEL_DIR = BASE_DIR / "models" / "embeddings" / "minilm"
-USE_ONNX_MODEL = True
+TRAINING_DATA_PATH = BASE_DIR / "data" / "intents" / "training_data.json"
+NN_MODEL_PATH = NN_MODEL_DIR / "intent_nn.pt"
+
+FAISS_INDEX_DIR = BASE_DIR / "data" / "rag" / "faiss_index"
+EVA_PROCEDURES_DIR = BASE_DIR / "data" / "rag" / "eva_procedures"
+
+# Set Model Selection
+USE_ONNX_MODEL = False
+USE_NN_MODEL = True
 
 # Sample intent mappings, will upgrade to AI later
 INTENT_MAPPINGS = {

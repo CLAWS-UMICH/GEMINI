@@ -7,9 +7,12 @@ from datetime import datetime, timezone
 # Import our modules
 from src.config import (
       HOST, PORT, INTENT_MAPPINGS, LATENCY_WARNING_MS,
-      USE_ONNX_MODEL, ONNX_MODEL_PATH, LABELS_PATH
+      USE_ONNX_MODEL, ONNX_MODEL_PATH, LABELS_PATH,
+      USE_NN_MODEL, NN_MODEL_PATH, TRAINING_DATA_PATH
 )
 from src.classifier.ai_model import IntentClassifier, DistilBertClassifier
+from src.classifier.intent_classifier import IntentClassifier as NNClassifier
+from src.classifier.routing_classifier import RoutingClassifier
 
 class Colors:
       HEADER = '\033[95m'
@@ -36,6 +39,14 @@ def log_error(message):
     """Log error message in red."""
     print(f"{Colors.FAIL}[ERROR]{Colors.ENDC} {message}")
 
+router = RoutingClassifier()
+
+if USE_NN_MODEL:
+    with open(TRAINING_DATA_PATH) as f:
+        _data = json.load(f)
+    _labels = [intent["label"] for intent in _data["intents"]]
+    nn_classifier = NNClassifier(_labels, NN_MODEL_PATH)
+
 def handle_message(message_text: str, classifier) -> str:
     """Process a message from Unity and return a response"""
 
@@ -49,7 +60,6 @@ def handle_message(message_text: str, classifier) -> str:
         # Step 2: Extract required fields
         command = message.get("command", "")
         request_id = message.get("request_id", "unknown")
-        user_id = message.get("user_id", "unknown")
 
         # Validate command exists
         if not command:
@@ -63,6 +73,7 @@ def handle_message(message_text: str, classifier) -> str:
         # Step 3: Classify the intent
         log_info(f"Classifying command: '{command}'")
         classification = classifier.classify(command)
+        routing = router.route(command, classification)
 
         # Step 4: Calculate latency
         end_time = time.time()
@@ -76,14 +87,20 @@ def handle_message(message_text: str, classifier) -> str:
         response = {
             "status": "success",
             "intent": classification["intent"],
-            "all_intents": classification["all_intents"],
             "confidence": classification["confidence"],
-            "matched_keywords": classification.get("matched_keywords", []),
-            "parameters": classification.get("parameters", {}),
+            "route": routing["route"],
+            "reason": routing["reason"],
             "request_id": request_id,
             "latency_ms": latency_ms,
             "timestamp": datetime.now(timezone.utc).isoformat()
         }
+
+        if "all_intents" in classification:
+            response["all_intents"] = classification["all_intents"]
+        if "parameters" in classification:
+            response["parameters"] = classification["parameters"]
+        if "matched_keywords" in classification:
+            response["matched_keywords"] = classification["matched_keywords"]
 
         # Log the result
         log_success(f"Intent: {classification['intent']}, Confidence: {classification['confidence']}, Latency: {latency_ms}ms")
@@ -115,7 +132,9 @@ async def handle_client(websocket):
 
     # Create classifier instance for this client
     # Each client gets their own classifier (thread-safe)
-    if USE_ONNX_MODEL:
+    if USE_NN_MODEL:
+        classifier = nn_classifier
+    elif USE_ONNX_MODEL:
         classifier = DistilBertClassifier(ONNX_MODEL_PATH, LABELS_PATH)
         log_info("Using ONNX model for classification")
     else:
