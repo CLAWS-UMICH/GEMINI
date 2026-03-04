@@ -9,10 +9,10 @@ class IntentNN(nn.Module):
         print(f"Using {self.device} device")
         
         self.model = nn.Sequential(
-            nn.Linear(384, 128),
+            nn.Linear(384, 256),
             nn.ReLU(),
             nn.Dropout(0.3),
-            nn.Linear(128, num_intents),
+            nn.Linear(256, num_intents),
         )
 
     def forward(self, x):

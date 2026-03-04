@@ -75,15 +75,16 @@ Route to cloud when:
 
 ### Planned: MiniLM Embeddings + Neural Network
 - MiniLM (all-MiniLM-L6-v2) converts text to 384-dim vector (shared with RAG)
-- Simple 2-layer NN classifies intent (~5-15ms)
+- 2-layer NN classifies intent (~5-15ms)
 - Separate routing NN decides local vs cloud
+- **87 intents** for TSS 2026 (up from 46) — hidden layer bumped to 256 for capacity
 
 ```
 Input text
     ↓
 MiniLM (encoder-only transformer) → 384-dim embedding
     ↓
-NN: Linear(384→128) → ReLU → Dropout → Linear(128→num_intents)
+NN: Linear(384→256) → ReLU → Dropout → Linear(256→num_intents)
     ↓
 Softmax → intent probabilities
 ```
@@ -121,7 +122,7 @@ CORVUS_PythonServer/
 │   ├── embeddings/minilm/
 │   ├── classifier/
 │   │   ├── distilbert/              # Current working model (ONNX)
-│   │   └── minilm-nn/              # Future MiniLM + NN weights
+│   │   └── minilm-nn/              # intent_nn.pt + training_data.json
 │   └── whisper/tiny.en/, base.en/
 ├── data/
 │   ├── intents/training_data.json, shortcuts.json
@@ -200,16 +201,20 @@ CORVUS_Integration/Assets/CLAWS/
 - DistilBERT ONNX classifier integrated and tested end-to-end
 - Python server folder structure set up
 - MiniLM embedder (embedder.py)
-- Intent NN architecture + inference wrapper (intent_classifier.py)
+- Intent NN architecture + inference wrapper (intent_classifier.py) — Linear(384→256→num_intents)
 - Rule-based routing classifier (routing_classifier.py)
+- TSS 2026 intent audit + design decisions (CORVUS_Intents.md, CORVUS_Intent_Design.md)
+- Training data written and audited (87 intents, 1,246 examples — models/classifier/minilm-nn/training_data.json)
+- MiniLM fine-tuned with SetFit (96.8% validation accuracy, 600 epochs) — saved to models/embeddings/minilm/
+- IntentNN trained and saved (intent_nn.pt — models/classifier/minilm-nn/)
+- Training notebook complete (scripts/train_intent_nn.ipynb)
 
 ### 🔄 In Progress
-- Replace DistilBERT with MiniLM + NN classifier (using SetFit for training)
+- Wire MiniLM classifier + router into websocket_handler.py
 
 ### 📋 Next
-- Write training data (data/intents/training_data.json) — 8-16 examples per intent
-- Train MiniLM + NN with SetFit (scripts/train_intent_nn.ipynb)
-- Wire MiniLM classifier + router into websocket_handler.py
+- Update embedder.py to load fine-tuned MiniLM from models/embeddings/minilm/ (local path, not HuggingFace)
+- Wire IntentClassifier + RoutingClassifier into websocket_handler.py
 - Build FAISS index for EVA procedures
 - Integrate Claude API for complex queries
 - Context management (conversation history, anaphora detection)
