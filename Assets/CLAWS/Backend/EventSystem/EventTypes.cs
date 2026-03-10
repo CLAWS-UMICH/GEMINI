@@ -1,22 +1,210 @@
+using System;
 using System.Collections.Generic;
-
-// Last Updated:
-//    Molly M. -- 9/30/2025
+using UnityEngine;
 
 
-// Example Event Type:
-public class Event 
+
+// UIA EVENTS
+public class UIAUpdatedEvent
 {
-    public string message { get; private set; }
+    public UIA data { get; private set; }
 
-    public Event(string msg)
+    public UIAUpdatedEvent(UIA _data)
     {
-        message = msg;
+        data = _data;
     }
 }
 
-// Add event types here as needed...
-// TODO:
-// - Add a vitals update event type for EV1
-// - Add a vitals update event type for EV2
+[System.Serializable]
+public class PR_Vitals
+{
+    public string oxygen_tank;
+    public string battery_level;
+}
+
+public class prUpdatedVitalsEvent
+{
+    public PR_Vitals data { get; private set; }
+
+    public prUpdatedVitalsEvent(PR_Vitals _data)
+    {
+        data = _data;
+    }
+}
+
+
+// VITALS EVENTS
+public class UpdatedVitalsEvent
+{
+    public Vitals vitals { get; private set; }
+
+    public UpdatedVitalsEvent(Vitals _v)
+    {
+        vitals = _v;
+    }
+}
+
+public class UpdatedFellowAstronautVitalsEvent
+{
+    public Vitals vitals { get; private set; }
+
+    public UpdatedFellowAstronautVitalsEvent(Vitals _v)
+    {
+        vitals = _v;
+    }
+}
+
+public class DCUChangedEvent
+{
+    public EvaDetails eva { get; private set; }
+
+    public DCUChangedEvent(EvaDetails _e)
+    {
+        eva = _e;
+    }
+}
+
+public class FellowDCUChangedEvent
+{
+    public EvaDetails eva { get; private set; }
+
+    public FellowDCUChangedEvent(EvaDetails _e)
+    {
+        eva = _e;
+    }
+}
+
+public class DCUErrorEvent
+{
+    public ErrorMsg err { get; private set; }
+
+    public DCUErrorEvent(ErrorMsg _e)
+    {
+        err = _e;
+    }
+}
+
+
+// WAYPOINT EVENTS
+public class WaypointDeletedEvent
+{
+    public Waypoint DeletedWaypoint { get; private set; }
+
+    public WaypointDeletedEvent(Waypoint _deletedWaypoint)
+    {
+        DeletedWaypoint = _deletedWaypoint;
+    }
+}
+public class WaypointAddedEvent
+{
+    public Waypoint NewAddedWaypoint{ get; private set; }
+
+    public WaypointAddedEvent(Waypoint _waypoint)
+    {
+        NewAddedWaypoint = _waypoint;
+    }
+}
+
+
+public class EV1_LocationUpdatedEvent
+{
+    public Location data { get; private set; }
+
+    public EV1_LocationUpdatedEvent(Location _gps)
+    {
+        data = _gps;
+    }
+}
+
+
+public class EV2_LocationUpdatedEvent
+{
+    public Location data { get; private set; }
+
+    public EV2_LocationUpdatedEvent(Location _gps)
+    {
+        data = _gps;
+    }
+}
+
+
+public class PR_LocationUpdatedEvent
+{
+    public Location data { get; private set; }
+
+    public PR_LocationUpdatedEvent(Location _gps)
+    {
+        data = _gps;
+    }
+}
+
+// Geosample EVENTS
+public class XRFScanEvent
+{
+    public DataDetails compositions { get; private set; }
+
+    public XRFScanEvent(DataDetails _compositions)
+    {
+        compositions = _compositions;
+    }
+}
+
+// MESSAGES EVENTS
+public class MessagesAddedEvent
+{
+    public List<Message> NewAddedMessages { get; private set; }
+
+    public MessagesAddedEvent(List<Message> _newAddedMessages)
+    {
+        NewAddedMessages = _newAddedMessages;
+    }
+}
+
+
+public class MessagesAppendedEvent 
+{   public MessagesAppendedEvent() {}   }
+
+
+public class MessageSentEvent
+{
+    public Message NewMadeMessage { get; private set; }
+
+    public MessageSentEvent(Message _newMadeMessage)
+    {
+        NewMadeMessage = _newMadeMessage;
+    }
+}
+
+
+public class MessageReactionEvent
+{
+    public Message NewReactionMessage { get; private set; }
+    public MessageReactionEvent(Message _newRactionMessage)
+    {
+        NewReactionMessage = _newRactionMessage;
+    }
+}
+
+
+public class RoverUpdatedEvent
+{
+    public RoverDetails data { get; private set; }
+
+    public RoverUpdatedEvent(RoverDetails d)
+    {
+        data = d;
+    }
+}
+
+public class RoverStatusUpdatedEvent
+{
+    public bool data { get; private set; }
+
+    public RoverStatusUpdatedEvent(bool d)
+    {
+        data = d;
+    }
+}
+
+
 
