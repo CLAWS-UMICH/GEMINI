@@ -5,61 +5,104 @@ public class SideMenuTrigger : MonoBehaviour
 {
     [Header("Settings")]
     public Transform objectToMove;
-    public float shiftAmount = 3f; // Set this to 3
-    public float speed = 3f;       // How fast it moves, moves linearly
+    public float shiftAmount = 0.2f;
+    public float speed = 3f;
 
-    private BoxCollider btnCollider; 
+    [Tooltip("Seconds gaze must be off the menu before it retracts")]
+    public float retractDelay = 0.5f;
 
-    private bool isMoving = false;
+    private Vector3 hiddenPos;
+    private Coroutine slideCoroutine;
+    private Coroutine watchCoroutine;
+    private bool isOpen;
 
     void Start()
     {
-        btnCollider = GetComponent<BoxCollider>();
+        if (objectToMove != null)
+            hiddenPos = objectToMove.localPosition;
     }
 
-    // This is the function you select in the Button OnClick() list
     public void ShiftMenu()
     {
-        // Prevent clicking while already moving to avoid glitches
-        if (objectToMove != null && !isMoving)
+        if (objectToMove == null || isOpen) return;
+        isOpen = true;
+        SlideTo(hiddenPos + new Vector3(shiftAmount, 0f, 0f));
+        watchCoroutine = StartCoroutine(WatchGaze());
+    }
+
+    // No-op: retraction is handled entirely by WatchGaze.
+    // Kept public so existing Inspector wiring doesn't throw errors.
+    public void ShiftMenuBack() { }
+
+    public void ShiftMenu(float timestamp) => ShiftMenu();
+    public void ShiftMenuBack(float timestamp) { }
+
+    IEnumerator WatchGaze()
+    {
+        Camera cam = Camera.main;
+        float timeOffMenu = 0f;
+
+        // Wait for the slide to finish before checking gaze
+        while (slideCoroutine != null)
+            yield return null;
+
+        while (isOpen)
         {
-            StartCoroutine(SlideObject(shiftAmount));
+            bool gazeHitsMenu = false;
+
+            if (cam != null)
+            {
+                Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+                foreach (RaycastHit hit in Physics.RaycastAll(ray, 10f))
+                {
+                    if (hit.transform == objectToMove || hit.transform.IsChildOf(objectToMove))
+                    {
+                        gazeHitsMenu = true;
+                        break;
+                    }
+                }
+            }
+
+            if (gazeHitsMenu)
+            {
+                timeOffMenu = 0f;
+            }
+            else
+            {
+                timeOffMenu += 0.1f;
+                if (timeOffMenu >= retractDelay)
+                {
+                    isOpen = false;
+                    watchCoroutine = null;
+                    SlideTo(hiddenPos);
+                    yield break;
+                }
+            }
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
-    public void ShiftMenuBack()
+    private void SlideTo(Vector3 target)
     {
-        // Prevent clicking while already moving to avoid glitches
-        if (objectToMove != null && !isMoving)
-        {
-            StartCoroutine(SlideObject(-shiftAmount));
-        }
+        if (slideCoroutine != null)
+            StopCoroutine(slideCoroutine);
+        slideCoroutine = StartCoroutine(SlideObject(target));
     }
 
-    IEnumerator SlideObject(float shift)
+    IEnumerator SlideObject(Vector3 targetPos)
     {
-        isMoving = true;
-
-        // 1. We use localPosition to avoid "flying off" the screen
         Vector3 startPos = objectToMove.localPosition;
+        float t = 0f;
 
-        // 2. We calculate the end position by ONLY adding to the X axis
-        Vector3 endPos = new Vector3(startPos.x + shift, startPos.y, startPos.z);
-        
-        float t = 0; // t represents the percentage of the journey (0 to 1)
-        
         while (t < 1f)
         {
             t += Time.deltaTime * speed;
-            
-            // Lerp finds the point between start and end based on 't'
-            objectToMove.localPosition = Vector3.Lerp(startPos, endPos, t);
-            
-            yield return null; // Wait for next frame
+            objectToMove.localPosition = Vector3.Lerp(startPos, targetPos, Mathf.Clamp01(t));
+            yield return null;
         }
 
-        // 3. Ensure it ends exactly on the target
-        objectToMove.localPosition = endPos;
-        isMoving = false;
+        objectToMove.localPosition = targetPos;
+        slideCoroutine = null;
     }
 }
