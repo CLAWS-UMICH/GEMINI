@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 public class VoiceAssistant : MonoBehaviour
 {
-    public LMCC lmcc;
+    public LMCCWebSocketClient lmcc;
     private KeywordRecognizer wakeRecognizer;
     private string[] wakeWords = new string[] { "hey corvus", "corvus" }; // you can add variants
     private DictationRecognizer dictationRecognizer;

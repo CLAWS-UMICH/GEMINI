@@ -1,8 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-// Last Updated:
-//     Molly M. -- 9/30/2025
-
+using System.Collections;
 
 public class AstronautInstance : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class AstronautInstance : MonoBehaviour
         {
             instance = this;
         }
-
+            
     }
 
     // STATIC INTERFACE

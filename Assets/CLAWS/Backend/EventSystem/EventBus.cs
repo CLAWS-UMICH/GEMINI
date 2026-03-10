@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Last Updated:
-//    Molly M. -- 9/30/2025
-
 public class EventBus
 {
     // Change this to "true" and all events will be logged to console automatically
