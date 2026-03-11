@@ -1,4 +1,7 @@
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # CORVUS Server Configuration
 
@@ -31,6 +34,15 @@ EVA_PROCEDURES_DIR = BASE_DIR / "data" / "rag" / "eva_procedures"
 # Set Model Selection
 USE_ONNX_MODEL = False
 USE_NN_MODEL = True
+
+# LLM Cloud Settings
+LLM_PROVIDER= os.getenv("LLM_PROVIDER", "groq")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+
+LLM_MODEL_GROQ = "qwen/qwen3-32b"
+LLM_MODEL_GEMINI = "gemini-3.1-flash-lite-preview"
+LLM_TEMPERATURE = 0.2
 
 # Sample intent mappings, will upgrade to AI later
 INTENT_MAPPINGS = {

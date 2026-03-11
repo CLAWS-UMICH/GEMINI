@@ -18,12 +18,16 @@ dependencies = [
     "sentence-transformers>=5.2.3",
     "datasets>=4.6.1",
     "setfit>=1.1.3",
+    "langchain>=1.2.11",
+    "langchain-community>=0.4.1",
+    "langchain-huggingface>=1.2.1",
 ]
 
 [project.scripts]
-corvus     = "src.server.main:main"
-model-test = "tests.test_classifier:main"
-nn-test    = "tests.test_nn:main"
+corvus      = "src.server.main:main"
+model-test  = "tests.test_classifier:main"
+nn-test     = "tests.test_nn:main"
+build-faiss = "scripts.build_faiss_index:main"
 
 [build-system]                                                                                    
   requires = ["setuptools>=75.0"]
