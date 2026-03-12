@@ -14,11 +14,16 @@ namespace CLAWS.Testing
         // Test commands
         private readonly string[] _testCommands = new string[]
         {
-            "check my vitals",          // 1
-            "navigate to airlock",      // 2
-            "check oxygen level",       // 3
-            "show battery status",      // 4
-            "emergency abort"           // 5
+            "check my vitals",              // 1
+            "show me the map",              // 2
+            "navigate to the LTV",          // 3
+            "reroute around that crater",   // 4
+            "start egress",                 // 5
+            "start ERM",                    // 6
+            "run diagnostics on the LTV",   // 7
+            "what's my temperature",        // 8 
+            "what's the cabin temperature", // 9
+            "check my primary fan",         // 0
         };
 
         private void Update()
@@ -37,16 +42,31 @@ namespace CLAWS.Testing
                 _ = SendTestCommandAsync(0);    // "check my vitals"
             } else if (keyboard.digit2Key.wasPressedThisFrame)
             {
-                _ = SendTestCommandAsync(1);    // "navigate to airlock"
+                _ = SendTestCommandAsync(1);    // "show me the map"
             } else if (keyboard.digit3Key.wasPressedThisFrame)
             {
-                _ = SendTestCommandAsync(2);    // "check oxygen level"
+                _ = SendTestCommandAsync(2);    // "navigate to the LTV"
             } else if (keyboard.digit4Key.wasPressedThisFrame)
             {
-                _ = SendTestCommandAsync(3);    // "show battery status"
+                _ = SendTestCommandAsync(3);    // "reroute around that crater"
             } else if (keyboard.digit5Key.wasPressedThisFrame)
             {
-                _ = SendTestCommandAsync(4);    // "emergency abort"
+                _ = SendTestCommandAsync(4);    // "start egress"
+            } else if (keyboard.digit6Key.wasPressedThisFrame)
+            {
+                _ = SendTestCommandAsync(5);    // "start ERM"
+            } else if (keyboard.digit7Key.wasPressedThisFrame)
+            {
+                _ = SendTestCommandAsync(6);    // "run diagnostics on the LTV"
+            } else if (keyboard.digit8Key.wasPressedThisFrame)
+            {
+                _ = SendTestCommandAsync(7);    // "what's my temperature"
+            } else if (keyboard.digit9Key.wasPressedThisFrame)
+            {
+                _ = SendTestCommandAsync(8);    // "what's the cabin temperature"
+            } else if (keyboard.digit0Key.wasPressedThisFrame)
+            {
+                _ = SendTestCommandAsync(9);    // "check my primary fan"
             }
         }
 
