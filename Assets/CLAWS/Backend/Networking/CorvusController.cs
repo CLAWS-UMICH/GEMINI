@@ -56,7 +56,7 @@ namespace CLAWS.Networking
         // Server URL
         [SerializeField] private string _serverUrl = "ws://localhost:8765";
         [SerializeField] private CorvusTTS _corvusTTS;
-        [SerializeField] private LMCC _lmcc;
+        [SerializeField] private LMCCWebSocketClient _lmcc;
         [SerializeField] private WhisperManager _whisper;
         [SerializeField] private MicrophoneRecord _microphoneRecord;
 
