@@ -65,6 +65,7 @@ namespace CLAWS.Networking
 
         // Fire event (received from Python)
         public event Action<string, float, CorvusLatency> OnIntentReceived;
+        public event Action OnWakeDetected;
 
         private async void Start()
         {
@@ -138,6 +139,7 @@ namespace CLAWS.Networking
         private void OnWakeWordDetected(PhraseRecognizedEventArgs args)
         {
             Debug.Log($"Wake word detected: {args.text}");
+            OnWakeDetected?.Invoke();
             StartRecording();
         }
 
