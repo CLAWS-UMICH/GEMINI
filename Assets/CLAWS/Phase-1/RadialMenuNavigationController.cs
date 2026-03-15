@@ -47,7 +47,11 @@ public class RadialMenuNavigationController : MonoBehaviour
 
     private const string LABEL_BACK = "Back";
     private const string LABEL_BEGIN_NAV = "Begin Navigation";
+    private const string LABEL_CANCEL_NAV = "Cancel Navigation";
     private const string LABEL_SELECT = "Select";
+
+    /// <summary>True after the user has pressed "Begin Navigation"; center shows "Cancel Navigation" and menu stays open.</summary>
+    private bool isNavigating;
 
     private void Start()
     {
@@ -69,6 +73,7 @@ public class RadialMenuNavigationController : MonoBehaviour
         currentCategory = "";
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
+        isNavigating = false;
         currentWaypointList.Clear();
 
         radialBuilder.entries.Clear();
@@ -248,12 +253,25 @@ public class RadialMenuNavigationController : MonoBehaviour
 
         string currentCenter = radialBuilder.centerLabel ?? "";
 
+        // Cancel active navigation: clear path and destination waypoint, return to waypoint list with Back
+        if (currentCenter == LABEL_CANCEL_NAV && isNavigating)
+        {
+            if (pathfindingSystem != null)
+                pathfindingSystem.ClearTarget();
+            isNavigating = false;
+            pendingTargetPosition = null;
+            selectedWaypointIndex = -1;
+            radialBuilder.SetCenterLabel(LABEL_BACK);
+            return;
+        }
+
+        // Begin navigation: show path in world, keep menu open, switch center to "Cancel Navigation"
         if (currentCenter == LABEL_BEGIN_NAV && pendingTargetPosition.HasValue)
         {
             SetPathLayer(worldPathLayerName);
             pendingTargetPosition = null;
-            selectedWaypointIndex = -1;
-            radialBuilder.CloseMenu();
+            isNavigating = true;
+            radialBuilder.SetCenterLabel(LABEL_CANCEL_NAV);
             return;
         }
 

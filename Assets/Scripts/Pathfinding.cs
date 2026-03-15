@@ -20,6 +20,12 @@ public class Pathfinding : MonoBehaviour
     [Tooltip("Small height offset above ground to avoid z-fighting (meters).")]
     public float groundOffset = 0.02f;
 
+    [Header("Destination waypoint")]
+    [Tooltip("Optional: GameObject to show floating above the navigation destination (e.g. arrow, beacon). Shown when a path exists, hidden when path is cleared or ClearTarget() is called.")]
+    [SerializeField] private Transform destinationWaypointIndicator;
+    [Tooltip("Height in meters above the destination point for the waypoint indicator.")]
+    [SerializeField] private float waypointHeightAboveGround = 2.5f;
+
     private Grid grid;
     private List<Node> currentPath;
     private Vector3 currentTargetPosition;
@@ -49,6 +55,35 @@ public class Pathfinding : MonoBehaviour
     {
         currentTargetPosition = targetPosition;
         CalculatePath(currentTargetPosition);
+    }
+
+    /// <summary>Clears the current path and hides the destination waypoint indicator. Call when the user cancels navigation.</summary>
+    public void ClearTarget()
+    {
+        currentPath = null;
+        currentTargetPosition = default;
+        if (pathRenderer != null)
+            pathRenderer.positionCount = 0;
+        HideDestinationWaypoint();
+    }
+
+    /// <summary>Current world position of the navigation target (valid after SetTarget and when a path exists).</summary>
+    public Vector3 GetCurrentTargetPosition() => currentTargetPosition;
+
+    /// <summary>True when a path to the target has been found and the destination waypoint can be shown.</summary>
+    public bool HasActivePath() => currentPath != null && currentPath.Count > 0;
+
+    void ShowDestinationWaypoint()
+    {
+        if (destinationWaypointIndicator == null) return;
+        destinationWaypointIndicator.position = currentTargetPosition + Vector3.up * waypointHeightAboveGround;
+        destinationWaypointIndicator.gameObject.SetActive(true);
+    }
+
+    void HideDestinationWaypoint()
+    {
+        if (destinationWaypointIndicator != null)
+            destinationWaypointIndicator.gameObject.SetActive(false);
     }
 
     public void CalculatePath(Vector3 targetWorldPosition)
@@ -100,6 +135,7 @@ public class Pathfinding : MonoBehaviour
         {
             Debug.LogError("Node validation failed");
             pathRenderer.positionCount = 0;
+            HideDestinationWaypoint();
             return;
         }
 
@@ -159,6 +195,7 @@ public class Pathfinding : MonoBehaviour
             {
                 currentPath = RetracePath(startNode, targetNode);
                 UpdatePathVisualization();
+                ShowDestinationWaypoint();
                 return;
             }
 
@@ -167,6 +204,7 @@ public class Pathfinding : MonoBehaviour
         
         Debug.LogWarning("No path exists between points");
         pathRenderer.positionCount = 0;
+        HideDestinationWaypoint();
     }
 
     void ProcessNeighbors(Node current, Node target, Heap<Node> openSet, HashSet<Node> closedSet)

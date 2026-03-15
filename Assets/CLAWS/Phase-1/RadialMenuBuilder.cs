@@ -181,6 +181,27 @@ public class RadialMenuBuilder : MonoBehaviour
         return GetFallbackMaterial();
     }
 
+    /// <summary>Disable MRTK StateVisualizer on procedural buttons to avoid NullReferenceException (it expects prefab targets).</summary>
+    private static void DisableStateVisualizer(GameObject go)
+    {
+        if (go == null) return;
+        DisableStateVisualizerOn(go);
+        for (int i = 0; i < go.transform.childCount; i++)
+            DisableStateVisualizerOn(go.transform.GetChild(i).gameObject);
+    }
+
+    private static void DisableStateVisualizerOn(GameObject target)
+    {
+        foreach (var c in target.GetComponents<MonoBehaviour>())
+        {
+            if (c != null && c.GetType().Name == "StateVisualizer")
+            {
+                c.enabled = false;
+                return;
+            }
+        }
+    }
+
     // ── Center Disc ────────────────────────────────────────
 
     private void CreateCenterDisc()
@@ -206,6 +227,9 @@ public class RadialMenuBuilder : MonoBehaviour
         PressableButton centerBtn = centerDisc.AddComponent<PressableButton>();
         if (onCenterClick != null)
             centerBtn.OnClicked.AddListener(() => onCenterClick?.Invoke());
+        DisableStateVisualizer(centerDisc);
+
+        centerDisc.AddComponent<RadialWedgeHighlight>();
 
         GameObject labelGO = new GameObject("CenterLabel");
         labelGO.transform.SetParent(centerDisc.transform, false);
@@ -268,6 +292,9 @@ public class RadialMenuBuilder : MonoBehaviour
 
         PressableButton btn = go.AddComponent<PressableButton>();
         btn.OnClicked.AddListener(() => entry.onClick?.Invoke());
+        DisableStateVisualizer(go);
+
+        go.AddComponent<RadialWedgeHighlight>();
 
         CreateIcon(go.transform, startDeg, endDeg, entry);
         return go;
