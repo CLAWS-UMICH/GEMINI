@@ -79,6 +79,8 @@ namespace CLAWS.Testing
                 return;
             }
 
+            _corvusController.TriggerWakeDetected();
+
             string command = _testCommands[commandIndex];
 
             try

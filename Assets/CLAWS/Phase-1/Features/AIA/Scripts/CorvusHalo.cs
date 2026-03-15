@@ -35,7 +35,7 @@ public class CorvusHalo : MonoBehaviour
         AIA_Animator.SetBool("isAwake", true);
     }
 
-    private void OnIntentReceived(string intent, float confidence, CorvusLatency latency)
+    private void OnIntentReceived(string intent, float confidence, string response, CorvusLatency latency)
     {
         AIA_Animator.SetBool("foundAnswer", true);
         StartCoroutine(WaitForTTSEnd());

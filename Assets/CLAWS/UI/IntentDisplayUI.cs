@@ -48,7 +48,7 @@ namespace CLAWS.UI
             Debug.Log("IntentDisplayUI initialized");
         }
 
-        private void UpdateDisplay(string intent, float confidence, CorvusLatency clatency)
+        private void UpdateDisplay(string intent, float confidence, string response, CorvusLatency clatency)
         {
             // Update the text displays
             _intentText.text = $"Intent: {intent}";

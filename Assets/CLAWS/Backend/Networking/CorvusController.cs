@@ -25,6 +25,7 @@ namespace CLAWS.Networking
         public string request_id;
         public float latency_ms;
         public string timestamp; 
+        public string response;
     }
     public class CorvusLatency 
     {
@@ -64,7 +65,7 @@ namespace CLAWS.Networking
         public bool IsConnected => _webSocketClient?.IsConnected ?? false;
 
         // Fire event (received from Python)
-        public event Action<string, float, CorvusLatency> OnIntentReceived;
+        public event Action<string, float, string, CorvusLatency> OnIntentReceived;
         public event Action OnWakeDetected;
 
         private async void Start()
@@ -104,7 +105,7 @@ namespace CLAWS.Networking
         {
             switch(intent)
             {
-                case "check_vitals":
+                case "open_menu_vitals":
                     return "Checking your vitals now.";
                 case "navigate_to_airlock":
                     return "Navigating to airlock.";
@@ -160,6 +161,8 @@ namespace CLAWS.Networking
                 Debug.Log($"Parsed - intent: {response?.intent}, confidence: {response?.confidence}"); 
                 _networkOnlyLatency = (long)(_roundTripLatency - response.latency_ms);
 
+                UnityMainThreadDispatcher.Instance().Enqueue(() => StopRecording());
+
                 // Speak the response
                 if (_corvusTTS != null)
                 {
@@ -177,7 +180,7 @@ namespace CLAWS.Networking
                 clatency.total = _sttLatency + _roundTripLatency + _ttsLatency;
 
                 // Event to notify UI
-                OnIntentReceived?.Invoke(response.intent, response.confidence, clatency);
+                OnIntentReceived?.Invoke(response.intent, response.confidence, response.response, clatency);
 
                 Debug.Log($"Intent: {response.intent}, Confidence: {response.confidence}, Latency: {response.latency_ms}ms");
 
@@ -273,6 +276,12 @@ namespace CLAWS.Networking
             
             await SendCommandAsync(result.Result);
             
+        }
+
+        // For Testing
+        public void TriggerWakeDetected()
+        {
+            OnWakeDetected?.Invoke();
         }
 
 
