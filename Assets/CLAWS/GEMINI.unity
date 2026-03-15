@@ -1636,6 +1636,7 @@ GameObject:
   - component: {fileID: 207168413}
   - component: {fileID: 207168414}
   - component: {fileID: 207168415}
+  - component: {fileID: 207168416}
   m_Layer: 0
   m_Name: RadialMenu
   m_TagString: Untagged
@@ -1718,6 +1719,18 @@ MonoBehaviour:
   prSprite: {fileID: 21300000, guid: 353228cf3ac63fa4f96e11347b8ba8e3, type: 3}
   minimapOnlyLayerName: Companion
   worldPathLayerName: Default
+--- !u!114 &207168416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207168412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5a8041cf8a74aa8b5c363cf442115b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RadialWedgeHighlight
 --- !u!1 &214210124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3358,7 +3371,7 @@ Transform:
   m_GameObject: {fileID: 347163732}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 38.5, y: 0.2, z: 32.8}
+  m_LocalPosition: {x: 3, y: 0.2, z: 5}
   m_LocalScale: {x: 9.415482, y: 9.4154825, z: 9.4154825}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13709,9 +13722,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4436171370396006581, guid: 5039d8e28f3a949bd93a9d8a244eced1, type: 3}
+      propertyPath: pathLineWidth
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5854417096338852651, guid: 5039d8e28f3a949bd93a9d8a244eced1, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5854417096338852651, guid: 5039d8e28f3a949bd93a9d8a244eced1, type: 3}
       propertyPath: m_Parameters.alignment
@@ -15797,6 +15814,7 @@ MonoBehaviour:
   UIA: {fileID: 1585254166}
   messaging: {fileID: 6620117580836738199}
   menuToggleCollection: {fileID: 381050582}
+  radialMenu: {fileID: 207168412}
 --- !u!114 &1555562892
 MonoBehaviour:
   m_ObjectHideFlags: 0

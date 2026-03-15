@@ -8,6 +8,10 @@ public class Pathfinding : MonoBehaviour
     // public Transform target;
     public LineRenderer pathRenderer;
 
+    [Header("Path line")]
+    [Tooltip("Width of the path line (meters). Smaller values make the path thinner.")]
+    [SerializeField] private float pathLineWidth = 0.5f;
+
     [Header("Ground snapping")]
     [Tooltip("Raycast downward from each path point to stick the line to the ground. Leave as Nothing to keep the path at fixed height.")]
     public LayerMask groundMask = -1;
@@ -33,6 +37,9 @@ public class Pathfinding : MonoBehaviour
 
             // Align the ribbon so Transform Z alignment appears flat. Adjust sign if it looks flipped.
             pathRenderer.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+            pathRenderer.startWidth = pathLineWidth;
+            pathRenderer.endWidth = pathLineWidth;
 
             pathRenderer.positionCount = 0;
         }

@@ -11,6 +11,10 @@ public class ScreenManager : MonoBehaviour
     public GameObject UIA;
     public GameObject messaging;
     public ToggleCollection menuToggleCollection;
+    [Header("Navigation Radial Menu")]
+    [Tooltip("Radial navigation menu GameObject (e.g. 'RadialMenu' in the main scene).")]
+    public GameObject radialMenu;
+
 
 
     void Start()
@@ -18,6 +22,18 @@ public class ScreenManager : MonoBehaviour
         menuToggleCollection.OnToggleSelected.AddListener(OnToggleChanged);
         transform.Find("Screens").gameObject.SetActive(true);
         DeactivateAllScreens();
+
+        // Ensure radial menu starts hidden and in default state
+        if (radialMenu != null)
+        {
+            radialMenu.SetActive(false);
+            var builder = radialMenu.GetComponent<RadialMenuBuilder>();
+            if (builder != null)
+            {
+                builder.BuildMenu();
+                builder.CloseMenu();
+            }
+        }
     }
 
 
@@ -40,9 +56,20 @@ public class ScreenManager : MonoBehaviour
                 UIA.GetComponent<UIAController>().openFeatureScreen();
                 break;
             case 1:
-                Debug.Log("Opening Navigation screen");
-                navigation.SetActive(true);
-                navigation.GetComponent<NavigationFrontend>().openFeatureScreen();
+                Debug.Log("Opening Navigation radial menu");
+
+                // Show radial navigation instead of the old Navigation screen
+                if (radialMenu != null)
+                {
+                    radialMenu.SetActive(true);
+                    var builder = radialMenu.GetComponent<RadialMenuBuilder>();
+                    if (builder != null)
+                    {
+                        // Reset state to default whenever Navigation is selected
+                        builder.BuildMenu();
+                        builder.OpenMenu();
+                    }
+                }
                 break;
             case 2:
                 Debug.Log("Opening Messaging screen");
@@ -91,6 +118,12 @@ public class ScreenManager : MonoBehaviour
         foreach (Transform child in vitals.transform)
         {
             child.gameObject.SetActive(false);
+        }
+
+        // Hide radial menu whenever switching away; its state will be reset next time Navigation is opened
+        if (radialMenu != null)
+        {
+            radialMenu.SetActive(false);
         }
     }
 
