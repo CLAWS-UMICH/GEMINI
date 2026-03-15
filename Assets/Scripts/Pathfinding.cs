@@ -8,6 +8,14 @@ public class Pathfinding : MonoBehaviour
     // public Transform target;
     public LineRenderer pathRenderer;
 
+    [Header("Ground snapping")]
+    [Tooltip("Raycast downward from each path point to stick the line to the ground. Leave as Nothing to keep the path at fixed height.")]
+    public LayerMask groundMask = -1;
+    [Tooltip("Max distance to raycast down when snapping to ground.")]
+    public float groundRaycastDistance = 20f;
+    [Tooltip("Small height offset above ground to avoid z-fighting (meters).")]
+    public float groundOffset = 0.02f;
+
     private Grid grid;
     private List<Node> currentPath;
     private Vector3 currentTargetPosition;
@@ -17,7 +25,17 @@ public class Pathfinding : MonoBehaviour
         grid = GetComponent<Grid>();
         // pathRenderer = GetComponent<LineRenderer>();
         // InitializeLineRenderer();
-        pathRenderer.positionCount = 0;
+
+        if (pathRenderer != null)
+        {
+            // Keep path fixed in world space so it doesn't rotate with any parent/player transform
+            pathRenderer.useWorldSpace = true;
+
+            // Align the ribbon so Transform Z alignment appears flat. Adjust sign if it looks flipped.
+            pathRenderer.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+            pathRenderer.positionCount = 0;
+        }
     }
 
     public void SetTarget(Vector3 targetPosition)
