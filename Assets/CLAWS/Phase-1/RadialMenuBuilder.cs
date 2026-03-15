@@ -9,7 +9,9 @@ using MixedReality.Toolkit.UX;
 public class RadialMenuEntry
 {
     public string label;
+    [Tooltip("Single character or emoji shown on the wedge if Icon Sprite is not set.")]
     public string iconUnicode;
+    [Tooltip("Optional: assign a sprite to show an image on the wedge instead of icon Unicode text. Takes priority over Icon Unicode.")]
     public Sprite iconSprite;
     public UnityEvent onClick;
 }
@@ -52,9 +54,20 @@ public class RadialMenuBuilder : MonoBehaviour
     [Header("Icons")]
     public TMP_FontAsset iconFont;
     public float iconSize = 0.5f;
+    [Tooltip("Scale of sprite icons on wedges (smaller = smaller icons). Multiplied by wedge width.")]
+    [Range(0.1f, 1f)]
+    public float iconSpriteScale = 0.25f;
 
     [Header("Menu Items")]
+    [Tooltip("Assign label and Icon Sprite (or Icon Unicode) per entry in the Inspector. For static menus, set these before play; they are used when the menu is built.")]
     public List<RadialMenuEntry> entries = new List<RadialMenuEntry>();
+
+    [Header("Center Button")]
+    [Tooltip("Label shown in the center (e.g. 'Begin Navigation' or 'Back'). Updated at runtime via SetCenterLabel().")]
+    public string centerLabel = "";
+    [Tooltip("Font size for the center button label.")]
+    [SerializeField] private float centerLabelFontSize = 0.22f;
+    public UnityEvent onCenterClick;
 
     [Header("Animation")]
     public float animationDuration = 0.25f;
@@ -62,6 +75,7 @@ public class RadialMenuBuilder : MonoBehaviour
 
     private List<GameObject> wedgeObjects = new List<GameObject>();
     private GameObject centerDisc;
+    private TextMeshPro centerLabelTMP;
     private bool isOpen;
     private Coroutine animCoroutine;
 
@@ -140,6 +154,7 @@ public class RadialMenuBuilder : MonoBehaviour
                 DestroyImmediate(transform.GetChild(i).gameObject);
         }
         centerDisc = null;
+        centerLabelTMP = null;
     }
 
     private void ApplyTint(Material mat, Color tint)
@@ -176,13 +191,42 @@ public class RadialMenuBuilder : MonoBehaviour
         MeshFilter mf = centerDisc.AddComponent<MeshFilter>();
         MeshRenderer mr = centerDisc.AddComponent<MeshRenderer>();
 
-        mf.sharedMesh = CreateExtrudedDiscMesh(centerDiscRadius, thickness, 32);
+        Mesh discMesh = CreateExtrudedDiscMesh(centerDiscRadius, thickness, 32);
+        mf.sharedMesh = discMesh;
 
         Material faceMat = new Material(ResolveMaterial(centerMaterial, wedgeMaterial));
         ApplyTint(faceMat, wedgeTint);
         Material sideMat = new Material(ResolveMaterial(edgeMaterial, wedgeMaterial));
         ApplyTint(sideMat, edgeTint);
         mr.sharedMaterials = new Material[] { faceMat, sideMat };
+
+        MeshCollider centerCollider = centerDisc.AddComponent<MeshCollider>();
+        centerCollider.sharedMesh = discMesh;
+
+        PressableButton centerBtn = centerDisc.AddComponent<PressableButton>();
+        if (onCenterClick != null)
+            centerBtn.OnClicked.AddListener(() => onCenterClick?.Invoke());
+
+        GameObject labelGO = new GameObject("CenterLabel");
+        labelGO.transform.SetParent(centerDisc.transform, false);
+        labelGO.transform.localPosition = new Vector3(0, 0, -(thickness / 2f + 0.001f));
+        centerLabelTMP = labelGO.AddComponent<TextMeshPro>();
+        centerLabelTMP.text = centerLabel ?? "";
+        centerLabelTMP.fontSize = centerLabelFontSize;
+        centerLabelTMP.alignment = TextAlignmentOptions.Center;
+        centerLabelTMP.color = Color.white;
+        centerLabelTMP.enableWordWrapping = true;
+        centerLabelTMP.overflowMode = TextOverflowModes.Overflow;
+        labelGO.GetComponent<RectTransform>().sizeDelta = new Vector2(centerDiscRadius * 2f, centerDiscRadius * 2f);
+        if (iconFont != null) centerLabelTMP.font = iconFont;
+    }
+
+    /// <summary>Update the center button label at runtime (e.g. "Begin Navigation" or "Back").</summary>
+    public void SetCenterLabel(string label)
+    {
+        centerLabel = label ?? "";
+        if (centerLabelTMP != null)
+            centerLabelTMP.text = centerLabel;
     }
 
     // ── Wedges ─────────────────────────────────────────────
@@ -249,7 +293,7 @@ public class RadialMenuBuilder : MonoBehaviour
             spriteGO.transform.localPosition = iconPos;
             SpriteRenderer sr = spriteGO.AddComponent<SpriteRenderer>();
             sr.sprite = entry.iconSprite;
-            spriteGO.transform.localScale = Vector3.one * (outerRadius - innerRadius) * 0.5f;
+            spriteGO.transform.localScale = Vector3.one * (outerRadius - innerRadius) * iconSpriteScale;
         }
         else if (!string.IsNullOrEmpty(entry.iconUnicode))
         {
