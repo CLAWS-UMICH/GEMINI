@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
@@ -50,8 +51,15 @@ public class RadialMenuNavigationController : MonoBehaviour
     private const string LABEL_CANCEL_NAV = "Cancel Navigation";
     private const string LABEL_SELECT = "Select";
 
-    /// <summary>True after the user has pressed "Begin Navigation"; center shows "Cancel Navigation" and menu stays open.</summary>
+    [Header("Navigation state")]
+    [Tooltip("How close (meters) the astronaut must be to the target to consider navigation complete.")]
+    [SerializeField] private float navigationArrivalDistance = 1.0f;
+    [Tooltip("How often (seconds) we check for arrival while navigating.")]
+    [SerializeField] private float navigationCheckIntervalSeconds = 0.2f;
+
     private bool isNavigating;
+    private Vector3 activeTargetPosition;
+    private Coroutine navigationMonitorCoroutine;
 
     private void Start()
     {
@@ -74,6 +82,8 @@ public class RadialMenuNavigationController : MonoBehaviour
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
         isNavigating = false;
+        activeTargetPosition = default;
+        StopNavigationMonitor();
         currentWaypointList.Clear();
 
         radialBuilder.entries.Clear();
@@ -120,6 +130,9 @@ public class RadialMenuNavigationController : MonoBehaviour
         currentWaypointList = waypoints;
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
+        isNavigating = false;
+        activeTargetPosition = default;
+        StopNavigationMonitor();
 
         radialBuilder.entries.Clear();
         int count = waypoints != null ? waypoints.Count : 0;
@@ -160,6 +173,9 @@ public class RadialMenuNavigationController : MonoBehaviour
         currentWaypointList = new List<Waypoint>();
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
+        isNavigating = false;
+        activeTargetPosition = default;
+        StopNavigationMonitor();
 
         radialBuilder.entries.Clear();
         radialBuilder.segmentCount = 2;
@@ -253,25 +269,26 @@ public class RadialMenuNavigationController : MonoBehaviour
 
         string currentCenter = radialBuilder.centerLabel ?? "";
 
-        // Cancel active navigation: clear path and destination waypoint, return to waypoint list with Back
+        // Cancel navigation (wheel stays open while navigating)
         if (currentCenter == LABEL_CANCEL_NAV && isNavigating)
         {
-            if (pathfindingSystem != null)
-                pathfindingSystem.ClearTarget();
-            isNavigating = false;
-            pendingTargetPosition = null;
-            selectedWaypointIndex = -1;
-            radialBuilder.SetCenterLabel(LABEL_BACK);
+            CancelNavigation();
             return;
         }
 
-        // Begin navigation: show path in world, keep menu open, switch center to "Cancel Navigation"
+        // Begin navigation (wheel does NOT close; we switch the center button to Cancel)
         if (currentCenter == LABEL_BEGIN_NAV && pendingTargetPosition.HasValue)
         {
             SetPathLayer(worldPathLayerName);
+            activeTargetPosition = pendingTargetPosition.Value;
             pendingTargetPosition = null;
             isNavigating = true;
+            selectedWaypointIndex = -1; // clear selection; navigation is now active
+
             radialBuilder.SetCenterLabel(LABEL_CANCEL_NAV);
+            radialBuilder.centerLabel = LABEL_CANCEL_NAV;
+
+            StartNavigationMonitor();
             return;
         }
 
@@ -280,6 +297,78 @@ public class RadialMenuNavigationController : MonoBehaviour
             BuildCategoryMenu();
             return;
         }
+    }
+
+    private void StartNavigationMonitor()
+    {
+        StopNavigationMonitor();
+        navigationMonitorCoroutine = StartCoroutine(NavigationMonitorCoroutine());
+    }
+
+    private void StopNavigationMonitor()
+    {
+        if (navigationMonitorCoroutine != null)
+        {
+            StopCoroutine(navigationMonitorCoroutine);
+            navigationMonitorCoroutine = null;
+        }
+    }
+
+    private IEnumerator NavigationMonitorCoroutine()
+    {
+        while (isNavigating)
+        {
+            // If astronaut data isn't available yet, wait and try again.
+            if (AstronautInstance.User == null || AstronautInstance.User.current == null)
+            {
+                yield return new WaitForSeconds(navigationCheckIntervalSeconds);
+                continue;
+            }
+
+            Vector3 astronautPos = new Vector3(
+                (float)AstronautInstance.User.current.posX,
+                0f,
+                (float)AstronautInstance.User.current.posZ
+            );
+
+            float dist = Vector3.Distance(astronautPos, activeTargetPosition);
+            if (dist <= navigationArrivalDistance)
+            {
+                OnNavigationArrived();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(navigationCheckIntervalSeconds);
+        }
+    }
+
+    private void CancelNavigation()
+    {
+        isNavigating = false;
+        StopNavigationMonitor();
+        pendingTargetPosition = null;
+
+        if (pathfindingSystem != null)
+            pathfindingSystem.ClearTarget();
+
+        radialBuilder.SetCenterLabel(LABEL_BACK);
+        radialBuilder.centerLabel = LABEL_BACK;
+    }
+
+    private void OnNavigationArrived()
+    {
+        isNavigating = false;
+        StopNavigationMonitor();
+        pendingTargetPosition = null;
+
+        if (pathfindingSystem != null)
+            pathfindingSystem.ClearTarget();
+
+        // End navigation with the radial wheel: close it once arrival is reached.
+        radialBuilder.SetCenterLabel(LABEL_BACK);
+        radialBuilder.centerLabel = LABEL_BACK;
+        radialBuilder.CloseMenu();
+        BuildCategoryMenu();
     }
 
     private void SetPathLayer(string layerName)
