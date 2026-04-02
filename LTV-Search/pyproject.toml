@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "ltv-search"
+version = "2.0.0"
+description = "Trilateration-based range-only localization for finding a missing Lunar Terrain Vehicle — NASA SUITS"
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.20"]
+
+[project.optional-dependencies]
+viz = ["pygame>=2.0", "PyYAML>=6.0"]
+
+[tool.setuptools.packages.find]
+include = ["ltv_search*"]

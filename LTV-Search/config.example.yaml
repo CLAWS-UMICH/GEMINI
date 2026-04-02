@@ -1,0 +1,48 @@
+# LTV Search v2 — example config
+# Copy to config.yaml and edit as needed.
+# All values shown are the defaults.
+
+# RSSI model: "linear" (DUST-style) or "path_loss" (log-distance)
+rssi_model: "linear"
+
+# Linear model: rssi = intercept + slope * distance_m
+# Calibrate these for your DUST environment (see README).
+rssi_linear_intercept: 0.0
+rssi_linear_slope: -0.075
+
+# Path-loss model (alternative, use rssi_model: "path_loss")
+rssi_ref_dbm: -30.0
+d_ref_m: 100.0
+path_loss_n: 2.5
+
+# Expected RSSI noise (std deviation in dBm)
+rssi_noise_std: 1.0
+
+# Search
+max_pings: 10
+found_distance_m: 30.0
+search_radius_m: 1500.0
+trilateration_offset_scale: 0.5
+
+# Ping timing (seconds between pings; 20s for competition, 1s for test sim)
+ping_min_interval_sec: 20.0
+
+# Test simulation
+generate_test_simulation: true
+test_sim_seed: null
+test_sim_unlimited_pings: false
+test_sim_ping_interval_sec: 1.0
+test_sim_ltv_min_distance_m: 200.0
+test_sim_ltv_max_distance_m: 1200.0
+
+# Tolerances
+at_lkp_tolerance_m: 15.0
+arrived_tolerance_m: 20.0
+arrived_timeout_sec: 300.0
+
+# Visualization
+enable_viz: true
+
+# TSS connection (for real DUST backend)
+tss_host: "127.0.0.1"
+tss_port: 5000
