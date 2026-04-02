@@ -41,7 +41,7 @@ import numpy as np
 # Configuration — edit these to match your environment
 # ─────────────────────────────────────────────────────────────────────────────
 
-TSS_BASE_URL  = "http://172.20.182.43:14141"   # TSS server address
+TSS_BASE_URL  = "http://35.3.169.31:14141/"   # TSS server address
 POLL_INTERVAL = 1.0                        # seconds between polls
 TEAM_NUMBER   = 1                          # your team number for the TSS endpoint
 
