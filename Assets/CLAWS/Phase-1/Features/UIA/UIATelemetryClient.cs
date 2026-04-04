@@ -32,19 +32,19 @@ public class EvaRootData
     public UiaData uia;
 }
 
-public class EVATelemetryClient : MonoBehaviour
+public class UIATelemetryClient : MonoBehaviour
 {
     [Header("TSS Server Settings")]
-    public string serverIP = "127.0.0.1";
-    public int serverPort = 8080;
+    public string serverIP = "35.2.235.182";
+    public int serverPort = 14141;
     
     [Header("Telemetry Command")]
     [Tooltip("0 = ROVER, 1 = EVA, 2 = LTV, 3 = LTV_ERRORS")]
     public uint commandNumber = 1; // CHANGED TO 1 FOR EVA.JSON
 
     [Header("UI References")]
-    public TextMeshProUGUI heartRateDisplay;
-    public TextMeshProUGUI oxygenDisplay;
+    public TextMeshProUGUI uiaPowerDisplay;
+    public TextMeshProUGUI uiaOxygenDisplay;
 
     private UdpClient udpClient;
     private Thread clientThread;
@@ -90,11 +90,17 @@ public class EVATelemetryClient : MonoBehaviour
                 byte[] responseBytes = udpClient.Receive(ref remoteEndpoint);
                 string responseText = Encoding.UTF8.GetString(responseBytes);
 
+                // 1. ADD THIS LINE to see exactly what the server sends back
+                Debug.Log("RAW SERVER RESPONSE: " + responseText);
+
                 // When you receive the string, parse it into the Root class
                 int jsonStartIndex = responseText.IndexOf('{');
                 if (jsonStartIndex >= 0)
                 {
                     string cleanJson = responseText.Substring(jsonStartIndex);
+
+                    // 2. ADD THIS LINE to verify the JSON block was found
+                    Debug.Log("CLEAN JSON: " + cleanJson);
                     
                     // Parse into EvaRootData instead of UiaTelemetryData
                     EvaRootData parsedData = JsonUtility.FromJson<EvaRootData>(cleanJson);
