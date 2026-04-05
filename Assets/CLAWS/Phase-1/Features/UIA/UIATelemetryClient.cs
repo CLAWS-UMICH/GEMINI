@@ -35,7 +35,7 @@ public class EvaRootData
 public class UIATelemetryClient : MonoBehaviour
 {
     [Header("TSS Server Settings")]
-    public string serverIP = "35.2.235.182";
+    public string serverIP = "35.3.134.11";
     public int serverPort = 14141;
     
     [Header("Telemetry Command")]
