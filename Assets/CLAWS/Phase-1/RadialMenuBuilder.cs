@@ -106,6 +106,13 @@ public class RadialMenuBuilder : MonoBehaviour
         if (isOpen) return;
         isOpen = true;
         if (animCoroutine != null) StopCoroutine(animCoroutine);
+        animCoroutine = null;
+        // StartCoroutine requires active GameObject, apply final state if inactive (e.g. ScreenManager hides menu)
+        if (!gameObject.activeInHierarchy)
+        {
+            transform.localScale = Vector3.one;
+            return;
+        }
         animCoroutine = StartCoroutine(AnimateScale(Vector3.zero, Vector3.one));
     }
 
@@ -114,6 +121,12 @@ public class RadialMenuBuilder : MonoBehaviour
         if (!isOpen) return;
         isOpen = false;
         if (animCoroutine != null) StopCoroutine(animCoroutine);
+        animCoroutine = null;
+        if (!gameObject.activeInHierarchy)
+        {
+            transform.localScale = Vector3.zero;
+            return;
+        }
         animCoroutine = StartCoroutine(AnimateScale(Vector3.one, Vector3.zero));
     }
 
