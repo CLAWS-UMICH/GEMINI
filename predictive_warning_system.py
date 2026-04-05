@@ -49,12 +49,11 @@ TEAM_NUMBER   = 1                          # your team number for the TSS endpoi
 # target value that triggers a predictive warning. Field names match the TSS
 # pr_telemetry keys from ROVER.json.
 RATE_FIELDS: dict[str, float] = {
-    "battery_level":           0,     # warn when projected to hit 0 %
-    "oxygen_tank":             20,    # warn when projected to hit 20 %
-    "oxygen_pressure":         600,   # warn when projected to drop to 600 psi
-    "pr_coolant_level":        20,    # warn when projected to hit 20 %
-    "pr_coolant_tank":         20,    # warn when projected to hit 20 %
-    "solar_panel_dust_accum":  90,    # warn when projected to hit 90 % dust
+    # Source: rover-telemetry-ranges.pdf
+    "battery_level":    30,     # warn when projected to hit the 30 % minimum
+    "oxygen_tank":      25,     # warn when projected to hit the 25 % minimum
+    "oxygen_pressure":  2997,   # warn when projected to drop below 2997 psi minimum
+    "coolant_storage":  80,     # warn when projected to drop below 80 % minimum
 }
 
 # How many timesteps ahead counts as "soon enough to warn"
@@ -170,135 +169,126 @@ def getHistory(valuename: str) -> list[tuple[float, float]]:
 #   }
 
 THRESHOLDS: dict[str, dict] = {
+    # All ranges from: rover-telemetry-ranges.pdf
+    # Format: low = min from PDF, high = max from PDF
+    # nominal value noted in comments where specified
 
-    # ── Power ────────────────────────────────────────────────────────────────
-    "battery_level": {
-        "low":   20,
-        "high":  None,
-        "unit":  "%",
-        "notes": "Initiate return-to-base below 20 %. Below 10 % is critical.",
-    },
-    "power_consumption_rate": {
-        "low":   None,
-        "high":  5.0,   # kW — team should calibrate this to actual rover specs
-        "unit":  "kW",
-        "notes": "Unusually high power consumption — check active systems.",
-    },
-
-    # ── Oxygen ───────────────────────────────────────────────────────────────
-    "oxygen_tank": {
-        "low":   20,
-        "high":  None,
-        "unit":  "%",
-        "notes": "O2 tank below 20 % — begin abort protocol.",
-    },
-    "oxygen_pressure": {
-        "low":   600,
-        "high":  3500,
-        "unit":  "psi",
-        "notes": "O2 supply pressure outside nominal range (600–3500 psi).",
-    },
-    "oxygen_levels": {
-        "low":   19.5,  # % — OSHA minimum safe atmospheric O2 for breathing
-        "high":  23.5,  # % — above this, fire risk increases significantly
-        "unit":  "%",
-        "notes": "Cabin O2 concentration outside safe breathing range (19.5–23.5 %).",
-    },
-
-    # ── Cabin Atmosphere ─────────────────────────────────────────────────────
-    "cabin_pressure": {
-        "low":   3.5,
-        "high":  16.0,
-        "unit":  "psi",
-        "notes": "Cabin pressure outside safe range — possible leak or over-pressurisation.",
-    },
-    "cabin_temperature": {
-        "low":   15,
-        "high":  35,
-        "unit":  "°C",
-        "notes": "Crew comfort and cognitive performance band: 15–35 °C.",
-    },
-
-    # ── Coolant System ───────────────────────────────────────────────────────
-    "pr_coolant_pressure": {
-        "low":   -700,  # TSS reports coolant pressure as negative in some states
-        "high":   700,
-        "unit":  "psi",
-        "notes": "Coolant pressure outside safe range — possible leak or blockage.",
-    },
-    "pr_coolant_level": {
-        "low":   20,
-        "high":  None,
-        "unit":  "%",
-        "notes": "Coolant level below 20 % — thermal runaway risk.",
-    },
-    "pr_coolant_tank": {
-        "low":   20,
-        "high":  None,
-        "unit":  "%",
-        "notes": "Coolant tank reserve below 20 %.",
-    },
-
-    # ── Fans ─────────────────────────────────────────────────────────────────
-    "ac_fan_pri": {
-        "low":   1000,
-        "high":  None,
-        "unit":  "RPM",
-        "notes": "Primary fan stall — CO2 and thermal buildup risk.",
-    },
-    "ac_fan_sec": {
-        "low":   1000,
-        "high":  None,
-        "unit":  "RPM",
-        "notes": "Secondary fan stall — CO2 and thermal buildup risk.",
-    },
-
-    # ── Solar / Dust ─────────────────────────────────────────────────────────
-    "solar_panel_efficiency": {
-        "low":   20,
-        "high":  None,
-        "unit":  "%",
-        "notes": "Solar panel efficiency critically low — check dust accumulation.",
-    },
-    "solar_panel_dust_accum": {
-        "low":   None,
-        "high":  75,
-        "unit":  "%",
-        "notes": "Solar panel dust accumulation high — efficiency degraded, cleaning needed.",
-    },
-
-    # ── External Environment ─────────────────────────────────────────────────
-    "external_temp": {
-        "low":   -150,
-        "high":   130,
-        "unit":  "°C",
-        "notes": "Extreme external temperature — verify thermal protection systems.",
-    },
-    "surface_incline": {
-        "low":   None,
-        "high":  20,
+    # ── Driving / Motion ─────────────────────────────────────────────────────
+    "pitch": {
+        "low":   -50,
+        "high":   50,
         "unit":  "deg",
-        "notes": "Steep incline (>20°) — increased tip-over risk.",
+        "notes": "Rover pitch outside safe range (-50 to 50 deg).",
+    },
+    "roll": {
+        "low":   0,
+        "high":  50,
+        "unit":  "deg",
+        "notes": "Rover roll outside safe range (0 to 50 deg).",
     },
     "speed": {
-        "low":   None,
-        "high":  20,
-        "unit":  "km/h",
-        "notes": "Rover speed exceeds safe navigation limit.",
+        "low":   0,
+        "high":  18,    # m/s per telemetry ranges doc
+        "unit":  "m/s",
+        "notes": "Rover speed exceeds safe maximum of 18 m/s.",
+    },
+    "throttle": {
+        "low":   0,
+        "high":  100,
+        "unit":  "%",
+        "notes": "Throttle outside valid range (0–100 %).",
+    },
+    "steering": {
+        "low":  -1,
+        "high":  1,
+        "unit":  "",
+        "notes": "Steering value outside valid range (-1 to 1).",
+    },
+    "surface_incline": {
+        "low":  -50,
+        "high":  50,
+        "unit":  "deg",
+        "notes": "Surface incline outside safe range (-50 to 50 deg).",
     },
 
     # ── Navigation ───────────────────────────────────────────────────────────
     "distance_from_base": {
-        "low":   None,
-        "high":  5000,
+        "low":   0,
+        "high":  2500,  # meters per telemetry ranges doc
         "unit":  "m",
-        "notes": "Rover may be beyond safe return range given current battery level.",
+        "notes": "Rover beyond maximum safe range from base (2500 m).",
     },
-    "point_of_no_return": {
-        "low":   None,
-        "high":  0,     # any positive value means the flag is set
-        "unit":  "flag",
-        "notes": "Rover has passed the point of no return.",
+
+    # ── Oxygen ───────────────────────────────────────────────────────────────
+    "oxygen_tank": {
+        "low":   25,    # % min per telemetry ranges doc
+        "high":  100,
+        "unit":  "%",
+        "notes": "O2 tank below 25 % minimum.",
+    },
+    "oxygen_pressure": {
+        "low":   2997,  # psi min — nominal 2997–3000 psi per telemetry ranges doc
+        "high":  3000,
+        "unit":  "psi",
+        "notes": "O2 pressure outside nominal range (2997–3000 psi).",
+    },
+
+    # ── Fans ─────────────────────────────────────────────────────────────────
+    "fan_pri_rpm": {
+        "low":   29999,  # rpm — nominal 29999–30005 per telemetry ranges doc
+        "high":  30005,
+        "unit":  "rpm",
+        "notes": "Primary fan RPM outside nominal range (29999–30005 rpm).",
+    },
+    "fan_sec_rpm": {
+        "low":   29999,  # rpm — both fans should run at same range
+        "high":  30005,
+        "unit":  "rpm",
+        "notes": "Secondary fan RPM outside nominal range (29999–30005 rpm).",
+    },
+
+    # ── Cabin Atmosphere ─────────────────────────────────────────────────────
+    "cabin_pressure": {
+        "low":   3.5,   # psi min, nominal 4.0, max 4.10 per telemetry ranges doc
+        "high":  4.10,
+        "unit":  "psi",
+        "notes": "Cabin pressure outside safe range (3.5–4.10 psi, nominal 4.0).",
+    },
+    "cabin_temperature": {
+        "low":   10,    # °C min, nominal 21°C per telemetry ranges doc
+        "high":  None,  # no max specified
+        "unit":  "°C",
+        "notes": "Cabin temperature below minimum of 10°C (nominal 21°C).",
+    },
+
+    # ── External Environment ─────────────────────────────────────────────────
+    "external_temp": {
+        "low":   None,  # no min/max specified in doc — informational only
+        "high":  None,
+        "unit":  "°C",
+        "notes": "External temperature — no safe range defined, monitor for trends.",
+    },
+
+    # ── Coolant System ───────────────────────────────────────────────────────
+    "coolant_pressure": {
+        "low":   495,   # psi min, nominal 500, max 501 per telemetry ranges doc
+        "high":  501,
+        "unit":  "psi",
+        "notes": "Coolant pressure outside safe range (495–501 psi, nominal 500).",
+    },
+    "coolant_storage": {
+        "low":   80,    # % min, nominal and max 100% per telemetry ranges doc
+        "high":  100,
+        "unit":  "%",
+        "notes": "Coolant storage below minimum of 80 %.",
+    },
+
+    # ── Power ────────────────────────────────────────────────────────────────
+    "battery_level": {
+        "low":   30,    # % min per telemetry ranges doc
+        "high":  100,
+        "unit":  "%",
+        "notes": "Battery level below minimum of 30 %.",
     },
 }
 
