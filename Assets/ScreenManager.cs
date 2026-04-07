@@ -79,7 +79,18 @@ public class ScreenManager : MonoBehaviour
             case 4:
                 Debug.Log("Opening Vitals screen");
                 vitals.SetActive(true);
-                vitals.GetComponent<VitalsController>().openFeatureScreen();
+                VitalsController vitalsController = vitals.GetComponent<VitalsController>();
+                if (vitalsController != null)
+                {
+                    vitalsController.openFeatureScreen();
+                }
+                else
+                {
+                    foreach (Transform child in vitals.transform)
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
                 break;
              case 5:
                 Debug.Log("Opening PR screen");

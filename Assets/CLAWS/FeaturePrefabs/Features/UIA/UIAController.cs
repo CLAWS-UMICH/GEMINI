@@ -237,6 +237,7 @@ public class UIAController : MonoBehaviour
 
     public void OpenVitals()
     {
+        if (vitals == null) return;
         vitals.SetActive(true);
         previousButton.SetActive(false);
         nextButton.SetActive(false);
@@ -244,11 +245,16 @@ public class UIAController : MonoBehaviour
         {
             child.gameObject.SetActive(true);
         }
-        vitals.transform.Find("VitalsSecondAstronaut").gameObject.SetActive(false);
+        Transform secondAstronaut = vitals.transform.Find("VitalsSecondAstronaut");
+        if (secondAstronaut != null)
+        {
+            secondAstronaut.gameObject.SetActive(false);
+        }
     }
 
     public void CloseVitals()
     {
+        if (vitals == null) return;
         vitals.SetActive(false);
         previousButton.SetActive(true);
         nextButton.SetActive(true);
