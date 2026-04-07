@@ -56,6 +56,19 @@ public class MenuState : MonoBehaviour
                 break;
             case 4:
                 vitals.SetActive(true);
+                //suit_helmet_pressure vitals
+                VitalsController vitalsController = vitals.GetComponent<VitalsController>();
+                if (vitalsController != null)
+                {
+                    vitalsController.openFeatureScreen();
+                }
+                else
+                {
+                    foreach (Transform child in vitals.transform)
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
                 Debug.Log("Vitals screen opened.");
                 break;
             case 5:

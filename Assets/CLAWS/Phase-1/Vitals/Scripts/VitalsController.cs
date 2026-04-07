@@ -63,59 +63,6 @@ public class VitalsController : MonoBehaviour
 
 
     private string message;
-    // Suit Resources Parameters
-    private float BATT_TIME_MIN = 3600.0f; // sec
-    private float BATT_TIME_MAX = 10800.0f; // sec
-
-    private float OXY_STOR_MIN = 20.0f; // %
-    private float OXY_STOR_MAX = 100.0f; // %
-
-    private float OXY_PRES_MIN = 600.0f; // PSI
-    private float OXY_PRES_MAX = 3000.0f; // PSI
-
-    private float OXY_TIME_MIN = 3600.0f; // sec
-    private float OXY_TIME_MAX = 21600.0f; // sec
-
-    private float COOL_STOR_MIN = 80.0f; // %
-    private float COOL_STOR_MAX = 100.0f; // %
-
-    // Suit Atmosphere Parameters
-    private float HEART_RATE_MIN = 50.0f; // bpm
-    private float HEART_RATE_MAX = 160.0f; // bpm
-
-    private float OXY_CONSUM_MIN = 0.05f; // psi/min
-    private float OXY_CONSUM_MAX = 0.15f; // psi/min
-
-    private float CO2_PROD_MIN = 0.05f; // psi/min
-    private float CO2_PROD_MAX = 0.15f; // psi/min
-
-    private float SUIT_PRES_OXY_MIN = 3.5f; // psi
-    private float SUIT_PRES_OXY_MAX = 4.1f; // psi
-
-    private float SUIT_PRES_CO2_MAX = 0.1f; // psi
-
-    private float SUIT_PRES_OTHER_MAX = 0.5f; // psi
-
-    private float SUIT_PRES_TOTAL_MIN = 3.5f; // psi
-    private float SUIT_PRES_TOTAL_MAX = 4.5f; // psi
-    
-    private float HELMET_PRES_CO2_MAX = 0.15f; // psi
-
-    // Suit Fan Parameters
-    private float FAN_SPEED_MIN = 19990.0f; // rpm
-    private float FAN_SPEED_MAX = 30010.0f; // rpm
-
-    // Suit Scrubber Parameters
-    private float SCRUBBER_CO2_STOR_MAX = 60.0f; // %
-
-    // Suit Temperature Parameters
-    private float TEMP_MIN = 50.0f; // farhenheit
-    private float TEMP_MAX = 90.0f; // farhenheit
-
-    private float COOL_LIQ_MIN = 100.0f; // psi
-    private float COOL_LIQ_MAX = 700.0f; // psi
-
-    private float COOL_GAS_MAX = 700.0f; // psi
 
     private void Start() 
     {
@@ -250,7 +197,7 @@ public class VitalsController : MonoBehaviour
     //     };
 
     //     // battery time
-    //     if (e.vitals.batt_time_left < BATT_TIME_MIN)
+    //     if (e.vitals.batt_time_left < VitalsNominalLimits.BattTimeMin)
     //     {
     //         data["battery"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Battery Time Low";
@@ -267,7 +214,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // o2 primary storage
-    //     if (e.vitals.oxy_pri_storage < OXY_STOR_MIN && dcuControllerInstance.dcu1.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if (e.vitals.oxy_pri_storage < VitalsNominalLimits.OxyStorMin && dcuControllerInstance.dcu1.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["o2SwapToSecondary"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Primary Storage Low. Switch to Secondary";
@@ -285,7 +232,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // o2 secondary storage
-    //     if (e.vitals.oxy_sec_storage < OXY_STOR_MIN && dcuControllerInstance.dcu1.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if (e.vitals.oxy_sec_storage < VitalsNominalLimits.OxyStorMin && dcuControllerInstance.dcu1.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["o2SwapToPrimary"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Secondary Storage Low. Switch to Primary";
@@ -303,7 +250,7 @@ public class VitalsController : MonoBehaviour
     //     }
            
     //     // o2 primary pressure
-    //     if ((e.vitals.oxy_pri_pressure < OXY_PRES_MIN || e.vitals.oxy_pri_pressure > OXY_PRES_MAX) && dcuControllerInstance.dcu1.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if ((e.vitals.oxy_pri_pressure < VitalsNominalLimits.OxyPresMin || e.vitals.oxy_pri_pressure > VitalsNominalLimits.OxyPresMax) && dcuControllerInstance.dcu1.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["o2SwapToSecondary"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Primary Pressure Low. Switch to Secondary";
@@ -321,7 +268,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // o2 secondary pressure
-    //     if ((e.vitals.oxy_sec_pressure < OXY_PRES_MIN || e.vitals.oxy_sec_pressure > OXY_PRES_MAX) && dcuControllerInstance.dcu1.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if ((e.vitals.oxy_sec_pressure < VitalsNominalLimits.OxyPresMin || e.vitals.oxy_sec_pressure > VitalsNominalLimits.OxyPresMax) && dcuControllerInstance.dcu1.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["o2SwapToPrimary"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Secondary Pressure Low. Switch to Primary";
@@ -339,7 +286,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // o2 time
-    //     if (e.vitals.oxy_time_left < OXY_STOR_MIN)
+    //     if (e.vitals.oxy_time_left < VitalsNominalLimits.OxyStorMin)
     //     {
     //         data["o2Time"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Time Low";
@@ -357,7 +304,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // coolant storage
-    //     if (e.vitals.coolant_m < COOL_STOR_MIN)
+    //     if (e.vitals.coolant_m < VitalsNominalLimits.CoolStorMin)
     //     {
     //         data["coolantStor"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Coolant Storage Low";
@@ -375,7 +322,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // heart rate
-    //     if (e.vitals.heart_rate < HEART_RATE_MIN || e.vitals.heart_rate > HEART_RATE_MAX)
+    //     if (e.vitals.heart_rate < VitalsNominalLimits.HeartRateMin || e.vitals.heart_rate > VitalsNominalLimits.HeartRateMax)
     //     {
     //         data["heartRate"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Heart Rate Out of Nominal Range";
@@ -393,7 +340,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // o2 consumption
-    //     if (e.vitals.oxy_consumption < OXY_CONSUM_MIN || e.vitals.oxy_consumption > OXY_CONSUM_MAX)
+    //     if (e.vitals.oxy_consumption < VitalsNominalLimits.OxyConsumMin || e.vitals.oxy_consumption > VitalsNominalLimits.OxyConsumMax)
     //     {
     //         data["o2Cons"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Consumption Out of Nominal Range";
@@ -411,7 +358,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // co2 production
-    //     if (e.vitals.co2_production < CO2_PROD_MIN || e.vitals.co2_production > CO2_PROD_MAX)
+    //     if (e.vitals.co2_production < VitalsNominalLimits.Co2ProdMin || e.vitals.co2_production > VitalsNominalLimits.Co2ProdMax)
     //     {
     //         data["co2Prod"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 Production Out of Nominal Range";
@@ -429,7 +376,7 @@ public class VitalsController : MonoBehaviour
     //     }
         
     //     // suit o2 pressure
-    //     if (e.vitals.suit_pressure_oxy < SUIT_PRES_OXY_MIN || e.vitals.suit_pressure_oxy > SUIT_PRES_OXY_MAX)
+    //     if (e.vitals.suit_pressure_oxy < VitalsNominalLimits.SuitPresOxyMin || e.vitals.suit_pressure_oxy > VitalsNominalLimits.SuitPresOxyMax)
     //     {
     //         data["o2SuitPres"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit O2 Pressure Out of Nominal Range";
@@ -447,7 +394,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // suit co2 pressure
-    //     if (e.vitals.suit_pressure_co2 > SUIT_PRES_CO2_MAX)
+    //     if (e.vitals.suit_pressure_co2 > VitalsNominalLimits.SuitPresCo2Max)
     //     {
     //         data["co2SuitPres"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit CO2 Pressure Out of Nominal Range";
@@ -465,7 +412,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // suit other pressure
-    //     if (e.vitals.suit_pressure_other > SUIT_PRES_OTHER_MAX)
+    //     if (e.vitals.suit_pressure_other > VitalsNominalLimits.SuitPresOtherMax)
     //     {
     //         data["suitPresOth"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit Other Pressure Out of Nominal Range";
@@ -483,7 +430,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // suit pressure total
-    //     if (e.vitals.suit_pressure_total < SUIT_PRES_TOTAL_MIN || e.vitals.suit_pressure_total > SUIT_PRES_TOTAL_MAX)
+    //     if (e.vitals.suit_pressure_total < VitalsNominalLimits.SuitPresTotalMin || e.vitals.suit_pressure_total > VitalsNominalLimits.SuitPresTotalMax)
     //     {
     //         data["suitPresTot"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit Total Pressure Out of Nominal Range";
@@ -501,7 +448,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // helment pressure
-    //     if (e.vitals.helmet_pressure_co2 > HELMET_PRES_CO2_MAX)
+    //     if (e.vitals.helmet_pressure_co2 > VitalsNominalLimits.HelmetPresCo2Max)
     //     {
     //         data["co2HelmPres"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Helmet CO2 Pressure Out of Nominal Range";
@@ -519,7 +466,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // fan primary speed
-    //     if ((e.vitals.fan_pri_rpm < FAN_SPEED_MIN || e.vitals.fan_pri_rpm > FAN_SPEED_MAX) && dcuControllerInstance.dcu1.fan_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if ((e.vitals.fan_pri_rpm < VitalsNominalLimits.FanSpeedMin || e.vitals.fan_pri_rpm > VitalsNominalLimits.FanSpeedMax) && dcuControllerInstance.dcu1.fan_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["fanSwapToSecondary"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Fan Primary Speed Low. Switch to Secondary";
@@ -537,7 +484,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // fan secondary speed
-    //     if ((e.vitals.fan_sec_rpm < FAN_SPEED_MIN || e.vitals.fan_sec_rpm > FAN_SPEED_MAX) && dcuControllerInstance.dcu1.fan_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if ((e.vitals.fan_sec_rpm < VitalsNominalLimits.FanSpeedMin || e.vitals.fan_sec_rpm > VitalsNominalLimits.FanSpeedMax) && dcuControllerInstance.dcu1.fan_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["fanSwapToPrimary"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Fan Secondary Speed Low. Switch to Primary";
@@ -555,7 +502,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // co2 A storage
-    //     if (e.vitals.scrubber_a_co2_storage > SCRUBBER_CO2_STOR_MAX && dcuControllerInstance.dcu1.co2_a.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if (e.vitals.scrubber_a_co2_storage > VitalsNominalLimits.ScrubberCo2StorMax && dcuControllerInstance.dcu1.co2_a.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["co2SwapToB"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 A Storage High. Switch to B";
@@ -573,7 +520,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // co2 B storage
-    //     if (e.vitals.scrubber_b_co2_storage > SCRUBBER_CO2_STOR_MAX && dcuControllerInstance.dcu1.co2_b.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+    //     if (e.vitals.scrubber_b_co2_storage > VitalsNominalLimits.ScrubberCo2StorMax && dcuControllerInstance.dcu1.co2_b.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
     //     {
     //         data["co2SwapToA"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 B Storage High. Switch to A";
@@ -591,7 +538,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // temperature
-    //     if (e.vitals.temperature < TEMP_MIN || e.vitals.temperature > TEMP_MAX)
+    //     if (e.vitals.temperature < VitalsNominalLimits.TempMin || e.vitals.temperature > VitalsNominalLimits.TempMax)
     //     {
     //         data["temp"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Temperature Out of Nominal Range";
@@ -609,7 +556,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // coolant liquid
-    //     if (e.vitals.coolant_liquid_pressure < COOL_LIQ_MIN || e.vitals.coolant_liquid_pressure > COOL_LIQ_MAX)
+    //     if (e.vitals.coolant_liquid_pressure < VitalsNominalLimits.CoolLiqMin || e.vitals.coolant_liquid_pressure > VitalsNominalLimits.CoolLiqMax)
     //     {
     //         data["coolantLiqPres"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Coolant Liquid Pressure Out of Nominal Range";
@@ -627,7 +574,7 @@ public class VitalsController : MonoBehaviour
     //     }
 
     //     // coolant gas
-    //     if (e.vitals.coolant_gas_pressure > COOL_GAS_MAX)
+    //     if (e.vitals.coolant_gas_pressure > VitalsNominalLimits.CoolGasMax)
     //     {
     //         data["coolantGasPres"] = true;
     //         selfAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Coolant Gas Pressure Out of Nominal Range";
@@ -747,7 +694,7 @@ public class VitalsController : MonoBehaviour
         };
 
         // battery time
-        if (e.vitals.batt_time_left < BATT_TIME_MIN)
+        if (e.vitals.batt_time_left < VitalsNominalLimits.BattTimeMin)
         {
             data["battery"] = true;
         // otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Battery Time Low";
@@ -764,7 +711,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // o2 primary storage
-        if (e.vitals.oxy_pri_storage < OXY_STOR_MIN && dcuControllerInstance.dcu2.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if (e.vitals.oxy_pri_storage < VitalsNominalLimits.OxyStorMin && dcuControllerInstance.dcu2.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["o2SwapToSecondary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Primary Storage Low. Switch to Secondary";
@@ -782,7 +729,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // o2 secondary storage
-        if (e.vitals.oxy_sec_storage < OXY_STOR_MIN && dcuControllerInstance.dcu2.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if (e.vitals.oxy_sec_storage < VitalsNominalLimits.OxyStorMin && dcuControllerInstance.dcu2.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["o2SwapToPrimary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Secondary Storage Low. Switch to Primary";
@@ -800,7 +747,7 @@ public class VitalsController : MonoBehaviour
         }
            
         // o2 primary pressure
-        if ((e.vitals.oxy_pri_pressure < OXY_PRES_MIN || e.vitals.oxy_pri_pressure > OXY_PRES_MAX) && dcuControllerInstance.dcu2.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if ((e.vitals.oxy_pri_pressure < VitalsNominalLimits.OxyPresMin || e.vitals.oxy_pri_pressure > VitalsNominalLimits.OxyPresMax) && dcuControllerInstance.dcu2.oxy_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["o2SwapToSecondary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Primary Pressure Low. Switch to Secondary";
@@ -818,7 +765,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // o2 secondary pressure
-        if ((e.vitals.oxy_sec_pressure < OXY_PRES_MIN || e.vitals.oxy_sec_pressure > OXY_PRES_MAX) && dcuControllerInstance.dcu2.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if ((e.vitals.oxy_sec_pressure < VitalsNominalLimits.OxyPresMin || e.vitals.oxy_sec_pressure > VitalsNominalLimits.OxyPresMax) && dcuControllerInstance.dcu2.oxy_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["o2SwapToPrimary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Secondary Pressure Low. Switch to Primary";
@@ -836,7 +783,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // o2 time
-        if (e.vitals.oxy_time_left < OXY_STOR_MIN)
+        if (e.vitals.oxy_time_left < VitalsNominalLimits.OxyStorMin)
         {
             data["o2Time"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Time Low";
@@ -854,7 +801,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // coolant storage
-        if (e.vitals.coolant_m < COOL_STOR_MIN)
+        if (e.vitals.coolant_m < VitalsNominalLimits.CoolStorMin)
         {
             data["coolantStor"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Coolant Storage Low";
@@ -872,7 +819,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // heart rate
-        if (e.vitals.heart_rate < HEART_RATE_MIN || e.vitals.heart_rate > HEART_RATE_MAX)
+        if (e.vitals.heart_rate < VitalsNominalLimits.HeartRateMin || e.vitals.heart_rate > VitalsNominalLimits.HeartRateMax)
         {
             data["heartRate"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Heart Rate Out of Nominal Range";
@@ -890,7 +837,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // o2 consumption
-        if (e.vitals.oxy_consumption < OXY_CONSUM_MIN || e.vitals.oxy_consumption > OXY_CONSUM_MAX)
+        if (e.vitals.oxy_consumption < VitalsNominalLimits.OxyConsumMin || e.vitals.oxy_consumption > VitalsNominalLimits.OxyConsumMax)
         {
             data["o2Cons"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "O2 Consumption Out of Nominal Range";
@@ -908,7 +855,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // co2 production
-        if (e.vitals.co2_production < CO2_PROD_MIN || e.vitals.co2_production > CO2_PROD_MAX)
+        if (e.vitals.co2_production < VitalsNominalLimits.Co2ProdMin || e.vitals.co2_production > VitalsNominalLimits.Co2ProdMax)
         {
             data["co2Prod"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 Production Out of Nominal Range";
@@ -926,7 +873,7 @@ public class VitalsController : MonoBehaviour
         }
         
         // suit o2 pressure
-        if (e.vitals.suit_pressure_oxy < SUIT_PRES_OXY_MIN || e.vitals.suit_pressure_oxy > SUIT_PRES_OXY_MAX)
+        if (e.vitals.suit_pressure_oxy < VitalsNominalLimits.SuitPresOxyMin || e.vitals.suit_pressure_oxy > VitalsNominalLimits.SuitPresOxyMax)
         {
             data["o2SuitPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit O2 Pressure Out of Nominal Range";
@@ -944,7 +891,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // suit co2 pressure
-        if (e.vitals.suit_pressure_co2 > SUIT_PRES_CO2_MAX)
+        if (e.vitals.suit_pressure_co2 > VitalsNominalLimits.SuitPresCo2Max)
         {
             data["co2SuitPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit CO2 Pressure Out of Nominal Range";
@@ -962,7 +909,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // suit other pressure
-        if (e.vitals.suit_pressure_other > SUIT_PRES_OTHER_MAX)
+        if (e.vitals.suit_pressure_other > VitalsNominalLimits.SuitPresOtherMax)
         {
             data["suitPresOth"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit Other Pressure Out of Nominal Range";
@@ -980,7 +927,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // suit pressure total
-        if (e.vitals.suit_pressure_total < SUIT_PRES_TOTAL_MIN || e.vitals.suit_pressure_total > SUIT_PRES_TOTAL_MAX)
+        if (e.vitals.suit_pressure_total < VitalsNominalLimits.SuitPresTotalMin || e.vitals.suit_pressure_total > VitalsNominalLimits.SuitPresTotalMax)
         {
             data["suitPresTot"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit Total Pressure Out of Nominal Range";
@@ -998,7 +945,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // helment pressure
-        if (e.vitals.helmet_pressure_co2 > HELMET_PRES_CO2_MAX)
+        if (e.vitals.helmet_pressure_co2 > VitalsNominalLimits.HelmetPresCo2Max)
         {
             data["co2HelmPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Helmet CO2 Pressure Out of Nominal Range";
@@ -1016,7 +963,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // fan primary speed
-        if ((e.vitals.fan_pri_rpm < FAN_SPEED_MIN || e.vitals.fan_pri_rpm > FAN_SPEED_MAX) && dcuControllerInstance.dcu2.fan_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if ((e.vitals.fan_pri_rpm < VitalsNominalLimits.FanSpeedMin || e.vitals.fan_pri_rpm > VitalsNominalLimits.FanSpeedMax) && dcuControllerInstance.dcu2.fan_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["fanSwapToSecondary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Fan Primary Speed Low. Switch to Secondary";
@@ -1034,7 +981,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // fan secondary speed
-        if ((e.vitals.fan_sec_rpm < FAN_SPEED_MIN || e.vitals.fan_sec_rpm > FAN_SPEED_MAX) && dcuControllerInstance.dcu2.fan_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if ((e.vitals.fan_sec_rpm < VitalsNominalLimits.FanSpeedMin || e.vitals.fan_sec_rpm > VitalsNominalLimits.FanSpeedMax) && dcuControllerInstance.dcu2.fan_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["fanSwapToPrimary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Fan Secondary Speed Low. Switch to Primary";
@@ -1052,7 +999,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // co2 A storage
-        if (e.vitals.scrubber_a_co2_storage > SCRUBBER_CO2_STOR_MAX && dcuControllerInstance.dcu2.co2_a.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if (e.vitals.scrubber_a_co2_storage > VitalsNominalLimits.ScrubberCo2StorMax && dcuControllerInstance.dcu2.co2_a.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["co2SwapToB"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 A Storage High. Switch to B";
@@ -1070,7 +1017,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // co2 B storage
-        if (e.vitals.scrubber_b_co2_storage > SCRUBBER_CO2_STOR_MAX && dcuControllerInstance.dcu2.co2_b.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
+        if (e.vitals.scrubber_b_co2_storage > VitalsNominalLimits.ScrubberCo2StorMax && dcuControllerInstance.dcu2.co2_b.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["co2SwapToA"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 B Storage High. Switch to A";
@@ -1088,7 +1035,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // temperature
-        if (e.vitals.temperature < TEMP_MIN || e.vitals.temperature > TEMP_MAX)
+        if (e.vitals.temperature < VitalsNominalLimits.TempMin || e.vitals.temperature > VitalsNominalLimits.TempMax)
         {
             data["temp"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Temperature Out of Nominal Range";
@@ -1106,7 +1053,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // coolant liquid
-        if (e.vitals.coolant_liquid_pressure < COOL_LIQ_MIN || e.vitals.coolant_liquid_pressure > COOL_LIQ_MAX)
+        if (e.vitals.coolant_liquid_pressure < VitalsNominalLimits.CoolLiqMin || e.vitals.coolant_liquid_pressure > VitalsNominalLimits.CoolLiqMax)
         {
             data["coolantLiqPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Coolant Liquid Pressure Out of Nominal Range";
@@ -1124,7 +1071,7 @@ public class VitalsController : MonoBehaviour
         }
 
         // coolant gas
-        if (e.vitals.coolant_gas_pressure > COOL_GAS_MAX)
+        if (e.vitals.coolant_gas_pressure > VitalsNominalLimits.CoolGasMax)
         {
             data["coolantGasPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Coolant Gas Pressure Out of Nominal Range";
@@ -1161,4 +1108,59 @@ public class VitalsController : MonoBehaviour
         EventBus.Unsubscribe(vitalsUpdateEvent);
         EventBus.Unsubscribe(fellowVitalsUpdateEvent);
     }
+}
+
+/// <summary>
+/// Single source of truth for vitals nominal / threshold values (also used by helmet ring UI).
+/// </summary>
+public static class VitalsNominalLimits
+{
+    public const float BattTimeMin = 3600.0f;
+    public const float BattTimeMax = 10800.0f;
+
+    public const float OxyStorMin = 20.0f;
+    public const float OxyStorMax = 100.0f;
+
+    public const float OxyPresMin = 600.0f;
+    public const float OxyPresMax = 3000.0f;
+
+    public const float OxyTimeMin = 3600.0f;
+    public const float OxyTimeMax = 21600.0f;
+
+    public const float CoolStorMin = 80.0f;
+    public const float CoolStorMax = 100.0f;
+
+    public const float HeartRateMin = 50.0f;
+    public const float HeartRateMax = 160.0f;
+
+    public const float OxyConsumMin = 0.05f;
+    public const float OxyConsumMax = 0.15f;
+
+    public const float Co2ProdMin = 0.05f;
+    public const float Co2ProdMax = 0.15f;
+
+    public const float SuitPresOxyMin = 3.5f;
+    public const float SuitPresOxyMax = 4.1f;
+
+    public const float SuitPresCo2Max = 0.1f;
+
+    public const float SuitPresOtherMax = 0.5f;
+
+    public const float SuitPresTotalMin = 3.5f;
+    public const float SuitPresTotalMax = 4.5f;
+
+    public const float HelmetPresCo2Max = 0.15f;
+
+    public const float FanSpeedMin = 19990.0f;
+    public const float FanSpeedMax = 30010.0f;
+
+    public const float ScrubberCo2StorMax = 60.0f;
+
+    public const float TempMin = 50.0f;
+    public const float TempMax = 90.0f;
+
+    public const float CoolLiqMin = 100.0f;
+    public const float CoolLiqMax = 700.0f;
+
+    public const float CoolGasMax = 700.0f;
 }
