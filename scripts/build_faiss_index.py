@@ -1,6 +1,6 @@
 import sys
 from langchain_community.document_loaders import DirectoryLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from src.config import EVA_PROCEDURES_DIR, FAISS_INDEX_DIR, MINILM_MODEL_DIR

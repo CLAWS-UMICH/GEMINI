@@ -4,7 +4,7 @@ from src.classifier.routing_classifier import RoutingClassifier
 import json
 
 def main():
-    print("Loading Classifier...")
+    print("Loading Neural Network Classifier...")
 
     with open(TRAINING_DATA_PATH) as f:
         _data = json.load(f)

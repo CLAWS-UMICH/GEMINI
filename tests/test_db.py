@@ -3,7 +3,7 @@ from src.classifier.ai_model import DistilBertClassifier
 import json
 
 def main():
-    print("Loading Classifier...")
+    print("Loading Distill Bert Classifier...")
     classifier = DistilBertClassifier(ONNX_MODEL_PATH, LABELS_PATH)
 
     print("Ready!\n")
