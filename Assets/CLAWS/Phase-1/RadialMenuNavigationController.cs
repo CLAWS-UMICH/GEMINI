@@ -33,12 +33,6 @@ public class RadialMenuNavigationController : MonoBehaviour
     [Tooltip("Sprite for PR / ROVER. Leave empty to use the letter icon.")]
     [SerializeField] private Sprite prSprite;
 
-    [Header("Layer names for path visibility")]
-    [Tooltip("Layer that ONLY the minimap camera renders. Path is moved here when a waypoint is chosen, so it appears on minimap only until 'Begin Navigation'.")]
-    [SerializeField] private string minimapOnlyLayerName = "Minimap Only";
-    [Tooltip("Layer for path to show in world when 'Begin Navigation' is pressed (e.g. Default). Main camera should render this layer.")]
-    [SerializeField] private string worldPathLayerName = "Default";
-
     private enum MenuMode { Categories, Waypoints }
     private MenuMode currentMode = MenuMode.Categories;
     private string currentCategory = ""; // "Station", "Interest", "Hazards", "Companions"
@@ -255,9 +249,8 @@ public class RadialMenuNavigationController : MonoBehaviour
     {
         if (pathfindingSystem == null) return;
 
-        // Set layer first so the path is minimap-only as soon as it is drawn (main camera must NOT render this layer).
-        SetPathLayer(minimapOnlyLayerName);
         pathfindingSystem.SetTarget(targetPosition);
+        pathfindingSystem.ShowMinimapOnly();
 
         pendingTargetPosition = targetPosition;
         radialBuilder.SetCenterLabel(LABEL_BEGIN_NAV);
@@ -279,7 +272,7 @@ public class RadialMenuNavigationController : MonoBehaviour
         // Begin navigation (wheel does NOT close; we switch the center button to Cancel)
         if (currentCenter == LABEL_BEGIN_NAV && pendingTargetPosition.HasValue)
         {
-            SetPathLayer(worldPathLayerName);
+            pathfindingSystem.ShowWorldAndMinimap();
             activeTargetPosition = pendingTargetPosition.Value;
             pendingTargetPosition = null;
             isNavigating = true;
@@ -369,19 +362,5 @@ public class RadialMenuNavigationController : MonoBehaviour
         radialBuilder.centerLabel = LABEL_BACK;
         radialBuilder.CloseMenu();
         BuildCategoryMenu();
-    }
-
-    private void SetPathLayer(string layerName)
-    {
-        if (pathfindingSystem == null || pathfindingSystem.pathRenderer == null) return;
-        int layer = LayerMask.NameToLayer(layerName);
-        if (layer == -1)
-        {
-            Debug.LogWarning($"RadialMenuNavigation: Layer '{layerName}' not found.");
-            return;
-        }
-        pathfindingSystem.pathRenderer.gameObject.layer = layer;
-        foreach (Transform child in pathfindingSystem.pathRenderer.transform)
-            child.gameObject.layer = layer;
     }
 }

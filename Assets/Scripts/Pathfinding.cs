@@ -5,12 +5,16 @@ using UnityEngine;
 public class Pathfinding : MonoBehaviour
 {
     public Astronaut astronaut; 
-    // public Transform target;
+    // Existing path renderer is the world path.
     public LineRenderer pathRenderer;
+    [Tooltip("Dedicated minimap path renderer. Assign a separate LineRenderer GameObject on the Minimap Only layer.")]
+    [SerializeField] private LineRenderer minimapPathRenderer;
 
     [Header("Path line")]
-    [Tooltip("Width of the path line (meters). Smaller values make the path thinner.")]
-    [SerializeField] private float pathLineWidth = 0.5f;
+    [Tooltip("Width of the world path line (meters).")]
+    [SerializeField] private float worldPathLineWidth = 0.5f;
+    [Tooltip("Width of the minimap path line (meters). Can be wider than world path.")]
+    [SerializeField] private float minimapPathLineWidth = 1.2f;
 
     [Header("Ground snapping")]
     [Tooltip("Raycast downward from each path point to stick the line to the ground. Leave as Nothing to keep the path at fixed height.")]
@@ -21,34 +25,32 @@ public class Pathfinding : MonoBehaviour
     public float groundOffset = 0.02f;
 
     [Header("Destination waypoint")]
-    [Tooltip("Optional: GameObject to show floating above the navigation destination (e.g. arrow, beacon). Shown when a path exists, hidden when path is cleared or ClearTarget() is called.")]
+    [Tooltip("Optional world-space indicator shown only while active world navigation is displayed.")]
     [SerializeField] private Transform destinationWaypointIndicator;
+    [Tooltip("Optional minimap destination indicator. Leave empty if minimap path does not need a floating endpoint marker.")]
+    [SerializeField] private Transform minimapDestinationWaypointIndicator;
     [Tooltip("Height in meters above the destination point for the waypoint indicator.")]
     [SerializeField] private float waypointHeightAboveGround = 2.5f;
 
     private Grid grid;
     private List<Node> currentPath;
     private Vector3 currentTargetPosition;
+    private Vector3[] cachedPathPositions;
 
     void Awake()
     {
         grid = GetComponent<Grid>();
-        // pathRenderer = GetComponent<LineRenderer>();
-        // InitializeLineRenderer();
-
         if (pathRenderer != null)
         {
-            // Keep path fixed in world space so it doesn't rotate with any parent/player transform
-            pathRenderer.useWorldSpace = true;
-
-            // Align the ribbon so Transform Z alignment appears flat. Adjust sign if it looks flipped.
-            pathRenderer.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-
-            pathRenderer.startWidth = pathLineWidth;
-            pathRenderer.endWidth = pathLineWidth;
-
-            pathRenderer.positionCount = 0;
+            ConfigureRenderer(pathRenderer, worldPathLineWidth);
         }
+        if (minimapPathRenderer != null)
+        {
+            ConfigureRenderer(minimapPathRenderer, minimapPathLineWidth);
+        }
+
+        HideWorldDestinationWaypoint();
+        HideMinimapDestinationWaypoint();
     }
 
     public void SetTarget(Vector3 targetPosition)
@@ -57,14 +59,20 @@ public class Pathfinding : MonoBehaviour
         CalculatePath(currentTargetPosition);
     }
 
-    /// <summary>Clears the current path and hides the destination waypoint indicator. Call when the user cancels navigation.</summary>
+    /// <summary>Clears all navigation paths and destination indicators.</summary>
     public void ClearTarget()
     {
         currentPath = null;
         currentTargetPosition = default;
+        cachedPathPositions = null;
         if (pathRenderer != null)
             pathRenderer.positionCount = 0;
-        HideDestinationWaypoint();
+        if (minimapPathRenderer != null)
+            minimapPathRenderer.positionCount = 0;
+        if (pathRenderer != null) pathRenderer.enabled = false;
+        if (minimapPathRenderer != null) minimapPathRenderer.enabled = false;
+        HideWorldDestinationWaypoint();
+        HideMinimapDestinationWaypoint();
     }
 
     /// <summary>Current world position of the navigation target (valid after SetTarget and when a path exists).</summary>
@@ -73,17 +81,72 @@ public class Pathfinding : MonoBehaviour
     /// <summary>True when a path to the target has been found and the destination waypoint can be shown.</summary>
     public bool HasActivePath() => currentPath != null && currentPath.Count > 0;
 
-    void ShowDestinationWaypoint()
+    private void ConfigureRenderer(LineRenderer renderer, float width)
     {
-        if (destinationWaypointIndicator == null) return;
-        destinationWaypointIndicator.position = currentTargetPosition + Vector3.up * waypointHeightAboveGround;
-        destinationWaypointIndicator.gameObject.SetActive(true);
+        if (renderer == null) return;
+        renderer.useWorldSpace = true;
+        renderer.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        renderer.startWidth = width;
+        renderer.endWidth = width;
+        renderer.positionCount = 0;
+        renderer.enabled = false;
     }
 
-    void HideDestinationWaypoint()
+    void HideWorldDestinationWaypoint()
     {
         if (destinationWaypointIndicator != null)
             destinationWaypointIndicator.gameObject.SetActive(false);
+    }
+
+    void HideMinimapDestinationWaypoint()
+    {
+        if (minimapDestinationWaypointIndicator != null)
+            minimapDestinationWaypointIndicator.gameObject.SetActive(false);
+    }
+
+    private void UpdateDestinationWaypointPositions()
+    {
+        Vector3 indicatorPosition = currentTargetPosition + Vector3.up * waypointHeightAboveGround;
+        if (destinationWaypointIndicator != null)
+        {
+            destinationWaypointIndicator.position = indicatorPosition;
+        }
+        if (minimapDestinationWaypointIndicator != null)
+        {
+            minimapDestinationWaypointIndicator.position = indicatorPosition;
+        }
+    }
+
+    /// <summary>Show only minimap navigation visuals after selecting a waypoint.</summary>
+    public void ShowMinimapOnly()
+    {
+        if (minimapPathRenderer != null && minimapPathRenderer.positionCount > 0)
+            minimapPathRenderer.enabled = true;
+        if (pathRenderer != null)
+            pathRenderer.enabled = false;
+
+        HideWorldDestinationWaypoint();
+        if (minimapDestinationWaypointIndicator != null && minimapPathRenderer != null && minimapPathRenderer.positionCount > 0)
+            minimapDestinationWaypointIndicator.gameObject.SetActive(true);
+        else
+            HideMinimapDestinationWaypoint();
+    }
+
+    /// <summary>Show world navigation visuals while keeping minimap path visible.</summary>
+    public void ShowWorldAndMinimap()
+    {
+        if (pathRenderer != null && pathRenderer.positionCount > 0)
+            pathRenderer.enabled = true;
+        if (minimapPathRenderer != null && minimapPathRenderer.positionCount > 0)
+            minimapPathRenderer.enabled = true;
+
+        if (destinationWaypointIndicator != null && pathRenderer != null && pathRenderer.positionCount > 0)
+            destinationWaypointIndicator.gameObject.SetActive(true);
+        else
+            HideWorldDestinationWaypoint();
+
+        if (minimapDestinationWaypointIndicator != null && minimapPathRenderer != null && minimapPathRenderer.positionCount > 0)
+            minimapDestinationWaypointIndicator.gameObject.SetActive(true);
     }
 
     public void CalculatePath(Vector3 targetWorldPosition)
@@ -134,8 +197,12 @@ public class Pathfinding : MonoBehaviour
         if (!ValidateNodes(startNode, targetNode))
         {
             Debug.LogError("Node validation failed");
-            pathRenderer.positionCount = 0;
-            HideDestinationWaypoint();
+            if (pathRenderer != null) pathRenderer.positionCount = 0;
+            if (minimapPathRenderer != null) minimapPathRenderer.positionCount = 0;
+            if (pathRenderer != null) pathRenderer.enabled = false;
+            if (minimapPathRenderer != null) minimapPathRenderer.enabled = false;
+            HideWorldDestinationWaypoint();
+            HideMinimapDestinationWaypoint();
             return;
         }
 
@@ -195,7 +262,7 @@ public class Pathfinding : MonoBehaviour
             {
                 currentPath = RetracePath(startNode, targetNode);
                 UpdatePathVisualization();
-                ShowDestinationWaypoint();
+                UpdateDestinationWaypointPositions();
                 return;
             }
 
@@ -203,8 +270,12 @@ public class Pathfinding : MonoBehaviour
         }
         
         Debug.LogWarning("No path exists between points");
-        pathRenderer.positionCount = 0;
-        HideDestinationWaypoint();
+        if (pathRenderer != null) pathRenderer.positionCount = 0;
+        if (minimapPathRenderer != null) minimapPathRenderer.positionCount = 0;
+        if (pathRenderer != null) pathRenderer.enabled = false;
+        if (minimapPathRenderer != null) minimapPathRenderer.enabled = false;
+        HideWorldDestinationWaypoint();
+        HideMinimapDestinationWaypoint();
     }
 
     void ProcessNeighbors(Node current, Node target, Heap<Node> openSet, HashSet<Node> closedSet)
@@ -255,14 +326,22 @@ public class Pathfinding : MonoBehaviour
     {
         if (currentPath == null || currentPath.Count == 0) return;
 
-        Vector3[] positions = new Vector3[currentPath.Count];
+        cachedPathPositions = new Vector3[currentPath.Count];
         for (int i = 0; i < currentPath.Count; i++)
         {
-            positions[i] = currentPath[i].worldPosition + Vector3.up * 0.5f;
+            cachedPathPositions[i] = currentPath[i].worldPosition + Vector3.up * 0.5f;
         }
-        
-        pathRenderer.positionCount = positions.Length;
-        pathRenderer.SetPositions(positions);
+
+        if (pathRenderer != null)
+        {
+            pathRenderer.positionCount = cachedPathPositions.Length;
+            pathRenderer.SetPositions(cachedPathPositions);
+        }
+        if (minimapPathRenderer != null)
+        {
+            minimapPathRenderer.positionCount = cachedPathPositions.Length;
+            minimapPathRenderer.SetPositions(cachedPathPositions);
+        }
     }
 
     int GetDistance(Node a, Node b)
