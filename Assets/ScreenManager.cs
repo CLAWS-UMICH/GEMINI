@@ -15,6 +15,28 @@ public class ScreenManager : MonoBehaviour
     [Tooltip("Radial navigation menu GameObject (e.g. 'RadialMenu' in the main scene).")]
     public GameObject radialMenu;
 
+    private void EnterUia()
+    {
+        if (UIA == null) return;
+        UIA.SetActive(true);
+        var uiaController = UIA.GetComponent<UIAController>();
+        uiaController?.openFeatureScreen();
+    }
+
+    private void ExitUia()
+    {
+        if (UIA == null) return;
+        var uiaController = UIA.GetComponent<UIAController>();
+        if (uiaController != null)
+        {
+            uiaController.closeFeatureScreen();
+        }
+        else
+        {
+            UIA.SetActive(false);
+        }
+    }
+
 
 
     void Start()
@@ -52,8 +74,7 @@ public class ScreenManager : MonoBehaviour
         {
             case 0:
                 Debug.Log("Opening UIA screen");
-                UIA.SetActive(true);
-                UIA.GetComponent<UIAController>().openFeatureScreen();
+                EnterUia();
                 break;
             case 1:
                 Debug.Log("Opening Navigation radial menu");
@@ -105,11 +126,7 @@ public class ScreenManager : MonoBehaviour
     {
         screens.SetActive(true);
         Debug.Log("Deactivating all screens");
-        UIA.SetActive(true);
-        foreach (Transform child in UIA.transform)
-        {
-            child.gameObject.SetActive(false);
-        }
+        ExitUia();
         navigation.SetActive(true);
         foreach (Transform child in navigation.transform)
         {

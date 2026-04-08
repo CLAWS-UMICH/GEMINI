@@ -12,6 +12,29 @@ public class MenuState : MonoBehaviour
     [SerializeField] private GameObject messages;
     [SerializeField] private GameObject navigation;
     [SerializeField] private GameObject uia;
+    private const int UiaToggleIndex = 0;
+
+    private void EnterUia()
+    {
+        if (uia == null) return;
+        uia.SetActive(true);
+        UIAController uiaController = uia.GetComponent<UIAController>();
+        uiaController?.openFeatureScreen();
+    }
+
+    private void ExitUia()
+    {
+        if (uia == null) return;
+        UIAController uiaController = uia.GetComponent<UIAController>();
+        if (uiaController != null)
+        {
+            uiaController.closeFeatureScreen();
+        }
+        else
+        {
+            uia.SetActive(false);
+        }
+    }
 
     private void Start()
     {
@@ -37,14 +60,14 @@ public class MenuState : MonoBehaviour
         tasklist.SetActive(false);
         messages.SetActive(false);
         navigation.SetActive(false);
-        uia.SetActive(false);
+        ExitUia();
 
         // Activate the respective screen based on the selected index
         switch (selectedIndex)
         {
-            case 0:
-                tasklist.SetActive(true);
-                Debug.Log("Tasklist screen opened.");
+            case UiaToggleIndex:
+                EnterUia();
+                Debug.Log("UIA screen opened.");
                 break;
             case 1:
                 navigation.SetActive(true);
@@ -72,8 +95,8 @@ public class MenuState : MonoBehaviour
                 Debug.Log("Vitals screen opened.");
                 break;
             case 5:
-                uia.SetActive(true);
-                Debug.Log("UIA screen opened.");
+                tasklist.SetActive(true);
+                Debug.Log("Tasklist screen opened.");
                 break;
             case 6:
                 // case is for closing any menu
