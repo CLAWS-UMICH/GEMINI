@@ -38,12 +38,15 @@ public class TaskDetailScreen : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"[TaskDetailScreen] Start called on '{gameObject.name}'");
+        Debug.Log($"[TaskDetailScreen] titleText={(titleText == null ? "NULL" : titleText.name)}, taskTexts.Count={taskTexts.Count}");
         ShowGroup(0);
     }
 
     public void ShowGroup(int index)
     {
-        if (index < 0 || index >= groups.Length) return;
+        Debug.Log($"[TaskDetailScreen] ShowGroup({index})");
+        if (index < 0 || index >= groups.Length) { Debug.Log($"[TaskDetailScreen] index {index} out of range"); return; }
         activeGroup    = groups[index];
         completedUpTo  = -1;
 
@@ -81,15 +84,15 @@ public class TaskDetailScreen : MonoBehaviour
 
             if (taskIndex < activeGroup.tasks.Length)
             {
-                taskTexts[slot].gameObject.SetActive(true);
+                taskTexts[slot].transform.parent.gameObject.SetActive(true);
                 taskTexts[slot].text  = activeGroup.tasks[taskIndex];
                 bool isDone = (slot == 0 && completedUpTo >= 0);
                 taskTexts[slot].color = isDone ? doneColor : activeColor;
-                Debug.Log($"Slot {slot} → '{activeGroup.tasks[taskIndex]}', active={taskTexts[slot].gameObject.activeInHierarchy}");
+                Debug.Log($"[TaskDetailScreen] Slot {slot} → '{activeGroup.tasks[taskIndex]}' | selfActive={taskTexts[slot].gameObject.activeSelf} | inHierarchy={taskTexts[slot].gameObject.activeInHierarchy} | parent='{taskTexts[slot].transform.parent.name}' parentActive={taskTexts[slot].transform.parent.gameObject.activeSelf}");
             }
             else
             {
-                taskTexts[slot].gameObject.SetActive(false);
+                taskTexts[slot].transform.parent.gameObject.SetActive(false);
                 Debug.Log($"Slot {slot} hidden (no task at index {taskIndex})");
             }
         }
