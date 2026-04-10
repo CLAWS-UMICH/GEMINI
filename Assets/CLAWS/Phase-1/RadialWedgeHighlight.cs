@@ -2,16 +2,16 @@ using UnityEngine;
 using MixedReality.Toolkit.UX;
 
 /// <summary>
-/// MRTK-style visual feedback for radial menu wedges and center button:
-/// white highlight on eye gaze and when pressed (selected).
-/// Attach to a GameObject that has PressableButton and MeshRenderer.
+/// MRTK-style visual feedback for radial menu wedges and center disc:
+/// white rim highlight on eye gaze when the face material supports <see cref="RimHighlightId"/> (CLAWS/RadialWedgeFace).
+/// Custom materials without that property keep the previous full-surface tint behavior.
 /// </summary>
 [RequireComponent(typeof(PressableButton))]
 [RequireComponent(typeof(MeshRenderer))]
 public class RadialWedgeHighlight : MonoBehaviour
 {
     [Header("Highlight colors")]
-    [Tooltip("Color when hovered by eye gaze (MRTK-style white highlight).")]
+    [Tooltip("Rim color with CLAWS/RadialWedgeFace; full-face tint when using a custom material without _RimHighlight.")]
     [SerializeField] private Color gazeHighlightColor = Color.white;
 
     private PressableButton button;
@@ -20,10 +20,13 @@ public class RadialWedgeHighlight : MonoBehaviour
     private Color[] originalFaceColors;
     private Color[] originalEdgeColors;
     private bool isGazeHovered;
+    private bool usesRimHighlight;
 
     private static readonly int BaseColorId = Shader.PropertyToID("_Base_Color_");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
     private static readonly int BaseColorUrpId = Shader.PropertyToID("_BaseColor");
+    private static readonly int RimHighlightId = Shader.PropertyToID("_RimHighlight");
+    private static readonly int RimColorId = Shader.PropertyToID("_RimColor");
 
     void Start()
     {
@@ -31,16 +34,18 @@ public class RadialWedgeHighlight : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         if (button == null || meshRenderer == null) return;
 
-        // Prevent MRTK StateVisualizer from throwing (it expects prefab targets we don't have)
         DisableStateVisualizerOn(gameObject);
 
-        // Cache material instances and original colors (face = 0, edge = 1)
         Material[] mats = meshRenderer.materials;
         materialInstances = mats;
         originalFaceColors = new Color[] { GetMaterialColor(mats[0]) };
         originalEdgeColors = mats.Length > 1
             ? new Color[] { GetMaterialColor(mats[1]) }
             : new Color[] { originalFaceColors[0] };
+
+        usesRimHighlight = mats[0] != null && mats[0].HasProperty(RimHighlightId);
+        if (usesRimHighlight && mats[0].HasProperty(RimColorId))
+            mats[0].SetColor(RimColorId, gazeHighlightColor);
 
         if (button.IsGazeHovered != null)
         {
@@ -73,6 +78,12 @@ public class RadialWedgeHighlight : MonoBehaviour
     private void ApplyHighlight()
     {
         if (materialInstances == null || materialInstances.Length == 0) return;
+
+        if (usesRimHighlight)
+        {
+            materialInstances[0].SetFloat(RimHighlightId, isGazeHovered ? 1f : 0f);
+            return;
+        }
 
         Color faceColor = isGazeHovered ? gazeHighlightColor : originalFaceColors[0];
         Color edgeColor = isGazeHovered

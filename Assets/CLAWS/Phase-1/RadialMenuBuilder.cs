@@ -81,6 +81,11 @@ public class RadialMenuBuilder : MonoBehaviour
 
     private static readonly int BaseColorId = Shader.PropertyToID("_Base_Color_");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
+    private static readonly int BaseColorUrpId = Shader.PropertyToID("_BaseColor");
+    private static readonly int RimUvModeId = Shader.PropertyToID("_RimUvMode");
+    private static readonly int AngleSpanRadId = Shader.PropertyToID("_AngleSpanRad");
+    private static readonly int InnerRadiusShaderId = Shader.PropertyToID("_InnerRadius");
+    private static readonly int OuterRadiusShaderId = Shader.PropertyToID("_OuterRadius");
 
     void Start()
     {
@@ -174,8 +179,42 @@ public class RadialMenuBuilder : MonoBehaviour
     {
         if (mat.HasProperty(BaseColorId))
             mat.SetColor(BaseColorId, tint);
+        if (mat.HasProperty(BaseColorUrpId))
+            mat.SetColor(BaseColorUrpId, tint);
         if (mat.HasProperty(ColorId))
             mat.SetColor(ColorId, tint);
+    }
+
+    private Material ResolveFaceMaterial(Material preferred)
+    {
+        if (preferred != null) return preferred;
+        return GetDefaultRadialFaceMaterial();
+    }
+
+    private Material GetDefaultRadialFaceMaterial()
+    {
+        Shader sh = Shader.Find("CLAWS/RadialWedgeFace");
+        if (sh == null || !sh.isSupported)
+            return GetFallbackMaterial();
+        return new Material(sh);
+    }
+
+    private static void ConfigureFaceRimUv(Material faceMat, float rimUvMode)
+    {
+        if (faceMat != null && faceMat.HasProperty(RimUvModeId))
+            faceMat.SetFloat(RimUvModeId, rimUvMode);
+    }
+
+    /// <summary>World-space rim on wedge faces so outline stays thin for large angular spans (e.g. 180°).</summary>
+    private void ConfigureWedgeFaceRimGeometry(Material faceMat, float startDeg, float endDeg)
+    {
+        if (faceMat == null || !faceMat.HasProperty(AngleSpanRadId)) return;
+        float spanDeg = Mathf.Abs(endDeg - startDeg);
+        faceMat.SetFloat(AngleSpanRadId, spanDeg * Mathf.Deg2Rad);
+        if (faceMat.HasProperty(InnerRadiusShaderId))
+            faceMat.SetFloat(InnerRadiusShaderId, innerRadius);
+        if (faceMat.HasProperty(OuterRadiusShaderId))
+            faceMat.SetFloat(OuterRadiusShaderId, outerRadius);
     }
 
     private Material GetFallbackMaterial()
@@ -228,8 +267,12 @@ public class RadialMenuBuilder : MonoBehaviour
         Mesh discMesh = CreateExtrudedDiscMesh(centerDiscRadius, thickness, 32);
         mf.sharedMesh = discMesh;
 
-        Material faceMat = new Material(ResolveMaterial(centerMaterial, wedgeMaterial));
+        Material faceSource = centerMaterial != null ? centerMaterial : wedgeMaterial;
+        Material faceMat = new Material(ResolveFaceMaterial(faceSource));
         ApplyTint(faceMat, wedgeTint);
+        ConfigureFaceRimUv(faceMat, 1f);
+        if (faceMat.HasProperty(AngleSpanRadId))
+            faceMat.SetFloat(AngleSpanRadId, 0f);
         Material sideMat = new Material(ResolveMaterial(edgeMaterial, wedgeMaterial));
         ApplyTint(sideMat, edgeTint);
         mr.sharedMaterials = new Material[] { faceMat, sideMat };
@@ -294,8 +337,10 @@ public class RadialMenuBuilder : MonoBehaviour
         Mesh mesh = CreateExtrudedWedgeMesh(innerRadius, outerRadius, thickness, startDeg, endDeg, arcSegments);
         mf.sharedMesh = mesh;
 
-        Material faceMat = new Material(ResolveMaterial(wedgeMaterial, null));
+        Material faceMat = new Material(ResolveFaceMaterial(wedgeMaterial));
         ApplyTint(faceMat, wedgeTint);
+        ConfigureFaceRimUv(faceMat, 0f);
+        ConfigureWedgeFaceRimGeometry(faceMat, startDeg, endDeg);
         Material sideMat = new Material(ResolveMaterial(edgeMaterial, wedgeMaterial));
         ApplyTint(sideMat, edgeTint);
         mr.sharedMaterials = new Material[] { faceMat, sideMat };
