@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -51,6 +52,9 @@ public class RadialMenuBuilder : MonoBehaviour
     [Tooltip("Tint for the side edges — typically lighter than wedgeTint")]
     public Color edgeTint = new Color(0.6f, 0.65f, 0.85f, 1f);
 
+    [Tooltip("Local -Z offset (meters) for the rim overlay mesh toward the viewer (MRTK-style frontplate separation).")]
+    [SerializeField] private float rimForwardOffset = 0.005f;
+
     [Header("Icons")]
     public TMP_FontAsset iconFont;
     public float iconSize = 0.5f;
@@ -86,6 +90,12 @@ public class RadialMenuBuilder : MonoBehaviour
     private static readonly int AngleSpanRadId = Shader.PropertyToID("_AngleSpanRad");
     private static readonly int InnerRadiusShaderId = Shader.PropertyToID("_InnerRadius");
     private static readonly int OuterRadiusShaderId = Shader.PropertyToID("_OuterRadius");
+    private static readonly int RimHighlightId = Shader.PropertyToID("_RimHighlight");
+    private static readonly int RimColorId = Shader.PropertyToID("_RimColor");
+    private static readonly int RimWidthWorldId = Shader.PropertyToID("_RimWidthWorld");
+    private static readonly int RimSoftnessWorldId = Shader.PropertyToID("_RimSoftnessWorld");
+    private static readonly int RimWidthUvId = Shader.PropertyToID("_RimWidth");
+    private static readonly int RimSoftnessUvId = Shader.PropertyToID("_RimSoftness");
 
     void Start()
     {
@@ -205,6 +215,56 @@ public class RadialMenuBuilder : MonoBehaviour
             faceMat.SetFloat(RimUvModeId, rimUvMode);
     }
 
+    private static void CopyRadialRimMaterialSettings(Material source, Material dest)
+    {
+        if (source == null || dest == null) return;
+        void CopyFloat(int id)
+        {
+            if (source.HasProperty(id) && dest.HasProperty(id))
+                dest.SetFloat(id, source.GetFloat(id));
+        }
+        void CopyColor(int id)
+        {
+            if (source.HasProperty(id) && dest.HasProperty(id))
+                dest.SetColor(id, source.GetColor(id));
+        }
+        CopyFloat(RimUvModeId);
+        CopyFloat(AngleSpanRadId);
+        CopyFloat(InnerRadiusShaderId);
+        CopyFloat(OuterRadiusShaderId);
+        CopyFloat(RimWidthWorldId);
+        CopyFloat(RimSoftnessWorldId);
+        CopyFloat(RimWidthUvId);
+        CopyFloat(RimSoftnessUvId);
+        CopyColor(RimColorId);
+    }
+
+    private void TryAddRimOverlayChild(GameObject root, Material faceMat, Mesh frontFaceMesh)
+    {
+        if (root == null || frontFaceMesh == null || faceMat == null) return;
+        if (!faceMat.HasProperty(RimHighlightId)) return;
+        Shader rimSh = Shader.Find("CLAWS/RadialWedgeRimOverlay");
+        if (rimSh == null || !rimSh.isSupported) return;
+
+        faceMat.SetFloat(RimHighlightId, 0f);
+        Material rimMat = new Material(rimSh);
+        CopyRadialRimMaterialSettings(faceMat, rimMat);
+        rimMat.SetFloat(RimHighlightId, 0f);
+
+        GameObject overlay = new GameObject(RadialWedgeHighlight.RimOverlayTransformName);
+        overlay.transform.SetParent(root.transform, false);
+        overlay.transform.localPosition = new Vector3(0f, 0f, -rimForwardOffset);
+        overlay.transform.localRotation = Quaternion.identity;
+        overlay.transform.localScale = Vector3.one;
+
+        MeshFilter omf = overlay.AddComponent<MeshFilter>();
+        omf.sharedMesh = frontFaceMesh;
+        MeshRenderer omr = overlay.AddComponent<MeshRenderer>();
+        omr.sharedMaterial = rimMat;
+        omr.shadowCastingMode = ShadowCastingMode.Off;
+        omr.receiveShadows = false;
+    }
+
     /// <summary>World-space rim on wedge faces so outline stays thin for large angular spans (e.g. 180°).</summary>
     private void ConfigureWedgeFaceRimGeometry(Material faceMat, float startDeg, float endDeg)
     {
@@ -277,6 +337,9 @@ public class RadialMenuBuilder : MonoBehaviour
         ApplyTint(sideMat, edgeTint);
         mr.sharedMaterials = new Material[] { faceMat, sideMat };
 
+        Mesh discFrontOnly = CreateDiscFrontFaceMesh(centerDiscRadius, thickness, 32);
+        TryAddRimOverlayChild(centerDisc, faceMat, discFrontOnly);
+
         MeshCollider centerCollider = centerDisc.AddComponent<MeshCollider>();
         centerCollider.sharedMesh = discMesh;
 
@@ -344,6 +407,9 @@ public class RadialMenuBuilder : MonoBehaviour
         Material sideMat = new Material(ResolveMaterial(edgeMaterial, wedgeMaterial));
         ApplyTint(sideMat, edgeTint);
         mr.sharedMaterials = new Material[] { faceMat, sideMat };
+
+        Mesh wedgeFrontOnly = CreateWedgeFrontFaceMesh(innerRadius, outerRadius, thickness, startDeg, endDeg, arcSegments);
+        TryAddRimOverlayChild(go, faceMat, wedgeFrontOnly);
 
         MeshCollider mc = go.AddComponent<MeshCollider>();
         mc.sharedMesh = mesh;
@@ -604,6 +670,49 @@ public class RadialMenuBuilder : MonoBehaviour
         return mesh;
     }
 
+    /// <summary>Front-facing annular sector only (same UVs as full wedge), for transparent rim overlay.</summary>
+    public static Mesh CreateWedgeFrontFaceMesh(float innerR, float outerR, float depth, float startDeg, float endDeg, int segments)
+    {
+        Mesh mesh = new Mesh();
+        mesh.name = "WedgeFrontFace";
+        float halfD = depth / 2f;
+        int vertCount = (segments + 1) * 2;
+        Vector3[] verts = new Vector3[vertCount];
+        Vector2[] uvs = new Vector2[vertCount];
+        Vector3[] normals = new Vector3[vertCount];
+        int vi = 0;
+        for (int i = 0; i <= segments; i++)
+        {
+            float t = (float)i / segments;
+            float angle = Mathf.Lerp(startDeg, endDeg, t) * Mathf.Deg2Rad;
+            float cos = Mathf.Cos(angle), sin = Mathf.Sin(angle);
+
+            verts[vi] = new Vector3(cos * innerR, sin * innerR, -halfD);
+            uvs[vi] = new Vector2(t, 0f);
+            normals[vi] = Vector3.back;
+            vi++;
+            verts[vi] = new Vector3(cos * outerR, sin * outerR, -halfD);
+            uvs[vi] = new Vector2(t, 1f);
+            normals[vi] = Vector3.back;
+            vi++;
+        }
+
+        List<int> tris = new List<int>(segments * 6);
+        for (int i = 0; i < segments; i++)
+        {
+            int fv = i * 2;
+            tris.Add(fv); tris.Add(fv + 2); tris.Add(fv + 1);
+            tris.Add(fv + 1); tris.Add(fv + 2); tris.Add(fv + 3);
+        }
+
+        mesh.vertices = verts;
+        mesh.uv = uvs;
+        mesh.normals = normals;
+        mesh.triangles = tris.ToArray();
+        mesh.RecalculateBounds();
+        return mesh;
+    }
+
     public static Mesh CreateExtrudedDiscMesh(float radius, float depth, int segments)
     {
         Mesh mesh = new Mesh();
@@ -692,6 +801,48 @@ public class RadialMenuBuilder : MonoBehaviour
         mesh.subMeshCount = 2;
         mesh.SetTriangles(faceTris, 0);
         mesh.SetTriangles(sideTris, 1);
+        mesh.RecalculateBounds();
+        return mesh;
+    }
+
+    /// <summary>Front disc face only (center + ring at -Z), for transparent rim overlay.</summary>
+    public static Mesh CreateDiscFrontFaceMesh(float radius, float depth, int segments)
+    {
+        Mesh mesh = new Mesh();
+        mesh.name = "DiscFrontFace";
+        float halfD = depth / 2f;
+        Vector3[] verts = new Vector3[1 + segments];
+        Vector2[] uvs = new Vector2[verts.Length];
+        Vector3[] normals = new Vector3[verts.Length];
+        int vi = 0;
+        verts[vi] = new Vector3(0f, 0f, -halfD);
+        uvs[vi] = new Vector2(0.5f, 0.5f);
+        normals[vi] = Vector3.back;
+        vi++;
+        int ringStart = vi;
+        for (int i = 0; i < segments; i++)
+        {
+            float angle = (float)i / segments * Mathf.PI * 2f;
+            float cos = Mathf.Cos(angle), sin = Mathf.Sin(angle);
+            verts[vi] = new Vector3(cos * radius, sin * radius, -halfD);
+            uvs[vi] = new Vector2(cos * 0.5f + 0.5f, sin * 0.5f + 0.5f);
+            normals[vi] = Vector3.back;
+            vi++;
+        }
+
+        List<int> tris = new List<int>(segments * 3);
+        for (int i = 0; i < segments; i++)
+        {
+            int next = (i + 1) % segments;
+            tris.Add(0);
+            tris.Add(ringStart + i);
+            tris.Add(ringStart + next);
+        }
+
+        mesh.vertices = verts;
+        mesh.uv = uvs;
+        mesh.normals = normals;
+        mesh.triangles = tris.ToArray();
         mesh.RecalculateBounds();
         return mesh;
     }

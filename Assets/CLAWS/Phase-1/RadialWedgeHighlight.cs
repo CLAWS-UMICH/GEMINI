@@ -3,24 +3,27 @@ using MixedReality.Toolkit.UX;
 
 /// <summary>
 /// MRTK-style visual feedback for radial menu wedges and center disc:
-/// white rim highlight on eye gaze when the face material supports <see cref="RimHighlightId"/> (CLAWS/RadialWedgeFace).
-/// Custom materials without that property keep the previous full-surface tint behavior.
+/// white rim highlight on eye gaze when using CLAWS/RadialWedgeFace, optionally on a child <see cref="RimOverlayTransformName"/> mesh slightly in front.
+/// Custom materials without <c>_RimHighlight</c> keep the previous full-surface tint behavior.
 /// </summary>
 [RequireComponent(typeof(PressableButton))]
 [RequireComponent(typeof(MeshRenderer))]
 public class RadialWedgeHighlight : MonoBehaviour
 {
+    public const string RimOverlayTransformName = "RimOverlay";
+
     [Header("Highlight colors")]
-    [Tooltip("Rim color with CLAWS/RadialWedgeFace; full-face tint when using a custom material without _RimHighlight.")]
+    [Tooltip("Rim color with CLAWS/RadialWedgeFace / RimOverlay; full-face tint when using a custom material without _RimHighlight.")]
     [SerializeField] private Color gazeHighlightColor = Color.white;
 
     private PressableButton button;
     private MeshRenderer meshRenderer;
     private Material[] materialInstances;
+    private Material rimOverlayMaterial;
     private Color[] originalFaceColors;
     private Color[] originalEdgeColors;
     private bool isGazeHovered;
-    private bool usesRimHighlight;
+    private bool usesRimNotLegacy;
 
     private static readonly int BaseColorId = Shader.PropertyToID("_Base_Color_");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
@@ -43,9 +46,33 @@ public class RadialWedgeHighlight : MonoBehaviour
             ? new Color[] { GetMaterialColor(mats[1]) }
             : new Color[] { originalFaceColors[0] };
 
-        usesRimHighlight = mats[0] != null && mats[0].HasProperty(RimHighlightId);
-        if (usesRimHighlight && mats[0].HasProperty(RimColorId))
-            mats[0].SetColor(RimColorId, gazeHighlightColor);
+        bool parentHasRim = mats[0] != null && mats[0].HasProperty(RimHighlightId);
+
+        Transform overlayTf = transform.Find(RimOverlayTransformName);
+        MeshRenderer overlayR = overlayTf != null ? overlayTf.GetComponent<MeshRenderer>() : null;
+        if (overlayR != null)
+        {
+            rimOverlayMaterial = overlayR.material;
+            if (!rimOverlayMaterial.HasProperty(RimHighlightId))
+            {
+                rimOverlayMaterial = null;
+            }
+        }
+
+        if (rimOverlayMaterial != null)
+        {
+            if (parentHasRim)
+                mats[0].SetFloat(RimHighlightId, 0f);
+            if (rimOverlayMaterial.HasProperty(RimColorId))
+                rimOverlayMaterial.SetColor(RimColorId, gazeHighlightColor);
+            usesRimNotLegacy = true;
+        }
+        else
+        {
+            usesRimNotLegacy = parentHasRim;
+            if (parentHasRim && mats[0].HasProperty(RimColorId))
+                mats[0].SetColor(RimColorId, gazeHighlightColor);
+        }
 
         if (button.IsGazeHovered != null)
         {
@@ -79,7 +106,13 @@ public class RadialWedgeHighlight : MonoBehaviour
     {
         if (materialInstances == null || materialInstances.Length == 0) return;
 
-        if (usesRimHighlight)
+        if (rimOverlayMaterial != null)
+        {
+            rimOverlayMaterial.SetFloat(RimHighlightId, isGazeHovered ? 1f : 0f);
+            return;
+        }
+
+        if (usesRimNotLegacy)
         {
             materialInstances[0].SetFloat(RimHighlightId, isGazeHovered ? 1f : 0f);
             return;

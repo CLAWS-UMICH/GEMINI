@@ -1,8 +1,7 @@
-Shader "CLAWS/RadialWedgeFace"
+Shader "CLAWS/RadialWedgeRimOverlay"
 {
     Properties
     {
-        _BaseColor("Color", Color) = (0.15, 0.2, 0.55, 1)
         _RimColor("Rim Color", Color) = (1, 1, 1, 1)
         _RimHighlight("Rim Highlight", Range(0, 1)) = 0
         _RimUvMode("Rim UV Mode", Float) = 0
@@ -19,15 +18,19 @@ Shader "CLAWS/RadialWedgeFace"
     {
         Tags
         {
-            "RenderType" = "Opaque"
+            "RenderType" = "Transparent"
             "RenderPipeline" = "UniversalPipeline"
-            "Queue" = "Geometry"
+            "Queue" = "Transparent+10"
         }
 
         Pass
         {
-            Name "ForwardUnlit"
+            Name "ForwardUnlitRim"
             Tags { "LightMode" = "UniversalForward" }
+
+            ZWrite Off
+            Blend SrcAlpha OneMinusSrcAlpha
+            Cull Off
 
             HLSLPROGRAM
             #pragma vertex vert
@@ -38,7 +41,6 @@ Shader "CLAWS/RadialWedgeFace"
             #include "RadialWedgeRim.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
-                half4 _BaseColor;
                 half4 _RimColor;
                 half _RimHighlight;
                 half _RimUvMode;
@@ -88,9 +90,8 @@ Shader "CLAWS/RadialWedgeFace"
                     _RimSoftnessWorld,
                     _RimWidth,
                     _RimSoftness);
-
-                half3 color = lerp(_BaseColor.rgb, _RimColor.rgb, saturate(rimAmt * _RimHighlight));
-                return half4(color, _BaseColor.a);
+                half a = saturate(rimAmt * _RimHighlight) * _RimColor.a;
+                return half4(_RimColor.rgb, a);
             }
             ENDHLSL
         }
