@@ -62,6 +62,23 @@ public class RadialMenuBuilder : MonoBehaviour
     [Range(0.1f, 1f)]
     public float iconSpriteScale = 0.25f;
 
+    [Header("Label tab (gaze)")]
+    [Tooltip("Uniform scale on the duplicate wedge mesh when the gaze label tab is fully open.")]
+    [SerializeField] private float labelExtensionMaxScale = 1.1f;
+    [SerializeField] private float labelExtensionTweenDuration = 0.2f;
+    [Tooltip("Local +Z offset (meters) on the scaled duplicate: pushes it behind the main wedge (away from the viewer) to reduce z-fighting with the wedge face and icon.")]
+    [SerializeField] private float labelExtensionVisualZBias = 0.001f;
+    [Tooltip("Where the label sits radially between the original outer arc (t=0) and scaled outer arc (t=1).")]
+    [Range(0f, 1f)]
+    [SerializeField] private float labelExtensionRadialT = 0.52f;
+    [SerializeField] private float labelExtensionFontSize = 0.125f;
+    [Tooltip("Extra outward radial offset at full gaze (meters).")]
+    [SerializeField] private float labelExtensionRadialRevealPop = 0.004f;
+    [Tooltip("Angular inset from each wedge edge (degrees) so curved text stays inside the wedge.")]
+    [SerializeField] private float labelExtensionAngleMarginDegrees = 2.5f;
+    [Tooltip("If text reads backwards along the arc, enable to swap start/end mapping.")]
+    [SerializeField] private bool labelExtensionInvertArcText = false;
+
     [Header("Menu Items")]
     [Tooltip("Assign label and Icon Sprite (or Icon Unicode) per entry in the Inspector. For static menus, set these before play; they are used when the menu is built.")]
     public List<RadialMenuEntry> entries = new List<RadialMenuEntry>();
@@ -411,6 +428,8 @@ public class RadialMenuBuilder : MonoBehaviour
         Mesh wedgeFrontOnly = CreateWedgeFrontFaceMesh(innerRadius, outerRadius, thickness, startDeg, endDeg, arcSegments);
         TryAddRimOverlayChild(go, faceMat, wedgeFrontOnly);
 
+        bool wantsLabelTab = !string.IsNullOrEmpty(entry.label);
+
         MeshCollider mc = go.AddComponent<MeshCollider>();
         mc.sharedMesh = mesh;
 
@@ -420,13 +439,80 @@ public class RadialMenuBuilder : MonoBehaviour
 
         go.AddComponent<RadialWedgeHighlight>();
 
-        CreateIcon(go.transform, startDeg, endDeg, entry);
+        if (wantsLabelTab)
+            CreateWedgeLabelExtensionSibling(go, index, entry, mesh, wedgeFrontOnly, startDeg, endDeg);
+
+        CreateIcon(go.transform, startDeg, endDeg, entry, omitFloatingLabel: wantsLabelTab);
         return go;
+    }
+
+    private void CreateWedgeLabelExtensionSibling(
+        GameObject interactiveWedge,
+        int index,
+        RadialMenuEntry entry,
+        Mesh sharedWedgeMesh,
+        Mesh wedgeFrontOnly,
+        float startDeg,
+        float endDeg)
+    {
+        GameObject extRoot = new GameObject($"Wedge_{index}_LabelExtension");
+        extRoot.transform.SetParent(transform, false);
+
+        GameObject visualHub = new GameObject("Visual");
+        visualHub.transform.SetParent(extRoot.transform, false);
+        visualHub.transform.localPosition = new Vector3(0f, 0f, labelExtensionVisualZBias);
+        visualHub.transform.localRotation = Quaternion.identity;
+        visualHub.transform.localScale = Vector3.one;
+
+        MeshFilter mfExt = visualHub.AddComponent<MeshFilter>();
+        mfExt.sharedMesh = sharedWedgeMesh;
+
+        MeshRenderer mrExt = visualHub.AddComponent<MeshRenderer>();
+        Material faceMatExt = new Material(ResolveFaceMaterial(wedgeMaterial));
+        ApplyTint(faceMatExt, wedgeTint);
+        ConfigureFaceRimUv(faceMatExt, 0f);
+        ConfigureWedgeFaceRimGeometry(faceMatExt, startDeg, endDeg);
+        Material sideMatExt = new Material(ResolveMaterial(edgeMaterial, wedgeMaterial));
+        ApplyTint(sideMatExt, edgeTint);
+        mrExt.sharedMaterials = new Material[] { faceMatExt, sideMatExt };
+        mrExt.shadowCastingMode = ShadowCastingMode.Off;
+        mrExt.receiveShadows = false;
+
+        TryAddRimOverlayChild(visualHub, faceMatExt, wedgeFrontOnly);
+
+        GameObject labelGO = new GameObject("Label");
+        labelGO.transform.SetParent(extRoot.transform, false);
+        TextMeshPro lbl = labelGO.AddComponent<TextMeshPro>();
+        lbl.text = entry.label;
+        lbl.fontSize = labelExtensionFontSize;
+        lbl.alignment = TextAlignmentOptions.Center;
+        lbl.color = Color.white;
+        lbl.enableWordWrapping = false;
+        lbl.overflowMode = TextOverflowModes.Overflow;
+        if (iconFont != null) lbl.font = iconFont;
+        labelGO.GetComponent<RectTransform>().sizeDelta = new Vector2(1.2f, 0.12f);
+
+        var labelExt = interactiveWedge.AddComponent<RadialWedgeLabelExtension>();
+        labelExt.Initialize(
+            extRoot.transform,
+            visualHub.transform,
+            lbl,
+            outerRadius,
+            thickness,
+            startDeg,
+            endDeg,
+            labelExtensionInvertArcText,
+            labelExtensionAngleMarginDegrees,
+            labelExtensionMaxScale,
+            labelExtensionTweenDuration,
+            labelExtensionRadialT,
+            labelExtensionRadialRevealPop,
+            iconFont);
     }
 
     // ── Icons ──────────────────────────────────────────────
 
-    private void CreateIcon(Transform parent, float startDeg, float endDeg, RadialMenuEntry entry)
+    private void CreateIcon(Transform parent, float startDeg, float endDeg, RadialMenuEntry entry, bool omitFloatingLabel = false)
     {
         float midAngle = (startDeg + endDeg) / 2f * Mathf.Deg2Rad;
         float midRadius = (innerRadius + outerRadius) / 2f;
@@ -465,7 +551,7 @@ public class RadialMenuBuilder : MonoBehaviour
             rt.sizeDelta = new Vector2(0.03f, 0.03f);
         }
 
-        if (!string.IsNullOrEmpty(entry.label))
+        if (!omitFloatingLabel && !string.IsNullOrEmpty(entry.label))
         {
             GameObject labelGO = new GameObject("Label");
             labelGO.transform.SetParent(parent, false);
