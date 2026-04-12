@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using MixedReality.Toolkit.UX;
 
 /// <summary>
@@ -47,6 +49,16 @@ public class MinimapWaypointPlacement : MonoBehaviour
     [Header("Bounds")]
     [SerializeField] float maxPlaceRadiusFromOrigin = 500f;
 
+    [Header("Placement pan (large minimap, right-drag / XR hold-drag)")]
+    [Tooltip("Scales how fast the map moves when dragging with the right mouse button.")]
+    [SerializeField] float placementPanSensitivity = 0.035f;
+    [Tooltip("Max distance (world units) the placement camera center may move from its base on X and Z. If 0, uses maxPlaceRadiusFromOrigin.")]
+    [SerializeField] float placementPanMaxOffset = 0f;
+
+    [Header("XR pan gesture")]
+    [Tooltip("Hold duration (seconds) before an XR select gesture becomes a pan drag instead of a placement tap.")]
+    [SerializeField] float xrPanHoldThreshold = 0.25f;
+
     [Header("Canvas")]
     [SerializeField] int canvasSortOrderBoost = 40;
 
@@ -83,10 +95,21 @@ public class MinimapWaypointPlacement : MonoBehaviour
     CamSnapshot _camCollapsed;
     MinimapCameraScript _followScript;
     bool _hadFollowScript;
+    readonly List<(MinimapBackgroundController c, bool wasEnabled)> _backgroundControllersRestore =
+        new List<(MinimapBackgroundController, bool)>();
+    bool _placementPanLatch;
 
     BoxCollider _addedCollider;
     PressableButton _addedButton;
     GameObject _cursorGo;
+
+    Vector3 _placementCameraBasePosition;
+    Vector2 _placementPanOffset;
+
+    IXRSelectInteractor _xrActiveInteractor;
+    float _xrSelectStartTime;
+    bool _xrPanMode;
+    Vector3 _xrLastHitWorld;
 
     Coroutine _expandRoutine;
     WaypointType _placementWaypointType = WaypointType.POI;
@@ -420,15 +443,48 @@ public class MinimapWaypointPlacement : MonoBehaviour
             _hadFollowScript = _followScript.enabled;
             _followScript.enabled = false;
         }
+
+        _backgroundControllersRestore.Clear();
+        var bgControllers = FindObjectsByType<MinimapBackgroundController>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        for (int i = 0; i < bgControllers.Length; i++)
+        {
+            MinimapBackgroundController bg = bgControllers[i];
+            if (bg == null || bg.minimapCamera != _minimapCam)
+                continue;
+            _backgroundControllersRestore.Add((bg, bg.enabled));
+            bg.enabled = false;
+        }
     }
 
     void ApplyPlacementCamera()
     {
         _minimapCam.orthographic = true;
-        _minimapCam.transform.SetPositionAndRotation(
-            new Vector3(0f, placementCameraHeight, 0f),
-            Quaternion.Euler(90f, 0f, 0f));
+        _placementCameraBasePosition = new Vector3(0f, placementCameraHeight, 0f);
+        _placementPanOffset = Vector2.zero;
+        _minimapCam.transform.SetPositionAndRotation(_placementCameraBasePosition, Quaternion.Euler(90f, 0f, 0f));
         _minimapCam.orthographicSize = placementOrthographicSize;
+    }
+
+    float PlacementPanClampDistance()
+    {
+        if (placementPanMaxOffset > 0f)
+            return placementPanMaxOffset;
+        return Mathf.Max(0f, maxPlaceRadiusFromOrigin);
+    }
+
+    void ApplyPanToCamera()
+    {
+        if (_minimapCam == null)
+            return;
+
+        float max = PlacementPanClampDistance();
+        _placementPanOffset.x = Mathf.Clamp(_placementPanOffset.x, -max, max);
+        _placementPanOffset.y = Mathf.Clamp(_placementPanOffset.y, -max, max);
+
+        Vector3 p = _placementCameraBasePosition;
+        _minimapCam.transform.SetPositionAndRotation(
+            new Vector3(p.x + _placementPanOffset.x, p.y, p.z + _placementPanOffset.y),
+            Quaternion.Euler(90f, 0f, 0f));
     }
 
     void RestoreCamera()
@@ -440,6 +496,15 @@ public class MinimapWaypointPlacement : MonoBehaviour
         _minimapCam.transform.SetPositionAndRotation(_camCollapsed.Position, _camCollapsed.Rotation);
         if (_followScript != null && _hadFollowScript)
             _followScript.enabled = true;
+
+        for (int i = 0; i < _backgroundControllersRestore.Count; i++)
+        {
+            (MinimapBackgroundController c, bool wasEnabled) = _backgroundControllersRestore[i];
+            if (wasEnabled && c != null)
+                c.enabled = true;
+        }
+
+        _backgroundControllersRestore.Clear();
     }
 
     IEnumerator ExpandRoutine()
@@ -464,6 +529,9 @@ public class MinimapWaypointPlacement : MonoBehaviour
         ApplyPlacementCamera();
         EnsureClickReceiver();
         CreatePlacementCursor();
+        _placementPanLatch = false;
+        _xrActiveInteractor = null;
+        _xrPanMode = false;
         _phase = PlacementPhase.AwaitingClick;
         _expandRoutine = null;
     }
@@ -573,7 +641,8 @@ public class MinimapWaypointPlacement : MonoBehaviour
         _addedButton = go.GetComponent<PressableButton>();
         if (_addedButton == null)
             _addedButton = go.AddComponent<PressableButton>();
-        _addedButton.OnClicked.AddListener(OnPressableClicked);
+        _addedButton.selectEntered.AddListener(OnSelectEntered);
+        _addedButton.selectExited.AddListener(OnSelectExited);
     }
 
     void SizeColliderToRect(BoxCollider col, RectTransform rt)
@@ -583,23 +652,46 @@ public class MinimapWaypointPlacement : MonoBehaviour
         col.center = new Vector3(r.center.x, r.center.y, 0f);
     }
 
-    void OnPressableClicked()
+    void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (!_busy || _phase != PlacementPhase.AwaitingClick || _addedCollider == null)
+        if (!_busy || _phase != PlacementPhase.AwaitingClick)
             return;
 
-        if (!TryGetWorldFromColliderHit(out Vector3 world))
+        _xrActiveInteractor = args.interactorObject;
+        _xrSelectStartTime = Time.unscaledTime;
+        _xrPanMode = false;
+        _xrLastHitWorld = GetInteractorHitOnCollider(_xrActiveInteractor);
+    }
+
+    void OnSelectExited(SelectExitEventArgs args)
+    {
+        if (_xrActiveInteractor == null)
             return;
 
-        _phase = PlacementPhase.Processing;
-        StartCoroutine(CollapseAndPublishRoutine(world));
+        bool wasPanning = _xrPanMode;
+        _xrActiveInteractor = null;
+        _xrPanMode = false;
+
+        if (wasPanning || _phase != PlacementPhase.AwaitingClick)
+            return;
+
+        Vector3 hitWorld = _xrLastHitWorld;
+        if (HitPointToWorld(hitWorld, out Vector3 world))
+        {
+            _phase = PlacementPhase.Processing;
+            StartCoroutine(CollapseAndPublishRoutine(world));
+        }
     }
 
     void RemoveClickReceiver()
     {
+        _xrActiveInteractor = null;
+        _xrPanMode = false;
+
         if (_addedButton != null)
         {
-            _addedButton.OnClicked.RemoveListener(OnPressableClicked);
+            _addedButton.selectEntered.RemoveListener(OnSelectEntered);
+            _addedButton.selectExited.RemoveListener(OnSelectExited);
             Destroy(_addedButton);
             _addedButton = null;
         }
@@ -615,22 +707,74 @@ public class MinimapWaypointPlacement : MonoBehaviour
 
     // ── Hit conversion (3D collider hit → minimap UV → world) ──
 
+    Vector3 GetInteractorHitOnCollider(IXRSelectInteractor interactor)
+    {
+        if (_addedButton != null && interactor != null)
+        {
+            Transform attach = interactor.GetAttachTransform(_addedButton);
+            if (attach != null)
+                return attach.position;
+        }
+
+        return _addedCollider != null ? _addedCollider.bounds.center : Vector3.zero;
+    }
+
+    bool TryGetHoverHitOnCollider(out Vector3 hitWorldPoint, out Vector2 localPoint)
+    {
+        hitWorldPoint = default;
+        localPoint = default;
+
+        if (_addedButton == null || _addedCollider == null || minimapRawImage == null)
+            return false;
+
+        foreach (var interactor in _addedButton.interactorsHovering)
+        {
+            if (interactor is IXRRayProvider rayProvider)
+            {
+                Transform rayOrigin = rayProvider.GetOrCreateRayOrigin();
+                if (rayOrigin != null)
+                {
+                    Ray hoverRay = new Ray(rayOrigin.position, rayOrigin.forward);
+                    if (_addedCollider.Raycast(hoverRay, out RaycastHit hit, 100f))
+                    {
+                        hitWorldPoint = hit.point;
+                        localPoint = minimapRawImage.rectTransform.InverseTransformPoint(hit.point);
+                        return true;
+                    }
+                }
+            }
+
+            Transform attach = interactor.GetAttachTransform(_addedButton);
+            if (attach != null)
+            {
+                hitWorldPoint = attach.position;
+                localPoint = minimapRawImage.rectTransform.InverseTransformPoint(attach.position);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     bool TryRaycastMinimapCollider(out Vector3 hitWorldPoint, out Vector2 localPoint)
     {
+        if (TryGetHoverHitOnCollider(out hitWorldPoint, out localPoint))
+            return true;
+
         hitWorldPoint = default;
         localPoint = default;
 
         if (_addedCollider == null || minimapRawImage == null)
             return false;
 
+        if (Mouse.current == null)
+            return false;
+
         Camera cam = Camera.main;
         if (cam == null)
             return false;
 
-        Vector2 mousePos = Mouse.current != null ? Mouse.current.position.ReadValue() : Vector2.zero;
-        if (Mouse.current == null)
-            return false;
-
+        Vector2 mousePos = Mouse.current.position.ReadValue();
         Ray ray = cam.ScreenPointToRay(mousePos);
         if (!_addedCollider.Raycast(ray, out RaycastHit hit, 100f))
             return false;
@@ -638,6 +782,16 @@ public class MinimapWaypointPlacement : MonoBehaviour
         hitWorldPoint = hit.point;
         localPoint = minimapRawImage.rectTransform.InverseTransformPoint(hit.point);
         return true;
+    }
+
+    bool HitPointToWorld(Vector3 hitWorld3D, out Vector3 worldHit)
+    {
+        worldHit = default;
+        if (minimapRawImage == null)
+            return false;
+
+        Vector2 local = minimapRawImage.rectTransform.InverseTransformPoint(hitWorld3D);
+        return LocalPointToWorld(local, out worldHit);
     }
 
     bool TryGetWorldFromColliderHit(out Vector3 worldHit)
@@ -732,7 +886,59 @@ public class MinimapWaypointPlacement : MonoBehaviour
 
     void Update()
     {
-        if (_phase != PlacementPhase.AwaitingClick || _cursorGo == null)
+        if (_phase != PlacementPhase.AwaitingClick)
+            return;
+
+        // XR hold-drag pan: after dwell threshold, accumulate pan from interactor movement
+        if (_xrActiveInteractor != null && _minimapCam != null)
+        {
+            float held = Time.unscaledTime - _xrSelectStartTime;
+            if (held >= xrPanHoldThreshold)
+            {
+                _xrPanMode = true;
+                Vector3 currentHit = GetInteractorHitOnCollider(_xrActiveInteractor);
+                Vector3 delta3 = currentHit - _xrLastHitWorld;
+                if (delta3.sqrMagnitude > 0f)
+                {
+                    _placementPanOffset.x -= delta3.x;
+                    _placementPanOffset.y -= delta3.z;
+                    ApplyPanToCamera();
+                }
+                _xrLastHitWorld = currentHit;
+            }
+        }
+
+        // Mouse fallback pan (desktop / spatial mouse right-button drag)
+        if (Mouse.current != null)
+        {
+            var rb = Mouse.current.rightButton;
+            if (rb.wasReleasedThisFrame)
+                _placementPanLatch = false;
+            if (rb.wasPressedThisFrame
+                && minimapRawImage != null
+                && TryRaycastMinimapCollider(out _, out Vector2 pressLocal)
+                && minimapRawImage.rectTransform.rect.Contains(pressLocal))
+            {
+                _placementPanLatch = true;
+            }
+
+            if (_minimapCam != null && rb.isPressed && _placementPanLatch)
+            {
+                Vector2 delta = Mouse.current.delta.ReadValue();
+                if (delta.sqrMagnitude > 0f)
+                {
+                    float scale = placementPanSensitivity;
+                    Transform camTr = _minimapCam.transform;
+                    Vector3 worldDelta = -(camTr.right * delta.x + camTr.up * delta.y) * scale;
+                    _placementPanOffset.x += worldDelta.x;
+                    _placementPanOffset.y += worldDelta.z;
+                    ApplyPanToCamera();
+                }
+            }
+        }
+
+        // Crosshair cursor: follow XR hover or mouse ray
+        if (_cursorGo == null)
             return;
 
         if (TryRaycastMinimapCollider(out _, out Vector2 local))
