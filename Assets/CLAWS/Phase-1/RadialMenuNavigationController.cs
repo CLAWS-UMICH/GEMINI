@@ -14,6 +14,9 @@ public class RadialMenuNavigationController : MonoBehaviour
     [SerializeField] private RadialMenuBuilder radialBuilder;
     [SerializeField] private NavigationController navigationController;
     [SerializeField] private Pathfinding pathfindingSystem;
+    [Header("Add waypoint (minimap placement)")]
+    [Tooltip("Leave empty if MinimapWaypointPlacement is on the same NavigationController GameObject. Otherwise drag the MinimapWaypointPlacement component (e.g. on your overlay object) here so Add finds it.")]
+    [SerializeField] private MinimapWaypointPlacement waypointPlacementOverride;
 
     [Header("Category icons (assign in Editor — used for the 5 main wedges)")]
     [Tooltip("Sprite for Station. Leave empty to use the letter icon.")]
@@ -33,7 +36,7 @@ public class RadialMenuNavigationController : MonoBehaviour
     [Tooltip("Sprite for PR / ROVER. Leave empty to use the letter icon.")]
     [SerializeField] private Sprite prSprite;
 
-    private enum MenuMode { Categories, Waypoints }
+    private enum MenuMode { Categories, Waypoints, AddPickType }
     private MenuMode currentMode = MenuMode.Categories;
     private string currentCategory = ""; // "Station", "Interest", "Hazards", "Companions"
     private int selectedWaypointIndex = -1;
@@ -67,6 +70,14 @@ public class RadialMenuNavigationController : MonoBehaviour
         radialBuilder.onCenterClick = new UnityEvent();
         radialBuilder.onCenterClick.AddListener(OnCenterClicked);
         BuildCategoryMenu();
+    }
+
+    /// <summary>Rebuilds the five-wedge category menu and opens the radial (e.g. after minimap waypoint placement).</summary>
+    public void ResetRadialToCategoriesAndOpen()
+    {
+        BuildCategoryMenu();
+        if (radialBuilder != null)
+            radialBuilder.OpenMenu();
     }
 
     private void BuildCategoryMenu()
@@ -119,9 +130,14 @@ public class RadialMenuNavigationController : MonoBehaviour
 
     private void OpenWaypointList(string category, List<Waypoint> waypoints)
     {
+        if (IsMinimapPlacementBlocking())
+            return;
+
         currentMode = MenuMode.Waypoints;
         currentCategory = category;
-        currentWaypointList = waypoints;
+        // Shallow copy: BuildCategoryMenu / BuildAddWaypointTypeMenu call Clear() on currentWaypointList;
+        // must not clear NavigationController's live Station/POI/Danger lists.
+        currentWaypointList = waypoints != null ? new List<Waypoint>(waypoints) : new List<Waypoint>();
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
         isNavigating = false;
@@ -162,6 +178,9 @@ public class RadialMenuNavigationController : MonoBehaviour
 
     private void OpenCompanionsList()
     {
+        if (IsMinimapPlacementBlocking())
+            return;
+
         currentMode = MenuMode.Waypoints;
         currentCategory = "Companions";
         currentWaypointList = new List<Waypoint>();
@@ -189,18 +208,89 @@ public class RadialMenuNavigationController : MonoBehaviour
         radialBuilder.BuildMenu();
     }
 
+    MinimapWaypointPlacement ResolveWaypointPlacement()
+    {
+        if (waypointPlacementOverride != null)
+            return waypointPlacementOverride;
+        return navigationController != null
+            ? navigationController.GetComponent<MinimapWaypointPlacement>()
+            : null;
+    }
+
+    bool IsMinimapPlacementBlocking()
+    {
+        var p = ResolveWaypointPlacement();
+        return p != null && p.IsPlacementInProgress;
+    }
+
     private void OnAddClicked()
     {
-        if (navigationController != null && navigationController.CreateWaypointScreen != null)
+        if (IsMinimapPlacementBlocking())
+            return;
+
+        var placement = ResolveWaypointPlacement();
+        if (placement == null)
         {
-            navigationController.CreateWaypointScreen.SetActive(true);
-            if (navigationController.WaypointMenuScreen != null)
-                navigationController.WaypointMenuScreen.SetActive(false);
-            if (navigationController.addWaypointButton != null)
-                navigationController.addWaypointButton.SetActive(false);
+            Debug.LogError("RadialMenuNavigationController: No MinimapWaypointPlacement found. Assign Waypoint Placement Override on the radial, or add MinimapWaypointPlacement to NavigationController.");
+            return;
         }
-        if (radialBuilder != null)
-            radialBuilder.CloseMenu();
+
+        BuildAddWaypointTypeMenu();
+    }
+
+    /// <summary>Three wedges: Station, Hazard, Interest — pick type before minimap placement.</summary>
+    private void BuildAddWaypointTypeMenu()
+    {
+        if (IsMinimapPlacementBlocking())
+            return;
+
+        currentMode = MenuMode.AddPickType;
+        currentCategory = "";
+        selectedWaypointIndex = -1;
+        pendingTargetPosition = null;
+        isNavigating = false;
+        activeTargetPosition = default;
+        StopNavigationMonitor();
+        currentWaypointList.Clear();
+
+        radialBuilder.entries.Clear();
+        radialBuilder.segmentCount = 3;
+        radialBuilder.centerLabel = LABEL_BACK;
+        radialBuilder.SetCenterLabel(LABEL_BACK);
+
+        AddCategoryEntry("Station", "S", stationSprite, () => OnAddTypeWedgeClicked(WaypointType.STATION));
+        AddCategoryEntry("Hazard", "H", hazardsSprite, () => OnAddTypeWedgeClicked(WaypointType.DANGER));
+        AddCategoryEntry("Interest", "I", interestSprite, () => OnAddTypeWedgeClicked(WaypointType.POI));
+
+        radialBuilder.BuildMenu();
+    }
+
+    private void OnAddTypeWedgeClicked(WaypointType type)
+    {
+        if (IsMinimapPlacementBlocking())
+            return;
+
+        if (currentMode != MenuMode.AddPickType)
+            return;
+
+        BeginAddPlacement(type);
+    }
+
+    private void BeginAddPlacement(WaypointType type)
+    {
+        var placement = ResolveWaypointPlacement();
+        if (placement == null)
+        {
+            Debug.LogError("RadialMenuNavigationController: No MinimapWaypointPlacement for BeginAddPlacement.");
+            return;
+        }
+
+        placement.BeginFromRadial(this, pathfindingSystem, type);
+        if (radialBuilder != null && placement.IsPlacementInProgress)
+        {
+            radialBuilder.centerLabel = LABEL_BACK;
+            radialBuilder.SetCenterLabel(LABEL_BACK);
+        }
     }
 
     private void SelectWaypoint(int index)
@@ -282,6 +372,19 @@ public class RadialMenuNavigationController : MonoBehaviour
             radialBuilder.centerLabel = LABEL_CANCEL_NAV;
 
             StartNavigationMonitor();
+            return;
+        }
+
+        var placement = ResolveWaypointPlacement();
+        if (placement != null && placement.IsPlacementInProgress && currentCenter == LABEL_BACK)
+        {
+            placement.CancelPlacement();
+            return;
+        }
+
+        if (currentMode == MenuMode.AddPickType && (currentCenter == LABEL_BACK || string.IsNullOrEmpty(currentCenter)))
+        {
+            BuildCategoryMenu();
             return;
         }
 

@@ -217,8 +217,7 @@ public class NavigationFrontend : MonoBehaviour
             if (nameField.text == "Waypoint Name")
             {
                 int waypointIndex = navigationController.POIWaypointList.Count;
-                char waypointLetter = waypointIndex < alphabet.Length ? alphabet[waypointIndex] : '*';
-                nameField.text = "Waypoint " + waypointLetter;
+                nameField.text = WaypointNamingHelper.DefaultPoiName(waypointIndex);
             }
             Debug.Log("POI marker activated.");
         }

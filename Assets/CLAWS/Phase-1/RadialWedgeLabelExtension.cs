@@ -124,7 +124,7 @@ public class RadialWedgeLabelExtension : MonoBehaviour
             tweenRoutine = null;
         }
 
-        if (!isActiveAndEnabled)
+        if (!isActiveAndEnabled || !gameObject.activeInHierarchy)
         {
             displayT = targetT;
             ApplyFrame(displayT);
