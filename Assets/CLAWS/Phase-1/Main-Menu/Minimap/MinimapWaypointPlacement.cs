@@ -660,7 +660,12 @@ public class MinimapWaypointPlacement : MonoBehaviour
         _xrActiveInteractor = args.interactorObject;
         _xrSelectStartTime = Time.unscaledTime;
         _xrPanMode = false;
-        _xrLastHitWorld = GetInteractorHitOnCollider(_xrActiveInteractor);
+        if (TryGetHoverHitPrioritizingHandOverMouse(out Vector3 hoverHit, out _))
+            _xrLastHitWorld = hoverHit;
+        else if (TryGetColliderHitFromInteractor(args.interactorObject, out Vector3 hitOnSurface, out _))
+            _xrLastHitWorld = hitOnSurface;
+        else
+            _xrLastHitWorld = GetInteractorFallbackHitWorld(args.interactorObject);
     }
 
     void OnSelectExited(SelectExitEventArgs args)
@@ -669,6 +674,7 @@ public class MinimapWaypointPlacement : MonoBehaviour
             return;
 
         bool wasPanning = _xrPanMode;
+        IXRSelectInteractor exitedInteractor = args.interactorObject;
         _xrActiveInteractor = null;
         _xrPanMode = false;
 
@@ -676,6 +682,13 @@ public class MinimapWaypointPlacement : MonoBehaviour
             return;
 
         Vector3 hitWorld = _xrLastHitWorld;
+        if (TryGetHoverHitPrioritizingHandOverMouse(out Vector3 prioritizedHit, out _))
+            hitWorld = prioritizedHit;
+        else if (TryGetColliderHitFromInteractor(exitedInteractor, out Vector3 rayHit, out _))
+            hitWorld = rayHit;
+        else if (TryMouseScreenRayOnMinimapCollider(out rayHit))
+            hitWorld = rayHit;
+
         if (HitPointToWorld(hitWorld, out Vector3 world))
         {
             _phase = PlacementPhase.Processing;
@@ -709,6 +722,39 @@ public class MinimapWaypointPlacement : MonoBehaviour
 
     Vector3 GetInteractorHitOnCollider(IXRSelectInteractor interactor)
     {
+        if (TryGetColliderHitFromInteractor(interactor, out Vector3 hitOnSurface, out _))
+            return hitOnSurface;
+        return GetInteractorFallbackHitWorld(interactor);
+    }
+
+    bool TryGetColliderHitFromInteractor(IXRInteractor interactor, out Vector3 hitWorldPoint, out Vector2 localPoint)
+    {
+        hitWorldPoint = default;
+        localPoint = default;
+
+        if (_addedCollider == null || minimapRawImage == null || interactor == null)
+            return false;
+
+        if (interactor is IXRRayProvider rayProvider)
+        {
+            Transform rayOrigin = rayProvider.GetOrCreateRayOrigin();
+            if (rayOrigin != null)
+            {
+                Ray ray = new Ray(rayOrigin.position, rayOrigin.forward);
+                if (_addedCollider.Raycast(ray, out RaycastHit hit, 100f))
+                {
+                    hitWorldPoint = hit.point;
+                    localPoint = minimapRawImage.rectTransform.InverseTransformPoint(hit.point);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    Vector3 GetInteractorFallbackHitWorld(IXRInteractor interactor)
+    {
         if (_addedButton != null && interactor != null)
         {
             Transform attach = interactor.GetAttachTransform(_addedButton);
@@ -719,7 +765,63 @@ public class MinimapWaypointPlacement : MonoBehaviour
         return _addedCollider != null ? _addedCollider.bounds.center : Vector3.zero;
     }
 
-    bool TryGetHoverHitOnCollider(out Vector3 hitWorldPoint, out Vector2 localPoint)
+    bool TryMouseScreenRayOnMinimapCollider(out Vector3 hitWorldPoint)
+    {
+        hitWorldPoint = default;
+        if (_addedCollider == null || Mouse.current == null)
+            return false;
+        Camera cam = Camera.main;
+        if (cam == null)
+            return false;
+        Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (!_addedCollider.Raycast(ray, out RaycastHit hit, 100f))
+            return false;
+        hitWorldPoint = hit.point;
+        return true;
+    }
+
+    static bool IsMouseLikeXRInteractor(IXRInteractor interactor)
+    {
+        var mb = interactor as MonoBehaviour;
+        if (mb == null)
+            return false;
+
+        string typeName = mb.GetType().Name;
+        if (typeName.IndexOf("SpatialMouse", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            return true;
+        if (typeName.IndexOf("ScreenSpace", System.StringComparison.OrdinalIgnoreCase) >= 0
+            && typeName.IndexOf("Mouse", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            return true;
+
+        return false;
+    }
+
+    bool TryGetHitForInteractorOnMinimap(IXRInteractor interactor, out Vector3 hitWorldPoint, out Vector2 localPoint)
+    {
+        if (TryGetColliderHitFromInteractor(interactor, out hitWorldPoint, out localPoint))
+            return true;
+
+        if (_addedButton == null || minimapRawImage == null || interactor == null)
+        {
+            hitWorldPoint = default;
+            localPoint = default;
+            return false;
+        }
+
+        Transform attach = interactor.GetAttachTransform(_addedButton);
+        if (attach == null)
+        {
+            hitWorldPoint = default;
+            localPoint = default;
+            return false;
+        }
+
+        hitWorldPoint = attach.position;
+        localPoint = minimapRawImage.rectTransform.InverseTransformPoint(attach.position);
+        return true;
+    }
+
+    bool TryGetHoverHitPrioritizingHandOverMouse(out Vector3 hitWorldPoint, out Vector2 localPoint)
     {
         hitWorldPoint = default;
         localPoint = default;
@@ -729,31 +831,26 @@ public class MinimapWaypointPlacement : MonoBehaviour
 
         foreach (var interactor in _addedButton.interactorsHovering)
         {
-            if (interactor is IXRRayProvider rayProvider)
-            {
-                Transform rayOrigin = rayProvider.GetOrCreateRayOrigin();
-                if (rayOrigin != null)
-                {
-                    Ray hoverRay = new Ray(rayOrigin.position, rayOrigin.forward);
-                    if (_addedCollider.Raycast(hoverRay, out RaycastHit hit, 100f))
-                    {
-                        hitWorldPoint = hit.point;
-                        localPoint = minimapRawImage.rectTransform.InverseTransformPoint(hit.point);
-                        return true;
-                    }
-                }
-            }
-
-            Transform attach = interactor.GetAttachTransform(_addedButton);
-            if (attach != null)
-            {
-                hitWorldPoint = attach.position;
-                localPoint = minimapRawImage.rectTransform.InverseTransformPoint(attach.position);
+            if (IsMouseLikeXRInteractor(interactor))
+                continue;
+            if (TryGetHitForInteractorOnMinimap(interactor, out hitWorldPoint, out localPoint))
                 return true;
-            }
+        }
+
+        foreach (var interactor in _addedButton.interactorsHovering)
+        {
+            if (!IsMouseLikeXRInteractor(interactor))
+                continue;
+            if (TryGetHitForInteractorOnMinimap(interactor, out hitWorldPoint, out localPoint))
+                return true;
         }
 
         return false;
+    }
+
+    bool TryGetHoverHitOnCollider(out Vector3 hitWorldPoint, out Vector2 localPoint)
+    {
+        return TryGetHoverHitPrioritizingHandOverMouse(out hitWorldPoint, out localPoint);
     }
 
     bool TryRaycastMinimapCollider(out Vector3 hitWorldPoint, out Vector2 localPoint)
