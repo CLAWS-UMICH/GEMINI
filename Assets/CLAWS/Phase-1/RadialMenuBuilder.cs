@@ -23,6 +23,7 @@ public class RadialMenuBuilder : MonoBehaviour
     [Range(2, 12)]
     public int segmentCount = 5;
 
+    [Tooltip("Inner radius where wedge geometry starts (meters). Set greater than Center Disc Radius by a few mm to leave a radial gap so the hub does not overlap wedges.")]
     public float innerRadius = 0.04f;
     public float outerRadius = 0.09f;
 
@@ -45,6 +46,7 @@ public class RadialMenuBuilder : MonoBehaviour
 
     public Material centerMaterial;
 
+    [Tooltip("Radius of the center hub mesh and collider (meters), independent of Inner Radius. Increase Inner Radius (and optionally Outer Radius) to spread wedges outward without changing hub size.")]
     public float centerDiscRadius = 0.035f;
 
     public Color wedgeTint = new Color(0.15f, 0.2f, 0.55f, 1f);
@@ -54,6 +56,14 @@ public class RadialMenuBuilder : MonoBehaviour
 
     [Tooltip("Local -Z offset (meters) for the rim overlay mesh toward the viewer (MRTK-style frontplate separation).")]
     [SerializeField] private float rimForwardOffset = 0.005f;
+
+    [Header("Interaction")]
+    [Tooltip("Minimum collider extent along local Z (meters) for PressableButton / XRI; matches the idea used on the minimap (≈1 cm) so thin plates are easier to hit.")]
+    [SerializeField] private float interactionColliderMinDepth = 0.01f;
+    [Tooltip("Meters beyond Center Disc Radius: wedge InteractionDepth boxes are clamped so no XY corner comes closer to the hub axis than this (avoids stealing center hits).")]
+    [SerializeField] private float wedgeDepthHubClearance = 0.005f;
+    [Tooltip("Floor on wedge InteractionDepth width/height in the plate plane (meters); shrink steps stop here so poke still has some volume.")]
+    [SerializeField] private float wedgeDepthMinPlanarSize = 0.012f;
 
     [Header("Icons")]
     public TMP_FontAsset iconFont;
@@ -94,7 +104,6 @@ public class RadialMenuBuilder : MonoBehaviour
     public float animationDuration = 0.25f;
     public bool startHidden = false;
 
-    private List<GameObject> wedgeObjects = new List<GameObject>();
     private GameObject centerDisc;
     private TextMeshPro centerLabelTMP;
     private bool isOpen;
@@ -113,6 +122,14 @@ public class RadialMenuBuilder : MonoBehaviour
     private static readonly int RimSoftnessWorldId = Shader.PropertyToID("_RimSoftnessWorld");
     private static readonly int RimWidthUvId = Shader.PropertyToID("_RimWidth");
     private static readonly int RimSoftnessUvId = Shader.PropertyToID("_RimSoftness");
+
+    void OnValidate()
+    {
+        if (innerRadius < centerDiscRadius)
+            Debug.LogWarning(
+                $"{nameof(RadialMenuBuilder)} on '{name}': {nameof(innerRadius)} ({innerRadius}) is less than {nameof(centerDiscRadius)} ({centerDiscRadius}). The hub overlaps the wedges radially; increase Inner Radius to add clearance.",
+                this);
+    }
 
     void Start()
     {
@@ -190,7 +207,6 @@ public class RadialMenuBuilder : MonoBehaviour
 
     private void ClearChildren()
     {
-        wedgeObjects.Clear();
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
             if (Application.isPlaying)
@@ -331,6 +347,144 @@ public class RadialMenuBuilder : MonoBehaviour
         }
     }
 
+    /// <summary>Convex mesh collider matching rendered geometry (avoids axis-aligned box overlap with the hub / neighbors that caused hover churn).</summary>
+    private static void AddConvexMeshCollider(GameObject target, Mesh mesh)
+    {
+        var mc = target.AddComponent<MeshCollider>();
+        mc.sharedMesh = mesh;
+        mc.convex = true;
+    }
+
+    /// <summary>Wedges: exact mesh for raycasts (convex hulls on thin annular slices are unreliable). Static collider, no Rigidbody.</summary>
+    private static void AddNonConvexMeshCollider(GameObject target, Mesh mesh)
+    {
+        var mc = target.AddComponent<MeshCollider>();
+        mc.sharedMesh = mesh;
+        mc.convex = false;
+    }
+
+    /// <summary>Poke depth aligned to wedge bisector; XY clamped so OBB corners stay outside the hub guard (center disc + clearance).</summary>
+    private void TryAddWedgeFrontDepthCollider(GameObject wedgeRoot, float startDeg, float endDeg)
+    {
+        float depth = Mathf.Max(interactionColliderMinDepth, 1e-4f);
+        if (depth <= thickness + 1e-5f)
+            return;
+
+        float halfT = thickness * 0.5f;
+        float midDeg = (startDeg + endDeg) * 0.5f;
+        float midRad = midDeg * Mathf.Deg2Rad;
+        float midR = (innerRadius + outerRadius) * 0.5f;
+        float halfDeltaRad = Mathf.Abs(endDeg - startDeg) * 0.5f * Mathf.Deg2Rad;
+        halfDeltaRad = Mathf.Max(halfDeltaRad, 1e-5f);
+
+        float radialSpan = outerRadius - innerRadius;
+        float tangentialSpan = 2f * midR * Mathf.Tan(halfDeltaRad);
+
+        const float inset = 0.92f;
+        float sizeX = Mathf.Max(radialSpan * inset, 1e-4f);
+        float sizeY = Mathf.Max(tangentialSpan * inset, 1e-4f);
+        float radialDist = midR;
+
+        ClampWedgeDepthBoxForHub(midRad, ref sizeX, ref sizeY, ref radialDist);
+
+        GameObject depthGo = new GameObject("InteractionDepth");
+        depthGo.transform.SetParent(wedgeRoot.transform, false);
+        depthGo.transform.localRotation = Quaternion.Euler(0f, 0f, midDeg);
+        depthGo.transform.localPosition = new Vector3(
+            Mathf.Cos(midRad) * radialDist,
+            Mathf.Sin(midRad) * radialDist,
+            -halfT - depth * 0.5f);
+
+        var box = depthGo.AddComponent<BoxCollider>();
+        box.center = Vector3.zero;
+        box.size = new Vector3(sizeX, sizeY, depth);
+    }
+
+    /// <summary>Shrinks Y then X, then nudges the box outward along the bisector until all four XY corners are at least hubGuardRadius from the origin and inside outerRadius.</summary>
+    private void ClampWedgeDepthBoxForHub(float midRad, ref float sizeX, ref float sizeY, ref float radialDist)
+    {
+        float hubGuardRadius = Mathf.Max(
+            centerDiscRadius + Mathf.Max(0f, wedgeDepthHubClearance),
+            innerRadius + 1e-4f);
+        float hubGuardSqr = hubGuardRadius * hubGuardRadius;
+        float outerLimit = Mathf.Max(outerRadius - 0.002f, innerRadius + 1e-4f);
+
+        float halfFloor = Mathf.Max(1e-4f, wedgeDepthMinPlanarSize * 0.5f);
+
+        Vector2 u = new Vector2(Mathf.Cos(midRad), Mathf.Sin(midRad));
+        Vector2 v = new Vector2(-u.y, u.x);
+
+        void CornerMinMax(float rDist, float hx, float hy, out float minSqr, out float maxR)
+        {
+            Vector2 c = u * rDist;
+            minSqr = float.MaxValue;
+            maxR = 0f;
+            for (int du = -1; du <= 1; du += 2)
+            {
+                for (int dv = -1; dv <= 1; dv += 2)
+                {
+                    Vector2 p = c + u * (hx * du) + v * (hy * dv);
+                    float s = p.sqrMagnitude;
+                    minSqr = Mathf.Min(minSqr, s);
+                    maxR = Mathf.Max(maxR, Mathf.Sqrt(s));
+                }
+            }
+        }
+
+        float hx = sizeX * 0.5f;
+        float hy = sizeY * 0.5f;
+
+        for (int iter = 0; iter < 220; iter++)
+        {
+            CornerMinMax(radialDist, hx, hy, out float minSqr, out float maxR);
+            bool tooCloseToHub = minSqr < hubGuardSqr;
+            bool pastOuter = maxR > outerLimit;
+
+            if (!tooCloseToHub && !pastOuter)
+                break;
+
+            if (tooCloseToHub)
+            {
+                if (hy > halfFloor + 1e-6f)
+                    hy = Mathf.Max(halfFloor, hy * 0.9f);
+                else if (hx > halfFloor + 1e-6f)
+                    hx = Mathf.Max(halfFloor, hx * 0.9f);
+                else
+                    radialDist = Mathf.Min(radialDist + 0.0015f, outerLimit - hx - hy);
+            }
+
+            if (pastOuter)
+            {
+                hx = Mathf.Max(halfFloor, hx * 0.95f);
+                hy = Mathf.Max(halfFloor, hy * 0.95f);
+            }
+        }
+
+        sizeX = hx * 2f;
+        sizeY = hy * 2f;
+    }
+
+    /// <summary>Extra poke depth for the hub only: thin box on the front face, XY limited to a square inscribed in the disc so it does not extend past the circle into wedges.</summary>
+    private void TryAddCenterFrontDepthCollider(GameObject centerRoot, float discRadius, float plateThickness)
+    {
+        float depth = Mathf.Max(interactionColliderMinDepth, 1e-4f);
+        if (depth <= plateThickness + 1e-5f)
+            return;
+
+        float halfT = plateThickness * 0.5f;
+        float inset = discRadius * Mathf.Sqrt(2f) * 0.98f;
+
+        GameObject depthGo = new GameObject("InteractionDepth");
+        depthGo.transform.SetParent(centerRoot.transform, false);
+        depthGo.transform.localPosition = new Vector3(0f, 0f, -halfT - depth * 0.5f);
+        depthGo.transform.localRotation = Quaternion.identity;
+        depthGo.transform.localScale = Vector3.one;
+
+        var box = depthGo.AddComponent<BoxCollider>();
+        box.center = Vector3.zero;
+        box.size = new Vector3(inset, inset, depth);
+    }
+
     // ── Center Disc ────────────────────────────────────────
 
     private void CreateCenterDisc()
@@ -357,8 +511,8 @@ public class RadialMenuBuilder : MonoBehaviour
         Mesh discFrontOnly = CreateDiscFrontFaceMesh(centerDiscRadius, thickness, 32);
         TryAddRimOverlayChild(centerDisc, faceMat, discFrontOnly);
 
-        MeshCollider centerCollider = centerDisc.AddComponent<MeshCollider>();
-        centerCollider.sharedMesh = discMesh;
+        AddConvexMeshCollider(centerDisc, discMesh);
+        TryAddCenterFrontDepthCollider(centerDisc, centerDiscRadius, thickness);
 
         PressableButton centerBtn = centerDisc.AddComponent<PressableButton>();
         if (onCenterClick != null)
@@ -377,6 +531,7 @@ public class RadialMenuBuilder : MonoBehaviour
         centerLabelTMP.color = Color.white;
         centerLabelTMP.enableWordWrapping = true;
         centerLabelTMP.overflowMode = TextOverflowModes.Overflow;
+        centerLabelTMP.raycastTarget = false;
         labelGO.GetComponent<RectTransform>().sizeDelta = new Vector2(centerDiscRadius * 2f, centerDiscRadius * 2f);
         if (iconFont != null) centerLabelTMP.font = iconFont;
     }
@@ -402,7 +557,7 @@ public class RadialMenuBuilder : MonoBehaviour
         {
             float start = startAngleOffset + i * (segmentAngle + gapDegrees);
             float end = start + segmentAngle;
-            wedgeObjects.Add(CreateSingleWedge(i, start, end, entries[i]));
+            CreateSingleWedge(i, start, end, entries[i]);
         }
     }
 
@@ -430,8 +585,8 @@ public class RadialMenuBuilder : MonoBehaviour
 
         bool wantsLabelTab = !string.IsNullOrEmpty(entry.label);
 
-        MeshCollider mc = go.AddComponent<MeshCollider>();
-        mc.sharedMesh = mesh;
+        AddNonConvexMeshCollider(go, mesh);
+        TryAddWedgeFrontDepthCollider(go, startDeg, endDeg);
 
         PressableButton btn = go.AddComponent<PressableButton>();
         btn.OnClicked.AddListener(() => entry.onClick?.Invoke());
@@ -489,6 +644,7 @@ public class RadialMenuBuilder : MonoBehaviour
         lbl.color = Color.white;
         lbl.enableWordWrapping = false;
         lbl.overflowMode = TextOverflowModes.Overflow;
+        lbl.raycastTarget = false;
         if (iconFont != null) lbl.font = iconFont;
         labelGO.GetComponent<RectTransform>().sizeDelta = new Vector2(1.2f, 0.12f);
 
@@ -545,6 +701,7 @@ public class RadialMenuBuilder : MonoBehaviour
             tmp.color = Color.white;
             tmp.enableWordWrapping = false;
             tmp.overflowMode = TextOverflowModes.Overflow;
+            tmp.raycastTarget = false;
             if (iconFont != null) tmp.font = iconFont;
 
             RectTransform rt = textGO.GetComponent<RectTransform>();
@@ -566,6 +723,7 @@ public class RadialMenuBuilder : MonoBehaviour
             lbl.alignment = TextAlignmentOptions.Center;
             lbl.color = Color.white;
             lbl.enableWordWrapping = false;
+            lbl.raycastTarget = false;
             labelGO.GetComponent<RectTransform>().sizeDelta = new Vector2(0.05f, 0.015f);
         }
     }
