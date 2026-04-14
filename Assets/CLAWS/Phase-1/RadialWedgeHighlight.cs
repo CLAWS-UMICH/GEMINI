@@ -23,7 +23,9 @@ public class RadialWedgeHighlight : MonoBehaviour
     private Color[] originalFaceColors;
     private Color[] originalEdgeColors;
     private bool isGazeHovered;
+    private bool isSelected;
     private bool usesRimNotLegacy;
+    private Color selectedHighlightColor = Color.white;
 
     private static readonly int BaseColorId = Shader.PropertyToID("_Base_Color_");
     private static readonly int ColorId = Shader.PropertyToID("_Color");
@@ -102,28 +104,44 @@ public class RadialWedgeHighlight : MonoBehaviour
         ApplyHighlight();
     }
 
+    public void SetSelected(bool selected, Color? colorOverride = null)
+    {
+        isSelected = selected;
+        if (colorOverride.HasValue)
+            selectedHighlightColor = colorOverride.Value;
+        ApplyHighlight();
+    }
+
     private void ApplyHighlight()
     {
         if (materialInstances == null || materialInstances.Length == 0) return;
 
+        Color faceTint = isSelected ? selectedHighlightColor : originalFaceColors[0];
+        SetColor(materialInstances[0], faceTint);
+
         if (rimOverlayMaterial != null)
         {
+            if (rimOverlayMaterial.HasProperty(RimColorId))
+                rimOverlayMaterial.SetColor(RimColorId, gazeHighlightColor);
             rimOverlayMaterial.SetFloat(RimHighlightId, isGazeHovered ? 1f : 0f);
             return;
         }
 
         if (usesRimNotLegacy)
         {
+            if (materialInstances[0].HasProperty(RimColorId))
+                materialInstances[0].SetColor(RimColorId, gazeHighlightColor);
             materialInstances[0].SetFloat(RimHighlightId, isGazeHovered ? 1f : 0f);
             return;
         }
 
-        Color faceColor = isGazeHovered ? gazeHighlightColor : originalFaceColors[0];
+        if (!isSelected && isGazeHovered)
+            SetColor(materialInstances[0], gazeHighlightColor);
+
         Color edgeColor = isGazeHovered
             ? Color.Lerp(originalEdgeColors[0], gazeHighlightColor, 0.7f)
             : (originalEdgeColors.Length > 0 ? originalEdgeColors[0] : originalFaceColors[0]);
 
-        SetColor(materialInstances[0], faceColor);
         if (materialInstances.Length > 1)
             SetColor(materialInstances[1], edgeColor);
     }

@@ -30,6 +30,7 @@ public class RadialWedgeLabelExtension : MonoBehaviour
 
     private Coroutine tweenRoutine;
     private float displayT;
+    private bool isPinned;
 
     public void Initialize(
         Transform extensionRootTransform,
@@ -109,7 +110,46 @@ public class RadialWedgeLabelExtension : MonoBehaviour
 
     private void OnGazeExit()
     {
+        if (isPinned)
+            return;
         BeginDisplayTween(0f);
+    }
+
+    public void SetPinned(bool pinned)
+    {
+        isPinned = pinned;
+        BeginDisplayTween(isPinned ? 1f : 0f);
+    }
+
+    public string GetLabelText()
+    {
+        return label != null ? label.text : string.Empty;
+    }
+
+    public void SetPinnedLabelImmediate(string text)
+    {
+        if (label != null)
+            label.text = text;
+
+        isPinned = true;
+        if (tweenRoutine != null)
+        {
+            StopCoroutine(tweenRoutine);
+            tweenRoutine = null;
+        }
+
+        displayT = 1f;
+        SetRenderersEnabled(true);
+        ApplyFrame(displayT);
+    }
+
+    public void SetLabelImmediate(string text)
+    {
+        if (label == null)
+            return;
+
+        label.text = text;
+        ApplyFrame(displayT);
     }
 
     /// <summary>

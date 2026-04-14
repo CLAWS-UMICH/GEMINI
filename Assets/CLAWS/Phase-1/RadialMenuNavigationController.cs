@@ -3,10 +3,11 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using MixedReality.Toolkit.UX;
 
 /// <summary>
 /// Drives the radial menu as a two-level navigation UI: categories (Station, Interest, Add, Companions, Hazards)
-/// then waypoints. Selecting a waypoint shows path on minimap and enables "Begin Navigation" in the center.
+/// then waypoints. Selecting a waypoint shows path on minimap and requires a second click on that wedge to confirm navigation.
 /// </summary>
 public class RadialMenuNavigationController : MonoBehaviour
 {
@@ -41,12 +42,20 @@ public class RadialMenuNavigationController : MonoBehaviour
     private string currentCategory = ""; // "Station", "Interest", "Hazards", "Companions"
     private int selectedWaypointIndex = -1;
     private List<Waypoint> currentWaypointList = new List<Waypoint>();
-    private Vector3? pendingTargetPosition; // waypoint selected, path on minimap, not yet "Begin Navigation"
+    private Vector3? pendingTargetPosition; // waypoint selected, path on minimap, waiting for second-click confirmation
 
     private const string LABEL_BACK = "Back";
-    private const string LABEL_BEGIN_NAV = "Begin Navigation";
     private const string LABEL_CANCEL_NAV = "Cancel Navigation";
+    private const string LABEL_CONFIRM_NAV = "Click Again to Confirm";
     private const string LABEL_SELECT = "Select";
+    private const int COMPANION_EV2_SELECTION_ID = -2;
+    private const int COMPANION_ROVER_SELECTION_ID = -3;
+
+    [Header("Waypoint confirmation")]
+    [Tooltip("How long (seconds) a repeated click on the same wedge confirms navigation.")]
+    [SerializeField] private float confirmSelectionWindowSeconds = 2.0f;
+    [Tooltip("Persistent selected wedge highlight color while waiting for confirm click.")]
+    [SerializeField] private Color selectedWedgeHighlightColor = new Color(0.60f, 0.82f, 1f, 1f);
 
     [Header("Navigation state")]
     [Tooltip("How close (meters) the astronaut must be to the target to consider navigation complete.")]
@@ -57,6 +66,11 @@ public class RadialMenuNavigationController : MonoBehaviour
     private bool isNavigating;
     private Vector3 activeTargetPosition;
     private Coroutine navigationMonitorCoroutine;
+    private float lastSelectionTime = -999f;
+    private int selectedWedgeVisualIndex = -1;
+    private string selectedWedgeOriginalLabel = "";
+    private RadialWedgeHighlight selectedWedgeHighlight;
+    private RadialWedgeLabelExtension selectedWedgeExtension;
 
     private void Start()
     {
@@ -82,10 +96,12 @@ public class RadialMenuNavigationController : MonoBehaviour
 
     private void BuildCategoryMenu()
     {
+        ClearSelectedWaypointVisual();
         currentMode = MenuMode.Categories;
         currentCategory = "";
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
+        lastSelectionTime = -999f;
         isNavigating = false;
         activeTargetPosition = default;
         StopNavigationMonitor();
@@ -133,6 +149,7 @@ public class RadialMenuNavigationController : MonoBehaviour
         if (IsMinimapPlacementBlocking())
             return;
 
+        ClearSelectedWaypointVisual();
         currentMode = MenuMode.Waypoints;
         currentCategory = category;
         // Shallow copy: BuildCategoryMenu / BuildAddWaypointTypeMenu call Clear() on currentWaypointList;
@@ -140,6 +157,7 @@ public class RadialMenuNavigationController : MonoBehaviour
         currentWaypointList = waypoints != null ? new List<Waypoint>(waypoints) : new List<Waypoint>();
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
+        lastSelectionTime = -999f;
         isNavigating = false;
         activeTargetPosition = default;
         StopNavigationMonitor();
@@ -181,11 +199,13 @@ public class RadialMenuNavigationController : MonoBehaviour
         if (IsMinimapPlacementBlocking())
             return;
 
+        ClearSelectedWaypointVisual();
         currentMode = MenuMode.Waypoints;
         currentCategory = "Companions";
         currentWaypointList = new List<Waypoint>();
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
+        lastSelectionTime = -999f;
         isNavigating = false;
         activeTargetPosition = default;
         StopNavigationMonitor();
@@ -244,10 +264,12 @@ public class RadialMenuNavigationController : MonoBehaviour
         if (IsMinimapPlacementBlocking())
             return;
 
+        ClearSelectedWaypointVisual();
         currentMode = MenuMode.AddPickType;
         currentCategory = "";
         selectedWaypointIndex = -1;
         pendingTargetPosition = null;
+        lastSelectionTime = -999f;
         isNavigating = false;
         activeTargetPosition = default;
         StopNavigationMonitor();
@@ -300,8 +322,7 @@ public class RadialMenuNavigationController : MonoBehaviour
 
         Waypoint wp = currentWaypointList[index];
         Vector3 targetPosition = new Vector3((float)wp.UNITYposX, 0, (float)wp.UNITYposZ);
-        SelectTargetAndShowPathOnMinimap(targetPosition);
-        selectedWaypointIndex = index;
+        HandleWaypointSelection(index, index, targetPosition);
     }
 
     private void SelectCompanionEV2()
@@ -314,8 +335,7 @@ public class RadialMenuNavigationController : MonoBehaviour
         }
         Vector3 targetPosition = ev2Object.transform.position;
         targetPosition.y = 0;
-        SelectTargetAndShowPathOnMinimap(targetPosition);
-        selectedWaypointIndex = -2; // companion EV2
+        HandleWaypointSelection(COMPANION_EV2_SELECTION_ID, 0, targetPosition);
     }
 
     private void SelectCompanionRover()
@@ -330,11 +350,28 @@ public class RadialMenuNavigationController : MonoBehaviour
         }
         Vector3 targetPosition = roverObject.transform.position;
         targetPosition.y = 0;
-        SelectTargetAndShowPathOnMinimap(targetPosition);
-        selectedWaypointIndex = -3; // companion ROVER
+        HandleWaypointSelection(COMPANION_ROVER_SELECTION_ID, 1, targetPosition);
     }
 
-    /// <summary>Run pathfinding and show path only on minimap until user presses "Begin Navigation".</summary>
+    private void HandleWaypointSelection(int selectionId, int wedgeIndex, Vector3 targetPosition)
+    {
+        bool isConfirmClick = selectedWaypointIndex == selectionId
+            && pendingTargetPosition.HasValue
+            && (Time.unscaledTime - lastSelectionTime) <= confirmSelectionWindowSeconds;
+
+        if (isConfirmClick)
+        {
+            BeginNavigationFromPendingTarget();
+            return;
+        }
+
+        SelectTargetAndShowPathOnMinimap(targetPosition);
+        selectedWaypointIndex = selectionId;
+        lastSelectionTime = Time.unscaledTime;
+        MarkSelectedWaypointVisual(wedgeIndex);
+    }
+
+    /// <summary>Run pathfinding and show path only on minimap until user confirms by clicking the selected wedge again.</summary>
     private void SelectTargetAndShowPathOnMinimap(Vector3 targetPosition)
     {
         if (pathfindingSystem == null) return;
@@ -343,7 +380,30 @@ public class RadialMenuNavigationController : MonoBehaviour
         pathfindingSystem.ShowMinimapOnly();
 
         pendingTargetPosition = targetPosition;
-        radialBuilder.SetCenterLabel(LABEL_BEGIN_NAV);
+        radialBuilder.SetCenterLabel(LABEL_BACK);
+        radialBuilder.centerLabel = LABEL_BACK;
+    }
+
+    private void BeginNavigationFromPendingTarget()
+    {
+        if (!pendingTargetPosition.HasValue || pathfindingSystem == null)
+            return;
+
+        pathfindingSystem.ShowWorldAndMinimap();
+        activeTargetPosition = pendingTargetPosition.Value;
+        pendingTargetPosition = null;
+        isNavigating = true;
+        selectedWaypointIndex = -1;
+        lastSelectionTime = -999f;
+        if (selectedWedgeExtension != null && !string.IsNullOrEmpty(selectedWedgeOriginalLabel))
+        {
+            selectedWedgeExtension.SetLabelImmediate(selectedWedgeOriginalLabel);
+            selectedWedgeExtension.SetPinned(false);
+        }
+        radialBuilder.SetCenterLabel(LABEL_CANCEL_NAV);
+        radialBuilder.centerLabel = LABEL_CANCEL_NAV;
+
+        StartNavigationMonitor();
     }
 
     private void OnCenterClicked()
@@ -359,22 +419,6 @@ public class RadialMenuNavigationController : MonoBehaviour
             return;
         }
 
-        // Begin navigation (wheel does NOT close; we switch the center button to Cancel)
-        if (currentCenter == LABEL_BEGIN_NAV && pendingTargetPosition.HasValue)
-        {
-            pathfindingSystem.ShowWorldAndMinimap();
-            activeTargetPosition = pendingTargetPosition.Value;
-            pendingTargetPosition = null;
-            isNavigating = true;
-            selectedWaypointIndex = -1; // clear selection; navigation is now active
-
-            radialBuilder.SetCenterLabel(LABEL_CANCEL_NAV);
-            radialBuilder.centerLabel = LABEL_CANCEL_NAV;
-
-            StartNavigationMonitor();
-            return;
-        }
-
         var placement = ResolveWaypointPlacement();
         if (placement != null && placement.IsPlacementInProgress && currentCenter == LABEL_BACK)
         {
@@ -384,12 +428,14 @@ public class RadialMenuNavigationController : MonoBehaviour
 
         if (currentMode == MenuMode.AddPickType && (currentCenter == LABEL_BACK || string.IsNullOrEmpty(currentCenter)))
         {
+            ClearSelectedWaypointVisual();
             BuildCategoryMenu();
             return;
         }
 
         if (currentMode == MenuMode.Waypoints && (currentCenter == LABEL_BACK || string.IsNullOrEmpty(currentCenter)))
         {
+            ClearSelectedWaypointVisual();
             BuildCategoryMenu();
             return;
         }
@@ -443,6 +489,9 @@ public class RadialMenuNavigationController : MonoBehaviour
         isNavigating = false;
         StopNavigationMonitor();
         pendingTargetPosition = null;
+        selectedWaypointIndex = -1;
+        lastSelectionTime = -999f;
+        ClearSelectedWaypointVisual();
 
         if (pathfindingSystem != null)
             pathfindingSystem.ClearTarget();
@@ -456,6 +505,9 @@ public class RadialMenuNavigationController : MonoBehaviour
         isNavigating = false;
         StopNavigationMonitor();
         pendingTargetPosition = null;
+        selectedWaypointIndex = -1;
+        lastSelectionTime = -999f;
+        ClearSelectedWaypointVisual();
 
         if (pathfindingSystem != null)
             pathfindingSystem.ClearTarget();
@@ -465,5 +517,97 @@ public class RadialMenuNavigationController : MonoBehaviour
         radialBuilder.centerLabel = LABEL_BACK;
         radialBuilder.CloseMenu();
         BuildCategoryMenu();
+    }
+
+    private void MarkSelectedWaypointVisual(int wedgeIndex)
+    {
+        ClearSelectedWaypointVisual();
+        selectedWedgeVisualIndex = wedgeIndex;
+
+        GameObject wedgeGo = FindInteractiveWedgeObject(wedgeIndex);
+        if (wedgeGo == null)
+            return;
+
+        selectedWedgeHighlight = wedgeGo.GetComponent<RadialWedgeHighlight>();
+        if (selectedWedgeHighlight != null)
+            selectedWedgeHighlight.SetSelected(true, selectedWedgeHighlightColor);
+
+        selectedWedgeExtension = wedgeGo.GetComponent<RadialWedgeLabelExtension>();
+        if (selectedWedgeExtension != null)
+        {
+            selectedWedgeOriginalLabel = selectedWedgeExtension.GetLabelText();
+            selectedWedgeExtension.SetPinnedLabelImmediate(LABEL_CONFIRM_NAV);
+        }
+        else
+        {
+            TextMeshPro label = FindWedgeExtensionLabel(wedgeIndex);
+            if (label != null)
+            {
+                selectedWedgeOriginalLabel = label.text;
+                label.text = LABEL_CONFIRM_NAV;
+            }
+        }
+    }
+
+    private void ClearSelectedWaypointVisual()
+    {
+        if (selectedWedgeHighlight != null)
+            selectedWedgeHighlight.SetSelected(false);
+        if (selectedWedgeExtension != null && !string.IsNullOrEmpty(selectedWedgeOriginalLabel))
+        {
+            selectedWedgeExtension.SetLabelImmediate(selectedWedgeOriginalLabel);
+            selectedWedgeExtension.SetPinned(false);
+        }
+        else
+        {
+            if (selectedWedgeExtension != null)
+                selectedWedgeExtension.SetPinned(false);
+
+            if (selectedWedgeVisualIndex >= 0 && !string.IsNullOrEmpty(selectedWedgeOriginalLabel))
+            {
+                TextMeshPro label = FindWedgeExtensionLabel(selectedWedgeVisualIndex);
+                if (label != null)
+                    label.text = selectedWedgeOriginalLabel;
+            }
+        }
+
+        selectedWedgeVisualIndex = -1;
+        selectedWedgeOriginalLabel = "";
+        selectedWedgeHighlight = null;
+        selectedWedgeExtension = null;
+    }
+
+    private GameObject FindInteractiveWedgeObject(int wedgeIndex)
+    {
+        if (radialBuilder == null)
+            return null;
+
+        string prefix = $"Wedge_{wedgeIndex}_";
+        Transform root = radialBuilder.transform;
+        for (int i = 0; i < root.childCount; i++)
+        {
+            Transform child = root.GetChild(i);
+            if (child == null || !child.name.StartsWith(prefix))
+                continue;
+
+            if (child.GetComponent<PressableButton>() != null)
+                return child.gameObject;
+        }
+
+        return null;
+    }
+
+    private TextMeshPro FindWedgeExtensionLabel(int wedgeIndex)
+    {
+        if (radialBuilder == null)
+            return null;
+
+        string extensionRootName = $"Wedge_{wedgeIndex}_LabelExtension";
+        Transform extensionRoot = radialBuilder.transform.Find(extensionRootName);
+        if (extensionRoot == null)
+            return null;
+
+        Transform labelTf = extensionRoot.Find("Label");
+        return labelTf != null ? labelTf.GetComponent<TextMeshPro>() : null;
     }
 }
