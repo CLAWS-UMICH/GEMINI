@@ -10,10 +10,27 @@ public class ScreenManager : MonoBehaviour
     public GameObject PR;
     public GameObject UIA;
     public GameObject messaging;
+    public GameObject tasklist;
     public ToggleCollection menuToggleCollection;
     [Header("Navigation Radial Menu")]
     [Tooltip("Radial navigation menu GameObject (e.g. 'RadialMenu' in the main scene).")]
     public GameObject radialMenu;
+    private bool messagingSuppressionLogged;
+
+    void Update()
+    {
+        // Legacy scene callbacks can still attempt to re-open Messaging.
+        // Keep Messaging hard-disabled in this workflow.
+        if (messaging != null && messaging.activeSelf)
+        {
+            messaging.SetActive(false);
+            if (!messagingSuppressionLogged)
+            {
+                Debug.Log("ScreenManager: Suppressed Messaging reactivation.");
+                messagingSuppressionLogged = true;
+            }
+        }
+    }
 
     private void EnterUia()
     {
@@ -93,9 +110,22 @@ public class ScreenManager : MonoBehaviour
                 }
                 break;
             case 2:
-                Debug.Log("Opening Messaging screen");
-                messaging.SetActive(true);
-                messaging.GetComponent<FrontEndButton>().openFeatureScreen();
+                Debug.Log("Opening Tasklist screen");
+                if (tasklist == null)
+                {
+                    Debug.LogWarning("Tasklist is not assigned on ScreenManager.");
+                    break;
+                }
+                tasklist.SetActive(true);
+                TaskDetailScreen taskDetailScreen = tasklist.GetComponent<TaskDetailScreen>();
+                if (taskDetailScreen != null)
+                {
+                    taskDetailScreen.ShowTaskMainMenu();
+                }
+                else
+                {
+                    Debug.LogWarning("TaskDetailScreen component is missing on Tasklist GameObject.");
+                }
                 break;
             case 4:
                 Debug.Log("Opening Vitals screen");
@@ -137,10 +167,10 @@ public class ScreenManager : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-        messaging.SetActive(true);
-        foreach (Transform child in messaging.transform)
+        messaging.SetActive(false);
+        if (tasklist != null)
         {
-            child.gameObject.SetActive(false);
+            tasklist.SetActive(false);
         }
         vitals.SetActive(true);
         foreach (Transform child in vitals.transform)

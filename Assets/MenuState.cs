@@ -74,8 +74,8 @@ public class MenuState : MonoBehaviour
                 Debug.Log("Navigation screen opened.");
                 break;
             case 2:
-                messages.SetActive(true);
-                Debug.Log("Messages screen opened.");
+                tasklist.SetActive(true);
+                Debug.Log("Tasklist screen opened.");
                 break;
             case 4:
                 vitals.SetActive(true);
@@ -93,10 +93,6 @@ public class MenuState : MonoBehaviour
                     }
                 }
                 Debug.Log("Vitals screen opened.");
-                break;
-            case 5:
-                tasklist.SetActive(true);
-                Debug.Log("Tasklist screen opened.");
                 break;
             case 6:
                 // case is for closing any menu
