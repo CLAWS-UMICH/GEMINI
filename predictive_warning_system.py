@@ -461,6 +461,15 @@ def runSocketLoop() -> None:
         else:
             print(f"[t={timestep}] All nominal.")
 
+        # TODO: based on the warnings here send some command to Ian's code through the socket connections
+        # # Example: if battery is critically low, cut throttle
+        # if w["valuename"] == "battery_level" and w["breach"] == "LOW":
+        #     sio.emit("rover-throttle", 0.0)
+
+        # # Example: if speed is too high, apply brakes
+        # if w["valuename"] == "speed" and w["breach"] == "HIGH":
+        #     sio.emit("rover-brakes", True)
+
         event_count += 1
 
     try:
