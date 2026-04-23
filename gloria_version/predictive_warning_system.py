@@ -1,8 +1,7 @@
 """
 Predictive Warning System — Pressurized Rover
 ==============================================
-Reads live telemetry via the Socket.IO proxy service and runs two warning
-sub-systems:
+Reads live telemetry from the TSS server and runs two warning sub-systems:
 
   SUB-SYSTEM 1 · Rate-of-Change Tracker
       Records telemetry values over time, fits a linear model (least-squares),
@@ -20,22 +19,21 @@ sub-systems:
       checkThreshold(valuename, value)       → warning dict | None
       checkAllThresholds(readings)           → list[warning dict]
 
-  Socket.IO integration:
-      Connects to the proxy service and reacts to "rover-telemetry" events,
-      calling processTelemetry() for each update instead of HTTP polling.
-
+  TSS integration:
       processTelemetry(telemetry, timestep)  → list[warning dict]
-          Pass the full telemetry dict from the rover-telemetry event. Records
-          every tracked field in Sub-system 1 and checks all thresholds in
-          Sub-system 2.
+          Pass the full pr_telemetry dict from the TSS response. Records every
+          tracked field in Sub-system 1 and checks all thresholds in Sub-system 2.
 
   Configuration:
-      PROXY_URL              — Socket.IO proxy service address (default: localhost:5001)
-      EARLY_WARNING_TIMESTEPS — how soon a projected breach triggers a warning
+      TSS_BASE_URL           — set to your TSS server address (default: localhost:14141)
+      POLL_INTERVAL          — seconds between telemetry polls (default: 1.0)
+      TEAM_NUMBER            — your TSS team number
       RATE_FIELDS            — which fields to track with Sub-system 1
+      EARLY_WARNING_TIMESTEPS — how soon a projected breach triggers a warning
 """
 
-import socketio
+import time
+import requests
 from collections import defaultdict
 import numpy as np
 
@@ -43,7 +41,9 @@ import numpy as np
 # Configuration — edit these to match your environment
 # ─────────────────────────────────────────────────────────────────────────────
 
-PROXY_URL = "http://172.27.175.241:5001"   # Socket.IO proxy service address
+TSS_BASE_URL  = "http://35.3.169.31:14141/"   # TSS server address
+POLL_INTERVAL = 1.0                        # seconds between polls
+TEAM_NUMBER   = 1                          # your team number for the TSS endpoint
 
 # Fields to track with Sub-system 1 (rate-of-change), mapped to the critical
 # target value that triggers a predictive warning. Field names match the TSS
@@ -79,7 +79,7 @@ def recordRateOfChange(valuename: str, value: float, timestep: float) -> None:
     timestep  : float — mission_elapsed_time or poll counter
 
     Note: call processTelemetry() to record all tracked fields at once from
-    a live telemetry event. Only call this directly for isolated testing.
+    a live TSS snapshot. Only call this directly for isolated testing.
     """
     _history[valuename].append((float(timestep), float(value)))
 
@@ -339,7 +339,7 @@ def checkAllThresholds(readings: dict[str, float]) -> list[dict]:
 
     Parameters
     ----------
-    readings : dict — the telemetry object from the rover-telemetry event
+    readings : dict — the pr_telemetry object from the TSS response
 
     Returns a list of all triggered warnings. Empty list = all nominal.
     """
@@ -355,19 +355,18 @@ def checkAllThresholds(readings: dict[str, float]) -> list[dict]:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Combined: process one full telemetry snapshot
+# Combined: process one full telemetry snapshot from the TSS server
 # ─────────────────────────────────────────────────────────────────────────────
 
 def processTelemetry(telemetry: dict, timestep: float) -> list[dict]:
     """
-    Main entry point. Called for every rover-telemetry event received from
-    the Socket.IO proxy service.
+    Main entry point. Call this every time you receive a telemetry update
+    from the TSS server.
 
     Parameters
     ----------
-    telemetry : dict  — the data payload from the rover-telemetry event
-    timestep  : float — use mission_elapsed_time from telemetry, or an
-                        auto-incremented event counter as a fallback
+    telemetry : dict  — the pr_telemetry object from the TSS server response
+    timestep  : float — use mission_elapsed_time from telemetry, or a poll counter
 
     What this does:
       1. Records all RATE_FIELDS values in Sub-system 1 history
@@ -414,62 +413,71 @@ def processTelemetry(telemetry: dict, timestep: float) -> list[dict]:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Socket.IO client — event-driven replacement for the HTTP polling loop
+# TSS server fetch
 # ─────────────────────────────────────────────────────────────────────────────
 
-def runSocketLoop() -> None:
+def fetchTelemetry() -> dict | None:
     """
-    Connect to the Socket.IO proxy service and react to rover-telemetry events.
-    Replaces the original HTTP polling loop. Press Ctrl+C to stop.
-    """
-    sio = socketio.Client()
-    event_count = 0
+    Fetch the current pr_telemetry snapshot from the TSS server.
+    Returns the telemetry dict, or None if the request fails.
 
+    Adjust the URL path if your TSS version uses a different endpoint.
+    """
+    url = f"{TSS_BASE_URL}/json_data/teams/{TEAM_NUMBER}/rover"
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+        data = response.json()
+        # Handle both { "pr_telemetry": {...} } and flat responses
+        return data.get("pr_telemetry", data)
+    except requests.RequestException as e:
+        print(f"[ERROR] Could not reach TSS at {url}: {e}")
+        return None
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Polling loop — run this as your main process
+# ─────────────────────────────────────────────────────────────────────────────
+
+def runPollingLoop() -> None:
+    """
+    Continuously poll the TSS server, process each telemetry snapshot,
+    and print any warnings. Press Ctrl+C to stop.
+    """
     print(f"Predictive Warning System started")
-    print(f"Connecting to proxy: {PROXY_URL}")
+    print(f"Polling: {TSS_BASE_URL}  every {POLL_INTERVAL}s  (team {TEAM_NUMBER})")
     print(f"Rate tracking: {list(RATE_FIELDS.keys())}")
     print("-" * 60)
 
-    @sio.event
-    def connect():
-        print(f"[INFO] Connected to proxy service (sid={sio.sid})")
-
-    @sio.event
-    def disconnect():
-        print("[INFO] Disconnected from proxy service.")
-
-    @sio.on("error")
-    def on_error(data):
-        print(f"[ERROR] Proxy error: {data.get('error', data)}")
-
-    @sio.on("rover-telemetry")
-    def on_rover_telemetry(data: dict):
-        nonlocal event_count
-
-        # Prefer mission_elapsed_time from the payload as the timestep;
-        # fall back to a local event counter if the field is absent.
-        timestep = data.get("mission_elapsed_time", event_count)
-
-        warnings = processTelemetry(data, timestep)
-
-        if warnings:
-            print(f"\n[t={timestep}]  {len(warnings)} warning(s):")
-            for w in warnings:
-                print(f"  [{w['severity']}] {w['message']}")
-                if w.get("notes"):
-                    print(f"           → {w['notes']}")
-        else:
-            print(f"[t={timestep}] All nominal.")
-
-        event_count += 1
+    poll_count = 0
 
     try:
-        sio.connect(PROXY_URL, transports=["polling", "websocket"], wait_timeout=10)
-        sio.wait()
+        while True:
+            telemetry = fetchTelemetry()
+
+            if telemetry is None:
+                time.sleep(POLL_INTERVAL)
+                continue
+
+            # Prefer mission_elapsed_time from the server as the timestep
+            timestep = telemetry.get("mission_elapsed_time", poll_count)
+
+            warnings = processTelemetry(telemetry, timestep)
+
+            if warnings:
+                print(f"\n[t={timestep}]  {len(warnings)} warning(s):")
+                for w in warnings:
+                    print(f"  [{w['severity']}] {w['message']}")
+                    if w.get("notes"):
+                        print(f"           → {w['notes']}")
+            else:
+                print(f"[t={timestep}] All nominal.")
+
+            poll_count += 1
+            time.sleep(POLL_INTERVAL)
+
     except KeyboardInterrupt:
         print("\nWarning system stopped.")
-    finally:
-        sio.disconnect()
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -656,5 +664,4 @@ if __name__ == "__main__":
     if "--debug" in sys.argv:
         runDebugMode()
     else:
-        runSocketLoop()
-
+        runPollingLoop()
