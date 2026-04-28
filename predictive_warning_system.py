@@ -458,6 +458,9 @@ def runSocketLoop() -> None:
                 print(f"  [{w['severity']}] {w['message']}")
                 if w.get("notes"):
                     print(f"           → {w['notes']}")
+
+                # Emitting warning object to the frontend
+                sio.emit("metric-warning", w)
         else:
             print(f"[t={timestep}] All nominal.")
 
