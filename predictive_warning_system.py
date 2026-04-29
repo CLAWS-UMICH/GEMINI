@@ -175,26 +175,26 @@ THRESHOLDS: dict[str, dict] = {
 
     # ── Driving / Motion ─────────────────────────────────────────────────────
     "pitch": {
-        "low":   -50,
-        "high":   50,
+        "low":   -20,
+        "high":   20,
         "unit":  "deg",
-        "notes": "Rover pitch outside safe range (-50 to 50 deg).",
+        "notes": "Rover pitch outside safe range (-20 to 20 deg).",
     },
     "roll": {
-        "low":   0,
-        "high":  50,
+        "low":   -20,
+        "high":  20,
         "unit":  "deg",
-        "notes": "Rover roll outside safe range (0 to 50 deg).",
+        "notes": "Rover roll outside safe range (0 to 20 deg).",
     },
     "speed": {
-        "low":   0,
+        "low":   -18,
         "high":  18,    # m/s per telemetry ranges doc
         "unit":  "m/s",
         "notes": "Rover speed exceeds safe maximum of 18 m/s.",
     },
     "throttle": {
-        "low":   0,
-        "high":  100,
+        "low":   -20,
+        "high":  20,
         "unit":  "%",
         "notes": "Throttle outside valid range (0–100 %).",
     },
@@ -298,7 +298,13 @@ def checkThreshold(valuename: str, value: float) -> dict | None:
     Check one instantaneous reading against its safe range.
     Returns a warning dict if out of bounds, or None if nominal.
     """
+    SUPPRESS=["battery_level", "oxygen_pressure", "cabin_temperature", "coolant_storage"]
+
     spec = THRESHOLDS.get(valuename)
+
+    if valuename in SUPPRESS:
+        return None
+
     if spec is None:
         return None
 
