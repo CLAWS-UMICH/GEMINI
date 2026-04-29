@@ -344,10 +344,12 @@ def checkAllThresholds(readings: dict[str, float]) -> list[dict]:
     Returns a list of all triggered warnings. Empty list = all nominal.
     """
     warnings = []
-    for name, val in readings.items():
+    for name, val in readings['pr_telemetry'].items():
         # Skip booleans (e.g. ac_heating, brakes) and non-numeric fields
+
         if isinstance(val, bool) or not isinstance(val, (int, float)):
             continue
+
         w = checkThreshold(name, val)
         if w:
             warnings.append(w)
