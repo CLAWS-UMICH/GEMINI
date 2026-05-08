@@ -35,7 +35,8 @@ sub-systems:
       RATE_FIELDS            — which fields to track with Sub-system 1
 """
 
-import socketio
+from __future__ import annotations
+
 from collections import defaultdict
 import numpy as np
 
@@ -388,9 +389,12 @@ def processTelemetry(telemetry: dict, timestep: float) -> list[dict]:
     warnings = []
 
     # Sub-system 1: record history for rate-tracked fields
+    # Check if the telemetry is nested under 'pr_telemetry' or at top level
+    telemetry_data = telemetry.get('pr_telemetry', telemetry)
+    
     for field in RATE_FIELDS:
-        if field in telemetry and isinstance(telemetry[field], (int, float)) and not isinstance(telemetry[field], bool):
-            recordRateOfChange(field, telemetry[field], timestep)
+        if field in telemetry_data and isinstance(telemetry_data[field], (int, float)) and not isinstance(telemetry_data[field], bool):
+            recordRateOfChange(field, telemetry_data[field], timestep)
 
     # Sub-system 2: check all values against safe thresholds immediately
     warnings.extend(checkAllThresholds(telemetry))
@@ -405,7 +409,7 @@ def processTelemetry(telemetry: dict, timestep: float) -> list[dict]:
             slope = getSlope(field)
             warnings.append({
                 "valuename": field,
-                "value":     telemetry.get(field),
+                "value":     telemetry_data.get(field),
                 "severity":  "PREDICTIVE",
                 "breach":    "PROJECTED",
                 "threshold": target,
@@ -430,6 +434,7 @@ def runSocketLoop() -> None:
     Connect to the Socket.IO proxy service and react to rover-telemetry events.
     Replaces the original HTTP polling loop. Press Ctrl+C to stop.
     """
+    import socketio
     sio = socketio.Client()
     event_count = 0
 
