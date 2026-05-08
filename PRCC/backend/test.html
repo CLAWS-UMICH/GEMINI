@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socket.IO Connection</title>
+</head>
+<body>
+    <h1>Socket.IO is connected!</h1>
+
+    <!-- Include the Socket.IO client library -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Client-side script -->
+    <script>
+        // Connect to the server. If served from the same domain, the URL is optional.
+        const socket = io("http://localhost:5001"); 
+
+        socket.on('connect', () => {
+            console.log('Successfully connected to the Socket.IO server');
+        });
+
+        socket.on('disconnect', (reason) => {
+            console.log(`Disconnected: ${reason}`);
+        });
+    </script>
+</body>
+</html>
