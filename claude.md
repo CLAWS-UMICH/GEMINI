@@ -1,319 +1,38 @@
-# CORVUS AI Assistant - Project Context
-
-## Overview
-
-CORVUS is an AI voice assistant for NASA's Project GEMINI EVA operations. Astronauts wear HoloLens 2 headsets; a Jetson Orin Nano (8GB) in the suit handles AI processing. The system uses dual-inference: simple commands run locally, complex queries route to cloud.
+# CORVUS Python Server — Claude Context
 
 ## Architecture
 
-```
-HoloLens 2                        Jetson Orin Nano                    Cloud
-───────────────────────────────────────────────────────────────────────────
-Mic → Audio ──WebSocket──→ Whisper STT → Classifier → Router
-                                                         ↓
-                                              ┌─────────┴─────────┐
-                                           Simple              Complex
-                                              ↓                    ↓
-                                         Template            FAISS/RAG
-                                         Response          → Claude API
-                                              ↓                    ↓
-Piper TTS ← Speaker ←─────────────────── Response ←────────────────┘
-```
+The server is a voice-command→telemetry-response loop for the CORVUS rover challenge. Full design is in `docs/superpowers/specs/2026-05-11-corvus-rover-pivot-design.md`. At startup (`src/server/main.py`) the process builds a `TelemetryCache`, a Socket.IO client to TTTDTT, and an `IntentClassifier`, then starts the WebSocket server. Incoming Unity commands hit `src/server/websocket_handler.py`, which calls `dispatch.respond()` and returns a JSON object with a `response_text` field. Optionally a `voiceString` Socket.IO event is emitted if `EMIT_VOICESTRING=1`.
 
-### Device Responsibilities
+## Key Seams
 
-| HoloLens 2 (4GB) | Jetson Orin Nano (8GB) | Cloud |
-|------------------|------------------------|-------|
-| Mic recording | Whisper STT | Claude/GPT API |
-| Piper TTS | MiniLM embeddings | Complex reasoning |
-| Unity AR/UI | Intent classifier (NN) | — |
-| Wake word detection | Routing NN | — |
-| — | FAISS vector store | — |
-| — | Context management | — |
+| File | Role |
+|---|---|
+| `src/responder/registry.py` | Single dict: intent label → handler function |
+| `src/responder/dispatch.py` | Confidence gate + registry lookup (~6 lines) |
+| `src/responder/handlers.py` | Per-intent response functions (currently 6 representative handlers) |
+| `src/responder/fallback.py` | `LOW_CONFIDENCE_REPLY`, `UNKNOWN_INTENT_REPLY`, `TELEMETRY_UNAVAILABLE_REPLY` |
+| `src/telemetry/cache.py` | `TelemetryCache`: TTL-based snapshot store, thread-safe via `Lock` |
+| `src/telemetry/client.py` | Socket.IO client to TTTDTT; four event handlers write to `cache.put` |
+| `src/classifier/classifier_protocol.py` | `ClassifierProtocol` — the swap point for any replacement model |
+| `src/classifier/intent_classifier.py` | Current model: MiniLM + 2-layer NN, ~97% val accuracy on 87-intent set |
 
-### Communication
+## How to Add a New Intent
 
-- **HoloLens ↔ Jetson**: WebSocket (ws://[jetson-ip]:8765) over local WiFi
-- **Jetson ↔ Cloud**: HTTPS (requires internet)
-- **Unity ↔ LMCC**: Socket.IO (mission control telemetry)
+1. Write a handler function in `src/responder/handlers.py`:
+   ```python
+   def handle_battery_voltage(cache: TelemetryCache) -> str:
+       snap = cache.get()
+       if snap is None:
+           return TELEMETRY_UNAVAILABLE_REPLY
+       return f"Battery voltage is {snap.batt_voltage:.1f} V."
+   ```
+2. Register it in `src/responder/registry.py`:
+   ```python
+   "battery_voltage": handle_battery_voltage,
+   ```
+   Done. No other files need to change.
 
-## Current State (Working)
+## Classifier Note
 
-- Unity project structure with CORVUS scene
-- Wake word detection ("hey corvus") via KeywordRecognizer
-- Whisper STT (whisper.unity, ggml-tiny model)
-- WebSocket connection to Python server
-- Keyword-based classifier (placeholder for real model)
-- Piper TTS (~70ms after warmup)
-- LMCC integration structure (Socket.IO)
-- Full latency tracking UI (STT, classification, network, round-trip, TTS, total) via CorvusLatency class
-
-## Dual-Inference Pipeline
-
-### Local Path (<400ms target)
-Simple commands with high confidence. Returns template responses.
-
-Examples: "check my vitals", "navigate to airlock", "set timer"
-
-### Cloud Path (<1500ms target)
-Complex queries, low confidence, or context-dependent. Uses RAG retrieval + Claude API.
-
-Examples: "is that normal?", "what should I do if oxygen drops?", "explain the procedure"
-
-### Routing Logic
-Route to cloud when:
-- Confidence below 75%
-- Intent is complex (EXPLAIN, COMPARE, QUESTION)
-- Contains anaphora ("that", "it", "this")
-- Out-of-distribution query
-
-## Classifier Architecture
-
-### Current: DistilBERT (to be replaced)
-- ~263MB, ~50-100ms latency
-- Overkill for 200-500 fixed intents
-
-### Planned: MiniLM Embeddings + Neural Network
-- MiniLM (all-MiniLM-L6-v2) converts text to 384-dim vector (shared with RAG)
-- 2-layer NN classifies intent (~5-15ms)
-- Separate routing NN decides local vs cloud
-- **87 intents** for TSS 2026 (up from 46) — hidden layer bumped to 256 for capacity
-
-```
-Input text
-    ↓
-MiniLM (encoder-only transformer) → 384-dim embedding
-    ↓
-NN: Linear(384→256) → ReLU → Dropout → Linear(256→num_intents)
-    ↓
-Softmax → intent probabilities
-```
-
-### SetFit for Few-Shot Training
-SetFit is a HuggingFace few-shot fine-tuning framework ideal for CORVUS:
-- Fine-tunes MiniLM using **contrastive learning** (pulls same-class embeddings together, pushes different-class apart)
-- Requires only **8-16 labeled examples per intent**
-- Trains in ~30 seconds
-- Achieves **90-95% accuracy** with minimal data
-- No prompts needed (unlike GPT-based few-shot)
-- **Perfect for EVA commands** where labeled data is limited
-
-### MiniLM vs DistilBERT
-
-| Model | Size | Output | Inference |
-|-------|------|--------|-----------|
-| MiniLM | ~80-100MB | 384-dim embedding | ~5-10ms |
-| DistilBERT | ~260MB | 768-dim + classification | ~50-100ms |
-
-MiniLM is ~3x smaller and ~5-10x faster.
-
-### NN Optimizations (Phased)
-1. Basic intent NN + rule-based routing
-2. Confidence thresholding, shortcut cache, OOD detection
-3. Multi-task head (intent + route + urgency)
-4. Learned routing NN
-5. Temperature calibration
-
-## Python Server Structure
-
-```
-CORVUS_PythonServer/
-├── models/
-│   ├── embeddings/minilm/
-│   ├── classifier/
-│   │   ├── distilbert/              # Current working model (ONNX)
-│   │   └── minilm-nn/              # intent_nn.pt + training_data.json
-│   └── whisper/tiny.en/, base.en/
-├── data/
-│   ├── intents/training_data.json, shortcuts.json
-│   ├── rag/eva_procedures/, faiss_index/
-│   └── logs/
-├── src/
-│   ├── config.py
-│   ├── server/main.py, websocket_handler.py, socket_handler.py (future LMCC)
-│   ├── stt/whisper_transcriber.py
-│   ├── classifier/ai_model.py, embedder.py, intent_classifier.py, routing_classifier.py
-│   ├── rag/vector_store.py, knowledge_graph.py, retriever.py
-│   ├── cloud/api_client.py, prompt_builder.py
-│   ├── context/context_window.py, anaphora_detector.py
-│   └── pipeline/router.py, local_handler.py, cloud_handler.py
-├── scripts/train_intent_nn.py, build_faiss_index.py
-└── tests/
-```
-
-## Unity Project Structure
-
-```
-CORVUS_Integration/Assets/CLAWS/
-├── Backend/
-│   ├── Networking/
-│   │   ├── CorvusController.cs    # Unified controller
-│   │   ├── WebSocketClient.cs     # Python connection
-│   │   ├── CorvusTTS.cs           # Piper wrapper
-│   │   └── LMCC.cs                # Mission control
-│   └── AstronautController/       # Telemetry data
-├── UI/IntentDisplayUI.cs
-└── Testing/CorvusTest.cs, PiperTest.cs
-```
-
-## WebSocket Protocol
-
-**Unity → Python**
-```json
-{"command": "check my vitals"}
-```
-
-**Python → Unity**
-```json
-{
-  "status": "success",
-  "intent": "check_vitals",
-  "confidence": 0.92,
-  "route": "local",
-  "response": "Heart rate 72, oxygen 98 percent"
-}
-```
-
-## Hardware Constraints
-
-| Device | RAM | ML Capability |
-|--------|-----|---------------|
-| HoloLens 2 | 4GB | Limited (AR takes priority) |
-| Jetson Orin Nano | 8GB | Whisper small, MiniLM, NN classifier, FAISS |
-
-### Whisper Options for Jetson
-
-| Model | RAM | Latency | Recommended |
-|-------|-----|---------|-------------|
-| tiny.en | ~1GB | ~100-150ms | ✅ Start here |
-| base.en | ~1GB | ~150-250ms | ✅ Good balance |
-| small.en | ~2GB | ~300-500ms | ⚠️ If accuracy needed |
-
-## Implementation Phases
-
-### ✅ Completed
-- Unity project setup, scene structure
-- Piper TTS integration (~70ms)
-- Whisper STT (whisper.unity)
-- WebSocket communication
-- Wake word detection
-- Basic keyword classifier
-- DistilBERT ONNX classifier integrated and tested end-to-end
-- Python server folder structure set up
-- MiniLM embedder (embedder.py)
-- Intent NN architecture + inference wrapper (intent_classifier.py) — Linear(384→256→num_intents)
-- Rule-based routing classifier (routing_classifier.py)
-- TSS 2026 intent audit + design decisions (CORVUS_Intents.md, CORVUS_Intent_Design.md)
-- Training data written and audited (87 intents, 1,246 examples — data/intents/training_data.json)
-- MiniLM fine-tuned with SetFit (96.8% validation accuracy, 600 epochs) — saved to models/embeddings/minilm/
-- IntentNN trained and saved (intent_nn.pt — models/classifier/minilm-nn/)
-- Training notebook complete (scripts/train_intent_nn.ipynb)
-- config.py updated: fixed NN_MODEL_DIR, added NN_MODEL_PATH, USE_NN_MODEL, FAISS_INDEX_DIR, EVA_PROCEDURES_DIR, TRAINING_DATA_PATH
-- embedder.py updated: loads fine-tuned MiniLM from local path, falls back to HuggingFace with warning
-- MiniLM classifier + router wired into websocket_handler.py — tested end-to-end, pipeline confirmed working
-
-### 🔄 In Progress
-- (nothing — tasks 1-3 complete)
-
-### 📋 Next
-- Build FAISS index for EVA procedures
-- Integrate Claude API for complex queries
-- Context management (conversation history, anaphora detection)
-- Move Whisper from HoloLens to Jetson (see STT Migration Plan below)
-- End-to-end testing on hardware
-
-### 🧊 Shelved (waiting on other teams)
-- Real telemetry responses via LMCC (waiting on infra team)
-
-## STT Migration Plan: HoloLens → Jetson
-
-### Current State
-- Whisper runs on HoloLens CPU via whisper.unity (ggml-tiny.en)
-- STT latency: ~600-700ms (biggest bottleneck)
-- VAD enabled in whisper.unity (vadStopTime=1.0s, Silero-style energy-based)
-- Pipeline: Wake word → Record → VAD stops recording → Whisper transcribes → Send text over WebSocket
-
-### Target State
-- Unity becomes thin audio capture + playback layer
-- Jetson handles VAD + STT + classification in one pipeline
-- Pipeline: Wake word → Stream raw audio over WebSocket → Jetson VAD + faster-whisper (streaming) → Classify → Respond
-
-### Estimated Latency Improvement
-
-| Component | Current (HoloLens) | Target (Jetson) |
-|-----------|-------------------|-----------------|
-| VAD silence wait | ~1000ms | ~300-500ms (Silero VAD, tuned) |
-| Whisper STT | ~600-700ms (CPU) | ~50-100ms (GPU, faster-whisper) |
-| STT overlap | None (batch) | Streaming — transcribes during speech |
-| **After-speech → response** | **~650ms** | **~100-150ms** |
-
-### Responsibility Split After Migration
-
-| Component | Unity (HoloLens) | Jetson |
-|-----------|-----------------|--------|
-| Wake word detection | Yes (KeywordRecognizer) | — |
-| Mic capture | Yes | — |
-| Audio streaming | Yes (raw PCM over WebSocket) | — |
-| VAD | — | Yes (Silero VAD via faster-whisper) |
-| STT | — | Yes (faster-whisper, GPU, streaming) |
-| Classification | — | Yes |
-| TTS | Yes (Piper, ~70ms) | — |
-
-### WebSocket Protocol Change
-
-Current: Unity sends text after local STT
-```json
-{"command": "check my vitals"}
-```
-
-After migration: Unity streams raw PCM audio bytes after wake word, Jetson returns intent response when speech ends.
-
-### Key Libraries (Jetson)
-- **faster-whisper** (CTranslate2 backend) — optimized Whisper for GPU
-- **Silero VAD** — built into faster-whisper, ~2ms per frame
-- Streaming transcription support — chunked inference while user speaks
-
-### Migration Phases
-1. Tune current VAD (reduce vadStopTime to 0.3-0.5s) — quick win, no architecture change
-2. Add faster-whisper + Silero VAD to Python server
-3. Update WebSocket protocol to accept audio streams
-4. Update Unity to stream raw mic audio instead of running local Whisper
-5. Enable streaming transcription (overlap recording + inference)
-6. Evaluate upgrading to base.en or small.en on Jetson GPU
-
-## Key Decisions
-
-| Decision | Choice | Rationale |
-|----------|--------|-----------|
-| Classifier | MiniLM + NN over DistilBERT | Faster, smaller, shares embeddings with RAG |
-| Few-shot training | SetFit | 8-16 examples/intent, ~30s training, 90-95% accuracy |
-| Vector store | FAISS | Perfect for 500 docs, 10-30ms queries, 5MB |
-| RAG framework | LangChain | Industry standard, good memory management |
-| Whisper location | Jetson (not HoloLens) | HoloLens 4GB too tight with AR running |
-| TTS location | HoloLens | Already integrated, lightweight |
-
-## Performance Targets
-
-| Metric | Target |
-|--------|--------|
-| Local path (simple commands) | <400ms |
-| Cloud path (complex queries) | <1500ms |
-| Whisper STT | <300ms |
-| NN classification | <20ms |
-| TTS generation | <100ms |
-
-## Development Notes
-
-- Python server must run before Unity Play
-- Use **uv** for Python package management
-- Unity 6 renamed Sentis to "Inference Engine"
-- TTS warmup: first call ~2800ms, stabilizes to ~70ms
-- Train NN in Jupyter, export .pt file to server
-- Log routing decisions for future training data
-
-## Teaching Preferences
-
-- Step-by-step task breakdown
-- Concepts over code dumps
-- State bugs found, let developer search first
-- Do not edit code directly; guide me through terminal commands
+Intent labels in `training_data.json` are scaffolding for the current MiniLM model. A teammate's replacement model (different architecture, different training pipeline) can slot in behind the same `ClassifierProtocol` interface without touching the responder layer. The protocol requires a single method: `classify(text: str) -> ClassifierResult`.
