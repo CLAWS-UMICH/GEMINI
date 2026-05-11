@@ -61,14 +61,21 @@ class TelemetryClient:
                 raise
             except Exception as exc:  # noqa: BLE001
                 logger.warning("TTTDTT connect error: %s; retrying in 5s", exc)
-                await asyncio.sleep(5.0)
+            await asyncio.sleep(5.0)
 
     def start(self) -> asyncio.Task:
         self._task = asyncio.create_task(self._run(), name="telemetry-client")
         return self._task
 
     async def stop(self) -> None:
+        if self._sio.connected:
+            try:
+                await self._sio.disconnect()
+            except Exception:  # noqa: BLE001
+                pass
         if self._task is not None:
             self._task.cancel()
-        if self._sio.connected:
-            await self._sio.disconnect()
+            try:
+                await self._task
+            except asyncio.CancelledError:
+                pass
