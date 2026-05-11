@@ -1,12 +1,17 @@
 import sys
+from pathlib import Path
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from src.config import EVA_PROCEDURES_DIR, FAISS_INDEX_DIR, MINILM_MODEL_DIR
+from src.config import MINILM_MODEL_DIR
+
+_BASE_DIR = Path(__file__).parent.parent
+_EVA_PROCEDURES_DIR = _BASE_DIR / "data" / "rag" / "eva_procedures"
+_FAISS_INDEX_DIR = _BASE_DIR / "data" / "rag" / "faiss_index"
 
 def main():
-    loader = DirectoryLoader(str(EVA_PROCEDURES_DIR), glob="**/*.txt")
+    loader = DirectoryLoader(str(_EVA_PROCEDURES_DIR), glob="**/*.txt")
     docs = loader.load()
 
     if not docs:
@@ -22,11 +27,11 @@ def main():
     )
 
     index = FAISS.from_documents(chunks, embeddings)
-    index.save_local(str(FAISS_INDEX_DIR))
+    index.save_local(str(_FAISS_INDEX_DIR))
 
     print(f"Loaded {len(docs)} documents")
     print(f"Created {len(chunks)} chunks")
-    print(f"Index saved to {FAISS_INDEX_DIR}")
+    print(f"Index saved to {_FAISS_INDEX_DIR}")
 
 if __name__ == "__main__":
     main()
