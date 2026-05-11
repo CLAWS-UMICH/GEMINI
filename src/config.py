@@ -6,11 +6,8 @@ load_dotenv()
 # CORVUS Server Configuration
 
 # WebSocket server settings
-HOST = "0.0.0.0" 
-# listen on ALL network interfaces, a specific address like 127.0.0.1 
-# will only allow connections from the same machine
-
-PORT = 8765 # Port Unity will connect to
+HOST = os.getenv("WS_HOST", "0.0.0.0")
+PORT = int(os.getenv("WS_PORT", "8765"))
 
 # Confidence thresholds for intent classification
 CONFIDENCE_THRESH_HIGH = 0.65       # Execute immediately
@@ -84,3 +81,10 @@ INTENT_MAPPINGS = {
 
 # AI inference target is <350ms, 500ms is a warning threshold
 LATENCY_WARNING_MS = 500
+
+# TTTDTT Socket.IO hub
+TTTDTT_URL = os.getenv("TTTDTT_URL", "http://localhost:5001")
+STALE_TELEMETRY_S = float(os.getenv("STALE_TELEMETRY_S", "10.0"))
+
+# Whether to republish each response on TTTDTT 'voiceString' (spec §5.4)
+EMIT_VOICESTRING = os.getenv("EMIT_VOICESTRING", "1") not in ("0", "false", "False")
