@@ -553,13 +553,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
             m_XRDeviceSimulatorCollapsedPanel.SetActive(!isMenuOpen);
         }
 
-        XRDeviceSimulator.DeviceMode GetDeviceMode()
-        {
-#pragma warning disable CS0618 // XRDeviceSimulator.deviceMode is obsolete in newer XRI
-            return m_Simulator.deviceMode;
-#pragma warning restore CS0618
-        }
-
         void UpdateDeviceInputMethod()
         {
             var toggleManipulateText = $"{m_Simulator.toggleManipulateLeftAction.action.controls[0].displayName}, {m_Simulator.toggleManipulateRightAction.action.controls[0].displayName} [Toggle]";
@@ -568,16 +561,15 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
 #else
             var modeChangeText = string.Empty;
 #endif
-            var deviceMode = GetDeviceMode();
 
-            m_ControllersSelectedValueText.text = deviceMode == XRDeviceSimulator.DeviceMode.Controller ? toggleManipulateText : modeChangeText;
-            m_HandsSelectedValueText.text = deviceMode == XRDeviceSimulator.DeviceMode.Hand ? toggleManipulateText : modeChangeText;
+            m_ControllersSelectedValueText.text = m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Controller ? toggleManipulateText : modeChangeText;
+            m_HandsSelectedValueText.text = m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Hand ? toggleManipulateText : modeChangeText;
 
-            var modeColor = deviceMode == XRDeviceSimulator.DeviceMode.Controller ? enabledColor : disabledColor;
+            var modeColor = m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Controller ? enabledColor : disabledColor;
             m_ControllerSelectedIcon.color = modeColor;
             m_ControllerSelectedText.color = modeColor;
 
-            modeColor = deviceMode == XRDeviceSimulator.DeviceMode.Hand ? enabledColor : disabledColor;
+            modeColor = m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Hand ? enabledColor : disabledColor;
             m_HandsSelectedIcon.color = modeColor;
             m_HandsSelectedText.color = modeColor;
         }
@@ -627,28 +619,25 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
 
         void OnActivateLeftDevice()
         {
-            var deviceMode = GetDeviceMode();
-            if (deviceMode == XRDeviceSimulator.DeviceMode.Controller)
+            if (m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Controller)
                 OnActivateLeftController();
-            else if (deviceMode == XRDeviceSimulator.DeviceMode.Hand)
+            else if (m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Hand)
                 OnActivateLeftHand();
         }
 
         void OnActivateRightDevice()
         {
-            var deviceMode = GetDeviceMode();
-            if (deviceMode == XRDeviceSimulator.DeviceMode.Controller)
+            if (m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Controller)
                 OnActivateRightController();
-            else if (deviceMode == XRDeviceSimulator.DeviceMode.Hand)
+            else if (m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Hand)
                 OnActivateRightHand();
         }
 
         void OnActivateBothDevices()
         {
-            var deviceMode = GetDeviceMode();
-            if (deviceMode == XRDeviceSimulator.DeviceMode.Controller)
+            if (m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Controller)
                 OnActivateBothControllers();
-            else if (deviceMode == XRDeviceSimulator.DeviceMode.Hand)
+            else if (m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Hand)
                 OnActivateBothHands();
         }
 
@@ -770,9 +759,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
 
             if (m_Simulator.manipulatingFPS)
             {
-                var deviceMode = GetDeviceMode();
-                ControllersSetActive(false, deviceMode == XRDeviceSimulator.DeviceMode.Controller);
-                HandsSetActive(false, deviceMode == XRDeviceSimulator.DeviceMode.Hand);
+                ControllersSetActive(false, m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Controller);
+                HandsSetActive(false, m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Hand);
             }
             else
             {
@@ -934,9 +922,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
                     OnActivateHeadsetDevice();
                 else
                 {
-                    var deviceMode = GetDeviceMode();
-                    ControllersSetActive(false, deviceMode == XRDeviceSimulator.DeviceMode.Controller);
-                    HandsSetActive(false, deviceMode == XRDeviceSimulator.DeviceMode.Hand);
+                    ControllersSetActive(false, m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Controller);
+                    HandsSetActive(false, m_Simulator.deviceMode == XRDeviceSimulator.DeviceMode.Hand);
                 }
             }
 

@@ -294,30 +294,16 @@ public class SetUpScreenController : MonoBehaviour
         };
 
 
-        // LMCCWebSocketClient webSocketClient = Controller.GetComponent<LMCCWebSocketClient>();
-        // if (webSocketClient != null && connectedToWEB)
-        // {
-        //     webSocketClient.SendJsonData(jsonData, "EV", clientToSend);
-        // }
-        // else
-        // {
-        //     Debug.LogError(connectedToWEB);
-        //     Debug.LogError("LMCCWebSocketClient is not assigned to the Controller.");
-        // }
-        LMCCWebSocketClient webSocketClient = Controller != null ? Controller.GetComponent<LMCCWebSocketClient>() : null;
-        if (webSocketClient == null)
+        LMCCWebSocketClient webSocketClient = Controller.GetComponent<LMCCWebSocketClient>();
+        if (webSocketClient != null && connectedToWEB)
         {
-            Debug.LogError(
-                "SetUpScreenController: No LMCCWebSocketClient on the Controller GameObject. Assign Controller in the inspector to the object that has LMCCWebSocketClient (e.g. scene root 'Controller').");
-        }
-        else if (!connectedToWEB)
-        {
-            Debug.LogWarning(
-                "SetUpScreenController: Skipping INIT over WebSocket — LMCC was not connected successfully (connectedToWEB is false). Use the connection flow to connect to LMCC before Done, or continue without sending.");
+
+            webSocketClient.SendJsonData(jsonData, "EV", clientToSend);
         }
         else
         {
-            webSocketClient.SendJsonData(jsonData, "EV", clientToSend);
+            Debug.LogError(connectedToWEB);
+            Debug.LogError("LMCCWebSocketClient is not assigned to the Controller.");
         }
         SetUpController.SetActive(true);
         foreach (Transform child in SetUpController.transform)

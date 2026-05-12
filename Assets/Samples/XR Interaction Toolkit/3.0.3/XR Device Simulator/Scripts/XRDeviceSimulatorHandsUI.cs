@@ -135,9 +135,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
             }
         }
 
-#pragma warning disable CS0618 // XRDeviceSimulator.SimulatedHandExpression is obsolete in newer XRI
         internal void ToggleExpression(XRDeviceSimulator.SimulatedHandExpression simulatedExpression, XRDeviceSimulator simulator)
-#pragma warning restore CS0618
         {
             // The index of the hand expression corresponds 1:1 with the index of the UI button
             var index = simulator.simulatedHandExpressions.IndexOf(simulatedExpression);

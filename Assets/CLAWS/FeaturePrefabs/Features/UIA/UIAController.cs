@@ -17,7 +17,6 @@ public class UIAController : MonoBehaviour
     public GameObject vitals;
     public GameObject previousButton;
     public GameObject nextButton;
-    private UiaOverlayGate overlayGate;
 
     public List<string> EgressSteps = new List<string>();
     public List<string> IngressSteps = new List<string>();
@@ -25,11 +24,6 @@ public class UIAController : MonoBehaviour
     private int counter = 0;
     public event System.Action OnUIAOpened;
 
-
-    private void Awake()
-    {
-        overlayGate = GetComponent<UiaOverlayGate>();
-    }
 
     void Start()
     {
@@ -120,11 +114,6 @@ public class UIAController : MonoBehaviour
 
     public void openFeatureScreen()
     {
-        if (overlayGate == null)
-        {
-            overlayGate = GetComponent<UiaOverlayGate>();
-        }
-        overlayGate?.EnterUiaMode();
         uiaScreen.SetActive(true);
         foreach (Transform child in uiaScreen.transform)
         {
@@ -136,11 +125,6 @@ public class UIAController : MonoBehaviour
 
     public void closeFeatureScreen()
     {
-        if (overlayGate == null)
-        {
-            overlayGate = GetComponent<UiaOverlayGate>();
-        }
-        overlayGate?.ExitUiaMode();
         uiaScreen.SetActive(false);
         foreach (Transform child in uiaScreen.transform)
         {
@@ -253,7 +237,6 @@ public class UIAController : MonoBehaviour
 
     public void OpenVitals()
     {
-        if (vitals == null) return;
         vitals.SetActive(true);
         previousButton.SetActive(false);
         nextButton.SetActive(false);
@@ -261,16 +244,11 @@ public class UIAController : MonoBehaviour
         {
             child.gameObject.SetActive(true);
         }
-        Transform secondAstronaut = vitals.transform.Find("VitalsSecondAstronaut");
-        if (secondAstronaut != null)
-        {
-            secondAstronaut.gameObject.SetActive(false);
-        }
+        vitals.transform.Find("VitalsSecondAstronaut").gameObject.SetActive(false);
     }
 
     public void CloseVitals()
     {
-        if (vitals == null) return;
         vitals.SetActive(false);
         previousButton.SetActive(true);
         nextButton.SetActive(true);
