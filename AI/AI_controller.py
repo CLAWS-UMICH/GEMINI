@@ -26,12 +26,19 @@ TSS_PORT = 14141
 # Orchestration
 # -----------------------------
 def main() -> None:
-    backend = backend_bridge.connect(BACKEND_URL)
-    alert_runner = alerts.start(
-        {"backend_url": BACKEND_URL},
-        lambda alert: backend_bridge.send_alert(backend, alert),
-    )
-    aia_runner = aia.start({"backend_url": BACKEND_URL})
+    use_udp = LOCATE_TRANSPORT.lower() == "udp"
+    backend = None
+    alert_runner = None
+    aia_runner = None
+
+    if not use_udp:
+        backend = backend_bridge.connect(BACKEND_URL)
+        alert_runner = alerts.start(
+            {"backend_url": BACKEND_URL},
+            lambda alert: backend_bridge.send_alert(backend, alert),
+        )
+        aia_runner = aia.start({"backend_url": BACKEND_URL})
+
     locate_runner = locate.start(
         {
             "mode": LOCATE_TRANSPORT,
@@ -39,8 +46,8 @@ def main() -> None:
             "tss_host": TSS_HOST,
             "tss_port": TSS_PORT,
         },
-        on_path_update=lambda update: backend_bridge.send_matrix(backend, update["matrix"]),
-        on_eta_update=alert_runner.update_path_eta,
+        on_path_update=None if use_udp else lambda update: backend_bridge.send_matrix(backend, update["matrix"]),
+        on_eta_update=None if alert_runner is None else alert_runner.update_path_eta,
     )
 
     try:
@@ -49,9 +56,12 @@ def main() -> None:
         pass
     finally:
         locate_runner.stop()
-        alert_runner.stop()
-        aia_runner.stop()
-        backend.disconnect()
+        if alert_runner is not None:
+            alert_runner.stop()
+        if aia_runner is not None:
+            aia_runner.stop()
+        if backend is not None:
+            backend.disconnect()
 
 
 if __name__ == "__main__":
