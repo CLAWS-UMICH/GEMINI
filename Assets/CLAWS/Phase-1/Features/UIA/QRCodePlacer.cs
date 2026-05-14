@@ -23,6 +23,9 @@ public class QRCodePlacer : MonoBehaviour
     [Tooltip("Optional. If set, mirrors debug messages to this on-headset text display.")]
     [SerializeField] private TMPro.TextMeshProUGUI debugDisplay;
 
+    public event System.Action OnQrLocked;
+    public event System.Action OnQrLost;
+
     private ARMarker trackedMarker;
     private bool hasInitialPose;
     private float lastPositionLogTime;
@@ -102,6 +105,7 @@ public class QRCodePlacer : MonoBehaviour
                     trackedMarker = null;
                     hasInitialPose = false;
                     lastLoggedTrackingState = (TrackingState)(-99);
+                    OnQrLost?.Invoke();
                 }
             }
         }
@@ -128,6 +132,7 @@ public class QRCodePlacer : MonoBehaviour
         {
             trackedMarker = marker;
             Log($"=== LOCKED onto QR '{expectedQrText}' (id={marker.trackableId}) ===");
+            OnQrLocked?.Invoke();
         }
         else if (verboseLogging)
         {

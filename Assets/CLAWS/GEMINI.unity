@@ -1504,6 +1504,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &92574989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92574992}
+  - component: {fileID: 92574991}
+  - component: {fileID: 92574990}
+  m_Layer: 0
+  m_Name: UIA_QR_Overlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &92574990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92574989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06574d87fad0344fb88442ece775239e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrefabChanger
+  prefabs:
+  - {fileID: 4283311902487950489, guid: 9400aae8b82b14c2984cb418e3d2014e, type: 3}
+  - {fileID: 4283311902487950489, guid: e7434f14533c34decaca071fbae48e15, type: 3}
+  - {fileID: 4283311902487950489, guid: 096bb9ee51b1f48bc9457c5ef05d4348, type: 3}
+  - {fileID: 4283311902487950489, guid: eddec425fd5a94007815aa7699b37f8d, type: 3}
+  - {fileID: 4283311902487950489, guid: 03590dc46711e41a0be184711c76b902, type: 3}
+  - {fileID: 4283311902487950489, guid: 2444fb4229b0c4297bde7441c208e6ab, type: 3}
+  - {fileID: 4283311902487950489, guid: d477887840eb449cf868131f9827f63e, type: 3}
+  - {fileID: 4283311902487950489, guid: 14956d32eedff43869e70d620adfa92e, type: 3}
+  - {fileID: 4283311902487950489, guid: ecec72093fe3b415d823dd32be8fd927, type: 3}
+  - {fileID: 4283311902487950489, guid: f834e04489cd241a99aa325f8ab41382, type: 3}
+  - {fileID: 4283311902487950489, guid: c5c2310b0e4d74ad39505bea68ae6acd, type: 3}
+  overlayTarget: {fileID: 92574992}
+--- !u!114 &92574991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92574989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72c199e116d64a3d88a54e863b9f2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QRCodePlacer
+  expectedQrText: UIA_PANEL
+  smoothing: 0.8
+  lockAfterFirstDetection: 0
+  verboseLogging: 1
+  debugDisplay: {fileID: 0}
+--- !u!4 &92574992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92574989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1585254167}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &111630545
 GameObject:
   m_ObjectHideFlags: 0
@@ -25171,6 +25246,7 @@ Transform:
   - {fileID: 2048638284}
   - {fileID: 3236135931579618822}
   - {fileID: 840262189}
+  - {fileID: 92574992}
   m_Father: {fileID: 1456527015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1585254168
@@ -25209,9 +25285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a3c91d2e4b5c6d7e8f9012345678ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referenceImageLibrary: {fileID: 11400000, guid: c48e9ce99b5014697bbe527619476707, type: 2}
-  uiaImagePrefab: {fileID: 1000000001, guid: c7d8e9f0123456789abcdef012345678, type: 3}
-  arRigParent: {fileID: 1555562879}
+  qrOverlayRoot: {fileID: 92574989}
 --- !u!1 &1586223875
 GameObject:
   m_ObjectHideFlags: 0
@@ -47654,6 +47728,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5255551627059424866, guid: 1e139c688015540ca9307be6a9839af8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2143893897}
+    - targetCorrespondingSourceObject: {fileID: 6527722064196668870, guid: 1e139c688015540ca9307be6a9839af8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3586800864875802786}
+    - targetCorrespondingSourceObject: {fileID: 6527722064196668870, guid: 1e139c688015540ca9307be6a9839af8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3586800864875802785}
   m_SourcePrefab: {fileID: 100100000, guid: 1e139c688015540ca9307be6a9839af8, type: 3}
 --- !u!114 &3586800864875802782 stripped
 MonoBehaviour:
@@ -47677,6 +47757,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85416945309f8244a5715a2ec5c254f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3586800864875802784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6527722064196668870, guid: 1e139c688015540ca9307be6a9839af8, type: 3}
+  m_PrefabInstance: {fileID: 3586800864875802781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3586800864875802785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586800864875802784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df6e2a8f5c58cf4184b32d359111444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Microsoft.MixedReality.OpenXR::Microsoft.MixedReality.OpenXR.ARMarkerManager
+  <trackablesChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  markerPrefab: {fileID: 0}
+  enabledMarkerTypes: 01000000
+  defaultTransformMode: 0
+--- !u!114 &3586800864875802786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586800864875802784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.CoreUtils::Unity.XR.CoreUtils.XROrigin
+  m_Camera: {fileID: 0}
+  m_OriginBaseGameObject: {fileID: 3586800864875802784}
+  m_CameraFloorOffsetObject: {fileID: 0}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
 --- !u!212 &3591437977878561606
 SpriteRenderer:
   m_ObjectHideFlags: 0
