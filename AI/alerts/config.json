@@ -1,0 +1,17 @@
+{
+  "poll_interval_sec": 0.5,
+  "forecast_alert_stages_sec": [1200, 600, 300, 60],
+  "metrics": {
+    "battery_level": { "min": 30, "max": 100, "forecast": true, "critical_low": 30, "history_limit": 30, "unit": "%" },
+    "oxygen_tank": { "min": 25, "max": 100, "forecast": true, "critical_low": 25, "history_limit": 30, "unit": "%" },
+    "oxygen_pressure": { "min": 2997, "max": 3001, "forecast": true, "critical_low": 2997, "history_limit": 30, "unit": "psi" },
+    "coolant_storage": { "min": 80, "max": 100, "forecast": true, "critical_low": 80, "history_limit": 30, "unit": "%" },
+    "cabin_pressure": { "min": 3.8, "max": 4.2, "forecast": false, "critical_low": 3.8, "critical_high": 4.2, "history_limit": 30, "unit": "psi" },
+    "cabin_temperature": { "min": 10, "max": 32, "forecast": false, "critical_low": 10, "critical_high": 32, "history_limit": 30, "unit": "C" },
+    "speed": { "min": -18, "max": 18, "forecast": false, "critical_low": -18, "critical_high": 18, "history_limit": 30, "unit": "m/s" },
+    "pitch": { "min": -20, "max": 20, "forecast": false, "critical_low": -20, "critical_high": 20, "history_limit": 30, "unit": "deg" },
+    "roll": { "min": -20, "max": 20, "forecast": false, "critical_low": -20, "critical_high": 20, "history_limit": 30, "unit": "deg" },
+    "distance_from_base": { "min": 0, "max": 2500, "forecast": false, "critical_high": 2500, "history_limit": 30, "unit": "m" },
+    "heart_rate": { "min": 40, "max": 160, "forecast": false, "critical_low": 40, "critical_high": 160, "history_limit": 30, "unit": "bpm" }
+  }
+}

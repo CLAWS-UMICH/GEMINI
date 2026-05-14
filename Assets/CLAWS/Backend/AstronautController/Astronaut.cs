@@ -1,16 +1,36 @@
-// LSast Updated:
-//     Molly M. -- 9/30/2025
+using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class Astronaut
 {
+    // EV Info
     public int id;
     public string name;
-    public string color;
+    public string avatarColor;
     public FellowAstronaut fellowAstronaut;
-    public Location origin;
-    public Location current;
-    public string TSSurl;
-    public Telemetry telemetry;
 
+    // Initial Location data
+    public double latitude;
+    public double longitude;
+    public Location origin;
+
+    // URL info
+    public string LMCCurl;
+    public string TSSurl;
+
+    // Feature Info
+    public Location current;
+    public Vitals vitals;
+    public Messaging messages;
+
+
+    // TSS Info
+    public COMM comm;
+    public DCU dcu;
+    public IMU imu;
+    public SPEC spec;
+    public ROVER rover;
+    public UIA uia;
+    public TELEMETRY telemetry;
 }
