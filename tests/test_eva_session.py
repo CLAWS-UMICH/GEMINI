@@ -308,3 +308,37 @@ def test_finalize_marks_unhandled_when_intent_not_in_registry():
     final = asyncio.run(session.finalize(ready))
 
     assert final.intent == "unhandled"
+
+
+class RaisingSTT:
+    def transcribe(self, audio):
+        raise RuntimeError("whisper boom")
+
+
+class RaisingClassifier:
+    def classify(self, command):
+        raise RuntimeError("classifier boom")
+
+
+def test_finalize_whisper_failure_emits_empty_response():
+    vad = FakeVAD()
+    session = make_session(vad=vad, stt=RaisingSTT())
+    ready = _drive_to_audio_ready(session, vad)
+
+    final = asyncio.run(session.finalize(ready))
+
+    assert final.response == ""
+
+
+def test_finalize_classifier_failure_emits_transcript_unhandled():
+    vad = FakeVAD()
+    stt = FakeSTT(transcript="say something")
+    session = make_session(vad=vad, stt=stt, classifier=RaisingClassifier())
+    ready = _drive_to_audio_ready(session, vad)
+
+    final = asyncio.run(session.finalize(ready))
+
+    assert final.response == "say something"
+    assert final.transcript == "say something"
+    assert final.intent == "unhandled"
+    assert final.latency_ms is not None
