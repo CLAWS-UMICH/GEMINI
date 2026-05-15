@@ -1156,11 +1156,74 @@ public static class VitalsNominalLimits
 
     public const float ScrubberCo2StorMax = 60.0f;
 
-    public const float TempMin = 50.0f;
-    public const float TempMax = 90.0f;
+    public const float TempMin = 10.0f;
+    public const float TempMax = 32.0f;
+    public const float TempNominal = 21.0f;
 
     public const float CoolLiqMin = 100.0f;
     public const float CoolLiqMax = 700.0f;
 
     public const float CoolGasMax = 700.0f;
+}
+
+/// <summary>
+/// Shared traffic-light colors and threshold helpers for all radial vitals rings.
+/// Tint is applied only via <see cref="SpriteRenderer.color"/> so the RadialFill
+/// shader does not double-multiply with material <c>_Color</c>.
+/// </summary>
+public static class VitalsUiTrafficColors
+{
+    public static readonly Color Good = new Color(0f, 1f, 0f, 1f);
+    public static readonly Color Bad = new Color(1f, 0f, 0f, 1f);
+    public static readonly Color Warn = new Color(1f, 0.92f, 0.016f, 1f);
+
+    public const float BandWarningFraction = 0.15f;
+    public const float CeilingWarningFraction = 0.7f;
+    public const float FloorWarningFraction = 0.2f;
+
+    public static void ApplyRingColor(SpriteRenderer ring, Color tint)
+    {
+        if (ring == null)
+            return;
+        ring.color = tint;
+        Material mat = ring.material;
+        if (mat != null && mat.HasProperty("_Color"))
+            mat.SetColor("_Color", Color.white);
+    }
+
+    public static Color EvaluateBand(float value, float min, float max)
+    {
+        if (value < min || value > max)
+            return Bad;
+        float span = max - min;
+        if (span <= 0f)
+            return Good;
+        float margin = BandWarningFraction * span;
+        if (value < min + margin || value > max - margin)
+            return Warn;
+        return Good;
+    }
+
+    public static Color EvaluateCeiling(float value, float max)
+    {
+        if (max <= 0f)
+            return value > 0f ? Bad : Good;
+        if (value > max)
+            return Bad;
+        if (value > CeilingWarningFraction * max)
+            return Warn;
+        return Good;
+    }
+
+    public static Color EvaluateFloor(float value, float min)
+    {
+        if (min <= 0f)
+            return Good;
+        if (value < min)
+            return Bad;
+        float margin = FloorWarningFraction * min;
+        if (value < min + margin)
+            return Warn;
+        return Good;
+    }
 }
