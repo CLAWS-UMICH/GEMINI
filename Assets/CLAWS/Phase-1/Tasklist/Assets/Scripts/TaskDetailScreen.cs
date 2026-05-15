@@ -19,7 +19,13 @@ public class TaskDetailScreen : MonoBehaviour
     [Header("Input")]
     [Tooltip("Enable to advance task steps with gamepad/XR square (West) button.")]
     public bool enableSquareAdvance = true;
-    readonly TaskGroup[] groups = new TaskGroup[]
+
+    // First FIXED_GROUP_COUNT groups are the fixed procedure list. Anything appended
+    // beyond that is a dynamic voice-created task (Add_task) and is the only kind
+    // that Delete_task / Complete_task-by-name can remove.
+    const int FIXED_GROUP_COUNT = 3;
+
+    readonly List<TaskGroup> groups = new List<TaskGroup>
     {
         new TaskGroup("Exit Recovery Mode (ERM) (1/3)",
             "Get ERM steps from AIA",
@@ -65,7 +71,7 @@ public class TaskDetailScreen : MonoBehaviour
     public void ShowGroup(int index)
     {
         Debug.Log($"[TaskDetailScreen] ShowGroup({index})");
-        if (index < 0 || index >= groups.Length) { Debug.Log($"[TaskDetailScreen] index {index} out of range"); return; }
+        if (index < 0 || index >= groups.Count) { Debug.Log($"[TaskDetailScreen] index {index} out of range"); return; }
         activeGroup    = groups[index];
         completedUpTo  = -1;
 
@@ -106,6 +112,111 @@ public class TaskDetailScreen : MonoBehaviour
 
         completedUpTo = nextCompleted;
         RefreshSlots();
+    }
+
+    /// <summary>
+    /// Append a new dynamic task group (one-step) created from a voice command.
+    /// Returns true on success. Speaks-side description is left to the caller.
+    /// </summary>
+    public bool AddTaskGroup(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return false;
+        groups.Add(new TaskGroup(name.Trim(), name.Trim()));
+        return true;
+    }
+
+    /// <summary>
+    /// Remove a dynamic task group whose title fuzzy-matches <paramref name="name"/>.
+    /// Fixed procedure groups (index 0..FIXED_GROUP_COUNT-1) cannot be removed.
+    /// </summary>
+    public bool DeleteTaskGroupByName(string name, out string resolvedName)
+    {
+        resolvedName = null;
+        int i = FindDynamicGroupIndex(name);
+        if (i < 0) return false;
+        resolvedName = groups[i].title;
+        bool wasActive = (activeGroup == groups[i]);
+        groups.RemoveAt(i);
+        if (wasActive) ShowTaskMainMenu();
+        return true;
+    }
+
+    /// <summary>
+    /// Best-effort "complete" by name. Tries (in order):
+    ///   1. Match against the next step in the active group: call <see cref="MarkStepDone"/>.
+    ///   2. Match against any step in any group: switch to that group and advance.
+    ///   3. Match against a dynamic group title: remove that single-step group.
+    /// Returns true on a successful match; false otherwise (caller may fall back to
+    /// <see cref="MarkStepDone"/> on the currently active group).
+    /// </summary>
+    public bool CompleteByName(string name, out string resolvedName)
+    {
+        resolvedName = null;
+        if (string.IsNullOrWhiteSpace(name)) return false;
+        string needle = name.Trim().ToLowerInvariant();
+
+        // 1) Next step in the currently active group
+        if (activeGroup != null)
+        {
+            int nextIdx = completedUpTo + 1;
+            if (nextIdx >= 0 && nextIdx < activeGroup.tasks.Length)
+            {
+                string nextStep = activeGroup.tasks[nextIdx];
+                if (nextStep != null && nextStep.ToLowerInvariant().Contains(needle))
+                {
+                    resolvedName = nextStep;
+                    MarkStepDone();
+                    return true;
+                }
+            }
+        }
+
+        // 2) Search every group's steps; on a hit, open that group and advance to (just past) the step
+        for (int g = 0; g < groups.Count; g++)
+        {
+            TaskGroup grp = groups[g];
+            if (grp == null || grp.tasks == null) continue;
+            for (int s = 0; s < grp.tasks.Length; s++)
+            {
+                string step = grp.tasks[s];
+                if (step == null) continue;
+                if (step.ToLowerInvariant().Contains(needle))
+                {
+                    resolvedName = step;
+                    ShowTaskDetailMenu(g);
+                    completedUpTo = s; // mark this step (and prior) as done
+                    RefreshSlots();
+                    return true;
+                }
+            }
+        }
+
+        // 3) Match a dynamic group by title - remove it
+        int dyn = FindDynamicGroupIndex(name);
+        if (dyn >= 0)
+        {
+            resolvedName = groups[dyn].title;
+            bool wasActive = (activeGroup == groups[dyn]);
+            groups.RemoveAt(dyn);
+            if (wasActive) ShowTaskMainMenu();
+            return true;
+        }
+
+        return false;
+    }
+
+    int FindDynamicGroupIndex(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return -1;
+        string needle = name.Trim().ToLowerInvariant();
+        for (int i = FIXED_GROUP_COUNT; i < groups.Count; i++)
+        {
+            if (groups[i]?.title == null) continue;
+            string title = groups[i].title.ToLowerInvariant();
+            if (title == needle || title.Contains(needle) || needle.Contains(title))
+                return i;
+        }
+        return -1;
     }
 
     void RefreshSlots()
