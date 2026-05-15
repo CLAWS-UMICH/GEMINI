@@ -1,7 +1,7 @@
 """End-to-end smoke test for the EVA WS handler.
 
 Skipped by default. To run:
-    EVA_E2E=1 uv run pytest tests/test_eva_handler_e2e.py -v
+    EVA_E2E=1 uv run python -m pytest tests/test_eva_handler_e2e.py -v
 
 Requires the Whisper checkpoint to be present.
 """
@@ -51,8 +51,7 @@ def _synth_speech_pcm(seconds: float = 1.5) -> bytes:
     return pcm
 
 
-@pytest.mark.asyncio
-async def test_full_streaming_roundtrip():
+async def _run_streaming_roundtrip() -> None:
     if not WHISPER_MODEL_DIR.exists():
         pytest.skip("Whisper checkpoint not installed")
 
@@ -79,8 +78,11 @@ async def test_full_streaming_roundtrip():
             for i in range(0, len(pcm), chunk):
                 await ws.send(pcm[i : i + chunk])
 
-            # Wait for final (with timeout)
             raw = await asyncio.wait_for(ws.recv(), timeout=15.0)
             msg = json.loads(raw)
             assert msg["type"] == "final"
             assert "response" in msg
+
+
+def test_full_streaming_roundtrip():
+    asyncio.run(_run_streaming_roundtrip())
