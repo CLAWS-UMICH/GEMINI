@@ -153,13 +153,20 @@ Then, after a wake-word hit:
 ### EVA mode
 
 ```
-Unity ──WS─▶ {audio: bytes} or {command: text}
-              ↓
-         Whisper STT (if audio) ──▶ text
-              ↓
-         classifier(text)               ⟵ EVA-label mask (Phase 2)
-              ↓
-         dispatch → response_text ──WS─▶ Unity ──▶ Piper TTS
+Unity ──WS text─▶ {type: "start", sample_rate: 16000, channels: 1}
+Unity ──WS bin──▶ raw int16 LE PCM chunks (≈100 ms each)
+                    ↓
+               Silero VAD (32 ms frames, 700 ms hangover) ──▶ end-of-speech
+                    ↓
+               Whisper STT ──▶ transcript
+                    ↓
+               classifier(transcript)         ⟵ EVA-label mask (Phase 2)
+                    ↓
+               dispatch → response
+                    ↓
+Python ──WS text─▶ {type: "final", response, transcript?, intent?, confidence?, parameters?, latency_ms?}
+                    ↓
+                  Unity ──▶ Piper TTS
 ```
 
 ### PR mode
@@ -207,7 +214,9 @@ To force CPU fallback locally for testing: `CUDA_VISIBLE_DEVICES="" uv run corvu
 |-------------------------|------------------------|----------------------------------------------------|
 | `TTTDTT_URL`            | `http://localhost:5001`| TTTDTT Socket.IO endpoint                          |
 | `STALE_TELEMETRY_S`     | `10.0`                 | Seconds before cached telemetry is considered stale |
-| `EMIT_VOICESTRING`      | `1`                    | Re-publish `response_text` on TTTDTT `voiceString` |
+| `EMIT_VOICESTRING`      | `1`                    | Re-publish the final `response` text on TTTDTT `voiceString` |
+| `EVA_VAD_HANGOVER_MS`   | `700`                  | Silence (ms) after speech before EVA emits `{type:"final"}` |
+| `EVA_MAX_UTTERANCE_S`   | `30`                   | Hard cap on a single utterance before forced finalize       |
 | `WS_HOST`               | `0.0.0.0`              | EVA WebSocket bind host                            |
 | `WS_PORT`               | `8765`                 | EVA WebSocket bind port                            |
 
