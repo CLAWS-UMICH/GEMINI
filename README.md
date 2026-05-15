@@ -28,19 +28,121 @@ uv sync
 
 ## Run
 
-```bash
-# EVA mode (Unity-paired):
-uv run corvus-eva
+### EVA mode — `uv run corvus-eva`
 
-# PR mode (standalone, voice):
-uv run corvus-pr
+Unity-paired. Python boots a WebSocket server on `0.0.0.0:8765`, connects to TTTDTT as a Socket.IO client, loads the classifier, and (if `models/stt/whisper-base.en/` exists) loads Whisper STT.
 
-# PR mode (stdin, useful for debug):
-uv run corvus-pr --stdin
+**Required:**
+- TTTDTT reachable (otherwise handlers return "Telemetry unavailable right now.")
+- Whisper checkpoint only required for `{audio}` payloads — `{command: "..."}` text payloads work without it
 
-# PR mode (stdin + speak responses):
-uv run corvus-pr --stdin --speak
+**Expected boot logs:**
 ```
+multi-label sidecars missing at .../models/multilabel/label2id.json; using legacy NN classifier (mode=eva)
+sentence_transformers.SentenceTransformer: Use pytorch device_name: cuda:0   ← or cpu
+[SUCCESS] Classifier loaded (NNClassifier)
+Loading Whisper from .../whisper-base.en (device=cuda, compute_type=float16)
+[SUCCESS] Whisper STT loaded
+websockets.server: server listening on 0.0.0.0:8765
+[SUCCESS] Server running on ws://0.0.0.0:8765
+```
+
+**Wire protocol** (see `src/modes/eva/websocket_handler.py`):
+
+Unity → Python — text:
+```json
+{"command": "what's my heart rate", "request_id": "abc-123"}
+```
+Unity → Python — audio (base64-encoded WAV bytes, 16 kHz mono preferred):
+```json
+{"audio": "<base64>", "request_id": "abc-123"}
+```
+
+Python → Unity:
+```json
+{
+  "status": "success",
+  "intent": "vitals_heart_rate",
+  "confidence": 0.94,
+  "response_text": "Heart rate is 72 beats per minute.",
+  "request_id": "abc-123",
+  "latency_ms": 412.0,
+  "timestamp": "2026-05-15T19:00:00Z"
+}
+```
+
+Error shape: `{"status": "error", "error_message": "...", "request_id": "..."}`
+
+**Smoke test from Python:**
+```bash
+uv run python - <<'PY'
+import asyncio, json, websockets
+async def main():
+    async with websockets.connect("ws://localhost:8765") as ws:
+        await ws.send(json.dumps({"command": "what is my heart rate", "request_id": "smoke"}))
+        print(json.dumps(json.loads(await ws.recv()), indent=2))
+asyncio.run(main())
+PY
+```
+
+### PR mode — three flavors
+
+PR mode is standalone — no WebSocket server, no Unity. Three operating modes:
+
+| Command                                | Mic | Speaker | Use case                                  |
+|----------------------------------------|-----|---------|--------------------------------------------|
+| `uv run corvus-pr`                     | ✓   | ✓       | Full voice loop. The demo path.            |
+| `uv run corvus-pr --stdin`             |     |         | Type commands, read response text. Debug.  |
+| `uv run corvus-pr --stdin --speak`     |     | ✓       | Type commands, hear Piper speak responses. |
+
+**Required for full voice mode (`corvus-pr` with no flags):**
+- All install scripts run (`install_whisper.sh`, `install_piper.sh`)
+- PortAudio: `sudo apt install libportaudio2`
+- Mic and speaker visible to sounddevice — verify with `uv run python -c "import sounddevice; print(sounddevice.query_devices())"`. WSL shows 0 devices by default; you need WSLg's PulseAudio bridge or run on Windows/native Linux for live mic+speaker.
+- A wake-word model the detector can load (see "Wake word setup" below)
+- TTTDTT reachable (otherwise responses say "Telemetry unavailable")
+
+**Required for `--stdin --speak`:** just the Piper voice + working speaker.
+
+**Required for `--stdin` alone:** just the classifier (already in repo, no downloads).
+
+**Expected boot logs (voice mode):**
+```
+[INFO] Starting CORVUS-PR Agent…
+[INFO] Mode: voice (speak=False)
+[INFO] TTTDTT client started (target: http://localhost:5001)
+[SUCCESS] Classifier loaded (NNClassifier)
+[SUCCESS] Piper TTS loaded
+[SUCCESS] Whisper STT loaded
+[SUCCESS] Silero VAD loaded
+[SUCCESS] openWakeWord loaded
+[INFO] Wake word listener active. Say 'hey jarvis' to interact.
+```
+
+Then, after a wake-word hit:
+```
+[SUCCESS] Wake word detected.
+[INFO] Listening (VAD-gated)…
+[INFO] Heard: 'what is my speed'
+[INFO] [get_speed @ 0.99] Current rover speed is 1.42 meters per second.
+```
+
+### Wake word setup
+
+`src/voice/wake_word.py` defaults to `DEFAULT_WAKEWORD = "hey_corvus"`. That phrase is **not** in openwakeword 0.4.0's bundled set (which only ships `alexa`, `hey_mycroft`, `hey_jarvis`, `timer`, `weather`), so `corvus-pr` voice mode boot will throw `ValueError: Wake-word 'hey_corvus' not found in bundled models` until you either:
+
+1. **Use a bundled wake word** — quick swap, lower-friction:
+   ```python
+   # src/voice/wake_word.py
+   DEFAULT_WAKEWORD = "hey_jarvis"
+   ```
+2. **Train a custom `hey_corvus.onnx`** via openWakeWord's [automatic_model_training.ipynb](https://github.com/dscripka/openWakeWord/blob/main/notebooks/automatic_model_training.ipynb) on Colab (~45 min, free T4, no audio data required — synthetic TTS). Drop the resulting `hey_corvus.onnx` into `models/wake_word/` and pass it explicitly:
+   ```python
+   # src/modes/pr/main.py
+   wake = WakeWordDetector(model_paths=["models/wake_word/hey_corvus.onnx"])
+   ```
+
+`--stdin` and `--stdin --speak` skip the wake-word path entirely.
 
 ## Mode flows
 
