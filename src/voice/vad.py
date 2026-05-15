@@ -29,3 +29,7 @@ class SileroVAD:
         tensor = torch.from_numpy(frame.astype(np.float32))
         prob = self._model(tensor, SAMPLE_RATE).item()
         return prob >= threshold
+
+    def reset(self) -> None:
+        """Reset Silero's internal LSTM state. Call at the start of each utterance."""
+        self._model.reset_states()
