@@ -5,29 +5,53 @@ public class PrefabChanger : MonoBehaviour
     [Header("Prefab Settings")]
     [Tooltip("Drag and drop your prefabs here in the Inspector.")]
     public GameObject[] prefabs;
-    
+
     [Tooltip("The transform where the prefabs will spawn. Can be an empty GameObject.")]
-    public Transform overlayTarget; 
+    public Transform overlayTarget;
+
+    [Tooltip("Optional. If not set, will auto-find QRCodePlacer on this GameObject.")]
+    public QRCodePlacer qrPlacer;
 
     private GameObject currentInstantiatedPrefab;
     private int currentIndex = 0;
 
-    void Start()
+    void Awake()
     {
-        // Spawn the first prefab when the scene starts, assuming the array isn't empty
-        if (prefabs.Length > 0 && overlayTarget != null)
+        if (qrPlacer == null) qrPlacer = GetComponent<QRCodePlacer>();
+    }
+
+    void OnEnable()
+    {
+        if (qrPlacer != null)
         {
-            InstantiatePrefab(currentIndex);
+            qrPlacer.OnQrLocked += HandleQrLocked;
+            qrPlacer.OnQrLost += HandleQrLost;
         }
         else
         {
-            Debug.LogWarning("Please assign prefabs and an overlay target in the Inspector!");
+            Debug.LogWarning("[PrefabChanger] No QRCodePlacer reference. Prefab will not spawn on QR detection.");
+        }
+    }
+
+    void OnDisable()
+    {
+        if (qrPlacer != null)
+        {
+            qrPlacer.OnQrLocked -= HandleQrLocked;
+            qrPlacer.OnQrLost -= HandleQrLost;
+        }
+
+        if (currentInstantiatedPrefab != null)
+        {
+            Destroy(currentInstantiatedPrefab);
+            currentInstantiatedPrefab = null;
         }
     }
 
     void Update()
     {
-        // Keyboard inputs for quick testing
+        if (currentInstantiatedPrefab == null) return;
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             NextPrefab();
@@ -38,46 +62,58 @@ public class PrefabChanger : MonoBehaviour
         }
     }
 
-    // Call this method from a UI Button's OnClick event
+    private void HandleQrLocked()
+    {
+        if (prefabs.Length == 0 || overlayTarget == null)
+        {
+            Debug.LogWarning("[PrefabChanger] QR locked but prefabs/overlayTarget not assigned.");
+            return;
+        }
+        if (currentInstantiatedPrefab != null) return;
+        InstantiatePrefab(currentIndex);
+    }
+
+    private void HandleQrLost()
+    {
+        if (currentInstantiatedPrefab != null)
+        {
+            Destroy(currentInstantiatedPrefab);
+            currentInstantiatedPrefab = null;
+        }
+    }
+
     public void NextPrefab()
     {
         if (prefabs.Length == 0) return;
 
         currentIndex++;
-        // Loop back to the first prefab if we go past the end of the array
         if (currentIndex >= prefabs.Length)
         {
-            currentIndex = 0; 
+            currentIndex = 0;
         }
         InstantiatePrefab(currentIndex);
     }
 
-    // Call this method from a UI Button's OnClick event
     public void PreviousPrefab()
     {
         if (prefabs.Length == 0) return;
 
         currentIndex--;
-        // Loop to the last prefab if we go below zero
         if (currentIndex < 0)
         {
-            currentIndex = prefabs.Length - 1; 
+            currentIndex = prefabs.Length - 1;
         }
         InstantiatePrefab(currentIndex);
     }
 
     private void InstantiatePrefab(int index)
     {
-        // Destroy the currently displayed model to prevent overlap
         if (currentInstantiatedPrefab != null)
         {
             Destroy(currentInstantiatedPrefab);
         }
 
-        // Spawn the new model at the target's position and rotation
         currentInstantiatedPrefab = Instantiate(prefabs[index], overlayTarget.position, overlayTarget.rotation);
-
-        // Parent the new model to the target so it moves seamlessly with your overlay
         currentInstantiatedPrefab.transform.SetParent(overlayTarget);
     }
 }
