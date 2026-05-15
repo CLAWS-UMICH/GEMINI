@@ -12,17 +12,17 @@ import json
 
 import pytest
 
-from src.classifier.intent_classifier import IntentClassifier
+from src.core.classifier.nn_classifier import NNClassifier
 from src.config import CONFIDENCE_THRESH_HIGH, NN_MODEL_PATH, TRAINING_DATA_PATH
 
 
 @pytest.fixture(scope="module")
-def classifier() -> IntentClassifier:
+def classifier() -> NNClassifier:
     if not NN_MODEL_PATH.exists():
         pytest.skip(f"NN checkpoint missing at {NN_MODEL_PATH}; run training first.")
     with open(TRAINING_DATA_PATH) as f:
         labels = [intent["label"] for intent in json.load(f)["intents"]]
-    return IntentClassifier(labels, NN_MODEL_PATH)
+    return NNClassifier(labels, NN_MODEL_PATH)
 
 
 @pytest.mark.parametrize(
@@ -47,7 +47,7 @@ def main() -> None:
         return
     with open(TRAINING_DATA_PATH) as f:
         labels = [intent["label"] for intent in json.load(f)["intents"]]
-    clf = IntentClassifier(labels, NN_MODEL_PATH)
+    clf = NNClassifier(labels, NN_MODEL_PATH)
     print("Ready. Type a command (or 'quit').\n")
     while True:
         command = input("> ")

@@ -2,7 +2,7 @@ import asyncio
 import json
 import logging
 
-from src.classifier.intent_classifier import IntentClassifier
+from src.core.classifier.nn_classifier import NNClassifier
 from src.config import (
     CONFIDENCE_THRESH_HIGH,
     NN_MODEL_PATH,
@@ -15,11 +15,11 @@ from src.core.telemetry.cache import TelemetryCache
 from src.core.telemetry.client import TelemetryClient
 
 
-def _build_classifier() -> IntentClassifier:
+def _build_classifier() -> NNClassifier:
     with open(TRAINING_DATA_PATH) as f:
         data = json.load(f)
     labels = [intent["label"] for intent in data["intents"]]
-    return IntentClassifier(labels, NN_MODEL_PATH)
+    return NNClassifier(labels, NN_MODEL_PATH)
 
 
 async def start_server() -> None:

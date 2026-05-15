@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from src.classifier.embedder import MiniLMEmbedder
+from src.core.classifier.embedder import MiniLMEmbedder
 
 class IntentNN(nn.Module):
     def __init__(self, num_intents):
@@ -18,7 +18,7 @@ class IntentNN(nn.Module):
     def forward(self, x):
         return self.model(x)
 
-class IntentClassifier:
+class NNClassifier:
     def __init__(self, labels, model_path):
         self.labels = labels
         self.embedder = MiniLMEmbedder()

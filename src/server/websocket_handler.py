@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 
 import websockets
 
-from src.classifier.classifier_protocol import ClassifierProtocol
+from src.core.classifier.classifier_protocol import ClassifierProtocol
 from src.config import EMIT_VOICESTRING, HOST, LATENCY_WARNING_MS, PORT
 from src.responder import dispatch
 from src.core.telemetry.cache import TelemetryCache
