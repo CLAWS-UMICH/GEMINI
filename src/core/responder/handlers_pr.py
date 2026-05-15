@@ -1,4 +1,4 @@
-"""Per-intent response functions.
+"""PR-mode response handlers (rover + LTV channels).
 
 Each handler reads the latest payload for its channel from the TelemetryCache
 and returns a short TTS-ready string. On stale/missing cache, returns
@@ -6,7 +6,6 @@ TELEMETRY_UNAVAILABLE_REPLY.
 
 Field paths come from the live TTTDTT event contract observed against NASA TSS:
 
-- "eva":        payload["telemetry"]["eva1"][<field>]   (eva1 = primary astronaut)
 - "rover":      payload["pr_telemetry"][<field>]
 - "ltv":        payload["signal"][<field>] or payload["location"][<field>]
 - "ltv_errors": payload["error_procedures"] is a list of dicts
@@ -15,24 +14,11 @@ If a field is missing the handler raises KeyError; the WS layer's broad
 except surfaces a generic error response (spec §6, rule 2).
 """
 
-from src.responder.fallback import TELEMETRY_UNAVAILABLE_REPLY
-
-
-def _eva1(payload):
-    return payload["telemetry"]["eva1"]
+from src.core.responder.fallback import TELEMETRY_UNAVAILABLE_REPLY
 
 
 def _rover(payload):
     return payload["pr_telemetry"]
-
-
-# ---------- EVA ----------
-
-def handle_heart_rate(command, cache, classification):
-    payload = cache.get("eva")
-    if payload is None:
-        return TELEMETRY_UNAVAILABLE_REPLY
-    return f"Heart rate is {round(_eva1(payload)['heart_rate'])} beats per minute."
 
 
 # ---------- Rover ----------

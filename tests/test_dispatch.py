@@ -1,7 +1,5 @@
-import pytest
-
-from src.responder import dispatch
-from src.responder.fallback import (
+from src.core.responder import dispatch
+from src.core.responder.fallback import (
     LOW_CONFIDENCE_REPLY,
     TELEMETRY_UNAVAILABLE_REPLY,
     UNKNOWN_INTENT_REPLY,
@@ -9,21 +7,20 @@ from src.responder.fallback import (
 from src.core.telemetry.cache import TelemetryCache
 
 
-def test_low_confidence_returns_low_conf_reply(monkeypatch):
-    monkeypatch.setattr(dispatch, "REGISTRY", {"foo": lambda *_: "should not run"})
+def test_low_confidence_returns_low_conf_reply():
     cache = TelemetryCache()
     classification = {"intent": "foo", "confidence": 0.10}
-    assert dispatch.respond("hi", classification, cache) == LOW_CONFIDENCE_REPLY
+    registry = {"foo": lambda *_: "should not run"}
+    assert dispatch.respond("hi", classification, cache, registry) == LOW_CONFIDENCE_REPLY
 
 
-def test_unknown_intent_returns_unknown_reply(monkeypatch):
-    monkeypatch.setattr(dispatch, "REGISTRY", {})
+def test_unknown_intent_returns_unknown_reply():
     cache = TelemetryCache()
     classification = {"intent": "no_such_intent", "confidence": 0.99}
-    assert dispatch.respond("hi", classification, cache) == UNKNOWN_INTENT_REPLY
+    assert dispatch.respond("hi", classification, cache, {}) == UNKNOWN_INTENT_REPLY
 
 
-def test_known_intent_calls_handler(monkeypatch):
+def test_known_intent_calls_handler():
     captured = {}
 
     def fake_handler(command, cache, classification):
@@ -32,11 +29,11 @@ def test_known_intent_calls_handler(monkeypatch):
         captured["classification"] = classification
         return "handler-result"
 
-    monkeypatch.setattr(dispatch, "REGISTRY", {"vitals_heart_rate": fake_handler})
     cache = TelemetryCache()
     classification = {"intent": "vitals_heart_rate", "confidence": 0.94}
+    registry = {"vitals_heart_rate": fake_handler}
 
-    result = dispatch.respond("what's my heart rate", classification, cache)
+    result = dispatch.respond("what's my heart rate", classification, cache, registry)
 
     assert result == "handler-result"
     assert captured["command"] == "what's my heart rate"
@@ -45,7 +42,7 @@ def test_known_intent_calls_handler(monkeypatch):
 
 
 def test_stale_cache_returns_unavailable():
-    from src.responder.handlers import handle_heart_rate
+    from src.core.responder.handlers_eva import handle_heart_rate
 
     cache = TelemetryCache(stale_after_s=10.0)
     # never put anything → get("eva") returns None
@@ -59,7 +56,7 @@ def test_stale_cache_returns_unavailable():
 
 
 def test_handle_heart_rate_reads_eva1():
-    from src.responder.handlers import handle_heart_rate
+    from src.core.responder.handlers_eva import handle_heart_rate
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("eva", {
@@ -73,7 +70,7 @@ def test_handle_heart_rate_reads_eva1():
 
 
 def test_handle_battery_level_reads_pr_telemetry():
-    from src.responder.handlers import handle_battery_level
+    from src.core.responder.handlers_pr import handle_battery_level
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("rover", {"pr_telemetry": {"primary_battery_level": 87.11}})
@@ -82,7 +79,7 @@ def test_handle_battery_level_reads_pr_telemetry():
 
 
 def test_handle_oxygen_pressure_reads_pr_telemetry():
-    from src.responder.handlers import handle_oxygen_pressure
+    from src.core.responder.handlers_pr import handle_oxygen_pressure
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("rover", {"pr_telemetry": {"oxygen_pressure": 2185.18}})
@@ -91,7 +88,7 @@ def test_handle_oxygen_pressure_reads_pr_telemetry():
 
 
 def test_handle_signal_strength_reads_signal_group():
-    from src.responder.handlers import handle_signal_strength
+    from src.core.responder.handlers_pr import handle_signal_strength
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("ltv", {
@@ -103,7 +100,7 @@ def test_handle_signal_strength_reads_signal_group():
 
 
 def test_handle_warnings_lists_active_errors():
-    from src.responder.handlers import handle_warnings
+    from src.core.responder.handlers_pr import handle_warnings
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("ltv_errors", {
@@ -116,7 +113,7 @@ def test_handle_warnings_lists_active_errors():
 
 
 def test_handle_warnings_with_no_active_errors():
-    from src.responder.handlers import handle_warnings
+    from src.core.responder.handlers_pr import handle_warnings
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("ltv_errors", {"error_procedures": []})

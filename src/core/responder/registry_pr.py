@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from typing import Any
 
-from src.responder.handlers import (
+from src.core.responder.handlers_pr import (
     handle_battery_level,
     handle_cabin_pressure,
     handle_cabin_temperature,
@@ -10,7 +10,6 @@ from src.responder.handlers import (
     handle_distance_traveled,
     handle_external_temp,
     handle_heading,
-    handle_heart_rate,
     handle_oxygen_pressure,
     handle_oxygen_tank,
     handle_rover_elapsed_time,
@@ -24,10 +23,7 @@ from src.responder.handlers import (
 
 ResponseFn = Callable[[str, Any, dict], str]
 
-REGISTRY: dict[str, ResponseFn] = {
-    # EVA crew vitals (eva1 = primary astronaut)
-    "vitals_heart_rate": handle_heart_rate,
-    # Rover state
+REGISTRY_PR: dict[str, ResponseFn] = {
     "get_battery_level": handle_battery_level,
     "get_speed": handle_speed,
     "get_oxygen_pressure": handle_oxygen_pressure,
@@ -43,8 +39,6 @@ REGISTRY: dict[str, ResponseFn] = {
     "get_coolant_pressure": handle_coolant_pressure,
     "get_coolant_storage": handle_coolant_storage,
     "get_rover_elapsed_time": handle_rover_elapsed_time,
-    # LTV
     "get_signal_strength": handle_signal_strength,
-    # System warnings (TSS surfaces errors as a list of procedures, not per-subsystem flags)
     "get_warnings": handle_warnings,
 }

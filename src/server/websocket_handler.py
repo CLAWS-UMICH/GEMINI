@@ -8,7 +8,8 @@ import websockets
 
 from src.core.classifier.classifier_protocol import ClassifierProtocol
 from src.config import EMIT_VOICESTRING, HOST, LATENCY_WARNING_MS, PORT
-from src.responder import dispatch
+from src.core.responder import dispatch
+from src.core.responder.registry_pr import REGISTRY_PR
 from src.core.telemetry.cache import TelemetryCache
 
 logger = logging.getLogger(__name__)
@@ -68,14 +69,14 @@ async def handle_message(
         log_info(f"Classifying command: '{command}'")
         classification = classifier.classify(command)
 
-        response_text = dispatch.respond(command, classification, cache)
+        response_text = dispatch.respond(command, classification, cache, REGISTRY_PR)
         log_response(response_text)
 
         latency_ms = round((time.time() - start_time) * 1000, 2)
         if latency_ms > LATENCY_WARNING_MS:
             log_warning(f"High latency: {latency_ms}ms (threshold: {LATENCY_WARNING_MS}ms)")
 
-        if classification["confidence"] < 0.65 or classification["intent"] not in dispatch.REGISTRY:
+        if classification["confidence"] < 0.65 or classification["intent"] not in REGISTRY_PR:
             log_warning(
                 f"miss: text={command!r} intent={classification['intent']} "
                 f"confidence={classification['confidence']:.3f}"
