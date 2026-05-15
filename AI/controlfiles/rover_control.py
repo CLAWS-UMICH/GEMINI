@@ -225,6 +225,44 @@ def send_get_command(sock: socket.socket, command: int) -> bytes:
     return send_packet(sock, packet)
 
 
+def build_occupancy_matrix(
+    *,
+    planner,
+    rover_xy: tuple[float, float],
+    goal_xy: tuple[float, float] | None = None,
+    path_world: list[tuple[float, float]] | None = None,
+) -> list[list[int]] | None:
+    width = int(getattr(planner, "width_cells", 0))
+    height = int(getattr(planner, "height_cells", 0))
+    grid = getattr(planner, "grid", None)
+    if width <= 0 or height <= 0 or not isinstance(grid, list):
+        return None
+
+    matrix = [
+        [
+            1 if int(grid[row_idx][col_idx]) != 0 else 0
+            for col_idx in range(width)
+        ]
+        for row_idx in range(height)
+    ]
+
+    for point_x, point_y in path_world or []:
+        cell_x, cell_y = planner.world_to_cell(float(point_x), float(point_y))
+        if 0 <= cell_x < width and 0 <= cell_y < height:
+            matrix[cell_y][cell_x] = 2
+
+    if goal_xy is not None:
+        goal_cell_x, goal_cell_y = planner.world_to_cell(float(goal_xy[0]), float(goal_xy[1]))
+        if 0 <= goal_cell_x < width and 0 <= goal_cell_y < height:
+            matrix[goal_cell_y][goal_cell_x] = 3
+
+    rover_cell_x, rover_cell_y = planner.world_to_cell(float(rover_xy[0]), float(rover_xy[1]))
+    if 0 <= rover_cell_x < width and 0 <= rover_cell_y < height:
+        matrix[rover_cell_y][rover_cell_x] = 4
+
+    return matrix
+
+
 def send_occupancy_matrix(
     sock: socket.socket,
     *,
@@ -242,33 +280,14 @@ def send_occupancy_matrix(
         if (now - sock._last_matrix_emit_monotonic) < float(min_interval_seconds):
             return False
 
-        width = int(getattr(planner, "width_cells", 0))
-        height = int(getattr(planner, "height_cells", 0))
-        grid = getattr(planner, "grid", None)
-        if width <= 0 or height <= 0 or not isinstance(grid, list):
+        matrix = build_occupancy_matrix(
+            planner=planner,
+            rover_xy=rover_xy,
+            goal_xy=goal_xy,
+            path_world=path_world,
+        )
+        if matrix is None:
             return False
-
-        matrix = [
-            [
-                1 if int(grid[row_idx][col_idx]) != 0 else 0
-                for col_idx in range(width)
-            ]
-            for row_idx in range(height)
-        ]
-
-        for point_x, point_y in path_world or []:
-            cell_x, cell_y = planner.world_to_cell(float(point_x), float(point_y))
-            if 0 <= cell_x < width and 0 <= cell_y < height:
-                matrix[cell_y][cell_x] = 2
-
-        if goal_xy is not None:
-            goal_cell_x, goal_cell_y = planner.world_to_cell(float(goal_xy[0]), float(goal_xy[1]))
-            if 0 <= goal_cell_x < width and 0 <= goal_cell_y < height:
-                matrix[goal_cell_y][goal_cell_x] = 3
-
-        rover_cell_x, rover_cell_y = planner.world_to_cell(float(rover_xy[0]), float(rover_xy[1]))
-        if 0 <= rover_cell_x < width and 0 <= rover_cell_y < height:
-            matrix[rover_cell_y][rover_cell_x] = 4
 
         emitted = sock.emit("matrix", matrix)
         if emitted:

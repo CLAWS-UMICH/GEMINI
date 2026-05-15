@@ -54,7 +54,7 @@ SECOND_TRILOCATION_STRONG_PING_THRESHOLD = -0.75
 MAX_DRIVE_SEGMENT_CM = 4000.0
 LAST_KNOWN_GOAL_REACHED_CM = 10000.0
 PING_MOVE_GOAL_REACHED_CM = 1000.0
-FINAL_ESTIMATE_GOAL_REACHED_CM = 100.0
+FINAL_ESTIMATE_GOAL_REACHED_CM = 300.0
 STOP_AT_LAST_KNOWN_ONLY = False
 EFFICIENCY_MODE = True
 GUIDED_PING_STEP_RADIUS_SCALE = 0.6
@@ -208,6 +208,15 @@ def fetch_pose_and_telemetry(sock) -> tuple[float, float, float, float, dict]:
     telemetry = make_sanitized_telemetry(raw_telemetry)
     x_cm, y_cm, z_cm, heading_deg = parse_pose(telemetry)
     return (x_cm, y_cm, z_cm, heading_deg, raw_telemetry)
+
+
+def fetch_ltv_last_known_goal(sock) -> tuple[tuple[float, float], tuple[float, float]]:
+    ltv_json = fetch_ltv_json(sock)
+    location = ltv_json.get("location", {})
+    last_known_x_m = float(location.get("last_known_x", 0.0))
+    last_known_y_m = float(location.get("last_known_y", 0.0))
+    goal_xy = raw_world_m_to_local_cm(last_known_x_m, last_known_y_m)
+    return ((last_known_x_m, last_known_y_m), goal_xy)
 
 
 def request_ping_and_read_strength(sock) -> float:
@@ -453,6 +462,7 @@ def drive_to_goal_segmented(
     total_traveled_cm: float,
     goals_reached: int,
     telemetry_callback=None,
+    path_callback=None,
     debug_logger: FrontendTimingLogger | None,
     debug_mode: str,
     goal_reached_cm: float,
@@ -485,6 +495,7 @@ def drive_to_goal_segmented(
             goals_reached=goals_reached,
             goal_reached_cm=goal_reached_cm,
             telemetry_callback=telemetry_callback,
+            path_callback=path_callback,
             debug_logger=debug_logger,
             debug_mode=debug_mode,
         )
@@ -523,6 +534,7 @@ def drive_to_goal_locate(
     total_traveled_cm: float,
     goals_reached: int,
     telemetry_callback=None,
+    path_callback=None,
     debug_logger: FrontendTimingLogger | None,
     debug_mode: str,
     goal_reached_cm: float,
@@ -545,6 +557,7 @@ def drive_to_goal_locate(
             replan_on_edge=False,
             replan_only_on_obstacle=True,
             telemetry_callback=telemetry_callback,
+            path_callback=path_callback,
             debug_logger=debug_logger,
             debug_mode=debug_mode,
         )
@@ -560,10 +573,52 @@ def drive_to_goal_locate(
         total_traveled_cm=total_traveled_cm,
         goals_reached=goals_reached,
         telemetry_callback=telemetry_callback,
+        path_callback=path_callback,
         debug_logger=debug_logger,
         debug_mode=debug_mode,
         goal_reached_cm=goal_reached_cm,
     )
+
+
+def drive_to_last_known_ltv(
+    sock,
+    *,
+    viewer,
+    recorded_obstacle_points: list[tuple[float, float]] | None = None,
+    obstacle_total: int = 0,
+    start_time: float | None = None,
+    step_idx: int = 0,
+    total_traveled_cm: float = 0.0,
+    goals_reached: int = 0,
+    goal_reached_cm: float = LAST_KNOWN_GOAL_REACHED_CM,
+    telemetry_callback=None,
+    path_callback=None,
+    debug_logger: FrontendTimingLogger | None = None,
+    debug_mode: str = "dumblocate_drive_last_known",
+):
+    last_known_xy_m, goal_xy = fetch_ltv_last_known_goal(sock)
+    last_known_x_m, last_known_y_m = last_known_xy_m
+    print(
+        f"Last known LTV location: ({last_known_x_m:.3f}, {last_known_y_m:.3f}) m"
+    )
+    run_state = drive_to_goal_locate(
+        sock,
+        final_goal_xy=goal_xy,
+        goal_label=f"{last_known_x_m:.3f}, {last_known_y_m:.3f}",
+        viewer=viewer,
+        recorded_obstacle_points=recorded_obstacle_points or [],
+        obstacle_total=obstacle_total,
+        start_time=start_time,
+        step_idx=step_idx,
+        total_traveled_cm=total_traveled_cm,
+        goals_reached=goals_reached,
+        goal_reached_cm=goal_reached_cm,
+        telemetry_callback=telemetry_callback,
+        path_callback=path_callback,
+        debug_logger=debug_logger,
+        debug_mode=debug_mode,
+    )
+    return run_state, goal_xy, last_known_xy_m
 
 
 def collect_guided_ping_samples(
@@ -573,6 +628,7 @@ def collect_guided_ping_samples(
     run_state,
     viewer,
     telemetry_callback,
+    path_callback=None,
     debug_logger: FrontendTimingLogger | None,
     debug_prefix: str,
 ) -> tuple[list[PingSample], object, MapWindow | None, bool]:
@@ -624,6 +680,7 @@ def collect_guided_ping_samples(
             goals_reached=0,
             goal_reached_cm=PING_SENTINEL_RETRY_GOAL_REACHED_CM,
             telemetry_callback=telemetry_callback,
+            path_callback=path_callback,
             debug_logger=debug_logger,
             debug_mode=f"{debug_prefix}_drive_closer_after_sentinel",
         )
@@ -668,6 +725,7 @@ def collect_guided_ping_samples(
             goals_reached=0,
             goal_reached_cm=move_goal_reached_cm,
             telemetry_callback=telemetry_callback,
+            path_callback=path_callback,
             debug_logger=debug_logger,
             debug_mode=f"{debug_prefix}_drive_ping_{ping_idx}",
         )
@@ -721,6 +779,7 @@ def run_trilateration_round(
     run_state,
     viewer,
     telemetry_callback,
+    path_callback=None,
     debug_logger: FrontendTimingLogger | None,
 ) -> tuple[tuple[float, float] | None, object, MapWindow | None, bool]:
     samples, run_state, viewer, ok = collect_guided_ping_samples(
@@ -729,6 +788,7 @@ def run_trilateration_round(
         run_state=run_state,
         viewer=viewer,
         telemetry_callback=telemetry_callback,
+        path_callback=path_callback,
         debug_logger=debug_logger,
         debug_prefix=round_config.debug_prefix,
     )
@@ -768,6 +828,7 @@ def run_trilateration_round(
         goals_reached=0,
         goal_reached_cm=FINAL_ESTIMATE_GOAL_REACHED_CM,
         telemetry_callback=telemetry_callback,
+        path_callback=path_callback,
         debug_logger=debug_logger,
         debug_mode=round_config.final_drive_debug_mode,
     )
@@ -777,6 +838,101 @@ def run_trilateration_round(
 
     print(round_config.arrival_message)
     return ((est_x_m, est_y_m), run_state, viewer, True)
+
+
+def run_ltv_trilateration_search(
+    sock,
+    *,
+    run_state,
+    anchor_xy: tuple[float, float],
+    viewer,
+    telemetry_callback=None,
+    path_callback=None,
+    debug_logger: FrontendTimingLogger | None = None,
+    ping_budget: int | None = None,
+    hold_verify_debug_mode: str = "dumblocate_hold_verify_estimate",
+) -> tuple[object, MapWindow | None, bool, int | None, bool]:
+    current_anchor_xy = anchor_xy
+    ltv_found = False
+    remaining_ping_budget = ping_budget
+    completed = True
+
+    for round_config in TRILATERATION_ROUNDS:
+        if remaining_ping_budget is not None and remaining_ping_budget <= 0:
+            break
+
+        estimate_xy_m, run_state, viewer, ok = run_trilateration_round(
+            sock,
+            round_config=round_config,
+            anchor_xy=current_anchor_xy,
+            run_state=run_state,
+            viewer=viewer,
+            telemetry_callback=telemetry_callback,
+            path_callback=path_callback,
+            debug_logger=debug_logger,
+        )
+        if remaining_ping_budget is not None:
+            remaining_ping_budget = max(0, remaining_ping_budget - 3)
+        if not ok or run_state.aborted or estimate_xy_m is None:
+            completed = False
+            break
+
+        final_estimate_ping, ok = stop_then_try_sample_ping(
+            sock,
+            viewer=viewer,
+            run_state=run_state,
+            status="Stopping for estimate ping...",
+            telemetry_callback=telemetry_callback,
+            debug_logger=debug_logger,
+            debug_mode=hold_verify_debug_mode,
+        )
+        if remaining_ping_budget is not None:
+            remaining_ping_budget = max(0, remaining_ping_budget - 1)
+        if not ok:
+            completed = False
+            break
+        if final_estimate_ping is None:
+            print(
+                f"Ping at round {round_config.round_index} estimate is still out of range "
+                "(distance > 500)."
+            )
+            if round_config.round_index == len(TRILATERATION_ROUNDS):
+                print("Estimate ping is still out of range after the final trilateration round.")
+                break
+            print(
+                f"Running trilateration round {round_config.round_index + 1} "
+                "from the current estimate."
+            )
+            current_anchor_xy = raw_world_m_to_local_cm(*estimate_xy_m)
+            continue
+
+        print(
+            f"Ping at round {round_config.round_index} estimate: "
+            f"{final_estimate_ping.ping_value:.3f} "
+            f"(strong-enough threshold {SECOND_TRILOCATION_STRONG_PING_THRESHOLD:.3f})"
+        )
+        if final_estimate_ping.ping_value >= SECOND_TRILOCATION_STRONG_PING_THRESHOLD:
+            ltv_found = True
+            if round_config.round_index > 1:
+                print(
+                    f"Round {round_config.round_index} estimate ping is strong enough. "
+                    "Stopping additional trilateration rounds."
+                )
+            else:
+                print("Estimate ping is strong enough. Skipping additional trilateration rounds.")
+            break
+
+        if round_config.round_index == len(TRILATERATION_ROUNDS):
+            print("Estimate ping is still too weak after the final trilateration round.")
+            break
+
+        print(
+            f"Estimate ping is still too weak. Running trilateration round "
+            f"{round_config.round_index + 1}."
+        )
+        current_anchor_xy = raw_world_m_to_local_cm(*estimate_xy_m)
+
+    return run_state, viewer, ltv_found, remaining_ping_budget, completed
 
 
 def main() -> None:
@@ -816,20 +972,8 @@ def main() -> None:
                 goal_dist_cm=goal_distance_cm,
             )
 
-        x, y, z, heading, raw_telemetry = fetch_pose_and_telemetry(sock)
-        ltv_json = fetch_ltv_json(sock)
-        location = ltv_json.get("location", {})
-        last_known_x_m = float(location.get("last_known_x", 0.0))
-        last_known_y_m = float(location.get("last_known_y", 0.0))
-        goal_x, goal_y = raw_world_m_to_local_cm(last_known_x_m, last_known_y_m)
-        print(
-            f"Last known LTV location: ({last_known_x_m:.3f}, {last_known_y_m:.3f}) m"
-        )
-
-        run_state = drive_to_goal_locate(
+        run_state, goal_xy, _last_known_xy_m = drive_to_last_known_ltv(
             sock,
-            final_goal_xy=(goal_x, goal_y),
-            goal_label=f"{last_known_x_m:.3f}, {last_known_y_m:.3f}",
             viewer=viewer,
             recorded_obstacle_points=[],
             obstacle_total=0,
@@ -851,74 +995,22 @@ def main() -> None:
             return
 
         last_known_remaining_cm = math.hypot(
-            goal_x - run_state.pose_xyzh[0],
-            goal_y - run_state.pose_xyzh[1],
+            goal_xy[0] - run_state.pose_xyzh[0],
+            goal_xy[1] - run_state.pose_xyzh[1],
         )
         print("Arrived near last known location.")
         print(f"Distance from last known at first ping: {last_known_remaining_cm:.1f} cm")
-        current_anchor_xy = (goal_x, goal_y)
-        for round_config in TRILATERATION_ROUNDS:
-            estimate_xy_m, run_state, viewer, ok = run_trilateration_round(
-                sock,
-                round_config=round_config,
-                anchor_xy=current_anchor_xy,
-                run_state=run_state,
-                viewer=viewer,
-                telemetry_callback=log_metrics if ENABLE_METRICS_LOGGING else None,
-                debug_logger=debug_logger,
-            )
-            if not ok or run_state.aborted or estimate_xy_m is None:
-                return
-
-            final_estimate_ping, ok = stop_then_try_sample_ping(
-                sock,
-                viewer=viewer,
-                run_state=run_state,
-                status="Stopping for estimate ping...",
-                telemetry_callback=log_metrics if ENABLE_METRICS_LOGGING else None,
-                debug_logger=debug_logger,
-                debug_mode="dumblocate_hold_verify_estimate",
-            )
-            if not ok:
-                return
-            if final_estimate_ping is None:
-                print(
-                    f"Ping at round {round_config.round_index} estimate is still out of range "
-                    "(distance > 500)."
-                )
-                if round_config.round_index == len(TRILATERATION_ROUNDS):
-                    print("Estimate ping is still out of range after the final trilateration round.")
-                    break
-                print(
-                    f"Running trilateration round {round_config.round_index + 1} "
-                    "from the current estimate."
-                )
-                current_anchor_xy = raw_world_m_to_local_cm(*estimate_xy_m)
-                continue
-            print(
-                f"Ping at round {round_config.round_index} estimate: "
-                f"{final_estimate_ping.ping_value:.3f} "
-                f"(strong-enough threshold {SECOND_TRILOCATION_STRONG_PING_THRESHOLD:.3f})"
-            )
-            if final_estimate_ping.ping_value >= SECOND_TRILOCATION_STRONG_PING_THRESHOLD:
-                if round_config.round_index > 1:
-                    print(
-                        f"Round {round_config.round_index} estimate ping is strong enough. "
-                        "Stopping additional trilateration rounds."
-                    )
-                else:
-                    print("Estimate ping is strong enough. Skipping additional trilateration rounds.")
-                break
-
-            if round_config.round_index == len(TRILATERATION_ROUNDS):
-                print("Estimate ping is still too weak after the final trilateration round.")
-                break
-
-            print(
-                f"Estimate ping is still too weak. Running trilateration round "
-                f"{round_config.round_index + 1}."
-            )
-            current_anchor_xy = raw_world_m_to_local_cm(*estimate_xy_m)
+        run_state, viewer, _ltv_found, _remaining_ping_budget, search_completed = run_ltv_trilateration_search(
+            sock,
+            run_state=run_state,
+            anchor_xy=goal_xy,
+            viewer=viewer,
+            telemetry_callback=log_metrics if ENABLE_METRICS_LOGGING else None,
+            debug_logger=debug_logger,
+            hold_verify_debug_mode="dumblocate_hold_verify_estimate",
+        )
+        if not search_completed or run_state.aborted:
+            return
         run_completed = True
 
     except KeyboardInterrupt:

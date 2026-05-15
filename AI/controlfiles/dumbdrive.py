@@ -39,6 +39,7 @@ from main import (
     select_local_path_target,
 )
 from rover_control import (
+    build_occupancy_matrix,
     close_rover_socket,
     configure_remote_server,
     fetch_rover_json,
@@ -59,6 +60,33 @@ DUMBLOCATE_LONGTEST_NO_VIEWER_ENV = "DUMBLOCATE_LONGTEST_NO_VIEWER"
 # FRONTEND_REPLAY_LOG_PATH: str | None = "C:/Users/beasl/.stuff/school/claws/rovercontroltesting/runs/dumbdrive_debug_20260315_232929/frontend_state.jsonl"
 FRONTEND_REPLAY_LOG_PATH: str | None = None
 DUMBDRIVE_GOAL_REACHED_CM = 350.0
+
+
+# -----------------------------
+# Path updates
+# -----------------------------
+def notify_path_update(path_callback, planner, rover_xy, goal_xy, path_world) -> None:
+    if path_callback is None:
+        return
+    matrix = build_occupancy_matrix(
+        planner=planner,
+        rover_xy=rover_xy,
+        goal_xy=goal_xy,
+        path_world=path_world,
+    )
+    if matrix is None:
+        return
+    path_callback(
+        {
+            "matrix": matrix,
+            "path_world": path_world,
+            "rover_xy": rover_xy,
+            "goal_xy": goal_xy,
+            "path_len": len(path_world or []),
+        }
+    )
+
+
 STATIONARY_TIMEOUT_SEC = 3.0
 STARTUP_STUCK_GRACE_SEC = 5.0
 STATIONARY_MOVE_THRESHOLD_CM = 25.0
@@ -856,6 +884,7 @@ def drive_to_goal(
     replan_on_edge: bool = True,
     replan_only_on_obstacle: bool = False,
     telemetry_callback=None,
+    path_callback=None,
     debug_logger: FrontendTimingLogger | None = None,
     debug_mode: str = "drive",
 ):
@@ -876,6 +905,7 @@ def drive_to_goal(
     shown_goal_x, shown_goal_y = display_goal_xy if display_goal_xy is not None else goal_xy
     planner = rebuild_planner_with_obstacles((start_x, start_y), (goal_x, goal_y), recorded_obstacle_points)
     path = compute_live_follow_path(planner, (start_x, start_y), (goal_x, goal_y))
+    notify_path_update(path_callback, planner, (start_x, start_y), (shown_goal_x, shown_goal_y), path)
     if viewer is None and frontend_enabled:
         viewer = MapWindow(planner)
 
@@ -962,6 +992,7 @@ def drive_to_goal(
         if replan_on_edge and planner_needs_rebuild(planner, (rover_cell_x, rover_cell_y)):
             planner = rebuild_planner_with_obstacles((x, y), (goal_x, goal_y), recorded_obstacle_points)
             path = compute_live_follow_path(planner, (x, y), (goal_x, goal_y))
+            notify_path_update(path_callback, planner, (x, y), (shown_goal_x, shown_goal_y), path)
             if viewer is not None:
                 viewer._update_scale(planner)
 
@@ -993,6 +1024,7 @@ def drive_to_goal(
             if reverse_replan_pending:
                 planner = rebuild_planner_with_obstacles((x, y), (goal_x, goal_y), recorded_obstacle_points)
                 path = compute_live_follow_path(planner, (x, y), (goal_x, goal_y))
+                notify_path_update(path_callback, planner, (x, y), (shown_goal_x, shown_goal_y), path)
                 reverse_replan_pending = False
                 if viewer is not None:
                     viewer._update_scale(planner)
@@ -1259,6 +1291,7 @@ def drive_to_goal(
 
         if not replan_only_on_obstacle:
             path = compute_live_follow_path(planner, (x, y), (goal_x, goal_y))
+            notify_path_update(path_callback, planner, (x, y), (shown_goal_x, shown_goal_y), path)
         if path:
             target_x, target_y, waypoint_idx = select_local_path_target(
                 path_world=path,
