@@ -13,8 +13,10 @@ from src.modes.eva.websocket_handler import (
     log_error,
     log_info,
     log_success,
+    log_warning,
     start_websocket,
 )
+from src.voice.stt import DEFAULT_MODEL_DIR as WHISPER_MODEL_DIR, WhisperSTT
 
 
 async def start_server() -> None:
@@ -33,8 +35,19 @@ async def start_server() -> None:
     classifier = build_classifier(mode="eva")
     log_success(f"Classifier loaded ({classifier.__class__.__name__})")
 
+    stt = None
+    if WHISPER_MODEL_DIR.exists():
+        stt = WhisperSTT()
+        log_success("Whisper STT loaded")
+    else:
+        log_warning(
+            f"Whisper checkpoint missing at {WHISPER_MODEL_DIR}; "
+            f"text {{command}} payloads still work, but {{audio}} payloads will error. "
+            f"Run scripts/install_whisper.sh to enable audio."
+        )
+
     try:
-        await start_websocket(classifier, cache, sio_client)
+        await start_websocket(classifier, cache, sio_client, stt)
     finally:
         await sio_client.stop()
 

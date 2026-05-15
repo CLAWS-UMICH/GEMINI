@@ -1,9 +1,13 @@
 import asyncio
+import base64
+import io
 import json
 import logging
 import time
 from datetime import datetime, timezone
 
+import numpy as np
+import soundfile as sf
 import websockets
 
 from src.core.classifier.classifier_protocol import ClassifierProtocol
@@ -50,13 +54,33 @@ async def handle_message(
     classifier: ClassifierProtocol,
     cache: TelemetryCache,
     sio_client,
+    stt,
 ) -> str:
     start_time = time.time()
     request_id = "unknown"
     try:
         message = json.loads(message_text)
         command = message.get("command", "")
+        audio_b64 = message.get("audio")
         request_id = message.get("request_id", "unknown")
+
+        if audio_b64 and not command:
+            if stt is None:
+                log_warning("Audio payload received but STT is not loaded")
+                return json.dumps({
+                    "status": "error",
+                    "error_message": "STT not available",
+                    "request_id": request_id,
+                })
+            log_info("Transcribing audio…")
+            audio_bytes = base64.b64decode(audio_b64)
+            audio_array, sample_rate = sf.read(io.BytesIO(audio_bytes), dtype="float32")
+            if audio_array.ndim > 1:
+                audio_array = audio_array.mean(axis=1)
+            if sample_rate != 16000:
+                log_warning(f"Audio sample rate is {sample_rate} Hz (expected 16000)")
+            command = stt.transcribe(audio_array)
+            log_info(f"STT result: {command!r}")
 
         if not command:
             log_warning("Empty command received")
@@ -121,14 +145,14 @@ async def handle_message(
         })
 
 
-def _make_client_handler(classifier, cache, sio_client):
+def _make_client_handler(classifier, cache, sio_client, stt):
     async def handle_client(websocket):
         client_address = websocket.remote_address
         log_success(f"Client connected: {client_address}")
         try:
             async for message in websocket:
                 log_info(f"Received from {client_address}: {message[:100]}...")
-                response = await handle_message(message, classifier, cache, sio_client)
+                response = await handle_message(message, classifier, cache, sio_client, stt)
                 await websocket.send(response)
                 log_info(f"Response sent to {client_address}")
         except websockets.exceptions.ConnectionClosed:
@@ -141,12 +165,12 @@ def _make_client_handler(classifier, cache, sio_client):
     return handle_client
 
 
-async def start_websocket(classifier, cache, sio_client) -> None:
+async def start_websocket(classifier, cache, sio_client, stt) -> None:
     log_info("Starting CORVUS WebSocket Server...")
     log_info(f"Host: {HOST}")
     log_info(f"Port: {PORT}")
 
-    async with websockets.serve(_make_client_handler(classifier, cache, sio_client), HOST, PORT):
+    async with websockets.serve(_make_client_handler(classifier, cache, sio_client, stt), HOST, PORT):
         log_success(f"Server running on ws://{HOST}:{PORT}")
         log_info("Waiting for Unity connection...")
         log_info("Press Ctrl+C to stop the server")
