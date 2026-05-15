@@ -6,7 +6,7 @@ from src.responder.fallback import (
     TELEMETRY_UNAVAILABLE_REPLY,
     UNKNOWN_INTENT_REPLY,
 )
-from src.telemetry.cache import TelemetryCache
+from src.core.telemetry.cache import TelemetryCache
 
 
 def test_low_confidence_returns_low_conf_reply(monkeypatch):

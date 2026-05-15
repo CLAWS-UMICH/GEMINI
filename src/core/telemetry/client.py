@@ -3,7 +3,7 @@ import logging
 
 import socketio
 
-from src.telemetry.cache import TelemetryCache
+from src.core.telemetry.cache import TelemetryCache
 
 logger = logging.getLogger(__name__)
 

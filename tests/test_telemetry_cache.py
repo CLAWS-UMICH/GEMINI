@@ -2,7 +2,7 @@ import time
 
 import pytest
 
-from src.telemetry.cache import TelemetryCache
+from src.core.telemetry.cache import TelemetryCache
 
 
 def test_put_then_get_returns_payload():

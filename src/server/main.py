@@ -11,8 +11,8 @@ from src.config import (
     TTTDTT_URL,
 )
 from src.server.websocket_handler import log_error, log_info, log_success, start_websocket
-from src.telemetry.cache import TelemetryCache
-from src.telemetry.client import TelemetryClient
+from src.core.telemetry.cache import TelemetryCache
+from src.core.telemetry.client import TelemetryClient
 
 
 def _build_classifier() -> IntentClassifier:
