@@ -2,37 +2,75 @@
 
 ## Architecture
 
-The server is a voice-command→telemetry-response loop for the CORVUS rover challenge. Full design is in `docs/superpowers/specs/2026-05-11-corvus-rover-pivot-design.md`. At startup (`src/server/main.py`) the process builds a `TelemetryCache`, a Socket.IO client to TTTDTT, and an `IntentClassifier`, then starts the WebSocket server. Incoming Unity commands hit `src/server/websocket_handler.py`, which calls `dispatch.respond()` and returns a JSON object with a `response_text` field. Optionally a `voiceString` Socket.IO event is emitted if `EMIT_VOICESTRING=1`.
+Two-mode voice agent sharing a single Python package. Full spec (gitignored):
+`docs/superpowers/specs/2026-05-14-corvus-dual-mode-voice-and-model-swap-design.md`.
 
-## Key Seams
+| Mode            | Entry point         | Audio I/O              | TTS owner        |
+|-----------------|---------------------|------------------------|------------------|
+| EVA             | `uv run corvus-eva` | Unity over WS :8765    | Unity (Piper)    |
+| PR (standalone) | `uv run corvus-pr`  | Python (sounddevice)   | Python (Piper)   |
+
+Both modes share `src/core/` (classifier, telemetry cache + TTTDTT SIO client,
+responder dispatch). Mode-specific code lives under `src/modes/eva/` and
+`src/modes/pr/`. Voice stack lives in `src/voice/`.
+
+## Key seams
 
 | File | Role |
 |---|---|
-| `src/responder/registry.py` | Single dict: intent label → handler function |
-| `src/responder/dispatch.py` | Confidence gate + registry lookup (~6 lines) |
-| `src/responder/handlers.py` | Per-intent response functions (currently 6 representative handlers) |
-| `src/responder/fallback.py` | `LOW_CONFIDENCE_REPLY`, `UNKNOWN_INTENT_REPLY`, `TELEMETRY_UNAVAILABLE_REPLY` |
-| `src/telemetry/cache.py` | `TelemetryCache`: TTL-based snapshot store, thread-safe via `Lock` |
-| `src/telemetry/client.py` | Socket.IO client to TTTDTT; four event handlers write to `cache.put` |
-| `src/classifier/classifier_protocol.py` | `ClassifierProtocol` — the swap point for any replacement model |
-| `src/classifier/intent_classifier.py` | Current model: MiniLM + 2-layer NN, ~97% val accuracy on 87-intent set |
+| `src/core/classifier/factory.py` | Selects classifier impl (NN fallback ↔ Multilabel) |
+| `src/core/classifier/classifier_protocol.py` | The swap point for any replacement model |
+| `src/core/classifier/nn_classifier.py` | Legacy MiniLM + 2-layer NN (Phase 1 default) |
+| `src/core/responder/registry_eva.py` | `{eva_intent: handler}` |
+| `src/core/responder/registry_pr.py` | `{pr_intent: handler}` (17 handlers) |
+| `src/core/responder/dispatch.py` | Confidence gate + registry lookup (takes registry as arg) |
+| `src/core/telemetry/cache.py` | TTL-keyed snapshot store |
+| `src/core/telemetry/client.py` | Socket.IO client to TTTDTT |
+| `src/voice/devices.py` | Single GPU/CPU decision for STT |
+| `src/voice/stt.py` | faster-whisper wrapper |
+| `src/voice/tts.py` | Piper wrapper (PR only) |
+| `src/voice/wake_word.py` | openWakeWord (PR only) |
+| `src/voice/vad.py` | Silero VAD (PR only) |
+| `src/voice/audio_io.py` | sounddevice mic capture + playback |
+| `src/modes/eva/main.py` | EVA entry: classifier factory + WS server |
+| `src/modes/eva/websocket_handler.py` | Accepts `{command}` or `{audio}` payloads |
+| `src/modes/pr/main.py` | PR entry: full voice loop, `--stdin` + `--speak` debug modes |
 
-## How to Add a New Intent
+## Device routing
 
-1. Write a handler function in `src/responder/handlers.py`:
-   ```python
-   def handle_battery_voltage(cache: TelemetryCache) -> str:
-       snap = cache.get()
-       if snap is None:
-           return TELEMETRY_UNAVAILABLE_REPLY
-       return f"Battery voltage is {snap.batt_voltage:.1f} V."
-   ```
-2. Register it in `src/responder/registry.py`:
-   ```python
-   "battery_voltage": handle_battery_voltage,
-   ```
-   Done. No other files need to change.
+`src/voice/devices.py::select_stt_device()` is the single decision point:
+- **GPU available:** `(cuda, float16)` for Whisper
+- **No GPU:** `(cpu, int8)` for Whisper
 
-## Classifier Note
+Classifier, TTS, VAD, wake-word stay on CPU by design. See spec §5.
 
-Intent labels in `training_data.json` are scaffolding for the current MiniLM model. A teammate's replacement model (different architecture, different training pipeline) can slot in behind the same `ClassifierProtocol` interface without touching the responder layer. The protocol requires a single method: `classify(text: str) -> ClassifierResult`.
+End-to-end latency targets: ~400–500 ms on GPU, ~700 ms–1.2 s on CPU.
+
+## How to add a new intent
+
+1. Write a handler in `src/core/responder/handlers_eva.py` or `handlers_pr.py`
+   (depending on which mode owns it). Signature: `handle_x(command, cache, classification) -> str`.
+2. Register the label → handler in `registry_eva.py` or `registry_pr.py`.
+   Done.
+
+## Classifier note
+
+Phase 1 uses the legacy MiniLM + 2-layer NN classifier (87 labels). When the
+teammate's multi-label sidecars arrive (`label2id.json` + tokenizer files
+under `models/multilabel/`), the factory automatically picks
+`MultilabelClassifier` on next boot.
+
+## Third-party API notes
+
+- **openwakeword pinned to >=0.4.0** (not >=0.6.0): 0.6.0 hard-requires
+  tflite-runtime which has no Python 3.13 wheels. 0.4.0 ships pretrained
+  ONNX models bundled with the package; `WakeWordDetector` resolves friendly
+  names like `'hey_jarvis'` against `openwakeword.get_pretrained_model_paths()`.
+- **torchaudio pinned to >=2.9.0,<2.10** to match torch 2.9.x — silero-vad
+  otherwise pulled torchaudio 2.11 with a binary that wouldn't load against
+  torch 2.9.
+- **Piper 1.4.x** uses `voice.synthesize(text) -> Iterable[AudioChunk]` with
+  `chunk.audio_int16_array`. The older `synthesize_stream_raw` API doesn't
+  exist in this version.
+- **sounddevice** requires `libportaudio2` at the system level. The PR-mode
+  audio path can't import without it; EVA mode and PR `--stdin` are unaffected.
