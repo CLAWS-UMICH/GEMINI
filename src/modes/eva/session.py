@@ -14,6 +14,8 @@ from enum import Enum, auto
 
 import numpy as np
 
+from src.config import CONFIDENCE_THRESH_HIGH, EMIT_VOICESTRING, LATENCY_WARNING_MS
+from src.core.responder import dispatch
 from src.modes.eva.protocol import (
     FinalMsg,
     StartMsg,
@@ -161,3 +163,63 @@ class EvaSession:
         log.info("eva: state BUFFERING -> IDLE (end-of-speech, %d bytes)", len(pcm))
         # Leave _buffer/_unconsumed populated until finalize completes; reset on next start.
         return ready
+
+    async def finalize(self, ready: AudioReady) -> FinalMsg:
+        try:
+            audio = np.frombuffer(ready.pcm, dtype=np.int16).astype(np.float32) / 32768.0
+            transcript = self.stt.transcribe(audio)
+        except Exception:
+            log.exception("eva: STT failed; emitting empty final")
+            return FinalMsg(response="")
+
+        try:
+            classification = self.classifier.classify(transcript)
+        except Exception:
+            log.exception("eva: classifier failed; emitting transcript-only final")
+            latency_ms = round((time.monotonic() - ready.processing_start) * 1000, 2)
+            return FinalMsg(
+                response=transcript,
+                transcript=transcript,
+                intent="unhandled",
+                latency_ms=latency_ms,
+            )
+
+        confidence = float(classification.get("confidence", 0.0))
+        raw_intent = classification.get("intent", "unhandled")
+        intent = raw_intent if (confidence >= CONFIDENCE_THRESH_HIGH and raw_intent in self.registry) else "unhandled"
+
+        try:
+            response_text = dispatch.respond(transcript, classification, self.cache, self.registry)
+        except Exception:
+            log.exception("eva: responder failed; emitting transcript-only final")
+            response_text = transcript
+            intent = "unhandled"
+
+        raw_params = classification.get("parameters") or {}
+        params: dict[str, str] | None = {k: str(v) for k, v in raw_params.items()} if raw_params else None
+
+        latency_ms = round((time.monotonic() - ready.processing_start) * 1000, 2)
+        if latency_ms > LATENCY_WARNING_MS:
+            log.warning("eva: high latency %sms (threshold %sms)", latency_ms, LATENCY_WARNING_MS)
+
+        if EMIT_VOICESTRING and self.sio_client is not None:
+            try:
+                await self.sio_client.emit("voiceString", response_text)
+            except Exception:
+                log.warning("eva: voiceString emit failed; continuing")
+
+        log.info(
+            "eva: final intent=%s confidence=%.3f latency_ms=%s transcript=%r",
+            intent,
+            confidence,
+            latency_ms,
+            transcript,
+        )
+        return FinalMsg(
+            response=response_text,
+            transcript=transcript,
+            intent=intent,
+            confidence=confidence,
+            parameters=params,
+            latency_ms=latency_ms,
+        )

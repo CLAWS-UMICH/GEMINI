@@ -199,3 +199,112 @@ def test_start_during_buffering_resets_but_stays_buffering():
     session.on_text(json.dumps({"type": "start", "sample_rate": 16000, "channels": 1}))
     assert session.state == SessionState.BUFFERING
     assert vad.resets == 2
+
+
+import asyncio
+
+
+def _drive_to_audio_ready(session, vad: FakeVAD) -> AudioReady:
+    vad.sequence = [True] + [False] * 25
+    session.on_text(json.dumps({"type": "start", "sample_rate": 16000, "channels": 1}))
+    pcm = _pcm_nonzero_bytes(VAD_FRAME_SAMPLES * 26)
+    ready = session.on_binary(pcm)
+    assert isinstance(ready, AudioReady)
+    return ready
+
+
+def test_finalize_emits_response_from_dispatch():
+    vad = FakeVAD()
+    stt = FakeSTT(transcript="check my heart rate")
+    classifier = FakeClassifier({"intent": "vitals_heart_rate", "confidence": 0.95})
+
+    def fake_handler(command, cache, classification):
+        return "Heart rate is 72 BPM."
+
+    registry = {"vitals_heart_rate": fake_handler}
+    session = make_session(vad=vad, stt=stt, classifier=classifier, registry=registry)
+    ready = _drive_to_audio_ready(session, vad)
+
+    final = asyncio.run(session.finalize(ready))
+
+    assert final.response == "Heart rate is 72 BPM."
+    assert final.transcript == "check my heart rate"
+    assert final.intent == "vitals_heart_rate"
+    assert final.confidence == 0.95
+    assert final.latency_ms is not None
+    assert stt.calls == 1
+
+
+def test_finalize_emits_voicestring_when_enabled(monkeypatch):
+    monkeypatch.setenv("EMIT_VOICESTRING", "1")
+    # Force config re-read
+    from importlib import reload
+    import src.config
+
+    reload(src.config)
+
+    vad = FakeVAD()
+    sio = FakeSioClient()
+    registry = {"vitals_heart_rate": lambda *a: "spoken text"}
+    session = make_session(
+        vad=vad,
+        classifier=FakeClassifier({"intent": "vitals_heart_rate", "confidence": 0.9}),
+        registry=registry,
+        sio_client=sio,
+    )
+    ready = _drive_to_audio_ready(session, vad)
+    asyncio.run(session.finalize(ready))
+
+    assert sio.emissions == [("voiceString", "spoken text")]
+
+
+def test_finalize_coerces_parameters_to_string_dict():
+    vad = FakeVAD()
+    classifier = FakeClassifier({
+        "intent": "Set_navigation_target",
+        "confidence": 0.9,
+        "parameters": {"NAVIGATION_TARGET_NAME": 42},  # non-string value
+    })
+    registry = {"Set_navigation_target": lambda *a: "ok"}
+    session = make_session(vad=vad, classifier=classifier, registry=registry)
+    ready = _drive_to_audio_ready(session, vad)
+
+    final = asyncio.run(session.finalize(ready))
+
+    assert final.parameters == {"NAVIGATION_TARGET_NAME": "42"}
+
+
+def test_finalize_omits_parameters_when_empty():
+    vad = FakeVAD()
+    classifier = FakeClassifier({"intent": "vitals_heart_rate", "confidence": 0.9, "parameters": {}})
+    registry = {"vitals_heart_rate": lambda *a: "ok"}
+    session = make_session(vad=vad, classifier=classifier, registry=registry)
+    ready = _drive_to_audio_ready(session, vad)
+
+    final = asyncio.run(session.finalize(ready))
+
+    assert final.parameters is None
+
+
+def test_finalize_marks_unhandled_when_below_confidence_threshold():
+    vad = FakeVAD()
+    classifier = FakeClassifier({"intent": "vitals_heart_rate", "confidence": 0.20})
+    # Registry contains the intent; below-threshold still becomes "unhandled"
+    registry = {"vitals_heart_rate": lambda *a: "ok"}
+    session = make_session(vad=vad, classifier=classifier, registry=registry)
+    ready = _drive_to_audio_ready(session, vad)
+
+    final = asyncio.run(session.finalize(ready))
+
+    assert final.intent == "unhandled"
+
+
+def test_finalize_marks_unhandled_when_intent_not_in_registry():
+    vad = FakeVAD()
+    classifier = FakeClassifier({"intent": "ghost_intent", "confidence": 0.99})
+    session = make_session(vad=vad, classifier=classifier, registry={})
+    ready = _drive_to_audio_ready(session, vad)
+
+    final = asyncio.run(session.finalize(ready))
+
+    assert final.intent == "unhandled"
