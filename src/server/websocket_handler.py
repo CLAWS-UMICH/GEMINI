@@ -40,6 +40,10 @@ def log_error(message: str) -> None:
     print(f"{Colors.FAIL}[ERROR]{Colors.ENDC} {message}")
 
 
+def log_response(message: str) -> None:
+    print(f"{Colors.HEADER}[RESPONSE]{Colors.ENDC} {Colors.HEADER}{message}{Colors.ENDC}")
+
+
 async def handle_message(
     message_text: str,
     classifier: ClassifierProtocol,
@@ -65,6 +69,7 @@ async def handle_message(
         classification = classifier.classify(command)
 
         response_text = dispatch.respond(command, classification, cache)
+        log_response(response_text)
 
         latency_ms = round((time.time() - start_time) * 1000, 2)
         if latency_ms > LATENCY_WARNING_MS:

@@ -6,7 +6,7 @@ Voice → classify → telemetry-grounded response loop for the CORVUS rover cha
 
 - Python 3.13
 - [`uv`](https://docs.astral.sh/uv/)
-- A running [TTTDTT](https://github.com/Lunar-Minecraft-Society/TTTDTT) instance reachable at `$TTTDTT_URL`
+- A running [TTTDTT](https://github.com/stilettocode/TTTDTT) instance reachable at `$TTTDTT_URL`
 
 ## Setup
 
