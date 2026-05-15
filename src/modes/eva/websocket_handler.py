@@ -1,20 +1,11 @@
 import asyncio
-import base64
-import io
-import json
 import logging
-import time
-from datetime import datetime, timezone
 
-import numpy as np
-import soundfile as sf
 import websockets
 
-from src.core.classifier.classifier_protocol import ClassifierProtocol
-from src.config import EMIT_VOICESTRING, HOST, LATENCY_WARNING_MS, PORT
-from src.core.responder import dispatch
-from src.core.responder.registry_eva import REGISTRY_EVA
-from src.core.telemetry.cache import TelemetryCache
+from src.config import HOST, PORT
+from src.modes.eva.protocol import serialize_final
+from src.modes.eva.session import AudioReady, EvaSession
 
 logger = logging.getLogger(__name__)
 
@@ -49,128 +40,46 @@ def log_response(message: str) -> None:
     print(f"{Colors.HEADER}[RESPONSE]{Colors.ENDC} {Colors.HEADER}{message}{Colors.ENDC}")
 
 
-async def handle_message(
-    message_text: str,
-    classifier: ClassifierProtocol,
-    cache: TelemetryCache,
-    sio_client,
-    stt,
-) -> str:
-    start_time = time.time()
-    request_id = "unknown"
-    try:
-        message = json.loads(message_text)
-        command = message.get("command", "")
-        audio_b64 = message.get("audio")
-        request_id = message.get("request_id", "unknown")
-
-        if audio_b64 and not command:
-            if stt is None:
-                log_warning("Audio payload received but STT is not loaded")
-                return json.dumps({
-                    "status": "error",
-                    "error_message": "STT not available",
-                    "request_id": request_id,
-                })
-            log_info("Transcribing audio…")
-            audio_bytes = base64.b64decode(audio_b64)
-            audio_array, sample_rate = sf.read(io.BytesIO(audio_bytes), dtype="float32")
-            if audio_array.ndim > 1:
-                audio_array = audio_array.mean(axis=1)
-            if sample_rate != 16000:
-                log_warning(f"Audio sample rate is {sample_rate} Hz (expected 16000)")
-            command = stt.transcribe(audio_array)
-            log_info(f"STT result: {command!r}")
-
-        if not command:
-            log_warning("Empty command received")
-            return json.dumps({
-                "status": "error",
-                "error_message": "No command provided",
-                "request_id": request_id,
-            })
-
-        log_info(f"Classifying command: '{command}'")
-        classification = classifier.classify(command)
-
-        response_text = dispatch.respond(command, classification, cache, REGISTRY_EVA)
-        log_response(response_text)
-
-        latency_ms = round((time.time() - start_time) * 1000, 2)
-        if latency_ms > LATENCY_WARNING_MS:
-            log_warning(f"High latency: {latency_ms}ms (threshold: {LATENCY_WARNING_MS}ms)")
-
-        if classification["confidence"] < 0.65 or classification["intent"] not in REGISTRY_EVA:
-            log_warning(
-                f"miss: text={command!r} intent={classification['intent']} "
-                f"confidence={classification['confidence']:.3f}"
-            )
-
-        response = {
-            "status": "success",
-            "intent": classification["intent"],
-            "confidence": classification["confidence"],
-            "response_text": response_text,
-            "request_id": request_id,
-            "latency_ms": latency_ms,
-            "timestamp": datetime.now(timezone.utc).isoformat(),
-        }
-        for opt in ("all_intents", "parameters", "matched_keywords"):
-            if opt in classification:
-                response[opt] = classification[opt]
-
-        log_success(
-            f"Intent: {classification['intent']}, Confidence: {classification['confidence']:.3f}, "
-            f"Latency: {latency_ms}ms"
-        )
-
-        if EMIT_VOICESTRING and sio_client is not None:
-            await sio_client.emit("voiceString", response_text)
-
-        return json.dumps(response)
-
-    except json.JSONDecodeError as exc:
-        log_error(f"Invalid JSON received: {exc}")
-        return json.dumps({
-            "status": "error",
-            "error_message": "Invalid JSON",
-            "request_id": request_id,
-        })
-    except Exception as exc:  # noqa: BLE001
-        logger.exception("Error processing message")
-        return json.dumps({
-            "status": "error",
-            "error_message": "Server error",
-            "request_id": request_id,
-        })
-
-
-def _make_client_handler(classifier, cache, sio_client, stt):
+def _make_client_handler(classifier, cache, sio_client, stt, vad, registry):
     async def handle_client(websocket):
         client_address = websocket.remote_address
         log_success(f"Client connected: {client_address}")
+        session = EvaSession(
+            vad=vad,
+            stt=stt,
+            classifier=classifier,
+            cache=cache,
+            sio_client=sio_client,
+            registry=registry,
+        )
         try:
             async for message in websocket:
-                log_info(f"Received from {client_address}: {message[:100]}...")
-                response = await handle_message(message, classifier, cache, sio_client, stt)
-                await websocket.send(response)
-                log_info(f"Response sent to {client_address}")
+                if isinstance(message, bytes):
+                    ready = session.on_binary(message)
+                    if isinstance(ready, AudioReady):
+                        final = await session.finalize(ready)
+                        await websocket.send(serialize_final(final))
+                        log_response(final.response)
+                else:
+                    session.on_text(message)
         except websockets.exceptions.ConnectionClosed:
             log_warning(f"Client disconnected: {client_address}")
         except Exception as exc:  # noqa: BLE001
             log_error(f"Error handling client {client_address}: {exc}")
+            logger.exception("client handler crashed")
         finally:
             log_info(f"Connection closed: {client_address}")
 
     return handle_client
 
 
-async def start_websocket(classifier, cache, sio_client, stt) -> None:
-    log_info("Starting CORVUS WebSocket Server...")
+async def start_websocket(classifier, cache, sio_client, stt, vad, registry) -> None:
+    log_info("Starting CORVUS-EVA WebSocket Server...")
     log_info(f"Host: {HOST}")
     log_info(f"Port: {PORT}")
 
-    async with websockets.serve(_make_client_handler(classifier, cache, sio_client, stt), HOST, PORT):
+    handler = _make_client_handler(classifier, cache, sio_client, stt, vad, registry)
+    async with websockets.serve(handler, HOST, PORT):
         log_success(f"Server running on ws://{HOST}:{PORT}")
         log_info("Waiting for Unity connection...")
         log_info("Press Ctrl+C to stop the server")
