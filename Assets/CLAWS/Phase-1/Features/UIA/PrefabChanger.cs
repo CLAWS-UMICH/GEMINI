@@ -18,6 +18,7 @@ public class PrefabChanger : MonoBehaviour
     void Awake()
     {
         if (qrPlacer == null) qrPlacer = GetComponent<QRCodePlacer>();
+        if (qrPlacer == null) qrPlacer = GetComponentInParent<QRCodePlacer>();
     }
 
     void OnEnable()
@@ -84,6 +85,7 @@ public class PrefabChanger : MonoBehaviour
 
     public void NextPrefab()
     {
+        if (currentInstantiatedPrefab == null) return;
         if (prefabs.Length == 0) return;
 
         currentIndex++;
@@ -96,6 +98,7 @@ public class PrefabChanger : MonoBehaviour
 
     public void PreviousPrefab()
     {
+        if (currentInstantiatedPrefab == null) return;
         if (prefabs.Length == 0) return;
 
         currentIndex--;

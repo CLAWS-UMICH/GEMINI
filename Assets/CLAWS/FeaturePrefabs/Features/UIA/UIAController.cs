@@ -17,16 +17,29 @@ public class UIAController : MonoBehaviour
     public GameObject vitals;
     public GameObject previousButton;
     public GameObject nextButton;
+    [SerializeField] private PrefabChanger uiaOverlayPrefabChanger;
 
     public List<string> EgressSteps = new List<string>();
     public List<string> IngressSteps = new List<string>();
     private bool egressComplete = false;
     private int counter = 0;
+    private bool stepsInitialized = false;
     public event System.Action OnUIAOpened;
 
-
-    void Start()
+    void Awake()
     {
+        InitializeSteps();
+        OnUIAOpened += HandleUIAOpened;
+    }
+
+    void InitializeSteps()
+    {
+        if (stepsInitialized) return;
+        stepsInitialized = true;
+
+        EgressSteps.Clear();
+        IngressSteps.Clear();
+
         // Initialize EGRESS steps
         EgressSteps.Add("Connect the umbilical cord from the DCU to the UIA Panel");
 
@@ -95,7 +108,6 @@ public class UIAController : MonoBehaviour
         IngressSteps.Add("Switch EV-2 EMU Power to OFF");
 
         IngressSteps.Add("Disconnect the umbilical cord from the DCU and UIA Panel");
-        OnUIAOpened += HandleUIAOpened;
     }
 
     public void HandleUIAOpened()
@@ -141,8 +153,8 @@ public class UIAController : MonoBehaviour
         // StartCoroutine(EgressProcedureCoroutine());
         procedureScreen.SetActive(true);
         stepsScreen.SetActive(true);
-        stepNumber.text = (counter + 1).ToString();
-        stepText.text = EgressSteps[counter];
+        counter = 0;
+        DisplayCurrentEgressStep();
     }
 
     // private IEnumerator EgressProcedureCoroutine()
@@ -158,13 +170,13 @@ public class UIAController : MonoBehaviour
         yield return new WaitForSeconds(5f);
         procedureScreen.SetActive(true);
         stepsScreen.SetActive(true);
-        stepNumber.text = (counter + 1).ToString();
-        stepText.text = IngressSteps[counter];
+        DisplayCurrentIngressStep();
     }
 
     public void IngressProcedure()
     {
         procedureScreen.SetActive(false);
+        counter = 0;
         StartCoroutine(IngressProcedureCoroutine());
         procedureScreen.SetActive(true);
         stepsScreen.SetActive(true);
@@ -172,41 +184,51 @@ public class UIAController : MonoBehaviour
 
     public void PrevStep()
     {
-        if (counter > 1)
+        if (counter <= 0) return;
+
+        counter--;
+        if (egressComplete)
         {
-            counter--;
-            counter--;
-            if (egressComplete)
-            {
-                IngressStep();
-            }
-            else
-            {
-                EgressStep();
-            }
+            DisplayCurrentIngressStep();
         }
+        else
+        {
+            DisplayCurrentEgressStep();
+        }
+        uiaOverlayPrefabChanger?.PreviousPrefab();
     }
 
     public void NextStep()
     {
         if (egressComplete)
         {
-            IngressStep();
+            AdvanceIngress();
         }
         else
         {
-            EgressStep();
+            AdvanceEgress();
         }
+        uiaOverlayPrefabChanger?.NextPrefab();
     }
 
-
-    public void EgressStep()
+    void DisplayCurrentEgressStep()
     {
-        if (counter < EgressSteps.Count)
+        stepNumber.text = (counter + 1).ToString();
+        stepText.text = EgressSteps[counter];
+    }
+
+    void DisplayCurrentIngressStep()
+    {
+        stepNumber.text = (counter + 1).ToString();
+        stepText.text = IngressSteps[counter];
+    }
+
+    void AdvanceEgress()
+    {
+        if (counter < EgressSteps.Count - 1)
         {
-            stepNumber.text = (counter + 1).ToString();
-            stepText.text = EgressSteps[counter];
             counter++;
+            DisplayCurrentEgressStep();
         }
         else
         {
@@ -218,13 +240,12 @@ public class UIAController : MonoBehaviour
         }
     }
 
-    public void IngressStep()
+    void AdvanceIngress()
     {
-        if (counter < IngressSteps.Count)
+        if (counter < IngressSteps.Count - 1)
         {
-            stepNumber.text = (counter + 1).ToString();
-            stepText.text = IngressSteps[counter];
             counter++;
+            DisplayCurrentIngressStep();
         }
         else
         {
