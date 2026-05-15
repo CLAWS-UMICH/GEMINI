@@ -10,16 +10,24 @@ dependencies = [
     "python-dotenv>=1.0",
     "python-socketio[asyncio_client]>=5.11",
     "torch>=2.9.1",
+    "torchaudio>=2.9.0,<2.10",
     "transformers>=4.57.3",
     "websockets>=16.0",
     "pytest>=8.0.0",
     "sentence-transformers>=5.2.3",
     "datasets>=4.6.1",
     "setfit>=1.1.3",
+    "faster-whisper>=1.0.0",
+    "piper-tts>=1.2.0",
+    "openwakeword>=0.4.0",
+    "silero-vad>=5.1",
+    "sounddevice>=0.4.7",
+    "soundfile>=0.12.1",
 ]
 
 [project.scripts]
-corvus          = "src.server.main:main"
+corvus-eva      = "src.modes.eva.main:main"
+corvus-pr       = "src.modes.pr.main:main"
 classifier-test = "tests.test_classifier:main"
 
 [build-system]                                                                                    
