@@ -30,11 +30,11 @@ uv sync
 
 ### EVA mode — `uv run corvus-eva`
 
-Unity-paired. Python boots a WebSocket server on `0.0.0.0:8765`, connects to TTTDTT as a Socket.IO client, loads the classifier, and (if `models/stt/whisper-base.en/` exists) loads Whisper STT.
+Unity-paired. Python boots a WebSocket server on `0.0.0.0:8765`, connects to TTTDTT as a Socket.IO client, loads the classifier, and loads Whisper STT (mandatory).
 
 **Required:**
 - TTTDTT reachable (otherwise handlers return "Telemetry unavailable right now.")
-- Whisper checkpoint only required for `{audio}` payloads — `{command: "..."}` text payloads work without it
+- Whisper checkpoint MUST be installed — `main.py` exits with code 1 on startup if `models/stt/whisper-base.en/` is missing. Run `./scripts/install_whisper.sh`.
 
 **Expected boot logs:**
 ```
@@ -43,47 +43,51 @@ sentence_transformers.SentenceTransformer: Use pytorch device_name: cuda:0   ←
 [SUCCESS] Classifier loaded (NNClassifier)
 Loading Whisper from .../whisper-base.en (device=cuda, compute_type=float16)
 [SUCCESS] Whisper STT loaded
+[SUCCESS] Silero VAD loaded
 websockets.server: server listening on 0.0.0.0:8765
 [SUCCESS] Server running on ws://0.0.0.0:8765
+[INFO] Waiting for Unity connection...
 ```
 
-**Wire protocol** (see `src/modes/eva/websocket_handler.py`):
+**Wire protocol** (streaming PCM contract with Unity — see `STT_UNITY_PYTHON_CONTRACT.md` and `docs/superpowers/specs/2026-05-15-corvus-eva-unity-contract-design.md`):
 
-Unity → Python — text:
+Unity opens one WebSocket and keeps it open for the session. Text frames carry JSON control messages; binary frames carry raw int16 LE PCM @ 16 kHz mono, ~3200 bytes per ~100ms chunk.
+
+Unity → Python — start utterance (text):
 ```json
-{"command": "what's my heart rate", "request_id": "abc-123"}
-```
-Unity → Python — audio (base64-encoded WAV bytes, 16 kHz mono preferred):
-```json
-{"audio": "<base64>", "request_id": "abc-123"}
+{"type": "start", "sample_rate": 16000, "channels": 1}
 ```
 
-Python → Unity:
+Unity → Python — audio chunks (binary): raw int16 little-endian samples, no header.
+
+Unity → Python — cancel (text):
+```json
+{"type": "stop"}
+```
+
+Python → Unity — terminal response (text):
 ```json
 {
-  "status": "success",
+  "type": "final",
+  "response": "Heart rate is 72 beats per minute.",
+  "transcript": "check my heart rate",
   "intent": "vitals_heart_rate",
-  "confidence": 0.94,
-  "response_text": "Heart rate is 72 beats per minute.",
-  "request_id": "abc-123",
-  "latency_ms": 412.0,
-  "timestamp": "2026-05-15T19:00:00Z"
+  "confidence": 0.92,
+  "parameters": {},
+  "latency_ms": 187.0
 }
 ```
 
-Error shape: `{"status": "error", "error_message": "...", "request_id": "..."}`
+`transcript`, `intent`, `confidence`, `parameters`, and `latency_ms` are optional and omitted when not produced. `response` is always present (may be empty string on STT/VAD failure to keep Unity unstuck).
+
+Python emits `{type:"final"}` after Silero VAD detects end-of-speech (default 700ms silence, env `EVA_VAD_HANGOVER_MS`). A 30-second hard cap (env `EVA_MAX_UTTERANCE_S`) forces finalize if VAD never fires.
 
 **Smoke test from Python:**
 ```bash
-uv run python - <<'PY'
-import asyncio, json, websockets
-async def main():
-    async with websockets.connect("ws://localhost:8765") as ws:
-        await ws.send(json.dumps({"command": "what is my heart rate", "request_id": "smoke"}))
-        print(json.dumps(json.loads(await ws.recv()), indent=2))
-asyncio.run(main())
-PY
+EVA_E2E=1 uv run python -m pytest tests/test_eva_handler_e2e.py -v
 ```
+
+For an ad-hoc text client (no audio), see `tests/test_eva_protocol.py` and `tests/test_eva_session.py` — they exercise the state machine directly with synthetic PCM and `FakeVAD`/`FakeSTT`.
 
 ### PR mode — three flavors
 
