@@ -6,6 +6,7 @@ One EvaSession is constructed per WebSocket connection.
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import os
 import time
@@ -119,6 +120,10 @@ class EvaSession:
             log.info("eva: dropping %d bytes received in IDLE state", len(data))
             return None
 
+        if len(data) % 2:
+            log.warning("eva: odd-length PCM frame (%d bytes); dropping trailing byte", len(data))
+            data = data[:-1]
+
         self._buffer.extend(data)
 
         # Decode the new bytes as int16 LE -> float32 in [-1, 1], queue for VAD
@@ -167,7 +172,7 @@ class EvaSession:
     async def finalize(self, ready: AudioReady) -> FinalMsg:
         try:
             audio = np.frombuffer(ready.pcm, dtype=np.int16).astype(np.float32) / 32768.0
-            transcript = self.stt.transcribe(audio)
+            transcript = await asyncio.to_thread(self.stt.transcribe, audio)
         except Exception:
             log.exception("eva: STT failed; emitting empty final")
             return FinalMsg(response="")

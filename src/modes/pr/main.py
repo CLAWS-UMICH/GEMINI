@@ -8,6 +8,7 @@ import argparse
 import asyncio
 import logging
 import sys
+from pathlib import Path
 
 import numpy as np
 
@@ -33,6 +34,8 @@ WAKEWORD_BLOCK_SAMPLES = 1280  # ~80 ms at 16 kHz
 SAMPLE_RATE = 16000
 SILENCE_FRAMES_TO_END = 25     # ~800 ms of silence terminates capture
 MAX_CAPTURE_S = 8.0
+
+WAKE_MODEL_PATH = Path(__file__).resolve().parents[3] / "models" / "wake_word" / "hey_corvus.onnx"
 
 
 def record_after_wake(record_blocking_fn, vad) -> np.ndarray:
@@ -145,7 +148,7 @@ async def start_agent(stdin_mode: bool, speak: bool) -> None:
             log_success("Whisper STT loaded")
             vad = SileroVAD()
             log_success("Silero VAD loaded")
-            wake = WakeWordDetector()
+            wake = WakeWordDetector(model_paths=[str(WAKE_MODEL_PATH)])
             log_success("openWakeWord loaded")
             await voice_loop(classifier, cache, stt, tts, vad, wake)
     finally:

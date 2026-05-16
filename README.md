@@ -49,7 +49,7 @@ websockets.server: server listening on 0.0.0.0:8765
 [INFO] Waiting for Unity connection...
 ```
 
-**Wire protocol** (streaming PCM contract with Unity — see `STT_UNITY_PYTHON_CONTRACT.md` and `docs/superpowers/specs/2026-05-15-corvus-eva-unity-contract-design.md`):
+**Wire protocol** (streaming PCM contract with Unity — see `docs/superpowers/specs/2026-05-15-corvus-eva-unity-contract-design.md`):
 
 Unity opens one WebSocket and keeps it open for the session. Text frames carry JSON control messages; binary frames carry raw int16 LE PCM @ 16 kHz mono, ~3200 bytes per ~100ms chunk.
 
