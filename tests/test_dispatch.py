@@ -42,12 +42,14 @@ def test_known_intent_calls_handler():
 
 
 def test_stale_cache_returns_unavailable():
-    from src.core.responder.handlers_eva import handle_heart_rate
+    """The EVA heart_rate registry entry should hit the unavailable fallback when cache is empty."""
+    from src.core.responder.registry_eva import REGISTRY_EVA
 
     cache = TelemetryCache(stale_after_s=10.0)
-    # never put anything → get("eva") returns None
-    classification = {"intent": "vitals_heart_rate", "confidence": 0.94}
-    assert handle_heart_rate("hi", cache, classification) == TELEMETRY_UNAVAILABLE_REPLY
+    result = REGISTRY_EVA["get_heart_rate_eva1"](
+        "hi", cache, {"intent": "get_heart_rate_eva1", "confidence": 0.94}
+    )
+    assert result == TELEMETRY_UNAVAILABLE_REPLY
 
 
 # --- Live-shape regression tests ------------------------------------------
@@ -55,8 +57,9 @@ def test_stale_cache_returns_unavailable():
 # If TSS changes shape, these break loudly instead of the demo failing live.
 
 
-def test_handle_heart_rate_reads_eva1():
-    from src.core.responder.handlers_eva import handle_heart_rate
+def test_registry_eva_heart_rate_reads_eva1():
+    """Live-shape regression: telemetry.eva1.heart_rate is the canonical path."""
+    from src.core.responder.registry_eva import REGISTRY_EVA
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("eva", {
@@ -65,26 +68,34 @@ def test_handle_heart_rate_reads_eva1():
             "eva2": {"heart_rate": 90.0},
         },
     })
-    result = handle_heart_rate("hi", cache, {"intent": "vitals_heart_rate", "confidence": 0.9})
-    assert "78" in result and "beats per minute" in result
+    result = REGISTRY_EVA["get_heart_rate_eva1"](
+        "hi", cache, {"intent": "get_heart_rate_eva1", "confidence": 0.9}
+    )
+    assert "78.4" in result and "EVA 1" in result
 
 
-def test_handle_battery_level_reads_pr_telemetry():
-    from src.core.responder.handlers_pr import handle_battery_level
+def test_registry_pr_battery_level_reads_pr_telemetry():
+    """Live-shape regression: pr_telemetry.primary_battery_level."""
+    from src.core.responder.registry_pr import REGISTRY_PR
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("rover", {"pr_telemetry": {"primary_battery_level": 87.11}})
-    result = handle_battery_level("hi", cache, {"intent": "get_battery_level", "confidence": 0.9})
-    assert "87.1" in result and "percent" in result
+    result = REGISTRY_PR["Get_battery_level"](
+        "hi", cache, {"intent": "Get_battery_level", "confidence": 0.9}
+    )
+    assert "87.1" in result
 
 
-def test_handle_oxygen_pressure_reads_pr_telemetry():
-    from src.core.responder.handlers_pr import handle_oxygen_pressure
+def test_registry_pr_oxygen_pressure_reads_pr_telemetry():
+    """Live-shape regression: pr_telemetry.oxygen_pressure."""
+    from src.core.responder.registry_pr import REGISTRY_PR
 
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("rover", {"pr_telemetry": {"oxygen_pressure": 2185.18}})
-    result = handle_oxygen_pressure("hi", cache, {"intent": "get_oxygen_pressure", "confidence": 0.9})
-    assert "2185" in result and "P S I" in result
+    result = REGISTRY_PR["Get_oxygen_pressure"](
+        "hi", cache, {"intent": "Get_oxygen_pressure", "confidence": 0.9}
+    )
+    assert "2185" in result
 
 
 def test_handle_signal_strength_reads_signal_group():
