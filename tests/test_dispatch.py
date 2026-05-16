@@ -119,3 +119,64 @@ def test_handle_warnings_with_no_active_errors():
     cache.put("ltv_errors", {"error_procedures": []})
     result = handle_warnings("hi", cache, {"intent": "get_warnings", "confidence": 0.9})
     assert result == "No active warnings."
+
+
+# --- Phase 2: special-case PR handlers ------------------------------------
+
+def test_handle_lidar_renders_vector_summary():
+    from src.core.responder.handlers_pr import handle_lidar
+
+    cache = TelemetryCache(stale_after_s=10.0)
+    # Spec note: lidar is "list of 17 numbers" (intentPR.json)
+    readings = [3.21, 4.50, -1.0, 0.0, 7.7, 8.8, 9.9, 10.1, 11.2,
+                12.3, 13.4, 14.5, 15.6, 16.7, 17.8, 18.9, 20.0]
+    cache.put("rover", {"pr_telemetry": {"lidar": readings}})
+    result = handle_lidar("hi", cache, {"intent": "get_lidar", "confidence": 0.9})
+    # We render the min/max as a summary rather than reading 17 numbers aloud.
+    assert "lidar" in result.lower()
+    assert "-1" in result or "minimum" in result.lower() or "min" in result.lower()
+
+
+def test_handle_lidar_returns_unavailable_when_cache_empty():
+    from src.core.responder.handlers_pr import handle_lidar
+
+    cache = TelemetryCache(stale_after_s=10.0)
+    result = handle_lidar("hi", cache, {"intent": "get_lidar", "confidence": 0.9})
+    from src.core.responder.fallback import TELEMETRY_UNAVAILABLE_REPLY
+    assert result == TELEMETRY_UNAVAILABLE_REPLY
+
+
+def test_set_cabin_cooling_on_verbal_ack():
+    from src.core.responder.handlers_pr import handle_set_cabin_cooling_on
+
+    cache = TelemetryCache(stale_after_s=10.0)
+    result = handle_set_cabin_cooling_on("turn cooling on", cache,
+                                          {"intent": "set_cabin_cooling_on", "confidence": 0.9})
+    assert "cabin cooling" in result.lower() and "on" in result.lower()
+
+
+def test_set_lights_off_verbal_ack():
+    from src.core.responder.handlers_pr import handle_set_lights_off
+
+    cache = TelemetryCache(stale_after_s=10.0)
+    result = handle_set_lights_off("kill the lights", cache,
+                                    {"intent": "set_lights_off", "confidence": 0.9})
+    assert "lights" in result.lower() and "off" in result.lower()
+
+
+def test_all_six_set_handlers_exist_and_return_strings():
+    """Quick coverage: every set_* intent has a callable that returns a non-empty string."""
+    from src.core.responder import handlers_pr
+
+    for name in [
+        "handle_set_cabin_cooling_off",
+        "handle_set_cabin_cooling_on",
+        "handle_set_cabin_heating_off",
+        "handle_set_cabin_heating_on",
+        "handle_set_lights_off",
+        "handle_set_lights_on",
+    ]:
+        fn = getattr(handlers_pr, name)
+        cache = TelemetryCache(stale_after_s=10.0)
+        out = fn("any", cache, {"intent": name.removeprefix("handle_"), "confidence": 0.9})
+        assert isinstance(out, str) and out, name

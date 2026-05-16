@@ -153,3 +153,62 @@ def handle_warnings(command, cache, classification):
     descriptions = ", ".join(err["description"] for err in active)
     label = "Active warning" if len(active) == 1 else "Active warnings"
     return f"{label}: {descriptions}."
+
+
+# ===================================================================
+# Phase 2 special-case handlers (don't fit the template_handler pattern)
+# ===================================================================
+
+
+def handle_lidar(command, cache, classification):
+    """get_lidar returns a list of 17 numbers (intentPR.json). Reading all 17
+    aloud is hostile to TTS, so we summarize min/max/sample."""
+    payload = cache.get("rover")
+    if payload is None:
+        return TELEMETRY_UNAVAILABLE_REPLY
+    try:
+        readings = payload["pr_telemetry"]["lidar"]
+    except (KeyError, TypeError):
+        return TELEMETRY_UNAVAILABLE_REPLY
+    if not readings:
+        return "Lidar reading is empty."
+    valid = [r for r in readings if r >= 0]
+    if not valid:
+        return "Lidar reports all sensors out of range."
+    lo = min(valid)
+    hi = max(valid)
+    return (
+        f"Lidar minimum is {lo:.1f} meters, maximum is {hi:.1f} meters "
+        f"across {len(valid)} of {len(readings)} sensors."
+    )
+
+
+def _verbal_ack(label: str) -> str:
+    """Format a set_* intent into the teammate's verbal-acknowledge template
+    with status='nominal'."""
+    from src.core.responder.templates import INTENT_RESPONSE_TEMPLATES
+    return INTENT_RESPONSE_TEMPLATES[label].format(value="nominal")
+
+
+def handle_set_cabin_cooling_on(command, cache, classification):
+    return _verbal_ack("set_cabin_cooling_on")
+
+
+def handle_set_cabin_cooling_off(command, cache, classification):
+    return _verbal_ack("set_cabin_cooling_off")
+
+
+def handle_set_cabin_heating_on(command, cache, classification):
+    return _verbal_ack("set_cabin_heating_on")
+
+
+def handle_set_cabin_heating_off(command, cache, classification):
+    return _verbal_ack("set_cabin_heating_off")
+
+
+def handle_set_lights_on(command, cache, classification):
+    return _verbal_ack("set_lights_on")
+
+
+def handle_set_lights_off(command, cache, classification):
+    return _verbal_ack("set_lights_off")
