@@ -19,7 +19,7 @@ import openwakeword
 
 log = logging.getLogger(__name__)
 
-DEFAULT_WAKEWORD = "hey_jarvis"
+DEFAULT_WAKEWORD = ["hey_corvus", "corvus"]
 
 
 def _resolve_wakeword_paths(names: list[str]) -> list[str]:
@@ -49,7 +49,7 @@ class WakeWordDetector:
     ) -> None:
         from openwakeword.model import Model
         if model_paths is None:
-            paths = _resolve_wakeword_paths(wakewords or [DEFAULT_WAKEWORD])
+            paths = _resolve_wakeword_paths(wakewords or DEFAULT_WAKEWORD)
         else:
             paths = model_paths
         log.info("Loading openWakeWord with %d model(s)", len(paths))
