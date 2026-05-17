@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -63,6 +64,10 @@ namespace CLAWS.Networking
 
         private KeywordRecognizer _wakeRecognizer;
         private string[] _wakeWords = new string[] {"hey corvus", "corvus"};
+
+        [Tooltip("Max seconds to keep recording after wake before giving up if VAD never fires.")]
+        [SerializeField] private float _recordingSafetyTimeoutSec = 6f;
+        private Coroutine _recordingTimeoutCo;
 
         // Server URL
         [SerializeField] private string _serverUrl = "ws://172.20.10.3:8765";
@@ -130,8 +135,39 @@ namespace CLAWS.Networking
         private void OnWakeWordDetected(PhraseRecognizedEventArgs args)
         {
             Debug.Log($"Wake word detected: {args.text}");
+
+            // Release the system speech service so Unity's Microphone API can own the mic.
+            // Without this, Microphone.Start returns a clip but the buffer is silent on HoloLens.
+            StopWakeRecognizer();
+
             OnWakeDetected?.Invoke();
             StartRecording();
+        }
+
+        private void StopWakeRecognizer()
+        {
+            try
+            {
+                if (_wakeRecognizer != null && _wakeRecognizer.IsRunning)
+                    _wakeRecognizer.Stop();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"StopWakeRecognizer failed: {ex.Message}");
+            }
+        }
+
+        private void RestartWakeRecognizer()
+        {
+            try
+            {
+                if (_wakeRecognizer != null && !_wakeRecognizer.IsRunning)
+                    _wakeRecognizer.Start();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"RestartWakeRecognizer failed: {ex.Message}");
+            }
         }
 
         private void HandleMessageReceived(string message)
@@ -151,7 +187,11 @@ namespace CLAWS.Networking
                 Debug.Log($"Parsed - intent: {response?.intent}, confidence: {response?.confidence}"); 
                 _networkOnlyLatency = (long)(_roundTripLatency - response.latency_ms);
 
-                UnityMainThreadDispatcher.Instance().Enqueue(() => StopRecording());
+                UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                {
+                    StopRecording();
+                    RestartWakeRecognizer();
+                });
 
                 // Latency (TTS now happens in CorvusARBridge after the dispatcher resolves the spoken text)
                 CorvusLatency clatency = new CorvusLatency();
@@ -173,11 +213,6 @@ namespace CLAWS.Networking
 
                 // Log to LMCC for mission coordination
                 LogToLMCC(_lastCommand, response.intent, response.confidence);
-
-                // UnityMainThreadDispatcher.Instance().Enqueue(() => {                                                                               
-                //     _wakeRecognizer.Stop();
-                //     _wakeRecognizer.Start();
-                // });
             }
             catch (Exception ex)
             {
@@ -238,11 +273,20 @@ namespace CLAWS.Networking
             {
                 _microphoneRecord.StartRecord();
                 Debug.Log("CORVUS: Recording started");
+
+                if (_recordingTimeoutCo != null) StopCoroutine(_recordingTimeoutCo);
+                _recordingTimeoutCo = StartCoroutine(RecordingSafetyTimeout());
             }
         }
 
         public void StopRecording()
         {
+            if (_recordingTimeoutCo != null)
+            {
+                StopCoroutine(_recordingTimeoutCo);
+                _recordingTimeoutCo = null;
+            }
+
             if(_microphoneRecord != null && _microphoneRecord.IsRecording)
             {
                 _microphoneRecord.StopRecord();
@@ -250,19 +294,45 @@ namespace CLAWS.Networking
             }
         }
 
+        // Guards against the "user said nothing after wake word" case where VAD never fires.
+        private IEnumerator RecordingSafetyTimeout()
+        {
+            yield return new WaitForSeconds(_recordingSafetyTimeoutSec);
+            if (_microphoneRecord != null && _microphoneRecord.IsRecording)
+            {
+                Debug.LogWarning("CORVUS: Recording safety timeout reached, stopping");
+                _microphoneRecord.StopRecord();
+            }
+            RestartWakeRecognizer();
+            _recordingTimeoutCo = null;
+        }
+
         // Whisper finishes recording -> transcribe -> send to Python
         private async void OnRecordStop(AudioChunk recordedAudio)
         {
-            var sw = System.Diagnostics.Stopwatch.StartNew();
-            var result = await _whisper.GetTextAsync(recordedAudio.Data, recordedAudio.Frequency, recordedAudio.Channels);
-            sw.Stop();
-            _sttLatency = sw.ElapsedMilliseconds;
-            if(result == null) return;
+            try
+            {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                var result = await _whisper.GetTextAsync(recordedAudio.Data, recordedAudio.Frequency, recordedAudio.Channels);
+                sw.Stop();
+                _sttLatency = sw.ElapsedMilliseconds;
 
-            Debug.Log($"CORVUS Transcription: {result.Result}");
-            
-            await SendCommandAsync(result.Result);
-            
+                if (result == null || string.IsNullOrWhiteSpace(result.Result))
+                {
+                    Debug.LogWarning("CORVUS: Empty transcription, skipping send");
+                    UnityMainThreadDispatcher.Instance().Enqueue(RestartWakeRecognizer);
+                    return;
+                }
+
+                Debug.Log($"CORVUS Transcription: {result.Result}");
+                await SendCommandAsync(result.Result);
+                // Note: happy-path restart happens in HandleMessageReceived once the server replies.
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"CORVUS OnRecordStop failed: {ex.Message}");
+                UnityMainThreadDispatcher.Instance().Enqueue(RestartWakeRecognizer);
+            }
         }
 
         // For Testing
