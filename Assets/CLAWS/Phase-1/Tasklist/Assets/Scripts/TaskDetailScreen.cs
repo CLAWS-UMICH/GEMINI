@@ -10,6 +10,8 @@ public class TaskDetailScreen : MonoBehaviour
     public GameObject taskDetailMenuRoot;
     public TextMeshPro titleText;
     public List<TextMeshPro> taskTexts;
+    public List<GameObject> mainMenuTaskItems;
+    private List<Vector3> slotPositions = new List<Vector3>();
 
     [Header("Colors")]
     public Color titleColor    = Color.white;
@@ -23,26 +25,37 @@ public class TaskDetailScreen : MonoBehaviour
     // First FIXED_GROUP_COUNT groups are the fixed procedure list. Anything appended
     // beyond that is a dynamic voice-created task (Add_task) and is the only kind
     // that Delete_task / Complete_task-by-name can remove.
-    const int FIXED_GROUP_COUNT = 3;
+    const int FIXED_GROUP_COUNT = 5; // Changed from 3 to 5
 
     readonly List<TaskGroup> groups = new List<TaskGroup>
     {
-        new TaskGroup("Exit Recovery Mode (ERM) (1/3)",
+        new TaskGroup("Exit Recovery Mode (ERM) (1/5)",
             "Get ERM steps from AIA",
             "Follow steps",
             "Wait for ERM confirmation",
             "Move to next task"),
 
-        new TaskGroup("System Diagnosis (2/3)",
+        new TaskGroup("System Diagnosis (2/5)",
             "Ask AIA to run diagnosis",
             "Do visual check",
             "Wait for results",
             "Follow fix instructions from AIA"),
 
-        new TaskGroup("System Restart (3/3)",
+        new TaskGroup("System Restart (3/5)",
             "Follow AIA restart steps",
             "Wait for completion",
             "Verify position data"),
+
+        // --- Hardcoded Task 4 --- 
+        new TaskGroup("Task 4 (4/5)",
+             "Do step 1",
+             "Do step 2",
+             "Do step 3"),
+
+        // --- Hardcoded Task 5 ---
+        new TaskGroup("Task 5 (5/5)",
+            "Do step 1",
+            "Do step 2")
     };
     // -------------------------------------------------------
 
@@ -53,6 +66,15 @@ public class TaskDetailScreen : MonoBehaviour
     {
         Debug.Log($"[TaskDetailScreen] Start called on '{gameObject.name}'");
         Debug.Log($"[TaskDetailScreen] titleText={(titleText == null ? "NULL" : titleText.name)}, taskTexts.Count={taskTexts.Count}");
+
+        if (mainMenuTaskItems != null)
+        {
+            foreach (GameObject btn in mainMenuTaskItems)
+            {
+                if (btn != null) slotPositions.Add(btn.transform.localPosition);
+            }
+        }
+
         ShowTaskMainMenu();
     }
 
@@ -106,6 +128,20 @@ public class TaskDetailScreen : MonoBehaviour
         if (nextCompleted >= activeGroup.tasks.Length)
         {
             // Close the detail menu only on the press AFTER all steps were completed.
+            
+            // Find out which task index we just finished
+            int currentTaskIndex = groups.IndexOf(activeGroup);
+
+            // Check if we have a matching main menu item for this index, and hide it
+            if (currentTaskIndex >= 0 && currentTaskIndex < mainMenuTaskItems.Count)
+            {
+                if (mainMenuTaskItems[currentTaskIndex] != null)
+                {
+                    mainMenuTaskItems[currentTaskIndex].SetActive(false);
+                    UpdateMainMenuLayout();
+                }
+            }
+
             ShowTaskMainMenu();
             return;
         }
@@ -246,7 +282,27 @@ public class TaskDetailScreen : MonoBehaviour
             }
         }
     }
+
+    public void UpdateMainMenuLayout()
+    {
+        int availableSlotIndex = 0;
+
+        for (int i = 0; i < mainMenuTaskItems.Count; i++)
+        {
+            GameObject button = mainMenuTaskItems[i];
+
+            if (button != null && button.activeSelf == true)
+            {
+                if (availableSlotIndex < slotPositions.Count)
+                {
+                    button.transform.localPosition = slotPositions[availableSlotIndex];
+                    availableSlotIndex++;
+                }
+            }
+        }
+    }
 }
+
 
 public class TaskGroup
 {
