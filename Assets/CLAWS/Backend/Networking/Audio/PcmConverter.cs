@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CLAWS.Audio
 {
@@ -30,6 +31,26 @@ namespace CLAWS.Audio
                 bytes[i * 2 + 1] = (byte)((value >> 8) & 0xFF);
             }
             return bytes;
+        }
+
+        /// <summary>
+        /// Split a sample buffer into fixed-size chunks. Drops any partial tail
+        /// shorter than chunkSize; the caller should accumulate the remainder
+        /// across calls if it needs lossless behavior.
+        /// </summary>
+        public static List<float[]> ChunkSamples(float[] samples, int chunkSize)
+        {
+            var chunks = new List<float[]>();
+            if (samples == null || chunkSize <= 0) return chunks;
+
+            int fullChunks = samples.Length / chunkSize;
+            for (int c = 0; c < fullChunks; c++)
+            {
+                var chunk = new float[chunkSize];
+                Array.Copy(samples, c * chunkSize, chunk, 0, chunkSize);
+                chunks.Add(chunk);
+            }
+            return chunks;
         }
     }
 }
