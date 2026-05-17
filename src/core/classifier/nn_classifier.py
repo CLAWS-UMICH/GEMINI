@@ -24,7 +24,7 @@ class NNClassifier:
         self.embedder = MiniLMEmbedder()
         self.model = IntentNN(num_intents=len(labels))
         if(model_path.exists()):
-            self.model.load_state_dict(torch.load(model_path, weights_only=True))
+            self.model.load_state_dict(torch.load(model_path, map_location="cpu", weights_only=True))
         self.model.eval()
         
     def classify(self, command):
