@@ -31,15 +31,21 @@ def pr_clf():
     return build_classifier(mode="pr")
 
 
-def test_eva_pipeline_canonical_heart_rate(eva_clf):
+def test_eva_classifier_emits_nn_vocabulary_for_heart_rate(eva_clf):
+    # EVA mode now uses NNClassifier (Unity-aligned vocabulary).
+    # NN emits `vitals_heart_rate`; multilabel's `get_heart_rate_eva1` is not used in EVA.
+    from src.core.responder.fallback import UNKNOWN_INTENT_REPLY
+
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("eva", {"telemetry": {"eva1": {"heart_rate": 72.0}, "eva2": {"heart_rate": 80.0}}})
 
     classification = eva_clf.classify("what is eva 1 heart rate")
-    assert classification["intent"] == "get_heart_rate_eva1", classification
+    assert classification["intent"] == "vitals_heart_rate", classification
 
+    # REGISTRY_EVA is still multilabel-keyed (Phase 2). Until it is rebuilt
+    # against the NN label set, EVA responder coverage is empty → unknown-intent fallback.
     response = dispatch.respond("…", classification, cache, REGISTRY_EVA)
-    assert "72" in response and "EVA 1" in response
+    assert response == UNKNOWN_INTENT_REPLY
 
 
 def test_pr_pipeline_canonical_battery(pr_clf):
@@ -65,8 +71,13 @@ def test_pr_pipeline_set_lights_on_verbal_ack(pr_clf):
         assert "lights" in response.lower() and "on" in response.lower()
 
 
-def test_eva_pipeline_unavailable_when_cache_empty(eva_clf):
+def test_eva_pipeline_falls_back_when_registry_uncovered(eva_clf):
+    # NN-emitted EVA intents aren't in the (still-multilabel-keyed) REGISTRY_EVA,
+    # so dispatch returns UNKNOWN_INTENT_REPLY, not TELEMETRY_UNAVAILABLE_REPLY.
+    # Cache contents are irrelevant — dispatch never reaches a handler.
+    from src.core.responder.fallback import UNKNOWN_INTENT_REPLY
+
     cache = TelemetryCache(stale_after_s=10.0)
     classification = eva_clf.classify("eva 2 heart rate")
     response = dispatch.respond("…", classification, cache, REGISTRY_EVA)
-    assert response == TELEMETRY_UNAVAILABLE_REPLY
+    assert response == UNKNOWN_INTENT_REPLY

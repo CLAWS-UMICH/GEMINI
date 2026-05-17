@@ -1,9 +1,11 @@
 """Classifier factory.
 
-Phase 1: returned NNClassifier (legacy MiniLM + 2-layer NN).
-Phase 2 (active): when models/multilabel/label2id.json is present,
-returns MultilabelClassifier with mode-aware label masking. Otherwise
-falls back to NNClassifier and logs a warning.
+Per-mode classifier selection:
+- EVA mode: always NNClassifier (Unity contract vocabulary — `vitals_*`,
+  `open_menu_*`, `Set_navigation_target`, etc.). The multilabel bundle's
+  EVA1/EVA2-split labels do not match Unity's expectations.
+- PR mode: MultilabelClassifier when models/multilabel/label2id.json is
+  present; falls back to NNClassifier otherwise.
 
 See: docs/superpowers/specs/2026-05-14-corvus-dual-mode-voice-and-model-swap-design.md §7
 """
@@ -31,17 +33,25 @@ def _build_multilabel(multilabel_dir: Path, mode: Literal["eva", "pr"]) -> Class
     return MultilabelClassifier(multilabel_dir, mode=mode)
 
 
-def build_classifier(mode: Literal["eva", "pr"]) -> ClassifierProtocol:
-    multilabel_dir = MODELS_DIR / "multilabel"
-    if (multilabel_dir / "label2id.json").exists():
-        log.info("multilabel sidecars present at %s; building MultilabelClassifier (mode=%s)",
-                 multilabel_dir, mode)
-        return _build_multilabel(multilabel_dir, mode)
-
-    log.warning(
-        "multi-label sidecars missing at %s; using legacy NN classifier (mode=%s)",
-        multilabel_dir, mode,
-    )
+def _build_nn() -> ClassifierProtocol:
     with open(TRAINING_DATA_PATH) as f:
         labels = [intent["label"] for intent in json.load(f)["intents"]]
     return NNClassifier(labels, NN_MODEL_PATH)
+
+
+def build_classifier(mode: Literal["eva", "pr"]) -> ClassifierProtocol:
+    if mode == "eva":
+        log.info("EVA mode: building NNClassifier (Unity-aligned vocabulary)")
+        return _build_nn()
+
+    multilabel_dir = MODELS_DIR / "multilabel"
+    if (multilabel_dir / "label2id.json").exists():
+        log.info("PR mode: multilabel sidecars present at %s; building MultilabelClassifier",
+                 multilabel_dir)
+        return _build_multilabel(multilabel_dir, mode)
+
+    log.warning(
+        "PR mode: multilabel sidecars missing at %s; falling back to NNClassifier",
+        multilabel_dir,
+    )
+    return _build_nn()
