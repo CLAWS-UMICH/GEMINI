@@ -1,97 +1,121 @@
 using System;
-using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using CLAWS.Networking;
 
 namespace CLAWS.Testing
 {
+    /// <summary>
+    /// Play-mode keyboard harness (keys 1–9). Sends natural-language phrases to the Python
+    /// NLU server via <see cref="CorvusController"/>, same as a voice transcript — the model
+    /// classifies the intent and <see cref="CorvusARBridge"/> executes it.
+    /// </summary>
     public class CorvusTest : MonoBehaviour
     {
-        // Reference to CorvusController
         [SerializeField] private CorvusController _corvusController;
 
-        // Test commands
-        private readonly string[] _testCommands = new string[]
+        [Tooltip("If true and Python is unreachable, fall back to CorvusARBridge.SimulateIntent (skips NLU).")]
+        [SerializeField] private bool _simulateWhenDisconnected;
+
+        [SerializeField] private CorvusARBridge _corvusARBridge;
+
+        [Header("Phrases use these slot values (keys 3–6)")]
+        [SerializeField] private string _navTargetName = "EV2";
+        [SerializeField] private string _waypointName = "Voice Test Alpha";
+        [SerializeField] private string _taskName = "Inspect solar panel";
+
+        // Phrases mirror example prompts from the AIA intent spec (easier NLU match).
+        string[] VoicePhrases => new[]
         {
-            "check my vitals",              // 1
-            "show me the map",              // 2
-            "navigate to the LTV",          // 3
-            "reroute around that crater",   // 4
-            "start egress",                 // 5
-            "start ERM",                    // 6
-            "run diagnostics on the LTV",   // 7
-            "what's my temperature",        // 8 
-            "what's the cabin temperature", // 9
-            "check my primary fan",         // 0
+            "Open vitals menu",                                              // 1  open_menu_vitals
+            "What is my heart rate?",                                        // 2  vitals_heart_rate
+            $"Set destination to {_navTargetName}",                            // 3  Set_navigation_target
+            $"Add waypoint {_waypointName}",                                   // 4  Add_waypoint
+            $"Add task: {_taskName}",                                          // 5  Add_task
+            $"Delete task {_taskName}",                                        // 6  Delete_task
+            "Open task list",                                                // 7  open_menu_tasks
+            "What are the current warnings?",                                // 8  get_warnings
+            "Close menu",                                                    // 9  close_menu
         };
 
         private void Update()
         {
-            if(_corvusController == null || !_corvusController.IsConnected)
+            if (_corvusController == null)
             {
-                return;
+                _corvusController = FindObjectOfType<CorvusController>();
+                if (_corvusController == null) return;
             }
 
             var keyboard = Keyboard.current;
-            if(keyboard == null) return;
+            if (keyboard == null) return;
 
-            // 1-5 send test commands
-            if(keyboard.digit1Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(0);    // "check my vitals"
-            } else if (keyboard.digit2Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(1);    // "show me the map"
-            } else if (keyboard.digit3Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(2);    // "navigate to the LTV"
-            } else if (keyboard.digit4Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(3);    // "reroute around that crater"
-            } else if (keyboard.digit5Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(4);    // "start egress"
-            } else if (keyboard.digit6Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(5);    // "start ERM"
-            } else if (keyboard.digit7Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(6);    // "run diagnostics on the LTV"
-            } else if (keyboard.digit8Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(7);    // "what's my temperature"
-            } else if (keyboard.digit9Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(8);    // "what's the cabin temperature"
-            } else if (keyboard.digit0Key.wasPressedThisFrame)
-            {
-                _ = SendTestCommandAsync(9);    // "check my primary fan"
-            }
+            if (keyboard.digit1Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(0);
+            else if (keyboard.digit2Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(1);
+            else if (keyboard.digit3Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(2);
+            else if (keyboard.digit4Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(3);
+            else if (keyboard.digit5Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(4);
+            else if (keyboard.digit6Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(5);
+            else if (keyboard.digit7Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(6);
+            else if (keyboard.digit8Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(7);
+            else if (keyboard.digit9Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(8);
         }
 
-        private async Task SendTestCommandAsync(int commandIndex)
+        async Task SendVoicePhraseAsync(int index)
         {
-            // Validate index
-            if(commandIndex < 0 || commandIndex >= _testCommands.Length)
+            if (index < 0 || index >= VoicePhrases.Length) return;
+
+            string phrase = VoicePhrases[index];
+            Debug.Log($"[CORVUS][KeyboardVoice] Sending transcript: \"{phrase}\"");
+
+            if (_corvusController.IsConnected)
             {
-                Debug.LogError($"Invalid command index: {commandIndex}");
+                try
+                {
+                    await _corvusController.SendCommandAsync(phrase);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"[CORVUS][KeyboardVoice] Send failed: {ex.Message}");
+                }
                 return;
             }
 
-            _corvusController.TriggerWakeDetected();
+            Debug.LogWarning("[CORVUS][KeyboardVoice] Python server not connected (ws://localhost:8765). Start the NLU server or enable Simulate When Disconnected.");
 
-            string command = _testCommands[commandIndex];
+            if (!_simulateWhenDisconnected) return;
 
-            try
+            if (_corvusARBridge == null)
+                _corvusARBridge = FindObjectOfType<CorvusARBridge>();
+
+            if (_corvusARBridge == null)
             {
-                Debug.Log($"[TEST] Sending command: {command}");
-                await _corvusController.SendCommandAsync(command);
+                Debug.LogError("[CORVUS][KeyboardVoice] No CorvusARBridge for fallback simulation.");
+                return;
             }
-            catch (Exception ex)
+
+            // Offline fallback only — production path is always SendCommandAsync above.
+            SimulateFallback(index, phrase);
+        }
+
+        void SimulateFallback(int index, string phrase)
+        {
+            switch (index)
             {
-                Debug.LogError($"[TEST] Failed to send command: {ex.Message}");
+                case 0: _corvusARBridge.SimulateIntent("open_menu_vitals", responseText: phrase); break;
+                case 1: _corvusARBridge.SimulateIntent("vitals_heart_rate", responseText: phrase); break;
+                case 2: _corvusARBridge.SimulateIntent("Set_navigation_target", Nav(_navTargetName), phrase); break;
+                case 3: _corvusARBridge.SimulateIntent("Add_waypoint", Waypoint(_waypointName), phrase); break;
+                case 4: _corvusARBridge.SimulateIntent("Add_task", Task(_taskName), phrase); break;
+                case 5: _corvusARBridge.SimulateIntent("Delete_task", Task(_taskName), phrase); break;
+                case 6: _corvusARBridge.SimulateIntent("open_menu_tasks", responseText: phrase); break;
+                case 7: _corvusARBridge.SimulateIntent("get_warnings", responseText: phrase); break;
+                case 8: _corvusARBridge.SimulateIntent("close_menu", responseText: phrase); break;
             }
         }
+
+        static IntentParameters Nav(string name) => new IntentParameters { NAVIGATION_TARGET_NAME = name };
+        static IntentParameters Waypoint(string name) => new IntentParameters { WAYPOINT_NAME = name };
+        static IntentParameters Task(string name) => new IntentParameters { TASK_NAME = name };
     }
 }

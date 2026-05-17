@@ -16,6 +16,15 @@ namespace CLAWS.Networking
         public string command;
     }
     [System.Serializable]
+    public class IntentParameters
+    {
+        public string COORDINATE_TARGET_NAME;
+        public string NAVIGATION_TARGET_NAME;
+        public string WAYPOINT_NAME;
+        public string TASK_NAME;
+    }
+
+    [System.Serializable]
     public class IntentResponse
     {
         public string status;
@@ -26,6 +35,7 @@ namespace CLAWS.Networking
         public float latency_ms;
         public string timestamp; 
         public string response;
+        public IntentParameters parameters;
     }
     public class CorvusLatency 
     {
@@ -55,7 +65,7 @@ namespace CLAWS.Networking
         private string[] _wakeWords = new string[] {"hey corvus", "corvus"};
 
         // Server URL
-        [SerializeField] private string _serverUrl = "ws://localhost:8765";
+        [SerializeField] private string _serverUrl = "ws://172.20.10.3:8765";
         [SerializeField] private CorvusTTS _corvusTTS;
         [SerializeField] private LMCCWebSocketClient _lmcc;
         [SerializeField] private WhisperManager _whisper;
@@ -66,6 +76,7 @@ namespace CLAWS.Networking
 
         // Fire event (received from Python)
         public event Action<string, float, string, CorvusLatency> OnIntentReceived;
+        public event Action<IntentResponse, CorvusLatency> OnIntentResponseReceived;
         public event Action OnWakeDetected;
 
         private async void Start()
@@ -101,27 +112,6 @@ namespace CLAWS.Networking
             }
         }
 
-        private string GetResponseForIntent(string intent, float confidence)
-        {
-            switch(intent)
-            {
-                case "open_menu_vitals":
-                    return "Checking your vitals now.";
-                case "navigate_to_airlock":
-                    return "Navigating to airlock.";
-                case "check_oxygen_level":
-                    return "Checking oxygen level.";
-                case "check_battery":
-                    return "Checking battery status.";
-                case "emergency_abort":
-                    return "Emergency abort initiated!";
-                default:
-                    if (confidence < 0.5f)
-                        return "Sorry, I didn't understand. Please repeat.";
-                    return $"Processing {intent.Replace("_", " ")}.";
-            }
-        }
-
         private void SetupWakeWord()
         {
             try
@@ -144,7 +134,7 @@ namespace CLAWS.Networking
             StartRecording();
         }
 
-        private async void HandleMessageReceived(string message)
+        private void HandleMessageReceived(string message)
         {
             try
             {
@@ -163,14 +153,7 @@ namespace CLAWS.Networking
 
                 UnityMainThreadDispatcher.Instance().Enqueue(() => StopRecording());
 
-                // Speak the response
-                if (_corvusTTS != null)
-                {
-                    string spokenText = GetResponseForIntent(response.intent, response.confidence);
-                    _ttsLatency = await _corvusTTS.Speak(spokenText);
-                }
-
-                // Latency
+                // Latency (TTS now happens in CorvusARBridge after the dispatcher resolves the spoken text)
                 CorvusLatency clatency = new CorvusLatency();
                 clatency.STT = _sttLatency;
                 clatency.classification = (long)(response.latency_ms);
@@ -179,8 +162,12 @@ namespace CLAWS.Networking
                 clatency.TTS = _ttsLatency;
                 clatency.total = _sttLatency + _roundTripLatency + _ttsLatency;
 
-                // Event to notify UI
-                OnIntentReceived?.Invoke(response.intent, response.confidence, response.response, clatency);
+                // Events to notify UI / bridge (legacy 4-arg kept for back-compat)
+                UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                {
+                    OnIntentReceived?.Invoke(response.intent, response.confidence, response.response, clatency);
+                    OnIntentResponseReceived?.Invoke(response, clatency);
+                });
 
                 Debug.Log($"Intent: {response.intent}, Confidence: {response.confidence}, Latency: {response.latency_ms}ms");
 

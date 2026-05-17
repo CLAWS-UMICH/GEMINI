@@ -23,12 +23,6 @@ public class SuitHelmetRingHealthColors : MonoBehaviour
     }
 
     [SerializeField] private RingBinding[] rings;
-    [SerializeField] [Range(0.05f, 0.45f)] private float bandWarningFraction = 0.15f;
-    [SerializeField] [Range(0.5f, 0.95f)] private float ceilingWarningFraction = 0.7f;
-
-    private static readonly Color Good = new Color(0.2f, 0.85f, 0.25f, 1f);
-    private static readonly Color Warn = new Color(0.95f, 0.85f, 0.15f, 1f);
-    private static readonly Color Bad = new Color(0.95f, 0.2f, 0.2f, 1f);
 
     private Subscription<UpdatedVitalsEvent> vitalsSubscription;
 
@@ -68,7 +62,7 @@ public class SuitHelmetRingHealthColors : MonoBehaviour
         foreach (RingBinding rb in rings)
         {
             if (rb.ring != null)
-                ApplyColor(rb.ring, Good);
+                VitalsUiTrafficColors.ApplyRingColor(rb.ring, VitalsUiTrafficColors.Good);
         }
     }
 
@@ -81,7 +75,7 @@ public class SuitHelmetRingHealthColors : MonoBehaviour
             if (rb.ring == null)
                 continue;
             float value = GetValue(rb.metric, v);
-            ApplyColor(rb.ring, Evaluate(rb.metric, value));
+            VitalsUiTrafficColors.ApplyRingColor(rb.ring, Evaluate(rb.metric, value));
         }
     }
 
@@ -109,49 +103,17 @@ public class SuitHelmetRingHealthColors : MonoBehaviour
         switch (metric)
         {
             case HelmetRingMetric.SuitPressureTotal:
-                return EvaluateBand(value, VitalsNominalLimits.SuitPresTotalMin, VitalsNominalLimits.SuitPresTotalMax);
+                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.SuitPresTotalMin, VitalsNominalLimits.SuitPresTotalMax);
             case HelmetRingMetric.SuitPressureOxy:
-                return EvaluateBand(value, VitalsNominalLimits.SuitPresOxyMin, VitalsNominalLimits.SuitPresOxyMax);
+                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.SuitPresOxyMin, VitalsNominalLimits.SuitPresOxyMax);
             case HelmetRingMetric.SuitPressureCo2:
-                return EvaluateCeiling(value, VitalsNominalLimits.SuitPresCo2Max);
+                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.SuitPresCo2Max);
             case HelmetRingMetric.HelmetPressureCo2:
-                return EvaluateCeiling(value, VitalsNominalLimits.HelmetPresCo2Max);
+                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.HelmetPresCo2Max);
             case HelmetRingMetric.SuitPressureOther:
-                return EvaluateCeiling(value, VitalsNominalLimits.SuitPresOtherMax);
+                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.SuitPresOtherMax);
             default:
-                return Good;
+                return VitalsUiTrafficColors.Good;
         }
-    }
-
-    private Color EvaluateBand(float value, float min, float max)
-    {
-        if (value < min || value > max)
-            return Bad;
-        float span = max - min;
-        if (span <= 0f)
-            return Good;
-        float margin = bandWarningFraction * span;
-        if (value < min + margin || value > max - margin)
-            return Warn;
-        return Good;
-    }
-
-    private Color EvaluateCeiling(float value, float max)
-    {
-        if (max <= 0f)
-            return value > 0f ? Bad : Good;
-        if (value > max)
-            return Bad;
-        if (value > ceilingWarningFraction * max)
-            return Warn;
-        return Good;
-    }
-
-    private static void ApplyColor(SpriteRenderer sr, Color c)
-    {
-        sr.color = c;
-        Material mat = sr.material;
-        if (mat != null && mat.HasProperty("_Color"))
-            mat.SetColor("_Color", c);
     }
 }
