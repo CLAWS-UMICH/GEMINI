@@ -65,7 +65,7 @@ namespace CLAWS.Networking
         private string[] _wakeWords = new string[] {"hey corvus", "corvus"};
 
         // Server URL
-        [SerializeField] private string _serverUrl = "ws://localhost:8765";
+        [SerializeField] private string _serverUrl = "ws://172.20.10.3:8765";
         [SerializeField] private CorvusTTS _corvusTTS;
         [SerializeField] private LMCCWebSocketClient _lmcc;
         [SerializeField] private WhisperManager _whisper;

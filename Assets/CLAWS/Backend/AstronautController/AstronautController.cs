@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Rendering;
 using System.Numerics;
 using Unity.Collections.LowLevel.Unsafe;
 // using GLTFast.Schema;
