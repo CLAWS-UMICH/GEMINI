@@ -15,7 +15,7 @@ def new_state(config_path: str | Path | None = None) -> dict:
     config = json.loads(path.read_text(encoding="utf-8"))
     return {
         "metrics": config["metrics"],
-        "forecast_alert_stages_sec": sorted(float(value) for value in config["forecast_alert_stages_sec"]),
+        "forecast_alert_stages_sec": sorted(float(value) for value in config.get("forecast_alert_stages_sec", [])),
         "history": defaultdict(deque),
         "sent_forecast_stages": set(),
         "path_eta_sec": None,
@@ -27,19 +27,22 @@ def new_state(config_path: str | Path | None = None) -> dict:
 # -----------------------------
 def process_packet(state: dict, packet: dict) -> list[dict]:
     telemetry = packet.get("pr_telemetry", packet)
-    timestamp = float(telemetry.get("rover_elapsed_time", packet.get("mission_elapsed_time", time.monotonic())))
+    timestamp = _parse_timestamp(telemetry, packet)
     alerts = []
 
     for metric, spec in state["metrics"].items():
         if metric not in telemetry:
             continue
 
-        value = float(telemetry[metric])
+        try:
+            value = float(telemetry[metric])
+        except (TypeError, ValueError):
+            continue
         path_eta_sec = state["path_eta_sec"]
-        if "min" in spec and value < float(spec["min"]):
-            alerts.append(make_alert("OUT_OF_BOUNDS", metric, value, "LOW", float(spec["min"]), 0.0, timestamp, path_eta_sec, spec))
-        if "max" in spec and value > float(spec["max"]):
-            alerts.append(make_alert("OUT_OF_BOUNDS", metric, value, "HIGH", float(spec["max"]), 0.0, timestamp, path_eta_sec, spec))
+        threshold_result = evaluate_threshold(metric, value, spec)
+        if threshold_result is not None:
+            severity, breach, threshold = threshold_result
+            alerts.append(make_alert(severity, metric, value, breach, threshold, timestamp, spec))
         if not spec.get("forecast", False):
             continue
 
@@ -75,9 +78,42 @@ def process_packet(state: dict, packet: dict) -> list[dict]:
             severity = "CRITICAL_PATH"
         else:
             severity = "PREDICTIVE"
-        alerts.append(make_alert(severity, metric, value, breach, threshold, eta_sec, timestamp, path_eta_sec, spec, stage_sec))
+        alerts.append(make_forecast_alert(severity, metric, value, breach, threshold, eta_sec, timestamp, path_eta_sec, spec, stage_sec))
 
     return alerts
+
+
+def evaluate_threshold(metric: str, value: float, spec: dict) -> tuple[str, str, float] | None:
+    warning_low = _number_or_none(spec.get("warning_low", spec.get("min")))
+    warning_high = _number_or_none(spec.get("warning_high", spec.get("max")))
+    caution_low = _number_or_none(spec.get("caution_low"))
+    caution_high = _number_or_none(spec.get("caution_high"))
+
+    if warning_low is not None and value <= warning_low:
+        return "WARNING", "LOW", warning_low
+    if warning_high is not None and value >= warning_high:
+        return "WARNING", "HIGH", warning_high
+    if caution_low is not None and value <= caution_low:
+        return "CAUTION", "LOW", caution_low
+    if caution_high is not None and value >= caution_high:
+        return "CAUTION", "HIGH", caution_high
+    return None
+
+
+def _number_or_none(value) -> float | None:
+    if value is None:
+        return None
+    return float(value)
+
+
+def _parse_timestamp(telemetry: dict, packet: dict) -> float:
+    raw = telemetry.get("rover_elapsed_time", packet.get("mission_elapsed_time"))
+    if raw is None:
+        return time.monotonic()
+    try:
+        return float(raw)
+    except (TypeError, ValueError):
+        return time.monotonic()
 
 
 def best_fit_slope(points: list[tuple[float, float]]) -> float:
@@ -90,7 +126,23 @@ def best_fit_slope(points: list[tuple[float, float]]) -> float:
     return 0.0 if denom == 0.0 else (n * sxy - sx * sy) / denom
 
 
-def make_alert(severity: str, metric: str, value: float, breach: str, threshold: float, eta_sec: float, timestamp: float, path_eta_sec: float | None, spec: dict, stage_sec: float | None = None) -> dict:
+def make_alert(severity: str, metric: str, value: float, breach: str, threshold: float, timestamp: float, spec: dict, eta_sec: float | None = None, eta_status: str = "UNKNOWN") -> dict:
+    alert = {
+        "severity": severity,
+        "metric": metric,
+        "value": value,
+        "breach": breach,
+        "threshold": threshold,
+        "unit": spec.get("unit", ""),
+        "timestamp": timestamp,
+    }
+    if eta_sec is not None:
+        alert["eta_sec"] = eta_sec
+        alert["eta_status"] = eta_status
+    return alert
+
+
+def make_forecast_alert(severity: str, metric: str, value: float, breach: str, threshold: float, eta_sec: float, timestamp: float, path_eta_sec: float | None, spec: dict, stage_sec: float | None = None) -> dict:
     return {
         "severity": severity,
         "metric": metric,

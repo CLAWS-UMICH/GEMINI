@@ -33,9 +33,16 @@ def main() -> None:
 
     if not use_udp:
         backend = backend_bridge.connect(BACKEND_URL)
+
+        def handle_alert(alert: dict) -> None:
+            recommendation = aia.recommend_procedure(alert)
+            if recommendation is not None:
+                alert = {**alert, "procedure": recommendation}
+            backend_bridge.send_alert(backend, alert)
+
         alert_runner = alerts.start(
             {"backend_url": BACKEND_URL},
-            lambda alert: backend_bridge.send_alert(backend, alert),
+            handle_alert,
         )
         aia_runner = aia.start({"backend_url": BACKEND_URL})
 
