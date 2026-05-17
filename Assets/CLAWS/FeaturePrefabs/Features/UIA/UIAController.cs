@@ -21,6 +21,10 @@ public class UIAController : MonoBehaviour
 
     public List<string> EgressSteps = new List<string>();
     public List<string> IngressSteps = new List<string>();
+
+    [Header("Per-step QR overlay prefabs (index-aligned with steps; leave slot empty to hide overlay)")]
+    public List<GameObject> EgressOverlays = new List<GameObject>();
+    public List<GameObject> IngressOverlays = new List<GameObject>();
     private bool egressComplete = false;
     private int counter = 0;
     private bool stepsInitialized = false;
@@ -79,7 +83,7 @@ public class UIAController : MonoBehaviour
 
         EgressSteps.Add("On the DCU Panel, verify that OXYGEN is set to PRIMARY");
         EgressSteps.Add("On the DCU Panel, verify that COMMS are set to A");
-        EgressSteps.Add("On the DCU Pane, verify that FAN is set to PRIMARY");
+        EgressSteps.Add("On the DCU Panel, verify that FAN is set to PRIMARY");
         EgressSteps.Add("On the DCU Panel, verify that PUMP is CLOSED");
         EgressSteps.Add("On the DCU Panel, verify that CO2 is set to A");
         EgressSteps.Add("Disconnect the umbilical cord from the DCU and UIA Panel");
@@ -195,7 +199,6 @@ public class UIAController : MonoBehaviour
         {
             DisplayCurrentEgressStep();
         }
-        uiaOverlayPrefabChanger?.PreviousPrefab();
     }
 
     public void NextStep()
@@ -208,19 +211,28 @@ public class UIAController : MonoBehaviour
         {
             AdvanceEgress();
         }
-        uiaOverlayPrefabChanger?.NextPrefab();
     }
 
     void DisplayCurrentEgressStep()
     {
         stepNumber.text = (counter + 1).ToString();
         stepText.text = EgressSteps[counter];
+        UpdateOverlayForStep(EgressOverlays);
     }
 
     void DisplayCurrentIngressStep()
     {
         stepNumber.text = (counter + 1).ToString();
         stepText.text = IngressSteps[counter];
+        UpdateOverlayForStep(IngressOverlays);
+    }
+
+    void UpdateOverlayForStep(List<GameObject> overlays)
+    {
+        if (uiaOverlayPrefabChanger == null) return;
+        GameObject prefab = (overlays != null && counter >= 0 && counter < overlays.Count) ? overlays[counter] : null;
+        if (prefab == null) uiaOverlayPrefabChanger.ClearPrefab();
+        else uiaOverlayPrefabChanger.SetPrefab(prefab);
     }
 
     void AdvanceEgress()
