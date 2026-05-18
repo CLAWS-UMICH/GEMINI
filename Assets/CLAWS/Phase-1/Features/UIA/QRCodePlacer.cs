@@ -64,6 +64,14 @@ public class QRCodePlacer : MonoBehaviour
         }
         ARMarkerManager.Instance.markersChanged += OnMarkersChanged;
         Log("OnEnable: Subscribed to markersChanged.");
+
+        // If we re-entered UIA mode and still have a tracked marker from a prior session,
+        // re-fire OnQrLocked so downstream listeners (e.g. PrefabChanger) can rebind.
+        if (trackedMarker != null)
+        {
+            Log("OnEnable: Reusing previously tracked marker — re-firing OnQrLocked.");
+            OnQrLocked?.Invoke();
+        }
     }
 
     private void OnDisable()
