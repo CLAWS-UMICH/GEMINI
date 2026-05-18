@@ -26,7 +26,8 @@ def test_every_template_contains_value_placeholder():
         assert "{value}" in template, f"{label!r}: {template!r}"
 
 
-def test_template_count_matches_88_labels():
+def test_template_count_matches_expected():
+    """88 multilabel-era entries + 34 NN-classifier entries (22 vitals_* + 11 lowercase get_* + get_co2_scrubber)."""
     from src.core.responder.templates import INTENT_RESPONSE_TEMPLATES
 
-    assert len(INTENT_RESPONSE_TEMPLATES) == 88
+    assert len(INTENT_RESPONSE_TEMPLATES) == 122

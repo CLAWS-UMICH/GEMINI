@@ -46,8 +46,8 @@ def test_stale_cache_returns_unavailable():
     from src.core.responder.registry_eva import REGISTRY_EVA
 
     cache = TelemetryCache(stale_after_s=10.0)
-    result = REGISTRY_EVA["get_heart_rate_eva1"](
-        "hi", cache, {"intent": "get_heart_rate_eva1", "confidence": 0.94}
+    result = REGISTRY_EVA["vitals_heart_rate"](
+        "hi", cache, {"intent": "vitals_heart_rate", "confidence": 0.94}
     )
     assert result == TELEMETRY_UNAVAILABLE_REPLY
 
@@ -58,7 +58,12 @@ def test_stale_cache_returns_unavailable():
 
 
 def test_registry_eva_heart_rate_reads_eva1():
-    """Live-shape regression: telemetry.eva1.heart_rate is the canonical path."""
+    """Live-shape regression: telemetry.eva1.heart_rate is the canonical path.
+
+    EVA's NN classifier emits `vitals_heart_rate`; the registry routes it to
+    telemetry.eva1.<field>. The eva2 leg is unreachable from a single label
+    (NN has no eva1/eva2 split — that distinction was a multilabel-era addition).
+    """
     from src.core.responder.registry_eva import REGISTRY_EVA
 
     cache = TelemetryCache(stale_after_s=10.0)
@@ -68,10 +73,10 @@ def test_registry_eva_heart_rate_reads_eva1():
             "eva2": {"heart_rate": 90.0},
         },
     })
-    result = REGISTRY_EVA["get_heart_rate_eva1"](
-        "hi", cache, {"intent": "get_heart_rate_eva1", "confidence": 0.9}
+    result = REGISTRY_EVA["vitals_heart_rate"](
+        "hi", cache, {"intent": "vitals_heart_rate", "confidence": 0.9}
     )
-    assert "78.4" in result and "EVA 1" in result
+    assert "78.4" in result and "heart rate" in result.lower()
 
 
 def test_registry_pr_battery_level_reads_pr_telemetry():
