@@ -9,6 +9,13 @@ public class PrefabChanger : MonoBehaviour
     [Tooltip("Optional. Auto-found on this GameObject / parent if not set.")]
     public QRCodePlacer qrPlacer;
 
+    [Header("Orientation")]
+    [Tooltip("If true, the spawned prefab rotates each frame to face the user's camera, ignoring the QR's rotation.")]
+    public bool faceCamera = true;
+
+    [Tooltip("If true, the billboard ignores camera pitch (keeps the prefab upright).")]
+    public bool lockVerticalAxis = true;
+
     private GameObject currentInstantiatedPrefab;
     private GameObject pendingPrefab;
     private bool qrLocked;
@@ -76,6 +83,13 @@ public class PrefabChanger : MonoBehaviour
         if (prefab == null || overlayTarget == null) return;
         currentInstantiatedPrefab = Instantiate(prefab);
         currentInstantiatedPrefab.transform.SetParent(overlayTarget, worldPositionStays: false);
+
+        if (faceCamera)
+        {
+            var fc = currentInstantiatedPrefab.GetComponent<FaceCamera>();
+            if (fc == null) fc = currentInstantiatedPrefab.AddComponent<FaceCamera>();
+            fc.lockVertical = lockVerticalAxis;
+        }
     }
 
     private void DestroyCurrent()
