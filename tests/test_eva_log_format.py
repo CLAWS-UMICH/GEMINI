@@ -1,7 +1,4 @@
 import logging
-import sys
-
-import pytest
 
 from src.modes.eva.log_format import (
     EVENT_COLORS,
@@ -130,4 +127,28 @@ def test_configure_eva_logging_silences_faster_whisper_at_debug_when_root_is_inf
         for h in original_handlers:
             root.addHandler(h)
         root.setLevel(original_level)
+        logging.getLogger("faster_whisper").setLevel(original_fw)
+
+
+def test_configure_eva_logging_is_idempotent(monkeypatch):
+    monkeypatch.delenv("EVA_LOG_LEVEL", raising=False)
+    root = logging.getLogger()
+    original_handlers = list(root.handlers)
+    original_level = root.level
+    original_fw = logging.getLogger("faster_whisper").level
+    try:
+        for h in list(root.handlers):
+            root.removeHandler(h)
+        configure_eva_logging()
+        configure_eva_logging()
+        configure_eva_logging()
+        eva_handlers = [h for h in root.handlers if isinstance(h.formatter, EvaColorFormatter)]
+        assert len(eva_handlers) == 1
+    finally:
+        for h in list(root.handlers):
+            root.removeHandler(h)
+        for h in original_handlers:
+            root.addHandler(h)
+        root.setLevel(original_level)
+        logging.getLogger("faster_whisper").setLevel(original_fw)
         logging.getLogger("faster_whisper").setLevel(original_fw)

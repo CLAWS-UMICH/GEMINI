@@ -92,9 +92,16 @@ def _resolve_level(value: str | None) -> int:
 def configure_eva_logging() -> None:
     """Install the EVA color formatter on the root logger.
 
-    Idempotent in spirit but not by design: callers must invoke once at
-    startup before other modules log. Reads EVA_LOG_LEVEL (default INFO)
-    and pushes faster_whisper's chatty INFO output down to WARNING.
+    Idempotent: existing root handlers are removed before the EVA handler is
+    installed, so callers may invoke this more than once (test fixtures,
+    re-entrant startup paths) without stacking duplicate handlers.
+
+    Reads ``EVA_LOG_LEVEL`` (default ``INFO``). Standard Python level *names*
+    are accepted (``DEBUG``/``INFO``/``WARNING``/``ERROR``/``CRITICAL``);
+    numeric strings are rejected with a warning and treated as INFO. When the
+    resolved level is above DEBUG, the chatty ``faster_whisper`` logger is
+    pushed to WARNING so per-transcription "Processing audio with duration"
+    lines stay out of the default output.
     """
     level = _resolve_level(os.getenv("EVA_LOG_LEVEL"))
 
@@ -102,6 +109,8 @@ def configure_eva_logging() -> None:
     handler.setFormatter(EvaColorFormatter())
 
     root = logging.getLogger()
+    for existing in list(root.handlers):
+        root.removeHandler(existing)
     root.setLevel(level)
     root.addHandler(handler)
 
