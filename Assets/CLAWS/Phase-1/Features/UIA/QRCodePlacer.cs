@@ -14,7 +14,7 @@ public class QRCodePlacer : MonoBehaviour
     [SerializeField] private float smoothing = 0.8f;
 
     [Tooltip("If true, stop updating pose after the QR is first locked.")]
-    [SerializeField] private bool lockAfterFirstDetection = false;
+    [SerializeField] private bool lockAfterFirstDetection = true;
 
     [Header("Debug")]
     [Tooltip("Log every detected marker and per-frame status. Turn off for production.")]
