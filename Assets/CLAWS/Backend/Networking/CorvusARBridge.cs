@@ -261,6 +261,8 @@ public class CorvusARBridge : MonoBehaviour
         void Check(bool bad, string msg) { if (bad) warnings.Add(msg); }
 
         Check(v.batt_time_left < VitalsNominalLimits.BattTimeMin, "battery time remaining is low");
+        Check(v.primary_battery_level < VitalsNominalLimits.BattLevelMin, "primary battery level is low");
+        Check(v.secondary_battery_level < VitalsNominalLimits.BattLevelMin, "secondary battery level is low");
         Check(v.oxy_pri_storage < VitalsNominalLimits.OxyStorMin, "primary oxygen storage is low");
         Check(v.oxy_sec_storage < VitalsNominalLimits.OxyStorMin, "secondary oxygen storage is low");
 

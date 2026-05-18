@@ -2566,7 +2566,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5a8041cf8a74aa8b5c363cf442115b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadialWedgeHighlight
-  gazeHighlightColor: {r: 1, g: 1, b: 1, a: 1}
+  gazeHighlightColor:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
 --- !u!1 &208423064
 GameObject:
   m_ObjectHideFlags: 0
@@ -14694,18 +14698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06574d87fad0344fb88442ece775239e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrefabChanger
-  prefabs:
-  - {fileID: 4283311902487950489, guid: 9400aae8b82b14c2984cb418e3d2014e, type: 3}
-  - {fileID: 4283311902487950489, guid: e7434f14533c34decaca071fbae48e15, type: 3}
-  - {fileID: 4283311902487950489, guid: 096bb9ee51b1f48bc9457c5ef05d4348, type: 3}
-  - {fileID: 4283311902487950489, guid: eddec425fd5a94007815aa7699b37f8d, type: 3}
-  - {fileID: 4283311902487950489, guid: 03590dc46711e41a0be184711c76b902, type: 3}
-  - {fileID: 4283311902487950489, guid: 2444fb4229b0c4297bde7441c208e6ab, type: 3}
-  - {fileID: 4283311902487950489, guid: d477887840eb449cf868131f9827f63e, type: 3}
-  - {fileID: 4283311902487950489, guid: 14956d32eedff43869e70d620adfa92e, type: 3}
-  - {fileID: 4283311902487950489, guid: ecec72093fe3b415d823dd32be8fd927, type: 3}
-  - {fileID: 4283311902487950489, guid: f834e04489cd241a99aa325f8ab41382, type: 3}
-  - {fileID: 4283311902487950489, guid: c5c2310b0e4d74ad39505bea68ae6acd, type: 3}
   overlayTarget: {fileID: 850000201}
   qrPlacer: {fileID: 850000102}
 --- !u!1 &865549634
@@ -25088,6 +25080,8 @@ MonoBehaviour:
       color: 
       vitals:
         eva_time: 0
+        primary_battery_level: 0
+        secondary_battery_level: 0
         batt_time_left: 0
         oxy_pri_storage: 0
         oxy_sec_storage: 0
@@ -25121,7 +25115,7 @@ MonoBehaviour:
       posZ: 0
       Heading: 0
     LMCCurl: http://192.168.51.204:8080
-    TSSurl: http://10.0.0.78:14141
+    TSSurl: http://192.168.4.229:14141/
     current:
       posX: 0
       posY: 0
@@ -25129,6 +25123,8 @@ MonoBehaviour:
       Heading: 0
     vitals:
       eva_time: 0
+      primary_battery_level: 0
+      secondary_battery_level: 0
       batt_time_left: 0
       oxy_pri_storage: 0
       oxy_sec_storage: 0
@@ -25239,6 +25235,8 @@ MonoBehaviour:
       telemetry:
         eva_time: 0
         eva1:
+          primary_battery_level: 0
+          secondary_battery_level: 0
           batt_time_left: 0
           oxy_pri_storage: 0
           oxy_sec_storage: 0
@@ -25262,6 +25260,8 @@ MonoBehaviour:
           coolant_gas_pressure: 0
           coolant_liquid_pressure: 0
         eva2:
+          primary_battery_level: 0
+          secondary_battery_level: 0
           batt_time_left: 0
           oxy_pri_storage: 0
           oxy_sec_storage: 0
@@ -25313,7 +25313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConnectWebSocket: 0
   LMCCWebSocketClient: {fileID: 1555562889}
-  autoConnectTSS: 0
+  autoConnectTSS: 1
   tssConnection: {fileID: 1555562888}
 --- !u!114 &1555562888
 MonoBehaviour:
@@ -25328,6 +25328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimap: {fileID: 615214555}
+  tssPort: 14141
+  pollRoverPosition: 1
+  pollLtvLocation: 1
+  pollLtvErrors: 1
 --- !u!114 &1555562889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25924,6 +25928,8 @@ MonoBehaviour:
   uiaOverlayPrefabChanger: {fileID: 850000202}
   EgressSteps: []
   IngressSteps: []
+  EgressOverlays: []
+  IngressOverlays: []
 --- !u!114 &1585254169
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,11 +4,13 @@ using TMPro;
 /// <summary>
 /// Drives one page of radial vitals widgets: writes the formatted value into
 /// each ring's value TMP, fills the RingFull arc, and tints it red / yellow /
-/// green against the thresholds in <see cref="VitalsNominalLimits"/>.
+/// green against <see cref="VitalsMetricSpec"/>.
 /// Subscribes to <see cref="UpdatedVitalsEvent"/> on enable.
 /// </summary>
 public class VitalsRingPage : MonoBehaviour
 {
+    public const float ArcSpanDegrees = 302f;
+
     public enum VitalsRingMetric
     {
         SuitPressureTotal,
@@ -21,7 +23,12 @@ public class VitalsRingPage : MonoBehaviour
         OxySecStorage,
         OxyPriPressure,
         OxySecPressure,
-        OxyTimeLeft,
+
+        PrimaryBatteryLevel,
+        SecondaryBatteryLevel,
+        CoolantStorage,
+        CoolantLiquidPressure,
+        CoolantGasPressure,
 
         FanPriRpm,
         FanSecRpm,
@@ -31,12 +38,7 @@ public class VitalsRingPage : MonoBehaviour
         HeartRate,
         Temperature,
         OxyConsumption,
-        Co2Production,
-
-        BattTimeLeft,
-        CoolantStorage,
-        CoolantLiquidPressure,
-        CoolantGasPressure
+        Co2Production
     }
 
     [System.Serializable]
@@ -44,21 +46,21 @@ public class VitalsRingPage : MonoBehaviour
     {
         public VitalsRingMetric metric;
         public TextMeshPro valueText;
+        public TextMeshPro unitText;
         public SpriteRenderer ringFull;
-        [Tooltip("Value at which the radial ring is fully drawn. Use the metric's nominal max from eva-telemetry-ranges.pdf.")]
+        [Tooltip("Legacy; arc fill is driven by VitalsMetricSpec at runtime.")]
         public float arcMax;
-        [Tooltip("C# numeric format string for the value text (e.g. F1, F0, N0). Ignored for time-based metrics.")]
+        [Tooltip("Overrides VitalsMetricSpec format when non-empty.")]
         public string valueFormat;
     }
 
     [SerializeField] private RingBinding[] bindings;
 
-    private const float ArcSpan = 302f;
-
     private Subscription<UpdatedVitalsEvent> vitalsSubscription;
 
     private void Awake()
     {
+        ResolveUnitTexts();
         ApplyDefaultColors();
     }
 
@@ -86,6 +88,24 @@ public class VitalsRingPage : MonoBehaviour
             ApplyVitals(e.vitals);
     }
 
+    private void ResolveUnitTexts()
+    {
+        if (bindings == null) return;
+        for (int i = 0; i < bindings.Length; i++)
+        {
+            if (bindings[i].unitText != null)
+                continue;
+            if (bindings[i].valueText == null)
+                continue;
+            Transform ring = bindings[i].valueText.transform.parent;
+            if (ring == null)
+                continue;
+            Transform unit = ring.Find("Unit");
+            if (unit != null)
+                bindings[i].unitText = unit.GetComponent<TextMeshPro>();
+        }
+    }
+
     private void ApplyDefaultColors()
     {
         if (bindings == null) return;
@@ -103,19 +123,23 @@ public class VitalsRingPage : MonoBehaviour
         foreach (RingBinding b in bindings)
         {
             float value = GetValue(b.metric, v);
+            VitalsMetricSpec.Spec spec = VitalsMetricSpec.Get(b.metric);
 
+            if (b.unitText != null && !string.IsNullOrEmpty(spec.Unit))
+                b.unitText.text = spec.Unit;
+
+            string fmt = string.IsNullOrEmpty(b.valueFormat) ? spec.ValueFormat : b.valueFormat;
             if (b.valueText != null)
-                b.valueText.text = FormatValue(b.metric, value, b.valueFormat);
+                b.valueText.text = FormatValue(value, fmt);
 
             if (b.ringFull != null)
             {
-                float arcMax = b.arcMax > 0f ? b.arcMax : 1f;
-                float arc = (1f - Mathf.Clamp01(value / arcMax)) * ArcSpan;
+                float arc = VitalsMetricSpec.ComputeArcFill(value, spec);
                 Material mat = b.ringFull.material;
                 if (mat != null)
                     mat.SetFloat("_Arc1", arc);
 
-                VitalsUiTrafficColors.ApplyRingColor(b.ringFull, Evaluate(b.metric, value));
+                VitalsUiTrafficColors.ApplyRingColor(b.ringFull, VitalsMetricSpec.EvaluateColor(value, spec));
             }
         }
     }
@@ -134,7 +158,12 @@ public class VitalsRingPage : MonoBehaviour
             case VitalsRingMetric.OxySecStorage:         return (float)v.oxy_sec_storage;
             case VitalsRingMetric.OxyPriPressure:        return (float)v.oxy_pri_pressure;
             case VitalsRingMetric.OxySecPressure:        return (float)v.oxy_sec_pressure;
-            case VitalsRingMetric.OxyTimeLeft:           return v.oxy_time_left;
+
+            case VitalsRingMetric.PrimaryBatteryLevel:   return (float)v.primary_battery_level;
+            case VitalsRingMetric.SecondaryBatteryLevel: return (float)v.secondary_battery_level;
+            case VitalsRingMetric.CoolantStorage:        return (float)v.coolant_m;
+            case VitalsRingMetric.CoolantLiquidPressure: return (float)v.coolant_liquid_pressure;
+            case VitalsRingMetric.CoolantGasPressure:    return (float)v.coolant_gas_pressure;
 
             case VitalsRingMetric.FanPriRpm:             return (float)v.fan_pri_rpm;
             case VitalsRingMetric.FanSecRpm:             return (float)v.fan_sec_rpm;
@@ -146,80 +175,14 @@ public class VitalsRingPage : MonoBehaviour
             case VitalsRingMetric.OxyConsumption:        return (float)v.oxy_consumption;
             case VitalsRingMetric.Co2Production:         return (float)v.co2_production;
 
-            case VitalsRingMetric.BattTimeLeft:          return (float)v.batt_time_left;
-            case VitalsRingMetric.CoolantStorage:        return (float)v.coolant_m;
-            case VitalsRingMetric.CoolantLiquidPressure: return (float)v.coolant_liquid_pressure;
-            case VitalsRingMetric.CoolantGasPressure:    return (float)v.coolant_gas_pressure;
-
             default: return 0f;
         }
     }
 
-    private static string FormatValue(VitalsRingMetric metric, float value, string fmt)
+    private static string FormatValue(float value, string fmt)
     {
-        if (metric == VitalsRingMetric.OxyTimeLeft || metric == VitalsRingMetric.BattTimeLeft)
-        {
-            int seconds = Mathf.Max(0, Mathf.RoundToInt(value));
-            int hours = seconds / 3600;
-            int minutes = (seconds % 3600) / 60;
-            return $"{hours} hr {minutes} m";
-        }
-
         if (string.IsNullOrEmpty(fmt))
             fmt = "F1";
         return value.ToString(fmt);
-    }
-
-    private Color Evaluate(VitalsRingMetric metric, float value)
-    {
-        switch (metric)
-        {
-            // Band: both bounds matter (red outside, yellow near either edge).
-            case VitalsRingMetric.SuitPressureTotal:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.SuitPresTotalMin, VitalsNominalLimits.SuitPresTotalMax);
-            case VitalsRingMetric.SuitPressureOxy:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.SuitPresOxyMin, VitalsNominalLimits.SuitPresOxyMax);
-            case VitalsRingMetric.OxyPriPressure:
-            case VitalsRingMetric.OxySecPressure:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.OxyPresMin, VitalsNominalLimits.OxyPresMax);
-            case VitalsRingMetric.HeartRate:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.HeartRateMin, VitalsNominalLimits.HeartRateMax);
-            case VitalsRingMetric.Temperature:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.TempMin, VitalsNominalLimits.TempMax);
-            case VitalsRingMetric.OxyConsumption:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.OxyConsumMin, VitalsNominalLimits.OxyConsumMax);
-            case VitalsRingMetric.Co2Production:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.Co2ProdMin, VitalsNominalLimits.Co2ProdMax);
-            case VitalsRingMetric.FanPriRpm:
-            case VitalsRingMetric.FanSecRpm:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.FanSpeedMin, VitalsNominalLimits.FanSpeedMax);
-            case VitalsRingMetric.CoolantLiquidPressure:
-                return VitalsUiTrafficColors.EvaluateBand(value, VitalsNominalLimits.CoolLiqMin, VitalsNominalLimits.CoolLiqMax);
-
-            case VitalsRingMetric.SuitPressureCo2:
-                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.SuitPresCo2Max);
-            case VitalsRingMetric.HelmetPressureCo2:
-                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.HelmetPresCo2Max);
-            case VitalsRingMetric.SuitPressureOther:
-                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.SuitPresOtherMax);
-            case VitalsRingMetric.CoolantGasPressure:
-                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.CoolGasMax);
-            case VitalsRingMetric.ScrubberACo2:
-            case VitalsRingMetric.ScrubberBCo2:
-                return VitalsUiTrafficColors.EvaluateCeiling(value, VitalsNominalLimits.ScrubberCo2StorMax);
-
-            case VitalsRingMetric.OxyPriStorage:
-            case VitalsRingMetric.OxySecStorage:
-                return VitalsUiTrafficColors.EvaluateFloor(value, VitalsNominalLimits.OxyStorMin);
-            case VitalsRingMetric.CoolantStorage:
-                return VitalsUiTrafficColors.EvaluateFloor(value, VitalsNominalLimits.CoolStorMin);
-            case VitalsRingMetric.OxyTimeLeft:
-                return VitalsUiTrafficColors.EvaluateFloor(value, VitalsNominalLimits.OxyTimeMin);
-            case VitalsRingMetric.BattTimeLeft:
-                return VitalsUiTrafficColors.EvaluateFloor(value, VitalsNominalLimits.BattTimeMin);
-
-            default:
-                return VitalsUiTrafficColors.Good;
-        }
     }
 }

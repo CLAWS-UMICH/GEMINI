@@ -28,7 +28,6 @@ public static class VitalsPageBuilder
         public string titleLabel;
         public string unitLabel;
         public VitalsRingPage.VitalsRingMetric metric;
-        public float arcMax;
         public string valueFormat;
     }
 
@@ -80,17 +79,25 @@ public static class VitalsPageBuilder
             }
         }
 
-        ConfigureRingPage(pageAtmosphere.gameObject, GetPageSpecs()[0]);
-
         PageSpec[] specs = GetPageSpecs();
+        RenameAndTrimRings(pageAtmosphere, specs[0]);
+        ConfigureRingPage(pageAtmosphere.gameObject, specs[0]);
+
         Transform template = pageAtmosphere;
 
         for (int i = 1; i < specs.Length; i++)
         {
             PageSpec spec = specs[i];
             Transform existing = rootT.Find(spec.pageRootName);
+            if (existing != null && PageNeedsRebuild(existing, spec))
+            {
+                Object.DestroyImmediate(existing.gameObject);
+                existing = null;
+            }
+
             if (existing != null)
             {
+                RenameAndTrimRings(existing, spec);
                 ConfigureRingPage(existing.gameObject, spec);
                 continue;
             }
@@ -104,6 +111,25 @@ public static class VitalsPageBuilder
         }
 
         StripOldHelmetColorScript(root);
+    }
+
+    private static bool PageNeedsRebuild(Transform pageRoot, PageSpec spec)
+    {
+        int ringCount = 0;
+        foreach (Transform c in pageRoot)
+            ringCount++;
+
+        if (ringCount != spec.rings.Length)
+            return true;
+
+        for (int i = 0; i < spec.rings.Length; i++)
+        {
+            Transform ring = pageRoot.Find(spec.rings[i].objectName);
+            if (ring == null)
+                return true;
+        }
+
+        return pageRoot.Find("O2_Time") != null || pageRoot.Find("Batt_Time") != null;
     }
 
     private static void RenameAndTrimRings(Transform pageRoot, PageSpec spec)
@@ -154,11 +180,14 @@ public static class VitalsPageBuilder
             RingSpec ringSpec = spec.rings[i];
             Transform ring = pageRoot.transform.Find(ringSpec.objectName);
             TextMeshPro valueText = null;
+            TextMeshPro unitText = null;
             SpriteRenderer ringFull = null;
             if (ring != null)
             {
                 Transform v = ring.Find("Value");
                 if (v != null) valueText = v.GetComponent<TextMeshPro>();
+                Transform u = ring.Find("Unit");
+                if (u != null) unitText = u.GetComponent<TextMeshPro>();
                 Transform rf = ring.Find("RingFull");
                 if (rf != null) ringFull = rf.GetComponent<SpriteRenderer>();
             }
@@ -166,8 +195,9 @@ public static class VitalsPageBuilder
             SerializedProperty element = bindings.GetArrayElementAtIndex(i);
             element.FindPropertyRelative("metric").enumValueIndex = (int)ringSpec.metric;
             element.FindPropertyRelative("valueText").objectReferenceValue = valueText;
+            element.FindPropertyRelative("unitText").objectReferenceValue = unitText;
             element.FindPropertyRelative("ringFull").objectReferenceValue = ringFull;
-            element.FindPropertyRelative("arcMax").floatValue = ringSpec.arcMax;
+            element.FindPropertyRelative("arcMax").floatValue = 0f;
             element.FindPropertyRelative("valueFormat").stringValue = ringSpec.valueFormat;
         }
 
@@ -191,11 +221,11 @@ public static class VitalsPageBuilder
                 pageTitle = "Suit Atmosphere",
                 rings = new[]
                 {
-                    new RingSpec { objectName = "STP",       titleLabel = "SUIT TOT",    unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.SuitPressureTotal, arcMax = 4.5f,  valueFormat = "F1" },
-                    new RingSpec { objectName = "O2_suitP",  titleLabel = "SUIT O2",     unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.SuitPressureOxy,   arcMax = 4.1f,  valueFormat = "F1" },
-                    new RingSpec { objectName = "CO2_suitP", titleLabel = "SUIT CO2",    unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.SuitPressureCo2,   arcMax = 0.1f,  valueFormat = "F2" },
-                    new RingSpec { objectName = "CO2_P",     titleLabel = "HELM CO2",    unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.HelmetPressureCo2, arcMax = 0.15f, valueFormat = "F2" },
-                    new RingSpec { objectName = "Other",     titleLabel = "OTHER",       unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.SuitPressureOther, arcMax = 0.5f,  valueFormat = "F1" }
+                    new RingSpec { objectName = "STP",       titleLabel = "SUIT TOT", unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.SuitPressureTotal,     valueFormat = "F1" },
+                    new RingSpec { objectName = "O2_suitP",  titleLabel = "SUIT O2",  unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.SuitPressureOxy,       valueFormat = "F1" },
+                    new RingSpec { objectName = "CO2_suitP", titleLabel = "SUIT CO2", unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.SuitPressureCo2,       valueFormat = "F2" },
+                    new RingSpec { objectName = "CO2_P",     titleLabel = "HELM CO2", unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.HelmetPressureCo2,     valueFormat = "F2" },
+                    new RingSpec { objectName = "Other",     titleLabel = "OTHER",    unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.SuitPressureOther,     valueFormat = "F1" }
                 }
             },
             new PageSpec
@@ -204,11 +234,23 @@ public static class VitalsPageBuilder
                 pageTitle = "Oxygen Supply",
                 rings = new[]
                 {
-                    new RingSpec { objectName = "O2_PriStor", titleLabel = "PRI STOR", unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.OxyPriStorage,  arcMax = 100f,  valueFormat = "F0" },
-                    new RingSpec { objectName = "O2_SecStor", titleLabel = "SEC STOR", unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.OxySecStorage,  arcMax = 100f,  valueFormat = "F0" },
-                    new RingSpec { objectName = "O2_PriPres", titleLabel = "PRI PRES", unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.OxyPriPressure, arcMax = 3000f, valueFormat = "F0" },
-                    new RingSpec { objectName = "O2_SecPres", titleLabel = "SEC PRES", unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.OxySecPressure, arcMax = 3000f, valueFormat = "F0" },
-                    new RingSpec { objectName = "O2_Time",    titleLabel = "O2 TIME",  unitLabel = "",    metric = VitalsRingPage.VitalsRingMetric.OxyTimeLeft,    arcMax = 21600f, valueFormat = "F0" }
+                    new RingSpec { objectName = "O2_PriStor", titleLabel = "PRI STOR", unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.OxyPriStorage,  valueFormat = "F0" },
+                    new RingSpec { objectName = "O2_SecStor", titleLabel = "SEC STOR", unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.OxySecStorage,  valueFormat = "F0" },
+                    new RingSpec { objectName = "O2_PriPres", titleLabel = "PRI PRES", unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.OxyPriPressure, valueFormat = "F0" },
+                    new RingSpec { objectName = "O2_SecPres", titleLabel = "SEC PRES", unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.OxySecPressure, valueFormat = "F0" }
+                }
+            },
+            new PageSpec
+            {
+                pageRootName = "Page_PowerThermal",
+                pageTitle = "Power & Coolant",
+                rings = new[]
+                {
+                    new RingSpec { objectName = "Batt_Pri",  titleLabel = "PRI BATT", unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.PrimaryBatteryLevel,   valueFormat = "F0" },
+                    new RingSpec { objectName = "Batt_Sec",  titleLabel = "SEC BATT", unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.SecondaryBatteryLevel, valueFormat = "F0" },
+                    new RingSpec { objectName = "Coolant",   titleLabel = "COOLANT",  unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.CoolantStorage,        valueFormat = "F0" },
+                    new RingSpec { objectName = "Cool_Liq",  titleLabel = "COOL LIQ", unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.CoolantLiquidPressure, valueFormat = "F0" },
+                    new RingSpec { objectName = "Cool_Gas",  titleLabel = "COOL GAS", unitLabel = "psi", metric = VitalsRingPage.VitalsRingMetric.CoolantGasPressure,    valueFormat = "F0" }
                 }
             },
             new PageSpec
@@ -217,10 +259,10 @@ public static class VitalsPageBuilder
                 pageTitle = "Life Support",
                 rings = new[]
                 {
-                    new RingSpec { objectName = "Fan_Pri",    titleLabel = "PRI FAN",  unitLabel = "RPM", metric = VitalsRingPage.VitalsRingMetric.FanPriRpm,    arcMax = 30000f, valueFormat = "N0" },
-                    new RingSpec { objectName = "Fan_Sec",    titleLabel = "SEC FAN",  unitLabel = "RPM", metric = VitalsRingPage.VitalsRingMetric.FanSecRpm,    arcMax = 30000f, valueFormat = "N0" },
-                    new RingSpec { objectName = "Scrubber_A", titleLabel = "SCRUB A",  unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.ScrubberACo2, arcMax = 100f,   valueFormat = "F0" },
-                    new RingSpec { objectName = "Scrubber_B", titleLabel = "SCRUB B",  unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.ScrubberBCo2, arcMax = 100f,   valueFormat = "F0" }
+                    new RingSpec { objectName = "Fan_Pri",    titleLabel = "PRI FAN",  unitLabel = "rpm", metric = VitalsRingPage.VitalsRingMetric.FanPriRpm,    valueFormat = "N0" },
+                    new RingSpec { objectName = "Fan_Sec",    titleLabel = "SEC FAN",  unitLabel = "rpm", metric = VitalsRingPage.VitalsRingMetric.FanSecRpm,    valueFormat = "N0" },
+                    new RingSpec { objectName = "Scrubber_A", titleLabel = "SCRUB A",  unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.ScrubberACo2, valueFormat = "F0" },
+                    new RingSpec { objectName = "Scrubber_B", titleLabel = "SCRUB B",  unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.ScrubberBCo2, valueFormat = "F0" }
                 }
             },
             new PageSpec
@@ -229,22 +271,10 @@ public static class VitalsPageBuilder
                 pageTitle = "Crew Biomedical",
                 rings = new[]
                 {
-                    new RingSpec { objectName = "HR",       titleLabel = "HEART",   unitLabel = "BPM",     metric = VitalsRingPage.VitalsRingMetric.HeartRate,      arcMax = 160f,  valueFormat = "F0" },
-                    new RingSpec { objectName = "Temp",     titleLabel = "TEMP",    unitLabel = "C",       metric = VitalsRingPage.VitalsRingMetric.Temperature,    arcMax = 32f,   valueFormat = "F0" },
-                    new RingSpec { objectName = "O2_Cons",  titleLabel = "O2 CONS", unitLabel = "PSI/MIN", metric = VitalsRingPage.VitalsRingMetric.OxyConsumption, arcMax = 0.15f, valueFormat = "F2" },
-                    new RingSpec { objectName = "CO2_Prod", titleLabel = "CO2 PROD",unitLabel = "PSI/MIN", metric = VitalsRingPage.VitalsRingMetric.Co2Production,  arcMax = 0.15f, valueFormat = "F2" }
-                }
-            },
-            new PageSpec
-            {
-                pageRootName = "Page_PowerThermal",
-                pageTitle = "Power & Thermal",
-                rings = new[]
-                {
-                    new RingSpec { objectName = "Batt_Time", titleLabel = "BATT",     unitLabel = "",    metric = VitalsRingPage.VitalsRingMetric.BattTimeLeft,          arcMax = 10800f, valueFormat = "F0" },
-                    new RingSpec { objectName = "Coolant",   titleLabel = "COOLANT",  unitLabel = "%",   metric = VitalsRingPage.VitalsRingMetric.CoolantStorage,        arcMax = 100f,   valueFormat = "F0" },
-                    new RingSpec { objectName = "Cool_Liq",  titleLabel = "COOL LIQ", unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.CoolantLiquidPressure, arcMax = 700f,   valueFormat = "F0" },
-                    new RingSpec { objectName = "Cool_Gas",  titleLabel = "COOL GAS", unitLabel = "PSI", metric = VitalsRingPage.VitalsRingMetric.CoolantGasPressure,    arcMax = 700f,   valueFormat = "F0" }
+                    new RingSpec { objectName = "HR",       titleLabel = "HEART",    unitLabel = "bpm",     metric = VitalsRingPage.VitalsRingMetric.HeartRate,      valueFormat = "F0" },
+                    new RingSpec { objectName = "Temp",     titleLabel = "TEMP",     unitLabel = "°C",      metric = VitalsRingPage.VitalsRingMetric.Temperature,    valueFormat = "F0" },
+                    new RingSpec { objectName = "O2_Cons",  titleLabel = "O2 CONS",  unitLabel = "psi/min", metric = VitalsRingPage.VitalsRingMetric.OxyConsumption, valueFormat = "F2" },
+                    new RingSpec { objectName = "CO2_Prod", titleLabel = "CO2 PROD", unitLabel = "psi/min", metric = VitalsRingPage.VitalsRingMetric.Co2Production,  valueFormat = "F2" }
                 }
             }
         };
