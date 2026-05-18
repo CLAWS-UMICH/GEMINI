@@ -265,6 +265,8 @@ public class CorvusARBridge : MonoBehaviour
         void Check(bool bad, string msg) { if (bad) warnings.Add(msg); }
 
         Check(v.batt_time_left < VitalsNominalLimits.BattTimeMin, "battery time remaining is low");
+        Check(v.primary_battery_level < VitalsNominalLimits.BattLevelMin, "primary battery level is low");
+        Check(v.secondary_battery_level < VitalsNominalLimits.BattLevelMin, "secondary battery level is low");
         Check(v.oxy_pri_storage < VitalsNominalLimits.OxyStorMin, "primary oxygen storage is low");
         Check(v.oxy_sec_storage < VitalsNominalLimits.OxyStorMin, "secondary oxygen storage is low");
 
@@ -426,7 +428,7 @@ public class CorvusARBridge : MonoBehaviour
         if (needle.Contains("ltv") || needle.Contains("rover") || needle == "pr" ||
             needle.Contains("pressurized rover") || needle.Contains("pressurised rover"))
         {
-            GameObject rover = GameObject.Find("ROVER") ?? GameObject.Find("PR_PlayerIcon");
+            GameObject rover = GameObject.Find("PR_ICON") ?? GameObject.Find("ROVER");
             if (rover != null)
             {
                 worldPos = rover.transform.position;
@@ -436,11 +438,11 @@ public class CorvusARBridge : MonoBehaviour
         }
         if (needle == "ev2" || needle.Contains("ev2") || needle.Contains("companion") || needle.Contains("crewmate"))
         {
-            GameObject ev2 = GameObject.Find("EV2_PlayerIcon");
-            if (ev2 != null)
+            GameObject ltv = GameObject.Find("LTV_ICON");
+            if (ltv != null)
             {
-                worldPos = ev2.transform.position;
-                resolvedName = "EV2";
+                worldPos = ltv.transform.position;
+                resolvedName = "LTV";
                 return true;
             }
         }

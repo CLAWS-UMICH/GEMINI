@@ -185,6 +185,8 @@ public class Breadcrumb
 public class Vitals
 {
     public int eva_time;
+    public double primary_battery_level;
+    public double secondary_battery_level;
     public double batt_time_left;
     public double oxy_pri_storage;
     public double oxy_sec_storage;
@@ -679,6 +681,8 @@ public class TelemetryDetails
 [System.Serializable]
 public class EvaTelemetryDetails
 {
+    public double primary_battery_level;
+    public double secondary_battery_level;
     public double batt_time_left;
     public double oxy_pri_storage;
     public double oxy_sec_storage;

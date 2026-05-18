@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
@@ -10,152 +11,328 @@ public class TaskDetailScreen : MonoBehaviour
     public GameObject taskDetailMenuRoot;
     public TextMeshPro titleText;
     public List<TextMeshPro> taskTexts;
+    public List<GameObject> mainMenuTaskItems;
+
+    [Header("TSS")]
+    [SerializeField] private TSSConnection tssConnection;
 
     [Header("Colors")]
-    public Color titleColor    = Color.white;
-    public Color activeColor   = Color.white;
-    public Color doneColor     = Color.gray;
+    public Color titleColor = Color.white;
+    public Color activeColor = Color.white;
+    public Color doneColor = Color.gray;
 
     [Header("Input")]
     [Tooltip("Enable to advance task steps with gamepad/XR square (West) button.")]
     public bool enableSquareAdvance = true;
 
-    // First FIXED_GROUP_COUNT groups are the fixed procedure list. Anything appended
-    // beyond that is a dynamic voice-created task (Add_task) and is the only kind
-    // that Delete_task / Complete_task-by-name can remove.
-    const int FIXED_GROUP_COUNT = 3;
+    const int FIXED_GROUP_COUNT = LtvErrorTaskSupport.MaxTaskCount;
 
-    readonly List<TaskGroup> groups = new List<TaskGroup>
-    {
-        new TaskGroup("Exit Recovery Mode (ERM) (1/3)",
-            "Get ERM steps from AIA",
-            "Follow steps",
-            "Wait for ERM confirmation",
-            "Move to next task"),
-
-        new TaskGroup("System Diagnosis (2/3)",
-            "Ask AIA to run diagnosis",
-            "Do visual check",
-            "Wait for results",
-            "Follow fix instructions from AIA"),
-
-        new TaskGroup("System Restart (3/3)",
-            "Follow AIA restart steps",
-            "Wait for completion",
-            "Verify position data"),
-    };
-    // -------------------------------------------------------
+    readonly List<TaskGroup> groups = new List<TaskGroup>();
+    readonly List<Vector3> slotPositions = new List<Vector3>();
 
     int completedUpTo = -1;
     TaskGroup activeGroup;
+    Subscription<LtvErrorsUpdatedEvent> ltvErrorsSubscription;
+
+    void Awake()
+    {
+        if (tssConnection == null)
+            tssConnection = FindObjectOfType<TSSConnection>();
+    }
 
     void Start()
     {
-        Debug.Log($"[TaskDetailScreen] Start called on '{gameObject.name}'");
-        Debug.Log($"[TaskDetailScreen] titleText={(titleText == null ? "NULL" : titleText.name)}, taskTexts.Count={taskTexts.Count}");
+        if (mainMenuTaskItems != null)
+        {
+            foreach (GameObject btn in mainMenuTaskItems)
+            {
+                if (btn != null)
+                    slotPositions.Add(btn.transform.localPosition);
+            }
+        }
+
+        ltvErrorsSubscription = EventBus.Subscribe<LtvErrorsUpdatedEvent>(OnLtvErrorsUpdated);
+
+        if (tssConnection != null && tssConnection.TryGetActiveLtvErrorProcedures(out LtvErrorProcedure[] active))
+            SyncLtvTaskGroups(active);
+
         ShowTaskMainMenu();
+    }
+
+    void OnDestroy()
+    {
+        if (ltvErrorsSubscription != null)
+        {
+            EventBus.Unsubscribe(ltvErrorsSubscription);
+            ltvErrorsSubscription = null;
+        }
     }
 
     void Update()
     {
-        if (!enableSquareAdvance) return;
+        if (!enableSquareAdvance)
+            return;
 
         bool squarePressed = Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame;
-
         if (squarePressed)
-        {
             MarkStepDone();
+    }
+
+    void OnLtvErrorsUpdated(LtvErrorsUpdatedEvent e)
+    {
+        SyncLtvTaskGroups(e?.ActiveProcedures);
+    }
+
+    /// <param name="activeFromTss">Procedures with needs_resolved true (from LtvErrorsUpdatedEvent or TryGetActiveLtvErrorProcedures).</param>
+    public void SyncLtvTaskGroups(LtvErrorProcedure[] activeFromTss)
+    {
+        List<LtvErrorProcedure> selected = LtvErrorTaskSupport.SelectTopTasks(activeFromTss);
+
+        var dynamicGroups = new List<TaskGroup>();
+        foreach (TaskGroup group in groups)
+        {
+            if (!IsLtvGroup(group))
+                dynamicGroups.Add(group);
         }
+
+        TaskGroup previouslyActive = activeGroup;
+        string previousLtvCode = previouslyActive?.ltvCode;
+        int previousCompletedUpTo = completedUpTo;
+
+        groups.Clear();
+        foreach (LtvErrorProcedure procedure in selected)
+        {
+            string title = LtvErrorTaskSupport.BuildTaskTitle(procedure);
+            string[] steps = LtvErrorTaskSupport.ParseProcedureSteps(procedure.procedures);
+            groups.Add(new TaskGroup(title, procedure.code, steps));
+        }
+
+        groups.AddRange(dynamicGroups);
+        RefreshMainMenuButtons();
+
+        TaskGroup replacementActive = FindReplacementActiveGroup(previouslyActive, previousLtvCode);
+        if (previouslyActive != null && replacementActive == null)
+        {
+            activeGroup = null;
+            completedUpTo = -1;
+            if (taskDetailMenuRoot != null && taskDetailMenuRoot.activeSelf)
+                ShowTaskMainMenu();
+            else if (groups.Count > 0)
+                ShowGroup(0);
+            else
+                ShowTaskMainMenu();
+        }
+        else if (replacementActive != null)
+        {
+            activeGroup = replacementActive;
+            int lastStep = activeGroup.tasks != null ? activeGroup.tasks.Length - 1 : -1;
+            completedUpTo = Mathf.Clamp(previousCompletedUpTo, -1, lastStep);
+            if (titleText != null)
+                titleText.text = BuildDetailTitle(activeGroup);
+            RefreshSlots();
+        }
+        else if (groups.Count > 0 && activeGroup == null)
+        {
+            ShowGroup(0);
+        }
+    }
+
+    TaskGroup FindReplacementActiveGroup(TaskGroup previous, string previousLtvCode)
+    {
+        if (previous == null)
+            return null;
+
+        if (!string.IsNullOrEmpty(previousLtvCode))
+        {
+            foreach (TaskGroup group in groups)
+            {
+                if (string.Equals(group?.ltvCode, previousLtvCode, System.StringComparison.OrdinalIgnoreCase))
+                    return group;
+            }
+            return null;
+        }
+
+        return groups.Contains(previous) ? previous : null;
+    }
+
+    void RefreshMainMenuButtons()
+    {
+        if (mainMenuTaskItems == null)
+            return;
+
+        for (int i = 0; i < mainMenuTaskItems.Count; i++)
+        {
+            GameObject button = mainMenuTaskItems[i];
+            if (button == null)
+                continue;
+
+            bool hasTask = i < groups.Count;
+            button.SetActive(hasTask);
+
+            if (hasTask)
+                SetMainMenuButtonLabel(button, groups[i].title);
+        }
+
+        UpdateMainMenuLayout();
+    }
+
+    static void SetMainMenuButtonLabel(GameObject button, string title)
+    {
+        if (button == null || string.IsNullOrEmpty(title))
+            return;
+
+        TextMeshPro tmp = button.GetComponentInChildren<TextMeshPro>(includeInactive: true);
+        if (tmp != null)
+            tmp.text = title;
     }
 
     public void ShowGroup(int index)
     {
-        Debug.Log($"[TaskDetailScreen] ShowGroup({index})");
-        if (index < 0 || index >= groups.Count) { Debug.Log($"[TaskDetailScreen] index {index} out of range"); return; }
-        activeGroup    = groups[index];
-        completedUpTo  = -1;
+        if (index < 0 || index >= groups.Count)
+            return;
+
+        activeGroup = groups[index];
+        completedUpTo = -1;
 
         if (titleText != null)
         {
-            titleText.text  = activeGroup.title;
+            titleText.text = BuildDetailTitle(activeGroup);
             titleText.color = titleColor;
         }
 
         RefreshSlots();
     }
 
+    string BuildDetailTitle(TaskGroup group)
+    {
+        if (group == null)
+            return string.Empty;
+
+        string cleanTitle = group.title;
+        if (!string.IsNullOrEmpty(group.ltvCode) && cleanTitle.StartsWith(group.ltvCode + " - "))
+        {
+            cleanTitle = cleanTitle.Substring(group.ltvCode.Length + 3);
+        }
+
+        int total = group.tasks != null ? group.tasks.Length : 0;
+        if (taskTexts == null || total <= taskTexts.Count || total == 0)
+            return cleanTitle;
+
+        int currentStep = completedUpTo < 0 ? 1 : Mathf.Min(completedUpTo + 2, total);
+        return $"{cleanTitle} ({currentStep}/{total})";
+    }
+
     public void ShowTaskMainMenu()
     {
-        ShowGroup(0);
-        if (taskMainMenuRoot != null) taskMainMenuRoot.SetActive(true);
-        if (taskDetailMenuRoot != null) taskDetailMenuRoot.SetActive(false);
+        if (groups.Count > 0)
+            ShowGroup(0);
+        else
+        {
+            if (titleText != null)
+                titleText.text = "No active LTV tasks";
+            HideTaskSlots();
+        }
+
+        if (taskMainMenuRoot != null)
+            taskMainMenuRoot.SetActive(true);
+        if (taskDetailMenuRoot != null)
+            taskDetailMenuRoot.SetActive(false);
     }
 
     public void ShowTaskDetailMenu(int index)
     {
         ShowGroup(index);
-        if (taskMainMenuRoot != null) taskMainMenuRoot.SetActive(false);
-        if (taskDetailMenuRoot != null) taskDetailMenuRoot.SetActive(true);
+        if (taskMainMenuRoot != null)
+            taskMainMenuRoot.SetActive(false);
+        if (taskDetailMenuRoot != null)
+            taskDetailMenuRoot.SetActive(true);
     }
 
     public void MarkStepDone()
     {
-        if (activeGroup == null) return;
+        if (activeGroup == null || activeGroup.tasks == null || activeGroup.tasks.Length == 0)
+            return;
 
         int nextCompleted = completedUpTo + 1;
         if (nextCompleted >= activeGroup.tasks.Length)
         {
-            // Close the detail menu only on the press AFTER all steps were completed.
+            if (IsLtvGroup(activeGroup))
+            {
+                /*
+                 * ═══════════════════════════════════════════════════════════════════════════
+                 * Passive / evaluator-driven mode — Unity did not notify TSS.
+                 * ═══════════════════════════════════════════════════════════════════════════
+                */
+                ShowTaskMainMenu();
+                return;
+                /*
+
+                if (tssConnection != null &&
+                    LtvErrorTaskSupport.TryGetProcedureIndex(activeGroup.ltvCode, out int procedureIndex))
+                {
+                    StartCoroutine(CompleteLtvTaskAndReturnToMenu(procedureIndex));
+                    return;
+                }
+
+                ShowTaskMainMenu();
+                return;
+                */
+            }
+
+            int currentTaskIndex = groups.IndexOf(activeGroup);
+            if (currentTaskIndex >= 0 && mainMenuTaskItems != null &&
+                currentTaskIndex < mainMenuTaskItems.Count &&
+                mainMenuTaskItems[currentTaskIndex] != null)
+            {
+                mainMenuTaskItems[currentTaskIndex].SetActive(false);
+                UpdateMainMenuLayout();
+            }
+
             ShowTaskMainMenu();
             return;
         }
 
         completedUpTo = nextCompleted;
+
+        if (titleText != null)
+            titleText.text = BuildDetailTitle(activeGroup);
+
         RefreshSlots();
     }
 
-    /// <summary>
-    /// Append a new dynamic task group (one-step) created from a voice command.
-    /// Returns true on success. Speaks-side description is left to the caller.
-    /// </summary>
     public bool AddTaskGroup(string name)
     {
-        if (string.IsNullOrWhiteSpace(name)) return false;
-        groups.Add(new TaskGroup(name.Trim(), name.Trim()));
+        if (string.IsNullOrWhiteSpace(name))
+            return false;
+        groups.Add(new TaskGroup(name.Trim(), null, name.Trim()));
+        RefreshMainMenuButtons();
         return true;
     }
 
-    /// <summary>
-    /// Remove a dynamic task group whose title fuzzy-matches <paramref name="name"/>.
-    /// Fixed procedure groups (index 0..FIXED_GROUP_COUNT-1) cannot be removed.
-    /// </summary>
     public bool DeleteTaskGroupByName(string name, out string resolvedName)
     {
         resolvedName = null;
         int i = FindDynamicGroupIndex(name);
-        if (i < 0) return false;
+        if (i < 0)
+            return false;
+
         resolvedName = groups[i].title;
-        bool wasActive = (activeGroup == groups[i]);
+        bool wasActive = activeGroup == groups[i];
         groups.RemoveAt(i);
-        if (wasActive) ShowTaskMainMenu();
+        RefreshMainMenuButtons();
+        if (wasActive)
+            ShowTaskMainMenu();
         return true;
     }
 
-    /// <summary>
-    /// Best-effort "complete" by name. Tries (in order):
-    ///   1. Match against the next step in the active group: call <see cref="MarkStepDone"/>.
-    ///   2. Match against any step in any group: switch to that group and advance.
-    ///   3. Match against a dynamic group title: remove that single-step group.
-    /// Returns true on a successful match; false otherwise (caller may fall back to
-    /// <see cref="MarkStepDone"/> on the currently active group).
-    /// </summary>
     public bool CompleteByName(string name, out string resolvedName)
     {
         resolvedName = null;
-        if (string.IsNullOrWhiteSpace(name)) return false;
+        if (string.IsNullOrWhiteSpace(name))
+            return false;
+
         string needle = name.Trim().ToLowerInvariant();
 
-        // 1) Next step in the currently active group
         if (activeGroup != null)
         {
             int nextIdx = completedUpTo + 1;
@@ -171,47 +348,92 @@ public class TaskDetailScreen : MonoBehaviour
             }
         }
 
-        // 2) Search every group's steps; on a hit, open that group and advance to (just past) the step
         for (int g = 0; g < groups.Count; g++)
         {
             TaskGroup grp = groups[g];
-            if (grp == null || grp.tasks == null) continue;
+            if (grp?.tasks == null)
+                continue;
+
             for (int s = 0; s < grp.tasks.Length; s++)
             {
                 string step = grp.tasks[s];
-                if (step == null) continue;
+                if (step == null)
+                    continue;
                 if (step.ToLowerInvariant().Contains(needle))
                 {
                     resolvedName = step;
                     ShowTaskDetailMenu(g);
-                    completedUpTo = s; // mark this step (and prior) as done
+                    completedUpTo = s;
                     RefreshSlots();
                     return true;
                 }
             }
         }
 
-        // 3) Match a dynamic group by title - remove it
         int dyn = FindDynamicGroupIndex(name);
         if (dyn >= 0)
         {
             resolvedName = groups[dyn].title;
-            bool wasActive = (activeGroup == groups[dyn]);
+            bool wasActive = activeGroup == groups[dyn];
             groups.RemoveAt(dyn);
-            if (wasActive) ShowTaskMainMenu();
+            RefreshMainMenuButtons();
+            if (wasActive)
+                ShowTaskMainMenu();
             return true;
         }
 
         return false;
     }
 
+    /// <summary>
+    /// Open a task group by LTV error code or description substring. Returns group index or -1.
+    /// </summary>
+    public int FindLtvGroupIndex(string codeOrName)
+    {
+        if (string.IsNullOrWhiteSpace(codeOrName))
+            return -1;
+
+        string needle = codeOrName.Trim().ToLowerInvariant();
+
+        for (int i = 0; i < groups.Count && i < FIXED_GROUP_COUNT; i++)
+        {
+            TaskGroup g = groups[i];
+            if (g == null || !IsLtvGroup(g))
+                continue;
+
+            if (!string.IsNullOrEmpty(g.ltvCode) &&
+                g.ltvCode.Trim().Equals(needle, System.StringComparison.OrdinalIgnoreCase))
+                return i;
+
+            if (g.title != null && g.title.ToLowerInvariant().Contains(needle))
+                return i;
+        }
+
+        return -1;
+    }
+
+    public bool TryOpenLtvTask(string codeOrName)
+    {
+        int index = FindLtvGroupIndex(codeOrName);
+        if (index < 0 && groups.Count > 0 && IsLtvGroup(groups[0]))
+            index = 0;
+        if (index < 0)
+            return false;
+
+        ShowTaskDetailMenu(index);
+        return true;
+    }
+
     int FindDynamicGroupIndex(string name)
     {
-        if (string.IsNullOrWhiteSpace(name)) return -1;
+        if (string.IsNullOrWhiteSpace(name))
+            return -1;
+
         string needle = name.Trim().ToLowerInvariant();
-        for (int i = FIXED_GROUP_COUNT; i < groups.Count; i++)
+        for (int i = 0; i < groups.Count; i++)
         {
-            if (groups[i]?.title == null) continue;
+            if (IsLtvGroup(groups[i]) || groups[i]?.title == null)
+                continue;
             string title = groups[i].title.ToLowerInvariant();
             if (title == needle || title.Contains(needle) || needle.Contains(title))
                 return i;
@@ -219,43 +441,92 @@ public class TaskDetailScreen : MonoBehaviour
         return -1;
     }
 
+    IEnumerator CompleteLtvTaskAndReturnToMenu(int procedureIndex)
+    {
+        if (tssConnection != null)
+            yield return tssConnection.PostLtvProcedureNeedsResolved(procedureIndex, needsResolved: false);
+
+        ShowTaskMainMenu();
+    }
+
+    static bool IsLtvGroup(TaskGroup group)
+    {
+        return group != null && !string.IsNullOrEmpty(group.ltvCode);
+    }
+
     void RefreshSlots()
     {
-        Debug.Log($"RefreshSlots: taskTexts.Count={taskTexts.Count}, group={activeGroup.title}");
+        if (taskTexts == null || activeGroup == null || activeGroup.tasks == null)
+            return;
 
-        int startTask = completedUpTo == -1 ? 0 : completedUpTo;
+        int startTask = completedUpTo < 0 ? 0 : completedUpTo;
 
         for (int slot = 0; slot < taskTexts.Count; slot++)
         {
-            if (taskTexts[slot] == null) { Debug.Log($"Slot {slot} is NULL"); continue; }
+            if (taskTexts[slot] == null)
+                continue;
 
             int taskIndex = startTask + slot;
 
             if (taskIndex < activeGroup.tasks.Length)
             {
                 taskTexts[slot].transform.parent.gameObject.SetActive(true);
-                taskTexts[slot].text  = activeGroup.tasks[taskIndex];
-                bool isDone = (slot == 0 && completedUpTo >= 0);
+                taskTexts[slot].text = activeGroup.tasks[taskIndex];
+                bool isDone = slot == 0 && completedUpTo >= 0;
                 taskTexts[slot].color = isDone ? doneColor : activeColor;
-                Debug.Log($"[TaskDetailScreen] Slot {slot} → '{activeGroup.tasks[taskIndex]}' | selfActive={taskTexts[slot].gameObject.activeSelf} | inHierarchy={taskTexts[slot].gameObject.activeInHierarchy} | parent='{taskTexts[slot].transform.parent.name}' parentActive={taskTexts[slot].transform.parent.gameObject.activeSelf}");
             }
             else
             {
                 taskTexts[slot].transform.parent.gameObject.SetActive(false);
-                Debug.Log($"Slot {slot} hidden (no task at index {taskIndex})");
+            }
+        }
+    }
+
+    void HideTaskSlots()
+    {
+        if (taskTexts == null)
+            return;
+
+        foreach (TextMeshPro taskText in taskTexts)
+        {
+            if (taskText != null && taskText.transform.parent != null)
+                taskText.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
+    public void UpdateMainMenuLayout()
+    {
+        if (mainMenuTaskItems == null)
+            return;
+
+        int availableSlotIndex = 0;
+
+        for (int i = 0; i < mainMenuTaskItems.Count; i++)
+        {
+            GameObject button = mainMenuTaskItems[i];
+            if (button != null && button.activeSelf)
+            {
+                if (availableSlotIndex < slotPositions.Count)
+                {
+                    button.transform.localPosition = slotPositions[availableSlotIndex];
+                    availableSlotIndex++;
+                }
             }
         }
     }
 }
 
+
 public class TaskGroup
 {
-    public string   title;
+    public string title;
+    public string ltvCode;
     public string[] tasks;
 
-    public TaskGroup(string title, params string[] tasks)
+    public TaskGroup(string title, string ltvCode, params string[] tasks)
     {
         this.title = title;
+        this.ltvCode = ltvCode;
         this.tasks = tasks;
     }
 }

@@ -32,8 +32,8 @@ public class RadialMenuNavigationController : MonoBehaviour
     [SerializeField] private Sprite hazardsSprite;
 
     [Header("Companion waypoint icons (assign in Editor — used when Companions is opened)")]
-    [Tooltip("Sprite for EV2. Leave empty to use the letter icon.")]
-    [SerializeField] private Sprite ev2Sprite;
+    [Tooltip("Sprite for LTV. Leave empty to use the letter icon.")]
+    [SerializeField] private Sprite ltvSprite;
     [Tooltip("Sprite for PR / ROVER. Leave empty to use the letter icon.")]
     [SerializeField] private Sprite prSprite;
 
@@ -48,7 +48,7 @@ public class RadialMenuNavigationController : MonoBehaviour
     private const string LABEL_CANCEL_NAV = "Cancel Navigation";
     private const string LABEL_CONFIRM_NAV = "Click Again to Confirm";
     private const string LABEL_SELECT = "Select";
-    private const int COMPANION_EV2_SELECTION_ID = -2;
+    private const int COMPANION_LTV_SELECTION_ID = -2;
     private const int COMPANION_ROVER_SELECTION_ID = -3;
 
     [Header("Waypoint confirmation")]
@@ -213,10 +213,10 @@ public class RadialMenuNavigationController : MonoBehaviour
         radialBuilder.entries.Clear();
         radialBuilder.segmentCount = 2;
 
-        var ev2 = new RadialMenuEntry { label = "EV2", iconUnicode = "E", iconSprite = ev2Sprite };
-        ev2.onClick = new UnityEvent();
-        ev2.onClick.AddListener(() => SelectCompanionEV2());
-        radialBuilder.entries.Add(ev2);
+        var ltv = new RadialMenuEntry { label = "LTV", iconUnicode = "LTV", iconSprite = ltvSprite };
+        ltv.onClick = new UnityEvent();
+        ltv.onClick.AddListener(() => SelectCompanionLTV());
+        radialBuilder.entries.Add(ltv);
 
         var rover = new RadialMenuEntry { label = "ROVER", iconUnicode = "R", iconSprite = prSprite };
         rover.onClick = new UnityEvent();
@@ -325,27 +325,26 @@ public class RadialMenuNavigationController : MonoBehaviour
         HandleWaypointSelection(index, index, targetPosition);
     }
 
-    private void SelectCompanionEV2()
+    private void SelectCompanionLTV()
     {
-        GameObject ev2Object = GameObject.Find("EV2_PlayerIcon");
-        if (ev2Object == null)
+        GameObject ltvObject = GameObject.Find("LTV_ICON");
+        if (ltvObject == null)
         {
-            Debug.LogWarning("RadialMenuNavigation: EV2_PlayerIcon not found.");
+            Debug.LogWarning("RadialMenuNavigation: LTV_ICON not found.");
             return;
         }
-        Vector3 targetPosition = ev2Object.transform.position;
+        Vector3 targetPosition = ltvObject.transform.position;
         targetPosition.y = 0;
-        HandleWaypointSelection(COMPANION_EV2_SELECTION_ID, 0, targetPosition);
+        HandleWaypointSelection(COMPANION_LTV_SELECTION_ID, 0, targetPosition);
     }
 
     private void SelectCompanionRover()
     {
-        // ROVER position: use pathfinding target or a known object name if you have one
-        GameObject roverObject = GameObject.Find("ROVER");
-        if (roverObject == null) roverObject = GameObject.Find("PR_PlayerIcon");
+        GameObject roverObject = GameObject.Find("PR_ICON");
+        if (roverObject == null) roverObject = GameObject.Find("ROVER");
         if (roverObject == null)
         {
-            Debug.LogWarning("RadialMenuNavigation: ROVER/PR not found.");
+            Debug.LogWarning("RadialMenuNavigation: PR_ICON/ROVER not found.");
             return;
         }
         Vector3 targetPosition = roverObject.transform.position;

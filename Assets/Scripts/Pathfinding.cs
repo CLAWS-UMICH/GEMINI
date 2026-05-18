@@ -159,9 +159,9 @@ public class Pathfinding : MonoBehaviour
     Vector3 GetAstronautWorldPosition()
     {
         return new Vector3(
-            (float)astronaut.current.posX,
+            (float)AstronautInstance.User.current.posX,
             0,
-            (float)astronaut.current.posZ // Ensure Z uses posZ
+            (float)AstronautInstance.User.current.posZ // Ensure Z uses posZ
         );
     }
 

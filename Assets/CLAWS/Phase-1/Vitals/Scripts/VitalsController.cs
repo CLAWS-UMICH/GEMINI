@@ -55,7 +55,6 @@ public class VitalsController : MonoBehaviour
     [SerializeField] private GameObject alerts;
     public DCUController dcuControllerInstance;
     private Subscription<UpdatedVitalsEvent> vitalsUpdateEvent;
-    private Subscription<UpdatedFellowAstronautVitalsEvent> fellowVitalsUpdateEvent;
     [SerializeField] private EVAGroup eva1;
     [SerializeField] private EVAGroup eva2;
     [SerializeField] private LMCCWebSocketClient LMCCwebSocketClient;
@@ -67,8 +66,8 @@ public class VitalsController : MonoBehaviour
     private void Start() 
     {
         vitalsUpdateEvent = EventBus.Subscribe<UpdatedVitalsEvent>(vitalsEventHandler);
-        fellowVitalsUpdateEvent = EventBus.Subscribe<UpdatedFellowAstronautVitalsEvent>(fellowVitalsEventHandler);
-        vitalsSecondAstronautScreen.SetActive(false);
+        if (vitalsSecondAstronautScreen != null)
+            vitalsSecondAstronautScreen.SetActive(false);
         selfAlert.SetActive(false);
         // otherAlert.SetActive(false);
     }
@@ -80,7 +79,11 @@ public class VitalsController : MonoBehaviour
         vitals.transform.Find("CloseButton").gameObject.SetActive(true);
         vitalsFirstAstronautScreen.SetActive(true);
         alerts.SetActive(true);
-        vitalsSecondAstronautScreen.SetActive(false);
+        if (vitalsSecondAstronautScreen != null)
+            vitalsSecondAstronautScreen.SetActive(false);
+
+        if (AstronautInstance.User?.vitals != null)
+            onVitalsUpdate(new UpdatedVitalsEvent(AstronautInstance.User.vitals));
     }
 
 
@@ -92,9 +95,10 @@ public class VitalsController : MonoBehaviour
 
     public void swapVitalScreens()
     {
-        bool state = vitalsFirstAstronautScreen.gameObject.activeSelf;
-        vitalsFirstAstronautScreen.SetActive(!state);
-        vitalsSecondAstronautScreen.SetActive(state);
+        // EVA mission view is EV1-only; keep the legacy EV2 screen hidden.
+        vitalsFirstAstronautScreen.SetActive(true);
+        if (vitalsSecondAstronautScreen != null)
+            vitalsSecondAstronautScreen.SetActive(false);
     }
 
     private void vitalsEventHandler(UpdatedVitalsEvent e)
@@ -105,8 +109,7 @@ public class VitalsController : MonoBehaviour
 
     private void fellowVitalsEventHandler(UpdatedFellowAstronautVitalsEvent e)
     {
-        onFellowVitalsUpdate(e);
-        onFellowVitalsErrorCheck(e);
+        // Intentionally unused for this EV1-only mission build.
     }
 
 
@@ -1106,7 +1109,6 @@ public class VitalsController : MonoBehaviour
     private void OnDestroy() 
     {
         EventBus.Unsubscribe(vitalsUpdateEvent);
-        EventBus.Unsubscribe(fellowVitalsUpdateEvent);
     }
 }
 
@@ -1117,6 +1119,9 @@ public static class VitalsNominalLimits
 {
     public const float BattTimeMin = 3600.0f;
     public const float BattTimeMax = 10800.0f;
+
+    public const float BattLevelMin = 20.0f;
+    public const float BattLevelMax = 100.0f;
 
     public const float OxyStorMin = 20.0f;
     public const float OxyStorMax = 100.0f;
@@ -1151,8 +1156,8 @@ public static class VitalsNominalLimits
 
     public const float HelmetPresCo2Max = 0.15f;
 
-    public const float FanSpeedMin = 19990.0f;
-    public const float FanSpeedMax = 30010.0f;
+    public const float FanSpeedMin = 20000.0f;
+    public const float FanSpeedMax = 30000.0f;
 
     public const float ScrubberCo2StorMax = 60.0f;
 
@@ -1224,6 +1229,28 @@ public static class VitalsUiTrafficColors
         float margin = FloorWarningFraction * min;
         if (value < min + margin)
             return Warn;
+        return Good;
+    }
+
+    public static Color EvaluateBandWithNominal(float value, float min, float nominal, float max)
+    {
+        if (value < min || value > max)
+            return Bad;
+
+        float lowSpan = nominal - min;
+        float highSpan = max - nominal;
+        if (lowSpan > 0f)
+        {
+            float lowMargin = BandWarningFraction * lowSpan;
+            if (value < nominal - lowMargin)
+                return Warn;
+        }
+        if (highSpan > 0f)
+        {
+            float highMargin = BandWarningFraction * highSpan;
+            if (value > nominal + highMargin)
+                return Warn;
+        }
         return Good;
     }
 }

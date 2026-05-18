@@ -582,14 +582,14 @@ public class NavigationFrontend : MonoBehaviour
 
     public void navigateToEV(int index)
     {
-        GameObject ev2Object = GameObject.Find("EV2_PlayerIcon");
-        if (ev2Object == null)
+        GameObject ltvObject = GameObject.Find("LTV_ICON");
+        if (ltvObject == null)
         {
-            Debug.LogError("EV2 (PlayerIcon2) not found in scene!");
+            Debug.LogError("LTV_ICON not found in scene!");
             return;
         }
 
-        UnityEngine.Vector3 targetPosition = ev2Object.transform.position;
+        UnityEngine.Vector3 targetPosition = ltvObject.transform.position;
         targetPosition.y = 0;
 
         if (pathfindingSystem != null)
@@ -601,7 +601,7 @@ public class NavigationFrontend : MonoBehaviour
             isCompanionLayer = !isCompanionLayer;
 
             pathfindingSystem.CalculatePath(targetPosition);
-            Debug.Log($"Pathfinding to EV2 on {(isCompanionLayer ? "Default" : "COMPANION")} layer");
+            Debug.Log($"Pathfinding to LTV on {(isCompanionLayer ? "Default" : "COMPANION")} layer");
 
             // Close navigation screen after switching to FULL_Map (i.e., after the second click)
             if (!isCompanionLayer)
