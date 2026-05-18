@@ -45,72 +45,51 @@ public class UIAController : MonoBehaviour
         IngressSteps.Clear();
 
         // Initialize EGRESS steps
-        EgressSteps.Add("Connect the umbilical cord from the DCU to the UIA Panel");
 
-        // 1 - 2 
-        EgressSteps.Add("On the UIA panel in front of you, Switch EV-1 EMU Power to ON");
-        //EgressSteps.Add("Switch EV-2 EMU Power to ON");
-
-        EgressSteps.Add("On your DCU panel on your chest, switch BATTERY from LOCAL to UMBILICAL Power");
+        // Section 1: Connect UIA to DCU and start depress
+        EgressSteps.Add("Verify the umbilical cord connection from the UIA Panel to the DCU");
+        EgressSteps.Add("On the UIA Panel, Switch EV-1 EMU Power to ON");
+        EgressSteps.Add("On the DCU Panel, switch BATTERY from LOCAL to UMBILICAL Power");
         EgressSteps.Add("On the UIA Panel, Switch the DEPRESS PUMP Power to ON");
-        EgressSteps.Add("On the UIA Panel, OPEN your OXYGEN VENT and wait for the PRIMARY and SECONDARY OXYGEN tanks to be under 10psi");
-        EgressSteps.Add("On the UIA Panel, CLOSE your OXYGEN VENT");
+
+        // Section 2: Prep O2 tanks
+        EgressSteps.Add("On the UIA Panel, OPEN the OXYGEN O2 VENT and wait for the PRIMARY and SECONDARY OXYGEN tanks to drop below 10psi");
+        EgressSteps.Add("On the UIA Panel, CLOSE the OXYGEN O2 VENT");
+        EgressSteps.Add("On the DCU Panel, switch OXYGEN to PRIMARY");
+        EgressSteps.Add("On the UIA Panel, Switch the OXYGEN EMU-1 to OPEN, and wait for the PRIMARY O2 tank to be above 2950psi");
+        EgressSteps.Add("On the UIA Panel, Switch the OXYGEN EMU-1 to CLOSE");
+        EgressSteps.Add("On the DCU Panel, switch OXYGEN to SECONDARY");
+        EgressSteps.Add("On the UIA Panel, Switch the OXYGEN EMU-1 to OPEN, and wait for the SECONDARY O2 tank to be above 2950psi");
+        EgressSteps.Add("On the UIA Panel, Switch the OXYGEN EMU-1 to CLOSE");
         EgressSteps.Add("On the DCU Panel, switch OXYGEN to PRIMARY");
 
-        // 8 - 9
-        EgressSteps.Add("On the UIA Panel, Switch the EMU-1 OXYGEN to OPEN, and wait for the PRIMARY O2 tank to be above 3000psi");
-        // EgressSteps.Add("Switch the EMU-2 OXYGEN to OPEN, and wait for the PRIMARY O2 tank to be above 3000psi");
-        // 10 - 11
-        EgressSteps.Add("On the UIA Panel, Switch the EMU-1 OXYGEN to CLOSE");
-        //EgressSteps.Add("Switch the EMU-2 OXYGEN to CLOSE");
+        // Section 3: Prep coolant tank
+        EgressSteps.Add("On the DCU Panel, switch the PUMP to OPEN");
+        EgressSteps.Add("On the UIA Panel, Switch EV-1 SUPPLY WATER to OPEN and wait for the EV-1 coolant storage to be above 95%");
+        EgressSteps.Add("On the UIA Panel, Switch EV-1 SUPPLY WATER to CLOSE");
 
-        EgressSteps.Add("On the DCU Panel to the left, switch OXYGEN to SECONDARY");
-
-        // 13 - 14
-        EgressSteps.Add("On the UIA Panel, Switch the EMU-1 OXYGEN to OPEN, and wait for the SECONDARY O2 tank to be above 3000psi");
-        //EgressSteps.Add("Switch the EMU-2 OXYGEN to OPEN, and wait for the SECONDARY O2 tank to be above 3000psi");
-        // 15 - 16
-        EgressSteps.Add("On the UIA Panel, Switch the EMU-1 OXYGEN to CLOSE");
-        // EgressSteps.Add("Switch the EMU-2 OXYGEN to CLOSE");
-
-        EgressSteps.Add("On the DCU Panel, switch OXYGEN to PRIMARY and wait until your SUIT PRESSURE and OXYGEN PRESSURE equal 4psi");
-        EgressSteps.Add("On the UIA Panel, Switch the DEPRESS PUMP Power to OFF");
-        EgressSteps.Add("On the DCU Panel, switch BATTERY from UMBILICAL to LOCAL Power");
-
-        // 21 - 22
+        // Section 4: End depress, check switches, disconnect
+        EgressSteps.Add("Wait until your SUIT PRESSURE and OXYGEN PRESSURE both equal 4psi, then on the UIA Panel, Switch the DEPRESS PUMP Power to OFF");
+        EgressSteps.Add("On the DCU Panel, switch BATTERY from UMBILICAL to PRIMARY Power");
+        EgressSteps.Add("On the DCU Panel, switch BATTERY from PRIMARY to LOCAL Power");
         EgressSteps.Add("On the UIA Panel, Switch EV-1 EMU Power to OFF");
-        // EgressSteps.Add("Switch EV-2 EMU Power to OFF");
-
+        EgressSteps.Add("On the DCU Panel, switch FAN to PRIMARY");
+        EgressSteps.Add("On the DCU Panel, switch PUMP to CLOSE");
+        EgressSteps.Add("On the DCU Panel, switch CO2 to PRIMARY");
         EgressSteps.Add("On the DCU Panel, verify that OXYGEN is set to PRIMARY");
-        EgressSteps.Add("On the DCU Panel, verify that COMMS are set to A");
-        EgressSteps.Add("On the DCU Panel, verify that FAN is set to PRIMARY");
-        EgressSteps.Add("On the DCU Panel, verify that PUMP is CLOSED");
-        EgressSteps.Add("On the DCU Panel, verify that CO2 is set to A");
         EgressSteps.Add("Disconnect the umbilical cord from the DCU and UIA Panel");
 
 
-        // // Initialize INGRESS steps
-        IngressSteps.Add("Connect the umbilical cord from the DCU to the UIA Panel");
-
-        // 1 - 2
-        IngressSteps.Add("Switch EV-1 EMU Power to ON");
-        IngressSteps.Add("Switch EV-2 EMU Power to ON");
-
-        IngressSteps.Add("On the DCU Panel to the left, switch BATTERY from LOCAL to UMBILICAL Power");
-        IngressSteps.Add("OPEN your OXYGEN VENT and wait for the PRIMARY and SECONDARY OXYGEN tanks to be under 10psi");
-        IngressSteps.Add("CLOSE your OXYGEN VENT");
-        IngressSteps.Add("On the DCU Panel to the left, switch your PUMP to OPEN");
-
-        // 7 - 8
-        IngressSteps.Add("OPEN your EV-1 WASTE WATER and wait for the EV-1 coolant tank to be UNDER 5%");
-        IngressSteps.Add("OPEN your EV-2 WASTE WATER and wait for the EV-2 coolant tank to be UNDER 5%");
-        // 9 - 10
-        IngressSteps.Add("CLOSE your EV-1 WASTE WATER");
-        IngressSteps.Add("CLOSE your EV-2 WASTE WATER");
-        // 11 - 12
-        IngressSteps.Add("Switch EV-1 EMU Power to OFF");
-        IngressSteps.Add("Switch EV-2 EMU Power to OFF");
-
+        // Initialize INGRESS steps
+        IngressSteps.Add("Connect the umbilical cord from the UIA Panel to the DCU");
+        IngressSteps.Add("On the UIA Panel, Switch EV-1 EMU Power to ON");
+        IngressSteps.Add("On the DCU Panel, switch BATTERY from LOCAL to UMBILICAL Power");
+        IngressSteps.Add("On the UIA Panel, OPEN the OXYGEN O2 VENT and wait for the PRIMARY and SECONDARY OXYGEN tanks to drop below 10psi");
+        IngressSteps.Add("On the UIA Panel, CLOSE the OXYGEN O2 VENT");
+        IngressSteps.Add("On the DCU Panel, switch the PUMP to OPEN");
+        IngressSteps.Add("On the UIA Panel, Switch EV-1 WASTE WATER to OPEN and wait for the EV-1 coolant tank to drop below 5%");
+        IngressSteps.Add("On the UIA Panel, Switch EV-1 WASTE WATER to CLOSE");
+        IngressSteps.Add("On the UIA Panel, Switch EV-1 EMU Power to OFF");
         IngressSteps.Add("Disconnect the umbilical cord from the DCU and UIA Panel");
     }
 
