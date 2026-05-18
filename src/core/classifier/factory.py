@@ -1,9 +1,9 @@
 """Classifier factory.
 
 Per-mode classifier selection:
-- EVA mode: MultiIntentClassifier when the models/best_model bundle is
+- EVA mode: MultiIntentClassifier when the models/EVA-Model bundle is
   present; falls back to NNClassifier otherwise.
-- PR mode: MultilabelClassifier when models/multilabel/label2id.json is
+- PR mode: MultilabelClassifier when models/PR-Model/label2id.json is
   present; falls back to NNClassifier otherwise.
 
 See: docs/superpowers/specs/2026-05-14-corvus-dual-mode-voice-and-model-swap-design.md §7
@@ -22,7 +22,7 @@ from src.core.classifier.classifier_protocol import ClassifierProtocol
 log = logging.getLogger(__name__)
 
 MODELS_DIR = BASE_DIR / "models"
-BEST_MODEL_DIR = MODELS_DIR / "best_model"
+BEST_MODEL_DIR = MODELS_DIR / "EVA-Model"
 BEST_MODEL_REQUIRED_FILES = (
     "multiintent.pt",
     "label2id.json",
@@ -63,24 +63,24 @@ def build_classifier(mode: Literal["eva", "pr"]) -> ClassifierProtocol:
     if mode == "eva":
         if _best_model_bundle_present(BEST_MODEL_DIR):
             log.info(
-                "EVA mode: best_model bundle present at %s; building MultiIntentClassifier",
+                "EVA mode: EVA-Model bundle present at %s; building MultiIntentClassifier",
                 BEST_MODEL_DIR,
             )
             return _build_multiintent(BEST_MODEL_DIR)
         log.warning(
-            "EVA mode: best_model bundle missing at %s; falling back to NNClassifier",
+            "EVA mode: EVA-Model bundle missing at %s; falling back to NNClassifier",
             BEST_MODEL_DIR,
         )
         return _build_nn()
 
-    multilabel_dir = MODELS_DIR / "multilabel"
-    if (multilabel_dir / "label2id.json").exists():
-        log.info("PR mode: multilabel sidecars present at %s; building MultilabelClassifier",
-                 multilabel_dir)
-        return _build_multilabel(multilabel_dir, mode)
+    pr_model_dir = MODELS_DIR / "PR-Model"
+    if (pr_model_dir / "label2id.json").exists():
+        log.info("PR mode: PR-Model sidecars present at %s; building MultilabelClassifier",
+                 pr_model_dir)
+        return _build_multilabel(pr_model_dir, mode)
 
     log.warning(
-        "PR mode: multilabel sidecars missing at %s; falling back to NNClassifier",
-        multilabel_dir,
+        "PR mode: PR-Model sidecars missing at %s; falling back to NNClassifier",
+        pr_model_dir,
     )
     return _build_nn()

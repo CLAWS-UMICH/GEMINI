@@ -30,9 +30,22 @@ corvus-eva      = "src.modes.eva.main:main"
 corvus-pr       = "src.modes.pr.main:main"
 classifier-test = "tests.test_classifier:main"
 
-[build-system]                                                                                    
+[build-system]
   requires = ["setuptools>=75.0"]
   build-backend = "setuptools.build_meta"
 
   [tool.setuptools.packages.find]
   include = ["src", "src.*", "tests", "tests.*", "scripts", "scripts.*"]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu128", marker = "sys_platform == 'win32'" },
+]
+torchaudio = [
+    { index = "pytorch-cu128", marker = "sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

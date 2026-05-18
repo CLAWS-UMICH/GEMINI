@@ -13,8 +13,8 @@ from src.core.responder.registry_pr import REGISTRY_PR
 from src.core.responder.fallback import TELEMETRY_UNAVAILABLE_REPLY
 from src.core.telemetry.cache import TelemetryCache
 
-BEST_MODEL_DIR = Path(__file__).resolve().parents[1] / "models" / "best_model"
-MULTILABEL_DIR = Path(__file__).resolve().parents[1] / "models" / "multilabel"
+BEST_MODEL_DIR = Path(__file__).resolve().parents[1] / "models" / "EVA-Model"
+MULTILABEL_DIR = Path(__file__).resolve().parents[1] / "models" / "PR-Model"
 INTENT_CATALOGS_DIR = Path(__file__).resolve().parents[1] / "models" / "intent_catalogs"
 BEST_MODEL_PRESENT = (
     (BEST_MODEL_DIR / "multiintent.pt").exists()

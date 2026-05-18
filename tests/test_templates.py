@@ -14,7 +14,7 @@ MODELS_DIR = Path(__file__).resolve().parents[1] / "models"
 def test_every_multilabel_label_has_a_template():
     from src.core.responder.templates import INTENT_RESPONSE_TEMPLATES
 
-    labels = set(json.loads((MODELS_DIR / "multilabel" / "label2id.json").read_text()))
+    labels = set(json.loads((MODELS_DIR / "PR-Model" / "label2id.json").read_text()))
     missing = labels - set(INTENT_RESPONSE_TEMPLATES)
     assert not missing, f"labels with no template: {sorted(missing)}"
 

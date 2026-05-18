@@ -15,7 +15,7 @@ import torch
 from src.config import CONFIDENCE_THRESH_HIGH
 from src.core.classifier.multiintent_classifier import MultiIntentClassifier
 
-BEST_MODEL_DIR = Path(__file__).resolve().parents[1] / "models" / "best_model"
+BEST_MODEL_DIR = Path(__file__).resolve().parents[1] / "models" / "EVA-Model"
 SIDECARS = [
     "multiintent.pt",
     "label2id.json",

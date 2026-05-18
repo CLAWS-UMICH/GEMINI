@@ -18,7 +18,7 @@ import torch
 from src.core.classifier.multilabel_classifier import MultilabelClassifier
 
 MODELS_DIR = Path(__file__).resolve().parents[1] / "models"
-MULTILABEL_DIR = MODELS_DIR / "multilabel"
+MULTILABEL_DIR = MODELS_DIR / "PR-Model"
 CATALOGS_DIR = MODELS_DIR / "intent_catalogs"
 SIDECARS = ["multilabel.pt", "label2id.json", "tokenizer.json", "vocab.txt"]
 

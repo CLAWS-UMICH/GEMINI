@@ -1,4 +1,4 @@
-"""EVA multi-intent classifier backed by models/best_model/multiintent.pt."""
+"""EVA multi-intent classifier backed by models/EVA-Model/multiintent.pt."""
 
 from __future__ import annotations
 
