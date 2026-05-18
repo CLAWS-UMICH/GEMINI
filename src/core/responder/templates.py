@@ -1,11 +1,15 @@
-"""Response templates for the 88 multilabel intents.
+"""Response templates for intent labels across both classifier eras.
 
-Vendored verbatim from `intent_model/src/intent_model/intent_cli.py:21`
-(teammate-authored). Each template has a `{value}` placeholder that the
-template_handler factory fills from telemetry.
+Original 88 entries vendored verbatim from
+`intent_model/src/intent_model/intent_cli.py:21` (teammate-authored,
+multilabel era). The trailing 33 entries are added for NN-classifier
+labels used by EVA mode (22 vitals_* + 11 lowercase case-drift of the
+CamelCase `Get_*` keys).
 
-Casing is exact — 18 keys are CamelCase (PR rover-channel `Get_*`) and
-70 are snake_case. The classifier's label2id uses the same casing.
+Each template has a `{value}` placeholder that the template_handler
+factory fills from telemetry. Casing matches the classifier's label2id
+exactly — collisions across eras are intentional aliases (same field,
+different label name).
 """
 
 INTENT_RESPONSE_TEMPLATES: dict[str, str] = {
@@ -97,4 +101,42 @@ INTENT_RESPONSE_TEMPLATES: dict[str, str] = {
     "set_cabin_heating_on": "Cabin heating has been set on with status {value}.",
     "set_lights_off": "Lights have been set off with status {value}.",
     "set_lights_on": "Lights have been set on with status {value}.",
+
+    # NN-classifier vitals_* labels (EVA mode, suit-side telemetry)
+    "vitals_heart_rate": "The heart rate is {value} beats per minute.",
+    "vitals_temperature": "The body temperature is {value}.",
+    "vitals_oxy_pri_storage": "The primary oxygen storage is {value}.",
+    "vitals_oxy_sec_storage": "The secondary oxygen storage is {value}.",
+    "vitals_oxy_pri_pressure": "The primary oxygen pressure is {value}.",
+    "vitals_oxy_sec_pressure": "The secondary oxygen pressure is {value}.",
+    "vitals_suit_pressure_total": "The total suit pressure is {value}.",
+    "vitals_suit_pressure_oxy": "The suit oxygen pressure is {value}.",
+    "vitals_suit_pressure_co2": "The suit CO2 pressure is {value}.",
+    "vitals_suit_pressure_other": "The other suit pressure is {value}.",
+    "vitals_helmet_pressure_co2": "The helmet CO2 pressure is {value}.",
+    "vitals_fan_pri_rpm": "The primary fan RPM is {value}.",
+    "vitals_fan_sec_rpm": "The secondary fan RPM is {value}.",
+    "vitals_scrubber_a_co2_storage": "Scrubber A CO2 storage is {value}.",
+    "vitals_scrubber_b_co2_storage": "Scrubber B CO2 storage is {value}.",
+    "vitals_coolant_storage": "The coolant storage is {value}.",
+    "vitals_coolant_gas_pressure": "The coolant gas pressure is {value}.",
+    "vitals_coolant_liquid_pressure": "The coolant liquid pressure is {value}.",
+    "vitals_oxy_consumption": "The oxygen consumption is {value}.",
+    "vitals_co2_production": "The CO2 production is {value}.",
+    "vitals_oxy_time_left": "The oxygen time remaining is {value}.",
+    "vitals_batt_time_left": "The battery time remaining is {value}.",
+
+    # NN-classifier lowercase aliases for the CamelCase rover Get_* keys above
+    "get_battery_level": "The rover battery level is {value}.",
+    "get_cabin_pressure": "The cabin pressure is {value}.",
+    "get_coolant_pressure": "The coolant pressure is {value}.",
+    "get_coolant_storage": "The coolant storage is {value}.",
+    "get_external_temp": "The external temperature is {value}.",
+    "get_fan_pri_rpm": "The primary fan RPM is {value}.",
+    "get_fan_sec_rpm": "The secondary fan RPM is {value}.",
+    "get_oxygen_pressure": "The oxygen pressure is {value}.",
+    "get_oxygen_tank": "The oxygen tank level is {value}.",
+    "get_rover_elapsed_time": "The rover elapsed time is {value}.",
+    "get_distance_from_base": "The distance from base is {value}.",
+    "get_co2_scrubber": "The CO2 scrubber storage is {value}.",
 }
