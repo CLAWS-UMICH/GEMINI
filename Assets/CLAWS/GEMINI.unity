@@ -2566,7 +2566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5a8041cf8a74aa8b5c363cf442115b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadialWedgeHighlight
-  gazeHighlightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &208423064
 GameObject:
   m_ObjectHideFlags: 0
@@ -6039,6 +6038,63 @@ Transform:
   - {fileID: 627009620}
   m_Father: {fileID: 1725349014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &419557676
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5686176417382859004, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_Name
+      value: Corvus
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.83622
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.2377
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532578926063042848, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
 --- !u!1 &419654629
 GameObject:
   m_ObjectHideFlags: 0
@@ -14696,6 +14752,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrefabChanger
   overlayTarget: {fileID: 850000201}
   qrPlacer: {fileID: 850000102}
+  faceCamera: 1
+  lockVerticalAxis: 1
 --- !u!1 &865549634
 GameObject:
   m_ObjectHideFlags: 0
@@ -17928,11 +17986,11 @@ PrefabInstance:
     - target: {fileID: 4713178751725569594, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
       propertyPath: _corvusTTS
       value: 
-      objectReference: {fileID: 5606444795860481883}
+      objectReference: {fileID: 0}
     - target: {fileID: 4713178751725569594, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
       propertyPath: _corvusController
       value: 
-      objectReference: {fileID: 5274132973089844533}
+      objectReference: {fileID: 0}
     - target: {fileID: 4847022283066860286, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
       propertyPath: m_Name
       value: CorvusHalo
@@ -22726,6 +22784,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403199037}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1403550783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5274132973516829717, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+  m_PrefabInstance: {fileID: 419557676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f28ed96f6494a458f11106099d3daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusController
+--- !u!114 &1403550786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5606444795247275643, guid: 12388542dfbcb461dbb1ae87fafc721c, type: 3}
+  m_PrefabInstance: {fileID: 419557676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66171460b25f834894b348db2927e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusTTS
 --- !u!1 &1408744357
 GameObject:
   m_ObjectHideFlags: 0
@@ -28526,6 +28606,80 @@ Transform:
   - {fileID: 743560868}
   m_Father: {fileID: 290864675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1768558209
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.83622
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.2377
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310351253587634148, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713178751725569594, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: _corvusTTS
+      value: 
+      objectReference: {fileID: 1403550786}
+    - target: {fileID: 4713178751725569594, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: _corvusController
+      value: 
+      objectReference: {fileID: 1403550783}
+    - target: {fileID: 4847022283066860286, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      propertyPath: m_Name
+      value: CorvusHalo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6205324541190796660, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 690059566350023304, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 143921877607272124, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: a477d72e2b0d74e9f8c271d24bae9ec0, type: 3}
 --- !u!1 &1775874321
 GameObject:
   m_ObjectHideFlags: 0
@@ -37910,21 +38064,6 @@ Transform:
   - {fileID: 9014179000802101173}
   m_Father: {fileID: 5774116778323168443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &269189780110098271
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.47427, y: 1.9621999, z: 26.023722}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &273597025767641842
 Transform:
   m_ObjectHideFlags: 0
@@ -40147,29 +40286,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3318028617772989526}
   m_Mesh: {fileID: 8597400676033422076, guid: 817117ab22c8d33418218d97ff6c9774, type: 3}
---- !u!1 &1231975339648121173
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 269189780110098271}
-  - component: {fileID: 3756909813285371208}
-  - component: {fileID: 4328280592895599367}
-  - component: {fileID: 5878582406070183635}
-  - component: {fileID: 8268116695896588934}
-  - component: {fileID: 5606444795860481883}
-  - component: {fileID: 5274132973089844533}
-  - component: {fileID: 5577986797220275568}
-  m_Layer: 0
-  m_Name: CorvusController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!20 &1240982295171105019
 Camera:
   m_ObjectHideFlags: 0
@@ -50162,103 +50278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1.2
---- !u!82 &3756909813285371208
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &3757477213248443644
 GameObject:
   m_ObjectHideFlags: 0
@@ -51349,22 +51368,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0045, y: -0.0033}
   m_SizeDelta: {x: 0.078, y: 0.01}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4328280592895599367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0030b47ca80ed44b32bdc601eb4b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Piper.PiperManager
-  backend: 256
-  model: {fileID: 5022602860645237092, guid: cd2f603c140a41b44965fc30f837adb2, type: 3}
-  voice: en-us
-  sampleRate: 22050
 --- !u!1 &4348297707295507727
 GameObject:
   m_ObjectHideFlags: 0
@@ -54592,23 +54595,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2696420463341628397}
   m_maskType: 0
---- !u!114 &5274132973089844533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f28ed96f6494a458f11106099d3daa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusController
-  _serverUrl: ws://172.20.10.3:8765
-  _corvusTTS: {fileID: 0}
-  _lmcc: {fileID: 0}
-  _whisper: {fileID: 0}
-  _microphoneRecord: {fileID: 0}
 --- !u!65 &5286499836017070510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55634,24 +55620,6 @@ MonoBehaviour:
     onExited:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &5577986797220275568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48c732a56eb7674fae8d423a1a74229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Testing.CorvusTest
-  _corvusController: {fileID: 5274132973089844533}
-  _simulateWhenDisconnected: 0
-  _corvusARBridge: {fileID: 6702739219566557943}
-  _navTargetName: EV2
-  _waypointName: Voice Test Alpha
-  _taskName: Inspect solar panel
 --- !u!114 &5589521827304369440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55919,20 +55887,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5606444795860481883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66171460b25f834894b348db2927e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusTTS
-  _piperManager: {fileID: 4328280592895599367}
-  _audioSource: {fileID: 3756909813285371208}
 --- !u!4 &5612731580470452029
 Transform:
   m_ObjectHideFlags: 0
@@ -56965,39 +56919,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5878582406070183635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9370225a2ca94276b870d5f87b0db55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: com.whisper.unity::Whisper.WhisperManager
-  logLevel: 1
-  modelPath: Whisper/ggml-tiny.en.bin
-  isModelPathInStreamingAssets: 1
-  initOnAwake: 1
-  useGpu: 0
-  flashAttention: 0
-  language: en
-  translateToEnglish: 0
-  strategy: 0
-  noContext: 1
-  singleSegment: 0
-  enableTokens: 0
-  initialPrompt: 
-  stepSec: 3
-  keepSec: 0.2
-  lengthSec: 10
-  updatePrompt: 1
-  dropOldBuffer: 0
-  useVad: 1
-  tokensTimestamps: 0
-  audioCtx: 0
 --- !u!4 &5885226751331890374
 Transform:
   m_ObjectHideFlags: 0
@@ -60407,9 +60328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7f0c03f857f1442b3d54ec2fa37dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CorvusARBridge
-  _corvusController: {fileID: 5274132973089844533}
+  _corvusController: {fileID: 1403550783}
   _dialogueManager: {fileID: 9052873134073120209}
-  _tts: {fileID: 5606444795860481883}
+  _tts: {fileID: 1403550786}
   _screenManager: {fileID: 1555562891}
   _pathfinding: {fileID: 1327663371}
   _taskDetailScreen: {fileID: 910000000000000003}
@@ -64166,35 +64087,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06252284, y: 0.013535785, z: 0.016700905}
   m_Center: {x: -0.002268716, y: -0.0008209019, z: 0.00096016156}
---- !u!114 &8268116695896588934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975339648121173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc03a4c19604ea394e364f8fc632928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: com.whisper.unity::Whisper.Utils.MicrophoneRecord
-  maxLengthSec: 60
-  loop: 0
-  frequency: 16000
-  chunksLengthSec: 0.5
-  echo: 1
-  useVad: 1
-  vadUpdateRateSec: 0.1
-  vadContextSec: 30
-  vadLastSec: 1.25
-  vadThd: 1
-  vadFreqThd: 100
-  vadIndicatorImage: {fileID: 0}
-  vadStop: 1
-  dropVadPart: 1
-  vadStopTime: 0.4
-  microphoneDropdown: {fileID: 0}
-  microphoneDefaultLabel: Default microphone
 --- !u!114 &8270653268461881231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66214,5 +66106,6 @@ SceneRoots:
   - {fileID: 1327663370}
   - {fileID: 1303620692}
   - {fileID: 5096161799556898097}
-  - {fileID: 269189780110098271}
   - {fileID: 8993662258736600761}
+  - {fileID: 419557676}
+  - {fileID: 1768558209}
