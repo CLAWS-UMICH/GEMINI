@@ -99,7 +99,11 @@ class EvaSession:
             return
         self._reset_buffer()
         self.state = SessionState.BUFFERING
-        log.info("eva: state IDLE -> BUFFERING")
+        log.info(
+            "Unity opened mic (%d Hz mono)",
+            msg.sample_rate,
+            extra={"event": "mic"},
+        )
 
     def _handle_stop(self) -> None:
         if self.state == SessionState.IDLE:
@@ -117,7 +121,7 @@ class EvaSession:
 
     def on_binary(self, data: bytes) -> AudioReady | None:
         if self.state != SessionState.BUFFERING:
-            log.info("eva: dropping %d bytes received in IDLE state", len(data))
+            log.debug("eva: dropping %d bytes received in IDLE state", len(data))
             return None
 
         if len(data) % 2:
@@ -165,7 +169,12 @@ class EvaSession:
         pcm = bytes(self._buffer)
         ready = AudioReady(pcm=pcm, processing_start=time.monotonic())
         self.state = SessionState.IDLE
-        log.info("eva: state BUFFERING -> IDLE (end-of-speech, %d bytes)", len(pcm))
+        duration_s = len(pcm) / 32000  # 16000 samples/s * 2 bytes/sample
+        log.info(
+            "speech ended (%.1fs captured)",
+            duration_s,
+            extra={"event": "vad"},
+        )
         # Leave _buffer/_unconsumed populated until finalize completes; reset on next start.
         return ready
 
@@ -176,6 +185,8 @@ class EvaSession:
         except Exception:
             log.exception("eva: STT failed; emitting empty final")
             return FinalMsg(response="")
+
+        log.info("%r", transcript, extra={"event": "stt"})
 
         try:
             classification = self.classifier.classify(transcript)
@@ -193,6 +204,13 @@ class EvaSession:
         raw_intent = classification.get("intent", "unhandled")
         intent = raw_intent if (confidence >= CONFIDENCE_THRESH_HIGH and raw_intent in self.registry) else "unhandled"
 
+        log.info(
+            "%s (conf %.3f)",
+            intent,
+            confidence,
+            extra={"event": "intent", "intent_unhandled": intent == "unhandled"},
+        )
+
         try:
             response_text = dispatch.respond(transcript, classification, self.cache, self.registry)
         except Exception:
@@ -205,7 +223,7 @@ class EvaSession:
 
         latency_ms = round((time.monotonic() - ready.processing_start) * 1000, 2)
         if latency_ms > LATENCY_WARNING_MS:
-            log.warning("eva: high latency %sms (threshold %sms)", latency_ms, LATENCY_WARNING_MS)
+            log.debug("eva: high latency %sms (threshold %sms)", latency_ms, LATENCY_WARNING_MS)
 
         if EMIT_VOICESTRING and self.sio_client is not None:
             try:
@@ -214,6 +232,11 @@ class EvaSession:
                 log.warning("eva: voiceString emit failed; continuing")
 
         log.info(
+            "%s",
+            response_text,
+            extra={"event": "reply"},
+        )
+        log.debug(
             "eva: final intent=%s confidence=%.3f latency_ms=%s transcript=%r",
             intent,
             confidence,

@@ -1,4 +1,5 @@
 import json
+import logging
 
 import pytest
 
@@ -342,3 +343,85 @@ def test_finalize_classifier_failure_emits_transcript_unhandled():
     assert final.transcript == "say something"
     assert final.intent == "unhandled"
     assert final.latency_ms is not None
+
+
+def test_mic_event_emitted_on_start(caplog):
+    session = make_session()
+    with caplog.at_level("INFO", logger="src.modes.eva.session"):
+        session.on_text(json.dumps({"type": "start", "sample_rate": 16000, "channels": 1}))
+
+    mic_records = [r for r in caplog.records if getattr(r, "event", None) == "mic"]
+    assert len(mic_records) == 1
+    assert "16000" in mic_records[0].getMessage()
+
+
+def test_vad_event_emitted_on_end_of_speech(caplog):
+    vad = FakeVAD(sequence=[True] + [False] * 25)
+    session = make_session(vad=vad)
+    session.on_text(json.dumps({"type": "start", "sample_rate": 16000, "channels": 1}))
+    pcm = _pcm_nonzero_bytes(VAD_FRAME_SAMPLES * 26)
+    with caplog.at_level("INFO", logger="src.modes.eva.session"):
+        session.on_binary(pcm)
+
+    vad_records = [r for r in caplog.records if getattr(r, "event", None) == "vad"]
+    assert len(vad_records) == 1
+    assert "s captured" in vad_records[0].getMessage()
+
+
+def test_finalize_emits_stt_intent_reply_events(caplog):
+    vad = FakeVAD()
+    stt = FakeSTT(transcript="check heart rate")
+    classifier = FakeClassifier({"intent": "vitals_heart_rate", "confidence": 0.95})
+    registry = {"vitals_heart_rate": lambda *a: "HR is 72 bpm."}
+    session = make_session(vad=vad, stt=stt, classifier=classifier, registry=registry)
+    ready = _drive_to_audio_ready(session, vad)
+    with caplog.at_level("INFO", logger="src.modes.eva.session"):
+        asyncio.run(session.finalize(ready))
+
+    events = {getattr(r, "event", None): r for r in caplog.records}
+    assert "stt" in events
+    assert "check heart rate" in events["stt"].getMessage()
+    assert "intent" in events
+    assert "vitals_heart_rate" in events["intent"].getMessage()
+    assert getattr(events["intent"], "intent_unhandled", False) is False
+    assert "reply" in events
+    assert "HR is 72 bpm." in events["reply"].getMessage()
+
+
+def test_finalize_intent_event_flags_unhandled(caplog):
+    vad = FakeVAD()
+    classifier = FakeClassifier({"intent": "vitals_heart_rate", "confidence": 0.20})
+    registry = {"vitals_heart_rate": lambda *a: "ok"}
+    session = make_session(vad=vad, classifier=classifier, registry=registry)
+    ready = _drive_to_audio_ready(session, vad)
+    with caplog.at_level("INFO", logger="src.modes.eva.session"):
+        asyncio.run(session.finalize(ready))
+
+    intent_records = [r for r in caplog.records if getattr(r, "event", None) == "intent"]
+    assert len(intent_records) == 1
+    assert intent_records[0].intent_unhandled is True
+
+
+def test_dropping_bytes_is_debug_not_info(caplog):
+    session = make_session()
+    with caplog.at_level("DEBUG", logger="src.modes.eva.session"):
+        session.on_binary(_pcm_silence_bytes(1600))
+
+    drop_records = [r for r in caplog.records if "dropping" in r.getMessage()]
+    assert len(drop_records) == 1
+    assert drop_records[0].levelno == logging.DEBUG
+
+
+def test_latency_warning_is_debug(caplog, monkeypatch):
+    monkeypatch.setattr("src.modes.eva.session.LATENCY_WARNING_MS", 0)
+    vad = FakeVAD()
+    classifier = FakeClassifier({"intent": "vitals_heart_rate", "confidence": 0.95})
+    registry = {"vitals_heart_rate": lambda *a: "ok"}
+    session = make_session(vad=vad, classifier=classifier, registry=registry)
+    ready = _drive_to_audio_ready(session, vad)
+    with caplog.at_level("DEBUG", logger="src.modes.eva.session"):
+        asyncio.run(session.finalize(ready))
+
+    latency_records = [r for r in caplog.records if "high latency" in r.getMessage()]
+    assert len(latency_records) == 1
+    assert latency_records[0].levelno == logging.DEBUG
