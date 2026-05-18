@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import sys
 
 from src.config import (
     CONFIDENCE_THRESH_HIGH,
@@ -11,46 +10,40 @@ from src.core.classifier.factory import build_classifier
 from src.core.responder.registry_eva import REGISTRY_EVA
 from src.core.telemetry.cache import TelemetryCache
 from src.core.telemetry.client import TelemetryClient
-from src.modes.eva.websocket_handler import (
-    log_error,
-    log_info,
-    log_success,
-    log_warning,
-    start_websocket,
-)
+from src.modes.eva.log_format import configure_eva_logging
+from src.modes.eva.websocket_handler import start_websocket
 from src.voice.stt import DEFAULT_MODEL_DIR as WHISPER_MODEL_DIR, WhisperSTT
 from src.voice.vad import SileroVAD
 
+log = logging.getLogger(__name__)
+
 
 async def start_server() -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)s %(name)s: %(message)s",
-    )
-    log_info("Starting CORVUS-EVA Server...")
-    log_info(f"Confidence threshold: {CONFIDENCE_THRESH_HIGH}")
+    configure_eva_logging()
+    log.info("Starting CORVUS-EVA Server...")
+    log.info("Confidence threshold: %s", CONFIDENCE_THRESH_HIGH)
 
     if not WHISPER_MODEL_DIR.exists():
-        log_error(
-            f"Whisper checkpoint missing at {WHISPER_MODEL_DIR}. "
-            f"EVA mode now requires Whisper for streaming PCM transcription. "
-            f"Run scripts/install_whisper.sh and retry."
+        log.error(
+            "Whisper checkpoint missing at %s. EVA mode requires Whisper for "
+            "streaming PCM transcription. Run scripts/install_whisper.sh and retry.",
+            WHISPER_MODEL_DIR,
         )
         raise SystemExit(1)
 
     cache = TelemetryCache(stale_after_s=STALE_TELEMETRY_S)
     sio_client = TelemetryClient(TTTDTT_URL, cache)
     sio_client.start()
-    log_info(f"TTTDTT client started (target: {TTTDTT_URL})")
+    log.info("TTTDTT client started (target: %s)", TTTDTT_URL)
 
     classifier = build_classifier(mode="eva")
-    log_success(f"Classifier loaded ({classifier.__class__.__name__})")
+    log.info("Classifier loaded (%s)", classifier.__class__.__name__)
 
     stt = WhisperSTT()
-    log_success("Whisper STT loaded")
+    log.info("Whisper STT loaded")
 
     vad = SileroVAD()
-    log_success("Silero VAD loaded")
+    log.info("Silero VAD loaded")
 
     try:
         await start_websocket(classifier, cache, sio_client, stt, vad, REGISTRY_EVA)
@@ -62,11 +55,11 @@ def main() -> None:
     try:
         asyncio.run(start_server())
     except KeyboardInterrupt:
-        log_info("\nServer stopped by user (Ctrl+C)")
+        log.info("Server stopped by user (Ctrl+C)")
     except SystemExit:
         raise
-    except Exception as exc:
-        log_error(f"Server crashed: {exc}")
+    except Exception:
+        log.exception("Server crashed")
         raise
 
 
