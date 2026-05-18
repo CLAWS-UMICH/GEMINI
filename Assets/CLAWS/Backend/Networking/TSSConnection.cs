@@ -1,5 +1,6 @@
 using System.Collections;
-using UnityEngine; 
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using System;
@@ -7,6 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 public class TSSConnection : MonoBehaviour
 {
@@ -16,6 +18,12 @@ public class TSSConnection : MonoBehaviour
     [SerializeField] private bool pollRoverPosition = true;
     [SerializeField] private bool pollLtvLocation = true;
     [SerializeField] private bool pollLtvErrors = true;
+    [SerializeField] private bool logLtvErrorsParseDiagnostics;
+    [SerializeField] private float ermClearPollMaxSeconds = 25f;
+    [SerializeField] private float ermClearPollIntervalSeconds = 0.2f;
+
+    /// <summary>GET 3 interval while any LTV error still has needs_resolved (keeps task list in sync until all cleared).</summary>
+    [SerializeField] private float ltvErrorsPollWhileUnresolvedSeconds = 1f;
 
     private string IPaddr;
     private string tssHost;
@@ -28,6 +36,8 @@ public class TSSConnection : MonoBehaviour
     private bool optionalPollInFlight = false;
     private bool telemetryErrorLogged = false;
     private float lastOptionalPayloadWarningTime = -100f;
+    private float timeSinceLtvUnresolvedPoll;
+    private bool ltvUnresolvedPollInFlight;
 
     private const int UdpRoverCommand = 0;
     private const int UdpEvaCommand = 1;
@@ -37,6 +47,21 @@ public class TSSConnection : MonoBehaviour
     private const float EvaPollIntervalSeconds = 1.0f;
     private const float OptionalPollIntervalSeconds = 5.0f;
     private const float OptionalPayloadWarningIntervalSeconds = 10f;
+
+    /// <summary>
+    /// Serialize UDP GET command 3 so optional polling and post-POST refreshes cannot apply out-of-order
+    /// responses (a stale snapshot would e.g. bring back ERM 4800 after it was cleared on the server).
+    /// </summary>
+    private readonly object ltvErrorsUdpSync = new object();
+
+    /// <summary>After any LTV mutation, poll GET 3 at least this many times (spaced) so dependency updates can land.</summary>
+    private const int MinLtvErrorsPollsAfterMutation = 3;
+
+    private const int MaxLtvErrorsMutationPollAttempts = 24;
+    private const float LtvErrorsMutationPollDelaySeconds = 0.05f;
+
+    /// <summary>Set after ERM POST (index 0, needs_resolved false) until full LTV_ERRORS GET 3 is applied.</summary>
+    private bool ermClearPostPending;
 
     ////////////////////////////  ROVER / LTV CACHE  /////////////////////////////
     private Vector3 latestRoverPosition;
@@ -118,6 +143,8 @@ public class TSSConnection : MonoBehaviour
         telemetryErrorLogged = false;
         evaPollInFlight = false;
         optionalPollInFlight = false;
+        timeSinceLtvUnresolvedPoll = 0f;
+        ltvUnresolvedPollInFlight = false;
     }
 
 
@@ -146,7 +173,36 @@ public class TSSConnection : MonoBehaviour
                 StartCoroutine(FetchOptionalPayloads());
                 time_since_last_optional_update = 0.0f;
             }
+
+            if (pollLtvErrors)
+                TickLtvErrorsPollWhileUnresolved(Time.deltaTime);
         }
+    }
+
+    private void TickLtvErrorsPollWhileUnresolved(float deltaTime)
+    {
+        if (!connected || !pollLtvErrors || ltvUnresolvedPollInFlight)
+            return;
+
+        if (!LtvErrorTaskSupport.ShouldKeepPollingLtvErrors(latestLtvErrorProcedures))
+        {
+            timeSinceLtvUnresolvedPoll = 0f;
+            return;
+        }
+
+        timeSinceLtvUnresolvedPoll += deltaTime;
+        if (timeSinceLtvUnresolvedPoll < ltvErrorsPollWhileUnresolvedSeconds)
+            return;
+
+        timeSinceLtvUnresolvedPoll = 0f;
+        StartCoroutine(LtvErrorsFastPollTick());
+    }
+
+    private IEnumerator LtvErrorsFastPollTick()
+    {
+        ltvUnresolvedPollInFlight = true;
+        yield return RefreshLtvErrorsOnce();
+        ltvUnresolvedPollInFlight = false;
     }
 
 
@@ -168,6 +224,13 @@ public class TSSConnection : MonoBehaviour
     public bool TryGetLtvErrorProcedures(out LtvErrorProcedure[] procedures)
     {
         procedures = LatestLtvErrorProcedures;
+        return hasLtvErrorProcedures;
+    }
+
+
+    public bool TryGetActiveLtvErrorProcedures(out LtvErrorProcedure[] active)
+    {
+        active = LtvErrorTaskSupport.FilterActive(latestLtvErrorProcedures).ToArray();
         return hasLtvErrorProcedures;
     }
 
@@ -205,6 +268,8 @@ public class TSSConnection : MonoBehaviour
             connected = true;
             OnTSSConnectionResult?.Invoke(true);
             Debug.Log("[TSS] TSS2026 UDP connected: " + tssHost + ":" + tssPort);
+            if (pollLtvErrors)
+                StartCoroutine(RefreshLtvErrorsOnce());
         }
     }
 
@@ -254,6 +319,29 @@ public class TSSConnection : MonoBehaviour
 
     private IEnumerator FetchCommandJson(CommandFetchResult result)
     {
+        if (result.Command == UdpLtvErrorsCommand)
+        {
+            Task<string> httpTask = Task.Run(async () => {
+                using (var client = new System.Net.Http.HttpClient()) {
+                    client.Timeout = TimeSpan.FromSeconds(3);
+                    return await client.GetStringAsync("http://" + tssHost + ":" + tssPort + "/data/LTV_ERRORS.json");
+                }
+            });
+
+            yield return new WaitUntil(() => httpTask.IsCompleted);
+
+            if (httpTask.IsFaulted || httpTask.IsCanceled)
+            {
+                Exception error = httpTask.Exception?.GetBaseException();
+                result.Fail(error != null ? error.Message : "HTTP request failed.");
+            }
+            else
+            {
+                result.Succeed(httpTask.Result);
+            }
+            yield break;
+        }
+
         Task<string> fetchTask = FetchUdpJsonAsync(result.Command);
         yield return new WaitUntil(() => fetchTask.IsCompleted);
 
@@ -274,16 +362,30 @@ public class TSSConnection : MonoBehaviour
         int port = tssPort;
         return Task.Run(() =>
         {
-            using (UdpClient client = new UdpClient())
+            if (command == UdpLtvErrorsCommand)
             {
-                client.Client.ReceiveTimeout = UdpTimeoutMs;
-                byte[] request = BuildUdpCommandPacket(command);
-                client.Send(request, request.Length, host, port);
-                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-                byte[] response = client.Receive(ref remoteEndPoint);
-                return ExtractJsonPayload(response);
+                lock (ltvErrorsUdpSync)
+                {
+                    return FetchUdpJsonStringInner(host, port, command);
+                }
             }
+
+            return FetchUdpJsonStringInner(host, port, command);
         });
+    }
+
+    private string FetchUdpJsonStringInner(string host, int port, int command)
+    {
+        using (UdpClient client = new UdpClient())
+        {
+            client.Client.ReceiveBufferSize = 65536;
+            client.Client.ReceiveTimeout = UdpTimeoutMs;
+            byte[] request = BuildUdpCommandPacket(command);
+            client.Send(request, request.Length, host, port);
+            IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            byte[] response = client.Receive(ref remoteEndPoint);
+            return ExtractJsonPayload(response);
+        }
     }
 
 
@@ -294,6 +396,222 @@ public class TSSConnection : MonoBehaviour
         Buffer.BlockCopy(BitConverter.GetBytes(IPAddress.HostToNetworkOrder(unixTime)), 0, packet, 0, 4);
         Buffer.BlockCopy(BitConverter.GetBytes(IPAddress.HostToNetworkOrder(command)), 0, packet, 4, 4);
         return packet;
+    }
+
+    /// <summary>12-byte UDP packet: time (BE), command (BE), float payload (BE). Used for TSS POST commands (e.g. LTV error needs_resolved).</summary>
+    private byte[] BuildUdpPostPacket(int command, float payload)
+    {
+        byte[] packet = new byte[12];
+        int unixTime = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
+        Buffer.BlockCopy(BitConverter.GetBytes(IPAddress.HostToNetworkOrder(unixTime)), 0, packet, 0, 4);
+        Buffer.BlockCopy(BitConverter.GetBytes(IPAddress.HostToNetworkOrder(command)), 0, packet, 4, 4);
+        byte[] floatBytes = BitConverter.GetBytes(payload);
+        if (BitConverter.IsLittleEndian)
+            Array.Reverse(floatBytes);
+        Buffer.BlockCopy(floatBytes, 0, packet, 8, 4);
+        return packet;
+    }
+
+    /// <summary>
+    /// Notify TSS2026 that <c>ltv_errors.error_procedures[i].needs_resolved</c> should be set (UDP command 2023+i, bool as float).
+    /// Server-side <c>update_ltv_error_dependencies</c> runs on the simulation tick; if EVA/sim is paused, dependency changes may lag until the server advances.
+    /// We poll UDP GET 3 repeatedly after a successful POST so the UI tracks the latest <c>needs_resolved</c> flags and new errors that appear as others are cleared.
+    /// </summary>
+    public IEnumerator PostLtvProcedureNeedsResolved(int procedureIndex, bool needsResolved)
+    {
+        if (procedureIndex < 0 || procedureIndex > LtvErrorTaskSupport.MaxLtvProcedureIndex)
+        {
+            Debug.LogWarning("[TSS] LTV procedure index out of range: " + procedureIndex);
+            yield break;
+        }
+
+        if (string.IsNullOrEmpty(tssHost))
+        {
+            Debug.LogWarning("[TSS] Cannot POST LTV resolution: host not set (connect to TSS first).");
+            yield break;
+        }
+
+        if (!LtvErrorTaskSupport.TryGetUdpCommandForProcedureIndex(procedureIndex, out int command))
+        {
+            Debug.LogWarning("[TSS] Could not resolve UDP command for LTV procedure index " + procedureIndex);
+            yield break;
+        }
+
+        float payload = needsResolved ? 1f : 0f;
+        Task<bool> postTask = SendUdpPostAsync(command, payload);
+        yield return new WaitUntil(() => postTask.IsCompleted);
+
+        if (postTask.IsFaulted)
+        {
+            Exception ex = postTask.Exception?.GetBaseException();
+            Debug.LogWarning("[TSS] LTV UDP POST exception: " + (ex != null ? ex.Message : "unknown"));
+            yield break;
+        }
+
+        if (!postTask.Result)
+        {
+            Debug.LogWarning("[TSS] LTV UDP POST rejected or failed (command=" + command +
+                             ", needsResolved=" + needsResolved + ").");
+            yield break;
+        }
+
+        Debug.Log("[TSS] LTV procedure index " + procedureIndex + " needs_resolved=" + needsResolved + " sent (command=" + command + ").");
+
+        bool clearingErm = procedureIndex == 0 && !needsResolved;
+        if (clearingErm)
+            ermClearPostPending = true;
+
+        PatchLtvProcedureNeedsResolvedInCache(procedureIndex, needsResolved);
+        PublishLtvErrorsFromCache();
+
+        yield return RefreshLtvErrorsAfterMutation(procedureIndex, needsResolved);
+
+        if (clearingErm)
+            ermClearPostPending = false;
+    }
+
+    private IEnumerator RefreshLtvErrorsOnce()
+    {
+        yield return FetchAndApplyLtvErrorsJson();
+    }
+
+    /// <summary>
+    /// Poll LTV_ERRORS (GET 3) until we are past the recovery-only single-entry snapshot (after ERM clears),
+    /// and at least <see cref="MinLtvErrorsPollsAfterMutation"/> times so dependency-driven procedures can appear.
+    /// </summary>
+    private IEnumerator RefreshLtvErrorsAfterMutation(int resolvedProcedureIndex, bool needsResolvedValueWritten)
+    {
+        bool clearedErm =
+            resolvedProcedureIndex == 0 && !needsResolvedValueWritten;
+
+        if (clearedErm)
+        {
+            float deadline = Time.realtimeSinceStartup + ermClearPollMaxSeconds;
+            int attempt = 0;
+
+            while (Time.realtimeSinceStartup < deadline)
+            {
+                attempt++;
+                yield return FetchAndApplyLtvErrorsJson();
+
+                bool ermStillActive = LtvErrorTaskSupport.IsRecoveryModeActive(latestLtvErrorProcedures);
+                bool stillRecoveryOnly = LtvErrorTaskSupport.IsRecoveryOnlyUdpSnapshot(latestLtvErrorProcedures);
+
+                if (!ermStillActive && LtvErrorTaskSupport.HasFullLtvErrorsSnapshot(latestLtvErrorProcedures))
+                    break;
+
+                yield return new WaitForSecondsRealtime(ermClearPollIntervalSeconds);
+            }
+
+            if (LtvErrorTaskSupport.IsRecoveryOnlyUdpSnapshot(latestLtvErrorProcedures))
+            {
+                Debug.LogWarning("[TSS] LTV_ERRORS after ERM clear: still recovery-only after " + attempt +
+                                 " polls over " + ermClearPollMaxSeconds + "s (total_procedures=" +
+                                 latestLtvErrorProcedures.Length + "); downstream errors may lag until next GET 3.");
+            }
+        }
+        else
+        {
+            for (int attempt = 1; attempt <= MaxLtvErrorsMutationPollAttempts; attempt++)
+            {
+                yield return FetchAndApplyLtvErrorsJson();
+
+                if (attempt >= MinLtvErrorsPollsAfterMutation)
+                    break;
+
+                yield return new WaitForSecondsRealtime(LtvErrorsMutationPollDelaySeconds);
+            }
+        }
+    }
+
+    private IEnumerator FetchAndApplyLtvErrorsJson()
+    {
+        CommandFetchResult result = new CommandFetchResult(UdpLtvErrorsCommand, "LTV_ERRORS.json");
+        yield return FetchCommandJson(result);
+
+        if (!result.Success)
+        {
+            LogOptionalPayloadFailure("LTV_ERRORS.json", result.ErrorMessage);
+            yield break;
+        }
+
+        if (!ApplyLtvErrorsJson(result.Json))
+        {
+            LogOptionalPayloadFailure("LTV_ERRORS.json",
+                "LTV_ERRORS.json was empty or did not match the expected TSS2026 schema.");
+        }
+    }
+
+    private void PatchLtvProcedureNeedsResolvedInCache(int procedureIndex, bool needsResolved)
+    {
+        if (procedureIndex < 0 || latestLtvErrorProcedures == null ||
+            procedureIndex >= latestLtvErrorProcedures.Length)
+            return;
+
+        LtvErrorProcedure[] copy = new LtvErrorProcedure[latestLtvErrorProcedures.Length];
+        for (int i = 0; i < latestLtvErrorProcedures.Length; i++)
+        {
+            LtvErrorProcedure src = latestLtvErrorProcedures[i];
+            if (src == null)
+                continue;
+            copy[i] = new LtvErrorProcedure
+            {
+                code = src.code,
+                description = src.description,
+                needs_resolved = i == procedureIndex ? needsResolved : src.needs_resolved,
+                procedures = src.procedures
+            };
+        }
+
+        latestLtvErrorProcedures = copy;
+        hasLtvErrorProcedures = copy.Length > 0;
+    }
+
+    private void PublishLtvErrorsFromCache()
+    {
+        List<LtvErrorProcedure> active = LtvErrorTaskSupport.FilterActive(latestLtvErrorProcedures);
+        if (logLtvErrorsParseDiagnostics)
+        {
+            var codes = new List<string>(active.Count);
+            foreach (LtvErrorProcedure p in active)
+                codes.Add(string.IsNullOrEmpty(p.code) ? "?" : p.code.Trim());
+            bool slim = LtvErrorTaskSupport.IsRecoveryOnlyUdpSnapshot(latestLtvErrorProcedures);
+            bool keepPolling = LtvErrorTaskSupport.ShouldKeepPollingLtvErrors(latestLtvErrorProcedures);
+            Debug.Log("[TSS] LTV_ERRORS cache publish: total_procedures=" + latestLtvErrorProcedures.Length +
+                      " active_needs_resolved=" + active.Count + " codes=[" + string.Join(", ", codes) + "]" +
+                      " slim_snapshot=" + slim + " should_keep_polling_ltv=" + keepPolling);
+        }
+
+        EventBus.Publish(new LtvErrorsUpdatedEvent(active.ToArray()));
+    }
+
+    private Task<bool> SendUdpPostAsync(int command, float payloadValue)
+    {
+        string host = tssHost;
+        int port = tssPort;
+        return Task.Run(() =>
+        {
+            try
+            {
+                using (UdpClient client = new UdpClient())
+                {
+                    client.Client.ReceiveTimeout = UdpTimeoutMs;
+                    byte[] request = BuildUdpPostPacket(command, payloadValue);
+                    client.Send(request, request.Length, host, port);
+                    IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                    byte[] response = client.Receive(ref remoteEndPoint);
+                    if (response == null || response.Length < 4)
+                        return false;
+                    uint status = BitConverter.ToUInt32(response, 0);
+                    return status != 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning("[TSS] SendUdpPostAsync: " + ex.Message);
+                return false;
+            }
+        });
     }
 
 
@@ -435,15 +753,127 @@ public class TSSConnection : MonoBehaviour
         if (string.IsNullOrEmpty(json))
             return false;
 
-        TssLtvErrorsPayload payload = JsonUtility.FromJson<TssLtvErrorsPayload>(json);
-        if (payload?.error_procedures == null)
+        try
+        {
+            JObject root = JObject.Parse(json);
+            JArray arr = root["error_procedures"] as JArray;
+            if (arr == null)
+                return false;
+
+            var parsed = new List<LtvErrorProcedure>(arr.Count);
+            foreach (JToken token in arr)
+            {
+                if (!(token is JObject o))
+                    continue;
+
+                string code = o["code"]?.Type == JTokenType.String ? (o["code"].Value<string>() ?? string.Empty).Trim() : null;
+                string description = o["description"]?.Type == JTokenType.String
+                    ? (o["description"].Value<string>() ?? string.Empty).Trim()
+                    : null;
+
+                bool needsResolved = ReadNeedsResolved(o["needs_resolved"]);
+                if (ermClearPostPending && string.Equals(code, "4800", StringComparison.Ordinal))
+                    needsResolved = false;
+
+                parsed.Add(new LtvErrorProcedure
+                {
+                    code = code,
+                    description = description,
+                    needs_resolved = needsResolved,
+                    procedures = ReadLtvProcedureSteps(o["procedures"])
+                });
+            }
+
+            LTVErrorsJsonString = json;
+            var fullProcedures = parsed.Count > 0 ? parsed.ToArray() : EmptyLtvErrorProcedures;
+
+            if (LtvErrorTaskSupport.IsRecoveryModeActive(fullProcedures))
+            {
+                var ermOnly = new List<LtvErrorProcedure>();
+                foreach (var p in fullProcedures)
+                {
+                    if (p.code == "4800")
+                        ermOnly.Add(p);
+                }
+                latestLtvErrorProcedures = ermOnly.ToArray();
+            }
+            else
+            {
+                latestLtvErrorProcedures = fullProcedures;
+            }
+
+            hasLtvErrorProcedures = latestLtvErrorProcedures.Length > 0;
+
+            if (ermClearPostPending && LtvErrorTaskSupport.HasFullLtvErrorsSnapshot(latestLtvErrorProcedures))
+                ermClearPostPending = false;
+
+            if (logLtvErrorsParseDiagnostics)
+            {
+                List<LtvErrorProcedure> active = LtvErrorTaskSupport.FilterActive(latestLtvErrorProcedures);
+                var codes = new List<string>(active.Count);
+                foreach (LtvErrorProcedure p in active)
+                    codes.Add(string.IsNullOrEmpty(p.code) ? "?" : p.code.Trim());
+                bool slim = LtvErrorTaskSupport.IsRecoveryOnlyUdpSnapshot(latestLtvErrorProcedures);
+                bool keepPolling = LtvErrorTaskSupport.ShouldKeepPollingLtvErrors(latestLtvErrorProcedures);
+                Debug.Log("[TSS] LTV_ERRORS Newtonsoft parse: total_procedures=" + latestLtvErrorProcedures.Length +
+                          " active_needs_resolved=" + active.Count + " codes=[" + string.Join(", ", codes) + "]" +
+                          " slim_snapshot=" + slim + " should_keep_polling_ltv=" + keepPolling);
+            }
+
+            PublishLtvErrorsFromCache();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning("[TSS] LTV_ERRORS JSON parse failed: " + ex.Message);
+            return false;
+        }
+    }
+
+    private static bool ReadNeedsResolved(JToken token)
+    {
+        if (token == null || token.Type == JTokenType.Null)
             return false;
 
-        LTVErrorsJsonString = json;
-        latestLtvErrorProcedures = payload.error_procedures ?? EmptyLtvErrorProcedures;
-        hasLtvErrorProcedures = latestLtvErrorProcedures.Length > 0;
+        switch (token.Type)
+        {
+            case JTokenType.Boolean:
+                return token.Value<bool>();
+            case JTokenType.Integer:
+                return token.Value<long>() != 0;
+            case JTokenType.Float:
+                return Math.Abs(token.Value<double>()) > double.Epsilon;
+            case JTokenType.String:
+                string s = token.Value<string>();
+                return string.Equals((s ?? string.Empty).Trim(), "true", StringComparison.OrdinalIgnoreCase);
+            default:
+                return false;
+        }
+    }
 
-        return true;
+    private static string[] ReadLtvProcedureSteps(JToken proceduresToken)
+    {
+        if (proceduresToken == null || proceduresToken.Type == JTokenType.Null)
+            return Array.Empty<string>();
+
+        JArray arr = proceduresToken as JArray;
+        if (arr == null || arr.Count == 0)
+            return Array.Empty<string>();
+
+        var steps = new List<string>(arr.Count);
+        foreach (JToken step in arr)
+        {
+            if (step.Type == JTokenType.String)
+            {
+                string s = step.Value<string>();
+                if (!string.IsNullOrEmpty(s))
+                    steps.Add(s);
+            }
+            else if (step.Type != JTokenType.Null)
+                steps.Add(step.ToString());
+        }
+
+        return steps.Count > 0 ? steps.ToArray() : Array.Empty<string>();
     }
 
 
@@ -780,23 +1210,5 @@ public class TSSConnection : MonoBehaviour
     {
         public double last_known_x;
         public double last_known_y;
-    }
-
-
-    ////////////////////////////  LTV_ERRORS.JSON (COMMAND 3)  /////////////////////////////
-    [Serializable]
-    private class TssLtvErrorsPayload
-    {
-        public LtvErrorProcedure[] error_procedures;
-    }
-
-
-    [Serializable]
-    public class LtvErrorProcedure
-    {
-        public string code;
-        public string description;
-        public bool needs_resolved;
-        public string[] procedures;
     }
 }

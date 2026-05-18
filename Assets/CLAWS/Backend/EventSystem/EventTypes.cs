@@ -207,4 +207,15 @@ public class RoverStatusUpdatedEvent
 }
 
 
+// LTV task board (TSS LTV_ERRORS.json via UDP command 3)
+public class LtvErrorsUpdatedEvent
+{
+    public LtvErrorProcedure[] ActiveProcedures { get; private set; }
+
+    public LtvErrorsUpdatedEvent(LtvErrorProcedure[] activeProcedures)
+    {
+        ActiveProcedures = activeProcedures ?? Array.Empty<LtvErrorProcedure>();
+    }
+}
+
 
