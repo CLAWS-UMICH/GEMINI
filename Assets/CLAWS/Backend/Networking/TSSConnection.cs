@@ -787,6 +787,9 @@ public class TSSConnection : MonoBehaviour
             LTVErrorsJsonString = json;
             var fullProcedures = parsed.Count > 0 ? parsed.ToArray() : EmptyLtvErrorProcedures;
 
+            // Apply our custom client-side minimized instructions instead of NASA's long text
+            LtvErrorTaskSupport.ApplyMinimizedProcedures(fullProcedures);
+
             if (LtvErrorTaskSupport.IsRecoveryModeActive(fullProcedures))
             {
                 var ermOnly = new List<LtvErrorProcedure>();

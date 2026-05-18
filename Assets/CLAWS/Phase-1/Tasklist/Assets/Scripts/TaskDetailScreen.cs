@@ -208,12 +208,18 @@ public class TaskDetailScreen : MonoBehaviour
         if (group == null)
             return string.Empty;
 
+        string cleanTitle = group.title;
+        if (!string.IsNullOrEmpty(group.ltvCode) && cleanTitle.StartsWith(group.ltvCode + " - "))
+        {
+            cleanTitle = cleanTitle.Substring(group.ltvCode.Length + 3);
+        }
+
         int total = group.tasks != null ? group.tasks.Length : 0;
         if (taskTexts == null || total <= taskTexts.Count || total == 0)
-            return group.title;
+            return cleanTitle;
 
         int currentStep = completedUpTo < 0 ? 1 : Mathf.Min(completedUpTo + 2, total);
-        return $"{group.title}  (step {currentStep}/{total})";
+        return $"{cleanTitle} ({currentStep}/{total})";
     }
 
     public void ShowTaskMainMenu()

@@ -32,6 +32,172 @@ public static class LtvErrorTaskSupport
         "4800", "4509", "1969", "3452", "4968", "2441", "2235", "4280"
     };
 
+    public static readonly Dictionary<string, string[]> MinimizedProceduresByCode = new Dictionary<string, string[]>
+    {
+        { "4800", new string[] {
+            "Inspect for physical damage",
+            "Locate PDD (PDD9900xxxx)",
+            "Verify recovery mode on PDD",
+            "Fix other errors first",
+            "Turn OFF MPS, GNC, CDH via POPS",
+            "Locate SFA button",
+            "Press and release SFA",
+            "Turn POM OFF, verify blue light",
+            "Open EBD switch cover",
+            "Press and hold CSR",
+            "Turn EBD ON while holding CSR",
+            "Release CSR",
+            "Locate SMC, wait for green light",
+            "Turn EBD OFF",
+            "Close EBD cover",
+            "Verify blinking red SMC light",
+            "Turn ON MPS, GNC, CDH via POPS",
+            "Open SMC CTRL cover",
+            "Hold ALT, turn CTRL ON",
+            "Verify red SMC light is off",
+            "Release ALT",
+            "Push SMC TEST up and hold PDD CSR",
+            "Release CSR when green SMC light blinks",
+            "Hold ALT, turn CTRL OFF",
+            "Verify solid green light",
+            "Release ALT, close CTRL cover",
+            "Open RECO cover on PDD",
+            "Turn RECO OFF, close cover",
+            "Verify exit from recovery mode",
+            "Announce ERM success"
+        }},
+        { "4509", new string[] {
+            "Locate NAV (NAV5500xxxx)",
+            "Set to HAND mode, verify blue light",
+            "Locate LIDAR RESET",
+            "Hold LIDAR RESET 5s until red",
+            "Release LIDAR RESET when SMC green",
+            "Locate NAV RESET",
+            "Hold NAV RESET 5s until red",
+            "Release NAV RESET when SMC red",
+            "Set NAV control OFF for 5s",
+            "Set control to HAND",
+            "Verify blue mode light",
+            "Locate ASITS switch",
+            "Turn ASITS ON",
+            "Verify yellow light",
+            "Locate ANAV BLOCK",
+            "Turn ANAV BLOCK ON, verify blue light",
+            "Locate ANAV RTH",
+            "Turn ANAV RTH ON, verify blue light",
+            "Locate ACA dial",
+            "Turn ACA counterclockwise until red",
+            "Turn ANAV BLOCK OFF",
+            "Turn ASITS OFF",
+            "Locate COMM switch",
+            "Set COMM to SEC, verify blue light",
+            "Verify SMC lights off",
+            "Set control AUTO, verify green light",
+            "Announce successful NAV Restart"
+        }},
+        { "1969", new string[] {
+            "Locate Backup Fuse Housing",
+            "Lock open enclosure lid",
+            "Beware of hazards, steady enclosure",
+            "Remove fuse disconnect",
+            "Remove protective barrier",
+            "Remove and discard old fuses",
+            "Get replacement fuses",
+            "Load new fuse in tool",
+            "Insert new fuse",
+            "Repeat for second fuse",
+            "Replace protective barrier",
+            "Reinsert fuse disconnect",
+            "Close enclosure lid",
+            "Announce Backup Fuse Error resolved"
+        }},
+        { "3452", new string[] {
+            "Locate ACM component",
+            "Optimize PHS knob",
+            "Optimize MOD knob",
+            "Optimize AMP knob",
+            "Tune until green indicator lights",
+            "Verify blinking red SMC light",
+            "Open SMC CTRL cover",
+            "Hold ALT, turn CTRL ON",
+            "Verify red light off, release ALT",
+            "Hold ALT and RESET",
+            "Verify red and green lights",
+            "Release both buttons",
+            "Push TEST down until green blinks",
+            "Hold ALT, turn CTRL OFF",
+            "Release ALT, close CTRL cover",
+            "Verify green SMC light",
+            "Announce Poor Comms RSSI resolved"
+        }},
+        { "4968", new string[] {
+            "Turn OFF MPS, GNC, VSI, CDH via POPS",
+            "Check for loose cables",
+            "Remove loose cables fully",
+            "Reinsert cables firmly",
+            "Reseat all cables if none loose",
+            "Turn ON MPS, GNC, VSI, CDH via POPS",
+            "Wait 5-10s for error clear",
+            "Announce Subsystem Power Bus error resolved"
+        }},
+        { "2441", new string[] {
+            "Turn CDH OFF via POPS",
+            "Wait 5 seconds",
+            "Turn CDH ON",
+            "Locate comms control component",
+            "Proceed if RSSI not maximum",
+            "Optimize PHS knob",
+            "Optimize MOD knob",
+            "Optimize AMP knob",
+            "Tune until green indicator lights",
+            "Verify blinking red SMC light",
+            "Hold ALT, turn CTRL ON",
+            "Release ALT when red light off",
+            "Hold ALT and RESET",
+            "Verify red and green lights",
+            "Release both buttons",
+            "Push TEST down until green blinks",
+            "Hold ALT, turn CTRL OFF",
+            "Release ALT, close CTRL cover",
+            "Verify green SMC light",
+            "Announce Comms Reboot steps complete"
+        }},
+        { "2235", new string[] {
+            "Locate dust sensor",
+            "Unscrew sensor counterclockwise",
+            "Set aside old sensor",
+            "Remove cap from replacement sensor",
+            "Screw in new sensor clockwise",
+            "Announce Dust Sensor error resolved"
+        }},
+        { "4280", new string[] {
+            "Locate SMPD (SMPD2200xxxx)",
+            "Verify green SMPD light",
+            "Locate SPR (SPR2200xxxx)",
+            "Note illuminated red SPR lights",
+            "Turn OFF MPS via POPS",
+            "Remove power bus from socket",
+            "Remove fuse for lit indicator",
+            "Insert replacement fuse",
+            "Reinsert power bus",
+            "Turn ON MPS",
+            "Verify green SMPD, no red SPR lights",
+            "Announce Small Fuse Box steps complete"
+        }}
+    };
+
+    public static void ApplyMinimizedProcedures(LtvErrorProcedure[] procedures)
+    {
+        if (procedures == null) return;
+        foreach (var p in procedures)
+        {
+            if (p != null && MinimizedProceduresByCode.TryGetValue(p.code, out string[] minimized))
+            {
+                p.procedures = minimized;
+            }
+        }
+    }
+
     private static readonly Regex StepStartPattern = new Regex(
         @"(?<![\d.])(\d{1,2})\.\s*(?=[A-Za-z(])",
         RegexOptions.Compiled);
