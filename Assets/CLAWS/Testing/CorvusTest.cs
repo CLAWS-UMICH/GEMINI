@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CLAWS.Networking;
@@ -14,9 +12,6 @@ namespace CLAWS.Testing
     public class CorvusTest : MonoBehaviour
     {
         [SerializeField] private CorvusController _corvusController;
-
-        [Tooltip("If true and Python is unreachable, fall back to CorvusARBridge.SimulateIntent (skips NLU).")]
-        [SerializeField] private bool _simulateWhenDisconnected;
 
         [SerializeField] private CorvusARBridge _corvusARBridge;
 
@@ -50,51 +45,36 @@ namespace CLAWS.Testing
             var keyboard = Keyboard.current;
             if (keyboard == null) return;
 
-            if (keyboard.digit1Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(0);
-            else if (keyboard.digit2Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(1);
-            else if (keyboard.digit3Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(2);
-            else if (keyboard.digit4Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(3);
-            else if (keyboard.digit5Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(4);
-            else if (keyboard.digit6Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(5);
-            else if (keyboard.digit7Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(6);
-            else if (keyboard.digit8Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(7);
-            else if (keyboard.digit9Key.wasPressedThisFrame) _ = SendVoicePhraseAsync(8);
+            if (keyboard.digit1Key.wasPressedThisFrame) SendVoicePhrase(0);
+            else if (keyboard.digit2Key.wasPressedThisFrame) SendVoicePhrase(1);
+            else if (keyboard.digit3Key.wasPressedThisFrame) SendVoicePhrase(2);
+            else if (keyboard.digit4Key.wasPressedThisFrame) SendVoicePhrase(3);
+            else if (keyboard.digit5Key.wasPressedThisFrame) SendVoicePhrase(4);
+            else if (keyboard.digit6Key.wasPressedThisFrame) SendVoicePhrase(5);
+            else if (keyboard.digit7Key.wasPressedThisFrame) SendVoicePhrase(6);
+            else if (keyboard.digit8Key.wasPressedThisFrame) SendVoicePhrase(7);
+            else if (keyboard.digit9Key.wasPressedThisFrame) SendVoicePhrase(8);
         }
 
-        async Task SendVoicePhraseAsync(int index)
+        void SendVoicePhrase(int index)
         {
             if (index < 0 || index >= VoicePhrases.Length) return;
 
             string phrase = VoicePhrases[index];
-            Debug.Log($"[CORVUS][KeyboardVoice] Sending transcript: \"{phrase}\"");
+            Debug.Log($"[CORVUS][KeyboardVoice] Simulating intent for phrase: \"{phrase}\"");
 
-            if (_corvusController.IsConnected)
-            {
-                try
-                {
-                    await _corvusController.SendCommandAsync(phrase);
-                }
-                catch (Exception ex)
-                {
-                    Debug.LogError($"[CORVUS][KeyboardVoice] Send failed: {ex.Message}");
-                }
-                return;
-            }
-
-            Debug.LogWarning("[CORVUS][KeyboardVoice] Python server not connected (ws://localhost:8765). Start the NLU server or enable Simulate When Disconnected.");
-
-            if (!_simulateWhenDisconnected) return;
-
+            // STT now runs on Python via the streaming protocol. The keyboard harness
+            // exercises Dispatch locally without going through the wire — production
+            // voice testing happens via the wake word.
             if (_corvusARBridge == null)
                 _corvusARBridge = FindObjectOfType<CorvusARBridge>();
 
             if (_corvusARBridge == null)
             {
-                Debug.LogError("[CORVUS][KeyboardVoice] No CorvusARBridge for fallback simulation.");
+                Debug.LogError("[CORVUS][KeyboardVoice] No CorvusARBridge for simulation.");
                 return;
             }
 
-            // Offline fallback only — production path is always SendCommandAsync above.
             SimulateFallback(index, phrase);
         }
 

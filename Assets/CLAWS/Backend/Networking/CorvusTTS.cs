@@ -1,61 +1,60 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using Piper;
+using MixedReality.Toolkit;
+using MixedReality.Toolkit.Subsystems;
 
 namespace CLAWS.Networking
 {
     public class CorvusTTS : MonoBehaviour
     {
-        
-        [SerializeField] private PiperManager _piperManager;
+
         [SerializeField] private AudioSource _audioSource;
 
-        private async void Start()
+        private TextToSpeechSubsystem _tts;
+
+        private void Start()
         {
-            await Warmup();
+            _tts = XRSubsystemHelpers.GetFirstRunningSubsystem<TextToSpeechSubsystem>();
+            if (_tts == null)
+            {
+                Debug.LogError("[CorvusTTS] No running TextToSpeechSubsystem. " +
+                               "Check Project Settings -> MRTK3 -> Subsystems and confirm Windows Text-To-Speech Subsystem is enabled.");
+            }
         }
 
         public async Task<long> Speak(string text)
         {
-            if (_piperManager == null || _audioSource == null)
+            if (_audioSource == null)
             {
-                Debug.LogError("[CorvusTTS] Components not assigned!");
+                Debug.LogError("[CorvusTTS] AudioSource not assigned!");
+                return -1;
+            }
+            // Re-resolve in case the subsystem started after our Start().
+            if (_tts == null)
+                _tts = XRSubsystemHelpers.GetFirstRunningSubsystem<TextToSpeechSubsystem>();
+            if (_tts == null)
+            {
+                Debug.LogError("[CorvusTTS] TextToSpeechSubsystem unavailable on this platform.");
                 return -1;
             }
 
             try
             {
-
                 var sw = System.Diagnostics.Stopwatch.StartNew();
-                var audioClip = await _piperManager.TextToSpeech(text);
+                bool ok = await _tts.TrySpeak(text, _audioSource);
                 sw.Stop();
-
-                //Debug.Log($"[CorvusTTS] Generated in {sw.ElapsedMilliseconds}ms \"{text}\"");
-
-                // Clean up old clip
-                if (_audioSource.clip != null)
-                    Destroy(_audioSource.clip);
-
-                // Play new clip
-                _audioSource.clip = audioClip;
-                _audioSource.Play();
-
-                return sw.ElapsedMilliseconds;
-
-            } catch (Exception ex)
+                return ok ? sw.ElapsedMilliseconds : -1;
+            }
+            catch (Exception ex)
             {
                 Debug.LogError($"[CorvusTTS] Error: {ex.Message}");
                 return -1;
             }
         }
 
-        public async Task Warmup()
-        {
-            var clip = await _piperManager.TextToSpeech("warmup");
-            Destroy(clip);
-            Debug.Log("[CorvusTTS] Warmup complete");
-        }
+        // No model to warm; the OS synthesizer is ready as soon as the subsystem starts.
+        public Task Warmup() => Task.CompletedTask;
 
         public bool IsSpeaking()
         {

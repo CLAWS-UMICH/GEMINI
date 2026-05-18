@@ -10,12 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 269189780623091327}
   - component: {fileID: 3756909812807984232}
-  - component: {fileID: 4328280593442191911}
-  - component: {fileID: 5878582405643141107}
-  - component: {fileID: 8268116696425847718}
   - component: {fileID: 5606444795247275643}
   - component: {fileID: 5274132973516829717}
   - component: {fileID: 5577986797817232464}
+  - component: {fileID: 7400000000000000001}
   m_Layer: 0
   m_Name: CorvusController
   m_TagString: Untagged
@@ -135,84 +133,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4328280593442191911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975340194177141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0030b47ca80ed44b32bdc601eb4b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Piper.PiperManager
-  backend: 256
-  model: {fileID: 5022602860645237092, guid: cd2f603c140a41b44965fc30f837adb2, type: 3}
-  voice: en-us
-  sampleRate: 22050
---- !u!114 &5878582405643141107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975340194177141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9370225a2ca94276b870d5f87b0db55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: com.whisper.unity::Whisper.WhisperManager
-  logLevel: 1
-  modelPath: Whisper/ggml-tiny.en.bin
-  isModelPathInStreamingAssets: 1
-  initOnAwake: 1
-  useGpu: 0
-  flashAttention: 0
-  language: en
-  translateToEnglish: 0
-  strategy: 0
-  noContext: 1
-  singleSegment: 0
-  enableTokens: 0
-  initialPrompt: 
-  stepSec: 3
-  keepSec: 0.2
-  lengthSec: 10
-  updatePrompt: 1
-  dropOldBuffer: 0
-  useVad: 1
-  tokensTimestamps: 0
-  audioCtx: 0
---- !u!114 &8268116696425847718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975340194177141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc03a4c19604ea394e364f8fc632928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: com.whisper.unity::Whisper.Utils.MicrophoneRecord
-  maxLengthSec: 60
-  loop: 0
-  frequency: 16000
-  chunksLengthSec: 0.5
-  echo: 1
-  useVad: 1
-  vadUpdateRateSec: 0.1
-  vadContextSec: 30
-  vadLastSec: 1.25
-  vadThd: 1
-  vadFreqThd: 100
-  vadIndicatorImage: {fileID: 0}
-  vadStop: 1
-  dropVadPart: 1
-  vadStopTime: 0.4
-  microphoneDropdown: {fileID: 0}
-  microphoneDefaultLabel: Default microphone
 --- !u!114 &5606444795247275643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66171460b25f834894b348db2927e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusTTS
-  _piperManager: {fileID: 4328280593442191911}
   _audioSource: {fileID: 3756909812807984232}
 --- !u!114 &5274132973516829717
 MonoBehaviour:
@@ -242,8 +161,8 @@ MonoBehaviour:
   _serverUrl: ws://localhost:8765
   _corvusTTS: {fileID: 0}
   _lmcc: {fileID: 0}
-  _whisper: {fileID: 0}
-  _microphoneRecord: {fileID: 0}
+  _audioStreamer: {fileID: 7400000000000000001}
+  _streamingTimeoutSec: 5
 --- !u!114 &5577986797817232464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +176,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Testing.CorvusTest
   _corvusController: {fileID: 5274132973516829717}
+  _corvusARBridge: {fileID: 6702739219019932631}
+  _navTargetName: EV2
+  _waypointName: Voice Test Alpha
+  _taskName: Inspect solar panel
+--- !u!114 &7400000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231975340194177141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba46168865945e783a71159c09084c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.AudioStreamer
+  _microphoneDevice: 
 --- !u!1 &1695380782694500666
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5096161798996214801
 Transform:
   m_ObjectHideFlags: 0
@@ -319,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8993662259347705753
 Transform:
   m_ObjectHideFlags: 0
@@ -349,7 +285,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CorvusARBridge
   _corvusController: {fileID: 5274132973516829717}
   _dialogueManager: {fileID: 9052873133627792625}
-  _vitalsPanel: {fileID: 0}
+  _tts: {fileID: 0}
+  _screenManager: {fileID: 0}
+  _pathfinding: {fileID: 0}
+  _taskDetailScreen: {fileID: 0}
+  _uiaController: {fileID: 0}
+  _navigationController: {fileID: 0}
+  _playerTransform: {fileID: 0}
 --- !u!1 &5686176417382859004
 GameObject:
   m_ObjectHideFlags: 0
