@@ -66,7 +66,7 @@ GUIDED_PING_GOAL_REACHED_SCALE = 0.24
 REAL_LTV_LOCATION_M = (-6047.30, -10769.3, 1463.0)
 
 
-@dataclass(slots=True)
+@dataclass
 class PingSample:
     rover_x_m: float
     rover_y_m: float
@@ -74,7 +74,7 @@ class PingSample:
     radius_m: float
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class TrilaterationRoundConfig:
     round_index: int
     debug_prefix: str

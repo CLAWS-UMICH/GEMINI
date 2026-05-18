@@ -23,6 +23,8 @@ SERVER_HOST = "172.24.119.191"
 SERVER_PORT = 14141
 SOCKET_TIMEOUT = 1.0
 REMOTE_INITIAL_TELEMETRY_TIMEOUT = 3.0
+REMOTE_TELEMETRY_MAX_AGE_SEC = 3.0
+REMOTE_COMMAND_RESULT_TIMEOUT = 3.0
 REMOTE_SERVER_ENABLED = False
 REMOTE_SERVER_URL = "http://127.0.0.1:5001"
 
@@ -83,6 +85,15 @@ class RemoteRoverClient:
         self._latest_ltv: dict | None = None
         self._latest_eva: dict | None = None
         self._latest_ltv_errors: dict | None = None
+        self._latest_rover_received_at: float | None = None
+        self._latest_ltv_received_at: float | None = None
+        self._latest_eva_received_at: float | None = None
+        self._latest_ltv_errors_received_at: float | None = None
+        self._command_lock = threading.Lock()
+        self._command_result_event = threading.Event()
+        self._pending_command_event: str | None = None
+        self._last_command_result: dict | None = None
+        self._last_command_error: dict | None = None
 
         @self.sio.event
         def connect() -> None:
@@ -97,6 +108,7 @@ class RemoteRoverClient:
             payload = dict(data) if isinstance(data, dict) else {}
             with self._state_lock:
                 self._latest_rover = payload
+                self._latest_rover_received_at = time.monotonic()
             self._rover_event.set()
 
         @self.sio.on("ltv-telemetry")
@@ -104,6 +116,7 @@ class RemoteRoverClient:
             payload = dict(data) if isinstance(data, dict) else {}
             with self._state_lock:
                 self._latest_ltv = payload
+                self._latest_ltv_received_at = time.monotonic()
             self._ltv_event.set()
 
         @self.sio.on("eva-telemetry")
@@ -111,6 +124,7 @@ class RemoteRoverClient:
             payload = dict(data) if isinstance(data, dict) else {}
             with self._state_lock:
                 self._latest_eva = payload
+                self._latest_eva_received_at = time.monotonic()
             self._eva_event.set()
 
         @self.sio.on("ltv-errors-telemetry")
@@ -118,7 +132,30 @@ class RemoteRoverClient:
             payload = dict(data) if isinstance(data, dict) else {}
             with self._state_lock:
                 self._latest_ltv_errors = payload
+                self._latest_ltv_errors_received_at = time.monotonic()
             self._ltv_errors_event.set()
+
+        @self.sio.on("udp-command-error")
+        def on_udp_command_error(data) -> None:
+            payload = dict(data) if isinstance(data, dict) else {"error": str(data)}
+            command = payload.get("command")
+            with self._state_lock:
+                if command is None or command == self._pending_command_event:
+                    self._last_command_error = payload
+                    self._command_result_event.set()
+
+        def make_result_handler(event_name: str):
+            def on_command_result(data) -> None:
+                payload = dict(data) if isinstance(data, dict) else {}
+                with self._state_lock:
+                    if self._pending_command_event == event_name:
+                        self._last_command_result = payload
+                        self._command_result_event.set()
+
+            return on_command_result
+
+        for event_name in set(REMOTE_COMMAND_EVENT_BY_ID.values()):
+            self.sio.on(f"{event_name}-result")(make_result_handler(event_name))
 
     def connect(self, timeout_seconds: float = 5.0) -> None:
         self.sio.connect(self.url, wait=True, wait_timeout=timeout_seconds)
@@ -130,34 +167,69 @@ class RemoteRoverClient:
             self.sio.disconnect()
 
     def emit(self, event_name: str, payload=None) -> bool:
-        self.sio.emit(event_name, payload)
-        return True
+        if event_name not in REMOTE_COMMAND_EVENT_BY_ID.values():
+            self.sio.emit(event_name, payload)
+            return True
 
-    def _payload_event_for_get(self, command: int) -> tuple[str, threading.Event, str]:
+        with self._command_lock:
+            with self._state_lock:
+                self._pending_command_event = event_name
+                self._last_command_result = None
+                self._last_command_error = None
+                self._command_result_event.clear()
+            self.sio.emit(event_name, payload)
+            if not self._command_result_event.wait(REMOTE_COMMAND_RESULT_TIMEOUT):
+                raise RuntimeError(f"Timed out waiting for remote command result for {event_name}")
+            with self._state_lock:
+                error = self._last_command_error
+                result = self._last_command_result
+                self._pending_command_event = None
+            if error is not None:
+                raise RuntimeError(str(error.get("error", f"Remote command {event_name} failed")))
+            if not isinstance(result, dict):
+                raise RuntimeError(f"Remote command {event_name} returned no result")
+            return bool(result.get("success", False))
+
+    def _payload_event_for_get(self, command: int) -> tuple[str, str, threading.Event, str]:
         mapping = {
-            GET_ROVER_JSON: ("_latest_rover", self._rover_event, "rover"),
-            GET_LTV_JSON: ("_latest_ltv", self._ltv_event, "ltv"),
-            GET_EVA_JSON: ("_latest_eva", self._eva_event, "eva"),
-            GET_LTV_ERRORS_JSON: ("_latest_ltv_errors", self._ltv_errors_event, "ltv-errors"),
+            GET_ROVER_JSON: ("_latest_rover", "_latest_rover_received_at", self._rover_event, "rover"),
+            GET_LTV_JSON: ("_latest_ltv", "_latest_ltv_received_at", self._ltv_event, "ltv"),
+            GET_EVA_JSON: ("_latest_eva", "_latest_eva_received_at", self._eva_event, "eva"),
+            GET_LTV_ERRORS_JSON: (
+                "_latest_ltv_errors",
+                "_latest_ltv_errors_received_at",
+                self._ltv_errors_event,
+                "ltv-errors",
+            ),
         }
         if command not in mapping:
             raise RuntimeError(f"Remote server does not support GET command {command}")
         return mapping[command]
 
+    def _fresh_payload_locked(self, payload_attr: str, received_at_attr: str) -> dict | None:
+        payload = getattr(self, payload_attr)
+        received_at = getattr(self, received_at_attr)
+        if not isinstance(payload, dict) or received_at is None:
+            return None
+        if (time.monotonic() - float(received_at)) <= REMOTE_TELEMETRY_MAX_AGE_SEC:
+            return dict(payload)
+        return None
+
     def get_json_for_command(self, command: int, timeout_seconds: float = SOCKET_TIMEOUT) -> dict:
-        attr_name, ready_event, label = self._payload_event_for_get(command)
+        attr_name, received_at_attr, ready_event, label = self._payload_event_for_get(command)
         with self._state_lock:
-            payload = getattr(self, attr_name)
-            if isinstance(payload, dict):
-                return dict(payload)
+            payload = self._fresh_payload_locked(attr_name, received_at_attr)
+            if payload is not None:
+                return payload
+            ready_event.clear()
         effective_timeout = max(float(timeout_seconds), REMOTE_INITIAL_TELEMETRY_TIMEOUT)
         if not ready_event.wait(effective_timeout):
-            raise RuntimeError(f"Timed out waiting for remote {label} telemetry from {self.url}")
+            raise RuntimeError(f"Timed out waiting for fresh remote {label} telemetry from {self.url}")
         with self._state_lock:
-            payload = getattr(self, attr_name)
-            if not isinstance(payload, dict):
-                raise RuntimeError(f"Remote {label} telemetry is unavailable")
-            return dict(payload)
+            payload = self._fresh_payload_locked(attr_name, received_at_attr)
+            if payload is None:
+                raise RuntimeError(f"Remote {label} telemetry is unavailable or stale")
+            return payload
 
 
 def open_rover_socket() -> socket.socket:

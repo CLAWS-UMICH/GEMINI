@@ -9,7 +9,7 @@ CELL_OBSTACLE = 1
 CELL_LOW_CLEARANCE_OBSTACLE = 2
 
 
-@dataclass(slots=True)
+@dataclass
 class PlannerConfig:
     cell_size_cm: float = 5.0
     obstacle_padding_cells: int = 2

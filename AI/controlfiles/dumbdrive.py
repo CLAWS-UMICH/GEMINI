@@ -9,11 +9,13 @@ import subprocess
 import sys
 import time
 from collections import deque
+from dataclasses import dataclass
 from pathlib import Path
 from types import SimpleNamespace
 
 import numpy as np
 
+import rover_control
 from main import (
     CONTROL_PERIOD_SEC,
     GOAL_REACHED_CM,
@@ -54,12 +56,61 @@ from rover_control import (
 
 
 GOOD_UI = False
-REMOTE_SERVER = False
-REMOTE_SERVER_URL = "http://35.3.249.68:5001"
+DEFAULT_BACKEND_URL = "http://127.0.0.1:5001"
+DEFAULT_TSS_HOST = "192.168.4.231"
+DEFAULT_TSS_PORT = 14141
 DUMBLOCATE_LONGTEST_NO_VIEWER_ENV = "DUMBLOCATE_LONGTEST_NO_VIEWER"
 # FRONTEND_REPLAY_LOG_PATH: str | None = "C:/Users/beasl/.stuff/school/claws/rovercontroltesting/runs/dumbdrive_debug_20260315_232929/frontend_state.jsonl"
 FRONTEND_REPLAY_LOG_PATH: str | None = None
 DUMBDRIVE_GOAL_REACHED_CM = 350.0
+
+
+@dataclass(frozen=True)
+class TransportConfig:
+    transport: str
+    remote_enabled: bool
+    backend_url: str | None
+    tss_host: str
+    tss_port: int
+
+
+def load_transport_config(environ: dict[str, str] | None = None) -> TransportConfig:
+    env = os.environ if environ is None else environ
+    transport = str(env.get("DUMBDRIVE_TRANSPORT", "socket")).strip().lower()
+    remote_enabled = transport in ("socket", "backend", "remote")
+    backend_url = str(env.get("DUMBDRIVE_BACKEND_URL", DEFAULT_BACKEND_URL)).strip()
+    tss_host = str(env.get("DUMBDRIVE_TSS_HOST", DEFAULT_TSS_HOST)).strip()
+    try:
+        tss_port = int(env.get("DUMBDRIVE_TSS_PORT", str(DEFAULT_TSS_PORT)))
+    except (TypeError, ValueError) as exc:
+        raise RuntimeError("DUMBDRIVE_TSS_PORT must be an integer") from exc
+    return TransportConfig(
+        transport=transport,
+        remote_enabled=remote_enabled,
+        backend_url=backend_url if remote_enabled else None,
+        tss_host=tss_host,
+        tss_port=tss_port,
+    )
+
+
+def apply_transport_config(config: TransportConfig) -> None:
+    rover_control.SERVER_HOST = config.tss_host
+    rover_control.SERVER_PORT = config.tss_port
+    configure_remote_server(config.remote_enabled, config.backend_url)
+
+
+def describe_transport_config(config: TransportConfig) -> str:
+    if config.remote_enabled:
+        return f"Dumbdrive transport: backend Socket.IO at {config.backend_url}"
+    return f"Dumbdrive transport: direct TSS UDP at {config.tss_host}:{config.tss_port}"
+
+
+# Backwards-compatible module constants for code that imports these names.
+_DEFAULT_TRANSPORT_CONFIG = load_transport_config()
+REMOTE_SERVER = _DEFAULT_TRANSPORT_CONFIG.remote_enabled
+REMOTE_SERVER_URL = _DEFAULT_TRANSPORT_CONFIG.backend_url or DEFAULT_BACKEND_URL
+TSS_HOST = _DEFAULT_TRANSPORT_CONFIG.tss_host
+TSS_PORT = _DEFAULT_TRANSPORT_CONFIG.tss_port
 
 
 # -----------------------------
@@ -1873,7 +1924,9 @@ def main() -> None:
         replay_frontend_log(Path(FRONTEND_REPLAY_LOG_PATH))
         return
 
-    configure_remote_server(REMOTE_SERVER, REMOTE_SERVER_URL)
+    transport_config = load_transport_config()
+    apply_transport_config(transport_config)
+    print(describe_transport_config(transport_config))
     sock = open_rover_socket()
     viewer: MapWindow | None = None
     clean_log_writer: CleanGoalLogWriter | None = None
