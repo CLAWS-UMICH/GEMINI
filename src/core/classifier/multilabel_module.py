@@ -15,7 +15,7 @@ from pathlib import Path
 
 import torch
 from torch import nn
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoConfig, AutoModel, AutoTokenizer
 
 
 def mean_pool(last_hidden: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
@@ -26,10 +26,18 @@ def mean_pool(last_hidden: torch.Tensor, attention_mask: torch.Tensor) -> torch.
 
 
 class MultilabelIntentModule(nn.Module):
-    def __init__(self, model_name: str, n_labels: int) -> None:
+    def __init__(self, model_name: str, n_labels: int, local_dir: Path | None = None) -> None:
         super().__init__()
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.encoder = AutoModel.from_pretrained(model_name)
+        # When local_dir has config.json + tokenizer files, skip the Hub fetch.
+        # The encoder weights are overwritten by the trained checkpoint downstream,
+        # so we only need the architecture skeleton here.
+        if local_dir is not None and (local_dir / "config.json").is_file():
+            self.tokenizer = AutoTokenizer.from_pretrained(str(local_dir))
+            config = AutoConfig.from_pretrained(str(local_dir))
+            self.encoder = AutoModel.from_config(config)
+        else:
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+            self.encoder = AutoModel.from_pretrained(model_name)
         hid = int(self.encoder.config.hidden_size)
         self.head = nn.Linear(hid, n_labels)
 
@@ -51,10 +59,9 @@ def load_multilabel_module_for_inference(
 ) -> MultilabelIntentModule:
     payload = torch.load(checkpoint_path, map_location=device)
     model_name = str(payload.get("model_name", "sentence-transformers/all-MiniLM-L6-v2"))
-    module = MultilabelIntentModule(model_name, n_labels).to(device)
+    local_dir = Path(tokenizer_dir) if tokenizer_dir is not None else None
+    module = MultilabelIntentModule(model_name, n_labels, local_dir=local_dir).to(device)
     module.encoder.load_state_dict(payload["encoder_state_dict"])
     module.head.load_state_dict(payload["head_state_dict"])
-    if tokenizer_dir is not None and Path(tokenizer_dir).is_dir():
-        module.tokenizer = AutoTokenizer.from_pretrained(str(tokenizer_dir))
     module.eval()
     return module

@@ -1,8 +1,10 @@
 """openWakeWord detector.
 
-openwakeword 0.4.0 ships pretrained wake-word ONNX models bundled with the
-package. Pass a wake-word name (e.g., 'hey_jarvis') to select one from the
-bundle, or pass full paths via `model_paths` to load custom models.
+The Windows lock resolves to openwakeword 0.6.0, which (unlike 0.4.0) does
+not ship the melspec/embedding preprocessor ONNX files in the wheel. We
+bundle them in the repo at `models/openwakeword/` and pass explicit paths
+to Model() so the wheel layout doesn't matter. The 0.4.0 vs 0.6.0 ONNX
+files are interchangeable — same model architectures.
 
 Feed 80-ms audio chunks (1280 samples at 16 kHz) of float32 mono to
 `process()`; returns True if any configured wake-word's score crosses the
@@ -20,6 +22,10 @@ import openwakeword
 log = logging.getLogger(__name__)
 
 DEFAULT_WAKEWORD = ["hey_corvus", "corvus"]
+
+PREPROC_DIR = Path(__file__).resolve().parents[2] / "models" / "openwakeword"
+MELSPEC_PATH = PREPROC_DIR / "melspectrogram.onnx"
+EMBEDDING_PATH = PREPROC_DIR / "embedding_model.onnx"
 
 
 def _resolve_wakeword_paths(names: list[str]) -> list[str]:
@@ -53,7 +59,16 @@ class WakeWordDetector:
         else:
             paths = model_paths
         log.info("Loading openWakeWord with %d model(s)", len(paths))
-        self._model = Model(wakeword_model_paths=paths)
+        if not MELSPEC_PATH.is_file() or not EMBEDDING_PATH.is_file():
+            raise FileNotFoundError(
+                f"Preprocessor ONNX files missing under {PREPROC_DIR}. "
+                f"Expected melspectrogram.onnx and embedding_model.onnx."
+            )
+        self._model = Model(
+            wakeword_models=paths,
+            melspec_model_path=str(MELSPEC_PATH),
+            embedding_model_path=str(EMBEDDING_PATH),
+        )
         self._threshold = threshold
 
     def process(self, audio_chunk: np.ndarray) -> bool:

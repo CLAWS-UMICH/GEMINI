@@ -89,15 +89,14 @@ EVA_E2E=1 uv run python -m pytest tests/test_eva_handler_e2e.py -v
 
 For an ad-hoc text client (no audio), see `tests/test_eva_protocol.py` and `tests/test_eva_session.py` — they exercise the state machine directly with synthetic PCM and `FakeVAD`/`FakeSTT`.
 
-### PR mode — three flavors
+### PR mode — two flavors
 
-PR mode is standalone — no WebSocket server, no Unity. Three operating modes:
+PR mode is standalone — no WebSocket server, no Unity. Two operating modes:
 
-| Command                                | Mic | Speaker | Use case                                  |
-|----------------------------------------|-----|---------|--------------------------------------------|
-| `uv run corvus-pr`                     | ✓   | ✓       | Full voice loop. The demo path.            |
-| `uv run corvus-pr --stdin`             |     |         | Type commands, read response text. Debug.  |
-| `uv run corvus-pr --stdin --speak`     |     | ✓       | Type commands, hear Piper speak responses. |
+| Command                       | Mic | Speaker | Use case                                       |
+|-------------------------------|-----|---------|------------------------------------------------|
+| `uv run corvus-pr`            | ✓   | ✓       | Full voice loop. The demo path.                |
+| `uv run corvus-pr --text`     |     | ✓       | Type commands, Piper speaks responses. Rapid testing of the classifier. |
 
 **Required for full voice mode (`corvus-pr` with no flags):**
 - All install scripts run (`install_whisper.sh`, `install_piper.sh`)
@@ -106,14 +105,12 @@ PR mode is standalone — no WebSocket server, no Unity. Three operating modes:
 - A wake-word model the detector can load (see "Wake word setup" below)
 - TTTDTT reachable (otherwise responses say "Telemetry unavailable")
 
-**Required for `--stdin --speak`:** just the Piper voice + working speaker.
-
-**Required for `--stdin` alone:** just the classifier (already in repo, no downloads).
+**Required for `--text`:** the classifier (in-repo) + Piper voice + working speaker.
 
 **Expected boot logs (voice mode):**
 ```
 [INFO] Starting CORVUS-PR Agent…
-[INFO] Mode: voice (speak=False)
+[INFO] Mode: voice
 [INFO] TTTDTT client started (target: http://localhost:5001)
 [SUCCESS] Classifier loaded (NNClassifier)
 [SUCCESS] Piper TTS loaded
@@ -146,7 +143,7 @@ Then, after a wake-word hit:
    wake = WakeWordDetector(model_paths=["models/wake_word/hey_corvus.onnx"])
    ```
 
-`--stdin` and `--stdin --speak` skip the wake-word path entirely.
+`--text` skips the wake-word path entirely.
 
 ## Mode flows
 

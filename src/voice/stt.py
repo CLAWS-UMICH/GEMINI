@@ -19,7 +19,7 @@ from src.voice.devices import select_stt_device
 
 log = logging.getLogger(__name__)
 
-DEFAULT_MODEL_DIR = Path(__file__).resolve().parents[2] / "models" / "stt" / "whisper-base.en"
+DEFAULT_MODEL_DIR = Path(__file__).resolve().parents[2] / "models" / "stt" / "whisper-medium.en"
 
 
 class WhisperSTT:
@@ -39,5 +39,11 @@ class WhisperSTT:
         """audio: float32, mono, 16 kHz. Returns the concatenated text."""
         if audio.dtype != np.float32:
             audio = audio.astype(np.float32)
-        segments, _info = self._model.transcribe(audio, language="en", beam_size=1)
+        segments, _info = self._model.transcribe(
+            audio,
+            language="en",
+            beam_size=5,
+            condition_on_previous_text=False,
+            no_speech_threshold=0.6,
+        )
         return " ".join(seg.text.strip() for seg in segments).strip()
