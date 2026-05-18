@@ -19,11 +19,16 @@ from src.core.classifier.multilabel_classifier import MultilabelClassifier
 
 MODELS_DIR = Path(__file__).resolve().parents[1] / "models"
 MULTILABEL_DIR = MODELS_DIR / "multilabel"
+CATALOGS_DIR = MODELS_DIR / "intent_catalogs"
 SIDECARS = ["multilabel.pt", "label2id.json", "tokenizer.json", "vocab.txt"]
 
 
 def _bundle_present() -> bool:
-    return all((MULTILABEL_DIR / name).exists() for name in SIDECARS)
+    return (
+        all((MULTILABEL_DIR / name).exists() for name in SIDECARS)
+        and (CATALOGS_DIR / "intenteva.json").exists()
+        and (CATALOGS_DIR / "intentPR.json").exists()
+    )
 
 
 @pytest.fixture

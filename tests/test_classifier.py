@@ -1,8 +1,8 @@
-"""Smoke test for the trained MiniLM + NN classifier.
+"""Smoke test for the legacy trained MiniLM + NN classifier.
 
 Loads the model from disk and asserts a canonical command classifies to the
 expected intent above the confidence threshold. Doubles as a sanity check that
-the embedder and labels are in sync with the model checkpoint.
+the embedder and labels are in sync with the fallback model checkpoint.
 
 Also exposes `main()` for the `classifier-test` console script so the original
 interactive REPL still works.

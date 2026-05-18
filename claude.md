@@ -18,9 +18,10 @@ responder dispatch). Mode-specific code lives under `src/modes/eva/` and
 
 | File | Role |
 |---|---|
-| `src/core/classifier/factory.py` | Selects classifier impl (NN fallback ↔ Multilabel) |
+| `src/core/classifier/factory.py` | Selects classifier impl (EVA MultiIntent ↔ NN fallback, PR unchanged) |
 | `src/core/classifier/classifier_protocol.py` | The swap point for any replacement model |
-| `src/core/classifier/nn_classifier.py` | Legacy MiniLM + 2-layer NN (Phase 1 default) |
+| `src/core/classifier/multiintent_classifier.py` | EVA best-model MiniLM classifier |
+| `src/core/classifier/nn_classifier.py` | Legacy MiniLM + 2-layer NN fallback |
 | `src/core/responder/registry_eva.py` | `{eva_intent: handler}` (45 handlers) |
 | `src/core/responder/registry_pr.py` | `{pr_intent: handler}` (43 handlers) |
 | `src/core/responder/dispatch.py` | Confidence gate + registry lookup (takes registry as arg) |
@@ -55,32 +56,27 @@ End-to-end latency targets: ~400–500 ms on GPU, ~700 ms–1.2 s on CPU.
 
 ## Classifier note
 
-Current handoff: documentation only. Do not implement the `multiintent.pt`
-backend integration yet unless the user explicitly asks for implementation.
-The current docs for the future work live in:
+EVA mode now uses the best-model multi-intent bundle when it is present:
 
-- `docs/multiintent-backend-handoff.md`
-- `docs/multiintent-future-implementation-tasks.md`
+- `models/best_model/multiintent.pt`
+- `models/best_model/label2id.json`
+- `models/best_model/id2label.json`
+- tokenizer sidecars, metrics, and `MODEL_READY.md`
 
-Planned next classifier work: integrate `best_model/multiintent.pt` for EVA
-mode only. The model bundle is under `best_model/` with `label2id.json`,
-`id2label.json`, tokenizer sidecars, metrics, and `MODEL_READY.md`. The labels
-already match backend intent names, so do not add a label-to-intent mapping
-layer. Treat the model's `unhandled` label as the existing unknown-intent
+The labels already match backend intent names, so do not add a label-to-intent
+mapping layer. Treat the model's `unhandled` label as the existing unknown-intent
 fallback.
 
-Existing code state: the factory at `src/core/classifier/factory.py` still
-builds the current classifiers. PR mode should remain unchanged for the future
-multiintent pass because `best_model/label2id.json` does not contain the PR
-registry's 43 labels. `src/core/classifier/classifier_protocol.py` remains the
-swap point for any replacement classifier.
+PR mode remains unchanged because `best_model/label2id.json` does not contain
+the PR registry's 43 labels. If the EVA best-model bundle is missing or
+incomplete, `src/core/classifier/factory.py` falls back to `NNClassifier`.
+`src/core/classifier/classifier_protocol.py` remains the swap point for any
+replacement classifier.
 
 ## What To Do Right Now
 
-If continuing from this handoff, first read
-`docs/multiintent-backend-handoff.md`. The current task was only to populate
-Markdown docs and update this file. No Python implementation, tests, config
-edits, model moves, or backend wiring have been done yet.
+If continuing classifier work, first read `docs/multiintent-backend-handoff.md`
+for the implemented behavior and latest verification result.
 
 ## Third-party API notes
 

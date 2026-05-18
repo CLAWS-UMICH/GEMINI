@@ -9,14 +9,17 @@ from src.core.responder.registry_pr import REGISTRY_PR
 from src.core.telemetry.cache import TelemetryCache
 
 CATALOG = Path(__file__).resolve().parents[1] / "models" / "intent_catalogs" / "intentPR.json"
+requires_pr_catalog = pytest.mark.skipif(not CATALOG.exists(), reason="PR intent catalog not installed")
 
 
+@requires_pr_catalog
 def test_registry_covers_every_pr_label():
     labels = {row["intent"] for row in json.loads(CATALOG.read_text())}
     missing = labels - set(REGISTRY_PR)
     assert not missing, f"PR labels not in registry: {sorted(missing)}"
 
 
+@requires_pr_catalog
 def test_registry_has_no_extraneous_labels():
     labels = {row["intent"] for row in json.loads(CATALOG.read_text())}
     extra = set(REGISTRY_PR) - labels
