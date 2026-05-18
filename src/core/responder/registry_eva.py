@@ -65,6 +65,16 @@ def _eva_suit_path(label: str) -> str:
 #   get_oxygen_tank    → oxygen_storage          (verified Phase 1)
 # get_co2_scrubber maps to scrubber A storage as the closest semantic match.
 # ---------------------------------------------------------------------------
+# Bool-typed rover fields. TTTDTT emits these as 1.0/0.0 floats, so
+# template_handler needs an explicit flag to render them as "on"/"off"
+# rather than "1.00" / "0.00 percent".
+_EVA_BOOL_LABELS: frozenset[str] = frozenset({
+    "get_cabin_cooling",
+    "get_cabin_heating",
+    "get_lights_on",
+})
+
+
 _EVA_ROVER_PATHS: dict[str, str] = {
     "get_battery_level":      "pr_telemetry.primary_battery_level",
     "get_cabin_pressure":     "pr_telemetry.cabin_pressure",
@@ -160,7 +170,7 @@ _EVA_ACKS: dict[str, str] = {
 REGISTRY_EVA: dict[str, ResponseFn] = {
     **{label: template_handler(label, "eva", _eva_suit_path(label))
        for label in _EVA_SUIT_LABELS},
-    **{label: template_handler(label, "rover", path)
+    **{label: template_handler(label, "rover", path, bool_field=label in _EVA_BOOL_LABELS)
        for label, path in _EVA_ROVER_PATHS.items()},
     **_EVA_SPECIAL_HANDLERS,
     **{label: verbal_ack(text) for label, text in _EVA_ACKS.items()},

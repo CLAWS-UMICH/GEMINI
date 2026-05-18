@@ -34,7 +34,7 @@ def test_get_battery_level_routes_to_template():
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("rover", {"pr_telemetry": {"primary_battery_level": 87.11}})
     out = REGISTRY_PR["Get_battery_level"]("hi", cache, {"intent": "Get_battery_level", "confidence": 0.9})
-    assert out == "The rover battery level is 87.1."
+    assert out == "The rover battery level is 87.11 percent."
 
 
 def test_set_lights_on_routes_to_verbal_ack():

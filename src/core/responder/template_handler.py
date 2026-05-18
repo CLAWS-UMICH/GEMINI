@@ -23,21 +23,34 @@ from src.core.responder.templates import INTENT_RESPONSE_TEMPLATES
 ResponseFn = Callable[[str, Any, dict], str]
 
 
-def _format_value(value: Any) -> str:
+def _format_value(value: Any, *, bool_field: bool = False) -> str:
     """Render a telemetry value for TTS.
 
-    - bool / 0.0|1.0 floats interpreted as flag → "on"/"off"
-    - float → 1 decimal place
-    - int → bare
-    - everything else → str()
+    Measurement fields (bool_field=False, the default):
+      - bool             → "on"/"off"  (safety net; raw Python bools are always flags)
+      - float            → 2 decimal places, e.g. "4.20"
+      - int              → bare, e.g. "1850"
+      - other            → str()
+
+    Bool fields (bool_field=True):
+      - bool, 0|1 int, 0.0|1.0 float → "on"/"off"
+      - anything else                → str()
+
+    TTTDTT emits booleans as 1.0/0.0 floats, which is why bool intents must
+    be flagged explicitly: otherwise a legitimate 0.0 measurement (e.g. a
+    suit-pressure reading on a paused sim) would speak as "off".
     """
+    if bool_field:
+        if isinstance(value, bool):
+            return "on" if value else "off"
+        if isinstance(value, (int, float)):
+            return "on" if value == 1 else "off"
+        return str(value)
+
     if isinstance(value, bool):
         return "on" if value else "off"
     if isinstance(value, float):
-        # TTTDTT emits booleans as 1.0/0.0 floats — render them human-readable.
-        if value in (0.0, 1.0):
-            return "on" if value == 1.0 else "off"
-        return f"{value:.1f}"
+        return f"{value:.2f}"
     if isinstance(value, int):
         return str(value)
     return str(value)
@@ -51,7 +64,13 @@ def _walk_path(payload: dict, dotted_path: str) -> Any:
     return node
 
 
-def template_handler(intent_label: str, channel: str, field_path: str) -> ResponseFn:
+def template_handler(
+    intent_label: str,
+    channel: str,
+    field_path: str,
+    *,
+    bool_field: bool = False,
+) -> ResponseFn:
     template = INTENT_RESPONSE_TEMPLATES[intent_label]
 
     def handler(command: str, cache: Any, classification: dict) -> str:
@@ -62,7 +81,7 @@ def template_handler(intent_label: str, channel: str, field_path: str) -> Respon
             value = _walk_path(payload, field_path)
         except (KeyError, TypeError):
             return TELEMETRY_UNAVAILABLE_REPLY
-        return template.format(value=_format_value(value))
+        return template.format(value=_format_value(value, bool_field=bool_field))
 
     handler.__name__ = f"handle_{intent_label}"
     return handler

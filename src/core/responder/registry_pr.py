@@ -19,6 +19,19 @@ from src.core.responder.handlers_pr import (
 from src.core.responder.template_handler import ResponseFn, template_handler
 
 
+# Bool-typed rover fields. TTTDTT emits these as 1.0/0.0 floats, so
+# template_handler needs an explicit flag to render them as "on"/"off"
+# rather than "1.00" / "0.00 percent".
+_PR_BOOL_LABELS: frozenset[str] = frozenset({
+    "Get_sim_running",
+    "get_Dust_connected",
+    "get_brakes",
+    "get_cabin_cooling",
+    "get_cabin_heating",
+    "get_lights_on",
+})
+
+
 # Maps label → field path inside the cached "rover" payload (pr_telemetry.*).
 # Verified-against-live paths are marked V; others are mechanical
 # strip-prefix-and-lowercase and rely on cache-miss fallback.
@@ -75,7 +88,8 @@ _PR_SPECIAL_HANDLERS: dict[str, ResponseFn] = {
 }
 
 REGISTRY_PR: dict[str, ResponseFn] = {
-    **{label: template_handler(label, "rover", path) for label, path in _PR_FIELD_PATHS.items()},
+    **{label: template_handler(label, "rover", path, bool_field=label in _PR_BOOL_LABELS)
+       for label, path in _PR_FIELD_PATHS.items()},
     **_PR_SPECIAL_HANDLERS,
 }
 
