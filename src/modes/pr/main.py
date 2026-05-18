@@ -23,7 +23,7 @@ from src.core.responder import dispatch
 from src.core.responder.registry_pr import REGISTRY_PR
 from src.core.telemetry.cache import TelemetryCache
 from src.core.telemetry.client import TelemetryClient
-from src.modes.eva.websocket_handler import (
+from src.modes.pr.log_helpers import (
     log_error,
     log_info,
     log_success,
