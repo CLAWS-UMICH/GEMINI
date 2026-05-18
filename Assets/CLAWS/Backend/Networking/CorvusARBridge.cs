@@ -87,7 +87,11 @@ public class CorvusARBridge : MonoBehaviour
         string spoken;
         try
         {
-            spoken = Dispatch(raw.intent, p, raw.response);
+            var localSpoken = Dispatch(raw.intent, p, raw.response);
+            // Python's response carries live data (e.g. TSS vitals) and is the canonical
+            // user-facing text. Fall back to the locally-formatted string only if Python
+            // didn't include one (e.g. offline keyboard-harness via SimulateIntent).
+            spoken = !string.IsNullOrEmpty(raw.response) ? raw.response : localSpoken;
         }
         catch (Exception ex)
         {
