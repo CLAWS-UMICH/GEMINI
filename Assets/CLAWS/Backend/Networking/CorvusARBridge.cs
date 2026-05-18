@@ -87,7 +87,11 @@ public class CorvusARBridge : MonoBehaviour
         string spoken;
         try
         {
-            spoken = Dispatch(raw.intent, p, raw.response);
+            var localSpoken = Dispatch(raw.intent, p, raw.response);
+            // Python's response carries live data (e.g. TSS vitals) and is the canonical
+            // user-facing text. Fall back to the locally-formatted string only if Python
+            // didn't include one (e.g. offline keyboard-harness via SimulateIntent).
+            spoken = !string.IsNullOrEmpty(raw.response) ? raw.response : localSpoken;
         }
         catch (Exception ex)
         {
@@ -424,7 +428,7 @@ public class CorvusARBridge : MonoBehaviour
         if (needle.Contains("ltv") || needle.Contains("rover") || needle == "pr" ||
             needle.Contains("pressurized rover") || needle.Contains("pressurised rover"))
         {
-            GameObject rover = GameObject.Find("ROVER") ?? GameObject.Find("PR_PlayerIcon");
+            GameObject rover = GameObject.Find("PR_ICON") ?? GameObject.Find("ROVER");
             if (rover != null)
             {
                 worldPos = rover.transform.position;
@@ -434,11 +438,11 @@ public class CorvusARBridge : MonoBehaviour
         }
         if (needle == "ev2" || needle.Contains("ev2") || needle.Contains("companion") || needle.Contains("crewmate"))
         {
-            GameObject ev2 = GameObject.Find("EV2_PlayerIcon");
-            if (ev2 != null)
+            GameObject ltv = GameObject.Find("LTV_ICON");
+            if (ltv != null)
             {
-                worldPos = ev2.transform.position;
-                resolvedName = "EV2";
+                worldPos = ltv.transform.position;
+                resolvedName = "LTV";
                 return true;
             }
         }

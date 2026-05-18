@@ -10,6 +10,18 @@ public class PlayerIconScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            if (playerTransform != null)
+            {
+                if (AstronautInstance.User.current == null)
+                {
+                    AstronautInstance.User.current = new Location();
+                }
+                
+                // Override TSS telemetry with physical Hololens movement for local features
+                AstronautInstance.User.current.posX = playerTransform.position.x;
+                AstronautInstance.User.current.posZ = playerTransform.position.z;
+            }
+
             // Align the icon's position with AstronautInstance.User.current.posX and posY
             Vector3 newPosition = new Vector3(
                 (float)AstronautInstance.User.current.posX,

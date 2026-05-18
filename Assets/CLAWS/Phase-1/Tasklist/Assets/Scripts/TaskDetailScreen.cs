@@ -262,9 +262,10 @@ public class TaskDetailScreen : MonoBehaviour
                  * ═══════════════════════════════════════════════════════════════════════════
                  * Passive / evaluator-driven mode — Unity did not notify TSS.
                  * ═══════════════════════════════════════════════════════════════════════════
+                */
                 ShowTaskMainMenu();
                 return;
-                */
+                /*
 
                 if (tssConnection != null &&
                     LtvErrorTaskSupport.TryGetProcedureIndex(activeGroup.ltvCode, out int procedureIndex))
@@ -275,6 +276,7 @@ public class TaskDetailScreen : MonoBehaviour
 
                 ShowTaskMainMenu();
                 return;
+                */
             }
 
             int currentTaskIndex = groups.IndexOf(activeGroup);
