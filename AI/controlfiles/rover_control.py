@@ -2,6 +2,9 @@
 """Simple TSS rover socket helpers.
 
 This talks to TSS over UDP. DUST should already be connected to TSS.
+When REMOTE_SERVER_ENABLED is True, commands are routed through the
+TTTDTT backend Socket.IO server instead (using the event names defined
+in SOCKETIO_CLIENTS.md).
 """
 
 from __future__ import annotations
@@ -48,15 +51,20 @@ STEERING_COMMAND_SIGN = -1.0
 CMD_PING = 2050
 CMD_DEBUG_PING = 2051
 
+# ---------------------------------------------------------------------------
+# Backend Socket.IO event names (from SOCKETIO_CLIENTS.md)
+# ---------------------------------------------------------------------------
+# These are the event names expected by the TTTDTT backend server.
+# The backend receives these emits and forwards the commands to TSS via UDP.
 REMOTE_COMMAND_EVENT_BY_ID = {
-    CMD_CABIN_HEATING: "rover-heating",
-    CMD_CABIN_COOLING: "rover-cooling",
-    CMD_LIGHTS: "rover-headlights",
-    CMD_BRAKES: "rover-brakes",
-    CMD_THROTTLE: "rover-throttle",
-    CMD_STEERING: "rover-steering",
-    CMD_PING: "rover-ping",
-    CMD_DEBUG_PING: "rover-debug-ping",
+    CMD_CABIN_HEATING: "set_heating",
+    CMD_CABIN_COOLING: "set_cooling",
+    CMD_LIGHTS:        "set_headlights",
+    CMD_BRAKES:        "set_brakes",
+    CMD_THROTTLE:      "set_throttle",
+    CMD_STEERING:      "set_steering",
+    CMD_PING:          "send_ping",
+    CMD_DEBUG_PING:    "send_debug_ping",
 }
 
 
@@ -68,6 +76,13 @@ def configure_remote_server(enabled: bool, url: str | None = None) -> None:
 
 
 class RemoteRoverClient:
+    """Socket.IO client that connects to the TTTDTT backend server.
+
+    Telemetry is received as pushed events (rover-telemetry, ltv-telemetry,
+    eva-telemetry, ltv-errors-telemetry). Commands are sent via sio.emit()
+    using the event names from SOCKETIO_CLIENTS.md.
+    """
+
     def __init__(self, url: str) -> None:
         self.url = str(url)
         self.sio = socketio.Client(reconnection=True)
@@ -92,6 +107,7 @@ class RemoteRoverClient:
         def disconnect() -> None:
             self._connected_event.clear()
 
+        # Telemetry is pushed from the backend server to us.
         @self.sio.on("rover-telemetry")
         def on_rover_telemetry(data) -> None:
             payload = dict(data) if isinstance(data, dict) else {}
@@ -135,10 +151,10 @@ class RemoteRoverClient:
 
     def _payload_event_for_get(self, command: int) -> tuple[str, threading.Event, str]:
         mapping = {
-            GET_ROVER_JSON: ("_latest_rover", self._rover_event, "rover"),
-            GET_LTV_JSON: ("_latest_ltv", self._ltv_event, "ltv"),
-            GET_EVA_JSON: ("_latest_eva", self._eva_event, "eva"),
-            GET_LTV_ERRORS_JSON: ("_latest_ltv_errors", self._ltv_errors_event, "ltv-errors"),
+            GET_ROVER_JSON:        ("_latest_rover",       self._rover_event,       "rover"),
+            GET_LTV_JSON:          ("_latest_ltv",         self._ltv_event,         "ltv"),
+            GET_EVA_JSON:          ("_latest_eva",         self._eva_event,         "eva"),
+            GET_LTV_ERRORS_JSON:   ("_latest_ltv_errors",  self._ltv_errors_event,  "ltv-errors"),
         }
         if command not in mapping:
             raise RuntimeError(f"Remote server does not support GET command {command}")
@@ -200,16 +216,36 @@ def send_packet(sock: socket.socket, packet: bytes, response_size: int = 8192) -
 
 
 def send_float_command(sock: socket.socket, command: int, value: float) -> bool:
+    """Send a rover command.
+
+    When connected to the backend server (RemoteRoverClient), commands are
+    emitted using the Socket.IO event names from SOCKETIO_CLIENTS.md with
+    the payload formats the backend expects:
+
+      set_throttle  → single float
+      set_steering  → single float
+      set_brakes    → boolean
+      set_headlights/ set_heating / set_cooling → single float (0…1)
+      send_ping / send_debug_ping → no payload (None)
+    """
     if isinstance(sock, RemoteRoverClient):
         event_name = REMOTE_COMMAND_EVENT_BY_ID.get(int(command))
         if event_name is None:
             raise RuntimeError(f"Remote server does not support command {command}")
-        payload = float(value)
+
+        # Brakes expect a boolean.
         if int(command) == CMD_BRAKES:
-            return sock.emit(event_name, bool(payload >= 0.5))
-        if int(command) in (CMD_PING, CMD_DEBUG_PING) and abs(payload - 1.0) <= 1e-6:
+            return sock.emit(event_name, bool(float(value) >= 0.5))
+
+        # Ping commands take no payload.
+        if int(command) in (CMD_PING, CMD_DEBUG_PING):
             return sock.emit(event_name, None)
-        return sock.emit(event_name, payload)
+
+        # All other commands (throttle, steering, heating, cooling, lights)
+        # accept a plain float.
+        return sock.emit(event_name, float(value))
+
+    # --- UDP path (direct TSS) ---
     packet = struct.pack(">IIf", unix_timestamp(), command, float(value))
     response = send_packet(sock, packet, response_size=64)
     if len(response) < 4:
@@ -272,6 +308,13 @@ def send_occupancy_matrix(
     path_world: list[tuple[float, float]] | None = None,
     min_interval_seconds: float = 1.0,
 ) -> bool:
+    """Emit the occupancy matrix to the backend using the matrix-update event.
+
+    Payload shape (per SOCKETIO_CLIENTS.md):
+        {"data": [[int, ...], ...], "topleft": {"x": float, "y": float}}
+
+    topleft is always the fixed map origin: x=-6550, y=-9750.
+    """
     if not isinstance(sock, RemoteRoverClient):
         return False
 
@@ -289,7 +332,20 @@ def send_occupancy_matrix(
         if matrix is None:
             return False
 
-        emitted = sock.emit("matrix", matrix)
+        # Build the payload the backend and frontend expect.
+        # The full map has fixed world-coordinate bounds:
+        #   X: -6550 to -5450  (matrix columns, left → right)
+        #   Y: -10450 to -9750 (matrix rows,    top  → bottom)
+        # matrix[0][0] always represents world coordinate (-6550, -9750),
+        # i.e. the top-left corner of the map.
+        MAP_TOPLEFT_X = -6550
+        MAP_TOPLEFT_Y = -9750
+        payload = {
+            "data": matrix,
+            "topleft": {"x": MAP_TOPLEFT_X, "y": MAP_TOPLEFT_Y},
+        }
+
+        emitted = sock.emit("matrix-update", payload)
         if emitted:
             sock._last_matrix_emit_monotonic = now
         return emitted
@@ -472,6 +528,8 @@ def set_throttle(sock: socket.socket, value: float) -> bool:
 
 def set_steering(sock: socket.socket, value: float) -> bool:
     # DUST steering command sign is opposite the math/control convention used locally.
+    # When going through the backend the backend applies no additional sign flip,
+    # so we still negate here to keep behaviour consistent across both transports.
     return send_float_command(sock, CMD_STEERING, clamp_steering(value) * STEERING_COMMAND_SIGN)
 
 

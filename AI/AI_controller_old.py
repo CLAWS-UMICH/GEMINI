@@ -17,15 +17,7 @@ import backend_bridge
 # Config
 # -----------------------------
 BACKEND_URL = "http://192.168.4.230:5001"
-
-# Transport mode:
-#   "socket" — route all rover commands through the TTTDTT backend server
-#              using the Socket.IO events defined in SOCKETIO_CLIENTS.md.
-#              Telemetry is received as pushed events from the backend.
-#   "udp"    — communicate with TSS directly over UDP (no backend required,
-#              useful for standalone testing without the full stack running).
-LOCATE_TRANSPORT = "socket"
-
+LOCATE_TRANSPORT = "socket"  # "socket" or "udp"
 TSS_HOST = "192.168.4.230"
 TSS_PORT = 14141
 
@@ -46,8 +38,6 @@ def main() -> None:
             recommendation = aia.recommend_procedure(alert)
             if recommendation is not None:
                 alert = {**alert, "procedure": recommendation}
-            # Emit the enriched alert back to the backend so the frontend
-            # receives it via the "metric-warning" event.
             backend_bridge.send_alert(backend, alert)
 
         alert_runner = alerts.start(
@@ -56,33 +46,6 @@ def main() -> None:
         )
         aia_runner = aia.start({"backend_url": BACKEND_URL})
 
-    def on_path_update(update: dict) -> None:
-        """Forward the occupancy matrix to the backend.
-
-        update is shaped as:
-            {
-                "matrix":     [[int, ...]],   # raw 2-D grid
-                "path_world": [...],
-                "rover_xy":   (x, y),
-                "goal_xy":    (x, y),
-                "path_len":   int,
-            }
-
-        The backend expects "matrix-update" with:
-            {"data": [[int, ...]], "topleft": {"x": float, "y": float}}
-
-        We pass the full update dict to backend_bridge.send_matrix which
-        handles both legacy (raw list) and structured (dict with topleft)
-        payloads. The planner origin is baked into the update by
-        rover_control.build_occupancy_matrix / send_occupancy_matrix, so
-        when those functions produce the structured dict it flows through
-        unchanged. When the raw matrix list arrives (legacy callers) it is
-        wrapped with a zero-origin topleft.
-        """
-        if backend is not None:
-            matrix_data = update.get("matrix", update)
-            backend_bridge.send_matrix(backend, matrix_data)
-
     locate_runner = locate.start(
         {
             "mode": LOCATE_TRANSPORT,
@@ -90,7 +53,7 @@ def main() -> None:
             "tss_host": TSS_HOST,
             "tss_port": TSS_PORT,
         },
-        on_path_update=None if use_udp else on_path_update,
+        on_path_update=None if use_udp else lambda update: backend_bridge.send_matrix(backend, update["matrix"]),
         on_eta_update=None if alert_runner is None else alert_runner.update_path_eta,
     )
 
