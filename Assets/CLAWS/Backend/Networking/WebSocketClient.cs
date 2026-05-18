@@ -88,6 +88,33 @@ namespace CLAWS.Networking
             }
         }
 
+        public async Task SendBinaryAsync(byte[] data)
+        {
+            if (!IsConnected)
+            {
+                Debug.LogError("Cannot send binary: WebSocket is not connected");
+                return;
+            }
+
+            if (data == null || data.Length == 0) return;
+
+            try
+            {
+                var buffer = new ArraySegment<byte>(data);
+                await _webSocket.SendAsync(
+                    buffer,
+                    WebSocketMessageType.Binary,
+                    true,
+                    _cancellationTokenSource.Token
+                );
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Failed to send binary frame: {ex.Message}");
+                throw;
+            }
+        }
+
         public async Task<string> ReceiveAsync()
         {
             // Check WebSocket connection
