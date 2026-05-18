@@ -20,6 +20,18 @@ def test_unknown_intent_returns_unknown_reply():
     assert dispatch.respond("hi", classification, cache, {}) == UNKNOWN_INTENT_REPLY
 
 
+def test_unhandled_intent_returns_unknown_reply_when_confident():
+    cache = TelemetryCache()
+    classification = {"intent": "unhandled", "confidence": 0.99}
+    assert dispatch.respond("nonsense", classification, cache, {}) == UNKNOWN_INTENT_REPLY
+
+
+def test_eva_registry_does_not_register_unhandled():
+    from src.core.responder.registry_eva import REGISTRY_EVA
+
+    assert "unhandled" not in REGISTRY_EVA
+
+
 def test_known_intent_calls_handler():
     captured = {}
 

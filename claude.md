@@ -18,9 +18,10 @@ responder dispatch). Mode-specific code lives under `src/modes/eva/` and
 
 | File | Role |
 |---|---|
-| `src/core/classifier/factory.py` | Selects classifier impl (NN fallback ↔ Multilabel) |
+| `src/core/classifier/factory.py` | Selects classifier impl (EVA MultiIntent ↔ NN fallback, PR unchanged) |
 | `src/core/classifier/classifier_protocol.py` | The swap point for any replacement model |
-| `src/core/classifier/nn_classifier.py` | Legacy MiniLM + 2-layer NN (Phase 1 default) |
+| `src/core/classifier/multiintent_classifier.py` | EVA best-model MiniLM classifier |
+| `src/core/classifier/nn_classifier.py` | Legacy MiniLM + 2-layer NN fallback |
 | `src/core/responder/registry_eva.py` | `{eva_intent: handler}` (45 handlers) |
 | `src/core/responder/registry_pr.py` | `{pr_intent: handler}` (43 handlers) |
 | `src/core/responder/dispatch.py` | Confidence gate + registry lookup (takes registry as arg) |

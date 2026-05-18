@@ -1,6 +1,4 @@
-"""Phase 2 smoke: classifier + registries wired end-to-end.
-
-Skipped if the multilabel bundle is not installed."""
+"""Phase 2 smoke: classifier + registries wired end-to-end."""
 
 from __future__ import annotations
 
@@ -15,10 +13,17 @@ from src.core.responder.registry_pr import REGISTRY_PR
 from src.core.responder.fallback import TELEMETRY_UNAVAILABLE_REPLY
 from src.core.telemetry.cache import TelemetryCache
 
+BEST_MODEL_DIR = Path(__file__).resolve().parents[1] / "models" / "best_model"
 MULTILABEL_DIR = Path(__file__).resolve().parents[1] / "models" / "multilabel"
-BUNDLE_PRESENT = (MULTILABEL_DIR / "label2id.json").exists()
-
-pytestmark = pytest.mark.skipif(not BUNDLE_PRESENT, reason="multilabel bundle not installed")
+INTENT_CATALOGS_DIR = Path(__file__).resolve().parents[1] / "models" / "intent_catalogs"
+BEST_MODEL_PRESENT = (
+    (BEST_MODEL_DIR / "multiintent.pt").exists()
+    and (BEST_MODEL_DIR / "label2id.json").exists()
+)
+MULTILABEL_PRESENT = (
+    (MULTILABEL_DIR / "label2id.json").exists()
+    and (INTENT_CATALOGS_DIR / "intentPR.json").exists()
+)
 
 
 @pytest.fixture(scope="module")
@@ -44,6 +49,7 @@ def test_eva_pipeline_canonical_heart_rate(eva_clf):
     assert "72" in response and "heart rate" in response.lower()
 
 
+@pytest.mark.skipif(not MULTILABEL_PRESENT, reason="multilabel bundle not installed")
 def test_pr_pipeline_canonical_battery(pr_clf):
     cache = TelemetryCache(stale_after_s=10.0)
     cache.put("rover", {"pr_telemetry": {"primary_battery_level": 65.4}})
@@ -56,6 +62,7 @@ def test_pr_pipeline_canonical_battery(pr_clf):
     assert "65.4" in response
 
 
+@pytest.mark.skipif(not MULTILABEL_PRESENT, reason="multilabel bundle not installed")
 def test_pr_pipeline_set_lights_on_verbal_ack(pr_clf):
     cache = TelemetryCache(stale_after_s=10.0)
     classification = pr_clf.classify("turn the headlights on")
