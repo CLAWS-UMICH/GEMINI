@@ -151,4 +151,3 @@ def test_configure_eva_logging_is_idempotent(monkeypatch):
             root.addHandler(h)
         root.setLevel(original_level)
         logging.getLogger("faster_whisper").setLevel(original_fw)
-        logging.getLogger("faster_whisper").setLevel(original_fw)
