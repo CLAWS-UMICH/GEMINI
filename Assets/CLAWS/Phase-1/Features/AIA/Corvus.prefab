@@ -176,6 +176,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Testing.CorvusTest
   _corvusController: {fileID: 5274132973516829717}
+  _corvusARBridge: {fileID: 6702739219019932631}
+  _navTargetName: EV2
+  _waypointName: Voice Test Alpha
+  _taskName: Inspect solar panel
+--- !u!114 &7400000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231975340194177141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba46168865945e783a71159c09084c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.AudioStreamer
+  _microphoneDevice: 
 --- !u!1 &1695380782694500666
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +285,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CorvusARBridge
   _corvusController: {fileID: 5274132973516829717}
   _dialogueManager: {fileID: 9052873133627792625}
-  _vitalsPanel: {fileID: 0}
+  _tts: {fileID: 0}
+  _screenManager: {fileID: 0}
+  _pathfinding: {fileID: 0}
+  _taskDetailScreen: {fileID: 0}
+  _uiaController: {fileID: 0}
+  _navigationController: {fileID: 0}
+  _playerTransform: {fileID: 0}
 --- !u!1 &5686176417382859004
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,16 +326,3 @@ Transform:
   - {fileID: 8993662259347705753}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7400000000000000001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231975340194177141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba46168865945e783a71159c09084c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.AudioStreamer
-  _microphoneDevice: 
