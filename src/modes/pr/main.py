@@ -19,16 +19,11 @@ from src.config import (
     TTTDTT_URL,
 )
 from src.core.classifier.factory import build_classifier
+from src.core.log_format import CYAN, DIM_GREY, GREEN, MAGENTA, YELLOW, configure_logging
 from src.core.responder import dispatch
 from src.core.responder.registry_pr import REGISTRY_PR
 from src.core.telemetry.cache import TelemetryCache
 from src.core.telemetry.client import TelemetryClient
-from src.modes.pr.log_helpers import (
-    log_error,
-    log_info,
-    log_success,
-    log_warning,
-)
 
 VAD_FRAME_SAMPLES = 512        # ~32 ms at 16 kHz (Silero requirement)
 WAKEWORD_BLOCK_SAMPLES = 1280  # ~80 ms at 16 kHz (openWakeWord requirement)
@@ -37,6 +32,25 @@ SILENCE_FRAMES_TO_END = 25     # ~800 ms of silence terminates capture
 MAX_CAPTURE_S = 8.0
 
 WAKE_MODEL_PATH = Path(__file__).resolve().parents[3] / "models" / "wake_word" / "hey_corvus.onnx"
+
+log = logging.getLogger(__name__)
+
+PR_EVENT_TAGS = {
+    "wake":   "[WAKE]   ",
+    "vad":    "[VAD]    ",
+    "stt":    "[STT]    ",
+    "intent": "[INTENT] ",
+    "reply":  "[REPLY]  ",
+    "tts":    "[TTS]    ",
+}
+PR_EVENT_COLORS = {
+    "wake":   CYAN,
+    "vad":    DIM_GREY,
+    "stt":    GREEN,
+    "intent": YELLOW,
+    "reply":  MAGENTA,
+    "tts":    DIM_GREY,
+}
 
 
 async def capture_utterance(queue: asyncio.Queue, vad) -> np.ndarray:
@@ -75,7 +89,7 @@ async def capture_utterance(queue: asyncio.Queue, vad) -> np.ndarray:
 async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
     from src.voice.audio_io import open_input_stream, play_blocking
 
-    log_info("Wake word listener active. Say 'hey corvus' to interact.")
+    log.info("Wake word listener active. Say 'hey corvus' to interact.")
     wake_triggered = asyncio.Event()
     main_loop = asyncio.get_event_loop()
     capture_queue: asyncio.Queue = asyncio.Queue()
@@ -83,7 +97,7 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
 
     def callback(indata, frames, time_info, status):
         if status:
-            log_warning(f"Audio status: {status}")
+            log.warning("Audio status: %s", status)
         chunk = (indata[:, 0] if indata.ndim > 1 else indata).astype(np.float32, copy=True)
         if state["mode"] == "wake":
             if wake.process(chunk):
@@ -95,8 +109,8 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
         while True:
             await wake_triggered.wait()
             wake_triggered.clear()
-            log_success("Wake word detected.")
-            log_info("Listening (VAD-gated)…")
+            log.info("detected", extra={"event": "wake"})
+            log.info("capturing…", extra={"event": "vad"})
 
             while not capture_queue.empty():
                 capture_queue.get_nowait()
@@ -107,13 +121,19 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
                 state["mode"] = "wake"
 
             command = await main_loop.run_in_executor(None, lambda: stt.transcribe(audio))
-            log_info(f"Heard: {command!r}")
+            log.info("%r", command, extra={"event": "stt"})
 
             if not command:
                 continue
             classification = classifier.classify(command)
             response_text = dispatch.respond(command, classification, cache, REGISTRY_PR)
-            log_info(f"[{classification['intent']} @ {classification['confidence']:.2f}] {response_text}")
+            log.info(
+                "%s (conf %.2f)",
+                classification["intent"],
+                classification["confidence"],
+                extra={"event": "intent"},
+            )
+            log.info("%s", response_text, extra={"event": "reply"})
 
             audio_out = await main_loop.run_in_executor(None, lambda: tts.synthesize(response_text))
             await main_loop.run_in_executor(None, lambda: play_blocking(audio_out, tts.sample_rate))
@@ -122,7 +142,7 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
 async def text_loop(classifier, cache, tts) -> None:
     from src.voice.audio_io import play_blocking
 
-    log_info("Type a command and press Enter (or 'quit' to exit):")
+    log.info("Type a command and press Enter (or 'quit' to exit):")
     loop = asyncio.get_event_loop()
     while True:
         line = await loop.run_in_executor(None, sys.stdin.readline)
@@ -135,31 +155,39 @@ async def text_loop(classifier, cache, tts) -> None:
             break
         classification = classifier.classify(command)
         response_text = dispatch.respond(command, classification, cache, REGISTRY_PR)
-        log_info(f"[{classification['intent']} @ {classification['confidence']:.2f}] {response_text}")
+        log.info("%r", command, extra={"event": "stt"})
+        log.info(
+            "%s (conf %.2f)",
+            classification["intent"],
+            classification["confidence"],
+            extra={"event": "intent"},
+        )
+        log.info("%s", response_text, extra={"event": "reply"})
         audio_out = await loop.run_in_executor(None, lambda: tts.synthesize(response_text))
         await loop.run_in_executor(None, lambda: play_blocking(audio_out, tts.sample_rate))
 
 
 async def start_agent(text_mode: bool) -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    configure_logging(
+        event_tags=PR_EVENT_TAGS,
+        event_colors=PR_EVENT_COLORS,
+        level_env_var="PR_LOG_LEVEL",
     )
-    log_info("Starting CORVUS-PR Agent…")
-    log_info(f"Confidence threshold: {CONFIDENCE_THRESH_HIGH}")
-    log_info(f"Mode: {'text' if text_mode else 'voice'}")
+    log.info("Starting CORVUS-PR Agent…")
+    log.info("Confidence threshold: %s", CONFIDENCE_THRESH_HIGH)
+    log.info("Mode: %s", "text" if text_mode else "voice")
 
     cache = TelemetryCache(stale_after_s=STALE_TELEMETRY_S)
     sio_client = TelemetryClient(TTTDTT_URL, cache)
     sio_client.start()
-    log_info(f"TTTDTT client started (target: {TTTDTT_URL})")
+    log.info("TTTDTT client started (target: %s)", TTTDTT_URL)
 
     classifier = build_classifier(mode="pr")
-    log_success(f"Classifier loaded ({classifier.__class__.__name__})")
+    log.info("Classifier loaded (%s)", classifier.__class__.__name__)
 
     from src.voice.tts import PiperTTS
     tts = PiperTTS()
-    log_success("Piper TTS loaded")
+    log.info("Piper TTS loaded")
 
     try:
         if text_mode:
@@ -169,11 +197,11 @@ async def start_agent(text_mode: bool) -> None:
             from src.voice.vad import SileroVAD
             from src.voice.wake_word import WakeWordDetector
             stt = WhisperSTT()
-            log_success("Whisper STT loaded")
+            log.info("Whisper STT loaded")
             vad = SileroVAD()
-            log_success("Silero VAD loaded")
+            log.info("Silero VAD loaded")
             wake = WakeWordDetector(model_paths=[str(WAKE_MODEL_PATH)])
-            log_success("openWakeWord loaded")
+            log.info("openWakeWord loaded")
             await voice_loop(classifier, cache, stt, tts, vad, wake)
     finally:
         await sio_client.stop()
@@ -190,9 +218,9 @@ def main() -> None:
     try:
         asyncio.run(start_agent(text_mode=args.text))
     except KeyboardInterrupt:
-        log_info("\nAgent stopped by user (Ctrl+C)")
-    except Exception as exc:
-        log_error(f"Agent crashed: {exc}")
+        log.info("Agent stopped by user (Ctrl+C)")
+    except Exception:
+        log.exception("Agent crashed")
         raise
 
 
