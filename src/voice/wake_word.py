@@ -1,18 +1,22 @@
 """openWakeWord detector.
 
-The Windows lock resolves to openwakeword 0.6.0, which (unlike 0.4.0) does
-not ship the melspec/embedding preprocessor ONNX files in the wheel. We
-bundle them in the repo at `models/openwakeword/` and pass explicit paths
-to Model() so the wheel layout doesn't matter. The 0.4.0 vs 0.6.0 ONNX
-files are interchangeable — same model architectures.
+uv.lock resolves to openwakeword 0.6.0 on Windows and 0.4.0 on Linux
+(0.6.0 hard-requires tflite-runtime which has no Python 3.13 wheels on
+Linux). The two versions ship incompatible ``Model.__init__`` kwarg
+names: 0.6.0 uses ``wakeword_models`` / ``melspec_model_path`` /
+``embedding_model_path``; 0.4.0 uses ``wakeword_model_paths`` and bundles
+its own preprocessor ONNX. ``_build_model`` introspects the signature so
+the same call site works on both. The bundled-vs-repo preprocessor ONNX
+files at ``models/openwakeword/`` are interchangeable with 0.6.0's.
 
 Feed 80-ms audio chunks (1280 samples at 16 kHz) of float32 mono to
-`process()`; returns True if any configured wake-word's score crosses the
-threshold this chunk.
+``process()``; returns True if any configured wake-word's score crosses
+the threshold this chunk.
 """
 
 from __future__ import annotations
 
+import inspect
 import logging
 from pathlib import Path
 
@@ -26,6 +30,23 @@ DEFAULT_WAKEWORD = ["hey_corvus", "corvus"]
 PREPROC_DIR = Path(__file__).resolve().parents[2] / "models" / "openwakeword"
 MELSPEC_PATH = PREPROC_DIR / "melspectrogram.onnx"
 EMBEDDING_PATH = PREPROC_DIR / "embedding_model.onnx"
+
+
+def _build_model(paths: list[str]):
+    from openwakeword.model import Model
+    params = inspect.signature(Model.__init__).parameters
+    if "wakeword_models" in params:
+        if not MELSPEC_PATH.is_file() or not EMBEDDING_PATH.is_file():
+            raise FileNotFoundError(
+                f"Preprocessor ONNX files missing under {PREPROC_DIR}. "
+                f"Expected melspectrogram.onnx and embedding_model.onnx."
+            )
+        return Model(
+            wakeword_models=paths,
+            melspec_model_path=str(MELSPEC_PATH),
+            embedding_model_path=str(EMBEDDING_PATH),
+        )
+    return Model(wakeword_model_paths=paths)
 
 
 def _resolve_wakeword_paths(names: list[str]) -> list[str]:
@@ -53,24 +74,14 @@ class WakeWordDetector:
         model_paths: list[str] | None = None,
         threshold: float = 0.5,
     ) -> None:
-        from openwakeword.model import Model
         if model_paths is None:
             paths = _resolve_wakeword_paths(wakewords or DEFAULT_WAKEWORD)
         else:
             paths = model_paths
         log.info("Loading openWakeWord with %d model(s)", len(paths))
-        if not MELSPEC_PATH.is_file() or not EMBEDDING_PATH.is_file():
-            raise FileNotFoundError(
-                f"Preprocessor ONNX files missing under {PREPROC_DIR}. "
-                f"Expected melspectrogram.onnx and embedding_model.onnx."
-            )
         self._paths = paths
         self._threshold = threshold
-        self._model = Model(
-            wakeword_models=paths,
-            melspec_model_path=str(MELSPEC_PATH),
-            embedding_model_path=str(EMBEDDING_PATH),
-        )
+        self._model = _build_model(paths)
 
     def process(self, audio_chunk: np.ndarray) -> bool:
         """audio_chunk: float32 or int16 mono 16 kHz. Returns True if any
@@ -96,9 +107,4 @@ class WakeWordDetector:
             return
         # Fallback: re-instantiate the model with cached paths. Slower
         # (~100 ms) but always correct.
-        from openwakeword.model import Model
-        self._model = Model(
-            wakeword_models=self._paths,
-            melspec_model_path=str(MELSPEC_PATH),
-            embedding_model_path=str(EMBEDDING_PATH),
-        )
+        self._model = _build_model(self._paths)
