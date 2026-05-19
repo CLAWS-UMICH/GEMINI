@@ -94,3 +94,69 @@ REGISTRY_PR: dict[str, ResponseFn] = {
 }
 
 assert len(REGISTRY_PR) == 43, f"REGISTRY_PR should have 43 entries, got {len(REGISTRY_PR)}"
+
+
+# ---------------------------------------------------------------------------
+# Phase 3: PR mode answers EVA-side telemetry queries too. We bolt the 45 EVA
+# labels onto the 43 PR labels via the existing template_handler factory.
+# Mapping pattern: get_<field>_eva{N} → telemetry.eva{N}.<field>; three
+# asymmetric labels listed explicitly.
+# ---------------------------------------------------------------------------
+_EVA_FIELD_PATHS: dict[str, str] = {
+    "get_heart_rate_eva1":               "telemetry.eva1.heart_rate",
+    "get_heart_rate_eva2":               "telemetry.eva2.heart_rate",
+    "get_temperature_eva1":              "telemetry.eva1.temperature",
+    "get_temperature_eva2":              "telemetry.eva2.temperature",
+    "get_oxy_pri_storage_eva1":          "telemetry.eva1.oxy_pri_storage",
+    "get_oxy_pri_storage_eva2":          "telemetry.eva2.oxy_pri_storage",
+    "get_oxy_sec_storage_eva1":          "telemetry.eva1.oxy_sec_storage",
+    "get_oxy_sec_storage_eva2":          "telemetry.eva2.oxy_sec_storage",
+    "get_oxy_pri_pressure_eva1":         "telemetry.eva1.oxy_pri_pressure",
+    "get_oxy_pri_pressure_eva2":         "telemetry.eva2.oxy_pri_pressure",
+    "get_oxy_sec_pressure_eva1":         "telemetry.eva1.oxy_sec_pressure",
+    "get_oxy_sec_pressure_eva2":         "telemetry.eva2.oxy_sec_pressure",
+    "get_suit_pressure_oxy_eva1":        "telemetry.eva1.suit_pressure_oxy",
+    "get_suit_pressure_oxy_eva2":        "telemetry.eva2.suit_pressure_oxy",
+    "get_suit_pressure_co2_eva1":        "telemetry.eva1.suit_pressure_co2",
+    "get_suit_pressure_co2_eva2":        "telemetry.eva2.suit_pressure_co2",
+    "get_suit_pressure_other_eva1":      "telemetry.eva1.suit_pressure_other",
+    "get_suit_pressure_other_eva2":      "telemetry.eva2.suit_pressure_other",
+    "get_suit_pressure_total_eva1":      "telemetry.eva1.suit_pressure_total",
+    "get_suit_pressure_total_eva2":      "telemetry.eva2.suit_pressure_total",
+    "get_helmet_pressure_co2_eva1":      "telemetry.eva1.helmet_pressure_co2",
+    "get_helmet_pressure_co2_eva2":      "telemetry.eva2.helmet_pressure_co2",
+    "get_fan_pri_rpm_eva1":              "telemetry.eva1.fan_pri_rpm",
+    "get_fan_pri_rpm_eva2":              "telemetry.eva2.fan_pri_rpm",
+    "get_fan_sec_rpm_eva1":              "telemetry.eva1.fan_sec_rpm",
+    "get_fan_sec_rpm_eva2":              "telemetry.eva2.fan_sec_rpm",
+    "get_scrubber_a_co2_storage_eva1":   "telemetry.eva1.scrubber_a_co2_storage",
+    "get_scrubber_a_co2_storage_eva2":   "telemetry.eva2.scrubber_a_co2_storage",
+    "get_scrubber_b_co2_storage_eva1":   "telemetry.eva1.scrubber_b_co2_storage",
+    "get_scrubber_b_co2_storage_eva2":   "telemetry.eva2.scrubber_b_co2_storage",
+    "get_coolant_storage_eva1":          "telemetry.eva1.coolant_storage",
+    "get_coolant_storage_eva2":          "telemetry.eva2.coolant_storage",
+    "get_coolant_gas_pressure_eva1":     "telemetry.eva1.coolant_gas_pressure",
+    "get_coolant_gas_pressure_eva2":     "telemetry.eva2.coolant_gas_pressure",
+    "get_coolant_liquid_pressure_eva1":  "telemetry.eva1.coolant_liquid_pressure",
+    "get_coolant_liquid_pressure_eva2":  "telemetry.eva2.coolant_liquid_pressure",
+    "get_oxy_consumption_eva1":          "telemetry.eva1.oxy_consumption",
+    "get_oxy_consumption_eva2":          "telemetry.eva2.oxy_consumption",
+    "get_co2_production_eva1":           "telemetry.eva1.co2_production",
+    "get_co2_production_eva2":           "telemetry.eva2.co2_production",
+    "get_eva_elapsed_time_eva1":         "telemetry.eva1.eva_elapsed_time",
+    "get_eva_elapsed_time_eva2":         "telemetry.eva2.eva_elapsed_time",
+    "get_battery_level_eva2":            "telemetry.eva2.battery_level",
+    "get_primary_battery_level_eva1":    "telemetry.eva1.primary_battery_level",
+    "get_secondary_battery_level_eva1":  "telemetry.eva1.secondary_battery_level",
+}
+
+
+REGISTRY_PR_FULL: dict[str, ResponseFn] = {
+    **REGISTRY_PR,
+    **{label: template_handler(label, "eva", path)
+       for label, path in _EVA_FIELD_PATHS.items()},
+}
+
+assert len(REGISTRY_PR_FULL) == 88, (
+    f"REGISTRY_PR_FULL should have 88 entries (43 PR + 45 EVA), got {len(REGISTRY_PR_FULL)}"
+)
