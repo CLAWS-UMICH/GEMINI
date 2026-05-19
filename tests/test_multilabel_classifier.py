@@ -89,8 +89,10 @@ def test_eva_mask_zeros_out_pr_labels(fake_sidecar_dir, fake_catalogs):
     assert 0.7 < result["confidence"] < 0.74
 
 
-def test_pr_mask_zeros_out_eva_labels(fake_sidecar_dir, fake_catalogs):
-    logits = torch.tensor([[5.0, 4.5, 0.0, 0.5]])  # EVA labels dominate
+def test_pr_mask_includes_eva_labels(fake_sidecar_dir, fake_catalogs):
+    # Logits favor an EVA label (get_heart_rate_eva1=0). PR mode must NOT
+    # zero it out anymore: PR sees both PR and EVA labels.
+    logits = torch.tensor([[5.0, 0.1, 1.0, 0.5]])  # idx 0 (EVA) dominates
     clf = MultilabelClassifier(
         fake_sidecar_dir,
         mode="pr",
@@ -99,7 +101,22 @@ def test_pr_mask_zeros_out_eva_labels(fake_sidecar_dir, fake_catalogs):
         device=torch.device("cpu"),
     )
     result = clf.classify("anything")
-    assert result["intent"] == "set_lights_on"  # idx 3, sigmoid(0.5) > sigmoid(0.0)
+    assert result["intent"] == "get_heart_rate_eva1"
+
+
+def test_eva_mask_still_zeros_pr_labels(fake_sidecar_dir, fake_catalogs):
+    logits = torch.tensor([[0.0, -1.0, 5.0, 0.0]])  # PR label (idx 2) dominates raw logits
+    clf = MultilabelClassifier(
+        fake_sidecar_dir,
+        mode="eva",
+        catalogs_dir=fake_catalogs,
+        module=_StubModule(logits),
+        device=torch.device("cpu"),
+    )
+    result = clf.classify("anything")
+    # idx 0 (sigmoid 0.5) wins because idx 2 is masked to zero and idx 1
+    # has a lower logit than idx 0 among EVA labels.
+    assert result["intent"] == "get_heart_rate_eva1"
 
 
 def test_classify_returns_classification_typed_dict_shape(fake_sidecar_dir, fake_catalogs):

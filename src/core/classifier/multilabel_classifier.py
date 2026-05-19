@@ -58,9 +58,16 @@ class MultilabelClassifier:
             self._id2label[int(idx)] = str(name)
 
         catalogs_dir = catalogs_dir or DEFAULT_CATALOGS_DIR
-        catalog_path = catalogs_dir / ("intenteva.json" if mode == "eva" else "intentPR.json")
-        catalog = json.loads(Path(catalog_path).read_text())
-        active_labels = {row["intent"] for row in catalog}
+        if mode == "pr":
+            catalog_paths = [
+                catalogs_dir / "intentPR.json",
+                catalogs_dir / "intenteva.json",
+            ]
+        else:  # "eva" — unchanged
+            catalog_paths = [catalogs_dir / "intenteva.json"]
+        active_labels: set[str] = set()
+        for path in catalog_paths:
+            active_labels.update(row["intent"] for row in json.loads(Path(path).read_text()))
 
         unknown = active_labels - set(label2id)
         if unknown:
