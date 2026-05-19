@@ -21,7 +21,7 @@ from src.config import (
 from src.core.classifier.factory import build_classifier
 from src.core.log_format import CYAN, DIM_GREY, GREEN, MAGENTA, YELLOW, configure_logging
 from src.core.responder import dispatch
-from src.core.responder.registry_pr import REGISTRY_PR
+from src.core.responder.registry_pr import REGISTRY_PR_FULL
 from src.core.telemetry.cache import TelemetryCache
 from src.core.telemetry.client import TelemetryClient
 
@@ -126,7 +126,7 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
             if not command:
                 continue
             classification = classifier.classify(command)
-            response_text = dispatch.respond(command, classification, cache, REGISTRY_PR)
+            response_text = dispatch.respond(command, classification, cache, REGISTRY_PR_FULL)
             log.info(
                 "%s (conf %.2f)",
                 classification["intent"],
@@ -154,7 +154,7 @@ async def text_loop(classifier, cache, tts) -> None:
         if command.lower() in ("quit", "exit", "q"):
             break
         classification = classifier.classify(command)
-        response_text = dispatch.respond(command, classification, cache, REGISTRY_PR)
+        response_text = dispatch.respond(command, classification, cache, REGISTRY_PR_FULL)
         log.info("%r", command, extra={"event": "stt"})
         log.info(
             "%s (conf %.2f)",
