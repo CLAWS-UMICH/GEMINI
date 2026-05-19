@@ -5,9 +5,11 @@ uv.lock resolves to openwakeword 0.6.0 on Windows and 0.4.0 on Linux
 Linux). The two versions ship incompatible ``Model.__init__`` kwarg
 names: 0.6.0 uses ``wakeword_models`` / ``melspec_model_path`` /
 ``embedding_model_path``; 0.4.0 uses ``wakeword_model_paths`` and bundles
-its own preprocessor ONNX. ``_build_model`` introspects the signature so
-the same call site works on both. The bundled-vs-repo preprocessor ONNX
-files at ``models/openwakeword/`` are interchangeable with 0.6.0's.
+its own preprocessor ONNX. ``_build_model`` branches on the installed
+package version (signature introspection is unreliable because 0.6.0
+ships a deprecation wrapper that still advertises the old kwarg name).
+The bundled-vs-repo preprocessor ONNX files at ``models/openwakeword/``
+are interchangeable with 0.6.0's.
 
 Feed 80-ms audio chunks (1280 samples at 16 kHz) of float32 mono to
 ``process()``; returns True if any configured wake-word's score crosses
@@ -16,8 +18,8 @@ the threshold this chunk.
 
 from __future__ import annotations
 
-import inspect
 import logging
+from importlib.metadata import PackageNotFoundError, version as _pkg_version
 from pathlib import Path
 
 import numpy as np
@@ -32,10 +34,17 @@ MELSPEC_PATH = PREPROC_DIR / "melspectrogram.onnx"
 EMBEDDING_PATH = PREPROC_DIR / "embedding_model.onnx"
 
 
+def _is_owwv6_or_newer() -> bool:
+    try:
+        parts = _pkg_version("openwakeword").split(".")
+        return (int(parts[0]), int(parts[1])) >= (0, 6)
+    except (PackageNotFoundError, ValueError, IndexError):
+        return False
+
+
 def _build_model(paths: list[str]):
     from openwakeword.model import Model
-    params = inspect.signature(Model.__init__).parameters
-    if "wakeword_models" in params:
+    if _is_owwv6_or_newer():
         if not MELSPEC_PATH.is_file() or not EMBEDDING_PATH.is_file():
             raise FileNotFoundError(
                 f"Preprocessor ONNX files missing under {PREPROC_DIR}. "
