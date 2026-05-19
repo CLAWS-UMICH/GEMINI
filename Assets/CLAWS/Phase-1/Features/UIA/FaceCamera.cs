@@ -12,6 +12,9 @@ public class FaceCamera : MonoBehaviour
     [Tooltip("If true, the prefab's +Z faces the camera (typical for UI slates). If false, the back faces the camera.")]
     public bool faceForwardToCamera = true;
 
+    [Tooltip("Euler offset applied AFTER the look rotation. Use this to correct a prefab whose visible face isn't aligned with its local +Z. Try (90,0,0) if the prefab lies flat.")]
+    public Vector3 rotationOffset = Vector3.zero;
+
     private void LateUpdate()
     {
         if (target == null)
@@ -26,6 +29,6 @@ public class FaceCamera : MonoBehaviour
         if (toCam.sqrMagnitude < 1e-6f) return;
 
         Vector3 forward = faceForwardToCamera ? toCam : -toCam;
-        transform.rotation = Quaternion.LookRotation(forward, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(forward, Vector3.up) * Quaternion.Euler(rotationOffset);
     }
 }
