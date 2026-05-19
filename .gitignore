@@ -1,9 +1,4 @@
-# Large model files (download separately)
-*.pth
-*.onnx
-*.bin
-
-# Python-generated files
+# Python build / cache
 __pycache__/
 *.py[oc]
 build/
@@ -11,14 +6,24 @@ dist/
 wheels/
 *.egg-info
 
-# Virtual environments
-.venv
-docs/
-
-# Personal development documentation
-claude.md
-scripts/checkpoints/
+# Virtual envs and local env
+.venv/
 .env
 
-models/multilabel/
+# Local-only dev artifacts
+scripts/checkpoints/
+docs/
 
+# Legacy DistilBERT classifier (superseded by MultiIntent/Multilabel)
+models/classifier/distilbert/
+
+# Downloaded by scripts/install_whisper.sh (model.bin is >100MB; GitHub rejects)
+models/stt/*/model.bin
+models/stt/*/.cache/
+
+# Downloaded by scripts/install_piper.sh
+models/tts/piper/*.onnx
+models/tts/piper/*.onnx.json
+
+# Local backups
+*.external_backup.*
