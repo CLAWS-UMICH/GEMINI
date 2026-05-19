@@ -91,8 +91,9 @@ def test_full_streaming_roundtrip():
 def test_websocket_handler_does_not_define_print_helpers():
     """Regression: the print()/ANSI log_* helpers and Colors class are gone.
 
-    They were replaced by the logging-based path so EvaColorFormatter
-    can render lifecycle messages consistently with turn events.
+    They were replaced by the logging-based path so the shared
+    ColorFormatter can render lifecycle messages consistently with turn
+    events.
     """
     from src.modes.eva import websocket_handler
 

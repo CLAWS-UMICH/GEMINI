@@ -10,16 +10,35 @@ from src.core.classifier.factory import build_classifier
 from src.core.responder.registry_eva import REGISTRY_EVA
 from src.core.telemetry.cache import TelemetryCache
 from src.core.telemetry.client import TelemetryClient
-from src.modes.eva.log_format import configure_eva_logging
+from src.core.log_format import CYAN, DIM_GREY, GREEN, MAGENTA, YELLOW, configure_logging
 from src.modes.eva.websocket_handler import start_websocket
 from src.voice.stt import DEFAULT_MODEL_DIR as WHISPER_MODEL_DIR, WhisperSTT
 from src.voice.vad import SileroVAD
+
+EVA_EVENT_TAGS = {
+    "mic":    "[MIC]    ",
+    "vad":    "[VAD]    ",
+    "stt":    "[STT]    ",
+    "intent": "[INTENT] ",
+    "reply":  "[REPLY]  ",
+}
+EVA_EVENT_COLORS = {
+    "mic":    CYAN,
+    "vad":    DIM_GREY,
+    "stt":    GREEN,
+    "intent": YELLOW,
+    "reply":  MAGENTA,
+}
 
 log = logging.getLogger(__name__)
 
 
 async def start_server() -> None:
-    configure_eva_logging()
+    configure_logging(
+        event_tags=EVA_EVENT_TAGS,
+        event_colors=EVA_EVENT_COLORS,
+        level_env_var="EVA_LOG_LEVEL",
+    )
     log.info("Starting CORVUS-EVA Server...")
     log.info("Confidence threshold: %s", CONFIDENCE_THRESH_HIGH)
 
