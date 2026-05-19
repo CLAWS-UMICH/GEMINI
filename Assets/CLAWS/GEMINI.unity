@@ -1871,7 +1871,7 @@ MonoBehaviour:
   addSprite: {fileID: 0}
   companionsSprite: {fileID: 21300000, guid: e7caad02011ec8344bdd1641ab7f25bf, type: 3}
   hazardsSprite: {fileID: 21300000, guid: 387bdb0ca6e2848079880838af152ac6, type: 3}
-  ev2Sprite: {fileID: 21300000, guid: 142dc334b5b78432f9f0c1a1f5150ff5, type: 3}
+  ltvSprite: {fileID: 0}
   prSprite: {fileID: 21300000, guid: 353228cf3ac63fa4f96e11347b8ba8e3, type: 3}
   confirmSelectionWindowSeconds: 2
   selectedWedgeHighlightColor: {r: 0.6, g: 0.82, b: 1, a: 1}
@@ -1923,9 +1923,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.0039}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1241926633}
-  m_Father: {fileID: 1941907809}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &208423066
 MonoBehaviour:
@@ -1937,8 +1936,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13eb2715101546742aeda9e26b346f23, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   bindingProfile: {fileID: 11400000, guid: c2554c7933796464c965ae0c4acf9561, type: 2}
 --- !u!1 &214210124
 GameObject:
@@ -3856,6 +3855,7 @@ GameObject:
   - component: {fileID: 347163736}
   - component: {fileID: 347163735}
   - component: {fileID: 347163734}
+  - component: {fileID: 347163737}
   m_Layer: 9
   m_Name: LTV_ICON
   m_TagString: Untagged
@@ -3957,6 +3957,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347163732}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &347163737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347163732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d3ae4707acf44809d16d8974f1aa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompanionIconScript
+  mode: 1
 --- !u!1 &355373261
 GameObject:
   m_ObjectHideFlags: 0
@@ -7252,6 +7265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 617837700}
+  - component: {fileID: 617837701}
   m_Layer: 9
   m_Name: PR_ICON
   m_TagString: Untagged
@@ -7275,6 +7289,19 @@ Transform:
   - {fileID: 730870918}
   m_Father: {fileID: 1253546477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &617837701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617837699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d3ae4707acf44809d16d8974f1aa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompanionIconScript
+  mode: 0
 --- !u!1001 &620030317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16663,7 +16690,7 @@ Transform:
   m_LocalScale: {x: 0.078, y: 0.03, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 642963778}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1403199039
 MeshRenderer:
@@ -16741,7 +16768,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d66171460b25f834894b348db2927e09, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CLAWS.Networking.CorvusTTS
 --- !u!1 &1408744357
 GameObject:
@@ -21116,7 +21143,7 @@ Transform:
   m_LocalScale: {x: 0.136, y: 0.04, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 111630546}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1759639007
 MeshRenderer:
@@ -21202,10 +21229,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 801137541}
-  - {fileID: 743560868}
-  m_Father: {fileID: 290864675}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1768558209
 PrefabInstance:
@@ -57002,3 +57027,7 @@ SceneRoots:
   - {fileID: 8993662258736600761}
   - {fileID: 419557676}
   - {fileID: 1768558209}
+  - {fileID: 208423065}
+  - {fileID: 1403199038}
+  - {fileID: 1759639006}
+  - {fileID: 1766180913}
