@@ -1,8 +1,14 @@
-"""PR-mode response registry — 43 entries keyed to intentPR.json.
+"""PR-mode response registry.
 
-Layout: a `_PR_FIELD_PATHS` table drives template_handler() generation
-for the ~36 "format a single value" intents. Hand-rolled handlers
-(handle_lidar + 6 set_*) slot in for the rest.
+Exports two dicts:
+- `REGISTRY_PR` (43 entries, intentPR.json) — the PR-only rover registry.
+- `REGISTRY_PR_FULL` (88 entries, intentPR.json + intenteva.json) — PR
+  rover handlers plus 45 EVA-side telemetry readers built via
+  template_handler against the cached "eva" channel.
+
+Layout: `_PR_FIELD_PATHS` and `_EVA_FIELD_PATHS` drive template_handler()
+generation for the "format a single value" intents. Hand-rolled handlers
+(handle_lidar + 6 set_*) slot in on the PR side.
 
 Spec §8.
 """
