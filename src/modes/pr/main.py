@@ -9,6 +9,7 @@ import argparse
 import asyncio
 import logging
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -30,6 +31,7 @@ WAKEWORD_BLOCK_SAMPLES = 1280  # ~80 ms at 16 kHz (openWakeWord requirement)
 SAMPLE_RATE = 16000
 SILENCE_FRAMES_TO_END = 25     # ~800 ms of silence terminates capture
 MAX_CAPTURE_S = 8.0
+WAKE_COOLDOWN_S = 0.3   # ignore wake fires for this long after playback ends
 
 WAKE_MODEL_PATH = Path(__file__).resolve().parents[3] / "models" / "wake_word" / "hey_corvus.onnx"
 
@@ -93,23 +95,35 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
     wake_triggered = asyncio.Event()
     main_loop = asyncio.get_event_loop()
     capture_queue: asyncio.Queue = asyncio.Queue()
-    state = {"mode": "wake"}  # 'wake' | 'capture' — read by sounddevice thread
+    state = {"mode": "wake"}                # 'wake' | 'capture' | 'playback'
+    wake_cooldown_until = {"deadline": 0.0}  # mutable holder so the callback can read it
+    last_wake_score = {"value": 0.0}         # ditto, surfaces score to the [WAKE] log line
 
     def callback(indata, frames, time_info, status):
         if status:
             log.warning("Audio status: %s", status)
+        if state["mode"] == "playback":
+            return                           # mic is muted while Piper speaks
         chunk = (indata[:, 0] if indata.ndim > 1 else indata).astype(np.float32, copy=True)
         if state["mode"] == "wake":
-            if wake.process(chunk):
+            if time.monotonic() < wake_cooldown_until["deadline"]:
+                return                       # cooldown: drop wake input briefly
+            triggered, score = wake.process_with_score(chunk)
+            if triggered:
+                last_wake_score["value"] = score
                 main_loop.call_soon_threadsafe(wake_triggered.set)
-        else:
+        else:                                 # capture
             main_loop.call_soon_threadsafe(capture_queue.put_nowait, chunk)
 
     with open_input_stream(callback, blocksize=WAKEWORD_BLOCK_SAMPLES):
         while True:
             await wake_triggered.wait()
             wake_triggered.clear()
-            log.info("detected", extra={"event": "wake"})
+            log.info(
+                "detected (score %.2f)",
+                last_wake_score["value"],
+                extra={"event": "wake"},
+            )
             log.info("capturing…", extra={"event": "vad"})
 
             while not capture_queue.empty():
@@ -118,7 +132,7 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
             try:
                 audio = await capture_utterance(capture_queue, vad)
             finally:
-                state["mode"] = "wake"
+                state["mode"] = "wake"   # provisional; re-flipped below on playback path
 
             command = await main_loop.run_in_executor(None, lambda: stt.transcribe(audio))
             log.info("%r", command, extra={"event": "stt"})
@@ -136,7 +150,16 @@ async def voice_loop(classifier, cache, stt, tts, vad, wake) -> None:
             log.info("%s", response_text, extra={"event": "reply"})
 
             audio_out = await main_loop.run_in_executor(None, lambda: tts.synthesize(response_text))
-            await main_loop.run_in_executor(None, lambda: play_blocking(audio_out, tts.sample_rate))
+            playback_duration_s = len(audio_out) / float(tts.sample_rate) if len(audio_out) else 0.0
+            log.info("speaking %.1fs", playback_duration_s, extra={"event": "tts"})
+
+            state["mode"] = "playback"
+            try:
+                await main_loop.run_in_executor(None, lambda: play_blocking(audio_out, tts.sample_rate))
+            finally:
+                wake.reset()
+                wake_cooldown_until["deadline"] = time.monotonic() + WAKE_COOLDOWN_S
+                state["mode"] = "wake"
 
 
 async def text_loop(classifier, cache, tts) -> None:
