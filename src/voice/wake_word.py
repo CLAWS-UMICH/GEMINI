@@ -64,21 +64,41 @@ class WakeWordDetector:
                 f"Preprocessor ONNX files missing under {PREPROC_DIR}. "
                 f"Expected melspectrogram.onnx and embedding_model.onnx."
             )
+        self._paths = paths
+        self._threshold = threshold
         self._model = Model(
             wakeword_models=paths,
             melspec_model_path=str(MELSPEC_PATH),
             embedding_model_path=str(EMBEDDING_PATH),
         )
-        self._threshold = threshold
 
     def process(self, audio_chunk: np.ndarray) -> bool:
         """audio_chunk: float32 or int16 mono 16 kHz. Returns True if any
         configured wake-word's score crossed the threshold this chunk."""
-        # openwakeword expects int16 samples
+        triggered, _score = self.process_with_score(audio_chunk)
+        return triggered
+
+    def process_with_score(self, audio_chunk: np.ndarray) -> tuple[bool, float]:
+        """audio_chunk: float32 or int16 mono 16 kHz. Returns
+        (triggered, max_score) so callers can log the fire score."""
         if audio_chunk.dtype != np.int16:
             audio_chunk = (audio_chunk * 32767.0).clip(-32768, 32767).astype(np.int16)
         scores = self._model.predict(audio_chunk)
-        for _name, score in scores.items():
-            if score >= self._threshold:
-                return True
-        return False
+        max_score = max(scores.values()) if scores else 0.0
+        return (max_score >= self._threshold, float(max_score))
+
+    def reset(self) -> None:
+        """Wipe openWakeWord's internal rolling buffer so a fresh utterance
+        doesn't activate against stale audio."""
+        reset_fn = getattr(self._model, "reset", None) or getattr(self._model, "reset_states", None)
+        if callable(reset_fn):
+            reset_fn()
+            return
+        # Fallback: re-instantiate the model with cached paths. Slower
+        # (~100 ms) but always correct.
+        from openwakeword.model import Model
+        self._model = Model(
+            wakeword_models=self._paths,
+            melspec_model_path=str(MELSPEC_PATH),
+            embedding_model_path=str(EMBEDDING_PATH),
+        )
