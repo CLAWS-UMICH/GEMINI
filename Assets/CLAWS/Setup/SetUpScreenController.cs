@@ -257,8 +257,8 @@ public class SetUpScreenController : MonoBehaviour
     public void openAURA()
     {
         // change if you add a profiler to  controller
-        GameObject main = transform.parent.GetChild(2).gameObject;
-        GameObject screens = transform.parent.GetChild(1).gameObject;
+        GameObject main = transform.parent.Find("Main").gameObject;
+        GameObject screens = transform.parent.Find("Screens").gameObject;
         SetUpController.SetActive(false);
         main.SetActive(true);
         // foreach (Transform child in screens.transform)
