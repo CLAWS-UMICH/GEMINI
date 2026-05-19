@@ -72,7 +72,7 @@ class ColorFormatter(logging.Formatter):
         return base
 
 
-def _resolve_level(value: str | None) -> int:
+def _resolve_level(value: str | None, env_var_name: str) -> int:
     if not value:
         return logging.INFO
     name = value.strip().upper()
@@ -80,7 +80,7 @@ def _resolve_level(value: str | None) -> int:
     if isinstance(level, int):
         return level
     logging.getLogger(__name__).warning(
-        "%r is not a known log level; falling back to INFO", value
+        "%s=%r is not a known log level; falling back to INFO", env_var_name, value
     )
     return logging.INFO
 
@@ -103,7 +103,7 @@ def configure_logging(
     ``faster_whisper`` logger is pushed to WARNING so per-transcription
     "Processing audio with duration" lines stay out of default output.
     """
-    level = _resolve_level(os.getenv(level_env_var))
+    level = _resolve_level(os.getenv(level_env_var), level_env_var)
 
     handler = logging.StreamHandler(stream=sys.stderr)
     handler.setFormatter(ColorFormatter(event_tags=event_tags, event_colors=event_colors))

@@ -1,7 +1,5 @@
 import logging
 
-import pytest
-
 from src.core.log_format import ColorFormatter, configure_logging
 
 EVA_EVENT_TAGS = {
