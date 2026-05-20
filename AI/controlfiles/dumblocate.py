@@ -42,7 +42,15 @@ USE_UNLIMITED_PING = False
 PING_SETTLE_SEC = 1.2
 TRILOCATION_PING_STOP_SEC = 5.0
 PING_LOG_INTERVAL_SEC = 1.0
-PING_RESPONSE_TIMEOUT_SEC = 1.5
+# How long to wait after ACK=true for the server to forward the request to Unreal
+# (signal.ping_requested transitions 1 -> 0). Server forwards on its next tick,
+# so this is sub-second in practice; the timeout exists to bail out cleanly if
+# the request gets queued behind a residual 20s cooldown from a previous session.
+PING_FORWARD_TIMEOUT_SEC = 2.0
+# How long to wait after the server forwarded the ping for Unreal to write a new
+# signal.strength value. Unreal's response is async (UDP round-trip + physics
+# tick + JSON write), so this is generously sized. Old 1.5s value was too tight.
+PING_STRENGTH_POLL_TIMEOUT_SEC = 5.0
 PING_RESPONSE_POLL_SEC = 0.05
 PING_DISTANCE_SENTINEL = 1.0
 PING_DISTANCE_REFERENCE_M = 100.0
@@ -55,7 +63,9 @@ MAX_DRIVE_SEGMENT_CM = 4000.0
 LAST_KNOWN_GOAL_REACHED_CM = 10000.0
 PING_MOVE_GOAL_REACHED_CM = 1000.0
 FINAL_ESTIMATE_GOAL_REACHED_CM = 300.0
-STOP_AT_LAST_KNOWN_ONLY = False
+# Seconds to hold at the last-known location before starting trilateration.
+# Mirrors locate/service.py LAST_KNOWN_HOLD_SEC for the standalone main() path.
+LAST_KNOWN_HOLD_SEC = 30.0
 EFFICIENCY_MODE = True
 GUIDED_PING_STEP_RADIUS_SCALE = 0.6
 GUIDED_PING_STEP_MIN_CM = 1100.0
@@ -116,11 +126,22 @@ class PingDecision:
 
 @dataclass
 class PingBudget:
-    """Authoritative ping accounting for one mission. Hard cap = total."""
+    """Authoritative ping accounting for one mission. Hard cap = total.
+
+    Two monotonic clocks:
+      - `last_ping_monotonic`: when we last consumed a fresh sample. Drives the
+        "data is stale, re-ping" gates in should_ping (movement/age bands).
+      - `last_ack_monotonic`: when the server last forwarded a ping to Unreal
+        (signal.ping_requested observed 1->0). Mirrors the server-side 20s
+        cooldown clock so the client doesn't fire pings that are guaranteed to
+        be rejected. Updated even when the ping never produces a fresh strength
+        from Unreal, because the server cooldown started regardless.
+    """
 
     remaining: int
     total: int = PING_BUDGET_TOTAL
     last_ping_monotonic: float | None = None
+    last_ack_monotonic: float | None = None
     last_strength: float = float("nan")
     last_pos_m: tuple[float, float] | None = None
     last_was_sentinel: bool = False
@@ -137,16 +158,26 @@ class PingBudget:
             now = time.monotonic()
         return now - self.last_ping_monotonic
 
+    def time_since_last_ack(self, *, now: float | None = None) -> float:
+        if self.last_ack_monotonic is None:
+            return math.inf
+        if now is None:
+            now = time.monotonic()
+        return now - self.last_ack_monotonic
+
     def movement_since_last_m(self, rover_x_m: float, rover_y_m: float) -> float:
         if self.last_pos_m is None:
             return math.inf
         return math.hypot(rover_x_m - self.last_pos_m[0], rover_y_m - self.last_pos_m[1])
 
-    def record_attempt_start(self) -> None:
-        # Sets the monotonic baseline for the cooldown check. Updated only when
-        # the ping was actually consumed (fresh) so rejected attempts don't
-        # appear to reset the cooldown.
-        pass
+    def record_server_forwarded(self) -> None:
+        """Mark that the server forwarded a ping to Unreal (ping_requested 1->0).
+
+        Starts the 20s server cooldown mirror so future should_ping calls block
+        accurately. Distinct from consume_fresh, which only fires when Unreal
+        actually wrote back a strength value.
+        """
+        self.last_ack_monotonic = time.monotonic()
 
     def consume_fresh(
         self,
@@ -160,7 +191,13 @@ class PingBudget:
             raise RuntimeError("PingBudget: attempted to consume past hard cap")
         self.remaining -= 1
         self.successful_pings += 1
-        self.last_ping_monotonic = time.monotonic()
+        now = time.monotonic()
+        self.last_ping_monotonic = now
+        # Server forwarded by the time we got here, so keep the cooldown clock
+        # in sync even if record_server_forwarded wasn't called separately
+        # (e.g., tests that exercise consume_fresh directly).
+        if self.last_ack_monotonic is None or now > self.last_ack_monotonic:
+            self.last_ack_monotonic = now
         self.last_strength = float(strength)
         self.last_pos_m = (float(rover_x_m), float(rover_y_m))
         self.last_was_sentinel = bool(sentinel)
@@ -183,14 +220,18 @@ def should_ping(
     if budget.remaining <= 0:
         return PingDecision(False, "budget exhausted")
 
-    elapsed = budget.time_since_last_ping(now=now)
-    if elapsed < SERVER_PING_COOLDOWN_SEC:
+    # Cooldown is driven by the SERVER clock (when it last forwarded a ping to
+    # Unreal), not by when we last consumed a fresh sample. They differ when
+    # the server fired but Unreal failed to write a new strength in time.
+    cooldown_elapsed = budget.time_since_last_ack(now=now)
+    if cooldown_elapsed < SERVER_PING_COOLDOWN_SEC:
         return PingDecision(
             False,
-            f"cooldown ({SERVER_PING_COOLDOWN_SEC - elapsed:.1f}s left)",
+            f"cooldown ({SERVER_PING_COOLDOWN_SEC - cooldown_elapsed:.1f}s left)",
         )
 
     moved = budget.movement_since_last_m(rover_x_m, rover_y_m)
+    age = budget.time_since_last_ping(now=now)
 
     # After a sentinel ("> 500 m"), pinging again from the same place is guaranteed
     # to produce another sentinel. Require real movement first.
@@ -202,10 +243,10 @@ def should_ping(
 
     # Conservative band: very few pings left -> only spend if something genuinely changed.
     if budget.remaining <= BUDGET_CONSERVATIVE_THRESHOLD:
-        if moved < CONSERVATIVE_MIN_MOVE_M and elapsed < CONSERVATIVE_MIN_AGE_SEC:
+        if moved < CONSERVATIVE_MIN_MOVE_M and age < CONSERVATIVE_MIN_AGE_SEC:
             return PingDecision(
                 False,
-                f"conserving final {budget.remaining}; moved {moved:.1f} m, age {elapsed:.1f} s",
+                f"conserving final {budget.remaining}; moved {moved:.1f} m, age {age:.1f} s",
             )
         return PingDecision(True, f"conservative ping ({budget.remaining} left)")
 
@@ -214,10 +255,10 @@ def should_ping(
         return PingDecision(True, f"aggressive ping ({budget.remaining} left)")
 
     # Mid band: skip only if both movement and recency are weak.
-    if moved < MIN_MOVE_FOR_REPING_M and elapsed < MIN_AGE_FOR_REPING_SEC:
+    if moved < MIN_MOVE_FOR_REPING_M and age < MIN_AGE_FOR_REPING_SEC:
         return PingDecision(
             False,
-            f"recent ping still valid (moved {moved:.1f} m, age {elapsed:.1f} s)",
+            f"recent ping still valid (moved {moved:.1f} m, age {age:.1f} s)",
         )
     return PingDecision(True, f"mid-budget ping ({budget.remaining} left)")
 
@@ -349,6 +390,19 @@ def read_ltv_signal_strength(sock) -> float:
     return float(signal.get("strength", 0.0))
 
 
+def read_ltv_ping_requested(sock) -> bool:
+    """True iff LTV.json shows a pending ping request (signal.ping_requested=1).
+
+    Server.c sets this when cmd 2050 is ACKed and clears it the moment its
+    tss_to_unreal tick actually forwards the ping to Unreal. The 1 -> 0
+    transition is therefore the authoritative "server fired this ping" signal,
+    independent of whether Unreal has written back a new strength yet.
+    """
+    ltv_json = fetch_ltv_json(sock)
+    signal = ltv_json.get("signal", {})
+    return int(signal.get("ping_requested", 0)) == 1
+
+
 def raw_world_m_to_local_cm(x_m: float, y_m: float) -> tuple[float, float]:
     x_cm = float(x_m) * POSE_UNITS_TO_CM - POSE_OFFSET_X_CM
     y_cm = float(y_m) * POSE_UNITS_TO_CM - POSE_OFFSET_Y_CM
@@ -381,17 +435,30 @@ def request_ping(
     rover_y_m: float,
     budget: PingBudget,
 ) -> PingResult:
-    """Send a single ping with ACK-aware, freshness-aware semantics.
+    """Send a single ping using the LTV.json `signal.ping_requested` flag as
+    the authoritative freshness signal.
+
+    Protocol (server.c):
+      1. Client sends cmd 2050; server sets signal.ping_requested=1 and ACKs.
+         Server ACKs false when its 20s cooldown is still active.
+      2. On the next tss_to_unreal tick (sub-second), if cooldown has elapsed,
+         the server forwards the ping to Unreal and clears ping_requested=0.
+      3. Unreal asynchronously writes the new signal.strength.
+
+    The 1 -> 0 transition on ping_requested is the ground truth that the server
+    fired a ping. We use it as the freshness signal instead of comparing the
+    strength float against a prior read, which fails on the first ping (no
+    baseline) and on the legitimate case where the new strength equals the old.
 
     Returns a PingResult that distinguishes:
-      - rejected: server refused (cooldown / validation). Budget NOT spent.
-      - fresh=False, rejected=False: server accepted, but no new strength
-        arrived within the response timeout. Budget NOT spent. Treat as
-        "unknown" not "out of range".
-      - fresh=True: a new strength value arrived; budget is spent here.
+      - rejected=True: server refused (cooldown / send error). Budget NOT spent.
+      - fresh=False, rejected=False: server ACKed but ping_requested never
+        cleared within PING_FORWARD_TIMEOUT_SEC. Server hasn't fired yet (e.g.,
+        residual cooldown). Budget NOT spent. Caller should wait it out.
+      - fresh=True: server fired the ping (ping_requested 1->0 observed).
+        Budget IS spent here regardless of whether Unreal wrote a new strength.
     """
     ping_command = CMD_LTV_PING_UNLIMITED if USE_UNLIMITED_PING else CMD_LTV_PING
-    previous_strength = read_ltv_signal_strength(sock)
     try:
         ack = send_float_command(sock, ping_command, 1.0)
     except RuntimeError as exc:
@@ -400,48 +467,61 @@ def request_ping(
         )
         budget.record_rejected()
         return PingResult(
-            strength=previous_strength, fresh=False, rejected=True, sentinel=False
+            strength=budget.last_strength, fresh=False, rejected=True, sentinel=False
         )
 
     if not ack:
-        # Server returned ACK=False. With cmd 2050 this is the cooldown reject
-        # path (server.c L212). Don't waste the 1.5s poll on a request that
-        # was never forwarded to Unreal.
-        elapsed = budget.time_since_last_ping()
-        cooldown_left = max(0.0, SERVER_PING_COOLDOWN_SEC - elapsed)
+        # ACK=false is the cooldown reject path (server.c L212). Don't poll;
+        # caller layers know to wait the cooldown out.
+        cooldown_left = max(0.0, SERVER_PING_COOLDOWN_SEC - budget.time_since_last_ack())
         print(
             f"Ping rejected by server (ACK=false). "
-            f"Likely cooldown ({cooldown_left:.1f}s left); "
-            f"strength unchanged at {previous_strength:.3f}"
+            f"Likely cooldown ({cooldown_left:.1f}s left)."
         )
         budget.record_rejected()
         return PingResult(
-            strength=previous_strength, fresh=False, rejected=True, sentinel=False
+            strength=budget.last_strength, fresh=False, rejected=True, sentinel=False
         )
 
-    deadline = time.monotonic() + PING_RESPONSE_TIMEOUT_SEC
-    latest_strength = previous_strength
-    fresh = False
-    while time.monotonic() < deadline:
+    # ACK=true: signal.ping_requested is now 1. Poll for it to clear, which is
+    # the server confirming it forwarded the ping to Unreal.
+    forward_deadline = time.monotonic() + PING_FORWARD_TIMEOUT_SEC
+    forwarded = False
+    while time.monotonic() < forward_deadline:
         time.sleep(PING_RESPONSE_POLL_SEC)
-        latest_strength = read_ltv_signal_strength(sock)
-        if latest_strength != previous_strength:
-            fresh = True
+        if not read_ltv_ping_requested(sock):
+            forwarded = True
             break
 
-    if not fresh:
-        # Server accepted the request but Unreal didn't write a new strength
-        # in time. This can also happen when the new ping value equals the
-        # previous one exactly. Caller should treat this as "unknown" rather
-        # than "out of range" or "fresh duplicate".
+    if not forwarded:
+        # Server accepted the request (set ping_requested=1) but hasn't
+        # forwarded it yet. Server-side cooldown will fire it later; we report
+        # not-fresh so the caller waits instead of hammering retries.
         print(
-            f"Warning: ping {ping_command} did not produce a strength change "
-            f"within {PING_RESPONSE_TIMEOUT_SEC:.2f}s; treating as not-fresh "
-            f"(strength={latest_strength:.3f})"
+            f"Warning: ping {ping_command} accepted but ping_requested did not "
+            f"clear within {PING_FORWARD_TIMEOUT_SEC:.2f}s; treating as not-fresh"
         )
         return PingResult(
-            strength=latest_strength, fresh=False, rejected=False, sentinel=False
+            strength=budget.last_strength, fresh=False, rejected=False, sentinel=False
         )
+
+    # Server fired the ping. Server's 20s cooldown clock restarts now; mirror
+    # it so should_ping blocks subsequent attempts until it elapses.
+    budget.record_server_forwarded()
+
+    # Wait for Unreal to write the new strength. We snapshot the value at
+    # forward time and poll for change as a fast path, but the ping_requested
+    # transition already proved fresh — even if the new strength happens to
+    # equal the pre-forward value, we accept it. This is the key fix for the
+    # first-ping case where there is no meaningful prior strength to compare.
+    pre_forward_strength = read_ltv_signal_strength(sock)
+    strength_deadline = time.monotonic() + PING_STRENGTH_POLL_TIMEOUT_SEC
+    latest_strength = pre_forward_strength
+    while time.monotonic() < strength_deadline:
+        time.sleep(PING_RESPONSE_POLL_SEC)
+        latest_strength = read_ltv_signal_strength(sock)
+        if latest_strength != pre_forward_strength:
+            break
 
     sentinel = is_ltv_ping_distance_sentinel(latest_strength)
     budget.consume_fresh(
@@ -524,6 +604,11 @@ def stop_then_try_sample_ping(
     set_throttle(sock, 0.0)
     set_steering(sock, 0.0)
     set_brakes(sock, True)
+    # If the server's 20s cooldown is still active from a prior ping, extend the
+    # hold to cover the remainder so the actual ping doesn't get rejected. Adds
+    # a small slack so we don't race the server's tick.
+    cooldown_remaining = max(0.0, SERVER_PING_COOLDOWN_SEC - budget.time_since_last_ack())
+    hold_seconds = max(TRILOCATION_PING_STOP_SEC, cooldown_remaining + 0.5)
     if not hold_with_ui_updates(
         sock,
         viewer=viewer,
@@ -532,7 +617,7 @@ def stop_then_try_sample_ping(
         obstacle_total=run_state.obstacle_total,
         start_time=run_state.start_time,
         total_traveled_cm=run_state.total_traveled_cm,
-        duration_s=TRILOCATION_PING_STOP_SEC,
+        duration_s=hold_seconds,
         status=status,
         telemetry_callback=telemetry_callback,
         debug_logger=debug_logger,
@@ -1343,9 +1428,8 @@ def main() -> None:
         if run_state.aborted:
             return
 
-        if STOP_AT_LAST_KNOWN_ONLY:
-            print("Reached last known LTV location. Stopping here because STOP_AT_LAST_KNOWN_ONLY is enabled.")
-            return
+        print(f"Reached last known LTV location. Holding {LAST_KNOWN_HOLD_SEC:.0f}s before trilateration.")
+        time.sleep(LAST_KNOWN_HOLD_SEC)
 
         last_known_remaining_cm = math.hypot(
             goal_xy[0] - run_state.pose_xyzh[0],

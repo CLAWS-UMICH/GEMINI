@@ -107,11 +107,19 @@ class TestPingBudgetHardCap(unittest.TestCase):
 
 class TestRequestPingAckHandling(unittest.TestCase):
     def test_ack_false_returns_rejected_without_polling(self):
-        """server.c:212 cooldown reject path. Client must not block 1.5s."""
+        """server.c:212 cooldown reject path. Client must not block on any
+        post-ACK polling."""
         dumblocate = import_dumblocate()
 
         dumblocate.send_float_command = lambda sock, command, value: False
-        dumblocate.read_ltv_signal_strength = lambda sock: -42.0
+        # If the reject path tried to read strength or ping_requested, these
+        # would be hit. The new code skips them entirely on ACK=false.
+        dumblocate.read_ltv_signal_strength = lambda sock: (_ for _ in ()).throw(
+            AssertionError("strength should not be read on rejected ping")
+        )
+        dumblocate.read_ltv_ping_requested = lambda sock: (_ for _ in ()).throw(
+            AssertionError("ping_requested should not be polled on rejected ping")
+        )
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         t0 = time.monotonic()
@@ -141,15 +149,20 @@ class TestRequestPingAckHandling(unittest.TestCase):
         self.assertTrue(result.rejected)
         self.assertEqual(budget.remaining, 10)
 
-    def test_ack_true_no_strength_change_is_not_fresh(self):
-        """Server accepted but Unreal didn't write a new strength in time.
-        Must NOT consume budget and must NOT claim 'sentinel/out-of-range'."""
+    def test_ack_true_forward_not_observed_is_not_fresh(self):
+        """Server accepted (ACK=true) but ping_requested never clears within
+        PING_FORWARD_TIMEOUT_SEC — server hasn't fired the ping yet (residual
+        cooldown). Must NOT consume budget and must NOT claim sentinel."""
         dumblocate = import_dumblocate()
-        dumblocate.PING_RESPONSE_TIMEOUT_SEC = 0.1
+        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.1
         dumblocate.PING_RESPONSE_POLL_SEC = 0.01
 
         dumblocate.send_float_command = lambda sock, command, value: True
-        dumblocate.read_ltv_signal_strength = lambda sock: -55.0  # never changes
+        # Server keeps ping_requested=1 (never forwards).
+        dumblocate.read_ltv_ping_requested = lambda sock: True
+        dumblocate.read_ltv_signal_strength = lambda sock: (_ for _ in ()).throw(
+            AssertionError("strength should not be read until server forwards")
+        )
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         result = dumblocate.request_ping(
@@ -160,13 +173,23 @@ class TestRequestPingAckHandling(unittest.TestCase):
         self.assertFalse(result.sentinel)
         self.assertEqual(budget.remaining, 10)
         self.assertEqual(budget.successful_pings, 0)
+        # Server didn't fire → client cooldown clock unchanged.
+        self.assertIsNone(budget.last_ack_monotonic)
 
-    def test_ack_true_strength_change_is_fresh_and_consumes(self):
+    def test_ack_true_forwarded_is_fresh_and_consumes(self):
+        """Server ACKed and ping_requested transitioned 1->0 (forwarded). Even
+        if Unreal writes back an identical strength value, that's still fresh —
+        the protocol's forward signal is authoritative, not value-diff."""
         dumblocate = import_dumblocate()
-        dumblocate.PING_RESPONSE_TIMEOUT_SEC = 1.0
+        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.5
+        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.2
         dumblocate.PING_RESPONSE_POLL_SEC = 0.01
 
-        sequence = iter([-50.0, -50.0, -42.5, -42.5])
+        dumblocate.send_float_command = lambda sock, command, value: True
+        # Forwarded immediately.
+        dumblocate.read_ltv_ping_requested = lambda sock: False
+
+        sequence = iter([-50.0, -42.5])
 
         def fake_read(_sock):
             try:
@@ -174,7 +197,6 @@ class TestRequestPingAckHandling(unittest.TestCase):
             except StopIteration:
                 return -42.5
 
-        dumblocate.send_float_command = lambda sock, command, value: True
         dumblocate.read_ltv_signal_strength = fake_read
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
@@ -187,12 +209,41 @@ class TestRequestPingAckHandling(unittest.TestCase):
         self.assertAlmostEqual(result.strength, -42.5)
         self.assertEqual(budget.remaining, 9)
         self.assertEqual(budget.last_pos_m, (1.0, 2.0))
+        # Server cooldown clock now active.
+        self.assertIsNotNone(budget.last_ack_monotonic)
+
+    def test_first_ping_fresh_without_strength_change(self):
+        """The whole point of the ping_requested-based freshness check: the
+        FIRST ping has no meaningful prior strength to compare against, so
+        value-equality is irrelevant. As long as the server forwarded, treat
+        the read as fresh."""
+        dumblocate = import_dumblocate()
+        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.5
+        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.1
+        dumblocate.PING_RESPONSE_POLL_SEC = 0.01
+
+        dumblocate.send_float_command = lambda sock, command, value: True
+        dumblocate.read_ltv_ping_requested = lambda sock: False
+        # Stale strength field never changes (e.g., LTV at identical distance
+        # to the previous session's final ping). Old code would have looped
+        # forever; new code accepts the value because the server fired.
+        dumblocate.read_ltv_signal_strength = lambda sock: -55.0
+
+        budget = dumblocate.PingBudget(remaining=10, total=10)
+        result = dumblocate.request_ping(
+            sock=None, rover_x_m=0.0, rover_y_m=0.0, budget=budget
+        )
+        self.assertTrue(result.fresh)
+        self.assertAlmostEqual(result.strength, -55.0)
+        self.assertEqual(budget.remaining, 9)
+        self.assertEqual(budget.successful_pings, 1)
 
     def test_fresh_sentinel_consumes_and_flags(self):
         """A fresh ping that arrives equal to the 1.0 sentinel is genuinely
         out-of-range and DOES consume the budget — that's information earned."""
         dumblocate = import_dumblocate()
-        dumblocate.PING_RESPONSE_TIMEOUT_SEC = 1.0
+        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.5
+        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.2
         dumblocate.PING_RESPONSE_POLL_SEC = 0.01
 
         sequence = iter([-50.0, 1.0])
@@ -204,6 +255,7 @@ class TestRequestPingAckHandling(unittest.TestCase):
                 return 1.0
 
         dumblocate.send_float_command = lambda sock, command, value: True
+        dumblocate.read_ltv_ping_requested = lambda sock: False
         dumblocate.read_ltv_signal_strength = fake_read
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
@@ -236,8 +288,25 @@ class TestShouldPingDecision(unittest.TestCase):
     def test_cooldown_gate_blocks(self):
         dumblocate = import_dumblocate()
         budget = dumblocate.PingBudget(remaining=8, total=10)
+        # Cooldown is gated on the server-forward clock (last_ack_monotonic),
+        # not the last fresh ping. Server just fired = cooldown active.
+        budget.last_ack_monotonic = time.monotonic()
         budget.last_ping_monotonic = time.monotonic()
         budget.last_pos_m = (0.0, 0.0)
+        decision = dumblocate.should_ping(budget, rover_x_m=0.0, rover_y_m=0.0)
+        self.assertFalse(decision.should_ping)
+        self.assertIn("cooldown", decision.reason)
+
+    def test_cooldown_uses_ack_clock_not_ping_clock(self):
+        """If the server fired a ping but Unreal failed to write back a new
+        strength (i.e., not-fresh), the budget's last_ping_monotonic stays
+        stale but last_ack_monotonic advances. Cooldown must still block."""
+        dumblocate = import_dumblocate()
+        budget = dumblocate.PingBudget(remaining=8, total=10)
+        # last_ping_monotonic far in the past (never had a fresh ping in this
+        # session), but server just forwarded a request → cooldown active.
+        budget.last_ping_monotonic = None
+        budget.last_ack_monotonic = time.monotonic()
         decision = dumblocate.should_ping(budget, rover_x_m=0.0, rover_y_m=0.0)
         self.assertFalse(decision.should_ping)
         self.assertIn("cooldown", decision.reason)
@@ -248,9 +317,9 @@ class TestShouldPingDecision(unittest.TestCase):
         dumblocate = import_dumblocate()
         budget = dumblocate.PingBudget(remaining=8, total=10)
         # Past the server cooldown.
-        budget.last_ping_monotonic = time.monotonic() - (
-            dumblocate.SERVER_PING_COOLDOWN_SEC + 1.0
-        )
+        past = time.monotonic() - (dumblocate.SERVER_PING_COOLDOWN_SEC + 1.0)
+        budget.last_ping_monotonic = past
+        budget.last_ack_monotonic = past
         budget.last_pos_m = (0.0, 0.0)
         budget.last_was_sentinel = True
 
@@ -272,9 +341,9 @@ class TestShouldPingDecision(unittest.TestCase):
     def test_conservative_band_requires_strong_justification(self):
         dumblocate = import_dumblocate()
         budget = dumblocate.PingBudget(remaining=1, total=10)
-        budget.last_ping_monotonic = time.monotonic() - (
-            dumblocate.SERVER_PING_COOLDOWN_SEC + 1.0
-        )
+        past = time.monotonic() - (dumblocate.SERVER_PING_COOLDOWN_SEC + 1.0)
+        budget.last_ping_monotonic = past
+        budget.last_ack_monotonic = past
         budget.last_pos_m = (0.0, 0.0)
 
         # Tiny move, fresh recent ping -> conserve.
@@ -297,9 +366,9 @@ class TestShouldPingDecision(unittest.TestCase):
         budget = dumblocate.PingBudget(
             remaining=dumblocate.BUDGET_AGGRESSIVE_THRESHOLD, total=10
         )
-        budget.last_ping_monotonic = time.monotonic() - (
-            dumblocate.SERVER_PING_COOLDOWN_SEC + 1.0
-        )
+        past = time.monotonic() - (dumblocate.SERVER_PING_COOLDOWN_SEC + 1.0)
+        budget.last_ping_monotonic = past
+        budget.last_ack_monotonic = past
         budget.last_pos_m = (0.0, 0.0)
         # Even tiny movement is fine in the aggressive band.
         decision = dumblocate.should_ping(budget, rover_x_m=0.1, rover_y_m=0.0)
@@ -334,25 +403,29 @@ class TestPingBudgetIntegrationCap(unittest.TestCase):
 
     def test_many_attempts_capped_at_ten(self):
         dumblocate = import_dumblocate()
-        dumblocate.PING_RESPONSE_TIMEOUT_SEC = 0.1
+        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.1
+        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.05
         dumblocate.PING_RESPONSE_POLL_SEC = 0.005
 
         counter = {"n": 0}
 
         def fake_send(sock, command, value):
-            # Always accept, so each call produces a fresh ping.
             return True
+
+        def fake_read_ping_requested(_sock):
+            return False  # always already forwarded
 
         def fake_read(_sock):
             counter["n"] += 1
-            # Return a unique value each call so "fresh" detection trips.
             return -50.0 - 0.01 * counter["n"]
 
         dumblocate.send_float_command = fake_send
+        dumblocate.read_ltv_ping_requested = fake_read_ping_requested
         dumblocate.read_ltv_signal_strength = fake_read
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
-        # Try 25 attempts; only the first 10 should consume.
+        # Try 25 attempts; only the first 10 should consume. The 11th
+        # iteration is short-circuited by the loop's can_spend check.
         for i in range(25):
             if not budget.can_spend(1):
                 break

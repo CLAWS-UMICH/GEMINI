@@ -15,7 +15,6 @@ if str(CONTROLFILES_DIR) not in sys.path:
 import rover_control
 from dumblocate import (
     PING_BUDGET_TOTAL,
-    STOP_AT_LAST_KNOWN_ONLY,
     PingBudget,
     drive_to_last_known_ltv,
     run_ltv_trilateration_search,
@@ -30,6 +29,10 @@ BACKOFF_MAX_SEC = 30.0
 BACKOFF_FACTOR = 2.0
 WAIT_FOR_DUST_TIMEOUT_SEC = 20.0
 WAIT_FOR_DUST_POLL_SEC = 0.5
+# Seconds to hold at the last-known location before starting the trilateration
+# search. Gives any residual server-side ping cooldown time to drain and lets
+# operators visually confirm arrival on the dashboard.
+LAST_KNOWN_HOLD_SEC = 30.0
 
 # Exceptions we treat as transient simulator/backend issues. Other exceptions
 # (TypeError, ValueError from bad config, etc.) still get logged loudly so
@@ -160,8 +163,10 @@ def _run_once(
 
     if run_state.aborted:
         return False
-    if STOP_AT_LAST_KNOWN_ONLY:
-        return True
+
+    print(f"Arrived at last known LTV location. Holding {LAST_KNOWN_HOLD_SEC:.0f}s before trilateration.")
+    if stop_event.wait(LAST_KNOWN_HOLD_SEC):
+        return False
 
     budget = PingBudget(remaining=PING_BUDGET_TOTAL, total=PING_BUDGET_TOTAL)
     run_state, _viewer, ltv_found, final_budget, search_completed = run_ltv_trilateration_search(

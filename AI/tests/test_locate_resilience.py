@@ -15,7 +15,6 @@ def _build_fake_modules(
     open_rover_socket,
     drive_to_last_known_ltv,
     run_ltv_trilateration_search=None,
-    stop_at_last_known_only=True,
 ):
     fake_rover_control = types.SimpleNamespace(
         close_rover_socket=lambda *a, **kw: None,
@@ -36,7 +35,6 @@ def _build_fake_modules(
             self.rejected_pings = 0
 
     fake_dumblocate = types.SimpleNamespace(
-        STOP_AT_LAST_KNOWN_ONLY=stop_at_last_known_only,
         PING_BUDGET_TOTAL=10,
         PingBudget=_FakeBudget,
         drive_to_last_known_ltv=drive_to_last_known_ltv,
@@ -61,9 +59,9 @@ def make_service(monkeypatch):
         open_rover_socket=lambda *a, **kw: object(),
         drive_to_last_known_ltv=None,
         run_ltv_trilateration_search=None,
-        stop_at_last_known_only=True,
         backoff_initial=0.01,
         backoff_max=0.05,
+        last_known_hold_sec=0.0,
     ):
         if drive_to_last_known_ltv is None:
             drive_to_last_known_ltv = lambda *a, **kw: (
@@ -76,7 +74,6 @@ def make_service(monkeypatch):
             open_rover_socket=open_rover_socket,
             drive_to_last_known_ltv=drive_to_last_known_ltv,
             run_ltv_trilateration_search=run_ltv_trilateration_search,
-            stop_at_last_known_only=stop_at_last_known_only,
         )
 
         monkeypatch.setitem(sys.modules, "rover_control", fake_rover_control)
@@ -90,7 +87,8 @@ def make_service(monkeypatch):
         # Fast retries in tests; production defaults stay long.
         monkeypatch.setattr(_service, "BACKOFF_INITIAL_SEC", backoff_initial, raising=False)
         monkeypatch.setattr(_service, "BACKOFF_MAX_SEC", backoff_max, raising=False)
-        # Stub set_lights so the post-wait_for_dust path is fast even if called.
+        # Skip the post-arrival hold so resilience tests don't take 30s each.
+        monkeypatch.setattr(_service, "LAST_KNOWN_HOLD_SEC", last_known_hold_sec, raising=False)
         return _service
 
     return factory

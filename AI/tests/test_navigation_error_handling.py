@@ -142,13 +142,8 @@ class TestRequestPingCommandFailure(unittest.TestCase):
         def failing_send(sock, command, value):
             raise RuntimeError("Socket timeout sending ping")
 
-        def fake_read_ltv_signal_strength(sock):
-            return -42.5
-
         original_send = dumblocate.send_float_command
-        original_read = dumblocate.read_ltv_signal_strength
         dumblocate.send_float_command = failing_send
-        dumblocate.read_ltv_signal_strength = fake_read_ltv_signal_strength
         try:
             budget = dumblocate.PingBudget(remaining=10, total=10)
             result = dumblocate.request_ping(
@@ -156,31 +151,35 @@ class TestRequestPingCommandFailure(unittest.TestCase):
             )
             self.assertTrue(result.rejected)
             self.assertFalse(result.fresh)
-            self.assertAlmostEqual(result.strength, -42.5)
             self.assertEqual(budget.remaining, 10)
             self.assertEqual(budget.rejected_pings, 1)
         finally:
             dumblocate.send_float_command = original_send
-            dumblocate.read_ltv_signal_strength = original_read
 
     def test_ack_false_short_circuits_without_polling(self):
-        """ACK=false (server cooldown reject) must NOT wait 1.5s polling for a
-        strength change and must NOT consume budget."""
+        """ACK=false (server cooldown reject) must NOT poll for ping_requested
+        or strength and must NOT consume budget."""
         dumblocate = import_dumblocate()
 
         def rejecting_send(sock, command, value):
             return False  # cooldown reject path on server.c:212
 
-        poll_calls = {"n": 0}
+        poll_calls = {"strength": 0, "ping_requested": 0}
 
         def fake_read_ltv_signal_strength(sock):
-            poll_calls["n"] += 1
+            poll_calls["strength"] += 1
             return -55.0
 
+        def fake_read_ltv_ping_requested(sock):
+            poll_calls["ping_requested"] += 1
+            return False
+
         original_send = dumblocate.send_float_command
-        original_read = dumblocate.read_ltv_signal_strength
+        original_strength = dumblocate.read_ltv_signal_strength
+        original_ping_requested = dumblocate.read_ltv_ping_requested
         dumblocate.send_float_command = rejecting_send
         dumblocate.read_ltv_signal_strength = fake_read_ltv_signal_strength
+        dumblocate.read_ltv_ping_requested = fake_read_ltv_ping_requested
         try:
             import time as _time
 
@@ -194,12 +193,14 @@ class TestRequestPingCommandFailure(unittest.TestCase):
             self.assertFalse(result.fresh)
             self.assertEqual(budget.remaining, 10)
             self.assertEqual(budget.rejected_pings, 1)
-            # Exactly one read (the pre-ping snapshot). No polling loop.
-            self.assertEqual(poll_calls["n"], 1)
+            # ACK=false path skips all polling.
+            self.assertEqual(poll_calls["strength"], 0)
+            self.assertEqual(poll_calls["ping_requested"], 0)
             self.assertLess(elapsed, 0.5)
         finally:
             dumblocate.send_float_command = original_send
-            dumblocate.read_ltv_signal_strength = original_read
+            dumblocate.read_ltv_signal_strength = original_strength
+            dumblocate.read_ltv_ping_requested = original_ping_requested
 
 
 class TestHandleAlertExceptionIsolation(unittest.TestCase):
