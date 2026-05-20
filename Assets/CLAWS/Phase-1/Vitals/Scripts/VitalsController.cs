@@ -5,7 +5,7 @@ using MixedReality.Toolkit.UX;
 using MixedReality.Toolkit;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-
+using System.Linq;
 
 [System.Serializable]
 public class EVAGroup
@@ -34,7 +34,7 @@ public class EVAGroup
     public GameObject powerTime;
     public GameObject oxyTime;
     public Slider oxySlider;
-    public Slider battSlider;
+    public Slider battSlider;  
 }
 
 public class VitalsData
@@ -51,6 +51,12 @@ public class VitalsController : MonoBehaviour
     [SerializeField] private GameObject vitalsSecondAstronautScreen;
     [SerializeField] private GameObject selfAlert;
     //[SerializeField] private GameObject otherAlert;
+
+
+    [Header("Warnings")]
+    [SerializeField] private GameObject warningWindow;
+    [SerializeField] private TextMeshPro errorTitleText;
+    [SerializeField] private TextMeshPro errorMessageText;
 
     [SerializeField] private GameObject alerts;
     public DCUController dcuControllerInstance;
@@ -70,6 +76,8 @@ public class VitalsController : MonoBehaviour
         fellowVitalsUpdateEvent = EventBus.Subscribe<UpdatedFellowAstronautVitalsEvent>(fellowVitalsEventHandler);
         vitalsSecondAstronautScreen.SetActive(false);
         selfAlert.SetActive(false);
+        Debug.Log("[VitalsController] Start() method triggered!");
+        UpdateErrorDisplay();
         // otherAlert.SetActive(false);
     }
 
@@ -819,13 +827,21 @@ public class VitalsController : MonoBehaviour
         }
 
         // heart rate
+        if (e.vitals.heart_rate > 160) // hardcoded values since they are defined in the TSS Repo
+        {
+            TriggerError("Heart Rate"); // TSS 2026
+        } 
+        else
+        {
+            ResolveError("Heart Rate");
+        }
         if (e.vitals.heart_rate < VitalsNominalLimits.HeartRateMin || e.vitals.heart_rate > VitalsNominalLimits.HeartRateMax)
         {
             data["heartRate"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Heart Rate Out of Nominal Range";
             eva2.heartRate.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.heartRate.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -872,14 +888,22 @@ public class VitalsController : MonoBehaviour
             eva2.co2Prod.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.white;
         }
         
-        // suit o2 pressure
+        // suit o2 pressure 
+        if (e.vitals.suit_pressure_oxy < 3.5 || e.vitals.suit_pressure_oxy > 4.1) 
+        {
+            TriggerError("Suit Pressure (Oxygen)");
+        }
+        else
+        {
+            ResolveError("Suit Pressure (Oxygen)");
+        }
         if (e.vitals.suit_pressure_oxy < VitalsNominalLimits.SuitPresOxyMin || e.vitals.suit_pressure_oxy > VitalsNominalLimits.SuitPresOxyMax)
         {
             data["o2SuitPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit O2 Pressure Out of Nominal Range";
             eva2.suitPresOxy.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.suitPresOxy.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -891,13 +915,21 @@ public class VitalsController : MonoBehaviour
         }
 
         // suit co2 pressure
+        if (e.vitals.suit_pressure_co2 > 0.1)
+        {
+            TriggerError("Suit Pressure (Carbon Dioxide)");
+        }
+        else
+        {
+            ResolveError("Suit Pressure (Carbon Dioxide)");
+        }
         if (e.vitals.suit_pressure_co2 > VitalsNominalLimits.SuitPresCo2Max)
         {
             data["co2SuitPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit CO2 Pressure Out of Nominal Range";
             eva2.suitPresCO2.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.suitPresCO2.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -909,13 +941,21 @@ public class VitalsController : MonoBehaviour
         }
 
         // suit other pressure
+        if (e.vitals.suit_pressure_other > 0) 
+        {
+            TriggerError("Suit Pressure (Other)");
+        }
+        else
+        {
+            ResolveError("Suit Pressure (Other)");
+        }
         if (e.vitals.suit_pressure_other > VitalsNominalLimits.SuitPresOtherMax)
         {
             data["suitPresOth"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit Other Pressure Out of Nominal Range";
             eva2.otherSuitPres.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.otherSuitPres.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -927,13 +967,20 @@ public class VitalsController : MonoBehaviour
         }
 
         // suit pressure total
+        if (e.vitals.suit_pressure_total < 3.5 || e.vitals.suit_pressure_total > 4.1) {
+            TriggerError("Suit Pressure (Total)");
+        }
+        else
+        {
+            ResolveError("Suit Pressure (Total)");
+        }
         if (e.vitals.suit_pressure_total < VitalsNominalLimits.SuitPresTotalMin || e.vitals.suit_pressure_total > VitalsNominalLimits.SuitPresTotalMax)
         {
             data["suitPresTot"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Suit Total Pressure Out of Nominal Range";
             eva2.suitTotPres.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.suitTotPres.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -945,13 +992,20 @@ public class VitalsController : MonoBehaviour
         }
 
         // helment pressure
+        if (e.vitals.helmet_pressure_co2 > 0.15) {
+            TriggerError("Suit Pressure (Carbon Dioxide)");
+        }
+        else
+        {
+            ResolveError("Suit Pressure (Carbon Dioxide)");
+        }
         if (e.vitals.helmet_pressure_co2 > VitalsNominalLimits.HelmetPresCo2Max)
         {
             data["co2HelmPres"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Helmet CO2 Pressure Out of Nominal Range";
             eva2.helmetCO2Pres.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.helmetCO2Pres.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -963,13 +1017,20 @@ public class VitalsController : MonoBehaviour
         }
 
         // fan primary speed
+        if (e.vitals.fan_pri_rpm > 30000) 
+        {
+            TriggerError("Primary Fan RPM");
+        }
+        else
+        {
+            ResolveError("Primary Fan RPM");
+        }
         if ((e.vitals.fan_pri_rpm < VitalsNominalLimits.FanSpeedMin || e.vitals.fan_pri_rpm > VitalsNominalLimits.FanSpeedMax) && dcuControllerInstance.dcu2.fan_pri.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["fanSwapToSecondary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Fan Primary Speed Low. Switch to Secondary";
             eva2.priFan.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.priFan.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
             errorCount++;
         }
         else
@@ -981,13 +1042,21 @@ public class VitalsController : MonoBehaviour
         }
 
         // fan secondary speed
+        if (e.vitals.fan_sec_rpm > 30000) 
+        { 
+            TriggerError("Secondary Fan RPM");
+        }
+        else
+        {
+            ResolveError("Secondary Fan RPM");
+        }
         if ((e.vitals.fan_sec_rpm < VitalsNominalLimits.FanSpeedMin || e.vitals.fan_sec_rpm > VitalsNominalLimits.FanSpeedMax) && dcuControllerInstance.dcu2.fan_sec.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["fanSwapToPrimary"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Fan Secondary Speed Low. Switch to Primary";
             eva2.secFan.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.secFan.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -999,13 +1068,21 @@ public class VitalsController : MonoBehaviour
         }
 
         // co2 A storage
+        if (e.vitals.scrubber_a_co2_storage > 36) // 60 * 0.6
+        {
+            TriggerError("Scrubber A CO2 Storage");
+        }
+        else
+        {
+            ResolveError("Scrubber A CO2 Storage");
+        }
         if (e.vitals.scrubber_a_co2_storage > VitalsNominalLimits.ScrubberCo2StorMax && dcuControllerInstance.dcu2.co2_a.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["co2SwapToB"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 A Storage High. Switch to B";
             eva2.scrubberA.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.scrubberA.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -1017,13 +1094,21 @@ public class VitalsController : MonoBehaviour
         }
 
         // co2 B storage
+        if (e.vitals.scrubber_a_co2_storage > 36) // 60 * 0.6
+        {
+            TriggerError("Scrubber B CO2 Storage");
+        }
+        else
+        {
+            ResolveError("Scrubber B CO2 Storage");
+        }
         if (e.vitals.scrubber_b_co2_storage > VitalsNominalLimits.ScrubberCo2StorMax && dcuControllerInstance.dcu2.co2_b.transform.Find("UIBackplateToggleQuad").gameObject.activeSelf)
         {
             data["co2SwapToA"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "CO2 B Storage High. Switch to A";
             eva2.scrubberB.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.scrubberB.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -1035,13 +1120,21 @@ public class VitalsController : MonoBehaviour
         }
 
         // temperature
+        if (e.vitals.temperature > 32)
+        {   
+            TriggerError("Temperature"); 
+        }
+        else
+        {
+            ResolveError("Temperature");
+        }
         if (e.vitals.temperature < VitalsNominalLimits.TempMin || e.vitals.temperature > VitalsNominalLimits.TempMax)
         {
             data["temp"] = true;
         //    otherAlert.transform.Find("Message").GetComponent<TextMeshPro>().text = "Temperature Out of Nominal Range";
             eva2.temp.transform.Find("Title").GetComponent<TextMeshPro>().color = Color.red;
             eva2.temp.transform.Find("Value").GetComponent<TextMeshPro>().color = Color.red;
-
+            // INSERT ERROR STORAGE HERE
             errorCount++;
         }
         else
@@ -1100,6 +1193,8 @@ public class VitalsController : MonoBehaviour
         {
         //    otherAlert.SetActive(true);
         }
+
+        UpdateErrorDisplay(); // Update the error display!
     }
 
 
@@ -1107,6 +1202,119 @@ public class VitalsController : MonoBehaviour
     {
         EventBus.Unsubscribe(vitalsUpdateEvent);
         EventBus.Unsubscribe(fellowVitalsUpdateEvent);
+    }
+
+    public Dictionary<string, string> errorDescriptions = new Dictionary<string, string>()
+    {
+        { "Heart Rate", "Heartrate too high. Slow down." }, // HeartRate Max: 160
+        { "Suit Pressure (Oxygen)", "Swap to secondary oxygen tank. Return to PR as soon as possible." }, // Suit Pres Oxy Min: 3.5, Nom: 4.0, Max: 4.1
+        { "Suit Pressure (Carbon Dioxide)", "Scrubber filled. Vent via DCU." }, // Suit Pres CO2 Max: 0.1
+        { "Suit Pressure (Other)", "Other gases present in suit. Return to PR as soon as possible." }, // Other Suit Pres Min: 0.0
+        { "Suit Pressure (Total)", "Issue with Oxygen Tank or Scrubber. Review values and procedures." }, // Suit Tot Pres Min: 3.5, Nom: 4.0, Max: 4.5 (do nominal later)
+        { "Helmet Pressure (Carbon Dioxide)", "Flip Fan Switch on DCU. Return to PR as soon as possible."}, // Helmet CO2 Pres Min: Max: 0.15
+        { "Primary Fan RPM", "Fan Error. Flip Fan Switch. Return to PR as soon as possible." }, // Pri Fan Min: 20,000 Nom: 30,000, (do nominal later)
+        { "Secondary Fan RPM", "Fan Error. Flip Fan Switch. Return to PR as soon as possible." }, // Sec Fan Min: 20,000 Nom: 30,000, (do nominal later)
+        { "Scrubber A CO2 Storage", "Vent CO2 via Switch on DCU" }, // Scrubber A Min: 0 Max: 60 * 0.6 (Max Range)
+        { "Scrubber B CO2 Storage", "Vent CO2 via Switch on DCU" }, // Scrubber B Min: 0 Max: 60 * 0.6 (Max Range)
+        { "Temperature", "Temperature is too high. Slow down." }, //  Nom: 21, Max: 32 (do nominal later)
+    };
+
+    public string GetErrorDescription(string errorType)
+    {
+        if (errorDescriptions.TryGetValue(errorType, out string description))
+            return description;
+        return "Unknown Error Occurred";
+    }
+
+    public class ErrorEvent
+    {
+        public string ErrorType { get; private set; }
+        public string ActionMessage { get; private set; }
+        public float StartTime { get; private set; }
+
+        public ErrorEvent(string errorType, string actionMessage, float startTime)
+        {
+            ErrorType = errorType;
+            ActionMessage = actionMessage;
+            StartTime = startTime;
+        }
+    }
+
+    // Tracks currently active errors using the ErrorType as the key
+    private Dictionary<string, ErrorEvent> activeErrors = new Dictionary<string, ErrorEvent>();
+
+    /// <summary>
+    /// Call this when a vital goes bad. Pass in the EXACT key from your dictionary.
+    /// Example: TriggerError("Heart Rate");
+    /// </summary>
+    public void TriggerError(string errorType)
+    {
+        // Only trigger if it isn't already active
+        if (!activeErrors.ContainsKey(errorType))
+        {
+            string actionMessage = GetErrorDescription(errorType);
+            ErrorEvent newError = new ErrorEvent(errorType, actionMessage, Time.time);
+            
+            activeErrors.Add(errorType, newError);
+            Debug.Log($"[Error Started] {errorType}: {actionMessage}");
+        }
+    }
+
+    /// <summary>
+    /// Call this when a vital returns to normal.
+    /// Example: ResolveError("Heart Rate");
+    /// </summary>
+    public void ResolveError(string errorType)
+    {
+        if (activeErrors.ContainsKey(errorType))
+        {
+            activeErrors.Remove(errorType);
+            Debug.Log($"[Error Resolved] {errorType}");
+        }
+    }
+
+    /// <summary>
+    /// Returns a list of currently ACTIVE errors in exact chronological order.
+    /// Index [0] is the oldest error (first to happen).
+    /// The last index is the newest error (most recently happened).
+    /// </summary>
+    public List<ErrorEvent> GetActiveErrorsChronologically()
+    {
+        return activeErrors.Values
+            .OrderBy(e => e.StartTime) // Sorts by oldest time first
+            .ToList();
+    }
+
+    /// <summary>
+    /// Updates the UI to always display the oldest active error.
+    /// If no errors are active, it hides the alert window.
+    /// </summary>
+    public void UpdateErrorDisplay()
+    {
+        Debug.Log("[VitalsController] UpdateErrorDisplay() is running!");
+
+        List<ErrorEvent> sortedErrors = GetActiveErrorsChronologically();
+        
+        Debug.Log($"[VitalsController] Found {sortedErrors.Count} active errors.");
+
+        if (sortedErrors.Count > 0)
+        {
+            ErrorEvent oldestError = sortedErrors[0]; 
+
+            errorTitleText.text = oldestError.ErrorType;
+            errorMessageText.text = oldestError.ActionMessage;
+
+            warningWindow.SetActive(true);
+            Debug.Log("[VitalsController] Warning window ENABLED.");
+        }
+        else
+        {
+            errorTitleText.text = "";
+            errorMessageText.text = "";
+            
+            warningWindow.SetActive(false);
+            Debug.Log("[VitalsController] Warning window DISABLED.");
+        }
     }
 }
 
@@ -1227,3 +1435,4 @@ public static class VitalsUiTrafficColors
         return Good;
     }
 }
+
