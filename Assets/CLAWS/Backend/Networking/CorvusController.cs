@@ -129,6 +129,13 @@ namespace CLAWS.Networking
 
         public event Action OnWakeDetected;
 
+        /// <summary>
+        /// Fires when the streaming watchdog gives up waiting for a final frame.
+        /// Subscribers (e.g. CorvusHalo) use this to revert UI/animation state
+        /// that was advanced on OnWakeDetected but never resolved by a response.
+        /// </summary>
+        public event Action OnStreamingTimeout;
+
         private async void Start()
         {
             try
@@ -210,6 +217,7 @@ namespace CLAWS.Networking
                 Debug.LogWarning("[CorvusController] Streaming timeout — sending stop");
                 _ = SendStopAsync();
                 StopStreamingAndReturnIdle();
+                OnStreamingTimeout?.Invoke();
             }
         }
 
