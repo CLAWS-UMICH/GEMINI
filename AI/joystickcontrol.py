@@ -7,7 +7,7 @@ import time
 
 import pygame
 
-from rover_control import (
+from controlfiles.rover_control import (
     close_rover_socket,
     open_rover_socket,
     set_brakes,
