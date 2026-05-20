@@ -157,29 +157,29 @@ class TestRequestPingCommandFailure(unittest.TestCase):
             dumblocate.send_float_command = original_send
 
     def test_ack_false_short_circuits_without_polling(self):
-        """ACK=false (server cooldown reject) must NOT poll for ping_requested
-        or strength and must NOT consume budget."""
+        """ACK=false (server cooldown reject) must do exactly one LTV read
+        (the pre-fire snapshot used for the rejected result's strength field)
+        and must NOT enter the post-ACK observe loop."""
         dumblocate = import_dumblocate()
 
         def rejecting_send(sock, command, value):
             return False  # cooldown reject path on server.c:212
 
-        poll_calls = {"strength": 0, "ping_requested": 0}
+        fetch_calls = {"n": 0}
 
-        def fake_read_ltv_signal_strength(sock):
-            poll_calls["strength"] += 1
-            return -55.0
-
-        def fake_read_ltv_ping_requested(sock):
-            poll_calls["ping_requested"] += 1
-            return False
+        def fake_fetch_ltv(sock):
+            fetch_calls["n"] += 1
+            return {
+                "signal": {
+                    "ping_requested": 1,
+                    "strength": -55.0,
+                }
+            }
 
         original_send = dumblocate.send_float_command
-        original_strength = dumblocate.read_ltv_signal_strength
-        original_ping_requested = dumblocate.read_ltv_ping_requested
+        original_fetch = dumblocate.fetch_ltv_json
         dumblocate.send_float_command = rejecting_send
-        dumblocate.read_ltv_signal_strength = fake_read_ltv_signal_strength
-        dumblocate.read_ltv_ping_requested = fake_read_ltv_ping_requested
+        dumblocate.fetch_ltv_json = fake_fetch_ltv
         try:
             import time as _time
 
@@ -193,14 +193,13 @@ class TestRequestPingCommandFailure(unittest.TestCase):
             self.assertFalse(result.fresh)
             self.assertEqual(budget.remaining, 10)
             self.assertEqual(budget.rejected_pings, 1)
-            # ACK=false path skips all polling.
-            self.assertEqual(poll_calls["strength"], 0)
-            self.assertEqual(poll_calls["ping_requested"], 0)
+            # One pre-fire snapshot; no post-ACK observe loop.
+            self.assertEqual(fetch_calls["n"], 1)
+            self.assertAlmostEqual(result.strength, -55.0)
             self.assertLess(elapsed, 0.5)
         finally:
             dumblocate.send_float_command = original_send
-            dumblocate.read_ltv_signal_strength = original_strength
-            dumblocate.read_ltv_ping_requested = original_ping_requested
+            dumblocate.fetch_ltv_json = original_fetch
 
 
 class TestHandleAlertExceptionIsolation(unittest.TestCase):

@@ -42,16 +42,33 @@ USE_UNLIMITED_PING = False
 PING_SETTLE_SEC = 1.2
 TRILOCATION_PING_STOP_SEC = 5.0
 PING_LOG_INTERVAL_SEC = 1.0
-# How long to wait after ACK=true for the server to forward the request to Unreal
-# (signal.ping_requested transitions 1 -> 0). Server forwards on its next tick,
-# so this is sub-second in practice; the timeout exists to bail out cleanly if
-# the request gets queued behind a residual 20s cooldown from a previous session.
-PING_FORWARD_TIMEOUT_SEC = 2.0
-# How long to wait after the server forwarded the ping for Unreal to write a new
-# signal.strength value. Unreal's response is async (UDP round-trip + physics
-# tick + JSON write), so this is generously sized. Old 1.5s value was too tight.
-PING_STRENGTH_POLL_TIMEOUT_SEC = 5.0
-PING_RESPONSE_POLL_SEC = 0.05
+# Combined window to observe ANY evidence that the server actually fired this
+# ping. Two valid signals:
+#   (a) signal.ping_requested transitions 1 -> 0 (server forwarded to Unreal)
+#   (b) signal.strength changes from the pre-fire snapshot (Unreal already
+#       responded)
+# Either is sufficient. We poll for both in one loop and accept whichever
+# arrives first.
+#
+# Sized for the worst-case backend LTV cadence: TTTDTT/backend/app.py iterates
+# rover -> eva -> ltv -> ltv_errors with a sleep between each, so a fresh
+# LTV.json emission can be ~4s apart. The transition we are watching for can
+# happen in between two emits, so we need at least two LTV cycles plus
+# headroom for the residual 20s server cooldown edge case. 25s comfortably
+# covers normal operation; should_ping's cooldown gate already prevents
+# attempts during the worst-case cooldown.
+PING_ACK_OBSERVE_TIMEOUT_SEC = 25.0
+# How much additional time to wait for signal.strength to land after we've
+# already observed the ping_requested 1 -> 0 transition. Unreal's strength
+# write trails the server's forward by a small async delay, and the backend
+# cache only refreshes that strength on the next LTV poll cycle.
+PING_STRENGTH_TRAIL_TIMEOUT_SEC = 8.0
+# Poll cadence within the observe loop. Tighter than the backend's LTV cadence
+# is wasted (we just re-read the same cached payload), but very low values let
+# us notice state transitions promptly when the cache does refresh. 100 ms is
+# a good compromise: enough resolution for sub-second transitions in UDP mode,
+# negligible CPU overhead in Socket.IO mode where each call is a dict copy.
+PING_RESPONSE_POLL_SEC = 0.1
 PING_DISTANCE_SENTINEL = 1.0
 PING_DISTANCE_REFERENCE_M = 100.0
 PING_DISTANCE_COEFFICIENT = 34.28525109707769
@@ -428,6 +445,20 @@ def fetch_ltv_last_known_goal(sock) -> tuple[tuple[float, float], tuple[float, f
     return ((last_known_x_m, last_known_y_m), goal_xy)
 
 
+def _read_ltv_state(sock) -> tuple[bool, float]:
+    """One LTV.json fetch, both ping_requested + strength. Halves UDP/Socket.IO
+    round-trips per poll vs. calling the two helpers separately. Returns
+    (ping_requested, strength). Strength is NaN if the field can't be parsed."""
+    ltv_json = fetch_ltv_json(sock)
+    signal = ltv_json.get("signal", {})
+    ping_requested = int(signal.get("ping_requested", 0)) == 1
+    try:
+        strength = float(signal.get("strength", float("nan")))
+    except (TypeError, ValueError):
+        strength = float("nan")
+    return (ping_requested, strength)
+
+
 def request_ping(
     sock,
     *,
@@ -435,39 +466,52 @@ def request_ping(
     rover_y_m: float,
     budget: PingBudget,
 ) -> PingResult:
-    """Send a single ping using the LTV.json `signal.ping_requested` flag as
-    the authoritative freshness signal.
+    """Send a single ping and confirm the server actually fired it.
 
     Protocol (server.c):
       1. Client sends cmd 2050; server sets signal.ping_requested=1 and ACKs.
          Server ACKs false when its 20s cooldown is still active.
-      2. On the next tss_to_unreal tick (sub-second), if cooldown has elapsed,
-         the server forwards the ping to Unreal and clears ping_requested=0.
+      2. On the next tss_to_unreal tick, if cooldown has elapsed, the server
+         forwards the ping to Unreal and clears ping_requested=0.
       3. Unreal asynchronously writes the new signal.strength.
 
-    The 1 -> 0 transition on ping_requested is the ground truth that the server
-    fired a ping. We use it as the freshness signal instead of comparing the
-    strength float against a prior read, which fails on the first ping (no
-    baseline) and on the legitimate case where the new strength equals the old.
+    We accept either evidence as proof the server fired the ping:
+      (a) ping_requested transitions 1 -> 0  -> server forwarded.
+      (b) signal.strength changes from the pre-fire snapshot -> Unreal already
+          responded (which implies the server forwarded).
+    Whichever arrives first ends the wait. The pre-fire snapshot is only used
+    as the baseline for (b); we never require a value change to call the ping
+    fresh, so the "first ping with no meaningful prior strength" case works.
+
+    In backend Socket.IO mode the LTV.json refresh cadence is controlled by
+    the backend's poll thread (~200ms by default after the cadence fix), so
+    PING_ACK_OBSERVE_TIMEOUT_SEC is sized to cover multiple cycles plus the
+    20s server cooldown in the worst case.
 
     Returns a PingResult that distinguishes:
       - rejected=True: server refused (cooldown / send error). Budget NOT spent.
-      - fresh=False, rejected=False: server ACKed but ping_requested never
-        cleared within PING_FORWARD_TIMEOUT_SEC. Server hasn't fired yet (e.g.,
-        residual cooldown). Budget NOT spent. Caller should wait it out.
-      - fresh=True: server fired the ping (ping_requested 1->0 observed).
-        Budget IS spent here regardless of whether Unreal wrote a new strength.
+      - fresh=False, rejected=False: ACK=true but no evidence of forward within
+        the observe window. Server hasn't fired yet. Budget NOT spent.
+      - fresh=True: at least one piece of evidence observed. Budget IS spent.
     """
     ping_command = CMD_LTV_PING_UNLIMITED if USE_UNLIMITED_PING else CMD_LTV_PING
+
+    # Snapshot pre-fire strength as the baseline for evidence (b). Failing
+    # here is non-fatal — if we can't read it, fall back to budget.last_strength
+    # and proceed; the flag-transition path can still confirm the fire.
+    try:
+        _pre_requested, pre_strength = _read_ltv_state(sock)
+    except Exception as exc:
+        print(f"Ping pre-fire LTV snapshot failed ({exc}); proceeding with last known strength")
+        pre_strength = budget.last_strength
+
     try:
         ack = send_float_command(sock, ping_command, 1.0)
     except RuntimeError as exc:
-        print(
-            f"Ping command {ping_command} raised ({exc}); treating as rejected"
-        )
+        print(f"Ping command {ping_command} raised ({exc}); treating as rejected")
         budget.record_rejected()
         return PingResult(
-            strength=budget.last_strength, fresh=False, rejected=True, sentinel=False
+            strength=pre_strength, fresh=False, rejected=True, sentinel=False
         )
 
     if not ack:
@@ -480,48 +524,78 @@ def request_ping(
         )
         budget.record_rejected()
         return PingResult(
-            strength=budget.last_strength, fresh=False, rejected=True, sentinel=False
+            strength=pre_strength, fresh=False, rejected=True, sentinel=False
         )
 
-    # ACK=true: signal.ping_requested is now 1. Poll for it to clear, which is
-    # the server confirming it forwarded the ping to Unreal.
-    forward_deadline = time.monotonic() + PING_FORWARD_TIMEOUT_SEC
-    forwarded = False
-    while time.monotonic() < forward_deadline:
+    # ACK=true. Watch for the server fire. Either signal counts.
+    deadline = time.monotonic() + PING_ACK_OBSERVE_TIMEOUT_SEC
+    latest_strength = pre_strength
+    forwarded_seen = False
+    strength_change_seen = False
+    consecutive_read_errors = 0
+
+    while time.monotonic() < deadline:
         time.sleep(PING_RESPONSE_POLL_SEC)
-        if not read_ltv_ping_requested(sock):
-            forwarded = True
+        try:
+            cur_requested, cur_strength = _read_ltv_state(sock)
+        except Exception as exc:
+            consecutive_read_errors += 1
+            # A handful of transient read failures is fine; persistent failures
+            # mean the LTV channel is broken and we should bail.
+            if consecutive_read_errors >= 10:
+                print(f"Ping observe: {consecutive_read_errors} consecutive LTV read failures ({exc}); aborting wait")
+                break
+            continue
+        consecutive_read_errors = 0
+
+        # Flag transition is the strongest signal — server.c only clears
+        # ping_requested when it actually forwards to Unreal.
+        if not cur_requested:
+            forwarded_seen = True
+
+        # Strength change implies a complete round-trip (forward + Unreal write).
+        # We treat it as proof of forward too, and as the value we want.
+        if not math.isnan(cur_strength) and cur_strength != pre_strength:
+            strength_change_seen = True
+            forwarded_seen = True
+            latest_strength = cur_strength
             break
 
-    if not forwarded:
-        # Server accepted the request (set ping_requested=1) but hasn't
-        # forwarded it yet. Server-side cooldown will fire it later; we report
-        # not-fresh so the caller waits instead of hammering retries.
+        if forwarded_seen:
+            # Forward observed but strength hasn't updated yet. Keep polling
+            # until strength change OR PING_STRENGTH_TRAIL_TIMEOUT_SEC passes.
+            latest_strength = cur_strength
+            trail_deadline = min(
+                deadline,
+                time.monotonic() + PING_STRENGTH_TRAIL_TIMEOUT_SEC,
+            )
+            while time.monotonic() < trail_deadline:
+                time.sleep(PING_RESPONSE_POLL_SEC)
+                try:
+                    cur_requested, cur_strength = _read_ltv_state(sock)
+                except Exception:
+                    continue
+                if not math.isnan(cur_strength) and cur_strength != pre_strength:
+                    strength_change_seen = True
+                    latest_strength = cur_strength
+                    break
+                latest_strength = cur_strength
+            break
+
+    if not forwarded_seen:
         print(
-            f"Warning: ping {ping_command} accepted but ping_requested did not "
-            f"clear within {PING_FORWARD_TIMEOUT_SEC:.2f}s; treating as not-fresh"
+            f"Warning: ping {ping_command} produced no server-fire evidence "
+            f"within {PING_ACK_OBSERVE_TIMEOUT_SEC:.1f}s "
+            f"(ping_requested never cleared, strength unchanged from "
+            f"{pre_strength:.3f}); treating as not-fresh"
         )
         return PingResult(
-            strength=budget.last_strength, fresh=False, rejected=False, sentinel=False
+            strength=latest_strength, fresh=False, rejected=False, sentinel=False
         )
 
-    # Server fired the ping. Server's 20s cooldown clock restarts now; mirror
-    # it so should_ping blocks subsequent attempts until it elapses.
+    # Server fired the ping. Mirror the 20s server cooldown clock so
+    # should_ping blocks subsequent attempts until it elapses.
     budget.record_server_forwarded()
-
-    # Wait for Unreal to write the new strength. We snapshot the value at
-    # forward time and poll for change as a fast path, but the ping_requested
-    # transition already proved fresh — even if the new strength happens to
-    # equal the pre-forward value, we accept it. This is the key fix for the
-    # first-ping case where there is no meaningful prior strength to compare.
-    pre_forward_strength = read_ltv_signal_strength(sock)
-    strength_deadline = time.monotonic() + PING_STRENGTH_POLL_TIMEOUT_SEC
-    latest_strength = pre_forward_strength
-    while time.monotonic() < strength_deadline:
-        time.sleep(PING_RESPONSE_POLL_SEC)
-        latest_strength = read_ltv_signal_strength(sock)
-        if latest_strength != pre_forward_strength:
-            break
 
     sentinel = is_ltv_ping_distance_sentinel(latest_strength)
     budget.consume_fresh(
@@ -530,10 +604,18 @@ def request_ping(
         rover_y_m=rover_y_m,
         sentinel=sentinel,
     )
+    if sentinel:
+        extra = " (sentinel: > 500 m)"
+    elif strength_change_seen:
+        extra = ""
+    else:
+        # Flag cleared, but Unreal hadn't written a new strength when we gave
+        # up waiting. Surface that so the caller knows the value is from the
+        # previous ping; downstream sample logic can decide what to do with it.
+        extra = " (forward observed; strength write pending)"
     print(
         f"Ping #{budget.successful_pings}/{budget.total} "
-        f"({budget.remaining} left): strength={latest_strength:.3f}"
-        f"{' (sentinel: > 500 m)' if sentinel else ''}"
+        f"({budget.remaining} left): strength={latest_strength:.3f}{extra}"
     )
     return PingResult(
         strength=latest_strength, fresh=True, rejected=False, sentinel=sentinel

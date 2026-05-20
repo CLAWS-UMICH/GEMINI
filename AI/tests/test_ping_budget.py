@@ -105,21 +105,45 @@ class TestPingBudgetHardCap(unittest.TestCase):
         self.assertEqual(budget.successful_pings, 0)
 
 
+def _make_ltv_json(*, ping_requested: int, strength: float) -> dict:
+    """Shape that mirrors what the real LTV.json fetch returns."""
+    return {
+        "location": {"last_known_x": 0.0, "last_known_y": 0.0},
+        "signal": {
+            "strength": strength,
+            "ping_requested": ping_requested,
+            "ping_unlimited_requested": 0,
+        },
+    }
+
+
+def _install_fetch_ltv_sequence(dumblocate, sequence: list[dict]) -> dict:
+    """Replace fetch_ltv_json with one that yields each entry in `sequence`
+    on successive calls, then sticks on the last entry. Returns a dict whose
+    'n' key counts calls — useful for tightness assertions."""
+    state = {"n": 0}
+    seq = list(sequence)
+
+    def fake_fetch(_sock):
+        idx = min(state["n"], len(seq) - 1)
+        state["n"] += 1
+        return seq[idx]
+
+    dumblocate.fetch_ltv_json = fake_fetch
+    return state
+
+
 class TestRequestPingAckHandling(unittest.TestCase):
     def test_ack_false_returns_rejected_without_polling(self):
-        """server.c:212 cooldown reject path. Client must not block on any
-        post-ACK polling."""
+        """server.c:212 cooldown reject path. Client snapshots LTV once for
+        baseline but performs no post-ACK polling."""
         dumblocate = import_dumblocate()
 
+        call_counter = _install_fetch_ltv_sequence(
+            dumblocate,
+            [_make_ltv_json(ping_requested=1, strength=-42.0)],
+        )
         dumblocate.send_float_command = lambda sock, command, value: False
-        # If the reject path tried to read strength or ping_requested, these
-        # would be hit. The new code skips them entirely on ACK=false.
-        dumblocate.read_ltv_signal_strength = lambda sock: (_ for _ in ()).throw(
-            AssertionError("strength should not be read on rejected ping")
-        )
-        dumblocate.read_ltv_ping_requested = lambda sock: (_ for _ in ()).throw(
-            AssertionError("ping_requested should not be polled on rejected ping")
-        )
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         t0 = time.monotonic()
@@ -131,16 +155,22 @@ class TestRequestPingAckHandling(unittest.TestCase):
         self.assertFalse(result.fresh)
         self.assertEqual(budget.remaining, 10)
         self.assertEqual(budget.rejected_pings, 1)
+        self.assertAlmostEqual(result.strength, -42.0)
+        # One read (pre-fire snapshot). No polling loop after ACK=false.
+        self.assertEqual(call_counter["n"], 1)
         self.assertLess(elapsed, 0.5, f"rejected ping took {elapsed:.2f}s; should be near-instant")
 
     def test_runtime_error_returns_rejected_not_propagated(self):
         dumblocate = import_dumblocate()
+        _install_fetch_ltv_sequence(
+            dumblocate,
+            [_make_ltv_json(ping_requested=0, strength=-50.0)],
+        )
 
         def boom(sock, command, value):
             raise RuntimeError("socket dead")
 
         dumblocate.send_float_command = boom
-        dumblocate.read_ltv_signal_strength = lambda sock: -50.0
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         result = dumblocate.request_ping(
@@ -149,20 +179,19 @@ class TestRequestPingAckHandling(unittest.TestCase):
         self.assertTrue(result.rejected)
         self.assertEqual(budget.remaining, 10)
 
-    def test_ack_true_forward_not_observed_is_not_fresh(self):
-        """Server accepted (ACK=true) but ping_requested never clears within
-        PING_FORWARD_TIMEOUT_SEC — server hasn't fired the ping yet (residual
-        cooldown). Must NOT consume budget and must NOT claim sentinel."""
+    def test_ack_true_no_evidence_is_not_fresh(self):
+        """ACK=true but ping_requested never clears AND strength never changes
+        from the pre-fire snapshot — no proof the server fired. Must NOT
+        consume budget, must NOT advance the server-cooldown mirror."""
         dumblocate = import_dumblocate()
-        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.1
+        dumblocate.PING_ACK_OBSERVE_TIMEOUT_SEC = 0.1
         dumblocate.PING_RESPONSE_POLL_SEC = 0.01
 
-        dumblocate.send_float_command = lambda sock, command, value: True
-        # Server keeps ping_requested=1 (never forwards).
-        dumblocate.read_ltv_ping_requested = lambda sock: True
-        dumblocate.read_ltv_signal_strength = lambda sock: (_ for _ in ()).throw(
-            AssertionError("strength should not be read until server forwards")
+        _install_fetch_ltv_sequence(
+            dumblocate,
+            [_make_ltv_json(ping_requested=1, strength=-55.0)],
         )
+        dumblocate.send_float_command = lambda sock, command, value: True
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         result = dumblocate.request_ping(
@@ -173,90 +202,108 @@ class TestRequestPingAckHandling(unittest.TestCase):
         self.assertFalse(result.sentinel)
         self.assertEqual(budget.remaining, 10)
         self.assertEqual(budget.successful_pings, 0)
-        # Server didn't fire → client cooldown clock unchanged.
         self.assertIsNone(budget.last_ack_monotonic)
 
-    def test_ack_true_forwarded_is_fresh_and_consumes(self):
-        """Server ACKed and ping_requested transitioned 1->0 (forwarded). Even
-        if Unreal writes back an identical strength value, that's still fresh —
-        the protocol's forward signal is authoritative, not value-diff."""
+    def test_flag_transition_alone_is_enough(self):
+        """ping_requested transitions 1 -> 0 even though strength stays
+        identical. The flag clear is authoritative; the ping is fresh and
+        budget is consumed. Covers the first-ping case (no meaningful prior
+        strength) and the legitimate-identical-strength case."""
         dumblocate = import_dumblocate()
-        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.5
-        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.2
+        dumblocate.PING_ACK_OBSERVE_TIMEOUT_SEC = 0.5
+        dumblocate.PING_STRENGTH_TRAIL_TIMEOUT_SEC = 0.05
         dumblocate.PING_RESPONSE_POLL_SEC = 0.01
 
+        _install_fetch_ltv_sequence(
+            dumblocate,
+            [
+                _make_ltv_json(ping_requested=1, strength=-55.0),  # pre-fire snapshot
+                _make_ltv_json(ping_requested=0, strength=-55.0),  # post-forward, no strength change
+            ],
+        )
         dumblocate.send_float_command = lambda sock, command, value: True
-        # Forwarded immediately.
-        dumblocate.read_ltv_ping_requested = lambda sock: False
-
-        sequence = iter([-50.0, -42.5])
-
-        def fake_read(_sock):
-            try:
-                return next(sequence)
-            except StopIteration:
-                return -42.5
-
-        dumblocate.read_ltv_signal_strength = fake_read
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         result = dumblocate.request_ping(
             sock=None, rover_x_m=1.0, rover_y_m=2.0, budget=budget
         )
         self.assertTrue(result.fresh)
-        self.assertFalse(result.rejected)
-        self.assertFalse(result.sentinel)
-        self.assertAlmostEqual(result.strength, -42.5)
+        self.assertAlmostEqual(result.strength, -55.0)
         self.assertEqual(budget.remaining, 9)
-        self.assertEqual(budget.last_pos_m, (1.0, 2.0))
-        # Server cooldown clock now active.
+        self.assertEqual(budget.successful_pings, 1)
         self.assertIsNotNone(budget.last_ack_monotonic)
 
-    def test_first_ping_fresh_without_strength_change(self):
-        """The whole point of the ping_requested-based freshness check: the
-        FIRST ping has no meaningful prior strength to compare against, so
-        value-equality is irrelevant. As long as the server forwarded, treat
-        the read as fresh."""
+    def test_strength_change_alone_is_enough(self):
+        """signal.strength changes from the pre-fire snapshot value even
+        though the flag transition wasn't observed (backend pushed the LTV
+        update after Unreal already responded). Strength change implies
+        forward; treat as fresh."""
         dumblocate = import_dumblocate()
-        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.5
-        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.1
+        dumblocate.PING_ACK_OBSERVE_TIMEOUT_SEC = 0.5
+        dumblocate.PING_STRENGTH_TRAIL_TIMEOUT_SEC = 0.05
         dumblocate.PING_RESPONSE_POLL_SEC = 0.01
 
+        _install_fetch_ltv_sequence(
+            dumblocate,
+            [
+                _make_ltv_json(ping_requested=1, strength=-50.0),  # pre-fire
+                _make_ltv_json(ping_requested=1, strength=-42.5),  # backend missed the 1->0 window
+            ],
+        )
         dumblocate.send_float_command = lambda sock, command, value: True
-        dumblocate.read_ltv_ping_requested = lambda sock: False
-        # Stale strength field never changes (e.g., LTV at identical distance
-        # to the previous session's final ping). Old code would have looped
-        # forever; new code accepts the value because the server fired.
-        dumblocate.read_ltv_signal_strength = lambda sock: -55.0
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         result = dumblocate.request_ping(
             sock=None, rover_x_m=0.0, rover_y_m=0.0, budget=budget
         )
         self.assertTrue(result.fresh)
-        self.assertAlmostEqual(result.strength, -55.0)
+        self.assertAlmostEqual(result.strength, -42.5)
         self.assertEqual(budget.remaining, 9)
-        self.assertEqual(budget.successful_pings, 1)
+        self.assertIsNotNone(budget.last_ack_monotonic)
+
+    def test_forward_then_strength_arrives(self):
+        """Realistic happy path: flag clears first (server forwarded), then a
+        couple polls later strength updates (Unreal responded)."""
+        dumblocate = import_dumblocate()
+        dumblocate.PING_ACK_OBSERVE_TIMEOUT_SEC = 0.5
+        dumblocate.PING_STRENGTH_TRAIL_TIMEOUT_SEC = 0.5
+        dumblocate.PING_RESPONSE_POLL_SEC = 0.01
+
+        _install_fetch_ltv_sequence(
+            dumblocate,
+            [
+                _make_ltv_json(ping_requested=1, strength=-50.0),  # pre-fire
+                _make_ltv_json(ping_requested=0, strength=-50.0),  # forwarded, strength not yet updated
+                _make_ltv_json(ping_requested=0, strength=-50.0),
+                _make_ltv_json(ping_requested=0, strength=-42.5),  # Unreal wrote
+            ],
+        )
+        dumblocate.send_float_command = lambda sock, command, value: True
+
+        budget = dumblocate.PingBudget(remaining=10, total=10)
+        result = dumblocate.request_ping(
+            sock=None, rover_x_m=0.0, rover_y_m=0.0, budget=budget
+        )
+        self.assertTrue(result.fresh)
+        self.assertAlmostEqual(result.strength, -42.5)
+        self.assertEqual(budget.remaining, 9)
 
     def test_fresh_sentinel_consumes_and_flags(self):
         """A fresh ping that arrives equal to the 1.0 sentinel is genuinely
         out-of-range and DOES consume the budget — that's information earned."""
         dumblocate = import_dumblocate()
-        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.5
-        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.2
+        dumblocate.PING_ACK_OBSERVE_TIMEOUT_SEC = 0.5
+        dumblocate.PING_STRENGTH_TRAIL_TIMEOUT_SEC = 0.2
         dumblocate.PING_RESPONSE_POLL_SEC = 0.01
 
-        sequence = iter([-50.0, 1.0])
-
-        def fake_read(_sock):
-            try:
-                return next(sequence)
-            except StopIteration:
-                return 1.0
-
+        _install_fetch_ltv_sequence(
+            dumblocate,
+            [
+                _make_ltv_json(ping_requested=1, strength=-50.0),
+                _make_ltv_json(ping_requested=0, strength=1.0),  # sentinel
+            ],
+        )
         dumblocate.send_float_command = lambda sock, command, value: True
-        dumblocate.read_ltv_ping_requested = lambda sock: False
-        dumblocate.read_ltv_signal_strength = fake_read
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         result = dumblocate.request_ping(
@@ -266,6 +313,37 @@ class TestRequestPingAckHandling(unittest.TestCase):
         self.assertTrue(result.sentinel)
         self.assertEqual(budget.remaining, 9)
         self.assertTrue(budget.last_was_sentinel)
+
+    def test_persistent_ltv_read_errors_treated_as_not_fresh(self):
+        """If fetch_ltv_json keeps raising, request_ping bails out of the
+        observe loop instead of looping forever."""
+        dumblocate = import_dumblocate()
+        dumblocate.PING_ACK_OBSERVE_TIMEOUT_SEC = 2.0
+        dumblocate.PING_RESPONSE_POLL_SEC = 0.005
+
+        # First call (pre-fire snapshot) succeeds; subsequent calls fail.
+        state = {"n": 0}
+
+        def flaky_fetch(_sock):
+            state["n"] += 1
+            if state["n"] == 1:
+                return _make_ltv_json(ping_requested=1, strength=-50.0)
+            raise RuntimeError("LTV channel broken")
+
+        dumblocate.fetch_ltv_json = flaky_fetch
+        dumblocate.send_float_command = lambda sock, command, value: True
+
+        budget = dumblocate.PingBudget(remaining=10, total=10)
+        t0 = time.monotonic()
+        result = dumblocate.request_ping(
+            sock=None, rover_x_m=0.0, rover_y_m=0.0, budget=budget
+        )
+        elapsed = time.monotonic() - t0
+        self.assertFalse(result.fresh)
+        self.assertFalse(result.rejected)
+        self.assertEqual(budget.remaining, 10)
+        # Should give up well before the observe timeout.
+        self.assertLess(elapsed, 1.0, f"flaky LTV read held the loop for {elapsed:.2f}s")
 
 
 class TestShouldPingDecision(unittest.TestCase):
@@ -403,8 +481,8 @@ class TestPingBudgetIntegrationCap(unittest.TestCase):
 
     def test_many_attempts_capped_at_ten(self):
         dumblocate = import_dumblocate()
-        dumblocate.PING_FORWARD_TIMEOUT_SEC = 0.1
-        dumblocate.PING_STRENGTH_POLL_TIMEOUT_SEC = 0.05
+        dumblocate.PING_ACK_OBSERVE_TIMEOUT_SEC = 0.1
+        dumblocate.PING_STRENGTH_TRAIL_TIMEOUT_SEC = 0.05
         dumblocate.PING_RESPONSE_POLL_SEC = 0.005
 
         counter = {"n": 0}
@@ -412,16 +490,18 @@ class TestPingBudgetIntegrationCap(unittest.TestCase):
         def fake_send(sock, command, value):
             return True
 
-        def fake_read_ping_requested(_sock):
-            return False  # always already forwarded
-
-        def fake_read(_sock):
+        def fake_fetch(_sock):
             counter["n"] += 1
-            return -50.0 - 0.01 * counter["n"]
+            # Strength evolves with each call so every ping looks fresh.
+            return {
+                "signal": {
+                    "ping_requested": 0,
+                    "strength": -50.0 - 0.01 * counter["n"],
+                }
+            }
 
         dumblocate.send_float_command = fake_send
-        dumblocate.read_ltv_ping_requested = fake_read_ping_requested
-        dumblocate.read_ltv_signal_strength = fake_read
+        dumblocate.fetch_ltv_json = fake_fetch
 
         budget = dumblocate.PingBudget(remaining=10, total=10)
         # Try 25 attempts; only the first 10 should consume. The 11th
