@@ -17,8 +17,8 @@ import backend_bridge
 # Config
 # -----------------------------
 BACKEND_URL = "http://192.168.4.230:5001"
-LOCATE_TRANSPORT = "socket"  # "socket" or "udp"
-TSS_HOST = "192.168.4.230"
+LOCATE_TRANSPORT = "udp"  # "socket" or "udp"
+TSS_HOST = "192.168.50.110"
 TSS_PORT = 14141
 
 
