@@ -77,11 +77,16 @@ def test_main_default_backend_mode_forwards_path_matrix(monkeypatch):
     monkeypatch.setattr(AI_controller.locate, "start", fake_locate_start)
 
     AI_controller.main()
-    captured["on_path_update"]({"matrix": [[0, 1], [2, 3]]})
+    matrix_payload = {
+        "data": [[0, 1], [2, 3]],
+        "topleft": {"x": -100.0, "y": -200.0},
+        "cell_size_cm": 50.0,
+    }
+    captured["on_path_update"]({"matrix": matrix_payload})
 
     assert captured["connection"]["mode"] == "socket"
     assert ("connect", "http://127.0.0.1:5001") in calls
-    assert ("send_matrix", [[0, 1], [2, 3]]) in calls
+    assert ("send_matrix", matrix_payload) in calls
 
 
 def test_udp_mode_does_not_start_backend_or_alerts(monkeypatch):

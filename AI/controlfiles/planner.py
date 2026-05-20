@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import heapq
+import itertools
 import math
 from dataclasses import dataclass
 
@@ -86,7 +87,7 @@ class OccupancyPlanner:
         if current == CELL_LOW_CLEARANCE_OBSTACLE and cell_value == CELL_OBSTACLE:
             self.grid[cy][cx] = CELL_OBSTACLE
             self._obstacle_version += 1
-            return False
+            return True
         self.grid[cy][cx] = int(cell_value)
         self._apply_padding_block(cell)
         self._obstacle_version += 1
@@ -198,6 +199,7 @@ class OccupancyPlanner:
             cell_path = self._jump_point_search_cells(start, goal)
         else:
             cell_path = self._astar_cells(start, goal)
+        cell_path = _collapse_collinear_cells(cell_path)
         return [self.cell_to_world_center(cell) for cell in cell_path]
 
     def _nearest_free_cell(self, start: tuple[int, int], max_radius_cm: float | None = None) -> tuple[int, int] | None:
@@ -210,13 +212,21 @@ class OccupancyPlanner:
 
         sx, sy = start
         for radius in range(1, max_radius + 1):
+            best_cell: tuple[int, int] | None = None
+            best_distance_sq: float | None = None
             for y in range(sy - radius, sy + radius + 1):
                 for x in range(sx - radius, sx + radius + 1):
                     if abs(x - sx) != radius and abs(y - sy) != radius:
                         continue
                     cell = (x, y)
-                    if self.in_bounds(cell) and not self.is_padded_obstacle(cell):
-                        return cell
+                    if not self.in_bounds(cell) or self.is_padded_obstacle(cell):
+                        continue
+                    distance_sq = (x - sx) ** 2 + (y - sy) ** 2
+                    if best_distance_sq is None or distance_sq < best_distance_sq:
+                        best_cell = cell
+                        best_distance_sq = distance_sq
+            if best_cell is not None:
+                return best_cell
         return None
 
     def _neighbors(self, cell: tuple[int, int]) -> list[tuple[tuple[int, int], float]]:
@@ -224,8 +234,12 @@ class OccupancyPlanner:
         neighbors: list[tuple[tuple[int, int], float]] = []
         for dx, dy, cost in self._neighbor_deltas:
             nxt = (x + dx, y + dy)
-            if self.in_bounds(nxt) and not self.is_padded_obstacle(nxt):
-                neighbors.append((nxt, cost * self._cell_traversal_cost_multiplier(nxt)))
+            if not self.in_bounds(nxt) or self.is_padded_obstacle(nxt):
+                continue
+            if dx != 0 and dy != 0:
+                if self.is_padded_obstacle((x + dx, y)) or self.is_padded_obstacle((x, y + dy)):
+                    continue
+            neighbors.append((nxt, cost * self._cell_traversal_cost_multiplier(nxt)))
         return neighbors
 
     def _apply_padding_block(self, cell: tuple[int, int]) -> None:
@@ -238,7 +252,9 @@ class OccupancyPlanner:
 
     @staticmethod
     def _heuristic(a: tuple[int, int], b: tuple[int, int]) -> float:
-        return math.hypot(a[0] - b[0], a[1] - b[1])
+        dx = abs(a[0] - b[0])
+        dy = abs(a[1] - b[1])
+        return (dx + dy) + (math.sqrt(2.0) - 2.0) * min(dx, dy)
 
     def _cell_traversal_cost_multiplier(self, cell: tuple[int, int]) -> float:
         evidence = max(0.0, self.cell_evidence(cell))
@@ -280,13 +296,14 @@ class OccupancyPlanner:
         return cells
 
     def _astar_cells(self, start: tuple[int, int], goal: tuple[int, int]) -> list[tuple[int, int]]:
-        frontier: list[tuple[float, tuple[int, int]]] = []
-        heapq.heappush(frontier, (0.0, start))
+        frontier: list[tuple[float, int, tuple[int, int]]] = []
+        counter = itertools.count()
+        heapq.heappush(frontier, (0.0, next(counter), start))
         came_from: dict[tuple[int, int], tuple[int, int] | None] = {start: None}
         cost_so_far: dict[tuple[int, int], float] = {start: 0.0}
 
         while frontier:
-            _, current = heapq.heappop(frontier)
+            _, _, current = heapq.heappop(frontier)
             if current == goal:
                 break
 
@@ -295,7 +312,7 @@ class OccupancyPlanner:
                 if nxt not in cost_so_far or new_cost < cost_so_far[nxt]:
                     cost_so_far[nxt] = new_cost
                     priority = new_cost + self._heuristic(nxt, goal)
-                    heapq.heappush(frontier, (priority, nxt))
+                    heapq.heappush(frontier, (priority, next(counter), nxt))
                     came_from[nxt] = current
 
         if goal not in came_from:
@@ -428,13 +445,14 @@ class OccupancyPlanner:
         return expanded
 
     def _jump_point_search_cells(self, start: tuple[int, int], goal: tuple[int, int]) -> list[tuple[int, int]]:
-        frontier: list[tuple[float, tuple[int, int]]] = []
-        heapq.heappush(frontier, (0.0, start))
+        frontier: list[tuple[float, int, tuple[int, int]]] = []
+        counter = itertools.count()
+        heapq.heappush(frontier, (0.0, next(counter), start))
         came_from: dict[tuple[int, int], tuple[int, int] | None] = {start: None}
         cost_so_far: dict[tuple[int, int], float] = {start: 0.0}
 
         while frontier:
-            _, current = heapq.heappop(frontier)
+            _, _, current = heapq.heappop(frontier)
             if current == goal:
                 break
 
@@ -448,7 +466,7 @@ class OccupancyPlanner:
                 if jump_cell not in cost_so_far or new_cost < cost_so_far[jump_cell]:
                     cost_so_far[jump_cell] = new_cost
                     priority = new_cost + self._heuristic(jump_cell, goal)
-                    heapq.heappush(frontier, (priority, jump_cell))
+                    heapq.heappush(frontier, (priority, next(counter), jump_cell))
                     came_from[jump_cell] = current
 
         if goal not in came_from:
@@ -461,6 +479,22 @@ class OccupancyPlanner:
             cur = came_from[cur]
         jump_path.reverse()
         return self._expand_jump_path(jump_path)
+
+
+def _collapse_collinear_cells(cells: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    if len(cells) < 3:
+        return list(cells)
+    result: list[tuple[int, int]] = [cells[0]]
+    prev_dx = cells[1][0] - cells[0][0]
+    prev_dy = cells[1][1] - cells[0][1]
+    for idx in range(1, len(cells) - 1):
+        nxt_dx = cells[idx + 1][0] - cells[idx][0]
+        nxt_dy = cells[idx + 1][1] - cells[idx][1]
+        if (nxt_dx, nxt_dy) != (prev_dx, prev_dy):
+            result.append(cells[idx])
+            prev_dx, prev_dy = nxt_dx, nxt_dy
+    result.append(cells[-1])
+    return result
 
 
 def _local_to_world_2d(

@@ -120,13 +120,13 @@ TSS_PORT = _DEFAULT_TRANSPORT_CONFIG.tss_port
 def notify_path_update(path_callback, planner, rover_xy, goal_xy, path_world) -> None:
     if path_callback is None:
         return
-    matrix = build_occupancy_matrix(
+    matrix_payload = build_occupancy_matrix(
         planner=planner,
         rover_xy=rover_xy,
         goal_xy=goal_xy,
         path_world=path_world,
     )
-    if matrix is None:
+    if matrix_payload is None:
         w = int(getattr(planner, "width_cells", 0))
         h = int(getattr(planner, "height_cells", 0))
         print(f"[matrix] notify_path_update: matrix=None planner={type(planner).__name__} size={w}x{h} rover={rover_xy}")
@@ -134,7 +134,7 @@ def notify_path_update(path_callback, planner, rover_xy, goal_xy, path_world) ->
     try:
         path_callback(
             {
-                "matrix": matrix,
+                "matrix": matrix_payload,
                 "path_world": path_world,
                 "rover_xy": rover_xy,
                 "goal_xy": goal_xy,

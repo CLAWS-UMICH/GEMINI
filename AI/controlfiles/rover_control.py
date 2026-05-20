@@ -303,7 +303,7 @@ def build_occupancy_matrix(
     rover_xy: tuple[float, float],
     goal_xy: tuple[float, float] | None = None,
     path_world: list[tuple[float, float]] | None = None,
-) -> list[list[int]] | None:
+) -> dict | None:
     width = int(getattr(planner, "width_cells", 0))
     height = int(getattr(planner, "height_cells", 0))
     grid = getattr(planner, "grid", None)
@@ -336,7 +336,14 @@ def build_occupancy_matrix(
         rover_cell_y = height // 2
     matrix[rover_cell_y][rover_cell_x] = 4
 
-    return matrix
+    return {
+        "data": matrix,
+        "topleft": {
+            "x": float(getattr(planner, "origin_x_cm", 0.0)),
+            "y": float(getattr(planner, "origin_y_cm", 0.0)),
+        },
+        "cell_size_cm": float(getattr(getattr(planner, "config", None), "cell_size_cm", 1.0)),
+    }
 
 
 def send_occupancy_matrix(
@@ -356,16 +363,16 @@ def send_occupancy_matrix(
         if (now - sock._last_matrix_emit_monotonic) < float(min_interval_seconds):
             return False
 
-        matrix = build_occupancy_matrix(
+        matrix_payload = build_occupancy_matrix(
             planner=planner,
             rover_xy=rover_xy,
             goal_xy=goal_xy,
             path_world=path_world,
         )
-        if matrix is None:
+        if matrix_payload is None:
             return False
 
-        emitted = sock.emit("matrix", matrix)
+        emitted = sock.emit("matrix", matrix_payload)
         if emitted:
             sock._last_matrix_emit_monotonic = now
         return emitted

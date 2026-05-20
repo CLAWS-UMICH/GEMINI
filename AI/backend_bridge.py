@@ -16,5 +16,5 @@ def send_alert(sio, alert: dict) -> None:
     sio.emit("metric-warning", alert)
 
 
-def send_matrix(sio, matrix: list[list[int]]) -> None:
-    sio.emit("matrix", matrix)
+def send_matrix(sio, matrix_payload) -> None:
+    sio.emit("matrix", matrix_payload)
