@@ -16,12 +16,16 @@ The GEMINI AI Controller is an autonomous rover control system designed for luna
 ### System Flow
 
 ```
-TSS (Telemetry)
-    ↓
-PRCC
-    ↕
-AI Controller ←→ Predictive Warning System
+dumbdrive / AI Controller
+    ↕ Socket.IO rover-* commands + telemetry
+TTTDTT backend
+    ↕ UDP command packets + JSON telemetry
+TSS
+    ↔ DUST simulator
 ```
+
+`dumbdrive.py` now uses the backend Socket.IO route by default. The backend is
+the only process that needs the TSS UDP address during normal operation.
 
 ### Core Classes
 
@@ -172,10 +176,16 @@ Each warning dict contains:
 
 ### Environment Variables
 
-```python
+```bash
+# dumbdrive.py
+DUMBDRIVE_TRANSPORT=socket
+DUMBDRIVE_BACKEND_URL=http://127.0.0.1:5001
+DUMBDRIVE_TSS_HOST=192.168.4.231       # only used when DUMBDRIVE_TRANSPORT=udp
+DUMBDRIVE_TSS_PORT=14141               # only used when DUMBDRIVE_TRANSPORT=udp
+
 # predictive_warning_system.py
-PROXY_URL = "http://172.27.175.241:5001"  # Socket.IO proxy address
-EARLY_WARNING_TIMESTEPS = 10               # Early warning window
+PROXY_URL=http://172.27.175.241:5001    # Socket.IO proxy address
+EARLY_WARNING_TIMESTEPS=10              # Early warning window
 ```
 
 ### Telemetry Ranges
@@ -210,6 +220,32 @@ python test_integration.py
 
 # Test AI controller integration
 python test_integration_ai_controller.py
+```
+
+### Dumbdrive backend route
+
+Run the full `dumbdrive -> backend -> TSS` stack in three terminals:
+
+```bash
+cd TSS2026
+./run.sh
+```
+
+```bash
+cd TTTDTT/backend
+TSS_UDP_HOST=<tss-ip> python app.py
+```
+
+```bash
+cd GEMINI-2/AI/controlfiles
+DUMBDRIVE_BACKEND_URL=http://<backend-ip>:5001 python dumbdrive.py
+```
+
+For direct UDP fallback during local debugging:
+
+```bash
+cd GEMINI-2/AI/controlfiles
+DUMBDRIVE_TRANSPORT=udp DUMBDRIVE_TSS_HOST=<tss-ip> python dumbdrive.py
 ```
 
 ### Monkey-Patching for Development
