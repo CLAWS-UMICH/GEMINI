@@ -84,7 +84,11 @@ public class PrefabChanger : MonoBehaviour
         currentInstantiatedPrefab = Instantiate(prefab);
         currentInstantiatedPrefab.transform.SetParent(overlayTarget, worldPositionStays: false);
 
-        if (faceCamera)
+        // Prefabs with VerticalizeQRPrefab opt out of billboarding so they stay locked to the QR
+        // panel orientation. Adding FaceCamera here would fight VerticalizeQRPrefab in LateUpdate.
+        bool prefabLocksOrientation = currentInstantiatedPrefab.GetComponentInChildren<VerticalizeQRPrefab>(true) != null;
+
+        if (faceCamera && !prefabLocksOrientation)
         {
             var fc = currentInstantiatedPrefab.GetComponent<FaceCamera>();
             if (fc == null) fc = currentInstantiatedPrefab.AddComponent<FaceCamera>();

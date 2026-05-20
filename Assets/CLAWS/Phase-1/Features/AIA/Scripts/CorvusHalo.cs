@@ -12,6 +12,11 @@ public class CorvusHalo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (_corvusController == null)
+            _corvusController = FindObjectOfType<CorvusController>();
+        if (_corvusTTS == null)
+            _corvusTTS = FindObjectOfType<CorvusTTS>();
+
         Debug.Log($"[CorvusHalo] Start running. controller={(_corvusController != null)}, animator={(AIA_Animator != null)}, tts={(_corvusTTS != null)}");
 
         if (_corvusController == null)
