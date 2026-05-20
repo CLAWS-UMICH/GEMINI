@@ -342,6 +342,13 @@ public class Pathfinding : MonoBehaviour
             minimapPathRenderer.positionCount = cachedPathPositions.Length;
             minimapPathRenderer.SetPositions(cachedPathPositions);
         }
+
+        // PATH SHOW ON HOLOLENS FIX MAYBE: Auto-enable renderers so the path is visible immediately after calculation.
+        // ShowMinimapOnly() / ShowWorldAndMinimap() can still selectively toggle them.
+        if (pathRenderer != null && pathRenderer.positionCount > 0)
+            pathRenderer.enabled = true;
+        if (minimapPathRenderer != null && minimapPathRenderer.positionCount > 0)
+            minimapPathRenderer.enabled = true;
     }
 
     int GetDistance(Node a, Node b)
