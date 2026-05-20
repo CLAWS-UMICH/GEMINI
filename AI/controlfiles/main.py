@@ -1206,10 +1206,14 @@ def smooth_path_los(
 ) -> list[tuple[float, float]]:
     if len(path) < 3:
         return path
-    smoothed = [path[0]]
+    smoothed: list[tuple[float, float]] = [path[0]]
     i = 0
-    while i < len(path) - 1:
-        j = len(path) - 1
+    n = len(path)
+    while i < n - 1:
+        # Scan from the end backwards for the furthest point reachable in a straight
+        # line. If no LOS exists to any skip-ahead point, j falls to i+1 (next step).
+        # i = j always advances by at least 1 so the loop terminates.
+        j = n - 1
         while j > i + 1:
             cells = planner.world_line_cells(path[i], path[j])
             if not any(planner.is_padded_obstacle(cell) for cell in cells):
