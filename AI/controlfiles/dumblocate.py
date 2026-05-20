@@ -62,6 +62,24 @@ GUIDED_PING_STEP_MIN_CM = 1100.0
 GUIDED_PING_STEP_MAX_CM = 2000.0
 GUIDED_PING_LATERAL_SCALE = 1.25
 GUIDED_PING_GOAL_REACHED_SCALE = 0.24
+
+# Ping budget + decision constants.
+# Hard cap: server allows 10 successful pings per mission.
+PING_BUDGET_TOTAL = 10
+# Server-side cooldown between successful pings (cmd 2050). Matches TSS server.c.
+SERVER_PING_COOLDOWN_SEC = 20.0
+# Movement gates: skip pings that wouldn't add new geometry.
+MIN_MOVE_FOR_REPING_M = 5.0
+MIN_AGE_FOR_REPING_SEC = 8.0
+# After a sentinel ("> 500 m"), require real movement before retrying.
+MIN_MOVE_AFTER_SENTINEL_M = 25.0
+# Aggressive band: when this many or more pings remain, ping freely near anchor.
+BUDGET_AGGRESSIVE_THRESHOLD = 5
+# Conservative band: when this few remain, require strong justification.
+BUDGET_CONSERVATIVE_THRESHOLD = 2
+# Conservative-mode override: only ping if rover moved a lot or info is stale.
+CONSERVATIVE_MIN_MOVE_M = 40.0
+CONSERVATIVE_MIN_AGE_SEC = 30.0
 #OLD LTV, FROM PREVIOUS RUN, NO LONGER ACCURATE (it gets randomized every time)
 REAL_LTV_LOCATION_M = (-6047.30, -10769.3, 1463.0)
 
@@ -72,6 +90,136 @@ class PingSample:
     rover_y_m: float
     ping_value: float
     radius_m: float
+
+
+@dataclass
+class PingResult:
+    """Outcome of a single ping attempt.
+
+    `fresh=True` iff the server processed the request AND a new strength value
+    arrived from Unreal before the response timeout. Only fresh pings consume
+    budget. `rejected=True` means the server cooldown (or other validation)
+    refused the request; the rover should back off, not retry blindly.
+    """
+
+    strength: float
+    fresh: bool
+    rejected: bool
+    sentinel: bool
+
+
+@dataclass
+class PingDecision:
+    should_ping: bool
+    reason: str
+
+
+@dataclass
+class PingBudget:
+    """Authoritative ping accounting for one mission. Hard cap = total."""
+
+    remaining: int
+    total: int = PING_BUDGET_TOTAL
+    last_ping_monotonic: float | None = None
+    last_strength: float = float("nan")
+    last_pos_m: tuple[float, float] | None = None
+    last_was_sentinel: bool = False
+    successful_pings: int = 0
+    rejected_pings: int = 0
+
+    def can_spend(self, n: int = 1) -> bool:
+        return self.remaining >= n
+
+    def time_since_last_ping(self, *, now: float | None = None) -> float:
+        if self.last_ping_monotonic is None:
+            return math.inf
+        if now is None:
+            now = time.monotonic()
+        return now - self.last_ping_monotonic
+
+    def movement_since_last_m(self, rover_x_m: float, rover_y_m: float) -> float:
+        if self.last_pos_m is None:
+            return math.inf
+        return math.hypot(rover_x_m - self.last_pos_m[0], rover_y_m - self.last_pos_m[1])
+
+    def record_attempt_start(self) -> None:
+        # Sets the monotonic baseline for the cooldown check. Updated only when
+        # the ping was actually consumed (fresh) so rejected attempts don't
+        # appear to reset the cooldown.
+        pass
+
+    def consume_fresh(
+        self,
+        *,
+        strength: float,
+        rover_x_m: float,
+        rover_y_m: float,
+        sentinel: bool,
+    ) -> None:
+        if self.remaining <= 0:
+            raise RuntimeError("PingBudget: attempted to consume past hard cap")
+        self.remaining -= 1
+        self.successful_pings += 1
+        self.last_ping_monotonic = time.monotonic()
+        self.last_strength = float(strength)
+        self.last_pos_m = (float(rover_x_m), float(rover_y_m))
+        self.last_was_sentinel = bool(sentinel)
+
+    def record_rejected(self) -> None:
+        self.rejected_pings += 1
+
+
+def should_ping(
+    budget: PingBudget,
+    *,
+    rover_x_m: float,
+    rover_y_m: float,
+    now: float | None = None,
+) -> PingDecision:
+    """Deterministic ping eligibility. No I/O, fully unit-testable.
+
+    Inputs are explicit so the same decision can be replayed from a test.
+    """
+    if budget.remaining <= 0:
+        return PingDecision(False, "budget exhausted")
+
+    elapsed = budget.time_since_last_ping(now=now)
+    if elapsed < SERVER_PING_COOLDOWN_SEC:
+        return PingDecision(
+            False,
+            f"cooldown ({SERVER_PING_COOLDOWN_SEC - elapsed:.1f}s left)",
+        )
+
+    moved = budget.movement_since_last_m(rover_x_m, rover_y_m)
+
+    # After a sentinel ("> 500 m"), pinging again from the same place is guaranteed
+    # to produce another sentinel. Require real movement first.
+    if budget.last_was_sentinel and moved < MIN_MOVE_AFTER_SENTINEL_M:
+        return PingDecision(
+            False,
+            f"sentinel last time; only moved {moved:.1f} m of {MIN_MOVE_AFTER_SENTINEL_M:.1f} m",
+        )
+
+    # Conservative band: very few pings left -> only spend if something genuinely changed.
+    if budget.remaining <= BUDGET_CONSERVATIVE_THRESHOLD:
+        if moved < CONSERVATIVE_MIN_MOVE_M and elapsed < CONSERVATIVE_MIN_AGE_SEC:
+            return PingDecision(
+                False,
+                f"conserving final {budget.remaining}; moved {moved:.1f} m, age {elapsed:.1f} s",
+            )
+        return PingDecision(True, f"conservative ping ({budget.remaining} left)")
+
+    # Aggressive band: plenty of budget -> ping freely.
+    if budget.remaining >= BUDGET_AGGRESSIVE_THRESHOLD:
+        return PingDecision(True, f"aggressive ping ({budget.remaining} left)")
+
+    # Mid band: skip only if both movement and recency are weak.
+    if moved < MIN_MOVE_FOR_REPING_M and elapsed < MIN_AGE_FOR_REPING_SEC:
+        return PingDecision(
+            False,
+            f"recent ping still valid (moved {moved:.1f} m, age {elapsed:.1f} s)",
+        )
+    return PingDecision(True, f"mid-budget ping ({budget.remaining} left)")
 
 
 @dataclass(frozen=True)
@@ -157,6 +305,13 @@ class LocateMetricsLogger:
 
 
 class PingStrengthSampler:
+    """Passive sampler used by the optional metrics logger.
+
+    Reads the last-observed LTV signal strength at most once per interval.
+    Does NOT send pings; the central PingBudget owns all send decisions to
+    keep the 10-ping cap intact.
+    """
+
     def __init__(self, interval_sec: float) -> None:
         self.interval_sec = float(interval_sec)
         self.last_sample_monotonic: float | None = None
@@ -171,7 +326,7 @@ class PingStrengthSampler:
             self.last_sample_monotonic is None
             or (now - self.last_sample_monotonic) >= self.interval_sec
         ):
-            self.last_strength = current_ping_strength(sock)
+            self.last_strength = read_ltv_signal_strength(sock)
             self.last_sample_monotonic = now
             return (self.last_strength, True)
         return (self.last_strength, False)
@@ -219,78 +374,131 @@ def fetch_ltv_last_known_goal(sock) -> tuple[tuple[float, float], tuple[float, f
     return ((last_known_x_m, last_known_y_m), goal_xy)
 
 
-def request_ping_and_read_strength(sock) -> float:
+def request_ping(
+    sock,
+    *,
+    rover_x_m: float,
+    rover_y_m: float,
+    budget: PingBudget,
+) -> PingResult:
+    """Send a single ping with ACK-aware, freshness-aware semantics.
+
+    Returns a PingResult that distinguishes:
+      - rejected: server refused (cooldown / validation). Budget NOT spent.
+      - fresh=False, rejected=False: server accepted, but no new strength
+        arrived within the response timeout. Budget NOT spent. Treat as
+        "unknown" not "out of range".
+      - fresh=True: a new strength value arrived; budget is spent here.
+    """
     ping_command = CMD_LTV_PING_UNLIMITED if USE_UNLIMITED_PING else CMD_LTV_PING
     previous_strength = read_ltv_signal_strength(sock)
     try:
-        send_float_command(sock, ping_command, 1.0)
+        ack = send_float_command(sock, ping_command, 1.0)
     except RuntimeError as exc:
-        print(f"Ping command {ping_command} failed ({exc}); using last-known strength {previous_strength:.3f}")
-        return previous_strength
+        print(
+            f"Ping command {ping_command} raised ({exc}); treating as rejected"
+        )
+        budget.record_rejected()
+        return PingResult(
+            strength=previous_strength, fresh=False, rejected=True, sentinel=False
+        )
+
+    if not ack:
+        # Server returned ACK=False. With cmd 2050 this is the cooldown reject
+        # path (server.c L212). Don't waste the 1.5s poll on a request that
+        # was never forwarded to Unreal.
+        elapsed = budget.time_since_last_ping()
+        cooldown_left = max(0.0, SERVER_PING_COOLDOWN_SEC - elapsed)
+        print(
+            f"Ping rejected by server (ACK=false). "
+            f"Likely cooldown ({cooldown_left:.1f}s left); "
+            f"strength unchanged at {previous_strength:.3f}"
+        )
+        budget.record_rejected()
+        return PingResult(
+            strength=previous_strength, fresh=False, rejected=True, sentinel=False
+        )
+
     deadline = time.monotonic() + PING_RESPONSE_TIMEOUT_SEC
     latest_strength = previous_strength
+    fresh = False
     while time.monotonic() < deadline:
         time.sleep(PING_RESPONSE_POLL_SEC)
         latest_strength = read_ltv_signal_strength(sock)
         if latest_strength != previous_strength:
-            return latest_strength
-    print(
-        f"Warning: ping command {ping_command} did not change LTV signal strength "
-        f"within {PING_RESPONSE_TIMEOUT_SEC:.2f}s; keeping {latest_strength:.3f}"
+            fresh = True
+            break
+
+    if not fresh:
+        # Server accepted the request but Unreal didn't write a new strength
+        # in time. This can also happen when the new ping value equals the
+        # previous one exactly. Caller should treat this as "unknown" rather
+        # than "out of range" or "fresh duplicate".
+        print(
+            f"Warning: ping {ping_command} did not produce a strength change "
+            f"within {PING_RESPONSE_TIMEOUT_SEC:.2f}s; treating as not-fresh "
+            f"(strength={latest_strength:.3f})"
+        )
+        return PingResult(
+            strength=latest_strength, fresh=False, rejected=False, sentinel=False
+        )
+
+    sentinel = is_ltv_ping_distance_sentinel(latest_strength)
+    budget.consume_fresh(
+        strength=latest_strength,
+        rover_x_m=rover_x_m,
+        rover_y_m=rover_y_m,
+        sentinel=sentinel,
     )
-    return latest_strength
+    print(
+        f"Ping #{budget.successful_pings}/{budget.total} "
+        f"({budget.remaining} left): strength={latest_strength:.3f}"
+        f"{' (sentinel: > 500 m)' if sentinel else ''}"
+    )
+    return PingResult(
+        strength=latest_strength, fresh=True, rejected=False, sentinel=sentinel
+    )
 
 
-def current_ping_strength(sock) -> float:
-    return request_ping_and_read_strength(sock)
+def sample_ping_with_budget(
+    sock,
+    raw_telemetry: dict,
+    *,
+    budget: PingBudget,
+) -> tuple[PingSample | None, PingResult]:
+    """Single-ping sample bound to the central PingBudget.
 
-
-def sample_ping(sock, raw_telemetry: dict) -> PingSample | None:
-    ping_value = request_ping_and_read_strength(sock)
+    Returns (sample, result). sample is None when:
+      - the ping was rejected/not-fresh (no data this attempt), OR
+      - the ping returned the out-of-range sentinel (no trilateration radius).
+    The caller can inspect `result` to disambiguate.
+    """
     rover_x_m = float(raw_telemetry.get("rover_pos_x", 0.0))
     rover_y_m = float(raw_telemetry.get("rover_pos_y", 0.0))
-    if is_ltv_ping_distance_sentinel(ping_value):
+
+    result = request_ping(
+        sock, rover_x_m=rover_x_m, rover_y_m=rover_y_m, budget=budget
+    )
+    if not result.fresh:
+        return (None, result)
+    if result.sentinel:
         print(
             f"Ping sample: rover=({rover_x_m:.3f}, {rover_y_m:.3f}) m | "
-            f"ping={ping_value:.3f} means distance > 500; no trilateration radius"
+            f"ping={result.strength:.3f} means distance > 500; no trilateration radius"
         )
-        return None
-    radius_m = ltv_ping_to_meters(ping_value)
+        return (None, result)
+    radius_m = ltv_ping_to_meters(result.strength)
     sample = PingSample(
         rover_x_m=rover_x_m,
         rover_y_m=rover_y_m,
-        ping_value=ping_value,
+        ping_value=result.strength,
         radius_m=radius_m,
     )
     print(
         f"Ping sample: rover=({sample.rover_x_m:.3f}, {sample.rover_y_m:.3f}) m | "
         f"ping={sample.ping_value:.3f} | radius={sample.radius_m:.3f} m"
     )
-    return sample
-
-
-def try_sample_ping(sock, raw_telemetry: dict) -> PingSample | None:
-    ping_value = request_ping_and_read_strength(sock)
-    rover_x_m = float(raw_telemetry.get("rover_pos_x", 0.0))
-    rover_y_m = float(raw_telemetry.get("rover_pos_y", 0.0))
-    if is_ltv_ping_distance_sentinel(ping_value):
-        print(
-            f"Ping sample: rover=({rover_x_m:.3f}, {rover_y_m:.3f}) m | "
-            f"ping={ping_value:.3f} means distance > 500; no trilateration radius"
-        )
-        return None
-    radius_m = ltv_ping_to_meters(ping_value)
-    sample = PingSample(
-        rover_x_m=rover_x_m,
-        rover_y_m=rover_y_m,
-        ping_value=ping_value,
-        radius_m=radius_m,
-    )
-    print(
-        f"Ping sample: rover=({sample.rover_x_m:.3f}, {sample.rover_y_m:.3f}) m | "
-        f"ping={sample.ping_value:.3f} | radius={sample.radius_m:.3f} m"
-    )
-    return sample
+    return (sample, result)
 
 
 def stop_then_try_sample_ping(
@@ -302,7 +510,17 @@ def stop_then_try_sample_ping(
     debug_logger: FrontendTimingLogger | None,
     debug_mode: str,
     status: str,
-) -> tuple[PingSample | None, bool]:
+    budget: PingBudget,
+) -> tuple[PingSample | None, bool, PingResult | None]:
+    """Stop the rover, settle, then attempt one ping under the budget.
+
+    Returns (sample, ok, result):
+      - ok=False means the hold was aborted (UI shutdown / planner abort).
+      - sample is None when the ping was rejected, not-fresh, or sentinel.
+      - result is None only when ok=False (hold aborted before ping);
+        otherwise it always carries the request outcome so callers can
+        decide whether to retry, drive closer, or give up.
+    """
     set_throttle(sock, 0.0)
     set_steering(sock, 0.0)
     set_brakes(sock, True)
@@ -320,7 +538,7 @@ def stop_then_try_sample_ping(
         debug_logger=debug_logger,
         debug_mode=debug_mode,
     ):
-        return (None, False)
+        return (None, False, None)
 
     rover_json = fetch_rover_json(sock)
     raw_telemetry = rover_json.get("pr_telemetry")
@@ -329,7 +547,27 @@ def stop_then_try_sample_ping(
     telemetry = make_sanitized_telemetry(raw_telemetry)
     run_state.raw_telemetry = raw_telemetry
     run_state.pose_xyzh = parse_pose(telemetry)
-    return (try_sample_ping(sock, raw_telemetry), True)
+
+    rover_x_m = float(raw_telemetry.get("rover_pos_x", 0.0))
+    rover_y_m = float(raw_telemetry.get("rover_pos_y", 0.0))
+    decision = should_ping(budget, rover_x_m=rover_x_m, rover_y_m=rover_y_m)
+    if not decision.should_ping:
+        print(f"Skipping ping: {decision.reason}")
+        # Surface decision as a non-fresh, non-rejected result so callers can
+        # distinguish "we chose not to" from "server refused".
+        return (
+            None,
+            True,
+            PingResult(
+                strength=budget.last_strength,
+                fresh=False,
+                rejected=False,
+                sentinel=False,
+            ),
+        )
+
+    sample, result = sample_ping_with_budget(sock, raw_telemetry, budget=budget)
+    return (sample, True, result)
 
 
 def trilaterate(
@@ -646,12 +884,21 @@ def collect_guided_ping_samples(
     path_callback=None,
     debug_logger: FrontendTimingLogger | None,
     debug_prefix: str,
+    budget: PingBudget,
 ) -> tuple[list[PingSample], object, MapWindow | None, bool]:
     samples: list[PingSample] = []
     first_sample: PingSample | None = None
+    # Sentinel-retry loop is now bounded by both PING_SENTINEL_RETRY_MAX and
+    # remaining budget. Each rejected or not-fresh attempt does NOT consume
+    # budget (see request_ping), so the cap still applies only to fresh pings.
     for attempt_idx in range(PING_SENTINEL_RETRY_MAX + 1):
+        if not budget.can_spend(1):
+            print(
+                f"{debug_prefix} ping 1: budget exhausted before first sample."
+            )
+            return (samples, run_state, viewer, False)
         print(f"Collecting {debug_prefix} ping 1 at current rover position...")
-        first_sample, ok = stop_then_try_sample_ping(
+        first_sample, ok, _result = stop_then_try_sample_ping(
             sock,
             viewer=viewer,
             run_state=run_state,
@@ -659,6 +906,7 @@ def collect_guided_ping_samples(
             telemetry_callback=telemetry_callback,
             debug_logger=debug_logger,
             debug_mode=f"{debug_prefix}_hold_ping_1",
+            budget=budget,
         )
         if not ok:
             return (samples, run_state, viewer, False)
@@ -714,6 +962,12 @@ def collect_guided_ping_samples(
         fallback_heading_deg=run_state.pose_xyzh[3],
     )
     for ping_idx, guided_goal_xy in enumerate(guided_points, start=2):
+        if not budget.can_spend(1):
+            print(
+                f"{debug_prefix} ping {ping_idx}: budget exhausted; "
+                f"returning {len(samples)} samples for partial use."
+            )
+            return (samples, run_state, viewer, False)
         sample_x_m, sample_y_m = local_cm_to_raw_world_m(*guided_goal_xy)
         desired_step_cm = math.hypot(
             guided_goal_xy[0] - first_sample_xy[0],
@@ -749,7 +1003,7 @@ def collect_guided_ping_samples(
             return (samples, run_state, viewer, False)
 
         print(f"Collecting {debug_prefix} ping {ping_idx}...")
-        sample, ok = stop_then_try_sample_ping(
+        sample, ok, _result = stop_then_try_sample_ping(
             sock,
             viewer=viewer,
             run_state=run_state,
@@ -757,13 +1011,14 @@ def collect_guided_ping_samples(
             telemetry_callback=telemetry_callback,
             debug_logger=debug_logger,
             debug_mode=f"{debug_prefix}_hold_ping_{ping_idx}",
+            budget=budget,
         )
         if not ok:
             return (samples, run_state, viewer, False)
         if sample is None:
             print(
-                f"{debug_prefix} ping {ping_idx} reports distance > 500; "
-                "cannot use it as a trilateration circle."
+                f"{debug_prefix} ping {ping_idx} unusable for trilateration "
+                "(sentinel, rejected, or not-fresh)."
             )
             return (samples, run_state, viewer, False)
         samples.append(sample)
@@ -796,6 +1051,7 @@ def run_trilateration_round(
     telemetry_callback,
     path_callback=None,
     debug_logger: FrontendTimingLogger | None,
+    budget: PingBudget,
 ) -> tuple[tuple[float, float] | None, object, MapWindow | None, bool]:
     samples, run_state, viewer, ok = collect_guided_ping_samples(
         sock,
@@ -806,6 +1062,7 @@ def run_trilateration_round(
         path_callback=path_callback,
         debug_logger=debug_logger,
         debug_prefix=round_config.debug_prefix,
+        budget=budget,
     )
     if not ok or run_state.aborted:
         return (None, run_state, viewer, False)
@@ -859,25 +1116,82 @@ def run_trilateration_round(
     return ((est_x_m, est_y_m), run_state, viewer, True)
 
 
+def _drive_to_best_estimate(
+    sock,
+    *,
+    best_estimate_m: tuple[float, float] | None,
+    fallback_anchor_xy: tuple[float, float],
+    run_state,
+    viewer,
+    telemetry_callback,
+    path_callback,
+    debug_logger: FrontendTimingLogger | None,
+) -> object:
+    """Drive to the best known LTV location when the search is forced to end.
+
+    Used when the 10-ping cap is hit mid-search. We still drive somewhere useful
+    rather than stranding the rover: the best trilateration estimate so far,
+    or the original LKL anchor if no estimate was produced.
+    """
+    if best_estimate_m is None:
+        goal_x, goal_y = fallback_anchor_xy
+        label = "fallback LKL anchor (budget exhausted)"
+        print(f"Budget exhausted with no estimate; driving to {label}.")
+    else:
+        goal_x, goal_y = raw_world_m_to_local_cm(*best_estimate_m)
+        label = f"best estimate ({best_estimate_m[0]:.3f}, {best_estimate_m[1]:.3f}) m"
+        print(f"Budget exhausted; driving to {label}.")
+    return drive_to_goal_locate(
+        sock,
+        final_goal_xy=(goal_x, goal_y),
+        goal_label=label,
+        viewer=viewer,
+        recorded_obstacle_points=run_state.recorded_obstacle_points,
+        obstacle_total=run_state.obstacle_total,
+        start_time=run_state.start_time,
+        step_idx=run_state.step_idx,
+        total_traveled_cm=run_state.total_traveled_cm,
+        goals_reached=0,
+        goal_reached_cm=FINAL_ESTIMATE_GOAL_REACHED_CM,
+        telemetry_callback=telemetry_callback,
+        path_callback=path_callback,
+        debug_logger=debug_logger,
+        debug_mode="dumblocate_drive_budget_exhausted",
+    )
+
+
 def run_ltv_trilateration_search(
     sock,
     *,
     run_state,
     anchor_xy: tuple[float, float],
     viewer,
+    budget: PingBudget,
     telemetry_callback=None,
     path_callback=None,
     debug_logger: FrontendTimingLogger | None = None,
-    ping_budget: int | None = None,
     hold_verify_debug_mode: str = "dumblocate_hold_verify_estimate",
-) -> tuple[object, MapWindow | None, bool, int | None, bool]:
+) -> tuple[object, MapWindow | None, bool, PingBudget, bool]:
+    """Trilateration search bounded by a hard PingBudget cap.
+
+    Budget is consumed per *fresh* ping inside request_ping; rejected and
+    not-fresh attempts do NOT count. On exhaustion, drives to the best
+    estimate so far (or back to the anchor) instead of stranding the rover.
+    """
     current_anchor_xy = anchor_xy
     ltv_found = False
-    remaining_ping_budget = ping_budget
     completed = True
+    best_estimate_m: tuple[float, float] | None = None
 
     for round_config in TRILATERATION_ROUNDS:
-        if remaining_ping_budget is not None and remaining_ping_budget <= 0:
+        # Each round needs at least 1 fresh ping to start (we don't pre-reserve
+        # the full 4 because rounds short-circuit on strong pings).
+        if not budget.can_spend(1):
+            print(
+                f"Stopping trilateration before round {round_config.round_index}: "
+                f"{budget.remaining}/{budget.total} pings left."
+            )
+            completed = False
             break
 
         estimate_xy_m, run_state, viewer, ok = run_trilateration_round(
@@ -889,14 +1203,23 @@ def run_ltv_trilateration_search(
             telemetry_callback=telemetry_callback,
             path_callback=path_callback,
             debug_logger=debug_logger,
+            budget=budget,
         )
-        if remaining_ping_budget is not None:
-            remaining_ping_budget = max(0, remaining_ping_budget - 3)
+        if estimate_xy_m is not None:
+            best_estimate_m = estimate_xy_m
         if not ok or run_state.aborted or estimate_xy_m is None:
             completed = False
             break
 
-        final_estimate_ping, ok = stop_then_try_sample_ping(
+        if not budget.can_spend(1):
+            print(
+                f"Skipping estimate-verify ping after round {round_config.round_index}: "
+                "no budget left."
+            )
+            completed = False
+            break
+
+        final_estimate_ping, ok, _result = stop_then_try_sample_ping(
             sock,
             viewer=viewer,
             run_state=run_state,
@@ -904,24 +1227,19 @@ def run_ltv_trilateration_search(
             telemetry_callback=telemetry_callback,
             debug_logger=debug_logger,
             debug_mode=hold_verify_debug_mode,
+            budget=budget,
         )
-        if remaining_ping_budget is not None:
-            remaining_ping_budget = max(0, remaining_ping_budget - 1)
         if not ok:
             completed = False
             break
         if final_estimate_ping is None:
             print(
-                f"Ping at round {round_config.round_index} estimate is still out of range "
-                "(distance > 500)."
+                f"Ping at round {round_config.round_index} estimate is out of range "
+                "or not-fresh; advancing if budget permits."
             )
             if round_config.round_index == len(TRILATERATION_ROUNDS):
-                print("Estimate ping is still out of range after the final trilateration round.")
+                print("Estimate ping unusable after the final trilateration round.")
                 break
-            print(
-                f"Running trilateration round {round_config.round_index + 1} "
-                "from the current estimate."
-            )
             current_anchor_xy = raw_world_m_to_local_cm(*estimate_xy_m)
             continue
 
@@ -932,13 +1250,10 @@ def run_ltv_trilateration_search(
         )
         if final_estimate_ping.ping_value >= SECOND_TRILOCATION_STRONG_PING_THRESHOLD:
             ltv_found = True
-            if round_config.round_index > 1:
-                print(
-                    f"Round {round_config.round_index} estimate ping is strong enough. "
-                    "Stopping additional trilateration rounds."
-                )
-            else:
-                print("Estimate ping is strong enough. Skipping additional trilateration rounds.")
+            print(
+                f"Round {round_config.round_index} estimate ping is strong enough. "
+                "Stopping additional trilateration rounds."
+            )
             break
 
         if round_config.round_index == len(TRILATERATION_ROUNDS):
@@ -951,7 +1266,26 @@ def run_ltv_trilateration_search(
         )
         current_anchor_xy = raw_world_m_to_local_cm(*estimate_xy_m)
 
-    return run_state, viewer, ltv_found, remaining_ping_budget, completed
+    # If we stopped because of the budget and haven't already arrived at an
+    # estimate, drive to the best one (or back to the LKL anchor) so the rover
+    # ends somewhere useful.
+    if not completed and not run_state.aborted:
+        try:
+            run_state = _drive_to_best_estimate(
+                sock,
+                best_estimate_m=best_estimate_m,
+                fallback_anchor_xy=anchor_xy,
+                run_state=run_state,
+                viewer=viewer,
+                telemetry_callback=telemetry_callback,
+                path_callback=path_callback,
+                debug_logger=debug_logger,
+            )
+            viewer = run_state.viewer
+        except Exception as exc:
+            print(f"Best-estimate fallback drive failed: {exc}")
+
+    return run_state, viewer, ltv_found, budget, completed
 
 
 def main() -> None:
@@ -1019,17 +1353,28 @@ def main() -> None:
         )
         print("Arrived near last known location.")
         print(f"Distance from last known at first ping: {last_known_remaining_cm:.1f} cm")
-        run_state, viewer, _ltv_found, _remaining_ping_budget, search_completed = run_ltv_trilateration_search(
+
+        budget = PingBudget(remaining=PING_BUDGET_TOTAL, total=PING_BUDGET_TOTAL)
+        print(f"Ping budget: {budget.remaining}/{budget.total} pings available.")
+        run_state, viewer, _ltv_found, final_budget, search_completed = run_ltv_trilateration_search(
             sock,
             run_state=run_state,
             anchor_xy=goal_xy,
             viewer=viewer,
+            budget=budget,
             telemetry_callback=log_metrics if ENABLE_METRICS_LOGGING else None,
             debug_logger=debug_logger,
             hold_verify_debug_mode="dumblocate_hold_verify_estimate",
         )
-        if not search_completed or run_state.aborted:
+        print(
+            f"Ping budget at end: {final_budget.remaining}/{final_budget.total} left "
+            f"({final_budget.successful_pings} successful, {final_budget.rejected_pings} rejected)."
+        )
+        if run_state.aborted:
             return
+        # search_completed=False means the budget capped us out (or a round
+        # bailed). The fallback drive in run_ltv_trilateration_search already
+        # took us to the best estimate, so this is still a real completion.
         run_completed = True
 
     except KeyboardInterrupt:

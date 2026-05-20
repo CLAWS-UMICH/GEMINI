@@ -116,6 +116,7 @@ class TestRunTrilaterationRoundDegenerateGeometry(unittest.TestCase):
         dumblocate.collect_guided_ping_samples = fake_collect
         try:
             round_config = dumblocate.TRILATERATION_ROUNDS[0]
+            budget = dumblocate.PingBudget(remaining=10, total=10)
             result, run_state, viewer, ok = dumblocate.run_trilateration_round(
                 sock=None,
                 round_config=round_config,
@@ -124,6 +125,7 @@ class TestRunTrilaterationRoundDegenerateGeometry(unittest.TestCase):
                 viewer=None,
                 telemetry_callback=None,
                 debug_logger=None,
+                budget=budget,
             )
             self.assertFalse(ok)
             self.assertIsNone(result)
@@ -132,7 +134,9 @@ class TestRunTrilaterationRoundDegenerateGeometry(unittest.TestCase):
 
 
 class TestRequestPingCommandFailure(unittest.TestCase):
-    def test_send_command_failure_returns_last_known_strength_not_exception(self):
+    def test_send_command_failure_returns_rejected_result_not_exception(self):
+        """RuntimeError from send_float_command must be caught and surfaced as a
+        rejected PingResult — never propagate to the caller. Budget unchanged."""
         dumblocate = import_dumblocate()
 
         def failing_send(sock, command, value):
@@ -146,8 +150,53 @@ class TestRequestPingCommandFailure(unittest.TestCase):
         dumblocate.send_float_command = failing_send
         dumblocate.read_ltv_signal_strength = fake_read_ltv_signal_strength
         try:
-            strength = dumblocate.request_ping_and_read_strength(sock=None)
-            self.assertAlmostEqual(strength, -42.5)
+            budget = dumblocate.PingBudget(remaining=10, total=10)
+            result = dumblocate.request_ping(
+                sock=None, rover_x_m=0.0, rover_y_m=0.0, budget=budget
+            )
+            self.assertTrue(result.rejected)
+            self.assertFalse(result.fresh)
+            self.assertAlmostEqual(result.strength, -42.5)
+            self.assertEqual(budget.remaining, 10)
+            self.assertEqual(budget.rejected_pings, 1)
+        finally:
+            dumblocate.send_float_command = original_send
+            dumblocate.read_ltv_signal_strength = original_read
+
+    def test_ack_false_short_circuits_without_polling(self):
+        """ACK=false (server cooldown reject) must NOT wait 1.5s polling for a
+        strength change and must NOT consume budget."""
+        dumblocate = import_dumblocate()
+
+        def rejecting_send(sock, command, value):
+            return False  # cooldown reject path on server.c:212
+
+        poll_calls = {"n": 0}
+
+        def fake_read_ltv_signal_strength(sock):
+            poll_calls["n"] += 1
+            return -55.0
+
+        original_send = dumblocate.send_float_command
+        original_read = dumblocate.read_ltv_signal_strength
+        dumblocate.send_float_command = rejecting_send
+        dumblocate.read_ltv_signal_strength = fake_read_ltv_signal_strength
+        try:
+            import time as _time
+
+            budget = dumblocate.PingBudget(remaining=10, total=10)
+            t0 = _time.monotonic()
+            result = dumblocate.request_ping(
+                sock=None, rover_x_m=0.0, rover_y_m=0.0, budget=budget
+            )
+            elapsed = _time.monotonic() - t0
+            self.assertTrue(result.rejected)
+            self.assertFalse(result.fresh)
+            self.assertEqual(budget.remaining, 10)
+            self.assertEqual(budget.rejected_pings, 1)
+            # Exactly one read (the pre-ping snapshot). No polling loop.
+            self.assertEqual(poll_calls["n"], 1)
+            self.assertLess(elapsed, 0.5)
         finally:
             dumblocate.send_float_command = original_send
             dumblocate.read_ltv_signal_strength = original_read
@@ -331,28 +380,69 @@ class TestParseNaNGuard(unittest.TestCase):
 
 
 class TestSamplePingSentinelGuard(unittest.TestCase):
-    def test_sample_ping_with_sentinel_returns_none_after_fix(self):
-        """After fix: sample_ping returns None for sentinel ping instead of raising."""
+    def test_sample_ping_with_sentinel_returns_none_sample(self):
+        """sample_ping_with_budget returns (None, result) when the fresh ping
+        reports the > 500 m sentinel."""
         dumblocate = import_dumblocate()
 
         sentinel_strength = dumblocate.PING_DISTANCE_SENTINEL  # 1.0
-        dumblocate.request_ping_and_read_strength = lambda sock: sentinel_strength
-        raw_telemetry = {"rover_pos_x": 5.0, "rover_pos_y": 10.0}
 
-        result = dumblocate.sample_ping(sock=None, raw_telemetry=raw_telemetry)
-        self.assertIsNone(result)
+        def fake_request_ping(sock, *, rover_x_m, rover_y_m, budget):
+            budget.consume_fresh(
+                strength=sentinel_strength,
+                rover_x_m=rover_x_m,
+                rover_y_m=rover_y_m,
+                sentinel=True,
+            )
+            return dumblocate.PingResult(
+                strength=sentinel_strength, fresh=True, rejected=False, sentinel=True
+            )
+
+        original_request = dumblocate.request_ping
+        dumblocate.request_ping = fake_request_ping
+        try:
+            budget = dumblocate.PingBudget(remaining=10, total=10)
+            raw_telemetry = {"rover_pos_x": 5.0, "rover_pos_y": 10.0}
+            sample, result = dumblocate.sample_ping_with_budget(
+                sock=None, raw_telemetry=raw_telemetry, budget=budget
+            )
+            self.assertIsNone(sample)
+            self.assertTrue(result.fresh)
+            self.assertTrue(result.sentinel)
+            self.assertEqual(budget.remaining, 9)
+        finally:
+            dumblocate.request_ping = original_request
 
     def test_sample_ping_with_valid_ping_returns_sample(self):
-        """sample_ping returns a PingSample for a normal ping value."""
+        """sample_ping_with_budget returns a PingSample for a normal ping."""
         dumblocate = import_dumblocate()
 
-        dumblocate.request_ping_and_read_strength = lambda sock: -50.0
-        raw_telemetry = {"rover_pos_x": 5.0, "rover_pos_y": 10.0}
+        def fake_request_ping(sock, *, rover_x_m, rover_y_m, budget):
+            budget.consume_fresh(
+                strength=-50.0,
+                rover_x_m=rover_x_m,
+                rover_y_m=rover_y_m,
+                sentinel=False,
+            )
+            return dumblocate.PingResult(
+                strength=-50.0, fresh=True, rejected=False, sentinel=False
+            )
 
-        result = dumblocate.sample_ping(sock=None, raw_telemetry=raw_telemetry)
-        self.assertIsNotNone(result)
-        self.assertAlmostEqual(result.rover_x_m, 5.0)
-        self.assertAlmostEqual(result.rover_y_m, 10.0)
+        original_request = dumblocate.request_ping
+        dumblocate.request_ping = fake_request_ping
+        try:
+            budget = dumblocate.PingBudget(remaining=10, total=10)
+            raw_telemetry = {"rover_pos_x": 5.0, "rover_pos_y": 10.0}
+            sample, result = dumblocate.sample_ping_with_budget(
+                sock=None, raw_telemetry=raw_telemetry, budget=budget
+            )
+            self.assertIsNotNone(sample)
+            self.assertAlmostEqual(sample.rover_x_m, 5.0)
+            self.assertAlmostEqual(sample.rover_y_m, 10.0)
+            self.assertTrue(result.fresh)
+            self.assertEqual(budget.remaining, 9)
+        finally:
+            dumblocate.request_ping = original_request
 
 
 if __name__ == "__main__":

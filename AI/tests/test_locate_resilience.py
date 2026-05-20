@@ -26,14 +26,25 @@ def _build_fake_modules(
         SERVER_HOST="0.0.0.0",
         SERVER_PORT=14141,
     )
+    # Minimal PingBudget stand-in so service.py can import it and the post-run
+    # log line ("budget at end: ... left ...") can read its attributes.
+    class _FakeBudget:
+        def __init__(self, *, remaining=10, total=10):
+            self.remaining = remaining
+            self.total = total
+            self.successful_pings = 0
+            self.rejected_pings = 0
+
     fake_dumblocate = types.SimpleNamespace(
         STOP_AT_LAST_KNOWN_ONLY=stop_at_last_known_only,
+        PING_BUDGET_TOTAL=10,
+        PingBudget=_FakeBudget,
         drive_to_last_known_ltv=drive_to_last_known_ltv,
         run_ltv_trilateration_search=(
             run_ltv_trilateration_search
             if run_ltv_trilateration_search is not None
             else (lambda *a, **kw: (
-                types.SimpleNamespace(aborted=False), None, True, None, True
+                types.SimpleNamespace(aborted=False), None, True, _FakeBudget(), True
             ))
         ),
     )

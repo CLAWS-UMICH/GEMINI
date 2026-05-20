@@ -13,7 +13,13 @@ if str(CONTROLFILES_DIR) not in sys.path:
     sys.path.insert(0, str(CONTROLFILES_DIR))
 
 import rover_control
-from dumblocate import STOP_AT_LAST_KNOWN_ONLY, drive_to_last_known_ltv, run_ltv_trilateration_search
+from dumblocate import (
+    PING_BUDGET_TOTAL,
+    STOP_AT_LAST_KNOWN_ONLY,
+    PingBudget,
+    drive_to_last_known_ltv,
+    run_ltv_trilateration_search,
+)
 from rover_control import close_rover_socket, configure_remote_server, open_rover_socket, set_lights, wait_for_dust
 
 
@@ -157,15 +163,22 @@ def _run_once(
     if STOP_AT_LAST_KNOWN_ONLY:
         return True
 
-    run_state, _viewer, ltv_found, _remaining_ping_budget, search_completed = run_ltv_trilateration_search(
+    budget = PingBudget(remaining=PING_BUDGET_TOTAL, total=PING_BUDGET_TOTAL)
+    run_state, _viewer, ltv_found, final_budget, search_completed = run_ltv_trilateration_search(
         sock,
         run_state=run_state,
         anchor_xy=goal_xy,
         viewer=None,
+        budget=budget,
         telemetry_callback=on_telemetry,
         path_callback=on_path_update,
         debug_logger=None,
         hold_verify_debug_mode="dumblocate_hold_verify_estimate",
+    )
+    print(
+        f"Locate ping budget at end: "
+        f"{final_budget.remaining}/{final_budget.total} left "
+        f"({final_budget.successful_pings} ok, {final_budget.rejected_pings} rejected)."
     )
 
     if search_completed and not run_state.aborted and ltv_found:

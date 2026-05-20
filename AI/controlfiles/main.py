@@ -75,6 +75,15 @@ POSE_OFFSET_Z_CM = 144000.006
 LOCAL_OBSTACLE_MARK_RADIUS_CM = 1000.0
 MIN_OBSTACLE_MARK_DISTANCE_CM = 15.0
 OBSTACLE_HITS_REQUIRED_PER_CHUNK = 1
+
+# Space hub footprint. Static obstacle marked on every planner instance.
+# Rover spawns just south of this rectangle and must never plan through it.
+SPACE_HUB_RECT_CM: tuple[float, float, float, float] = (
+    -5670.0,  # x_min
+    -5660.0,  # x_max
+    -10045.0, # y_min
+    -10025.0, # y_max
+)
 ROVER_UNDERBODY_CLEARANCE_CM = 110.0
 LIDAR_OBSTACLE_EVIDENCE_DELTA = 1.0
 LIDAR_CLEAR_EVIDENCE_DELTA = -0.55
@@ -1166,6 +1175,19 @@ def obstacle_mask_from_inference(infer_output: dict, lidar_count: int) -> np.nda
     return padded
 
 
+def _mark_space_hub(planner: OccupancyPlanner) -> None:
+    x_min, x_max, y_min, y_max = SPACE_HUB_RECT_CM
+    cx_min, cy_min = planner.world_to_cell(x_min, y_min)
+    cx_max, cy_max = planner.world_to_cell(x_max, y_max)
+    if cx_min > cx_max:
+        cx_min, cx_max = cx_max, cx_min
+    if cy_min > cy_max:
+        cy_min, cy_max = cy_max, cy_min
+    for cy in range(cy_min, cy_max + 1):
+        for cx in range(cx_min, cx_max + 1):
+            planner.mark_obstacle_cell((cx, cy), CELL_OBSTACLE)
+
+
 def create_planner(
     start_xy: tuple[float, float],
     goal_xy: tuple[float, float],
@@ -1180,7 +1202,7 @@ def create_planner(
     width_cells = int(math.ceil((max_x - min_x) / GRID_CELL_SIZE_CM)) + 1
     height_cells = int(math.ceil((max_y - min_y) / GRID_CELL_SIZE_CM)) + 1
 
-    return OccupancyPlanner(
+    planner = OccupancyPlanner(
         origin_x_cm=min_x,
         origin_y_cm=min_y,
         width_cells=width_cells,
@@ -1198,6 +1220,8 @@ def create_planner(
             clearance_max_value=PATH_CLEARANCE_MAX_VALUE,
         ),
     )
+    _mark_space_hub(planner)
+    return planner
 
 
 def smooth_path_los(
