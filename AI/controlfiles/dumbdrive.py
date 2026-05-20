@@ -126,6 +126,9 @@ def notify_path_update(path_callback, planner, rover_xy, goal_xy, path_world) ->
         path_world=path_world,
     )
     if matrix is None:
+        w = int(getattr(planner, "width_cells", 0))
+        h = int(getattr(planner, "height_cells", 0))
+        print(f"[matrix] notify_path_update: matrix=None planner={type(planner).__name__} size={w}x{h} rover={rover_xy}")
         return
     try:
         path_callback(

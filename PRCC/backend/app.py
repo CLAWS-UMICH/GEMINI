@@ -66,7 +66,13 @@ def fetch_loop():
             time.sleep(0.5)
 
             socketio.emit("matrix-sync", matrix_stored)
-            print(f"Matrix sync: {matrix_stored}")
+            data = matrix_stored.get("data", [[]]) if isinstance(matrix_stored, dict) else matrix_stored
+            if data == [[]] or data == []:
+                print("[matrix] WARNING: AI not connected or matrix empty")
+            else:
+                rows = len(data)
+                cols = len(data[0]) if rows > 0 else 0
+                print(f"[matrix] sync {rows}x{cols} grid")
             time.sleep(0.5)
 
         except Exception as e:
@@ -90,7 +96,10 @@ def handle_disconnect():
 @socketio.on("matrix")
 def handle_matrix(data):
     global matrix_stored
-    matrix_stored = data
+    if isinstance(data, list):
+        matrix_stored = {"data": data, "topleft": {"x": 0, "y": 0}}
+    else:
+        matrix_stored = data
 
 
 @socketio.on("task")

@@ -308,6 +308,7 @@ def build_occupancy_matrix(
     height = int(getattr(planner, "height_cells", 0))
     grid = getattr(planner, "grid", None)
     if width <= 0 or height <= 0 or not isinstance(grid, list):
+        print(f"[matrix] build skipped: width={width} height={height} grid_type={type(grid).__name__}")
         return None
 
     matrix = [
@@ -329,8 +330,11 @@ def build_occupancy_matrix(
             matrix[goal_cell_y][goal_cell_x] = 3
 
     rover_cell_x, rover_cell_y = planner.world_to_cell(float(rover_xy[0]), float(rover_xy[1]))
-    if 0 <= rover_cell_x < width and 0 <= rover_cell_y < height:
-        matrix[rover_cell_y][rover_cell_x] = 4
+    if not (0 <= rover_cell_x < width and 0 <= rover_cell_y < height):
+        print(f"[matrix] rover cell out of bounds: ({rover_cell_x}, {rover_cell_y}) grid=({width}x{height}) world={rover_xy}")
+        rover_cell_x = width // 2
+        rover_cell_y = height // 2
+    matrix[rover_cell_y][rover_cell_x] = 4
 
     return matrix
 
