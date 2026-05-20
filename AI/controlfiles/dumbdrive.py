@@ -18,6 +18,7 @@ import numpy as np
 import rover_control
 from main import (
     CONTROL_PERIOD_SEC,
+    FULL_STEER_ERROR_DEG,
     GOAL_REACHED_CM,
     GRID_CELL_SIZE_CM,
     LIDAR_SENSOR_LAYOUT,
@@ -184,6 +185,9 @@ NORMAL_DRIVE_THROTTLE = 20.0
 MIN_FORWARD_DRIVE_THROTTLE = 20.0
 SIGNIFICANT_FORWARD_HEADING_ERROR_DEG = 8.0
 SIGNIFICANT_FORWARD_TURN_THROTTLE_SCALE = 0.5
+PD_STEERING_DERIVATIVE_GAIN = 0.3
+PREDICTIVE_CURVATURE_LOOKAHEAD_WAYPOINTS = 20
+PREDICTIVE_CURVATURE_THRESHOLD_DEG = 40.0
 ENABLE_REVERSE_TO_TARGET = False
 REVERSE_TO_TARGET_WINDOW_DEG = 20.0
 RECOVERY_REVERSE_THROTTLE = -100.0
@@ -853,6 +857,28 @@ def start_heading_correction_stuck_suppression(
     )
 
 
+def compute_path_curvature_ahead(
+    path: list[tuple[float, float]],
+    from_idx: int,
+    n_waypoints: int = PREDICTIVE_CURVATURE_LOOKAHEAD_WAYPOINTS,
+) -> float:
+    end = min(from_idx + n_waypoints + 1, len(path))
+    total = 0.0
+    for i in range(from_idx, end - 2):
+        x0, y0 = path[i]
+        x1, y1 = path[i + 1]
+        x2, y2 = path[i + 2]
+        h1 = math.degrees(math.atan2(y1 - y0, x1 - x0))
+        h2 = math.degrees(math.atan2(y2 - y1, x2 - x1))
+        dh = h2 - h1
+        while dh > 180.0:
+            dh -= 360.0
+        while dh < -180.0:
+            dh += 360.0
+        total += abs(dh)
+    return total
+
+
 def sample_random_goal_xy(
     origin_x_cm: float,
     origin_y_cm: float,
@@ -1014,6 +1040,7 @@ def drive_to_goal(
     previous_roll_deg: float | None = None
     rolling_speed_samples: deque[float] = deque(maxlen=SPEED_DROP_WINDOW_SAMPLES)
     previous_avg_speed: float | None = None
+    prev_heading_error: float | None = None
     target_x = goal_x
     target_y = goal_y
     waypoint_idx = 0
@@ -1497,6 +1524,7 @@ def drive_to_goal(
             )
             throttle_cmd = 0.0
             steering_cmd = 0.0
+            prev_heading_error = None
             set_throttle(sock, throttle_cmd)
             set_brakes(sock, True)
             set_steering(sock, steering_cmd)
@@ -1510,6 +1538,7 @@ def drive_to_goal(
             status = f"Recovering: rearm hold | Goals: {goals_reached}"
             throttle_cmd = 0.0
             steering_cmd = 0.0
+            prev_heading_error = None
             set_throttle(sock, throttle_cmd)
             set_brakes(sock, True)
             set_steering(sock, steering_cmd)
@@ -1529,6 +1558,7 @@ def drive_to_goal(
             )
             throttle_cmd = RECOVERY_REVERSE_THROTTLE
             steering_cmd = compute_recovery_reverse_steering(x, y, heading, target_x, target_y)
+            prev_heading_error = None
             set_brakes(sock, False)
             set_steering(sock, steering_cmd)
             set_throttle(sock, throttle_cmd)
@@ -1636,6 +1666,13 @@ def drive_to_goal(
                 steering_cmd = 0.0
             else:
                 throttle_cmd = desired_throttle_cmd
+                # PD steering: apply derivative term to damp overshoot
+                if prev_heading_error is not None and CONTROL_PERIOD_SEC > 0.0:
+                    d_error_per_sec = (heading_error - prev_heading_error) / CONTROL_PERIOD_SEC
+                    steering_cmd = max(-1.0, min(1.0,
+                        steering_cmd + PD_STEERING_DERIVATIVE_GAIN * d_error_per_sec / FULL_STEER_ERROR_DEG
+                    ))
+                prev_heading_error = heading_error
                 if heading_correction_exhausted:
                     steering_cmd = max(
                         -HEADING_CORRECTION_EXHAUSTED_STEERING_MAGNITUDE,
@@ -1644,6 +1681,9 @@ def drive_to_goal(
                     status = f"Heading correction exhausted: forward slight turn | {status}"
                 if throttle_cmd > 0.0:
                     profile_throttle_cap = TRAVERSE_CRUISE_THROTTLE if in_traverse_mode else PRECISION_CRUISE_THROTTLE
+                    profile_turn_throttle = TRAVERSE_TURN_THROTTLE if in_traverse_mode else PRECISION_TURN_THROTTLE
+                    if path and compute_path_curvature_ahead(path, waypoint_idx) >= PREDICTIVE_CURVATURE_THRESHOLD_DEG:
+                        profile_throttle_cap = min(profile_throttle_cap, profile_turn_throttle)
                     throttle_cmd = max(
                         MIN_FORWARD_DRIVE_THROTTLE,
                         min(throttle_cmd, profile_throttle_cap),
