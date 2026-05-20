@@ -326,6 +326,11 @@ def trilaterate(
     samples: tuple[PingSample, PingSample, PingSample],
 ) -> tuple[float, float]:
     s1, s2, s3 = samples
+    for i, s in enumerate(samples):
+        if not math.isfinite(s.radius_m):
+            raise RuntimeError(
+                f"Ping sample {i} has non-finite radius {s.radius_m!r}; cannot trilaterate"
+            )
     min_pair_distance_m = min(
         math.hypot(s2.rover_x_m - s1.rover_x_m, s2.rover_y_m - s1.rover_y_m),
         math.hypot(s3.rover_x_m - s1.rover_x_m, s3.rover_y_m - s1.rover_y_m),
