@@ -44,25 +44,23 @@ def fetch_loop():
             rover_data = udp_client.fetch_rover_json()
             rover_data["local_timestamp"] = datetime.now().isoformat()
             socketio.emit("rover-telemetry", rover_data)
-            print(f"Fetched rover data: {rover_data}")
+            print(f"[rover] pos=({rover_data.get('rover_pos_x',0):.1f},{rover_data.get('rover_pos_y',0):.1f}) spd={rover_data.get('speed',0):.2f}")
             time.sleep(0.5)
 
             eva_data = udp_client.fetch_eva_json()
             eva_data["local_timestamp"] = datetime.now().isoformat()
             socketio.emit("eva-telemetry", eva_data)
-            print(f"Fetched eva data: {eva_data}")
             time.sleep(0.5)
 
             ltv_data = udp_client.fetch_ltv_json()
             ltv_data["local_timestamp"] = datetime.now().isoformat()
             socketio.emit("ltv-telemetry", ltv_data)
-            print(f"Fetched ltv data: {ltv_data}")
+            print(f"[ltv] pos=({ltv_data.get('ltv_pos_x',0):.1f},{ltv_data.get('ltv_pos_y',0):.1f})")
             time.sleep(0.5)
 
             ltv_errors_data = udp_client.fetch_ltv_errors_json()
             ltv_errors_data["local_timestamp"] = datetime.now().isoformat()
             socketio.emit("ltv-errors-telemetry", ltv_errors_data)
-            print(f"Fetched ltv errors data: {ltv_errors_data}")
             time.sleep(0.5)
 
             socketio.emit("matrix-sync", matrix_stored)
