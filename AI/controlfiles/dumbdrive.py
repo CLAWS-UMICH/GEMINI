@@ -127,15 +127,25 @@ def notify_path_update(path_callback, planner, rover_xy, goal_xy, path_world) ->
     )
     if matrix is None:
         return
-    path_callback(
-        {
-            "matrix": matrix,
-            "path_world": path_world,
-            "rover_xy": rover_xy,
-            "goal_xy": goal_xy,
-            "path_len": len(path_world or []),
-        }
-    )
+    try:
+        path_callback(
+            {
+                "matrix": matrix,
+                "path_world": path_world,
+                "rover_xy": rover_xy,
+                "goal_xy": goal_xy,
+                "path_len": len(path_world or []),
+            }
+        )
+    except Exception as exc:
+        print(f"notify_path_update: path_callback raised (continuing): {exc!r}")
+
+
+def _safe_send_occupancy_matrix(sock, *, planner, rover_xy, goal_xy, path_world) -> None:
+    try:
+        send_occupancy_matrix(sock, planner=planner, rover_xy=rover_xy, goal_xy=goal_xy, path_world=path_world)
+    except Exception as exc:
+        print(f"send_occupancy_matrix error (continuing): {exc!r}")
 
 
 STATIONARY_TIMEOUT_SEC = 6.0
@@ -999,6 +1009,10 @@ def drive_to_goal(
             raise RuntimeError("ROVER.json did not contain pr_telemetry")
         telemetry = make_sanitized_telemetry(raw_telemetry)
         x, y, z, heading = parse_pose(telemetry)
+        if not all(math.isfinite(v) for v in (x, y, z, heading)):
+            print(f"Warning: parse_pose returned non-finite values ({x}, {y}, {z}, {heading}); skipping iteration")
+            time.sleep(CONTROL_PERIOD_SEC)
+            continue
         lidar_cm = parse_lidar(telemetry)
         speed = float(raw_telemetry.get("speed", 0.0))
         pitch_deg = float(raw_telemetry.get("pitch", 0.0))
@@ -1721,7 +1735,7 @@ def drive_to_goal(
                 float(raw_telemetry.get("rover_pos_y", 0.0)),
             )
 
-        send_occupancy_matrix(
+        _safe_send_occupancy_matrix(
             sock,
             planner=planner,
             rover_xy=(x, y),
@@ -1860,7 +1874,7 @@ def hold_with_ui_updates(
                 status=status,
                 extra=debug_extra,
             )
-        send_occupancy_matrix(
+        _safe_send_occupancy_matrix(
             sock,
             planner=planner,
             rover_xy=(x, y),

@@ -72,10 +72,13 @@ def main() -> None:
         backend = backend_bridge.connect(config.backend_url)
 
         def handle_alert(alert: dict) -> None:
-            recommendation = aia.recommend_procedure(alert)
-            if recommendation is not None:
-                alert = {**alert, "procedure": recommendation}
-            backend_bridge.send_alert(backend, alert)
+            try:
+                recommendation = aia.recommend_procedure(alert)
+                if recommendation is not None:
+                    alert = {**alert, "procedure": recommendation}
+                backend_bridge.send_alert(backend, alert)
+            except Exception as exc:
+                print(f"handle_alert error (continuing): {exc!r}")
 
         alert_runner = alerts.start(
             {"backend_url": config.backend_url},

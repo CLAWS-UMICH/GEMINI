@@ -222,7 +222,11 @@ def fetch_ltv_last_known_goal(sock) -> tuple[tuple[float, float], tuple[float, f
 def request_ping_and_read_strength(sock) -> float:
     ping_command = CMD_LTV_PING_UNLIMITED if USE_UNLIMITED_PING else CMD_LTV_PING
     previous_strength = read_ltv_signal_strength(sock)
-    send_float_command(sock, ping_command, 1.0)
+    try:
+        send_float_command(sock, ping_command, 1.0)
+    except RuntimeError as exc:
+        print(f"Ping command {ping_command} failed ({exc}); using last-known strength {previous_strength:.3f}")
+        return previous_strength
     deadline = time.monotonic() + PING_RESPONSE_TIMEOUT_SEC
     latest_strength = previous_strength
     while time.monotonic() < deadline:
@@ -230,10 +234,10 @@ def request_ping_and_read_strength(sock) -> float:
         latest_strength = read_ltv_signal_strength(sock)
         if latest_strength != previous_strength:
             return latest_strength
-    # print(
-    #     f"Warning: ping command {ping_command} did not change LTV signal strength "
-    #     f"within {PING_RESPONSE_TIMEOUT_SEC:.2f}s; keeping {latest_strength:.3f}"
-    # )
+    print(
+        f"Warning: ping command {ping_command} did not change LTV signal strength "
+        f"within {PING_RESPONSE_TIMEOUT_SEC:.2f}s; keeping {latest_strength:.3f}"
+    )
     return latest_strength
 
 
@@ -241,11 +245,17 @@ def current_ping_strength(sock) -> float:
     return request_ping_and_read_strength(sock)
 
 
-def sample_ping(sock, raw_telemetry: dict) -> PingSample:
+def sample_ping(sock, raw_telemetry: dict) -> PingSample | None:
     ping_value = request_ping_and_read_strength(sock)
-    radius_m = ltv_ping_to_meters(ping_value)
     rover_x_m = float(raw_telemetry.get("rover_pos_x", 0.0))
     rover_y_m = float(raw_telemetry.get("rover_pos_y", 0.0))
+    if is_ltv_ping_distance_sentinel(ping_value):
+        print(
+            f"Ping sample: rover=({rover_x_m:.3f}, {rover_y_m:.3f}) m | "
+            f"ping={ping_value:.3f} means distance > 500; no trilateration radius"
+        )
+        return None
+    radius_m = ltv_ping_to_meters(ping_value)
     sample = PingSample(
         rover_x_m=rover_x_m,
         rover_y_m=rover_y_m,
@@ -800,7 +810,11 @@ def run_trilateration_round(
     if not ok or run_state.aborted:
         return (None, run_state, viewer, False)
 
-    est_x_m, est_y_m = trilaterate((samples[0], samples[1], samples[2]))
+    try:
+        est_x_m, est_y_m = trilaterate((samples[0], samples[1], samples[2]))
+    except RuntimeError as exc:
+        print(f"{round_config.estimate_label}: trilateration failed ({exc}); aborting this round.")
+        return (None, run_state, viewer, False)
     print(f"{round_config.estimate_label}: ({est_x_m:.3f}, {est_y_m:.3f}) m")
     goal_x, goal_y = raw_world_m_to_local_cm(est_x_m, est_y_m)
 
