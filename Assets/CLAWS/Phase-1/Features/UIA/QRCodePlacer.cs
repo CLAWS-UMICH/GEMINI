@@ -13,9 +13,6 @@ public class QRCodePlacer : MonoBehaviour
     [Range(0f, 0.99f)]
     [SerializeField] private float smoothing = 0.8f;
 
-    [Tooltip("If true, stop updating pose after the QR is first locked.")]
-    [SerializeField] private bool lockAfterFirstDetection = true;
-
     [Header("Debug")]
     [Tooltip("Log every detected marker and per-frame status. Turn off for production.")]
     [SerializeField] private bool verboseLogging = true;
@@ -109,9 +106,10 @@ public class QRCodePlacer : MonoBehaviour
                 Log($"REMOVED marker id={m.trackableId}");
                 if (m == trackedMarker)
                 {
-                    LogWarning("Lost the QR we were tracking!");
+                    LogWarning("Lost the QR — freezing prefab at last known pose. Will resume on re-acquisition.");
                     trackedMarker = null;
-                    hasInitialPose = false;
+                    // Keep hasInitialPose = true so when the QR is re-acquired, Update() smoothly
+                    // Lerps from the frozen pose to the new pose instead of snapping.
                     lastLoggedTrackingState = (TrackingState)(-99);
                     OnQrLost?.Invoke();
                 }
@@ -158,7 +156,8 @@ public class QRCodePlacer : MonoBehaviour
             lastLoggedTrackingState = trackedMarker.trackingState;
         }
 
-        if (lockAfterFirstDetection && hasInitialPose) return;
+        // Only follow the marker while it is actively tracked. When tracking degrades, the
+        // prefab freezes at its last pose; on re-acquisition we resume Lerping below.
         if (trackedMarker.trackingState != TrackingState.Tracking) return;
 
         var src = trackedMarker.transform;
