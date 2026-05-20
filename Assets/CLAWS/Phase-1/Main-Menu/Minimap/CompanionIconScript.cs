@@ -10,9 +10,9 @@ public class CompanionIconScript : MonoBehaviour
     // Quad center = map origin in Unity world space
     private static readonly Vector3 QuadCenter = new Vector3(13.1f, 0f, 1.4f);
 
-    // Offsets from origin in TSS meters (PR is 55 west, 65 south of origin)
-    private static readonly Vector2 PR_OFFSET = new Vector2(-5f, -55f);
-    // LTV Task Board is at origin (0, 0)
+    // PR (UIA Egress/Ingress) coordinates
+    private static readonly Vector2 PR_OFFSET = new Vector2(-15f, -25f);
+    // LTV Task Board coordinates
     private static readonly Vector2 LTV_OFFSET = new Vector2(40f, 10f);
 
     void Start()
