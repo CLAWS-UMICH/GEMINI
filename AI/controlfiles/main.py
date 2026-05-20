@@ -1468,19 +1468,29 @@ def choose_drive_command(
     rover_heading_deg: float,
     target_x_cm: float,
     target_y_cm: float,
+    *,
+    cruise_throttle: float | None = None,
+    turn_throttle: float | None = None,
+    heading_align_deg: float | None = None,
+    throttle_steering_exponent: float | None = None,
 ) -> tuple[float, float, float, float]:
+    _cruise = CRUISE_THROTTLE if cruise_throttle is None else cruise_throttle
+    _turn = TURN_THROTTLE if turn_throttle is None else turn_throttle
+    _align = HEADING_ALIGN_DEG if heading_align_deg is None else heading_align_deg
+    _exp = THROTTLE_STEERING_EXPONENT if throttle_steering_exponent is None else throttle_steering_exponent
+
     desired_heading = math.degrees(math.atan2(target_y_cm - rover_y_cm, target_x_cm - rover_x_cm))
     error = heading_error_deg(rover_heading_deg, desired_heading)
     steering = max(-1.0, min(1.0, error / FULL_STEER_ERROR_DEG))
     if abs(error) < 2.0:
         steering = 0.0
 
-    throttle_span = max(0.0, CRUISE_THROTTLE - TURN_THROTTLE)
+    throttle_span = max(0.0, _cruise - _turn)
     steering_fraction = min(1.0, abs(steering))
-    throttle_drop = throttle_span * (steering_fraction ** THROTTLE_STEERING_EXPONENT)
-    throttle = CRUISE_THROTTLE - throttle_drop
-    if abs(error) > HEADING_ALIGN_DEG:
-        throttle = max(TURN_THROTTLE, throttle)
+    throttle_drop = throttle_span * (steering_fraction ** _exp)
+    throttle = _cruise - throttle_drop
+    if abs(error) > _align:
+        throttle = max(_turn, throttle)
     return (throttle, steering, desired_heading, error)
 
 

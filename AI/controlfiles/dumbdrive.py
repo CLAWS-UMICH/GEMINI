@@ -186,8 +186,8 @@ SIGNIFICANT_FORWARD_HEADING_ERROR_DEG = 8.0
 SIGNIFICANT_FORWARD_TURN_THROTTLE_SCALE = 0.5
 ENABLE_REVERSE_TO_TARGET = False
 REVERSE_TO_TARGET_WINDOW_DEG = 20.0
-RECOVERY_REVERSE_THROTTLE = -85.0
-RECOVERY_REVERSE_SECONDS = 8
+RECOVERY_REVERSE_THROTTLE = -100.0
+RECOVERY_REVERSE_SECONDS = 5
 RECOVERY_BRAKE_SECONDS = 0
 RECOVERY_REVERSE_STEER_GAIN = 0.35
 ENABLE_HEADING_CORRECTION_OSCILLATION = True
@@ -222,6 +222,22 @@ LAST_RESORT_RECOVERY_PROGRESS_CM = 10.0
 LAST_RESORT_RECOVERY_HEADING_PROGRESS_DEG = 8.0
 LAST_RESORT_RECOVERY_ATTITUDE_PROGRESS_DEG = 6.0
 LAST_RESORT_RECOVERY_POLL_SEC = 0.25
+
+# Speed profiles — selected per iteration based on distance to goal
+TRAVERSE_MODE_DISTANCE_CM = 1000.0     # beyond this = TRAVERSE mode
+
+TRAVERSE_CRUISE_THROTTLE = 80.0
+TRAVERSE_TURN_THROTTLE = 30.0
+TRAVERSE_HEADING_ALIGN_DEG = 6.0
+TRAVERSE_THROTTLE_EXPONENT = 1.5
+TRAVERSE_LOOKAHEAD_CM = 450.0
+
+PRECISION_CRUISE_THROTTLE = 55.0
+PRECISION_TURN_THROTTLE = 20.0
+PRECISION_HEADING_ALIGN_DEG = 5.0
+PRECISION_THROTTLE_EXPONENT = 2.0
+PRECISION_LOOKAHEAD_CM = 200.0
+
 RAW_TSS_TELEMETRY_FIELDS = [
     "rover_pos_x",
     "rover_pos_y",
@@ -1024,6 +1040,7 @@ def drive_to_goal(
         rolling_speed_samples.append(abs(speed))
         current_avg_speed = sum(rolling_speed_samples) / len(rolling_speed_samples)
         goal_distance = distance_cm(x, y, goal_x, goal_y)
+        in_traverse_mode = goal_distance > TRAVERSE_MODE_DISTANCE_CM
         shown_goal_distance = distance_cm(x, y, shown_goal_x, shown_goal_y)
         moved_since_anchor_cm = distance_cm(x, y, stationary_anchor_xy[0], stationary_anchor_xy[1])
         movement_detected = False
@@ -1361,11 +1378,12 @@ def drive_to_goal(
             path = compute_live_follow_path(planner, (x, y), (goal_x, goal_y))
             notify_path_update(path_callback, planner, (x, y), (shown_goal_x, shown_goal_y), path)
         if path:
+            profile_lookahead_cm = TRAVERSE_LOOKAHEAD_CM if in_traverse_mode else PRECISION_LOOKAHEAD_CM
             target_x, target_y, waypoint_idx = select_local_path_target(
                 path_world=path,
                 rover_x_cm=x,
                 rover_y_cm=y,
-                lookahead_cm=PATH_TARGET_LOOKAHEAD_CM,
+                lookahead_cm=profile_lookahead_cm,
             )
         else:
             target_x, target_y = goal_x, goal_y
@@ -1522,7 +1540,13 @@ def drive_to_goal(
                 path_len=len(path),
                 goals_reached=goals_reached,
             )
-            desired_throttle_cmd, steering_cmd, _, heading_error = choose_drive_command(x, y, heading, target_x, target_y)
+            desired_throttle_cmd, steering_cmd, _, heading_error = choose_drive_command(
+                x, y, heading, target_x, target_y,
+                cruise_throttle=TRAVERSE_CRUISE_THROTTLE if in_traverse_mode else PRECISION_CRUISE_THROTTLE,
+                turn_throttle=TRAVERSE_TURN_THROTTLE if in_traverse_mode else PRECISION_TURN_THROTTLE,
+                heading_align_deg=TRAVERSE_HEADING_ALIGN_DEG if in_traverse_mode else PRECISION_HEADING_ALIGN_DEG,
+                throttle_steering_exponent=TRAVERSE_THROTTLE_EXPONENT if in_traverse_mode else PRECISION_THROTTLE_EXPONENT,
+            )
             heading_error_sign = 0.0 if abs(heading_error) < 1e-6 else math.copysign(1.0, heading_error)
             abs_heading_error = abs(heading_error)
             if heading_correction_exhausted and abs_heading_error < HEADING_CORRECTION_ENTRY_DEG:
@@ -1619,9 +1643,10 @@ def drive_to_goal(
                     )
                     status = f"Heading correction exhausted: forward slight turn | {status}"
                 if throttle_cmd > 0.0:
+                    profile_throttle_cap = TRAVERSE_CRUISE_THROTTLE if in_traverse_mode else PRECISION_CRUISE_THROTTLE
                     throttle_cmd = max(
                         MIN_FORWARD_DRIVE_THROTTLE,
-                        min(throttle_cmd, NORMAL_DRIVE_THROTTLE),
+                        min(throttle_cmd, profile_throttle_cap),
                     )
                     if abs_heading_error >= SIGNIFICANT_FORWARD_HEADING_ERROR_DEG:
                         throttle_cmd *= SIGNIFICANT_FORWARD_TURN_THROTTLE_SCALE
