@@ -15,10 +15,12 @@ public class VerticalizeQRPrefab : MonoBehaviour
     public bool preserveAuthoredRotation = true;
 
     private Quaternion authoredLocalRotationOffset = Quaternion.identity;
+    private Vector3 fallbackInitialForward = Vector3.forward;
 
     private void Awake()
     {
         authoredLocalRotationOffset = transform.localRotation;
+        fallbackInitialForward = transform.forward;
     }
 
     private void LateUpdate()
@@ -31,10 +33,17 @@ public class VerticalizeQRPrefab : MonoBehaviour
         }
         else
         {
-            facing = Vector3.ProjectOnPlane(transform.forward, Vector3.up);
+            // Read facing from the parent (the QR anchor) — never from our own transform.
+            // We mutate transform.rotation below; using transform.forward here would feed
+            // the offset back into the next frame's facing calculation and spin the prefab.
+            Transform source = transform.parent;
+            Vector3 sourceForward = source != null ? source.forward : fallbackInitialForward;
+            Vector3 sourceRight = source != null ? source.right : transform.right;
+
+            facing = Vector3.ProjectOnPlane(sourceForward, Vector3.up);
             if (facing.sqrMagnitude < 1e-6f)
             {
-                facing = Vector3.ProjectOnPlane(transform.right, Vector3.up);
+                facing = Vector3.ProjectOnPlane(sourceRight, Vector3.up);
             }
             if (facing.sqrMagnitude < 1e-6f)
             {
