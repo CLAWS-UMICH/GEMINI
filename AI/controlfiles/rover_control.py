@@ -297,53 +297,85 @@ def send_get_command(sock: socket.socket, command: int) -> bytes:
     return send_packet(sock, packet)
 
 
+WORLD_MIN_X = -6550
+WORLD_MAX_X = -5450
+WORLD_MIN_Y = -11450
+WORLD_MAX_Y = -9750
+WORLD_WIDTH = WORLD_MAX_X - WORLD_MIN_X   # 1100
+WORLD_HEIGHT = WORLD_MAX_Y - WORLD_MIN_Y  # 1700
+
+POSE_OFFSET_X_CM = -566700.0
+POSE_OFFSET_Y_CM = -1009190.039
+POSE_UNITS_TO_CM = 100.0
+MATRIX_CELL_SIZE_M = 5
+
 def build_occupancy_matrix(
     *,
     planner,
     rover_xy: tuple[float, float],
     goal_xy: tuple[float, float] | None = None,
     path_world: list[tuple[float, float]] | None = None,
-) -> dict | None:
+) -> list[list[int]] | None:
     width = int(getattr(planner, "width_cells", 0))
     height = int(getattr(planner, "height_cells", 0))
     grid = getattr(planner, "grid", None)
     if width <= 0 or height <= 0 or not isinstance(grid, list):
-        print(f"[matrix] build skipped: width={width} height={height} grid_type={type(grid).__name__}")
+        return None
+    cell_size_cm = float(planner.config.cell_size_cm)
+
+    # Full world matrix, row 0 = WORLD_MAX_Y (top), row N = WORLD_MIN_Y (bottom)
+    matrix_width  = WORLD_WIDTH  // MATRIX_CELL_SIZE_M   # 110
+    matrix_height = WORLD_HEIGHT // MATRIX_CELL_SIZE_M   # 170
+
+    matrix = [[0] * matrix_width for _ in range(matrix_height)]
+
+    def planner_to_world_m(planner_x_cm: float, planner_y_cm: float) -> tuple[float, float]:
+        world_x_m = (planner_x_cm + POSE_OFFSET_X_CM) / POSE_UNITS_TO_CM
+        world_y_m = (planner_y_cm + POSE_OFFSET_Y_CM) / POSE_UNITS_TO_CM
+        return world_x_m, world_y_m
+
+    def world_m_to_matrix(world_x_m: float, world_y_m: float) -> tuple[int, int] | None:
+        col = int((world_x_m - WORLD_MIN_X) / MATRIX_CELL_SIZE_M)
+        row = int((WORLD_MAX_Y - world_y_m) / MATRIX_CELL_SIZE_M)
+        if 0 <= col < matrix_width and 0 <= row < matrix_height:
+            return row, col
         return None
 
-    matrix = [
-        [
-            1 if int(grid[row_idx][col_idx]) != 0 else 0
-            for col_idx in range(width)
-        ]
-        for row_idx in range(height)
-    ]
+    # Place obstacle cells
+    for cy in range(height):
+        for cx in range(width):
+            if int(grid[cy][cx]) == 0:
+                continue
+            # Convert planner cell center to world meters
+            cell_center_x_cm = planner.origin_x_cm + (cx + 0.5) * cell_size_cm
+            cell_center_y_cm = planner.origin_y_cm + (cy + 0.5) * cell_size_cm
+            world_x_m, world_y_m = planner_to_world_m(cell_center_x_cm, cell_center_y_cm)
+            pos = world_m_to_matrix(world_x_m, world_y_m)
+            if pos:
+                matrix[pos[0]][pos[1]] = 1
 
+    # Place path cells
     for point_x, point_y in path_world or []:
-        cell_x, cell_y = planner.world_to_cell(float(point_x), float(point_y))
-        if 0 <= cell_x < width and 0 <= cell_y < height:
-            matrix[cell_y][cell_x] = 2
+        world_x_m, world_y_m = planner_to_world_m(point_x, point_y)
+        pos = world_m_to_matrix(world_x_m, world_y_m)
+        if pos:
+            matrix[pos[0]][pos[1]] = 2
 
+    # Place goal
     if goal_xy is not None:
-        goal_cell_x, goal_cell_y = planner.world_to_cell(float(goal_xy[0]), float(goal_xy[1]))
-        if 0 <= goal_cell_x < width and 0 <= goal_cell_y < height:
-            matrix[goal_cell_y][goal_cell_x] = 3
+        world_x_m, world_y_m = planner_to_world_m(goal_xy[0], goal_xy[1])
+        pos = world_m_to_matrix(world_x_m, world_y_m)
+        if pos:
+            matrix[pos[0]][pos[1]] = 3
 
-    rover_cell_x, rover_cell_y = planner.world_to_cell(float(rover_xy[0]), float(rover_xy[1]))
-    if not (0 <= rover_cell_x < width and 0 <= rover_cell_y < height):
-        print(f"[matrix] rover cell out of bounds: ({rover_cell_x}, {rover_cell_y}) grid=({width}x{height}) world={rover_xy}")
-        rover_cell_x = width // 2
-        rover_cell_y = height // 2
-    matrix[rover_cell_y][rover_cell_x] = 4
+    # Place rover
+    world_x_m, world_y_m = planner_to_world_m(rover_xy[0], rover_xy[1])
+    pos = world_m_to_matrix(rover_xy[0], rover_xy[1])
+    if pos:
+        matrix[pos[0]][pos[1]] = 4
 
-    return {
-        "data": matrix,
-        "topleft": {
-            "x": float(getattr(planner, "origin_x_cm", 0.0)),
-            "y": float(getattr(planner, "origin_y_cm", 0.0)),
-        },
-        "cell_size_cm": float(getattr(getattr(planner, "config", None), "cell_size_cm", 1.0)),
-    }
+    print(matrix)
+    return matrix
 
 
 def send_occupancy_matrix(
