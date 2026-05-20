@@ -6,6 +6,11 @@ public class KeyboardInput : MonoBehaviour
     private TouchScreenKeyboard keyboard;
     [SerializeField] private GameObject keyboardObject;
 
+    /// <summary>
+    /// Optional callback invoked when the keyboard closes with the final text.
+    /// </summary>
+    public System.Action<string> OnKeyboardDone;
+
     public void OpenSystemKeyboard()
     {
         keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
@@ -20,6 +25,7 @@ public class KeyboardInput : MonoBehaviour
             {
                 // Update the TextMeshPro text with the final input
                 keyboardObject.GetComponent<TextMeshPro>().text = keyboard.text;
+                OnKeyboardDone?.Invoke(keyboard.text);
                 keyboard = null;
             }
             else

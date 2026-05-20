@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,10 @@ public class SetUpScreenController : MonoBehaviour
     private GameObject disconnected;
     public TextMeshPro tssIPaddress;
     public TextMeshPro lmccIPaddress;
+
+    [Header("TSS IP Input")]
+    [SerializeField] private TextMeshPro tssIPDisplayLabel;
+    [SerializeField] private KeyboardInput tssIPKeyboardInput;
     private bool connectedToTSS = false;
     private bool connectedToWEB = false;
     private bool isConnectingTSS = false;
@@ -42,6 +47,18 @@ public class SetUpScreenController : MonoBehaviour
     {
         roverUpdatedSubscription = EventBus.Subscribe<RoverUpdatedEvent>(OnRoverUpdated);
         roverStatusUpdatedSubscription = EventBus.Subscribe<RoverStatusUpdatedEvent>(OnRoverStatusUpdated);
+
+        // Initialize the TSS IP display label with the current IP
+        if (tssIPDisplayLabel != null)
+        {
+            tssIPDisplayLabel.text = ExtractIPFromUrl(AstronautInstance.User.TSSurl);
+        }
+
+        // Subscribe to keyboard done callback for TSS IP input
+        if (tssIPKeyboardInput != null)
+        {
+            tssIPKeyboardInput.OnKeyboardDone += OnTSSIPEntered;
+        }
     }
 
 
@@ -626,5 +643,103 @@ public class SetUpScreenController : MonoBehaviour
     private IEnumerator Awaiting5Seconds()
     {
         yield return new WaitForSeconds(5);
+    }
+
+
+    ////////////////////////////////  TSS IP INPUT  ///////////////////////////////////////
+
+    /// <summary>
+    /// Extracts just the IP/host from a full URL like "http://192.168.4.229:14141/"
+    /// </summary>
+    private string ExtractIPFromUrl(string url)
+    {
+        try
+        {
+            Uri uri = new Uri(url);
+            return uri.Host;
+        }
+        catch
+        {
+            return url; // fallback: show raw string
+        }
+    }
+
+
+    /// <summary>
+    /// Called when the user finishes typing a new TSS IP address.
+    /// </summary>
+    private void OnTSSIPEntered(string newIP)
+    {
+        if (string.IsNullOrWhiteSpace(newIP))
+            return;
+
+        newIP = newIP.Trim();
+        StartCoroutine(TryConnectToNewTSSIP(newIP));
+    }
+
+
+    /// <summary>
+    /// Attempts to connect to the new TSS IP. Shows "Connecting...", and on success
+    /// updates the display and AstronautInstance. On failure, reverts to the old IP.
+    /// </summary>
+    private IEnumerator TryConnectToNewTSSIP(string newIP)
+    {
+        // Save the old IP so we can revert on failure
+        string oldIP = ExtractIPFromUrl(AstronautInstance.User.TSSurl);
+        string oldUrl = AstronautInstance.User.TSSurl;
+
+        // Show "Connecting..." in the display label
+        if (tssIPDisplayLabel != null)
+            tssIPDisplayLabel.text = "Connecting...";
+
+        // Build the new URL
+        string newUrl = "http://" + newIP + ":14141/";
+
+        // Disconnect existing TSS connection first
+        var mainConnections = Controller.GetComponent<MainConnections>();
+        var tssConnection = mainConnections.tssConnection;
+        tssConnection.DisconnectFromHost();
+
+        // Track the result
+        bool? connectionResult = null;
+        Action<bool> resultHandler = (bool success) =>
+        {
+            connectionResult = success;
+        };
+
+        tssConnection.OnTSSConnectionResult += resultHandler;
+
+        // Set the new URL and attempt connection
+        AstronautInstance.User.TSSurl = newUrl;
+        mainConnections.ConnectTSS(newUrl);
+
+        // Wait for result or timeout (10 seconds)
+        float timeout = 10f;
+        float elapsed = 0f;
+        while (connectionResult == null && elapsed < timeout)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Unsubscribe
+        tssConnection.OnTSSConnectionResult -= resultHandler;
+
+        if (connectionResult == true)
+        {
+            // Success — update the display label with the new IP
+            Debug.Log("[SetupScreen] Successfully connected to new TSS IP: " + newIP);
+            connectedToTSS = true;
+            if (tssIPDisplayLabel != null)
+                tssIPDisplayLabel.text = newIP;
+        }
+        else
+        {
+            // Failure or timeout — revert to old URL and display old IP
+            Debug.LogWarning("[SetupScreen] Failed to connect to TSS IP: " + newIP + ". Reverting to " + oldIP);
+            AstronautInstance.User.TSSurl = oldUrl;
+            if (tssIPDisplayLabel != null)
+                tssIPDisplayLabel.text = oldIP;
+        }
     }
 }
