@@ -1200,13 +1200,34 @@ def create_planner(
     )
 
 
+def smooth_path_los(
+    path: list[tuple[float, float]],
+    planner: OccupancyPlanner,
+) -> list[tuple[float, float]]:
+    if len(path) < 3:
+        return path
+    smoothed = [path[0]]
+    i = 0
+    while i < len(path) - 1:
+        j = len(path) - 1
+        while j > i + 1:
+            cells = planner.world_line_cells(path[i], path[j])
+            if not any(planner.is_padded_obstacle(cell) for cell in cells):
+                break
+            j -= 1
+        smoothed.append(path[j])
+        i = j
+    return smoothed
+
+
 def plan_path_for_following(
     planner: OccupancyPlanner,
     start_xy: tuple[float, float],
     goal_xy: tuple[float, float],
 ) -> tuple[list[tuple[float, float]], list[tuple[float, float]]]:
     raw_path = planner.plan_path(start_xy, goal_xy)
-    anchored_path = prepend_path_endpoints(raw_path, start_xy, goal_xy)
+    smoothed_path = smooth_path_los(raw_path, planner)
+    anchored_path = prepend_path_endpoints(smoothed_path, start_xy, goal_xy)
     follow_path = densify_path(anchored_path, PATH_WAYPOINT_SPACING_CM)
     return (anchored_path, follow_path)
 
