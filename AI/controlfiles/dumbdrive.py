@@ -165,7 +165,13 @@ IMPACT_STOP_MIN_DELTA = 1.5
 LIDAR_CONTACT_FRONT_CM = 65.0
 LIDAR_CONTACT_SPEED_THRESHOLD = 0.25
 HIGH_ATTITUDE_DEG = 25.0
-HIGH_ATTITUDE_SPEED_THRESHOLD = 2.0
+HIGH_ATTITUDE_SPEED_THRESHOLD = 0.5
+INCLINE_BOOST_THRESHOLD_DEG = 5.0
+INCLINE_BOOST_GAIN_PER_DEG = 0.05
+INCLINE_SPEED_DROP_SUPPRESS_DEG = 12.0
+BLIND_LIDAR_FRAME_THRESHOLD = 5
+BLIND_LIDAR_CLEAR_RADIUS_CM = 300.0
+STUCK_PROXIMITY_RING_CM = 400.0
 ANGLE_SPIKE_SPEED_THRESHOLD = 3.0
 NEAR_ROLLOVER_ATTITUDE_DEG = 55.0
 RECOVERY_BRAKE_MAX_SECONDS = 15.0
@@ -1033,6 +1039,11 @@ def drive_to_goal(
     stuck_detection_armed = False
     stuck_rearm_pending = False
     stuck_rearm_started_at: float | None = None
+    blind_lidar_frames = 0
+    consecutive_close_stucks = 0
+    last_stuck_xy: tuple[float, float] | None = None
+    reverse_steer_override: float | None = None
+    reverse_steer_alternate_sign: float = 1.0
     recovery_reset_watch_started_at: float | None = None
     recovery_reset_watch_origin_xy: tuple[float, float] | None = None
     recovery_reset_triggered = False
@@ -1060,6 +1071,10 @@ def drive_to_goal(
             time.sleep(CONTROL_PERIOD_SEC)
             continue
         lidar_cm = parse_lidar(telemetry)
+        if len(valid_lidar_values(lidar_cm)) == 0:
+            blind_lidar_frames += 1
+        else:
+            blind_lidar_frames = 0
         speed = float(raw_telemetry.get("speed", 0.0))
         pitch_deg = float(raw_telemetry.get("pitch", 0.0))
         roll_deg = float(raw_telemetry.get("roll", 0.0))
@@ -1160,10 +1175,14 @@ def drive_to_goal(
                 previous_roll_deg=previous_roll_deg,
                 speed=speed,
             )
-            speed_drop_stuck_detected = startup_grace_elapsed and should_trigger_speed_drop_stuck(
-                enabled=SPEED_DROP_CHECK_ENABLED,
-                previous_avg_speed=previous_avg_speed,
-                current_avg_speed=current_avg_speed,
+            speed_drop_stuck_detected = (
+                startup_grace_elapsed
+                and abs(pitch_deg) <= INCLINE_SPEED_DROP_SUPPRESS_DEG
+                and should_trigger_speed_drop_stuck(
+                    enabled=SPEED_DROP_CHECK_ENABLED,
+                    previous_avg_speed=previous_avg_speed,
+                    current_avg_speed=current_avg_speed,
+                )
             )
             impact_stop_stuck_detected = startup_grace_elapsed and should_trigger_impact_stop(
                 previous_avg_speed=previous_avg_speed,
@@ -1283,22 +1302,57 @@ def drive_to_goal(
                         f"speed={speed:.2f} moved={moved_since_anchor_cm:.1f}cm"
                     )
                 stuck_pose_xyzh = (x, y, z, heading)
-                obstacle_total += mark_stuck_obstacles_from_history(
-                    planner,
-                    pose_history,
-                    stuck_pose_xyzh,
-                    debug_rows=obstacle_debug_rows,
-                )
-                recorded_obstacle_points.extend(
-                    (float(row["obstacle_x_cm"]), float(row["obstacle_y_cm"]))
-                    for row in obstacle_debug_rows
-                    if bool(row["placed"])
-                )
-                placed_count = sum(1 for row in obstacle_debug_rows if bool(row["placed"]))
-                print(
-                    "Placed stuck obstacles: "
-                    f"{placed_count} new cells, obstacle_total={obstacle_total}"
-                )
+                if blind_lidar_frames >= BLIND_LIDAR_FRAME_THRESHOLD:
+                    before_count = len(recorded_obstacle_points)
+                    recorded_obstacle_points[:] = [
+                        (ox, oy)
+                        for (ox, oy) in recorded_obstacle_points
+                        if distance_cm(x, y, ox, oy) > BLIND_LIDAR_CLEAR_RADIUS_CM
+                    ]
+                    cleared = before_count - len(recorded_obstacle_points)
+                    planner = rebuild_planner_with_obstacles((x, y), (goal_x, goal_y), recorded_obstacle_points)
+                    path = compute_live_follow_path(planner, (x, y), (goal_x, goal_y))
+                    notify_path_update(path_callback, planner, (x, y), (shown_goal_x, shown_goal_y), path)
+                    if viewer is not None:
+                        viewer._update_scale(planner)
+                    print(
+                        "Blind-lidar zone: cleared "
+                        f"{cleared} obstacles within {BLIND_LIDAR_CLEAR_RADIUS_CM:.0f}cm and rebuilt planner"
+                    )
+                else:
+                    obstacle_total += mark_stuck_obstacles_from_history(
+                        planner,
+                        pose_history,
+                        stuck_pose_xyzh,
+                        debug_rows=obstacle_debug_rows,
+                    )
+                    recorded_obstacle_points.extend(
+                        (float(row["obstacle_x_cm"]), float(row["obstacle_y_cm"]))
+                        for row in obstacle_debug_rows
+                        if bool(row["placed"])
+                    )
+                    placed_count = sum(1 for row in obstacle_debug_rows if bool(row["placed"]))
+                    print(
+                        "Placed stuck obstacles: "
+                        f"{placed_count} new cells, obstacle_total={obstacle_total}"
+                    )
+                if last_stuck_xy is not None and distance_cm(x, y, last_stuck_xy[0], last_stuck_xy[1]) <= STUCK_PROXIMITY_RING_CM:
+                    consecutive_close_stucks += 1
+                else:
+                    consecutive_close_stucks = 1
+                    reverse_steer_alternate_sign = 1.0
+                last_stuck_xy = (x, y)
+                if consecutive_close_stucks == 1:
+                    reverse_steer_override = None
+                elif consecutive_close_stucks == 2:
+                    base_steer = compute_recovery_reverse_steering(x, y, heading, target_x, target_y)
+                    base_sign = 1.0 if base_steer >= 0.0 else -1.0
+                    reverse_steer_override = base_sign * 0.65
+                    print(f"Repeated edge stuck (#{consecutive_close_stucks}): reverse steer = {reverse_steer_override:.2f}")
+                else:
+                    reverse_steer_override = reverse_steer_alternate_sign * 1.0
+                    reverse_steer_alternate_sign *= -1.0
+                    print(f"Repeated edge stuck (#{consecutive_close_stucks}): full alternating reverse steer = {reverse_steer_override:.2f}")
                 reverse_until = now + RECOVERY_REVERSE_SECONDS
                 stuck_detection_armed = False
                 stuck_rearm_pending = False
@@ -1557,7 +1611,10 @@ def drive_to_goal(
                 goals_reached=goals_reached,
             )
             throttle_cmd = RECOVERY_REVERSE_THROTTLE
-            steering_cmd = compute_recovery_reverse_steering(x, y, heading, target_x, target_y)
+            if reverse_steer_override is not None:
+                steering_cmd = reverse_steer_override
+            else:
+                steering_cmd = compute_recovery_reverse_steering(x, y, heading, target_x, target_y)
             prev_heading_error = None
             set_brakes(sock, False)
             set_steering(sock, steering_cmd)
@@ -1690,6 +1747,9 @@ def drive_to_goal(
                     )
                     if abs_heading_error >= SIGNIFICANT_FORWARD_HEADING_ERROR_DEG:
                         throttle_cmd *= SIGNIFICANT_FORWARD_TURN_THROTTLE_SCALE
+                    if pitch_deg > INCLINE_BOOST_THRESHOLD_DEG:
+                        incline_boost = 1.0 + (pitch_deg - INCLINE_BOOST_THRESHOLD_DEG) * INCLINE_BOOST_GAIN_PER_DEG
+                        throttle_cmd = min(100.0, throttle_cmd * incline_boost)
             set_brakes(sock, False)
             set_steering(sock, steering_cmd)
             set_throttle(sock, throttle_cmd)
