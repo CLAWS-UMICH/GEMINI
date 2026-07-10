@@ -12,6 +12,11 @@ public class CorvusHalo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (_corvusController == null)
+            _corvusController = FindObjectOfType<CorvusController>();
+        if (_corvusTTS == null)
+            _corvusTTS = FindObjectOfType<CorvusTTS>();
+
         Debug.Log($"[CorvusHalo] Start running. controller={(_corvusController != null)}, animator={(AIA_Animator != null)}, tts={(_corvusTTS != null)}");
 
         if (_corvusController == null)
@@ -27,7 +32,8 @@ public class CorvusHalo : MonoBehaviour
 
         _corvusController.OnWakeDetected += OnWake;
         _corvusController.OnIntentReceived += OnIntentReceived;
-        Debug.Log("[CorvusHalo] Subscribed to OnWakeDetected + OnIntentReceived");
+        _corvusController.OnStreamingTimeout += OnStreamingTimeout;
+        Debug.Log("[CorvusHalo] Subscribed to OnWakeDetected + OnIntentReceived + OnStreamingTimeout");
     }
    void OnDestroy()
     {
@@ -35,7 +41,16 @@ public class CorvusHalo : MonoBehaviour
         {
             _corvusController.OnWakeDetected -= OnWake;
             _corvusController.OnIntentReceived -= OnIntentReceived;
+            _corvusController.OnStreamingTimeout -= OnStreamingTimeout;
         }
+    }
+
+    private void OnStreamingTimeout()
+    {
+        Debug.LogWarning("[CorvusHalo] OnStreamingTimeout fired — reverting halo to idle");
+        if (AIA_Animator == null) return;
+        AIA_Animator.SetBool("isAwake", false);
+        AIA_Animator.SetBool("foundAnswer", false);
     }
 
     private void OnWake()

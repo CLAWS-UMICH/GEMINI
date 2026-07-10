@@ -54,8 +54,9 @@ public class PrefabChanger : MonoBehaviour
     public void SetPrefab(GameObject prefab)
     {
         pendingPrefab = prefab;
-        if (!qrLocked) return;
-        Spawn(prefab);
+        // Spawn immediately if QR is locked OR if we already have an instance (the QR may be
+        // temporarily out of view — overlayTarget still holds the last known pose).
+        if (qrLocked || currentInstantiatedPrefab != null) Spawn(prefab);
     }
 
     public void ClearPrefab()
@@ -67,6 +68,9 @@ public class PrefabChanger : MonoBehaviour
     private void HandleQrLocked()
     {
         qrLocked = true;
+        // If an instance is already spawned, this is a re-acquisition after a lost/found cycle.
+        // Leave the existing instance alone — QRCodePlacer will Lerp it to the new pose.
+        if (currentInstantiatedPrefab != null) return;
         if (pendingPrefab == null) return;
         Spawn(pendingPrefab);
     }
@@ -74,7 +78,8 @@ public class PrefabChanger : MonoBehaviour
     private void HandleQrLost()
     {
         qrLocked = false;
-        DestroyCurrent();
+        // Don't destroy — leave the prefab frozen at its last pose. QRCodePlacer will resume
+        // updating it when the QR is back in view. Cleanup happens via OnDisable / ClearPrefab.
     }
 
     private void Spawn(GameObject prefab)
@@ -84,7 +89,11 @@ public class PrefabChanger : MonoBehaviour
         currentInstantiatedPrefab = Instantiate(prefab);
         currentInstantiatedPrefab.transform.SetParent(overlayTarget, worldPositionStays: false);
 
-        if (faceCamera)
+        // Prefabs with VerticalizeQRPrefab opt out of billboarding so they stay locked to the QR
+        // panel orientation. Adding FaceCamera here would fight VerticalizeQRPrefab in LateUpdate.
+        bool prefabLocksOrientation = currentInstantiatedPrefab.GetComponentInChildren<VerticalizeQRPrefab>(true) != null;
+
+        if (faceCamera && !prefabLocksOrientation)
         {
             var fc = currentInstantiatedPrefab.GetComponent<FaceCamera>();
             if (fc == null) fc = currentInstantiatedPrefab.AddComponent<FaceCamera>();

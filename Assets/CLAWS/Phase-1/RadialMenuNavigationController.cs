@@ -355,8 +355,7 @@ public class RadialMenuNavigationController : MonoBehaviour
     private void HandleWaypointSelection(int selectionId, int wedgeIndex, Vector3 targetPosition)
     {
         bool isConfirmClick = selectedWaypointIndex == selectionId
-            && pendingTargetPosition.HasValue
-            && (Time.unscaledTime - lastSelectionTime) <= confirmSelectionWindowSeconds;
+            && pendingTargetPosition.HasValue;
 
         if (isConfirmClick)
         {
